@@ -366,7 +366,7 @@ Site Name',
   array (
     'type_id' => 'drop',
     'var_name' => 'admin_debug_mode',
-    'value_actual' => 'Level 0',
+    'value_actual' => 'Level 1',
     'module_name' => 'core',
   ),
   47 => 
@@ -1068,7 +1068,7 @@ Site Name',
   array (
     'type_id' => 'string',
     'var_name' => 'theme_session_prefix',
-    'value_actual' => '486256453',
+    'value_actual' => '501fb0151b174',
     'module_name' => 'core',
   ),
   145 => 

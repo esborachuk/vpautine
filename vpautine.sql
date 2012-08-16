@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Хост: localhost
--- Время создания: Авг 06 2012 г., 13:41
+-- Время создания: Авг 17 2012 г., 00:39
 -- Версия сервера: 5.5.16
 -- Версия PHP: 5.3.8
 
@@ -736,7 +736,14 @@ CREATE TABLE IF NOT EXISTS `phpfox_blog` (
   KEY `time_stamp` (`time_stamp`,`is_approved`,`privacy`,`post_status`),
   KEY `user_id` (`user_id`,`time_stamp`,`is_approved`,`privacy`,`post_status`),
   KEY `title` (`title`,`is_approved`,`privacy`,`post_status`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
+
+--
+-- Дамп данных таблицы `phpfox_blog`
+--
+
+INSERT INTO `phpfox_blog` (`blog_id`, `user_id`, `title`, `time_stamp`, `time_update`, `is_approved`, `privacy`, `privacy_comment`, `post_status`, `total_comment`, `total_attachment`, `total_view`, `total_like`) VALUES
+(1, 2, 'writer', 1345153559, 0, 1, 0, 0, 1, 1, 0, 1, 1);
 
 -- --------------------------------------------------------
 
@@ -798,6 +805,13 @@ CREATE TABLE IF NOT EXISTS `phpfox_blog_text` (
   PRIMARY KEY (`blog_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Дамп данных таблицы `phpfox_blog_text`
+--
+
+INSERT INTO `phpfox_blog_text` (`blog_id`, `text`, `text_parsed`) VALUES
+(1, 'long-long history', 'long-long history');
+
 -- --------------------------------------------------------
 
 --
@@ -810,6 +824,13 @@ CREATE TABLE IF NOT EXISTS `phpfox_blog_track` (
   `time_stamp` int(10) unsigned NOT NULL,
   KEY `item_id` (`item_id`,`user_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Дамп данных таблицы `phpfox_blog_track`
+--
+
+INSERT INTO `phpfox_blog_track` (`item_id`, `user_id`, `time_stamp`) VALUES
+(1, 3, 1345153578);
 
 -- --------------------------------------------------------
 
@@ -858,7 +879,14 @@ CREATE TABLE IF NOT EXISTS `phpfox_comment` (
   KEY `parent_id` (`parent_id`,`view_id`),
   KEY `parent_id_2` (`parent_id`,`type_id`,`item_id`,`view_id`),
   KEY `view_id` (`view_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
+
+--
+-- Дамп данных таблицы `phpfox_comment`
+--
+
+INSERT INTO `phpfox_comment` (`comment_id`, `parent_id`, `type_id`, `item_id`, `user_id`, `owner_user_id`, `time_stamp`, `update_time`, `update_user`, `rating`, `ip_address`, `author`, `author_email`, `author_url`, `view_id`, `child_total`, `total_like`) VALUES
+(1, 0, 'blog', 1, 3, 2, 1345153588, 0, NULL, NULL, '::1', '1', NULL, NULL, 0, 0, 0);
 
 -- --------------------------------------------------------
 
@@ -900,6 +928,13 @@ CREATE TABLE IF NOT EXISTS `phpfox_comment_text` (
   `text_parsed` mediumtext,
   KEY `comment_id` (`comment_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Дамп данных таблицы `phpfox_comment_text`
+--
+
+INSERT INTO `phpfox_comment_text` (`comment_id`, `text`, `text_parsed`) VALUES
+(1, 'hm', 'hm');
 
 -- --------------------------------------------------------
 
@@ -1679,9 +1714,9 @@ CREATE TABLE IF NOT EXISTS `phpfox_cron` (
 --
 
 INSERT INTO `phpfox_cron` (`cron_id`, `module_id`, `product_id`, `next_run`, `last_run`, `type_id`, `every`, `is_active`, `php_code`) VALUES
-(1, 'log', 'phpfox', 1344256798, 1344253198, 2, 1, 1, 'Phpfox::getLib(''phpfox.database'')->delete(Phpfox::getT(''log_session''), "last_activity < ''" . ((PHPFOX_TIME - (Phpfox::getParam(''log.active_session'') * 60))) . "''");\r\n'),
+(1, 'log', 'phpfox', 1345158952, 1345155352, 2, 1, 1, 'Phpfox::getLib(''phpfox.database'')->delete(Phpfox::getT(''log_session''), "last_activity < ''" . ((PHPFOX_TIME - (Phpfox::getParam(''log.active_session'') * 60))) . "''");\r\n'),
 (2, 'mail', 'phpfox', 1346845198, 1344253198, 3, 30, 1, 'Phpfox::getService(''mail.process'')->cronDeleteMessages();'),
-(3, 'shoutbox', 'phpfox', 1344339598, 1344253198, 3, 1, 1, 'Phpfox::getService(''shoutbox.process'')->clear(Phpfox::getParam(''shoutbox.shoutbox_total''));\r\n');
+(3, 'shoutbox', 'phpfox', 1345237947, 1345151547, 3, 1, 1, 'Phpfox::getService(''shoutbox.process'')->clear(Phpfox::getParam(''shoutbox.shoutbox_total''));\r\n');
 
 -- --------------------------------------------------------
 
@@ -1694,7 +1729,7 @@ CREATE TABLE IF NOT EXISTS `phpfox_cron_log` (
   `cron_id` mediumint(8) unsigned NOT NULL,
   `time_stamp` int(10) unsigned NOT NULL,
   PRIMARY KEY (`log_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=4 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=11 ;
 
 --
 -- Дамп данных таблицы `phpfox_cron_log`
@@ -1703,7 +1738,14 @@ CREATE TABLE IF NOT EXISTS `phpfox_cron_log` (
 INSERT INTO `phpfox_cron_log` (`log_id`, `cron_id`, `time_stamp`) VALUES
 (1, 1, 1344253198),
 (2, 2, 1344253198),
-(3, 3, 1344253198);
+(3, 3, 1344253198),
+(4, 1, 1344413780),
+(5, 3, 1344413780),
+(6, 1, 1344418594),
+(7, 1, 1344442615),
+(8, 1, 1345151547),
+(9, 3, 1345151547),
+(10, 1, 1345155352);
 
 -- --------------------------------------------------------
 
@@ -2208,7 +2250,23 @@ CREATE TABLE IF NOT EXISTS `phpfox_feed` (
   KEY `type_id` (`type_id`,`item_id`,`feed_reference`),
   KEY `privacy` (`privacy`,`user_id`,`time_stamp`,`feed_reference`),
   KEY `time_stamp` (`time_stamp`,`feed_reference`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=11 ;
+
+--
+-- Дамп данных таблицы `phpfox_feed`
+--
+
+INSERT INTO `phpfox_feed` (`feed_id`, `app_id`, `privacy`, `privacy_comment`, `type_id`, `user_id`, `parent_user_id`, `item_id`, `time_stamp`, `feed_reference`, `parent_feed_id`, `parent_module_id`) VALUES
+(1, 0, 4, 0, 'user_status', 2, 0, 1, 1345153135, 0, 0, NULL),
+(2, 0, 0, 0, 'user_status', 2, 0, 2, 1345153178, 0, 0, NULL),
+(3, 0, 0, 0, 'photo', 2, 0, 1, 1345153226, 0, 0, NULL),
+(4, 0, 0, 0, 'user_photo', 2, 0, 2, 1345153274, 0, 0, NULL),
+(5, 0, 0, 0, 'user_status', 3, 0, 3, 1345153293, 0, 0, NULL),
+(6, 0, 0, 0, 'pages_comment', 4, 0, 1, 1345153460, 0, 0, NULL),
+(7, 0, 0, 0, 'friend', 3, 2, 2, 1345153471, 0, 0, NULL),
+(8, 0, 0, 0, 'blog', 2, 0, 1, 1345153559, 0, 0, NULL),
+(9, 0, 0, 0, 'blog_comment', 3, 0, 1, 1345153588, 0, 0, NULL),
+(10, 0, 0, 0, 'friend', 1, 2, 2, 1345153657, 0, 0, NULL);
 
 -- --------------------------------------------------------
 
@@ -2520,7 +2578,19 @@ CREATE TABLE IF NOT EXISTS `phpfox_friend` (
   KEY `friend_user_id` (`friend_user_id`),
   KEY `is_page` (`is_page`,`user_id`),
   KEY `is_page_2` (`is_page`,`user_id`,`friend_user_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=7 ;
+
+--
+-- Дамп данных таблицы `phpfox_friend`
+--
+
+INSERT INTO `phpfox_friend` (`friend_id`, `is_page`, `list_id`, `user_id`, `friend_user_id`, `is_top_friend`, `ordering`, `time_stamp`) VALUES
+(1, 0, 0, 3, 2, 0, 0, 1345153471),
+(2, 0, 0, 2, 3, 0, 0, 1345153471),
+(3, 1, 0, 2, 4, 0, 0, 1345153514),
+(4, 1, 0, 4, 2, 0, 0, 1345153514),
+(5, 0, 0, 1, 2, 0, 0, 1345153657),
+(6, 0, 0, 2, 1, 0, 0, 1345153657);
 
 -- --------------------------------------------------------
 
@@ -2610,7 +2680,7 @@ CREATE TABLE IF NOT EXISTS `phpfox_friend_request` (
   KEY `friend_user_id` (`friend_user_id`),
   KEY `relation_data_id` (`relation_data_id`),
   KEY `user_id_2` (`user_id`,`is_seen`,`is_ignore`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
 
 -- --------------------------------------------------------
 
@@ -10781,7 +10851,15 @@ CREATE TABLE IF NOT EXISTS `phpfox_like` (
   KEY `type_id_2` (`type_id`,`item_id`,`user_id`),
   KEY `type_id_3` (`type_id`,`user_id`),
   KEY `item_id` (`item_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
+
+--
+-- Дамп данных таблицы `phpfox_like`
+--
+
+INSERT INTO `phpfox_like` (`like_id`, `type_id`, `item_id`, `user_id`, `time_stamp`) VALUES
+(1, 'pages', 1, 2, 1345153514),
+(2, 'blog', 1, 3, 1345153591);
 
 -- --------------------------------------------------------
 
@@ -10795,6 +10873,14 @@ CREATE TABLE IF NOT EXISTS `phpfox_like_cache` (
   `user_id` int(10) unsigned NOT NULL,
   KEY `type_id_2` (`type_id`,`item_id`,`user_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Дамп данных таблицы `phpfox_like_cache`
+--
+
+INSERT INTO `phpfox_like_cache` (`type_id`, `item_id`, `user_id`) VALUES
+('blog', 1, 3),
+('pages', 1, 2);
 
 -- --------------------------------------------------------
 
@@ -10871,7 +10957,9 @@ CREATE TABLE IF NOT EXISTS `phpfox_log_session` (
 --
 
 INSERT INTO `phpfox_log_session` (`session_hash`, `id_hash`, `captcha_hash`, `user_id`, `last_activity`, `location`, `is_forum`, `forum_id`, `im_status`, `im_hide`, `ip_address`, `user_agent`) VALUES
-('6d02ee7c0fc84d81e020819d6dc2cc16', '7e7ff0721ce604b25cf1eb5ae1e979b8', NULL, 1, 1344253269, '', 0, 0, 0, 0, '127.0.0.1', 'Chrome 21.0.1180.');
+('4739f8fe9316e103b440ddd018a92f51', '24cf8a0b60cb51d5b9a19b0eecb56355', NULL, 1, 1345156669, '', 0, 0, 0, 0, '::1', 'Chrome 21.0.1180.'),
+('26c389f51802a9e2e471d463d5dfd8f7', 'd61177d32854f0aa5033d152207aab7b', NULL, 3, 1345156711, '', 0, 0, 0, 0, '::1', 'Firefox 14.0.1'),
+('4b7ac6e50c324f11215af0658e667373', 'b424a5dbb3fa3b64b6fb9b4bd1f41410', NULL, 2, 1345156668, '', 0, 0, 0, 0, '127.0.0.1', 'Opera 9.80');
 
 -- --------------------------------------------------------
 
@@ -11688,7 +11776,15 @@ CREATE TABLE IF NOT EXISTS `phpfox_notification` (
   KEY `owner_user_id` (`owner_user_id`),
   KEY `user_id_2` (`user_id`,`is_seen`),
   KEY `type_id` (`type_id`,`item_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=5 ;
+
+--
+-- Дамп данных таблицы `phpfox_notification`
+--
+
+INSERT INTO `phpfox_notification` (`notification_id`, `type_id`, `item_id`, `user_id`, `owner_user_id`, `is_seen`, `time_stamp`) VALUES
+(1, 'friend_accepted', 3, 2, 3, 1, 1345153471),
+(4, 'friend_accepted', 1, 2, 1, 0, 1345153657);
 
 -- --------------------------------------------------------
 
@@ -11763,7 +11859,14 @@ CREATE TABLE IF NOT EXISTS `phpfox_pages` (
   KEY `app_id_4` (`app_id`,`view_id`),
   KEY `view_id` (`view_id`,`title`,`privacy`),
   KEY `page_id` (`page_id`,`view_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
+
+--
+-- Дамп данных таблицы `phpfox_pages`
+--
+
+INSERT INTO `phpfox_pages` (`page_id`, `app_id`, `view_id`, `type_id`, `category_id`, `user_id`, `title`, `reg_method`, `landing_page`, `time_stamp`, `image_path`, `image_server_id`, `total_like`, `total_comment`, `privacy`, `designer_style_id`) VALUES
+(1, 0, 0, 3, 69, 2, 'my group', 0, NULL, 1345153430, NULL, 0, 1, 1, 0, 0);
 
 -- --------------------------------------------------------
 
@@ -12005,7 +12108,14 @@ CREATE TABLE IF NOT EXISTS `phpfox_pages_feed` (
   `parent_module_id` varchar(75) DEFAULT NULL,
   PRIMARY KEY (`feed_id`),
   KEY `parent_user_id` (`parent_user_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
+
+--
+-- Дамп данных таблицы `phpfox_pages_feed`
+--
+
+INSERT INTO `phpfox_pages_feed` (`feed_id`, `privacy`, `privacy_comment`, `type_id`, `user_id`, `parent_user_id`, `item_id`, `time_stamp`, `parent_feed_id`, `parent_module_id`) VALUES
+(1, 0, 0, 'pages_comment', 4, 1, 1, 1345153460, 0, NULL);
 
 -- --------------------------------------------------------
 
@@ -12025,7 +12135,14 @@ CREATE TABLE IF NOT EXISTS `phpfox_pages_feed_comment` (
   `total_like` int(10) unsigned NOT NULL DEFAULT '0',
   PRIMARY KEY (`feed_comment_id`),
   KEY `parent_user_id` (`parent_user_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
+
+--
+-- Дамп данных таблицы `phpfox_pages_feed_comment`
+--
+
+INSERT INTO `phpfox_pages_feed_comment` (`feed_comment_id`, `user_id`, `parent_user_id`, `privacy`, `privacy_comment`, `content`, `time_stamp`, `total_comment`, `total_like`) VALUES
+(1, 4, 1, 0, 0, 'some info', 1345153460, 0, 0);
 
 -- --------------------------------------------------------
 
@@ -12125,6 +12242,13 @@ CREATE TABLE IF NOT EXISTS `phpfox_pages_text` (
   `text_parsed` mediumtext,
   UNIQUE KEY `page_id` (`page_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Дамп данных таблицы `phpfox_pages_text`
+--
+
+INSERT INTO `phpfox_pages_text` (`page_id`, `text`, `text_parsed`) VALUES
+(1, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -12315,7 +12439,14 @@ CREATE TABLE IF NOT EXISTS `phpfox_photo` (
   KEY `view_id_4` (`view_id`,`privacy`,`title`),
   KEY `view_id_5` (`view_id`,`module_id`,`group_id`,`privacy`),
   KEY `is_profile_photo` (`is_profile_photo`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
+
+--
+-- Дамп данных таблицы `phpfox_photo`
+--
+
+INSERT INTO `phpfox_photo` (`photo_id`, `album_id`, `view_id`, `module_id`, `group_id`, `type_id`, `privacy`, `privacy_comment`, `title`, `user_id`, `parent_user_id`, `destination`, `server_id`, `mature`, `allow_comment`, `allow_rate`, `time_stamp`, `total_view`, `total_comment`, `total_download`, `total_rating`, `total_vote`, `total_battle`, `total_like`, `is_featured`, `is_cover`, `allow_download`, `is_sponsor`, `ordering`, `is_profile_photo`) VALUES
+(1, 0, 0, NULL, 0, 0, 0, 0, 'w_3a1b1748', 2, 0, '2012/08/fc207c7e9378c8f698b9d421e2d65539%s.jpg', 0, 0, 0, 1, 1345153225, 1, 0, 0, 0.00, 0, 0, 0, 0, 0, 0, 0, 0, 0);
 
 -- --------------------------------------------------------
 
@@ -12465,6 +12596,13 @@ CREATE TABLE IF NOT EXISTS `phpfox_photo_info` (
   UNIQUE KEY `photo_id` (`photo_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Дамп данных таблицы `phpfox_photo_info`
+--
+
+INSERT INTO `phpfox_photo_info` (`photo_id`, `file_name`, `file_size`, `mime_type`, `extension`, `description`, `width`, `height`) VALUES
+(1, 'w_3a1b1748.jpg', 413682, 'application/octet-stream', 'jpg', NULL, 2187, 1664);
+
 -- --------------------------------------------------------
 
 --
@@ -12517,6 +12655,13 @@ CREATE TABLE IF NOT EXISTS `phpfox_photo_track` (
   `time_stamp` int(10) unsigned NOT NULL,
   KEY `item_id` (`item_id`,`user_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Дамп данных таблицы `phpfox_photo_track`
+--
+
+INSERT INTO `phpfox_photo_track` (`item_id`, `user_id`, `time_stamp`) VALUES
+(1, 1, 1345154323);
 
 -- --------------------------------------------------------
 
@@ -14908,7 +15053,7 @@ INSERT INTO `phpfox_setting` (`setting_id`, `group_id`, `module_id`, `product_id
 (49, 'search_engine_optimization', 'core', 'phpfox', 0, '2.0.0alpha1', 'integer', 'meta_keyword_limit', 'setting_meta_keyword_limit', '900', '900', 2),
 (50, 'search_engine_optimization', 'core', 'phpfox', 0, '2.0.0alpha1', 'string', 'description_time_stamp', 'setting_description_time_stamp', 'F j, Y', 'F j, Y', 3),
 (51, 'mail', 'core', 'phpfox', 0, '2.0.0alpha1', 'boolean', 'use_dnscheck', 'setting_use_dnscheck', '0', '0', 8),
-(52, 'debug', 'core', 'phpfox', 0, '2.0.0alpha1', 'drop', 'admin_debug_mode', 'setting_admin_debug_mode', 'a:2:{s:7:"default";s:7:"Level 0";s:6:"values";a:4:{i:0;s:7:"Level 0";i:1;s:8:" Level 1";i:2;s:8:" Level 2";i:3;s:8:" Level 3";}}', 'a:2:{s:7:"default";s:7:"Level 0";s:6:"values";a:4:{i:0;s:7:"Level 0";i:1;s:8:" Level 1";i:2;s:8:" Level 2";i:3;s:8:" Level 3";}}', 1),
+(52, 'debug', 'core', 'phpfox', 0, '2.0.0alpha1', 'drop', 'admin_debug_mode', 'setting_admin_debug_mode', 'a:2:{s:7:"default";s:7:"Level 1";s:6:"values";a:4:{i:0;s:7:"Level 1";i:1;s:7:"Level 0";i:2;s:7:"Level 2";i:3;s:7:"Level 3";}}', 'a:2:{s:7:"default";s:7:"Level 0";s:6:"values";a:4:{i:0;s:7:"Level 0";i:1;s:8:" Level 1";i:2;s:8:" Level 2";i:3;s:8:" Level 3";}}', 1),
 (53, 'formatting', 'core', 'phpfox', 0, '2.0.0alpha3', 'boolean', 'replace_url_with_links', 'setting_replace_url_with_links', '0', '0', 1),
 (54, 'formatting', 'core', 'phpfox', 0, '2.0.0alpha3', 'integer', 'shorten_parsed_url_links', 'setting_shorten_parsed_url_links', '50', '50', 2),
 (55, NULL, 'core', 'phpfox', 0, '2.0.0beta1', 'string', 'default_music_player', 'setting_default_music_player', 'flowplayer', 'flowplayer', 1),
@@ -15006,7 +15151,7 @@ INSERT INTO `phpfox_setting` (`setting_id`, `group_id`, `module_id`, `product_id
 (147, 'image_processing', 'core', 'phpfox', 1, '2.0.0rc1', 'string', 'watermark_image', 'setting_watermark_image', 'watermark%s.png', 'watermark%s.png', 2),
 (148, NULL, 'core', 'phpfox', 1, '2.0.0rc1', 'large_string', 'global_admincp_note', 'setting_global_admincp_note', 'Save your notes here...', 'Save your notes here...', 1),
 (149, NULL, 'core', 'phpfox', 1, '2.0.0rc1', 'string', 'phpfox_version', 'setting_phpfox_version', '3.3.0', '2.0.0rc2', 1),
-(150, NULL, 'core', 'phpfox', 1, '2.0.0rc3', 'string', 'theme_session_prefix', 'setting_theme_session_prefix', '486256453', '486256453', 1),
+(150, NULL, 'core', 'phpfox', 1, '2.0.0rc3', 'string', 'theme_session_prefix', 'setting_theme_session_prefix', '501fb0151b174', '486256453', 1),
 (151, NULL, 'core', 'phpfox', 1, '2.0.2', 'integer', 'css_edit_id', 'setting_css_edit_id', '1', '1', 1),
 (152, NULL, 'core', 'phpfox', 1, '2.0.7', 'integer', 'phpfox_total_users_online_mark', 'setting_phpfox_total_users_online_mark', '', '', 1),
 (153, NULL, 'core', 'phpfox', 1, '2.0.7', 'string', 'phpfox_total_users_online_history', 'setting_phpfox_total_users_online_history', '', '', 1),
@@ -15606,7 +15751,7 @@ CREATE TABLE IF NOT EXISTS `phpfox_theme` (
   KEY `is_active` (`is_active`),
   KEY `theme_id` (`theme_id`,`is_active`),
   KEY `folder` (`folder`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=5 ;
 
 --
 -- Дамп данных таблицы `phpfox_theme`
@@ -15614,7 +15759,8 @@ CREATE TABLE IF NOT EXISTS `phpfox_theme` (
 
 INSERT INTO `phpfox_theme` (`theme_id`, `parent_id`, `name`, `folder`, `created`, `creator`, `website`, `version`, `is_active`, `is_default`, `total_column`) VALUES
 (1, 0, 'Default', 'default', 1212226813, NULL, NULL, NULL, 1, 1, 3),
-(2, 0, 'Cosmic', 'cosmic', 1212226813, NULL, NULL, NULL, 1, 0, 3);
+(2, 0, 'Cosmic', 'cosmic', 1212226813, NULL, NULL, NULL, 1, 0, 3),
+(4, 1, 'pautina', 'pautina', 1345154958, 'Den', 'den.cn.ua', '0.0.1', 1, 0, 2);
 
 -- --------------------------------------------------------
 
@@ -15638,7 +15784,7 @@ CREATE TABLE IF NOT EXISTS `phpfox_theme_css` (
   KEY `style_id` (`style_id`,`file_name`),
   KEY `style_id_2` (`style_id`),
   KEY `is_custom` (`is_custom`,`style_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
 
 -- --------------------------------------------------------
 
@@ -15667,18 +15813,19 @@ CREATE TABLE IF NOT EXISTS `phpfox_theme_style` (
   KEY `parent_id` (`parent_id`,`is_active`),
   KEY `is_default` (`is_default`),
   KEY `folder` (`folder`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=6 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=8 ;
 
 --
 -- Дамп данных таблицы `phpfox_theme_style`
 --
 
 INSERT INTO `phpfox_theme_style` (`style_id`, `theme_id`, `parent_id`, `is_active`, `is_default`, `name`, `folder`, `created`, `creator`, `website`, `version`, `logo_image`, `l_width`, `c_width`, `r_width`) VALUES
-(1, 1, 0, 1, 1, 'Default', 'default', 1212227060, NULL, NULL, NULL, 'logo.png', 0, 0, 0),
+(1, 1, 0, 1, 0, 'Default', 'default', 1212227060, NULL, NULL, NULL, 'logo.png', 0, 0, 0),
 (2, 1, 0, 1, 0, 'Facebookish', 'facebookish', 1212227060, NULL, NULL, NULL, 'logo.png', 0, 0, 0),
 (3, 1, 0, 1, 0, 'Altitude', 'altitude', 1212227060, NULL, NULL, NULL, 'logo.png', 0, 0, 0),
 (4, 2, 0, 1, 0, 'Cosmic', 'cosmic', 1212227060, NULL, NULL, NULL, 'logo.png', 0, 0, 0),
-(5, 1, 0, 1, 0, 'Density', 'density', 1212227060, NULL, NULL, NULL, 'logo.png', 0, 0, 0);
+(5, 1, 0, 1, 0, 'Density', 'density', 1212227060, NULL, NULL, NULL, 'logo.png', 0, 0, 0),
+(7, 4, 1, 1, 1, 'default', 'default', 1345155036, 'Den', 'den.cn.ua', '0.0.1', 'logo.png', 200, 580, 200);
 
 -- --------------------------------------------------------
 
@@ -15734,6 +15881,13 @@ CREATE TABLE IF NOT EXISTS `phpfox_upload_track` (
   KEY `user_id` (`user_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Дамп данных таблицы `phpfox_upload_track`
+--
+
+INSERT INTO `phpfox_upload_track` (`user_id`, `hash`, `user_hash`, `ip_address`) VALUES
+(2, '9cd52a0547a269746644c1f7ea4674ab', '1118dc66e879948e6e11ed4032a3bd0cce6ffe768fc74c4f72', '127.0.0.1');
+
 -- --------------------------------------------------------
 
 --
@@ -15785,14 +15939,17 @@ CREATE TABLE IF NOT EXISTS `phpfox_user` (
   KEY `status_id_2` (`status_id`,`view_id`,`full_name`),
   KEY `page_id` (`profile_page_id`),
   KEY `user_id` (`user_id`,`status_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=5 ;
 
 --
 -- Дамп данных таблицы `phpfox_user`
 --
 
 INSERT INTO `phpfox_user` (`user_id`, `profile_page_id`, `server_id`, `user_group_id`, `status_id`, `view_id`, `user_name`, `full_name`, `password`, `password_salt`, `email`, `gender`, `birthday`, `birthday_search`, `country_iso`, `language_id`, `style_id`, `time_zone`, `dst_check`, `joined`, `last_login`, `last_activity`, `user_image`, `hide_tip`, `status`, `footer_bar`, `invite_user_id`, `im_beep`, `im_hide`, `is_invisible`, `total_spam`, `last_ip_address`) VALUES
-(1, 0, 0, 1, 0, 0, 'admin', 'Den', '4b5df15326a7fba03c026fe967d29e12', '1KA', 'xian.den@gmail.com', 1, '01131988', 569030400, 'UA', NULL, 0, NULL, 0, 1344253183, 1344253225, 1344253269, NULL, 0, NULL, 0, 0, 0, 0, 0, 0, '127.0.0.1');
+(1, 0, 0, 1, 0, 0, 'admin', 'Den', '4b5df15326a7fba03c026fe967d29e12', '1KA', 'xian.den@gmail.com', 1, '01131988', 569030400, 'UA', NULL, 0, NULL, 0, 1344253183, 1345156610, 1345156669, NULL, 0, NULL, 0, 0, 0, 0, 0, 0, '::1'),
+(2, 0, 0, 2, 0, 0, 'profile-2', 'Den', '8e177958090de7e08582f6f1f1c3043a', '<?.', 'den@speroteck.com', 1, '01131988', 569030400, NULL, NULL, 0, NULL, 0, 1345153104, 1345155947, 1345156668, '2%s.jpg', 0, NULL, 0, 0, 0, 0, 0, 0, '127.0.0.1'),
+(3, 0, 0, 2, 0, 0, 'profile-3', 'Denis', 'dd51d4debbb0d0050d3dd435f31dbf04', 'H$*', 'den@mail.com', 1, '02011991', 665366400, NULL, NULL, 0, NULL, 0, 1345153256, 1345156109, 1345156711, NULL, 0, NULL, 0, 0, 0, 0, 0, 0, '::1'),
+(4, 1, 0, 2, 0, 7, NULL, 'my group', 'b5a4346cde41e0ad3d5fbff4256c3e5f', 'Z$X', NULL, 0, NULL, 0, NULL, NULL, 0, NULL, 0, 1345153430, 0, 1345153460, NULL, 0, NULL, 0, 0, 0, 0, 0, 0, '127.0.0.1');
 
 -- --------------------------------------------------------
 
@@ -15819,14 +15976,17 @@ CREATE TABLE IF NOT EXISTS `phpfox_user_activity` (
   `activity_event` int(10) unsigned NOT NULL DEFAULT '0',
   `activity_pages` int(10) unsigned NOT NULL DEFAULT '0',
   UNIQUE KEY `user_id` (`user_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=5 ;
 
 --
 -- Дамп данных таблицы `phpfox_user_activity`
 --
 
 INSERT INTO `phpfox_user_activity` (`user_id`, `activity_blog`, `activity_attachment`, `activity_comment`, `activity_photo`, `activity_bulletin`, `activity_poll`, `activity_invite`, `activity_forum`, `activity_video`, `activity_total`, `activity_points`, `activity_quiz`, `activity_music_song`, `activity_marketplace`, `activity_event`, `activity_pages`) VALUES
-(1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+(1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
+(2, 1, 0, 0, 1, 0, 0, 0, 0, 0, 3, 3, 0, 0, 0, 0, 1),
+(3, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0),
+(4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
 
 -- --------------------------------------------------------
 
@@ -15867,7 +16027,10 @@ CREATE TABLE IF NOT EXISTS `phpfox_user_count` (
 --
 
 INSERT INTO `phpfox_user_count` (`user_id`, `mail_new`, `comment_pending`, `friend_request`, `group_invite`, `event_invite`, `marketplace_invite`) VALUES
-(1, 0, 0, 0, 0, 0, 0);
+(1, 0, 0, 0, 0, 0, 0),
+(2, 0, 0, 0, 0, 0, 0),
+(3, 0, 0, 0, 0, 0, 0),
+(4, 0, 0, 0, 0, 0, 0);
 
 -- --------------------------------------------------------
 
@@ -16106,14 +16269,17 @@ CREATE TABLE IF NOT EXISTS `phpfox_user_field` (
   `use_timeline` tinyint(1) NOT NULL DEFAULT '0',
   UNIQUE KEY `user_id` (`user_id`),
   KEY `designer_style_id` (`designer_style_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=5 ;
 
 --
 -- Дамп данных таблицы `phpfox_user_field`
 --
 
 INSERT INTO `phpfox_user_field` (`user_id`, `signature`, `signature_clean`, `designer_style_id`, `total_comment`, `total_view`, `total_friend`, `total_post`, `total_profile_song`, `total_score`, `total_rating`, `total_user_change`, `total_full_name_change`, `country_child_id`, `city_location`, `postal_code`, `subscribe_id`, `dob_setting`, `birthday_range`, `rss_count`, `css_hash`, `newsletter_state`, `in_admincp`, `default_currency`, `total_blog`, `total_video`, `total_poll`, `total_quiz`, `total_event`, `total_song`, `total_listing`, `total_photo`, `total_pages`, `brute_force_locked_at`, `relation_data_id`, `relation_with`, `cover_photo`, `cover_photo_top`, `use_timeline`) VALUES
-(1, NULL, NULL, 0, 0, 0, 0, 0, 0, 0.00, 0, 0, 0, 0, NULL, NULL, 0, 0, NULL, 0, NULL, 0, 1344253183, NULL, 0, 0, 0, 0, 0, 0, 0, 0, 0, NULL, 0, 0, 0, NULL, 0);
+(1, NULL, NULL, 0, 0, 0, 1, 0, 0, 0.00, 0, 0, 0, 0, NULL, NULL, 0, 0, NULL, 0, NULL, 0, 1345156449, NULL, 0, 0, 0, 0, 0, 0, 0, 0, 0, NULL, 0, 0, 0, NULL, 0),
+(2, NULL, NULL, 0, 0, 1, 2, 0, 0, 0.00, 0, 0, 0, 0, NULL, NULL, 0, 0, '0113', 0, NULL, 0, 0, NULL, 1, 0, 0, 0, 0, 0, 0, 1, 1, NULL, 0, 0, 0, NULL, 0),
+(3, NULL, NULL, 0, 0, 0, 1, 0, 0, 0.00, 0, 0, 0, 0, NULL, NULL, 0, 0, '0201', 0, NULL, 0, 0, NULL, 0, 0, 0, 0, 0, 0, 0, 0, 0, NULL, 0, 0, 0, NULL, 0),
+(4, NULL, NULL, 0, 0, 0, 0, 0, 0, 0.00, 0, 0, 0, 0, NULL, NULL, 0, 0, NULL, 0, NULL, 0, 0, NULL, 0, 0, 0, 0, 0, 0, 0, 0, 0, NULL, 0, 0, 0, NULL, 0);
 
 -- --------------------------------------------------------
 
@@ -17027,7 +17193,7 @@ CREATE TABLE IF NOT EXISTS `phpfox_user_ip` (
   KEY `ip_address` (`ip_address`),
   KEY `user_id_2` (`user_id`,`ip_address`),
   KEY `user_id_3` (`user_id`,`type_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=5 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=39 ;
 
 --
 -- Дамп данных таблицы `phpfox_user_ip`
@@ -17037,7 +17203,41 @@ INSERT INTO `phpfox_user_ip` (`ip_log`, `user_id`, `type_id`, `ip_address`, `tim
 (1, 1, 'register', '127.0.0.1', 1344253183),
 (2, 1, 'login', '127.0.0.1', 1344253183),
 (3, 1, 'login', '127.0.0.1', 1344253224),
-(4, 1, 'session_login', '127.0.0.1', 1344253225);
+(4, 1, 'session_login', '127.0.0.1', 1344253225),
+(5, 1, 'session_login', '127.0.0.1', 1344254161),
+(6, 1, 'session_login', '127.0.0.1', 1344255067),
+(7, 1, 'session_login', '127.0.0.1', 1344256084),
+(8, 1, 'session_login', '127.0.0.1', 1344257047),
+(9, 1, 'session_login', '127.0.0.1', 1344258009),
+(10, 1, 'session_login', '127.0.0.1', 1344258972),
+(11, 1, 'session_login', '127.0.0.1', 1344259935),
+(12, 1, 'session_login', '127.0.0.1', 1344260898),
+(13, 1, 'session_login', '::1', 1344413780),
+(14, 1, 'session_login', '::1', 1344415029),
+(15, 1, 'session_login', '::1', 1344418594),
+(16, 1, 'session_login', '::1', 1344442615),
+(17, 1, 'session_login', '::1', 1344443529),
+(18, 1, 'session_login', '::1', 1344444865),
+(19, 1, 'session_login', '::1', 1345151547),
+(20, 1, 'session_login', '::1', 1345152521),
+(21, 2, 'register', '127.0.0.1', 1345153104),
+(22, 2, 'login', '127.0.0.1', 1345153104),
+(23, 2, 'session_login', '127.0.0.1', 1345153106),
+(24, 0, 'logout', '::1', 1345153225),
+(25, 2, 'session_login', '::1', 1345153225),
+(26, 3, 'register', '::1', 1345153256),
+(27, 3, 'login', '::1', 1345153256),
+(28, 3, 'session_login', '::1', 1345153257),
+(29, 1, 'session_login', '::1', 1345153484),
+(30, 2, 'session_login', '127.0.0.1', 1345154020),
+(31, 3, 'session_login', '::1', 1345154183),
+(32, 1, 'session_login', '::1', 1345154688),
+(33, 2, 'session_login', '127.0.0.1', 1345154983),
+(34, 3, 'session_login', '::1', 1345155146),
+(35, 1, 'session_login', '::1', 1345155663),
+(36, 2, 'session_login', '127.0.0.1', 1345155947),
+(37, 3, 'session_login', '::1', 1345156109),
+(38, 1, 'session_login', '::1', 1345156610);
 
 -- --------------------------------------------------------
 
@@ -17147,14 +17347,17 @@ CREATE TABLE IF NOT EXISTS `phpfox_user_space` (
   `space_pages` int(10) unsigned NOT NULL DEFAULT '0',
   `space_total` int(10) unsigned NOT NULL DEFAULT '0',
   UNIQUE KEY `user_id` (`user_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=5 ;
 
 --
 -- Дамп данных таблицы `phpfox_user_space`
 --
 
 INSERT INTO `phpfox_user_space` (`user_id`, `space_attachment`, `space_photo`, `space_poll`, `space_quiz`, `space_marketplace`, `space_event`, `space_group`, `space_music`, `space_music_image`, `space_video`, `space_pages`, `space_total`) VALUES
-(1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+(1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
+(2, 0, 519209, 0, 0, 0, 0, 0, 0, 0, 0, 0, 519209),
+(3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
+(4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
 
 -- --------------------------------------------------------
 
@@ -17173,7 +17376,16 @@ CREATE TABLE IF NOT EXISTS `phpfox_user_status` (
   `total_like` int(10) unsigned NOT NULL DEFAULT '0',
   PRIMARY KEY (`status_id`),
   KEY `user_id` (`user_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=4 ;
+
+--
+-- Дамп данных таблицы `phpfox_user_status`
+--
+
+INSERT INTO `phpfox_user_status` (`status_id`, `user_id`, `privacy`, `privacy_comment`, `content`, `time_stamp`, `total_comment`, `total_like`) VALUES
+(1, 2, 4, 0, 'hello world', 1345153135, 0, 0),
+(2, 2, 0, 0, 'second hello', 1345153178, 0, 0),
+(3, 3, 0, 0, 'oh', 1345153293, 0, 0);
 
 -- --------------------------------------------------------
 
@@ -17187,6 +17399,13 @@ CREATE TABLE IF NOT EXISTS `phpfox_user_track` (
   `time_stamp` int(10) unsigned NOT NULL,
   KEY `item_id` (`item_id`,`user_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Дамп данных таблицы `phpfox_user_track`
+--
+
+INSERT INTO `phpfox_user_track` (`item_id`, `user_id`, `time_stamp`) VALUES
+(2, 3, 1345153472);
 
 -- --------------------------------------------------------
 

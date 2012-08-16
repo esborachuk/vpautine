@@ -1,5 +1,13 @@
 <?php defined('PHPFOX') or exit('NO DICE!'); ?>
 <?php $aContent = array (
+  'admincp.index' => 
+  array (
+    'core.site-stat' => true,
+    'core.note' => true,
+    'core.active-admin' => true,
+    'core.news' => true,
+    'core.latest-admin-login' => true,
+  ),
   'core.index-member' => 
   array (
     'apps.menu' => true,
@@ -9,14 +17,6 @@
     'friend.suggestion' => true,
     'poke.display' => true,
     'shoutbox.display' => true,
-  ),
-  'admincp.index' => 
-  array (
-    'core.site-stat' => true,
-    'core.note' => true,
-    'core.active-admin' => true,
-    'core.news' => true,
-    'core.latest-admin-login' => true,
   ),
   'profile.info' => 
   array (
