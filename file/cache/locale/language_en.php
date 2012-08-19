@@ -13,5 +13,5 @@
   'site' => '',
   'is_default' => '1',
   'is_master' => '1',
-  'image' => 'http://localhost/file/pic/flag\\en.png',
+  'image' => 'http://localhost/file/pic/flag/en.png',
 ); ?>

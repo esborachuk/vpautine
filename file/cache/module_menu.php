@@ -311,6 +311,19 @@
   ),
   17 => 
   array (
+    'module_id' => 'sms',
+    'is_menu' => '1',
+    'menu' => 
+    array (
+      'sms.admin_menu_settings' => 
+      array (
+        'url' => 'settings',
+      ),
+    ),
+    'url_name' => 'sms',
+  ),
+  18 => 
+  array (
     'module_id' => 'subscribe',
     'is_menu' => '1',
     'menu' => 
@@ -334,7 +347,7 @@
     ),
     'url_name' => 'subscribe',
   ),
-  18 => 
+  19 => 
   array (
     'module_id' => 'video',
     'is_menu' => '1',

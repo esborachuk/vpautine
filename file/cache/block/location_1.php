@@ -189,6 +189,10 @@
     'video.featured' => '3',
     'tag.cloud' => '3',
   ),
+  'sms.index' => 
+  array (
+    'sms.panel' => '1',
+  ),
   'apps.index' => 
   array (
     'apps.categories' => '1',

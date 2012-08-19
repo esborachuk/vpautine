@@ -348,6 +348,13 @@
       'tag.cloud' => NULL,
     ),
   ),
+  'sms.index' => 
+  array (
+    1 => 
+    array (
+      'sms.panel' => NULL,
+    ),
+  ),
   'apps.index' => 
   array (
     1 => 

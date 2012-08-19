@@ -296,7 +296,7 @@ Site Name',
   array (
     'type_id' => 'boolean',
     'var_name' => 'cache_plugins',
-    'value_actual' => true,
+    'value_actual' => false,
     'module_name' => 'core',
   ),
   37 => 

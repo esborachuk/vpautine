@@ -51,6 +51,7 @@
   'search' => 'search',
   'share' => 'share',
   'shoutbox' => 'shoutbox',
+  'sms' => 'sms',
   'subscribe' => 'subscribe',
   'tag' => 'tag',
   'theme' => 'theme',

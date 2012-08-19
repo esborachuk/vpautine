@@ -168,4 +168,16 @@
     'module_is_active' => '1',
     'mobile_icon' => NULL,
   ),
+  82 => 
+  array (
+    'menu_id' => '82',
+    'parent_id' => '0',
+    'm_connection' => 'main',
+    'var_name' => 'menu_sms_sms_fad58de7366495db4650cfefac2fcd61',
+    'disallow_access' => NULL,
+    'module' => 'sms',
+    'url' => 'sms.index',
+    'module_is_active' => '1',
+    'mobile_icon' => NULL,
+  ),
 ); ?>
