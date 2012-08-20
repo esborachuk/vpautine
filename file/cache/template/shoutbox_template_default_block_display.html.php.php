@@ -1,5 +1,5 @@
 <?php defined('PHPFOX') or exit('NO DICE!'); ?>
-<?php /* Cached: August 19, 2012, 7:11 pm */ ?>
+<?php /* Cached: August 20, 2012, 8:54 am */ ?>
 <?php 
 /**
  * [PHPFOX_HEADER]
@@ -102,7 +102,7 @@
 <div id="js_shoutbox_messages" class="label_flow shoutbox_holder">
 <?php if (count((array)$this->_aVars['aShoutouts'])):  $this->_aPhpfoxVars['iteration']['shoutout'] = 0;  foreach ((array) $this->_aVars['aShoutouts'] as $this->_aVars['iShoutCount'] => $this->_aVars['aShoutout']):  $this->_aPhpfoxVars['iteration']['shoutout']++; ?>
 
-	<?php /* Cached: August 19, 2012, 7:11 pm */  
+	<?php /* Cached: August 20, 2012, 8:54 am */  
 /**
  * [PHPFOX_HEADER]
  * 
