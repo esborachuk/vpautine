@@ -10,11 +10,18 @@ class Sms_Component_Controller_Index extends Phpfox_Component
                 ->setBreadCrumb('Sms')
                 ->setHeader(array(
                         'sms.css' => 'module_sms',
-                        'sms.js' => 'module_sms'))
-                ->assign('sSampleVariable', 'Hello, I am an assigned variable.');
+                        'sms.js' => 'module_sms'));
 
         /** @var $smsService Sms_Service_Sms */
         $smsService = Phpfox::getService('sms');
+
+        if ($formVal = $this->request()->getArray('val')) {
+            if (isset($formVal['sms-message']) && !empty($formVal['sms-message'])) {
+                $smsService->sendMessage($formVal['sms-message']);
+            }
+        }
+
+
         $aUsers = $smsService->getUsers(10);
         $template->assign('aUsers', $aUsers);
     }

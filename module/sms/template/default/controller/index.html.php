@@ -1,8 +1,16 @@
-Hello World!
-<br /><br />
-{$sSampleVariable}
-<br />
-<a href="#" id="sms_id">Click me</a>
+<form method="post" action={url link='sms.index'}>
+    <div class="table">
+        <div class="table_left">
+            Message:
+        </div>
+        <div class="table_right">
+            <textarea name="val[sms-message]" id="sms-message" rows="8" cols="50" ></textarea>
+        </div>
+        <input type="submit" value="{phrase var='mail.submit'}" class="button" />
+        <div class="clear"></div>
+    </div>
+</form>
+
 <br />
 <b>Members:</b>
 <br />
