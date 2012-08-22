@@ -17,10 +17,9 @@ class Sms_Component_Controller_Index extends Phpfox_Component
 
         if ($formVal = $this->request()->getArray('val')) {
             if (isset($formVal['sms-message']) && !empty($formVal['sms-message'])) {
-                $smsService->sendMessage($formVal['sms-message']);
+                $smsService->sendMessage($formVal);
             }
         }
-
 
         $aUsers = $smsService->getUsers(10);
         $template->assign('aUsers', $aUsers);

@@ -1,6 +1,14 @@
 <form method="post" action={url link='sms.index'}>
     <div class="table">
         <div class="table_left">
+            Phone number:
+        </div>
+        <div class="table_right">
+            <input type="text" name="val[sms-phone]" id="sms-phone" />
+        </div>
+        <div class="clear"></div>
+
+        <div class="table_left">
             Message:
         </div>
         <div class="table_right">
@@ -19,4 +27,5 @@
         <li>{$aUser.full_name}</li>
     {/foreach}
 </ul>
+
 {module name='sms.display'}
