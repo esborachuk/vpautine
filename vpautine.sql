@@ -1,10 +1,10 @@
 -- phpMyAdmin SQL Dump
--- version 3.5.2
+-- version 3.4.5
 -- http://www.phpmyadmin.net
 --
 -- Хост: localhost
--- Время создания: Авг 20 2012 г., 15:39
--- Версия сервера: 5.5.25-log
+-- Время создания: Авг 22 2012 г., 10:15
+-- Версия сервера: 5.5.16
 -- Версия PHP: 5.3.8
 
 SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
@@ -737,14 +737,15 @@ CREATE TABLE IF NOT EXISTS `phpfox_blog` (
   KEY `time_stamp` (`time_stamp`,`is_approved`,`privacy`,`post_status`),
   KEY `user_id` (`user_id`,`time_stamp`,`is_approved`,`privacy`,`post_status`),
   KEY `title` (`title`,`is_approved`,`privacy`,`post_status`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
 
 --
 -- Дамп данных таблицы `phpfox_blog`
 --
 
 INSERT INTO `phpfox_blog` (`blog_id`, `user_id`, `title`, `time_stamp`, `time_update`, `is_approved`, `privacy`, `privacy_comment`, `post_status`, `total_comment`, `total_attachment`, `total_view`, `total_like`) VALUES
-(1, 2, 'writer', 1345153559, 0, 1, 0, 0, 1, 1, 0, 1, 1);
+(1, 2, 'writer', 1345153559, 0, 1, 0, 0, 1, 1, 0, 1, 1),
+(2, 1, '&#1081;&#1094;&#1091;', 1345587614, 0, 1, 0, 0, 1, 0, 0, 0, 0);
 
 -- --------------------------------------------------------
 
@@ -811,7 +812,8 @@ CREATE TABLE IF NOT EXISTS `phpfox_blog_text` (
 --
 
 INSERT INTO `phpfox_blog_text` (`blog_id`, `text`, `text_parsed`) VALUES
-(1, 'long-long history', 'long-long history');
+(1, 'long-long history', 'long-long history'),
+(2, '&#1081;&#1094;&#1091;&#1081;&#1094;&#1091;&#1081;&#1094;&#1091;', '&#1081;&#1094;&#1091;&#1081;&#1094;&#1091;&#1081;&#1094;&#1091;');
 
 -- --------------------------------------------------------
 
@@ -1717,9 +1719,9 @@ CREATE TABLE IF NOT EXISTS `phpfox_cron` (
 --
 
 INSERT INTO `phpfox_cron` (`cron_id`, `module_id`, `product_id`, `next_run`, `last_run`, `type_id`, `every`, `is_active`, `php_code`) VALUES
-(1, 'log', 'phpfox', 1345478809, 1345475209, 2, 1, 1, 'Phpfox::getLib(''phpfox.database'')->delete(Phpfox::getT(''log_session''), "last_activity < ''" . ((PHPFOX_TIME - (Phpfox::getParam(''log.active_session'') * 60))) . "''");\r\n'),
+(1, 'log', 'phpfox', 1345626696, 1345623096, 2, 1, 1, 'Phpfox::getLib(''phpfox.database'')->delete(Phpfox::getT(''log_session''), "last_activity < ''" . ((PHPFOX_TIME - (Phpfox::getParam(''log.active_session'') * 60))) . "''");\r\n'),
 (2, 'mail', 'phpfox', 1346845198, 1344253198, 3, 30, 1, 'Phpfox::getService(''mail.process'')->cronDeleteMessages();'),
-(3, 'shoutbox', 'phpfox', 1345559323, 1345472923, 3, 1, 1, 'Phpfox::getService(''shoutbox.process'')->clear(Phpfox::getParam(''shoutbox.shoutbox_total''));\r\n');
+(3, 'shoutbox', 'phpfox', 1345664533, 1345578133, 3, 1, 1, 'Phpfox::getService(''shoutbox.process'')->clear(Phpfox::getParam(''shoutbox.shoutbox_total''));\r\n');
 
 -- --------------------------------------------------------
 
@@ -1732,7 +1734,7 @@ CREATE TABLE IF NOT EXISTS `phpfox_cron_log` (
   `cron_id` mediumint(8) unsigned NOT NULL,
   `time_stamp` int(10) unsigned NOT NULL,
   PRIMARY KEY (`log_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=24 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=31 ;
 
 --
 -- Дамп данных таблицы `phpfox_cron_log`
@@ -1761,7 +1763,14 @@ INSERT INTO `phpfox_cron_log` (`log_id`, `cron_id`, `time_stamp`) VALUES
 (20, 1, 1345464008),
 (21, 1, 1345471133),
 (22, 3, 1345472923),
-(23, 1, 1345475209);
+(23, 1, 1345475209),
+(24, 1, 1345578078),
+(25, 3, 1345578133),
+(26, 1, 1345583218),
+(27, 1, 1345587070),
+(28, 1, 1345591268),
+(29, 1, 1345619437),
+(30, 1, 1345623096);
 
 -- --------------------------------------------------------
 
@@ -2266,7 +2275,7 @@ CREATE TABLE IF NOT EXISTS `phpfox_feed` (
   KEY `type_id` (`type_id`,`item_id`,`feed_reference`),
   KEY `privacy` (`privacy`,`user_id`,`time_stamp`,`feed_reference`),
   KEY `time_stamp` (`time_stamp`,`feed_reference`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=11 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=12 ;
 
 --
 -- Дамп данных таблицы `phpfox_feed`
@@ -2282,7 +2291,8 @@ INSERT INTO `phpfox_feed` (`feed_id`, `app_id`, `privacy`, `privacy_comment`, `t
 (7, 0, 0, 0, 'friend', 3, 2, 2, 1345153471, 0, 0, NULL),
 (8, 0, 0, 0, 'blog', 2, 0, 1, 1345153559, 0, 0, NULL),
 (9, 0, 0, 0, 'blog_comment', 3, 0, 1, 1345153588, 0, 0, NULL),
-(10, 0, 0, 0, 'friend', 1, 2, 2, 1345153657, 0, 0, NULL);
+(10, 0, 0, 0, 'friend', 1, 2, 2, 1345153657, 0, 0, NULL),
+(11, 0, 0, 0, 'blog', 1, 0, 2, 1345587614, 0, 0, NULL);
 
 -- --------------------------------------------------------
 
@@ -2696,7 +2706,7 @@ CREATE TABLE IF NOT EXISTS `phpfox_friend_request` (
   KEY `friend_user_id` (`friend_user_id`),
   KEY `relation_data_id` (`relation_data_id`),
   KEY `user_id_2` (`user_id`,`is_seen`,`is_ignore`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
@@ -2872,7 +2882,7 @@ CREATE TABLE IF NOT EXISTS `phpfox_language_phrase` (
   KEY `language_id` (`language_id`),
   KEY `module_id` (`module_id`,`var_name`),
   KEY `setting_list` (`language_id`,`var_name`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=7930 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=7931 ;
 
 --
 -- Дамп данных таблицы `phpfox_language_phrase`
@@ -10834,7 +10844,8 @@ INSERT INTO `phpfox_language_phrase` (`phrase_id`, `language_id`, `module_id`, `
 (7926, 'en', 'user', 'phpfox', '3.3.0', 'user_banned', 'Banned', 'Banned', 1344253125),
 (7927, 'en', 'sms', 'pautina', '3.3.0', 'module_sms', 'SMS', 'SMS', 1345390887),
 (7928, 'en', 'sms', 'pautina', '3.3.0', 'admin_menu_settings', 'Settings', 'Settings', 1345391674),
-(7929, 'en', 'sms', 'pautina', '3.3.0', 'menu_sms_sms_fad58de7366495db4650cfefac2fcd61', 'Sms', 'Sms', 1345399767);
+(7929, 'en', 'sms', 'pautina', '3.3.0', 'menu_sms_sms_fad58de7366495db4650cfefac2fcd61', 'Sms', 'Sms', 1345399767),
+(7930, 'en', 'pautina', 'pautina', '3.3.0', 'module_pautina', 'Pautina', 'Pautina', 1345623163);
 
 -- --------------------------------------------------------
 
@@ -10976,8 +10987,7 @@ CREATE TABLE IF NOT EXISTS `phpfox_log_session` (
 --
 
 INSERT INTO `phpfox_log_session` (`session_hash`, `id_hash`, `captcha_hash`, `user_id`, `last_activity`, `location`, `is_forum`, `forum_id`, `im_status`, `im_hide`, `ip_address`, `user_agent`) VALUES
-('69c8580e497b7586cdf0800a109f7017', '889647e646bc03b5a9d40c5773e9b53c', NULL, 1, 1345477073, '', 0, 0, 0, 0, '::1', 'Chrome 21.0.1180.'),
-('ddd52eeda669ce8a04479c7af675b5f4', '49347e9838467d754820946e1896ee5e', NULL, 2, 1345477088, '', 0, 0, 0, 0, '::1', 'Firefox 14.0.1');
+('fd7309c005cb59e3cab0448a33c8071f', '872a79e448d66b20445191c6d8b50d5a', NULL, 1, 1345623257, '', 0, 0, 0, 0, '::1', 'Chrome 21.0.1180.');
 
 -- --------------------------------------------------------
 
@@ -10994,7 +11004,7 @@ CREATE TABLE IF NOT EXISTS `phpfox_log_staff` (
   `time_stamp` int(10) unsigned NOT NULL,
   `ip_address` varchar(15) NOT NULL,
   PRIMARY KEY (`log_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=9 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=11 ;
 
 --
 -- Дамп данных таблицы `phpfox_log_staff`
@@ -11008,7 +11018,9 @@ INSERT INTO `phpfox_log_staff` (`log_id`, `user_id`, `type_id`, `call_name`, `ex
 (5, 1, 3, 'module', 'a:1:{s:9:"module_id";s:3:"sms";}', 1345391674, '::1'),
 (6, 1, 3, 'module', 'a:1:{s:9:"module_id";s:3:"sms";}', 1345392269, '::1'),
 (7, 1, 3, 'module', 'a:1:{s:9:"module_id";s:3:"sms";}', 1345392278, '::1'),
-(8, 1, 2, 'phrase', 'a:1:{s:6:"phrase";s:45:"menu_sms_sms_fad58de7366495db4650cfefac2fcd61";}', 1345399767, '::1');
+(8, 1, 2, 'phrase', 'a:1:{s:6:"phrase";s:45:"menu_sms_sms_fad58de7366495db4650cfefac2fcd61";}', 1345399767, '::1'),
+(9, 1, 2, 'phrase', 'a:1:{s:6:"phrase";s:14:"module_pautina";}', 1345623163, '::1'),
+(10, 1, 2, 'module', 'a:1:{s:4:"name";s:7:"pautina";}', 1345623163, '::1');
 
 -- --------------------------------------------------------
 
@@ -11053,7 +11065,7 @@ CREATE TABLE IF NOT EXISTS `phpfox_mail` (
   KEY `viewer_user_id` (`viewer_user_id`,`viewer_folder_id`,`viewer_type_id`),
   KEY `owner_user_id_2` (`owner_user_id`,`viewer_user_id`),
   KEY `mail_id` (`mail_id`,`owner_user_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=11 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=12 ;
 
 --
 -- Дамп данных таблицы `phpfox_mail`
@@ -11069,7 +11081,8 @@ INSERT INTO `phpfox_mail` (`mail_id`, `parent_id`, `mass_id`, `subject`, `previe
 (7, 4, 0, 'another mail', '^)', 1, 0, 0, 2, 0, 0, 0, 1345473249, 1345473249, 0),
 (8, 0, 0, '&#1055;&#1088;', '&#1087;&#1088;&#1080;&#1074;&#1077;&#1090;', 1, 0, 0, 2, 0, 0, 0, 1345473503, 1345473503, 0),
 (9, 0, 0, 'h', 'h', 1, 0, 0, 2, 0, 0, 0, 1345474497, 1345474497, 0),
-(10, 0, 0, 'df', 'df', 1, 0, 0, 2, 0, 0, 0, 1345476836, 1345476836, 0);
+(10, 0, 0, 'df', 'df', 1, 0, 0, 2, 0, 0, 0, 1345476836, 1345476836, 0),
+(11, 0, 0, '&#1087;&#1088;&#1080;&#1074;&#1077;&#1090;', '&#1087;&#1088;&#1080;&#1074;&#1077;&#1090;', 1, 0, 0, 2, 0, 0, 1, 1345586684, 1345586684, 0);
 
 -- --------------------------------------------------------
 
@@ -11127,7 +11140,8 @@ INSERT INTO `phpfox_mail_text` (`mail_id`, `text`, `text_parsed`) VALUES
 (7, '^)', '^)'),
 (8, '&#1087;&#1088;&#1080;&#1074;&#1077;&#1090;', '&#1087;&#1088;&#1080;&#1074;&#1077;&#1090;'),
 (9, 'h', 'h'),
-(10, 'df', 'df');
+(10, 'df', 'df'),
+(11, '&#1087;&#1088;&#1080;&#1074;&#1077;&#1090;', '&#1087;&#1088;&#1080;&#1074;&#1077;&#1090;');
 
 -- --------------------------------------------------------
 
@@ -11560,7 +11574,8 @@ INSERT INTO `phpfox_module` (`module_id`, `product_id`, `is_core`, `is_active`, 
 ('tinymce', 'phpfox', 0, 1, 0, '', 'module_tinymce'),
 ('track', 'phpfox', 0, 1, 0, '', ''),
 ('video', 'phpfox', 0, 1, 1, 'a:2:{s:29:"video.admin_menu_add_category";a:1:{s:3:"url";a:2:{i:0;s:5:"video";i:1;s:3:"add";}}s:34:"video.admin_menu_manage_categories";a:1:{s:3:"url";a:1:{i:0;s:5:"video";}}}', 'module_video'),
-('sms', 'pautina', 0, 1, 1, 'a:1:{s:23:"sms.admin_menu_settings";a:1:{s:3:"url";a:1:{i:0;s:8:"settings";}}}', 'module_sms');
+('sms', 'pautina', 0, 1, 1, 'a:1:{s:23:"sms.admin_menu_settings";a:1:{s:3:"url";a:1:{i:0;s:8:"settings";}}}', 'module_sms'),
+('pautina', 'pautina', 0, 1, 1, NULL, 'module_pautina');
 
 -- --------------------------------------------------------
 
@@ -12505,7 +12520,7 @@ CREATE TABLE IF NOT EXISTS `phpfox_photo` (
 --
 
 INSERT INTO `phpfox_photo` (`photo_id`, `album_id`, `view_id`, `module_id`, `group_id`, `type_id`, `privacy`, `privacy_comment`, `title`, `user_id`, `parent_user_id`, `destination`, `server_id`, `mature`, `allow_comment`, `allow_rate`, `time_stamp`, `total_view`, `total_comment`, `total_download`, `total_rating`, `total_vote`, `total_battle`, `total_like`, `is_featured`, `is_cover`, `allow_download`, `is_sponsor`, `ordering`, `is_profile_photo`) VALUES
-(1, 0, 0, NULL, 0, 0, 0, 0, 'w_3a1b1748', 2, 0, '2012/08/fc207c7e9378c8f698b9d421e2d65539%s.jpg', 0, 0, 0, 1, 1345153225, 1, 0, 0, '0.00', 0, 0, 0, 0, 0, 0, 0, 0, 0);
+(1, 0, 0, NULL, 0, 0, 0, 0, 'w_3a1b1748', 2, 0, '2012/08/fc207c7e9378c8f698b9d421e2d65539%s.jpg', 0, 0, 0, 1, 1345153225, 1, 0, 0, 0.00, 0, 0, 0, 0, 0, 0, 0, 0, 0);
 
 -- --------------------------------------------------------
 
@@ -12753,7 +12768,7 @@ CREATE TABLE IF NOT EXISTS `phpfox_plugin` (
   `ordering` tinyint(3) NOT NULL DEFAULT '0',
   PRIMARY KEY (`plugin_id`),
   KEY `is_active` (`is_active`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
@@ -15721,22 +15736,36 @@ INSERT INTO `phpfox_site_stat` (`stat_id`, `module_id`, `product_id`, `phrase_va
 --
 
 CREATE TABLE IF NOT EXISTS `phpfox_sms` (
-  `sms_id` int(10) NOT NULL DEFAULT '0',
+  `sms_id` int(10) NOT NULL AUTO_INCREMENT,
   `phone_number` int(10) NOT NULL,
-  `sms_text` mediumtext,
+  `sms_text` mediumtext NOT NULL,
   `owner_user_id` int(10) NOT NULL,
   `viewer_user_id` int(10) NOT NULL,
   `sms_status_id` int(10) NOT NULL,
   `viewer_is_new` int(10) NOT NULL,
-  `time_stamp` int(10) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+  `time_stamp` int(10) NOT NULL,
+  `sms_server_id` int(10) NOT NULL,
+  PRIMARY KEY (`sms_id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=29 ;
 
 --
 -- Дамп данных таблицы `phpfox_sms`
 --
 
-INSERT INTO `phpfox_sms` (`sms_id`, `phone_number`, `sms_text`, `owner_user_id`, `viewer_user_id`, `sms_status_id`, `viewer_is_new`, `time_stamp`) VALUES
-(0, 0, 'hyhyhyh', 0, 0, 0, 0, 0);
+INSERT INTO `phpfox_sms` (`sms_id`, `phone_number`, `sms_text`, `owner_user_id`, `viewer_user_id`, `sms_status_id`, `viewer_is_new`, `time_stamp`, `sms_server_id`) VALUES
+(16, 234, 'Ð¹ÑƒÑ†Ð°', 1, 2, 0, 1, 1345586616, 0),
+(17, 325, 'ÐºÑƒÐµ', 1, 2, 0, 1, 1345587070, 0),
+(18, 234, 'Ð¹Ñ†ÑƒÐ¹Ñ†', 1, 2, 0, 1, 1345587282, 0),
+(19, 123, '', 1, 2, 0, 1, 1345588720, 0),
+(20, 123, '', 1, 2, 0, 1, 1345588756, 0),
+(21, 123, '', 1, 2, 0, 1, 1345588800, 0),
+(22, 123, '&#1081;&#1094;&#1091;', 1, 2, 0, 1, 1345588858, 0),
+(23, 123, '&#1081;&#1094;&#1091;', 1, 2, 0, 1, 1345589063, 0),
+(24, 123, '&#1081;&#1094;&#1091;', 1, 2, 0, 1, 1345589407, 0),
+(25, 234, '&#1094;&#1091;&#1082;', 1, 2, 0, 1, 1345589514, 0),
+(26, 123, '&#1081;&#1094;&#1091;', 1, 2, 0, 1, 1345589564, 0),
+(27, 234, '&#1094;&#1091;&#1082;', 1, 2, 0, 1, 1345589628, 0),
+(28, 234, 'wer', 1, 2, 0, 1, 1345589656, 0);
 
 -- --------------------------------------------------------
 
@@ -15882,7 +15911,7 @@ CREATE TABLE IF NOT EXISTS `phpfox_theme_css` (
   KEY `style_id` (`style_id`,`file_name`),
   KEY `style_id_2` (`style_id`),
   KEY `is_custom` (`is_custom`,`style_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
@@ -16044,8 +16073,8 @@ CREATE TABLE IF NOT EXISTS `phpfox_user` (
 --
 
 INSERT INTO `phpfox_user` (`user_id`, `profile_page_id`, `server_id`, `user_group_id`, `status_id`, `view_id`, `user_name`, `full_name`, `password`, `password_salt`, `email`, `gender`, `birthday`, `birthday_search`, `country_iso`, `language_id`, `style_id`, `time_zone`, `dst_check`, `joined`, `last_login`, `last_activity`, `user_image`, `hide_tip`, `status`, `footer_bar`, `invite_user_id`, `im_beep`, `im_hide`, `is_invisible`, `total_spam`, `last_ip_address`) VALUES
-(1, 0, 0, 1, 0, 0, 'admin', 'Den', '4b5df15326a7fba03c026fe967d29e12', '1KA', 'xian.den@gmail.com', 1, '01131988', 569030400, 'UA', NULL, 0, NULL, 0, 1344253183, 1345476758, 1345477073, NULL, 0, NULL, 0, 0, 0, 0, 0, 0, '::1'),
-(2, 0, 0, 2, 0, 0, 'profile-2', 'Den', '8e177958090de7e08582f6f1f1c3043a', '<?.', 'den@speroteck.com', 1, '01131988', 569030400, NULL, NULL, 0, NULL, 0, 1345153104, 1345476848, 1345477088, '2%s.jpg', 0, NULL, 0, 0, 0, 0, 0, 0, '::1'),
+(1, 0, 0, 1, 0, 0, 'admin', 'Den', '4b5df15326a7fba03c026fe967d29e12', '1KA', 'xian.den@gmail.com', 1, '01131988', 569030400, 'UA', NULL, 0, NULL, 0, 1344253183, 1345623257, 1345623257, NULL, 0, NULL, 0, 0, 0, 0, 0, 0, '::1'),
+(2, 0, 0, 2, 0, 0, 'profile-2', 'Den', '8e177958090de7e08582f6f1f1c3043a', '<?.', 'den@speroteck.com', 1, '01131988', 569030400, NULL, NULL, 0, NULL, 0, 1345153104, 1345591268, 1345591268, '2%s.jpg', 0, NULL, 0, 0, 0, 0, 0, 0, '127.0.0.1'),
 (3, 0, 0, 2, 0, 0, 'profile-3', 'Denis', 'dd51d4debbb0d0050d3dd435f31dbf04', 'H$*', 'den@mail.com', 1, '02011991', 665366400, NULL, NULL, 0, NULL, 0, 1345153256, 1345156109, 1345156711, NULL, 0, NULL, 0, 0, 0, 0, 0, 0, '::1'),
 (4, 1, 0, 2, 0, 7, NULL, 'my group', 'b5a4346cde41e0ad3d5fbff4256c3e5f', 'Z$X', NULL, 0, NULL, 0, NULL, NULL, 0, NULL, 0, 1345153430, 0, 1345153460, NULL, 0, NULL, 0, 0, 0, 0, 0, 0, '127.0.0.1');
 
@@ -16081,7 +16110,7 @@ CREATE TABLE IF NOT EXISTS `phpfox_user_activity` (
 --
 
 INSERT INTO `phpfox_user_activity` (`user_id`, `activity_blog`, `activity_attachment`, `activity_comment`, `activity_photo`, `activity_bulletin`, `activity_poll`, `activity_invite`, `activity_forum`, `activity_video`, `activity_total`, `activity_points`, `activity_quiz`, `activity_music_song`, `activity_marketplace`, `activity_event`, `activity_pages`) VALUES
-(1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
+(1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0),
 (2, 1, 0, 0, 1, 0, 0, 0, 0, 0, 3, 3, 0, 0, 0, 0, 1),
 (3, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0),
 (4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
@@ -16374,10 +16403,10 @@ CREATE TABLE IF NOT EXISTS `phpfox_user_field` (
 --
 
 INSERT INTO `phpfox_user_field` (`user_id`, `signature`, `signature_clean`, `designer_style_id`, `total_comment`, `total_view`, `total_friend`, `total_post`, `total_profile_song`, `total_score`, `total_rating`, `total_user_change`, `total_full_name_change`, `country_child_id`, `city_location`, `postal_code`, `subscribe_id`, `dob_setting`, `birthday_range`, `rss_count`, `css_hash`, `newsletter_state`, `in_admincp`, `default_currency`, `total_blog`, `total_video`, `total_poll`, `total_quiz`, `total_event`, `total_song`, `total_listing`, `total_photo`, `total_pages`, `brute_force_locked_at`, `relation_data_id`, `relation_with`, `cover_photo`, `cover_photo_top`, `use_timeline`) VALUES
-(1, NULL, NULL, 0, 0, 0, 1, 0, 0, '0.00', 0, 0, 0, 0, NULL, NULL, 0, 0, NULL, 0, NULL, 0, 1345403475, NULL, 0, 0, 0, 0, 0, 0, 0, 0, 0, NULL, 0, 0, 0, NULL, 0),
-(2, NULL, NULL, 0, 0, 2, 2, 0, 0, '0.00', 0, 0, 0, 0, NULL, NULL, 0, 0, '0113', 0, NULL, 0, 0, NULL, 1, 0, 0, 0, 0, 0, 0, 1, 1, NULL, 0, 0, 0, NULL, 0),
-(3, NULL, NULL, 0, 0, 1, 1, 0, 0, '0.00', 0, 0, 0, 0, NULL, NULL, 0, 0, '0201', 0, NULL, 0, 0, NULL, 0, 0, 0, 0, 0, 0, 0, 0, 0, NULL, 0, 0, 0, NULL, 0),
-(4, NULL, NULL, 0, 0, 0, 0, 0, 0, '0.00', 0, 0, 0, 0, NULL, NULL, 0, 0, NULL, 0, NULL, 0, 0, NULL, 0, 0, 0, 0, 0, 0, 0, 0, 0, NULL, 0, 0, 0, NULL, 0);
+(1, NULL, NULL, 0, 0, 0, 1, 0, 0, 0.00, 0, 0, 0, 0, NULL, NULL, 0, 0, NULL, 0, NULL, 0, 1345623165, NULL, 1, 0, 0, 0, 0, 0, 0, 0, 0, NULL, 0, 0, 0, NULL, 0),
+(2, NULL, NULL, 0, 0, 2, 2, 0, 0, 0.00, 0, 0, 0, 0, NULL, NULL, 0, 0, '0113', 0, NULL, 0, 0, NULL, 1, 0, 0, 0, 0, 0, 0, 1, 1, NULL, 0, 0, 0, NULL, 0),
+(3, NULL, NULL, 0, 0, 1, 1, 0, 0, 0.00, 0, 0, 0, 0, NULL, NULL, 0, 0, '0201', 0, NULL, 0, 0, NULL, 0, 0, 0, 0, 0, 0, 0, 0, 0, NULL, 0, 0, 0, NULL, 0),
+(4, NULL, NULL, 0, 0, 0, 0, 0, 0, 0.00, 0, 0, 0, 0, NULL, NULL, 0, 0, NULL, 0, NULL, 0, 0, NULL, 0, 0, 0, 0, 0, 0, 0, 0, 0, NULL, 0, 0, 0, NULL, 0);
 
 -- --------------------------------------------------------
 
@@ -17291,7 +17320,7 @@ CREATE TABLE IF NOT EXISTS `phpfox_user_ip` (
   KEY `ip_address` (`ip_address`),
   KEY `user_id_2` (`user_id`,`ip_address`),
   KEY `user_id_3` (`user_id`,`type_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=82 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=105 ;
 
 --
 -- Дамп данных таблицы `phpfox_user_ip`
@@ -17378,7 +17407,30 @@ INSERT INTO `phpfox_user_ip` (`ip_log`, `user_id`, `type_id`, `ip_address`, `tim
 (78, 1, 'session_login', '::1', 1345475796),
 (79, 2, 'session_login', '::1', 1345475885),
 (80, 1, 'session_login', '::1', 1345476758),
-(81, 2, 'session_login', '::1', 1345476848);
+(81, 2, 'session_login', '::1', 1345476848),
+(82, 1, 'session_login', '::1', 1345578078),
+(83, 1, 'session_login', '::1', 1345579060),
+(84, 1, 'session_login', '::1', 1345580412),
+(85, 1, 'session_login', '::1', 1345581378),
+(86, 1, 'session_login', '::1', 1345582342),
+(87, 1, 'session_login', '::1', 1345583865),
+(88, 1, 'session_login', '::1', 1345584870),
+(89, 1, 'session_login', '::1', 1345586335),
+(90, 1, 'session_login', '::1', 1345587269),
+(91, 1, 'session_login', '::1', 1345587276),
+(92, 1, 'session_login', '::1', 1345588225),
+(93, 1, 'session_login', '::1', 1345589395),
+(94, 1, 'session_login', '::1', 1345590301),
+(95, 1, 'session_login', '::1', 1345591268),
+(96, 2, 'session_login', '127.0.0.1', 1345591268),
+(97, 1, 'session_login', '::1', 1345615253),
+(98, 1, 'session_login', '::1', 1345615253),
+(99, 1, 'session_login', '::1', 1345619437),
+(100, 1, 'session_login', '::1', 1345620374),
+(101, 1, 'session_login', '::1', 1345621328),
+(102, 1, 'session_login', '::1', 1345622267),
+(103, 1, 'session_login', '::1', 1345623244),
+(104, 1, 'session_login', '::1', 1345623257);
 
 -- --------------------------------------------------------
 
@@ -17548,7 +17600,7 @@ CREATE TABLE IF NOT EXISTS `phpfox_user_track` (
 INSERT INTO `phpfox_user_track` (`item_id`, `user_id`, `time_stamp`) VALUES
 (2, 3, 1345153472),
 (3, 1, 1345387938),
-(2, 1, 1345476830);
+(2, 1, 1345586664);
 
 -- --------------------------------------------------------
 
