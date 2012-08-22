@@ -13,6 +13,10 @@ defined('PHPFOX') or exit('NO DICE!');
 ?>
 {$sCreateJs}
 
+<div>
+    {module name='pautina.friends'}
+</div>
+
 <div id="js_ajax_compose_error_message"></div>
 <div id="message-tabs">
     <ul>
