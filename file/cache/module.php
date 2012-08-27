@@ -38,6 +38,7 @@
   'notification' => 'notification',
   'page' => 'page',
   'pages' => 'pages',
+  'pautina' => 'pautina',
   'photo' => 'photo',
   'poke' => 'poke',
   'poll' => 'poll',

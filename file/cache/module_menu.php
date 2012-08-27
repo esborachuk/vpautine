@@ -235,6 +235,13 @@
   ),
   13 => 
   array (
+    'module_id' => 'pautina',
+    'is_menu' => '1',
+    'menu' => NULL,
+    'url_name' => 'pautina',
+  ),
+  14 => 
+  array (
     'module_id' => 'photo',
     'is_menu' => '1',
     'menu' => 
@@ -246,7 +253,7 @@
     ),
     'url_name' => 'photo',
   ),
-  14 => 
+  15 => 
   array (
     'module_id' => 'report',
     'is_menu' => '1',
@@ -267,7 +274,7 @@
     ),
     'url_name' => 'report',
   ),
-  15 => 
+  16 => 
   array (
     'module_id' => 'rss',
     'is_menu' => '1',
@@ -292,7 +299,7 @@
     ),
     'url_name' => 'rss',
   ),
-  16 => 
+  17 => 
   array (
     'module_id' => 'share',
     'is_menu' => '1',
@@ -309,7 +316,7 @@
     ),
     'url_name' => 'share',
   ),
-  17 => 
+  18 => 
   array (
     'module_id' => 'sms',
     'is_menu' => '1',
@@ -322,7 +329,7 @@
     ),
     'url_name' => 'sms',
   ),
-  18 => 
+  19 => 
   array (
     'module_id' => 'subscribe',
     'is_menu' => '1',
@@ -347,7 +354,7 @@
     ),
     'url_name' => 'subscribe',
   ),
-  19 => 
+  20 => 
   array (
     'module_id' => 'video',
     'is_menu' => '1',

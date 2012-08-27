@@ -1,5 +1,5 @@
 <?php defined('PHPFOX') or exit('NO DICE!'); ?>
-<?php /* Cached: August 20, 2012, 8:54 am */ ?>
+<?php /* Cached: August 27, 2012, 8:55 am */ ?>
 <?php
 /**
  * [PHPFOX_HEADER]
@@ -32,11 +32,27 @@
 					</div>
 					<div id="header_right">
 						<div id="header_top">
+<?php if (Phpfox ::isUser() && ! Phpfox ::getUserBy('profile_page_id') && Phpfox ::isModule('search')): ?>
+                            <div id="header_search">
+                                <div id="header_menu_space">
+                                    <div id="header_sub_menu_search">
+                                        <form method="post" id='header_search_form' action="<?php echo Phpfox::getLib('phpfox.url')->makeUrl('search'); ?>">
+<?php echo '<div><input type="hidden" name="' . Phpfox::getTokenName() . '[security_token]" value="' . Phpfox::getService('log.session')->getToken() . '" /></div>'; ?>
+                                            <input type="text" name="q" value="<?php echo Phpfox::getPhrase('core.search_dot'); ?>" id="header_sub_menu_search_input" autocomplete="off" class="js_temp_friend_search_input" />
+                                            <div id="header_sub_menu_search_input"></div>
+                                            <a href="#" onclick='$("#header_search_form").submit(); return false;' id="header_search_button"><?php echo Phpfox::getPhrase('core.search'); ?></a>
+                                        
+</form>
+
+                                    </div>
+                                </div>
+                            </div>
+<?php endif; ?>
 <?php if (Phpfox ::isUser() && ! Phpfox ::getUserBy('profile_page_id')): ?>
-							<div id="holder_notify">																	
+                            <div id="holder_notify">
 <?php Phpfox::getBlock('core.template-notification'); ?>
-								<div class="clear"></div>
-							</div>
+                                <div class="clear"></div>
+                            </div>
 <?php endif; ?>
 							<div id="header_menu_holder">
 <?php if (Phpfox ::isUser()): ?>
@@ -45,23 +61,7 @@
 <?php else: ?>
 <?php Phpfox::getBlock('user.login-header', array()); ?>
 <?php endif; ?>
-							</div>							
-<?php if (Phpfox ::isUser() && ! Phpfox ::getUserBy('profile_page_id') && Phpfox ::isModule('search')): ?>
-							<div id="header_search">	
-								<div id="header_menu_space">
-									<div id="header_sub_menu_search">
-										<form method="post" id='header_search_form' action="<?php echo Phpfox::getLib('phpfox.url')->makeUrl('search'); ?>">
-<?php echo '<div><input type="hidden" name="' . Phpfox::getTokenName() . '[security_token]" value="' . Phpfox::getService('log.session')->getToken() . '" /></div>'; ?>
-											<input type="text" name="q" value="<?php echo Phpfox::getPhrase('core.search_dot'); ?>" id="header_sub_menu_search_input" autocomplete="off" class="js_temp_friend_search_input" />											
-											<div id="header_sub_menu_search_input"></div>
-											<a href="#" onclick='$("#header_search_form").submit(); return false;' id="header_search_button"><?php echo Phpfox::getPhrase('core.search'); ?></a>											
-										
-</form>
-
-									</div>
-								</div>
-							</div>	
-<?php endif; ?>
+							</div
 						</div>
 					</div>
 <?php if ($this->bIsSample):  if (defined('PHPFOX_NO_WINDOW_CLICK')):  if (defined('PHPFOX_IS_AD_SAMPLE')): Phpfox::getBlock('ad.sample', array('block_id' => 6)); endif;  else: ?><div class="sample"<?php echo (!defined('PHPFOX_NO_WINDOW_CLICK') ? " onclick=\"window.parent.$('#location').val('6'); window.parent.tb_remove();\"" : ' style="cursor:default;"'); ?>><?php echo Phpfox::getPhrase('core.block') ; ?> 6<?php if (defined('PHPFOX_IS_AD_SAMPLE')): echo Phpfox::getService('ad')->getSizeForBlock("6"); endif;  if (defined('PHPFOX_IS_AD_SAMPLE')): Phpfox::getBlock('ad.sample', array('block_id' => 6)); endif; ?></div><?php endif;  else:  $aBlocks = Phpfox::getLib('phpfox.module')->getModuleBlocks('6');  $aUrl = Phpfox::getLib('url')->getParams();  $bDesigning = Phpfox::getService("theme")->isInDnDMode();  if (!Phpfox::isAdminPanel() && (PHPFOX_DESIGN_DND || $bDesigning || (defined("PHPFOX_IN_DESIGN_MODE") && PHPFOX_IN_DESIGN_MODE && in_array('6', array(1, 2, 3))))):?> <div class="js_can_move_blocks js_sortable_empty" id="js_can_move_blocks_6"> <div class="block js_sortable dnd_block_info">Position '6'</div></div><?php endif;  foreach ((array)$aBlocks as $sBlock):  if (!Phpfox::isAdminPanel() && (PHPFOX_DESIGN_DND || $bDesigning || (defined("PHPFOX_IN_DESIGN_MODE") && PHPFOX_IN_DESIGN_MODE && in_array('6', array(1, 2, 3))))):?><div class="js_can_move_blocks" id="js_can_move_blocks_6"><?php endif;  if (is_array($sBlock) && (!defined('PHPFOX_CAN_MOVE_BLOCKS') || !in_array('6', array(1, 2, 3, 4)))):  eval(' ?>' . $sBlock[0] . '<?php ');  else:  Phpfox::getBlock($sBlock);  endif;  if (!Phpfox::isAdminPanel() && (PHPFOX_DESIGN_DND || $bDesigning || (defined("PHPFOX_IN_DESIGN_MODE") && PHPFOX_IN_DESIGN_MODE && in_array('6', array(1, 2, 3))))):?></div><?php endif;  endforeach;  if (!Phpfox::isAdminPanel()):  Phpfox::getBlock('ad.display', array('block_id' => 6));  endif;  endif; ?>
