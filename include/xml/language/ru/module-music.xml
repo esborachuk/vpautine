@@ -1,0 +1,387 @@
+<phrases>
+	<phrase module_id="music" version_id="2.0.0alpha1" var_name="module_music" added="1232964704">Аудиозаписи</phrase>
+	<phrase module_id="music" version_id="2.0.0alpha1" var_name="menu_music" added="1232964721">Аудиозаписи</phrase>
+	<phrase module_id="music" version_id="2.0.0beta1" var_name="user_setting_can_upload_music_public" added="1240576566"><![CDATA[Может загружать аудио?  <b>Примечание:</b> Это позволит этой группе пользователей загружать аудиозаписи в публичном разделе аудиозаписей.]]></phrase>
+	<phrase module_id="music" version_id="2.0.0beta1" var_name="custom_group_basics" added="1240577992">Основная</phrase>
+	<phrase module_id="music" version_id="2.0.0beta1" var_name="custom_group_musician_details" added="1240600670">Исполнитель</phrase>
+	<phrase module_id="music" version_id="2.0.0beta1" var_name="custom_record_label_name" added="1240601830">Название записи</phrase>
+	<phrase module_id="music" version_id="2.0.0beta1" var_name="custom_record_label_type" added="1240601896">Тип записи</phrase>
+	<phrase module_id="music" version_id="2.0.0beta1" var_name="cf_option_indie" added="1240601896">Свободная</phrase>
+	<phrase module_id="music" version_id="2.0.0beta1" var_name="cf_option_major" added="1240601896">Основная</phrase>
+	<phrase module_id="music" version_id="2.0.0beta1" var_name="cf_option_unsigned" added="1240601896">Не подписанная</phrase>
+	<phrase module_id="music" version_id="2.0.0beta1" var_name="setting_music_user_group_id" added="1240682173"><![CDATA[<title>Музыкант пользовательская группа ID#</title><info>Обратите внимание на этот параметр, он обновляется во время установки этого модуля. Изменяйте с осторожностью.</info>]]></phrase>
+	<phrase module_id="music" version_id="2.0.0beta1" var_name="setting_music_release_date_time_stamp" added="1240750579"><![CDATA[<title>Альбом дата выпуска</title><info>Альбом дата выпуска</info>]]></phrase>
+	<phrase module_id="music" version_id="2.0.0beta1" var_name="user_setting_can_add_comment_on_music_album" added="1240764774">Может добавлять комментарии к музыкальным альбомам?</phrase>
+	<phrase module_id="music" version_id="2.0.0beta1" var_name="user_setting_can_add_comment_on_music_song" added="1241093826">Может добавлять комментарии к аудиозаписям?</phrase>
+	<phrase module_id="music" version_id="2.0.0beta1" var_name="user_setting_can_edit_other_music_albums" added="1241094555">Может редактировать альбомы, созданные другими пользователями?</phrase>
+	<phrase module_id="music" version_id="2.0.0beta1" var_name="user_setting_can_edit_own_albums" added="1241094832">Может редактировать свои альбомы?</phrase>
+	<phrase module_id="music" version_id="2.0.0beta1" var_name="user_setting_can_delete_own_track" added="1241096074">Может удалять свои аудиозаписи?</phrase>
+	<phrase module_id="music" version_id="2.0.0beta1" var_name="user_setting_can_delete_other_tracks" added="1241096110">Может удалять аудиозаписи, добавленные другими пользователями?</phrase>
+	<phrase module_id="music" version_id="2.0.0beta1" var_name="user_setting_can_delete_own_music_album" added="1241097159">Может удалять собственные музыкальные альбомы?</phrase>
+	<phrase module_id="music" version_id="2.0.0beta1" var_name="user_setting_can_delete_other_music_albums" added="1241097213">Может удалять альбомы, добавленные другими пользователями?</phrase>
+	<phrase module_id="music" version_id="2.0.0beta1" var_name="menu_upload_a_song" added="1241340149">Загрузить аудиозапись</phrase>
+	<phrase module_id="music" version_id="2.0.0beta1" var_name="menu_create_an_album" added="1241340185">Создать альбом</phrase>
+	<phrase module_id="music" version_id="2.0.0beta1" var_name="admin_menu_add_genre" added="1241343069">Добавить жанр</phrase>
+	<phrase module_id="music" version_id="2.0.0beta1" var_name="admin_menu_manage_genres" added="1241343084">Управление жанрами</phrase>
+	<phrase module_id="music" version_id="2.0.0beta2" var_name="user_setting_music_max_file_size" added="1242639441">Максимальный размер файла аудиозаписи для загрузки.</phrase>
+	<phrase module_id="music" version_id="2.0.0beta2" var_name="band_artist_name" added="1242644077">Исполнитель</phrase>
+	<phrase module_id="music" version_id="2.0.0rc1" var_name="menu_artists" added="1250509545">Исполнители</phrase>
+	<phrase module_id="music" version_id="2.0.0rc1" var_name="menu_songs" added="1250509634">Аудиозаписи</phrase>
+	<phrase module_id="music" version_id="2.0.0rc1" var_name="menu_albums" added="1250509655">Альбомы</phrase>
+	<phrase module_id="music" version_id="2.0.0rc1" var_name="user_setting_can_feature_songs" added="1250515236">Может изменять детали аудиозаписи?</phrase>
+	<phrase module_id="music" version_id="2.0.0rc1" var_name="user_setting_can_approve_songs" added="1250517082">Может проверять аудиозаписи?</phrase>
+	<phrase module_id="music" version_id="2.0.0rc1" var_name="user_setting_music_song_approval" added="1250581594">Аудиозаписи должны быть утверждены в первую очередь?</phrase>
+	<phrase module_id="music" version_id="2.0.0rc1" var_name="user_setting_can_feature_music_albums" added="1250589165">Может изменять музыкальные альбомы?</phrase>
+	<phrase module_id="music" version_id="2.0.0rc1" var_name="user_setting_total_song_on_profile" added="1250598448">Определите количество аудиозаписей, которое эта группа пользователей может загрузить в свой профилю\ь.</phrase>
+	<phrase module_id="music" version_id="2.0.0rc1" var_name="menu_view_my_songs" added="1250667421">Мои аудиозаписи</phrase>
+	<phrase module_id="music" version_id="2.0.0rc1" var_name="menu_view_my_albums" added="1250667477">Мои альбомы</phrase>
+	<phrase module_id="music" version_id="2.0.0rc4" var_name="this_song_has_been_added_to_your_profile" added="1255081114">Эта аудиозапись добавлена в ваш профиль.</phrase>
+	<phrase module_id="music" version_id="2.0.0rc4" var_name="this_song_has_been_removed_from_your_profile" added="1255081122">Эта аудиозапись удалена из вашего профиля.</phrase>
+	<phrase module_id="music" version_id="2.0.0rc4" var_name="basic_info" added="1255081144">Основная информация</phrase>
+	<phrase module_id="music" version_id="2.0.0rc4" var_name="albums" added="1255081153">Альбомы</phrase>
+	<phrase module_id="music" version_id="2.0.0rc4" var_name="browse_filter" added="1255081171">Фильтр поиска</phrase>
+	<phrase module_id="music" version_id="2.0.0rc4" var_name="latest" added="1255081207">Последние</phrase>
+	<phrase module_id="music" version_id="2.0.0rc4" var_name="genres" added="1255081223">Жанры</phrase>
+	<phrase module_id="music" version_id="2.0.0rc4" var_name="latest_tracks" added="1255081248">Последние аудиозаписи</phrase>
+	<phrase module_id="music" version_id="2.0.0rc4" var_name="favorite_songs" added="1255081262">Избранные аудиозаписи</phrase>
+	<phrase module_id="music" version_id="2.0.0rc4" var_name="provide_a_genre_name" added="1255081283">Укажите название жанра.</phrase>
+	<phrase module_id="music" version_id="2.0.0rc4" var_name="genre_successfully_added" added="1255081291">Жанр успешно добавлен.</phrase>
+	<phrase module_id="music" version_id="2.0.0rc4" var_name="add_genre" added="1255081298">Добавить жанр</phrase>
+	<phrase module_id="music" version_id="2.0.0rc4" var_name="successfully_deleted_genres" added="1255081310">Жанры успешно удалены.</phrase>
+	<phrase module_id="music" version_id="2.0.0rc4" var_name="manage_genres" added="1255081355">Управление жанрами</phrase>
+	<phrase module_id="music" version_id="2.0.0rc4" var_name="date_added" added="1255081377">Дата добавления</phrase>
+	<phrase module_id="music" version_id="2.0.0rc4" var_name="name" added="1255081385">Название</phrase>
+	<phrase module_id="music" version_id="2.0.0rc4" var_name="music_albums" added="1255081396">Альбомы</phrase>
+	<phrase module_id="music" version_id="2.0.0rc4" var_name="music" added="1255081404">Аудио</phrase>
+	<phrase module_id="music" version_id="2.0.0rc4" var_name="popular" added="1255081436">Популярные</phrase>
+	<phrase module_id="music" version_id="2.0.0rc4" var_name="recent_songs" added="1255081451">Последние аудиозаписи</phrase>
+	<phrase module_id="music" version_id="2.0.0rc4" var_name="featured" added="1255081458">Рекомендуемые</phrase>
+	<phrase module_id="music" version_id="2.0.0rc4" var_name="pending" added="1255081472">Ожидает</phrase>
+	<phrase module_id="music" version_id="2.0.0rc4" var_name="music_songs" added="1255081485">Аудиозаписи</phrase>
+	<phrase module_id="music" version_id="2.0.0rc4" var_name="songs" added="1255081498">Аудиозаписи</phrase>
+	<phrase module_id="music" version_id="2.0.0rc4" var_name="provide_a_name_for_this_album" added="1255081511">Укажите имя для этого альбома.</phrase>
+	<phrase module_id="music" version_id="2.0.0rc4" var_name="album_successfully_updated" added="1255081522">Альбом успешно обновлен.</phrase>
+	<phrase module_id="music" version_id="2.0.0rc4" var_name="tracks_successfully_uploaded" added="1255081534">Аудиозаписи успешно загружены.</phrase>
+	<phrase module_id="music" version_id="2.0.0rc4" var_name="note_that_it_will_have_to_be_approved_first_before_it_is_displayed_publicly" added="1255081544">Обратите внимание, что аудиозапись нужно будет проверить, прежде чем она будет отображается публично</phrase>
+	<phrase module_id="music" version_id="2.0.0rc4" var_name="album_art_successfully_updated" added="1255081616">Обложка альбома успешно обновлена.</phrase>
+	<phrase module_id="music" version_id="2.0.0rc4" var_name="album_successfully_added" added="1255081768">Альбом успешно добавлен.</phrase>
+	<phrase module_id="music" version_id="2.0.0rc4" var_name="update_album" added="1255081778">Загрузить альбом</phrase>
+	<phrase module_id="music" version_id="2.0.0rc4" var_name="create_album" added="1255081791">Создать альбом</phrase>
+	<phrase module_id="music" version_id="2.0.0rc4" var_name="date_joined" added="1255081823">Дата регистрации</phrase>
+	<phrase module_id="music" version_id="2.0.0rc4" var_name="album_you_are_looking_for_cannot_be_found" added="1255081864">Альбом, который вы ищете, не существует.</phrase>
+	<phrase module_id="music" version_id="2.0.0rc4" var_name="provide_a_artist_band_name" added="1255081881">Утвердить исполнителя.</phrase>
+	<phrase module_id="music" version_id="2.0.0rc4" var_name="tick_the_box_to_agree_to_our_terms_and_privacy_policy" added="1255081890">Поставьте галочку чтобы согласиться с правилами.</phrase>
+	<phrase module_id="music" version_id="2.0.0rc4" var_name="provide_a_value_for" added="1255081900">Укажите значение для</phrase>
+	<phrase module_id="music" version_id="2.0.0rc4" var_name="you_have_successfully_converted_your_account" added="1255081909">Вы изменили статус вашей учетной записи.</phrase>
+	<phrase module_id="music" version_id="2.0.0rc4" var_name="musician_registration" added="1255081922">Регистрация музыканта</phrase>
+	<phrase module_id="music" version_id="2.0.0rc4" var_name="registration" added="1255081934">Регистрация</phrase>
+	<phrase module_id="music" version_id="2.0.0rc4" var_name="provide_a_name_for_this_song" added="1255081947">Укажите имя для этой аудиозаписи.</phrase>
+	<phrase module_id="music" version_id="2.0.0rc4" var_name="your_song_was_successfully_uploaded" added="1255081959">Ваша аудиозапись успешно загружена.</phrase>
+	<phrase module_id="music" version_id="2.0.0rc4" var_name="upload_a_song" added="1255081996">Загрузить аудиозапись</phrase>
+	<phrase module_id="music" version_id="2.0.0rc4" var_name="unable_to_find_the_album_you_are_looking_for" added="1255082018">Невозможно найти альбом, который вы ищете.</phrase>
+	<phrase module_id="music" version_id="2.0.0rc4" var_name="total_rating_ratings" added="1255082186">{total_rating} Оценок</phrase>
+	<phrase module_id="music" version_id="2.0.0rc4" var_name="poor" added="1255082230">Плохо</phrase>
+	<phrase module_id="music" version_id="2.0.0rc4" var_name="nothing_special" added="1255082238">Ничего особенного</phrase>
+	<phrase module_id="music" version_id="2.0.0rc4" var_name="worth_listening_too" added="1255082246">Можно послушать</phrase>
+	<phrase module_id="music" version_id="2.0.0rc4" var_name="pretty_cool" added="1255082256">Хорошо</phrase>
+	<phrase module_id="music" version_id="2.0.0rc4" var_name="awesome" added="1255082263">Отлично</phrase>
+	<phrase module_id="music" version_id="2.0.0rc4" var_name="you_have_already_voted" added="1255082288">Вы уже голосовали.</phrase>
+	<phrase module_id="music" version_id="2.0.0rc4" var_name="you_cannot_rate_your_own_album" added="1255082297">Вы не можете оценивать свой альбом.</phrase>
+	<phrase module_id="music" version_id="2.0.0rc4" var_name="the_song_you_are_looking_for_cannot_be_found" added="1255082310">Песня, которую вы ищете, не найдена.</phrase>
+	<phrase module_id="music" version_id="2.0.0rc4" var_name="unable_to_find_the_album_this_song_belongs_to" added="1255082384">Невозможно найти альбом, к которому принадлежит эта аудиозапись.</phrase>
+	<phrase module_id="music" version_id="2.0.0rc4" var_name="you_cannot_rate_your_own_song" added="1255082435">Вы не можете оценивать свои аудиозаписи.</phrase>
+	<phrase module_id="music" version_id="2.0.0rc4" var_name="unable_to_find_the_album_you_want_to_edit" added="1255082469">Невозможно найти альбом, который вы хотите изменить.</phrase>
+	<phrase module_id="music" version_id="2.0.0rc4" var_name="unable_to_edit_this_album" added="1255082477">Невозможно изменить этот альбом.</phrase>
+	<phrase module_id="music" version_id="2.0.0rc4" var_name="provide_a_title_for_this_track" added="1255082532">Укажите заголовок для этой аудиозаписи.</phrase>
+	<phrase module_id="music" version_id="2.0.0rc4" var_name="not_allowed_to_edit_this_photo_album_art" added="1255082553">Ошибка.</phrase>
+	<phrase module_id="music" version_id="2.0.0rc4" var_name="album_you_are_trying_to_delete_cannot_be_found" added="1255082564">Ошибка.</phrase>
+	<phrase module_id="music" version_id="2.0.0rc4" var_name="not_allowed_to_delete_this_album" added="1255082575">Ошибка.</phrase>
+	<phrase module_id="music" version_id="2.0.0rc4" var_name="a_href_user_link_full_name_a_added_a_new_comment_on_their_own_a_href_title_link_song" added="1255082706"><![CDATA[<a href="{user_link}">{full_name}</a> оставил(а) новый комментарий к своей <a href="{title_link}">аудиозаписи</a>.]]></phrase>
+	<phrase module_id="music" version_id="2.0.0rc4" var_name="a_href_user_link_full_name_a_added_a_new_comment_on_your_a_href_title_link_song_a" added="1255082766"><![CDATA[<a href="{user_link}">{full_name}</a> оставил(а) комментарий к вашей <a href="{title_link}">аудиозаписи</a>.]]></phrase>
+	<phrase module_id="music" version_id="2.0.0rc4" var_name="a_href_user_link_full_name_a_added_a_new_comment_on_a_href_item_user_link_item_user_n" added="1255082794"><![CDATA[<a href="{user_link}">{full_name}</a> оставил(а) комментарий к  <a href="{title_link}">аудиозаписи</a> пользователя <a href="{item_user_link}">{item_user_name}'s</a>.]]></phrase>
+	<phrase module_id="music" version_id="2.0.0rc4" var_name="invalid_callback_on_music_song" added="1255082855">Ошибка.</phrase>
+	<phrase module_id="music" version_id="2.0.0rc4" var_name="user_name_left_you_a_comment_on_site_title" added="1255082873">{user_name} оставил(а) вам комментарий в {site_title}.</phrase>
+	<phrase module_id="music" version_id="2.0.0rc4" var_name="user_name_left_you_a_comment_on_your_song_title" added="1255082959"><![CDATA[{user_name} оставил(а) комментарий к вашей аудиозаписи "{title}".  Чтобы посмотреть комментарий, перейдите по этой ссылке: <a href="{link}">{link}</a>]]></phrase>
+	<phrase module_id="music" version_id="2.0.0rc4" var_name="user_name_left_you_a_comment_on_your_music_album_name" added="1255083035"><![CDATA[{user_name} оставил(а) комментарий к вашему музыкальному альбому "{title}".  Чтобы посмотреть комментарий, перейдите по этой ссылке: <a href="{link}">{link}</a>]]></phrase>
+	<phrase module_id="music" version_id="2.0.0rc4" var_name="a_href_user_link_full_name_a_added_a_new_comment_on_their_own_a_href_title_link_music" added="1255083989"><![CDATA[<a href="{user_link}">{full_name}</a> оставил(а) комментарий к собственному <a href="{title_link}">музыкальному альбому</a>.]]></phrase>
+	<phrase module_id="music" version_id="2.0.0rc4" var_name="a_href_user_link_full_name_a_added_a_new_comment_on_your_a_href_title_link_music_album" added="1255084044"><![CDATA[<a href="{user_link}">{full_name}</a> оставил(а) комментарий к вашему <a href="{title_link}">музыкальному альбому</a>.]]></phrase>
+	<phrase module_id="music" version_id="2.0.0rc4" var_name="added_a_new_comment_on_a_href_item_user_link_item_user_name_s_album" added="1255084077"><![CDATA[<a href="{user_link}">{full_name}</a> оставил(а) комментарий к <a href="{title_link}">музыкальному альбому</a> пользователя <a href="{item_user_link}">{item_user_name}'s</a>.]]></phrase>
+	<phrase module_id="music" version_id="2.0.0rc4" var_name="your_song_title_has_been_approved" added="1255084164"><![CDATA[Ваша аудиозапись "{title}" подтверждена.]]></phrase>
+	<phrase module_id="music" version_id="2.0.0rc4" var_name="manage_songs" added="1255084212">Управление аудиозаписями</phrase>
+	<phrase module_id="music" version_id="2.0.0rc4" var_name="music_album_text" added="1255084223">Текст музыкального альбома</phrase>
+	<phrase module_id="music" version_id="2.0.0rc4" var_name="select_an_mp3" added="1255084249">Выберите MP3.</phrase>
+	<phrase module_id="music" version_id="2.0.0rc4" var_name="you_have_reached_your_limit_max_songs_allowed_total" added="1255084287">Вы достигли своего лимита. Максимальное кол-во аудиозаписей: {total}</phrase>
+	<phrase module_id="music" version_id="2.0.0rc4" var_name="unable_to_find_the_song_you_want_to_approve" added="1255084308">Невозможно найти аудиозапись, которую вы хотите подтвердить.</phrase>
+	<phrase module_id="music" version_id="2.0.0rc4" var_name="your_song_title_has_been_approved_on_site_title" added="1255084330"><![CDATA[Ваша аудиозапись "{title}" была подтверждена на {site_title}.]]></phrase>
+	<phrase module_id="music" version_id="2.0.0rc4" var_name="your_song_title_has_been_approved_on_site_title_to_view_this_song" added="1255084396"><![CDATA[Ваша аудиозапись "{title}" была подтверждена на {site_title}.  Чтобы послушать эту аудиозапись, пожалуйста, перейдите по этой ссылке: <a href="{link}">{link}</a>]]></phrase>
+	<phrase module_id="music" version_id="2.0.0rc4" var_name="there_is_one_song_that_is_pending_approval" added="1255084599">Аудиозапись ожидает проверки.</phrase>
+	<phrase module_id="music" version_id="2.0.0rc4" var_name="there_are_total_songs_that_are_pending_approval" added="1255084611">{total} аудиозаписей ожидают проверки.</phrase>
+	<phrase module_id="music" version_id="2.0.0rc4" var_name="click_here_to_approve_songs" added="1255084741">Нажмите здесь, чтобы подтвердить аудиозаписи.</phrase>
+	<phrase module_id="music" version_id="2.0.0rc4" var_name="no_songs_found" added="1255084750">Аудиозаписи не найдены.</phrase>
+	<phrase module_id="music" version_id="2.0.0rc4" var_name="view_this_album" added="1255084762">Посмотреть этот альбом.</phrase>
+	<phrase module_id="music" version_id="2.0.0rc4" var_name="skip_amp_view_this_album" added="1255084770">Пропустить и посмотреть этот альбом.</phrase>
+	<phrase module_id="music" version_id="2.0.0rc4" var_name="step_1" added="1255084781">Шаг 1</phrase>
+	<phrase module_id="music" version_id="2.0.0rc4" var_name="album_details" added="1255086513">Об альбоме</phrase>
+	<phrase module_id="music" version_id="2.0.0rc4" var_name="step_2" added="1255086674">Шаг 2</phrase>
+	<phrase module_id="music" version_id="2.0.0rc4" var_name="album_art" added="1255086683">Обложка альбома</phrase>
+	<phrase module_id="music" version_id="2.0.0rc4" var_name="step_3" added="1255086715">Шаг 3</phrase>
+	<phrase module_id="music" version_id="2.0.0rc4" var_name="tracks" added="1255086722">Аудиозаписи</phrase>
+	<phrase module_id="music" version_id="2.0.0rc4" var_name="album_name" added="1255086736">Имя альбома</phrase>
+	<phrase module_id="music" version_id="2.0.0rc4" var_name="album_year" added="1255086745">Год альбома</phrase>
+	<phrase module_id="music" version_id="2.0.0rc4" var_name="description" added="1255086752">Описание</phrase>
+	<phrase module_id="music" version_id="2.0.0rc4" var_name="add_album" added="1255086770">Добавить альбом</phrase>
+	<phrase module_id="music" version_id="2.0.0rc4" var_name="select_photo" added="1255086779">Выбрать фотографию</phrase>
+	<phrase module_id="music" version_id="2.0.0rc4" var_name="are_you_sure" added="1255086913">Вы уверены?</phrase>
+	<phrase module_id="music" version_id="2.0.0rc4" var_name="click_a_href_onclick_javascript_here_a_to_delete_this_image_and_upload_a_new_one_in_its_p" added="1255086946"><![CDATA[Нажми <a href="#" onclick="{javascript}">здесь</a> чтобы удалить это изображение и загрузить новое на её место.]]></phrase>
+	<phrase module_id="music" version_id="2.0.0rc4" var_name="you_can_upload_a_jpg_gif_or_png_file" added="1255086964">Вы можете загрузить JPG, GIF или PNG файл.</phrase>
+	<phrase module_id="music" version_id="2.0.0rc4" var_name="upload" added="1255087033">Загрузить</phrase>
+	<phrase module_id="music" version_id="2.0.0rc4" var_name="upload_track" added="1255087042">Загрузить аудиозапись</phrase>
+	<phrase module_id="music" version_id="2.0.0rc4" var_name="album_tracks" added="1255087061">Аудиозаписи альбома</phrase>
+	<phrase module_id="music" version_id="2.0.0rc4" var_name="no_musicians_found" added="1255087525">Музыкантов не найдено.</phrase>
+	<phrase module_id="music" version_id="2.0.0rc4" var_name="no_musicians_have_joined" added="1255087532">Музыкантов не найдено.</phrase>
+	<phrase module_id="music" version_id="2.0.0rc4" var_name="join_now_if_you_are_a_musician" added="1255087541">Вступи сейчас, если ты музыкант.</phrase>
+	<phrase module_id="music" version_id="2.0.0rc4" var_name="you_retain_all_rights_in_your_music_that_you_upload" added="1255087565"><![CDATA[<p>Соблюдайте законы об авторских правах  </p>]]></phrase>
+	<phrase module_id="music" version_id="2.0.0rc4" var_name="b_notice_b_you_have_an_admin_account_and_if_you_convert_your_account_into_a_musicians_account" added="1255087579"><![CDATA[<b>Осторожно:</b> Вы администратор, при создании вы смените группу и потеряете права администратора.]]></phrase>
+	<phrase module_id="music" version_id="2.0.0rc4" var_name="artist_band_name" added="1255087589">Исполнитель</phrase>
+	<phrase module_id="music" version_id="2.0.0rc4" var_name="register" added="1255087857">Продолжить</phrase>
+	<phrase module_id="music" version_id="2.0.0rc4" var_name="play_all_total_track" added="1255087904">Воспроизвести все ({total_track})</phrase>
+	<phrase module_id="music" version_id="2.0.0rc4" var_name="about_this_album" added="1255087923">Об этом альбоме</phrase>
+	<phrase module_id="music" version_id="2.0.0rc4" var_name="tracklist" added="1255087931">Список воспроизведения</phrase>
+	<phrase module_id="music" version_id="2.0.0rc3" var_name="rating" added="1254405150">Рейтинг</phrase>
+	<phrase module_id="music" version_id="2.0.0rc3" var_name="plays" added="1254405176">Просмотров</phrase>
+	<phrase module_id="music" version_id="2.0.0rc3" var_name="released" added="1254405185">Релиз</phrase>
+	<phrase module_id="music" version_id="2.0.0rc3" var_name="total_play_plays" added="1254405321">{total_play} раз прослушали</phrase>
+	<phrase module_id="music" version_id="2.0.0rc3" var_name="total_track_tracks" added="1254405469">{total_track} аудиозаписей</phrase>
+	<phrase module_id="music" version_id="2.0.0rc3" var_name="by" added="1254405591">Загрузил</phrase>
+	<phrase module_id="music" version_id="2.0.0rc3" var_name="album" added="1254405601">Альбом</phrase>
+	<phrase module_id="music" version_id="2.0.0rc3" var_name="approve_this_song" added="1254405626">Разрешить эту песню.</phrase>
+	<phrase module_id="music" version_id="2.0.0rc3" var_name="feature_this_song" added="1254405668">Рекомендовать</phrase>
+	<phrase module_id="music" version_id="2.0.0rc3" var_name="un_feature_this_song" added="1254405706">Убрать рекомендацию</phrase>
+	<phrase module_id="music" version_id="2.0.0rc3" var_name="add_this_song_to_your_profile" added="1254405724">Добавить аудиозапись в мой профиль</phrase>
+	<phrase module_id="music" version_id="2.0.0rc3" var_name="report_this_song" added="1254406065">Пожаловаться на эту аудиозапись</phrase>
+	<phrase module_id="music" version_id="2.0.0rc3" var_name="delete_track" added="1254406141">Удалить аудиозапись</phrase>
+	<phrase module_id="music" version_id="2.0.0rc3" var_name="keywords" added="1254576099">По алфавиту</phrase>
+	<phrase module_id="music" version_id="2.0.0rc3" var_name="sort" added="1254576109">Сортировать</phrase>
+	<phrase module_id="music" version_id="2.0.0rc3" var_name="submit" added="1254576138">Создать</phrase>
+	<phrase module_id="music" version_id="2.0.0rc3" var_name="reset" added="1254576149">Сбросить</phrase>
+	<phrase module_id="music" version_id="2.0.0rc3" var_name="genre" added="1254576165">Жанр</phrase>
+	<phrase module_id="music" version_id="2.0.0rc3" var_name="genre_total" added="1254576248">Жанр {total}</phrase>
+	<phrase module_id="music" version_id="2.0.0rc3" var_name="none" added="1254576296">Пусто</phrase>
+	<phrase module_id="music" version_id="2.0.0rc3" var_name="added" added="1254576519">Добавлено</phrase>
+	<phrase module_id="music" version_id="2.0.0rc3" var_name="total_plays" added="1254576703">{total} раз прослушали</phrase>
+	<phrase module_id="music" version_id="2.0.0rc3" var_name="total_tracks" added="1254576826">{total} аудиозаписей</phrase>
+	<phrase module_id="music" version_id="2.0.0rc3" var_name="all" added="1254576960">Все</phrase>
+	<phrase module_id="music" version_id="2.0.0rc3" var_name="edit" added="1254576993">Изменить</phrase>
+	<phrase module_id="music" version_id="2.0.0rc3" var_name="upload_new_track" added="1254577009">Загрузить новую аудиозапись</phrase>
+	<phrase module_id="music" version_id="2.0.0rc3" var_name="delete_album" added="1254577030">Удалить альбом</phrase>
+	<phrase module_id="music" version_id="2.0.0rc3" var_name="report" added="1254577104">Пожаловаться</phrase>
+	<phrase module_id="music" version_id="2.0.0rc3" var_name="report_this_music_album" added="1254577196">Пожаловаться</phrase>
+	<phrase module_id="music" version_id="2.0.0rc3" var_name="feature_this_album" added="1254577227">Отметить этот альбом</phrase>
+	<phrase module_id="music" version_id="2.0.0rc3" var_name="un_feature_this_album" added="1254577240">Снять отметку с альбома</phrase>
+	<phrase module_id="music" version_id="2.0.0rc3" var_name="feature" added="1254577262">Отметить</phrase>
+	<phrase module_id="music" version_id="2.0.0rc3" var_name="unfeature" added="1254577273">Снять отметку</phrase>
+	<phrase module_id="music" version_id="2.0.0rc3" var_name="add_to_profile" added="1254577423">Добавить в профиль</phrase>
+	<phrase module_id="music" version_id="2.0.0rc3" var_name="remove_this_song_from_your_profile" added="1254577440">Удалить эту аудиозапись из профиля.</phrase>
+	<phrase module_id="music" version_id="2.0.0rc3" var_name="remove_from_profile" added="1254577453">Удалить из профиля</phrase>
+	<phrase module_id="music" version_id="2.0.0rc3" var_name="approve" added="1254577485">Подтвердить</phrase>
+	<phrase module_id="music" version_id="2.0.0rc3" var_name="cannot_display_player_while_designing_your_profile" added="1254577663">Ошибка.</phrase>
+	<phrase module_id="music" version_id="2.0.0rc3" var_name="you_retain_all_rights_in_your_music_that_you_upload_you_must_only_upload_music_in_which_you_own_all" added="1254578051"><![CDATA[<p>Соблюдайте законы об авторских правах  </p>]]></phrase>
+	<phrase module_id="music" version_id="2.0.0rc3" var_name="uploading_copyrighted_music_without_the_explicit_consent_of_the_copyright_owner_will_result_in_your" added="1254578072">Загрузка аудиозаписей с нарушением авторских прав может стать причиной немедленной блокировки вашего аккаунта.</phrase>
+	<phrase module_id="music" version_id="2.0.0rc3" var_name="select" added="1254578101">Выбрать</phrase>
+	<phrase module_id="music" version_id="2.0.0rc3" var_name="select_mp3" added="1254578160">Выбрать MP3</phrase>
+	<phrase module_id="music" version_id="2.0.0rc3" var_name="max_file_size" added="1254578172">Максимальный размер файла</phrase>
+	<phrase module_id="music" version_id="2.0.0rc3" var_name="song_name" added="1254578184">Имя аудиозаписи</phrase>
+	<phrase module_id="music" version_id="2.0.0rc3" var_name="check_if_song_contains_explicit_lyrics" added="1254578225">Проверить, содержит ли аудиозапись текст.</phrase>
+	<phrase module_id="music" version_id="2.0.0rc3" var_name="genre_details" added="1254578252">Детали Жанра</phrase>
+	<phrase module_id="music" version_id="2.0.0rc3" var_name="genre_name" added="1254578368">Имя Жанра</phrase>
+	<phrase module_id="music" version_id="2.0.0rc3" var_name="delete_selected" added="1254578467">Удалить выбранное</phrase>
+	<phrase module_id="music" version_id="2.0.0rc3" var_name="no_albums_found" added="1254578672">Альбомы не найдены.</phrase>
+	<phrase module_id="music" version_id="2.0.0rc4" var_name="i_have_read_and_agree_to_the_terms_of_use_and_privacy_policy" added="1255089163"><![CDATA[Я прочитал и согласен с <a href="#" id="js_terms_of_use">условиями использования</a> и <a href="#" id="js_privacy_policy">политикой приватности</a>.]]></phrase>
+	<phrase module_id="music" version_id="2.0.0rc4" var_name="no_albums_have_been_created_yet" added="1255092650">Альбомы еще не созданы.</phrase>
+	<phrase module_id="music" version_id="2.0.0rc4" var_name="click_here_to_create_one" added="1255092682">Нажмите здесь, чтобы создать.</phrase>
+	<phrase module_id="music" version_id="2.0.0rc4" var_name="play" added="1255092732">Воспроизвести</phrase>
+	<phrase module_id="music" version_id="2.0.0rc4" var_name="are_you_sure_this_will_delete_all_tracks_that_belong_to_this_album_and_cannot_be_undone" added="1255092976">Вы уверены? Это позволит удалить все аудиозаписи, которые входят в этот альбом. Действие не обратимо.</phrase>
+	<phrase module_id="music" version_id="2.0.0rc4" var_name="no_songs_uploaded_yet" added="1255093004">Аудиозаписи не загружены.</phrase>
+	<phrase module_id="music" version_id="2.0.0rc4" var_name="no_songs_added_yet" added="1255093013">Нет добавленной аудиозаписей.</phrase>
+	<phrase module_id="music" version_id="2.0.0rc4" var_name="click_here_to_upload" added="1255093081">Нажмите здесь, чтобы загрузить.</phrase>
+	<phrase module_id="music" version_id="2.0.0rc4" var_name="click_here_to_find_songs" added="1255093089">Нажмите здесь, чтобы найти аудиозаписи.</phrase>
+	<phrase module_id="music" version_id="2.0.0rc6" var_name="setting_music_index_controller" added="1256893249"><![CDATA[<title>MIndex Controller</title><info>Выберите, какой контроллер следует использовать при просмотре индекса аудиозаписей.</info>]]></phrase>
+	<phrase module_id="music" version_id="2.0.0rc6" var_name="full_name_uploaded_a_new_song" added="1257252374"><![CDATA[<a href="{profile_link}">{full_name}</a> загрузил(а) новую аудиозапись "<a href="{link}">{title}</a>".]]></phrase>
+	<phrase module_id="music" version_id="2.0.0rc6" var_name="full_name_uploaded_a_new_song_to_the_album" added="1257253578"><![CDATA[<a href="{profile_link}">{full_name}</a> загрузил(а) аудиозапись "<a href="{link}">{title}</a>" в альбом "<a href="{album_link}">{album_title}</a>".]]></phrase>
+	<phrase module_id="music" version_id="2.0.0rc6" var_name="add_to_favorites" added="1257317596">Добавить в избранное</phrase>
+	<phrase module_id="music" version_id="2.0.0rc8" var_name="approved" added="1258377477">Подтвержден.</phrase>
+	<phrase module_id="music" version_id="2.0.0rc8" var_name="no_music_albums_have_been_created" added="1258397590">Музыкальные альбомы небыли созданы.</phrase>
+	<phrase module_id="music" version_id="2.0.0rc8" var_name="there_are_new_featured_albums" added="1258397705">Появились новые популярные альбомы.</phrase>
+	<phrase module_id="music" version_id="2.0.0rc8" var_name="there_are_no_featured_albums" added="1258397713">Нет популярных альбомов.</phrase>
+	<phrase module_id="music" version_id="2.0.0rc8" var_name="music_album_count" added="1258979956">Кол-во музыкальных альбомов</phrase>
+	<phrase module_id="music" version_id="2.0.0rc8" var_name="music_album_track_count" added="1258979966">Кол-во аудиозаписей</phrase>
+	<phrase module_id="music" version_id="2.0.0rc8" var_name="no_tracks_have_been_added" added="1259090492">Ни одной аудиозаписи не было добавлено.</phrase>
+	<phrase module_id="music" version_id="2.0.0rc10" var_name="music_album_successfully_deleted" added="1259677776">Музыкальный альбом успешно удален.</phrase>
+	<phrase module_id="music" version_id="2.0.0rc11" var_name="user_setting_can_access_music" added="1260286510">Может искать и слушать аудиозаписи?</phrase>
+	<phrase module_id="music" version_id="2.0.0rc12" var_name="a_href_user_link_full_name_a_liked_their_own_a_href_link_song_a" added="1260453013"><![CDATA[<a href="{user_link}">{full_name}</a> нравится собственная <a href="{link}">аудиозапись</a>.]]></phrase>
+	<phrase module_id="music" version_id="2.0.0rc12" var_name="a_href_user_link_full_name_a_liked_a_href_view_user_link_view_full_name_a_s_a_href_link_song_a" added="1260453036"><![CDATA[<a href="{user_link}">{full_name}</a> нравится аудиозапись <a href="{view_user_link}">{view_full_name}</a> <a href="{link}">в его профиле</a>.]]></phrase>
+	<phrase module_id="music" version_id="2.0.0rc12" var_name="a_href_user_link_full_name_a_liked_your_a_href_link_song_a" added="1260457612"><![CDATA[<a href="{user_link}">{full_name}</a> нравится твоя <a href="{link}">аудиозапись</a>.]]></phrase>
+	<phrase module_id="music" version_id="2.0.0" var_name="add_a_genre" added="1261510451">Создать жанр.</phrase>
+	<phrase module_id="music" version_id="2.0.4" var_name="album_plays_count" added="1266502930">играет</phrase>
+	<phrase module_id="music" version_id="2.0.4" var_name="eg_1982" added="1266933559">eg. 1982</phrase>
+	<phrase module_id="music" version_id="2.0.4" var_name="view_more" added="1266942360">Ещё</phrase>
+	<phrase module_id="music" version_id="2.0.5" var_name="setting_sponsored_songs_to_show" added="1270126817"><![CDATA[<title>Количество рекламодателей</title><info>Этот параметр ограничивает, количество рекламодателей у аудиозаписи.</info>]]></phrase>
+	<phrase module_id="music" version_id="2.0.5" var_name="sponsored_music_songs" added="1270130142">Реклама в аудизаписях</phrase>
+	<phrase module_id="music" version_id="2.0.5" var_name="user_setting_can_sponsor_song" added="1270548424">Могут ли пользователи этой группы размещать рекламу в аудиозаписях?</phrase>
+	<phrase module_id="music" version_id="2.0.5" var_name="unsponsor_this_song" added="1270558435">Завершить рекламную компанию аудиозаписи</phrase>
+	<phrase module_id="music" version_id="2.0.5" var_name="sponsor_this_song" added="1270558451">Начать рекламную компанию аудиозаписи</phrase>
+	<phrase module_id="music" version_id="2.0.5" var_name="song_successfully_sponsored" added="1270560707">Рекламная компания аудиозаписи начата</phrase>
+	<phrase module_id="music" version_id="2.0.5" var_name="song_successfully_un_sponsored" added="1270560725">Рекламная компания аудиозаписи завершена</phrase>
+	<phrase module_id="music" version_id="2.0.5" var_name="encourage_sponsor_album" added="1270633729">Рекламировать ваши альбомы</phrase>
+	<phrase module_id="music" version_id="2.0.5" var_name="user_setting_can_sponsor_album" added="1270640433">Могут ли пользователи этой группы начать рекламную компанию альбомов?</phrase>
+	<phrase module_id="music" version_id="2.0.5" var_name="unsponsor_this_album" added="1270641522">Завершить рекламную компанию аудиозаписи</phrase>
+	<phrase module_id="music" version_id="2.0.5" var_name="sponsor_this_album" added="1270641561">Начать рекламную компанию аудиозаписи</phrase>
+	<phrase module_id="music" version_id="2.0.5" var_name="album_successfully_sponsored" added="1270644171">Рекламная компания альбома начата</phrase>
+	<phrase module_id="music" version_id="2.0.5" var_name="album_successfully_un_sponsored" added="1270644956">Рекламная компания альбома завершена</phrase>
+	<phrase module_id="music" version_id="2.0.5" var_name="user_setting_can_purchase_sponsor_album" added="1271078054">Могут ли пользователи этой группы приобретать место под рекламу для своих музыкальных альбомов?</phrase>
+	<phrase module_id="music" version_id="2.0.5" var_name="user_setting_can_purchase_sponsor_song" added="1271078677">Могут ли пользователи этой группы приобретать место под рекламу для своих аудиозаписей?</phrase>
+	<phrase module_id="music" version_id="2.0.5" var_name="encourage_sponsor_song" added="1271150070">Рекламировать аудиозапись</phrase>
+	<phrase module_id="music" version_id="2.0.5" var_name="sponsor_help_song" added="1271150643"><![CDATA[Чтобы рекламировать свою аудиозапись, нажмите на ссылку, чтобы прослушать ее, а затем нажмите в меню на «Реклама».]]></phrase>
+	<phrase module_id="music" version_id="2.0.5" var_name="sponsored_music_album" added="1271151389">Рекламировать альбом</phrase>
+	<phrase module_id="music" version_id="2.0.5" var_name="sponsor_help_album" added="1271151549"><![CDATA[Чтобы рекламировать свой альбом, нажмите на ссылку, чтобы прослушать его, а затем нажмите в меню на «Реклама».]]></phrase>
+	<phrase module_id="music" version_id="2.0.5" var_name="user_setting_music_album_sponsor_price" added="1271859991">Сколько стоит рекламное место для музыкальных альбомов? Работает на основе CPM.</phrase>
+	<phrase module_id="music" version_id="2.0.5" var_name="user_setting_music_song_sponsor_price" added="1271925704">Сколько стоит рекламное место для аудиозаписи? Работает на основе CPM.</phrase>
+	<phrase module_id="music" version_id="2.0.5" var_name="sponsor_error_album_not_found" added="1271942487">Музыкальный альбом, который вы пытаетесь рекламировать, не доступен.</phrase>
+	<phrase module_id="music" version_id="2.0.5" var_name="album_sponsor_title" added="1271942615">Музыкальный альбом: {sAlbumTitle}</phrase>
+	<phrase module_id="music" version_id="2.0.5" var_name="album_sponsor_paypal_message" added="1271942696">Оплата рекламной компании для музыкального альбома: {sAlbumTitle}</phrase>
+	<phrase module_id="music" version_id="2.0.5" var_name="sponsor_error_song_not_found" added="1271942847">Музыкальный альбом который вы хотите оплатить недоступен.</phrase>
+	<phrase module_id="music" version_id="2.0.5" var_name="song_sponsor_title" added="1271942894">Аудиозапись: {sSongTitle}</phrase>
+	<phrase module_id="music" version_id="2.0.5" var_name="song_sponsor_paypal_message" added="1271943438">Оплата за рекламную компанию для аудиозаписи: {sSongTitle}</phrase>
+	<phrase module_id="music" version_id="2.0.5" var_name="user_setting_auto_publish_sponsored_album" added="1272007538">После того, как пользователь оплатил рекламную компанию, должны ли музыкальные альбомы быть опубликованы сразу? Если нет, администрации необходимо будет проверять музыкальные альбомы перед публикацией.</phrase>
+	<phrase module_id="music" version_id="2.0.5" var_name="user_setting_auto_publish_sponsored_song" added="1272007589">После того, как пользователь оплатил рекламную компанию, должны ли аудиозаписи быть опубликованы сразу? Если нет, администрации необходимо будет проверять аудиозаписи перед публикацией.</phrase>
+	<phrase module_id="music" version_id="2.0.5" var_name="a_href_user_link_full_name_a_likes_your_a_href_link_music_a" added="1273170650"><![CDATA[<a href="{user_link}">{full_name}</a> понравилась Ваша <a href="{link}">аудиозапись</a>.]]></phrase>
+	<phrase module_id="music" version_id="2.0.7" var_name="music_genres" added="1290008427">Жанры</phrase>
+	<phrase module_id="music" version_id="2.0.7" var_name="please_select_a_genre_for_your_music" added="1290010470">Пожалуйста, выберите жанр.</phrase>
+	<phrase module_id="music" version_id="2.0.7" var_name="update" added="1290010481">Обновить</phrase>
+	<phrase module_id="music" version_id="2.0.7" var_name="note_that_you_can_edit_your_genre" added="1290010521"><![CDATA[Заметьте, что вы сможете редактировать свои жанры, отредактировав свой профиль <a href="{link}">здесь</a>.]]></phrase>
+	<phrase module_id="music" version_id="2.0.8" var_name="setting_music_enable_mass_uploader" added="1294995190"><![CDATA[<title>Включить массовую загрузку</title><info>Когда включено, пользователи смогут выбрать несколько файлов для загрузки. Используется SWFUpload (http://code.google.com/p/swfupload/) и Flash объекты.</info>]]></phrase>
+	<phrase module_id="music" version_id="3.0.0beta1" var_name="user_setting_can_edit_own_song" added="1303845553">Может редактировать собственные аудиозаписи?</phrase>
+	<phrase module_id="music" version_id="3.0.0beta1" var_name="user_setting_can_edit_other_song" added="1303845597">Может редактировать аудиозаписи, загруженные другими пользователями?</phrase>
+	<phrase module_id="music" version_id="3.0.0beta1" var_name="user_setting_activity_music_song" added="1303978055">Сколько балов пользователь получает при загрузке аудиозаписи?</phrase>
+	<phrase module_id="music" version_id="3.0.0beta1" var_name="say_something_about_this_song" added="1304063712">Расскажите что-нибудь об этой аудиозаписи.</phrase>
+	<phrase module_id="music" version_id="3.0.0beta5" var_name="title" added="1319122685">Название</phrase>
+	<phrase module_id="music" version_id="3.0.0beta5" var_name="mp3" added="1319122691">MP3</phrase>
+	<phrase module_id="music" version_id="3.0.0beta5" var_name="select_a_song_to_attach" added="1319122698"><![CDATA[Выберите аудиозапись, которую хотите прикрепить к записи.]]></phrase>
+	<phrase module_id="music" version_id="3.0.0beta5" var_name="unable_to_find_the_song_you_are_trying_to_play" added="1319183938">Не удалось найти аудиозапись, которую вы пытаетесь послушать.</phrase>
+	<phrase module_id="music" version_id="3.0.0beta5" var_name="song_successfully_featured" added="1319183950"><![CDATA[Аудиозапись стала еще популярней]]></phrase>
+	<phrase module_id="music" version_id="3.0.0beta5" var_name="song_successfully_un_featured" added="1319183963"><![CDATA[Аудиозапись потеряла популярность]]></phrase>
+	<phrase module_id="music" version_id="3.0.0beta5" var_name="un_feature" added="1319183971"><![CDATA[Неизвестная]]></phrase>
+	<phrase module_id="music" version_id="3.0.0beta5" var_name="album_successfully_featured" added="1319183983"><![CDATA[Альбом был успешно сделал популярным.]]></phrase>
+	<phrase module_id="music" version_id="3.0.0beta5" var_name="album_successfully_un_featured" added="1319184000"><![CDATA[Альбом был успешно сделан неизвестным.]]></phrase>
+	<phrase module_id="music" version_id="3.0.0beta5" var_name="song_has_been_approved" added="1319184020"><![CDATA[Аудиозапись была одобрена.]]></phrase>
+	<phrase module_id="music" version_id="3.0.0beta5" var_name="song_approved" added="1319184028"><![CDATA[Одобренные аудиозаписи.]]></phrase>
+	<phrase module_id="music" version_id="3.0.0beta5" var_name="song_successfully_deleted" added="1319448709"><![CDATA[Аудиозапись успешно удалена.]]></phrase>
+	<phrase module_id="music" version_id="3.0.0beta5" var_name="search_songs" added="1319448722"><![CDATA[Поиск аудио...]]></phrase>
+	<phrase module_id="music" version_id="3.0.0beta5" var_name="most_viewed" added="1319448744"><![CDATA[Самые часто слушаемые]]></phrase>
+	<phrase module_id="music" version_id="3.0.0beta5" var_name="most_liked" added="1319448768"><![CDATA[Самые любимые]]></phrase>
+	<phrase module_id="music" version_id="3.0.0beta5" var_name="most_discussed" added="1319448837"><![CDATA[Самые обсуждаемые]]></phrase>
+	<phrase module_id="music" version_id="3.0.0beta5" var_name="delete" added="1319448850"><![CDATA[Удалить]]></phrase>
+	<phrase module_id="music" version_id="3.0.0beta5" var_name="all_songs" added="1319449191"><![CDATA[Все аудиозаписи]]></phrase>
+	<phrase module_id="music" version_id="3.0.0beta5" var_name="my_songs" added="1319449201"><![CDATA[Мои аудиозаписи]]></phrase>
+	<phrase module_id="music" version_id="3.0.0beta5" var_name="friends_songs" added="1319449211"><![CDATA[Аудиозаписи друзей]]></phrase>
+	<phrase module_id="music" version_id="3.0.0beta5" var_name="pending_songs" added="1319449218"><![CDATA[Ожидающие аудиозаписи]]></phrase>
+	<phrase module_id="music" version_id="3.0.0beta5" var_name="all_albums" added="1319449227"><![CDATA[Все альбомы]]></phrase>
+	<phrase module_id="music" version_id="3.0.0beta5" var_name="my_albums" added="1319449237"><![CDATA[Мои альбомы]]></phrase>
+	<phrase module_id="music" version_id="3.0.0beta5" var_name="view_song" added="1319449263"><![CDATA[Послушать аудиозапись]]></phrase>
+	<phrase module_id="music" version_id="3.0.0beta5" var_name="successfully_uploaded_the_mp3" added="1319449780"><![CDATA[Файл MP3 успешно загружен]]></phrase>
+	<phrase module_id="music" version_id="3.0.0beta5" var_name="or_create_a_new_album" added="1319449808"><![CDATA[или создать новый альбом]]></phrase>
+	<phrase module_id="music" version_id="3.0.0beta5" var_name="optional" added="1319449820">(по желанию)</phrase>
+	<phrase module_id="music" version_id="3.0.0beta5" var_name="privacy" added="1319449843"><![CDATA[Управление]]></phrase>
+	<phrase module_id="music" version_id="3.0.0beta5" var_name="comment_privacy" added="1319449852"><![CDATA[Управление комментариями]]></phrase>
+	<phrase module_id="music" version_id="3.0.0beta5" var_name="control_who_can_see_this_song" added="1319449861"><![CDATA[Кто может слушать эту аудиозапись.]]></phrase>
+	<phrase module_id="music" version_id="3.0.0beta5" var_name="control_who_can_comment_on_this_song" added="1319449873"><![CDATA[Кто может комментировать эту аудиозапись.]]></phrase>
+	<phrase module_id="music" version_id="3.0.0beta5" var_name="upload_problems_try_the_basic_uploader" added="1319449986"><![CDATA[Проблемы с загрузкой? Используй <a href="{url}">стандартный загрузчик</a>.]]></phrase>
+	<phrase module_id="music" version_id="3.0.0beta5" var_name="year" added="1319450068"><![CDATA[Год]]></phrase>
+	<phrase module_id="music" version_id="3.0.0beta5" var_name="photo" added="1319450078"><![CDATA[Фото]]></phrase>
+	<phrase module_id="music" version_id="3.0.0beta5" var_name="control_who_can_see_this_album_and_any_songs_connected_to_it" added="1319450104"><![CDATA[Кто может слушать этот альбом и любые аудиозаписи, связанные с ним.]]></phrase>
+	<phrase module_id="music" version_id="3.0.0beta5" var_name="control_who_can_comment_on_this_album" added="1319450117"><![CDATA[Кто может прокомментировать этот альбом.]]></phrase>
+	<phrase module_id="music" version_id="3.0.0beta5" var_name="editing_album" added="1319450209"><![CDATA[Изменить альбом]]></phrase>
+	<phrase module_id="music" version_id="3.0.0beta5" var_name="upload_songs" added="1319450233"><![CDATA[Загрузить аудиозапись]]></phrase>
+	<phrase module_id="music" version_id="3.0.0beta5" var_name="unable_to_view_this_item_due_to_privacy_settings" added="1319450280"><![CDATA[Нельзя просмотреть этот пункт из-за настроек приватности.]]></phrase>
+	<phrase module_id="music" version_id="3.0.0beta5" var_name="report_this_song_lowercase" added="1319450300"><![CDATA[Пожаловаться на аудиозапись]]></phrase>
+	<phrase module_id="music" version_id="3.0.0beta5" var_name="song_is_pending_approval" added="1319450333"><![CDATA[Аудиозапись ожидает проверки.]]></phrase>
+	<phrase module_id="music" version_id="3.0.0beta5" var_name="actions" added="1319450348">Действия</phrase>
+	<phrase module_id="music" version_id="3.0.0beta5" var_name="by_lowercase" added="1319455349">от</phrase>
+	<phrase module_id="music" version_id="3.0.0beta5" var_name="in" added="1319455357">в</phrase>
+	<phrase module_id="music" version_id="3.0.0beta5" var_name="album_is_pending_approval" added="1319455494">Альбом ожидает проверки</phrase>
+	<phrase module_id="music" version_id="3.0.0beta5" var_name="report_this_album" added="1319455575">Пожаловаться на альбом</phrase>
+	<phrase module_id="music" version_id="3.0.0beta5" var_name="play_all" added="1319455622">Воспроизвести всё</phrase>
+	<phrase module_id="music" version_id="3.0.0beta5" var_name="mp3_tracks" added="1319455870">Аудиозапись MP3</phrase>
+	<phrase module_id="music" version_id="3.0.0beta5" var_name="pending_approval" added="1319455996">В ожидании</phrase>
+	<phrase module_id="music" version_id="3.0.0beta5" var_name="sponsored" added="1319456261">Реклама</phrase>
+	<phrase module_id="music" version_id="3.0.0beta5" var_name="moderate" added="1319456275">Модерация</phrase>
+	<phrase module_id="music" version_id="3.0.0beta5" var_name="new_albums" added="1319456503">Новые альбомы</phrase>
+	<phrase module_id="music" version_id="3.0.0beta5" var_name="1_track" added="1319456536">1 аудиозапись</phrase>
+	<phrase module_id="music" version_id="3.0.0beta5" var_name="1_play" added="1319456563">1 раз прослушали</phrase>
+	<phrase module_id="music" version_id="3.0.0beta5" var_name="full_name_liked_your_song_title" added="1319530894"><![CDATA[{full_name} понравилась аудиозапись "{title}"]]></phrase>
+	<phrase module_id="music" version_id="3.0.0beta5" var_name="full_name_liked_your_song_message" added="1319531290"><![CDATA[{full_name} понравилась аудиозапись "<a href="{link}">{title}</a>" Послушать аудиозаписи можно по ссылке: <a href="{link}">{link}</a>]]></phrase>
+	<phrase module_id="music" version_id="3.0.0beta5" var_name="full_name_liked_your_album_name" added="1319531346"><![CDATA[{full_name} понравился альбом "{name}"]]></phrase>
+	<phrase module_id="music" version_id="3.0.0beta5" var_name="full_name_liked_your_album_message" added="1319531423"><![CDATA[{full_name} понравился альбом "<a href="{link}">{name}</a>" Для просмотр альбома перейдите по ссылке: <a href="{link}">{link}</a>]]></phrase>
+	<phrase module_id="music" version_id="3.0.0rc2" var_name="users_liked_your_song_title" added="1321347866"><![CDATA[{users} понравилась аудиозапись "{title}"]]></phrase>
+	<phrase module_id="music" version_id="3.0.0rc2" var_name="who_can_share_songs" added="1321360179">Кто может поделиться аудиозаписью?</phrase>
+	<phrase module_id="music" version_id="3.0.0rc2" var_name="who_can_view_browse_songs" added="1321360189">Кто может слушать аудиозаписи?</phrase>
+	<phrase module_id="music" version_id="3.0.0rc3" var_name="featured_albums" added="1321961384">Популярные альбомы</phrase>
+	<phrase module_id="music" version_id="3.0.0rc3" var_name="featured_songs" added="1321961407">Популярные аудиозаписи</phrase>
+	<phrase module_id="music" version_id="3.0.0rc3" var_name="tracks_lowercase" added="1321961447">треки</phrase>
+	<phrase module_id="music" version_id="3.0.0rc3" var_name="plays_lowercase" added="1321961468">играет</phrase>
+	<phrase module_id="music" version_id="3.0.0" var_name="full_name_commented_on_your_song_title" added="1322466028"><![CDATA[{full_name} прокомментировал(а) вашу аудиозапись "{title}".]]></phrase>
+	<phrase module_id="music" version_id="3.0.0" var_name="posted_a_comment_on_gender_song_a_href_link_title_a" added="1322568716"><![CDATA[прокомментировал(а) {gender} аудиозапись "<a href="{link}">{title}</a>"]]></phrase>
+	<phrase module_id="music" version_id="3.0.0" var_name="posted_a_comment_on_user_name_s_song_a_href_link_title_a" added="1322568784"><![CDATA[прокомментировал(а) {user_name} аудиозапись "<a href="{link}">{title}</a>]]></phrase>
+	<phrase module_id="music" version_id="3.0.0" var_name="name_commented_on_your_song" added="1322569062"><![CDATA[{full_name} прокомментировал(а) вашу аудиозапись "<a href="{link}">{title}</a>".
+Чтобы увидеть комментарии, пройдите по ссылке ниже:
+<a href="{link}">{link}</a>]]></phrase>
+	<phrase module_id="music" version_id="3.0.0" var_name="full_name_commented_on_gender_song" added="1322569299">{full_name} прокомментировал(а) {gender} аудиозапись</phrase>
+	<phrase module_id="music" version_id="3.0.0" var_name="full_name_commented_on_other_full_name_s_song" added="1322569435"><![CDATA[{full_name} прокомментировал(а) {other_full_name} аудиозапись]]></phrase>
+	<phrase module_id="music" version_id="3.0.0" var_name="full_name_commented_on_gender_song_a_href_link_title_a_to_see_the_comment_thread_folow_the_link_below_a_href_link_link_a" added="1322569680"><![CDATA[{full_name} прокомментировал(а) {gender} аудиозапись "<a href="{link}">{title}</a>".
+Чтобы увидеть комментарии, пройдите по ссылке ниже:
+<a href="{link}">{link}</a>]]></phrase>
+	<phrase module_id="music" version_id="3.0.0" var_name="full_name_commented_on_other_full_names_song" added="1322570036"><![CDATA[{full_name} прокомментировал(а) {other_full_name} аудиозапись "<a href="{link}">{title}</a>".
+Чтобы увидеть комментарии, пройдите по ссылке ниже:
+<a href="{link}">{link}</a>]]></phrase>
+	<phrase module_id="music" version_id="3.0.0" var_name="full_name_commented_on_gender_album" added="1322574397">{full_name} прокомментировал(а) {gender} альбом</phrase>
+	<phrase module_id="music" version_id="3.0.0" var_name="full_name_commented_on_other_full_name_s_album" added="1322574559"><![CDATA[{full_name} прокомментировал(а) {other_full_name} альбом]]></phrase>
+	<phrase module_id="music" version_id="3.0.0" var_name="full_name_commented_on_gender_album_a_href_link_user_name_a_to_see_the_comment_thread_follow_the_link_below_a_href_link_link_a" added="1322574867"><![CDATA[{full_name} прокомментировал(а) {gender} альбом "<a href="{link}">{user_name}</a>".
+Чтобы увидеть комментарии, пройдите по ссылке ниже:
+<a href="{link}">{link}</a>]]></phrase>
+	<phrase module_id="music" version_id="3.0.0" var_name="full_name_commented_on_other_full_name_s_album_a_href_link_user_name_a_to_see_the_comment_thread_follow_the_link_below_a_href_link_link_a" added="1322575669"><![CDATA[{full_name} прокомментировал(а) {other_full_name} альбом "<a href="{link}">{user_name}</a>".
+Чтобы увидеть комментарии, пройдите по ссылке ниже:
+<a href="{link}">{link}</a>]]></phrase>
+	<phrase module_id="music" version_id="3.0.0" var_name="a_href_link_on_user_name_s_song_a" added="1322575936"><![CDATA[<a href="{link}">{user_name} аудиозапись.</a>]]></phrase>
+	<phrase module_id="music" version_id="3.0.0" var_name="a_href_link_on_user_name_s_album_a" added="1322576194"><![CDATA[<a href="{link}">{user_name} альбом.</a>]]></phrase>
+	<phrase module_id="music" version_id="3.0.0" var_name="user_name_liked_gender_own_song_title" added="1322577088"><![CDATA[{user_name} нравится {gender} своя аудиозапись "{title}"]]></phrase>
+	<phrase module_id="music" version_id="3.0.0" var_name="user_name_liked_span_class_drop_data_user_full_name_s_span_song_title" added="1322578321"><![CDATA[{user_name} нравится <span class="drop_data_user">{full_name}</span> аудиозапись "{title}"]]></phrase>
+	<phrase module_id="music" version_id="3.0.0" var_name="user_name_commented_on_span_class_drop_data_user_full_name_s_span_song_title" added="1322578686"><![CDATA[{user_name} нравится <span class="drop_data_user">{full_name}</span> аудиозапись "{title}"]]></phrase>
+	<phrase module_id="music" version_id="3.0.0" var_name="user_name_liked_gender_own_album_title" added="1322579606"><![CDATA[{user_name} нравится {gender} свой альбом "{title}"]]></phrase>
+	<phrase module_id="music" version_id="3.0.0" var_name="user_name_liked_your_album_title" added="1322579759"><![CDATA[{user_name} нравится ваш альбом "{title}"]]></phrase>
+	<phrase module_id="music" version_id="3.0.0" var_name="user_name_liked_span_class_drop_data_user_full_name_s_span_album_title" added="1322579940"><![CDATA[{user_name} нравится <span class="drop_data_user">{full_name}</span> альбом "{title}"]]></phrase>
+	<phrase module_id="music" version_id="3.0.0" var_name="user_name_commented_on_gender_album_title" added="1322580305"><![CDATA[{user_name} прокомментировал(а) {gender} альбом "{title}"]]></phrase>
+	<phrase module_id="music" version_id="3.0.0" var_name="user_name_commented_on_your_album_title" added="1322580687"><![CDATA[{user_name} прокомментировал(а) ваш альбом "{title}"]]></phrase>
+	<phrase module_id="music" version_id="3.0.0" var_name="user_name_commented_on_span_class_drop_data_user_full_name_s_album_title" added="1322580821"><![CDATA[{user_name} прокомментировал(а) <span class="drop_data_user">{full_name}</span> альбом "{title}"]]></phrase>
+	<phrase module_id="music" version_id="3.0.0" var_name="your_song_was_named_successfully" added="1322739955">Ваша аудиозапись была названа успешно.</phrase>
+	<phrase module_id="music" version_id="3.0.0" var_name="songs_s_successfully_approved" added="1322739969">Аудиозапись(и) успешно проверена(ы).</phrase>
+	<phrase module_id="music" version_id="3.0.0" var_name="songs_s_successfully_deleted" added="1322739981">Аудиозапись(и) успешно удалена(ы).</phrase>
+	<phrase module_id="music" version_id="3.0.0" var_name="songs_s_successfully_featured" added="1322739993">Аудиозапись(и) успешно добавлена(ы) в избранное.</phrase>
+	<phrase module_id="music" version_id="3.0.0" var_name="songs_s_successfully_un_featured" added="1322740004">Аудиозапись(и) успешно удалена(ы) из избранного.</phrase>
+	<phrase module_id="music" version_id="3.0.0" var_name="albums_s_successfully_deleted" added="1322740025">Альбом(ы) успешно удален(ы).</phrase>
+	<phrase module_id="music" version_id="3.0.0" var_name="albums_s_successfully_featured" added="1322740058">Альбом(ы) успешно добавлен(ы) в избранное.</phrase>
+	<phrase module_id="music" version_id="3.0.0" var_name="albums_s_successfully_un_featured" added="1322740075">Альбом(ы) успешно удален(ы) из избранного.</phrase>
+	<phrase module_id="music" version_id="3.0.0" var_name="album_successfully_deleted" added="1322740121">Альбом успешно удален.</phrase>
+	<phrase module_id="music" version_id="3.0.0" var_name="search_albums" added="1322740165">Поиск альбомов...</phrase>
+	<phrase module_id="music" version_id="3.0.0" var_name="add_a_photo_category" added="1322740484">Добавить фото категорию</phrase>
+	<phrase module_id="music" version_id="3.0.0" var_name="full_name_commented_on_your_album_title" added="1323096904"><![CDATA[{full_name} прокомментировал(а) ваш альбом "{title}".]]></phrase>
+	<phrase module_id="music" version_id="3.0.0" var_name="full_name_commented_on_your_album_a_href_link_title_a_to_see_the_commented_thread_follow_the_link_below_a_href_link_link_a" added="1323097893"><![CDATA[{full_name} прокомментировал(а) ваш альбом "<a href="{link}">{title}</a>".
+Чтобы увидеть комментарии, пройдите по ссылке ниже:
+<a href="{link}">{link}</a>]]></phrase>
+	<phrase module_id="music" version_id="3.1.0beta1" var_name="user_name_tagged_you_in_a_comment_in_a_song" added="1331221740">{user_name} отметил(а) ваш комментарий в аудиозаписе</phrase>
+	<phrase module_id="music" version_id="3.1.0beta1" var_name="user_name_tagged_you_in_a_comment_in_a_music_album" added="1331221780">{user_name} отметил(а) ваш комментарий в музыкальном альбоме</phrase>
+	<phrase module_id="music" version_id="3.1.0beta1" var_name="update_user_song_count" added="1331644171">Обновление аудиозаписи пользователя</phrase>
+	<phrase module_id="music" version_id="3.1.0" var_name="fullname_s_songs" added="1332771039"><![CDATA[{full_name}аудиозаписи]]></phrase>
+	<phrase module_id="music" version_id="3.3.0beta1" var_name="editing_song" added="1339154155">Изменить аудиозапись</phrase>
+	<phrase module_id="music" version_id="3.3.0" var_name="users_commented_on_gender_song_title" added="1343032354"><![CDATA[{users} прокомментировал(а) {gender} аудиозапись "{title}"]]></phrase>
+	<phrase module_id="music" version_id="3.3.0" var_name="users_commented_on_your_song_title" added="1343032427"><![CDATA[{users} оставил(а) комментарий на вашу аудиозапись "{title}"]]></phrase>
+</phrases>

@@ -1,0 +1,205 @@
+<phrases>
+	<phrase module_id="theme" version_id="2.0.0alpha1" var_name="user_setting_can_view_theme_sample" added="1216065545">Может просматривать блок макета для темы в AdminCP?</phrase>
+	<phrase module_id="theme" version_id="2.0.0alpha1" var_name="module_theme" added="1216065167">Управление темами</phrase>
+	<phrase module_id="theme" version_id="2.0.0rc1" var_name="admincp_menu_create_theme" added="1248279775">Создать тему</phrase>
+	<phrase module_id="theme" version_id="2.0.0rc1" var_name="admincp_menu_create_style" added="1248283393">Создать стиль</phrase>
+	<phrase module_id="theme" version_id="2.0.0rc1" var_name="create_a_new_template" added="1248370729">Создать новый шаблон</phrase>
+	<phrase module_id="theme" version_id="2.0.0rc1" var_name="admincp_create_css_file" added="1248427439">Создать CSS файл</phrase>
+	<phrase module_id="theme" version_id="2.0.0rc1" var_name="admincp_menu_import_themes" added="1249416443">Импорт тем</phrase>
+	<phrase module_id="theme" version_id="2.0.0rc1" var_name="admincp_menu_import_styles" added="1249416519">Импорт стилей</phrase>
+	<phrase module_id="theme" version_id="2.0.0rc4" var_name="last_modified_time_stamp_by_full_name" added="1255341569">Последние изменения {time_stamp} от{full_name}</phrase>
+	<phrase module_id="theme" version_id="2.0.0rc4" var_name="css_file_successfully_added" added="1255341673">CSS файл добавлен.</phrase>
+	<phrase module_id="theme" version_id="2.0.0rc4" var_name="not_a_valid_style" added="1255341684">Не правильный стиль.</phrase>
+	<phrase module_id="theme" version_id="2.0.0rc4" var_name="edit_css" added="1255341692">Изменить CSS</phrase>
+	<phrase module_id="theme" version_id="2.0.0rc4" var_name="themes" added="1255341702">Темы</phrase>
+	<phrase module_id="theme" version_id="2.0.0rc4" var_name="styles" added="1255341707">Стили</phrase>
+	<phrase module_id="theme" version_id="2.0.0rc4" var_name="editing_style" added="1255341724">Править стиль</phrase>
+	<phrase module_id="theme" version_id="2.0.0rc4" var_name="create_new_style" added="1255341735">Создать новый стиль</phrase>
+	<phrase module_id="theme" version_id="2.0.0rc4" var_name="style_successfully_updated" added="1255342251">Стиль обновлен.</phrase>
+	<phrase module_id="theme" version_id="2.0.0rc4" var_name="style_successfully_added" added="1255342260">Стиль добавлен.</phrase>
+	<phrase module_id="theme" version_id="2.0.0rc4" var_name="create_style" added="1255342279">Создание стиля</phrase>
+	<phrase module_id="theme" version_id="2.0.0rc4" var_name="import_styles" added="1255342298">Импорт стиля</phrase>
+	<phrase module_id="theme" version_id="2.0.0rc4" var_name="style_successfully_imported" added="1255342393">Стиль импортирован.</phrase>
+	<phrase module_id="theme" version_id="2.0.0rc4" var_name="not_a_valid_theme" added="1255342410">Неверная тема.</phrase>
+	<phrase module_id="theme" version_id="2.0.0rc4" var_name="style_successfully_deleted" added="1255342418">Стиль удален.</phrase>
+	<phrase module_id="theme" version_id="2.0.0rc4" var_name="managing_styles_for" added="1255342425">Управление стилями для</phrase>
+	<phrase module_id="theme" version_id="2.0.0rc4" var_name="logo_successfully_reverted" added="1255342457">Логотип успешно восстановлен.</phrase>
+	<phrase module_id="theme" version_id="2.0.0rc4" var_name="logo_successfully_uploaded" added="1255342467">Логотип успешно загружен.</phrase>
+	<phrase module_id="theme" version_id="2.0.0rc4" var_name="change_site_logo" added="1255342474">Изменить логотипа сайта</phrase>
+	<phrase module_id="theme" version_id="2.0.0rc4" var_name="change_logo" added="1255342493">Изменить логотип</phrase>
+	<phrase module_id="theme" version_id="2.0.0rc4" var_name="template_successfully_added" added="1255342506">Шаблон добавлен.</phrase>
+	<phrase module_id="theme" version_id="2.0.0rc4" var_name="create_new_template" added="1255342536">Создать новый шаблон</phrase>
+	<phrase module_id="theme" version_id="2.0.0rc4" var_name="templates" added="1255342553">Шаблоны</phrase>
+	<phrase module_id="theme" version_id="2.0.0rc4" var_name="theme_successfully_updated" added="1255342573">Темы обновлены.</phrase>
+	<phrase module_id="theme" version_id="2.0.0rc4" var_name="theme_successfully_added" added="1255342583">Тема добавлена.</phrase>
+	<phrase module_id="theme" version_id="2.0.0rc4" var_name="editing_theme" added="1255342590">Править тему</phrase>
+	<phrase module_id="theme" version_id="2.0.0rc4" var_name="create_new_theme" added="1255342598">Создать новую тему</phrase>
+	<phrase module_id="theme" version_id="2.0.0rc4" var_name="create_theme" added="1255342624">Создать тему</phrase>
+	<phrase module_id="theme" version_id="2.0.0rc4" var_name="theme_is_not_valid" added="1255342635">Тема не правильная.</phrase>
+	<phrase module_id="theme" version_id="2.0.0rc4" var_name="export_theme" added="1255342643">Экспорт темы</phrase>
+	<phrase module_id="theme" version_id="2.0.0rc4" var_name="theme_successfully_imported" added="1255342668">Темы импортированы.</phrase>
+	<phrase module_id="theme" version_id="2.0.0rc4" var_name="not_a_valid_theme_to_import" added="1255342677">Не правильная тема для импорта.</phrase>
+	<phrase module_id="theme" version_id="2.0.0rc4" var_name="import_themes" added="1255342684">Импорт тем.</phrase>
+	<phrase module_id="theme" version_id="2.0.0rc4" var_name="theme_successfully_deleted" added="1255342706">Тема удалена.</phrase>
+	<phrase module_id="theme" version_id="2.0.0rc4" var_name="not_a_valid_file_extension" added="1255342775">Не правильное расширение файла.</phrase>
+	<phrase module_id="theme" version_id="2.0.0rc4" var_name="unable_to_upload_image" added="1255342800">Не удалось загрузить изображение.</phrase>
+	<phrase module_id="theme" version_id="2.0.0rc4" var_name="unable_to_find_style" added="1255342813">Не удается найти стиль.</phrase>
+	<phrase module_id="theme" version_id="2.0.0rc4" var_name="style_requires_a_name" added="1255342829">Требуется имя стиля.</phrase>
+	<phrase module_id="theme" version_id="2.0.0rc4" var_name="style_requires_a_folder_name" added="1255342836">Требуется имя папки стиля.</phrase>
+	<phrase module_id="theme" version_id="2.0.0rc4" var_name="select_a_parent_theme_for_this_style" added="1255342843">Выберите родительскую тему для этого стиля.</phrase>
+	<phrase module_id="theme" version_id="2.0.0rc4" var_name="provide_if_the_style_is_active_or_not" added="1255342850">Обозначьте, если стиль является активным или нет.</phrase>
+	<phrase module_id="theme" version_id="2.0.0rc4" var_name="provide_a_default_logo_name" added="1255342858">Укажите имя логотипа по умолчанию.</phrase>
+	<phrase module_id="theme" version_id="2.0.0rc4" var_name="folder_is_not_valid" added="1255342866">Недопустимая папка.</phrase>
+	<phrase module_id="theme" version_id="2.0.0rc4" var_name="this_folder_is_already_in_use" added="1255342874"><![CDATA[Эта "Папка" уже используется.]]></phrase>
+	<phrase module_id="theme" version_id="2.0.0rc4" var_name="select_a_style" added="1255342895">Выбран стиль.</phrase>
+	<phrase module_id="theme" version_id="2.0.0rc4" var_name="provide_a_file_name" added="1255342901">Введите имя файла.</phrase>
+	<phrase module_id="theme" version_id="2.0.0rc4" var_name="provide_css_code" added="1255342915">Введите CSS код.</phrase>
+	<phrase module_id="theme" version_id="2.0.0rc4" var_name="file_name_is_not_valid" added="1255342923">Имя файла является недопустимым.</phrase>
+	<phrase module_id="theme" version_id="2.0.0rc4" var_name="the_file_name_is_already_in_use" added="1255342931"><![CDATA["Имя файла" уже используется.]]></phrase>
+	<phrase module_id="theme" version_id="2.0.0rc4" var_name="not_a_valid_style_to_set_to_default" added="1255342990">Не действительный стиль установлен по умолчанию.</phrase>
+	<phrase module_id="theme" version_id="2.0.0rc4" var_name="unable_to_find_style_sheet" added="1255343035">Не удалось найти таблицу стилей.</phrase>
+	<phrase module_id="theme" version_id="2.0.0rc4" var_name="unable_to_find_the_style_sheet_file" added="1255343045">Не удается найти файл стилей.</phrase>
+	<phrase module_id="theme" version_id="2.0.0rc4" var_name="select_a_theme_for_this_template" added="1255343095">Выберите тему для шаблона..</phrase>
+	<phrase module_id="theme" version_id="2.0.0rc4" var_name="select_what_type_of_a_template_this_is" added="1255343103">Выберите, какой это тип шаблона.</phrase>
+	<phrase module_id="theme" version_id="2.0.0rc4" var_name="not_a_valid_template_to_delete" added="1255343159">Не  правильный шаблон удален.</phrase>
+	<phrase module_id="theme" version_id="2.0.0rc4" var_name="theme_requires_a_name" added="1255343189">Требуется имя темы.</phrase>
+	<phrase module_id="theme" version_id="2.0.0rc4" var_name="theme_requires_a_folder_name" added="1255343196">Тема требует имя папки.</phrase>
+	<phrase module_id="theme" version_id="2.0.0rc4" var_name="provide_if_the_theme_is_active_or_not" added="1255343205">Обозначьте, если тема активна или нет.</phrase>
+	<phrase module_id="theme" version_id="2.0.0rc4" var_name="there_is_already_a_theme_with_the_same_folder_name" added="1255343286">Существует уже тема с таким же именем папки.</phrase>
+	<phrase module_id="theme" version_id="2.0.0rc4" var_name="not_a_valid_theme_to_delete" added="1255343324">Удаление неправильной темы.</phrase>
+	<phrase module_id="theme" version_id="2.0.0rc4" var_name="full_screen" added="1255343483">Полный экран</phrase>
+	<phrase module_id="theme" version_id="2.0.0rc4" var_name="toggle" added="1255343492">Показать/Скрыть</phrase>
+	<phrase module_id="theme" version_id="2.0.0rc4" var_name="blocks" added="1255343499">Блоки</phrase>
+	<phrase module_id="theme" version_id="2.0.0rc4" var_name="toggle_all_blocks" added="1255343507">Развернуть/Свернуть все блоки.</phrase>
+	<phrase module_id="theme" version_id="2.0.0rc4" var_name="close" added="1255343514">Закрыть</phrase>
+	<phrase module_id="theme" version_id="2.0.0rc4" var_name="advanced" added="1255343533">Расширенный</phrase>
+	<phrase module_id="theme" version_id="2.0.0rc4" var_name="css" added="1255343540">CSS</phrase>
+	<phrase module_id="theme" version_id="2.0.0rc4" var_name="use_theme" added="1255343554">Использовать тему</phrase>
+	<phrase module_id="theme" version_id="2.0.0rc4" var_name="save" added="1255343567">Сохранить</phrase>
+	<phrase module_id="theme" version_id="2.0.0rc4" var_name="preview" added="1255343573">Предпросмотр</phrase>
+	<phrase module_id="theme" version_id="2.0.0rc4" var_name="revert_to_default" added="1255343591">Откатился на дефолт</phrase>
+	<phrase module_id="theme" version_id="2.0.0rc4" var_name="are_you_sure_note_that_this_will_revert_all_your_changes_and_not_just_those_within_this_group" added="1255343603">Вы уверены? Отметьте, это вернет все Ваши изменения и не только в пределах этой группы.</phrase>
+	<phrase module_id="theme" version_id="2.0.0rc4" var_name="width" added="1255343620">Ширина</phrase>
+	<phrase module_id="theme" version_id="2.0.0rc4" var_name="default" added="1255343632"><![CDATA[[Default]]]></phrase>
+	<phrase module_id="theme" version_id="2.0.0rc4" var_name="background" added="1255343644">Фон</phrase>
+	<phrase module_id="theme" version_id="2.0.0rc4" var_name="url" added="1255343670">URL</phrase>
+	<phrase module_id="theme" version_id="2.0.0rc4" var_name="attach_files" added="1255343681">Прикрепить файлы</phrase>
+	<phrase module_id="theme" version_id="2.0.0rc4" var_name="scroll" added="1255343687">Прокрутка</phrase>
+	<phrase module_id="theme" version_id="2.0.0rc4" var_name="yes" added="1255343701">Да</phrase>
+	<phrase module_id="theme" version_id="2.0.0rc4" var_name="no" added="1255343707">Нет</phrase>
+	<phrase module_id="theme" version_id="2.0.0rc4" var_name="position" added="1255343718">Положение</phrase>
+	<phrase module_id="theme" version_id="2.0.0rc4" var_name="repeat" added="1255343727">Повторить</phrase>
+	<phrase module_id="theme" version_id="2.0.0rc4" var_name="do_not_repeat" added="1255343737">Не повторять</phrase>
+	<phrase module_id="theme" version_id="2.0.0rc4" var_name="across" added="1255343743">Через</phrase>
+	<phrase module_id="theme" version_id="2.0.0rc4" var_name="down" added="1255343749">Вниз</phrase>
+	<phrase module_id="theme" version_id="2.0.0rc4" var_name="tile" added="1255343755">Плитка</phrase>
+	<phrase module_id="theme" version_id="2.0.0rc4" var_name="font" added="1255343762">Шрифт</phrase>
+	<phrase module_id="theme" version_id="2.0.0rc4" var_name="color" added="1255343769">Цвет</phrase>
+	<phrase module_id="theme" version_id="2.0.0rc4" var_name="family" added="1255343779">Родительская</phrase>
+	<phrase module_id="theme" version_id="2.0.0rc4" var_name="size" added="1255343801">Размер</phrase>
+	<phrase module_id="theme" version_id="2.0.0rc4" var_name="style" added="1255343816">Стиль</phrase>
+	<phrase module_id="theme" version_id="2.0.0rc4" var_name="weight" added="1255343826">Вес</phrase>
+	<phrase module_id="theme" version_id="2.0.0rc4" var_name="text" added="1255343834">Текст</phrase>
+	<phrase module_id="theme" version_id="2.0.0rc4" var_name="align" added="1255343840">Выровнять</phrase>
+	<phrase module_id="theme" version_id="2.0.0rc4" var_name="transform" added="1255343851">Трансформировать</phrase>
+	<phrase module_id="theme" version_id="2.0.0rc4" var_name="decoration" added="1255343860">Украшение</phrase>
+	<phrase module_id="theme" version_id="2.0.0rc4" var_name="border" added="1255343872">Граница</phrase>
+	<phrase module_id="theme" version_id="2.0.0rc4" var_name="padding" added="1255343939">Дополнение</phrase>
+	<phrase module_id="theme" version_id="2.0.0rc4" var_name="reset" added="1255343959">Сбросить</phrase>
+	<phrase module_id="theme" version_id="2.0.0rc4" var_name="css_details" added="1255344281">CSS детали</phrase>
+	<phrase module_id="theme" version_id="2.0.0rc4" var_name="select" added="1255344295">Выбрать</phrase>
+	<phrase module_id="theme" version_id="2.0.0rc4" var_name="file_name" added="1255344302">Имя файла</phrase>
+	<phrase module_id="theme" version_id="2.0.0rc4" var_name="creator" added="1255344309">Создатель</phrase>
+	<phrase module_id="theme" version_id="2.0.0rc4" var_name="submit" added="1255344322">Применить</phrase>
+	<phrase module_id="theme" version_id="2.0.0rc4" var_name="css_files" added="1255344333">CSS файлы</phrase>
+	<phrase module_id="theme" version_id="2.0.0rc4" var_name="global_css" added="1255344341">Глобальный CSS</phrase>
+	<phrase module_id="theme" version_id="2.0.0rc4" var_name="revert" added="1255344362">Возвратиться</phrase>
+	<phrase module_id="theme" version_id="2.0.0rc4" var_name="delete" added="1255344368">Удалить</phrase>
+	<phrase module_id="theme" version_id="2.0.0rc4" var_name="style_details" added="1255344380">О стиле</phrase>
+	<phrase module_id="theme" version_id="2.0.0rc4" var_name="parent_theme" added="1255344387">Основная тема</phrase>
+	<phrase module_id="theme" version_id="2.0.0rc4" var_name="parent_style" added="1255344399">Исходный стиль</phrase>
+	<phrase module_id="theme" version_id="2.0.0rc4" var_name="name" added="1255344406">Наименование</phrase>
+	<phrase module_id="theme" version_id="2.0.0rc4" var_name="folder_name" added="1255344413">Имя папки</phrase>
+	<phrase module_id="theme" version_id="2.0.0rc4" var_name="logo_image" added="1255344420">Изображения логотипа</phrase>
+	<phrase module_id="theme" version_id="2.0.0rc4" var_name="default_logo_file_name_eg_logo_png" added="1255344427">По умолчанию имя файла логотипа (eg. logo.png)</phrase>
+	<phrase module_id="theme" version_id="2.0.0rc4" var_name="website" added="1255344440">Сайт</phrase>
+	<phrase module_id="theme" version_id="2.0.0rc4" var_name="version" added="1255344447">Версия</phrase>
+	<phrase module_id="theme" version_id="2.0.0rc4" var_name="is_default" added="1255344455">По умолчанию</phrase>
+	<phrase module_id="theme" version_id="2.0.0rc4" var_name="is_active" added="1255344489">Активно</phrase>
+	<phrase module_id="theme" version_id="2.0.0rc4" var_name="update" added="1255344510">Обновить</phrase>
+	<phrase module_id="theme" version_id="2.0.0rc4" var_name="manual_install" added="1255344530">Ручная установка</phrase>
+	<phrase module_id="theme" version_id="2.0.0rc4" var_name="theme" added="1255344536">Тема</phrase>
+	<phrase module_id="theme" version_id="2.0.0rc4" var_name="created_by" added="1255344548">Создано</phrase>
+	<phrase module_id="theme" version_id="2.0.0rc4" var_name="action" added="1255344559">Действие</phrase>
+	<phrase module_id="theme" version_id="2.0.0rc4" var_name="n_a" added="1255344568">N/A</phrase>
+	<phrase module_id="theme" version_id="2.0.0rc4" var_name="install" added="1255344589">Установить</phrase>
+	<phrase module_id="theme" version_id="2.0.0rc4" var_name="click_to_install_this_theme" added="1255344596">Нажми для установки темы.</phrase>
+	<phrase module_id="theme" version_id="2.0.0rc4" var_name="nothing_new_to_install" added="1255344602">Ничего нового для установки.</phrase>
+	<phrase module_id="theme" version_id="2.0.0rc4" var_name="active" added="1255344625">Активно</phrase>
+	<phrase module_id="theme" version_id="2.0.0rc4" var_name="edit_style" added="1255344633">Править стиль</phrase>
+	<phrase module_id="theme" version_id="2.0.0rc4" var_name="export_style" added="1255344649">Экспорт стиля</phrase>
+	<phrase module_id="theme" version_id="2.0.0rc4" var_name="are_you_sure" added="1255344660">Вы уверены?</phrase>
+	<phrase module_id="theme" version_id="2.0.0rc4" var_name="remove_as_default" added="1255344669">Удалить по умолчанию</phrase>
+	<phrase module_id="theme" version_id="2.0.0rc4" var_name="set_as_default" added="1255344677">По умолчанию</phrase>
+	<phrase module_id="theme" version_id="2.0.0rc4" var_name="deactivate" added="1255344683">Деактивировать</phrase>
+	<phrase module_id="theme" version_id="2.0.0rc4" var_name="activate" added="1255344688">Активировать</phrase>
+	<phrase module_id="theme" version_id="2.0.0rc4" var_name="no_styles_found" added="1255344698">Не найден стиль</phrase>
+	<phrase module_id="theme" version_id="2.0.0rc4" var_name="create_a_new_style" added="1255344704">Создать новый стиль</phrase>
+	<phrase module_id="theme" version_id="2.0.0rc4" var_name="logo" added="1255344710">Лого</phrase>
+	<phrase module_id="theme" version_id="2.0.0rc4" var_name="select_a_logo" added="1255344716">Выбрать логотип</phrase>
+	<phrase module_id="theme" version_id="2.0.0rc4" var_name="you_can_upload_a_jpg_gif_or_png_file" added="1255344722">Вы можете загрузить JPG, GIF или PNG файл.</phrase>
+	<phrase module_id="theme" version_id="2.0.0rc4" var_name="recommended_width_height_width_x_height_pixels" added="1255344735">Рекомендуемая ширина/высота: {width}x{height} pixels.</phrase>
+	<phrase module_id="theme" version_id="2.0.0rc4" var_name="automatically_resize" added="1255344755">Автоматическое изменение размера</phrase>
+	<phrase module_id="theme" version_id="2.0.0rc4" var_name="current_logo" added="1255344772">Текущий логотип</phrase>
+	<phrase module_id="theme" version_id="2.0.0rc4" var_name="revert_logo" added="1255344804">Вернуть Логотип</phrase>
+	<phrase module_id="theme" version_id="2.0.0rc4" var_name="upload_logo" added="1255344818">Загрузить логотип</phrase>
+	<phrase module_id="theme" version_id="2.0.0rc4" var_name="template_info" added="1255344826">О шаблоне</phrase>
+	<phrase module_id="theme" version_id="2.0.0rc4" var_name="group" added="1255344831">Группа</phrase>
+	<phrase module_id="theme" version_id="2.0.0rc4" var_name="global_template" added="1255344837">Глобальный шаблон</phrase>
+	<phrase module_id="theme" version_id="2.0.0rc4" var_name="type" added="1255344901">Тип</phrase>
+	<phrase module_id="theme" version_id="2.0.0rc4" var_name="block" added="1255344914">Блок</phrase>
+	<phrase module_id="theme" version_id="2.0.0rc4" var_name="controller" added="1255344919">Контроллер</phrase>
+	<phrase module_id="theme" version_id="2.0.0rc4" var_name="required_only_for_modular_templates" added="1255344928">Необходимо только для модульных шаблонов.</phrase>
+	<phrase module_id="theme" version_id="2.0.0rc4" var_name="html" added="1255344940">HTML</phrase>
+	<phrase module_id="theme" version_id="2.0.0rc4" var_name="html_templates" added="1255344956">HTML шаблоны</phrase>
+	<phrase module_id="theme" version_id="2.0.0rc4" var_name="global_templates" added="1255344973">Глобальные шаблоны</phrase>
+	<phrase module_id="theme" version_id="2.0.0rc4" var_name="controllers" added="1255344986">Контроллер</phrase>
+	<phrase module_id="theme" version_id="2.0.0rc4" var_name="theme_details" added="1255345026">О теме</phrase>
+	<phrase module_id="theme" version_id="2.0.0rc4" var_name="folder" added="1255345049">Папка</phrase>
+	<phrase module_id="theme" version_id="2.0.0rc4" var_name="export" added="1255345141">Экспортировать</phrase>
+	<phrase module_id="theme" version_id="2.0.0rc4" var_name="export_styles" added="1255345208">Экспорт стилей</phrase>
+	<phrase module_id="theme" version_id="2.0.0rc4" var_name="download" added="1255345215">Скачать</phrase>
+	<phrase module_id="theme" version_id="2.0.0rc4" var_name="manage" added="1255345751">Управление</phrase>
+	<phrase module_id="theme" version_id="2.0.0rc4" var_name="edit_theme" added="1255345761">Править тему</phrase>
+	<phrase module_id="theme" version_id="2.0.0rc4" var_name="edit_templates" added="1255345771">Править шаблон</phrase>
+	<phrase module_id="theme" version_id="2.0.0rc4" var_name="manage_styles" added="1255345779">Управление стилями</phrase>
+	<phrase module_id="theme" version_id="2.0.0rc4" var_name="recent_visitors" added="1255345946">Последние посетители</phrase>
+	<phrase module_id="theme" version_id="2.0.0rc4" var_name="default_manage" added="1255766695">Стандартный</phrase>
+	<phrase module_id="theme" version_id="2.0.0rc11" var_name="page_width" added="1260207598">Ширина страницы</phrase>
+	<phrase module_id="theme" version_id="2.0.0rc11" var_name="link" added="1260207621">Ссылка</phrase>
+	<phrase module_id="theme" version_id="2.0.0rc11" var_name="link_hover" added="1260207630">Ссылка: наведенная</phrase>
+	<phrase module_id="theme" version_id="2.0.0rc11" var_name="search_bar" added="1260207639">Поиск</phrase>
+	<phrase module_id="theme" version_id="2.0.0rc11" var_name="header" added="1260207647">Заголовок</phrase>
+	<phrase module_id="theme" version_id="2.0.0rc11" var_name="menu" added="1260207656">Меню</phrase>
+	<phrase module_id="theme" version_id="2.0.0rc11" var_name="menu_link" added="1260207665">Ссылка на меню</phrase>
+	<phrase module_id="theme" version_id="2.0.0rc11" var_name="menu_link_hover" added="1260207690">Ссылка на меню: наведенная</phrase>
+	<phrase module_id="theme" version_id="2.0.0rc11" var_name="profile_header" added="1260207703">Заголовок профиля</phrase>
+	<phrase module_id="theme" version_id="2.0.0rc11" var_name="profile_header_link" added="1260207713">Ссылка на заголовок профиля</phrase>
+	<phrase module_id="theme" version_id="2.0.0rc11" var_name="profile_header_link_hover" added="1260207725">Ссылка на заголовок профиля: наведенная</phrase>
+	<phrase module_id="theme" version_id="2.0.0rc11" var_name="profile_link" added="1260207735">URL Профиля</phrase>
+	<phrase module_id="theme" version_id="2.0.0rc11" var_name="profile_link_hover" added="1260207746">Ссылка на профиль: наведенная</phrase>
+	<phrase module_id="theme" version_id="2.0.0rc11" var_name="content" added="1260207757">Контент</phrase>
+	<phrase module_id="theme" version_id="2.0.0rc11" var_name="block_body" added="1260207770">Заблокировать содержание</phrase>
+	<phrase module_id="theme" version_id="2.0.0rc11" var_name="block_header" added="1260207781">Заблокировать заголовок</phrase>
+	<phrase module_id="theme" version_id="2.0.0rc11" var_name="bottom" added="1260207790">Низ</phrase>
+	<phrase module_id="theme" version_id="2.0.0rc11" var_name="bottom_link" added="1260207800">Ссылка внизу</phrase>
+	<phrase module_id="theme" version_id="2.0.0rc11" var_name="bottom_link_hover" added="1260207809">Ссылка внизу: наведенная</phrase>
+	<phrase module_id="theme" version_id="2.0.0" var_name="click_on_the_blocks_below_to_hide_unhide_them" added="1261162437"><![CDATA[Нажми на "Блоки" чтобы спрятать/показать их.]]></phrase>
+	<phrase module_id="theme" version_id="2.0.7" var_name="creating_css_file" added="1288349553">Создание CSS-файлов</phrase>
+	<phrase module_id="theme" version_id="3.0.0beta5" var_name="add_new_block" added="1319121954">Добавить Блок</phrase>
+	<phrase module_id="theme" version_id="3.0.0beta5" var_name="please_enable_designdnd_first" added="1319127067">Пожалуйста, в первую очередь включите DesignDND.</phrase>
+	<phrase module_id="theme" version_id="3.0.0beta5" var_name="you_are_not_allowed_to_make_use_of_this_feature" added="1319127081">Вы не можете использовать эту функцию.</phrase>
+	<phrase module_id="theme" version_id="3.0.0beta5" var_name="something_bad_happened" added="1319127092">Что-то случилось плохое.</phrase>
+	<phrase module_id="theme" version_id="3.0.0" var_name="order_updated" added="1323096693">Счет обновлен</phrase>
+	<phrase module_id="theme" version_id="3.0.0" var_name="select_a_block_below_and_then_drag_it_to_any_of_the_available_positions" added="1323096740">Выберите блок ниже, а затем перетащите его на любую из доступных позиций.</phrase>
+</phrases>

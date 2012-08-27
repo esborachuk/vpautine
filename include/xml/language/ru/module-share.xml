@@ -1,0 +1,77 @@
+<phrases>
+	<phrase module_id="share" version_id="2.0.0alpha1" var_name="module_share" added="1233837703">Поделиться</phrase>
+	<phrase module_id="share" version_id="2.0.0rc1" var_name="user_setting_can_send_emails" added="1249835659">Можно отправлять электронную почту, когда обмениваются ссылками?</phrase>
+	<phrase module_id="share" version_id="2.0.0rc1" var_name="user_setting_total_emails_per_round" added="1249835888"><![CDATA[Сколько писем за раз могут быть отправлены, когда обмениваются ссылками?  <b>Примечание:</b> Значение "0" (без кавычек) дает пользовательской группе неограниченное количество писем за один раз.]]></phrase>
+	<phrase module_id="share" version_id="2.0.0rc1" var_name="user_setting_emails_per_hour" added="1249836245"><![CDATA[Определите, сколько электронных писем могет быть отправлено при совместном использовании элементов каждый час.  <b>Примечание:</b> Значение "0" (без кавычек) разрешает неограниченное количество писем для отправки в час.]]></phrase>
+	<phrase module_id="share" version_id="2.0.0rc1" var_name="admin_menu_manage_social_sites" added="1249838039">Управление социальными сайтами</phrase>
+	<phrase module_id="share" version_id="2.0.0rc1" var_name="admin_menu_add_social_site" added="1249838039">Добавить социальный сайт</phrase>
+	<phrase module_id="share" version_id="2.0.0rc2" var_name="setting_enable_social_bookmarking" added="1253454253"><![CDATA[<title>Включить социальные закладки</title><info>Включить социальные закладки</info>]]></phrase>
+	<phrase module_id="share" version_id="2.0.0rc4" var_name="message_successfully_sent" added="1255334742">Сообщение успешно отправлено.</phrase>
+	<phrase module_id="share" version_id="2.0.0rc4" var_name="hi_check_this_out_url" added="1255334784">Привет, посмотри на это {url}</phrase>
+	<phrase module_id="share" version_id="2.0.0rc4" var_name="site_successfully_updated" added="1255334834">Сайт успешно обновлён.</phrase>
+	<phrase module_id="share" version_id="2.0.0rc4" var_name="site_successfully_added" added="1255334843">Сайт успешно добавлен.</phrase>
+	<phrase module_id="share" version_id="2.0.0rc4" var_name="add_a_social_bookmarking_site" added="1255334855">Добавить соц. закладку</phrase>
+	<phrase module_id="share" version_id="2.0.0rc4" var_name="social_bookmarking" added="1255334862">Соц. закладки</phrase>
+	<phrase module_id="share" version_id="2.0.0rc4" var_name="add_a_site" added="1255334869">Добавить сайт</phrase>
+	<phrase module_id="share" version_id="2.0.0rc4" var_name="site_successfully_deleted" added="1255334979">Сайт успешно удален.</phrase>
+	<phrase module_id="share" version_id="2.0.0rc4" var_name="manage_sites" added="1255334987">Управление сайтами</phrase>
+	<phrase module_id="share" version_id="2.0.0rc4" var_name="share" added="1255334996">Поделиться</phrase>
+	<phrase module_id="share" version_id="2.0.0rc4" var_name="select_what_type_of_a_site_this_is" added="1255335019">Выберите, какой тип сайта.</phrase>
+	<phrase module_id="share" version_id="2.0.0rc4" var_name="provide_a_name_for_the_site" added="1255335026">Введите имя для сайта.</phrase>
+	<phrase module_id="share" version_id="2.0.0rc4" var_name="provide_a_url_for_the_site" added="1255335034">Введите URL сайта.</phrase>
+	<phrase module_id="share" version_id="2.0.0rc4" var_name="this_site_already_exists" added="1255335043">Этот сайт уже существует.</phrase>
+	<phrase module_id="share" version_id="2.0.0rc4" var_name="the_site_cannot_be_found" added="1255335058">Сайт не найден.</phrase>
+	<phrase module_id="share" version_id="2.0.0rc4" var_name="none_of_the_emails_entered_were_valid" added="1255335069">Ни один e-mail не действительный.</phrase>
+	<phrase module_id="share" version_id="2.0.0rc4" var_name="provide_a_icon_for_this_site" added="1255335079">Установите значок для этого сайта.</phrase>
+	<phrase module_id="share" version_id="2.0.0rc4" var_name="provide_an_e_mail_address" added="1255335242">Введите e-mail.</phrase>
+	<phrase module_id="share" version_id="2.0.0rc4" var_name="email_s" added="1255335257">E-mail</phrase>
+	<phrase module_id="share" version_id="2.0.0rc4" var_name="separate_multiple_emails_with_a_comma" added="1255335274">Разделите адреса электронной почты запятыми.</phrase>
+	<phrase module_id="share" version_id="2.0.0rc4" var_name="max_emails_limit" added="1255335723">Максимум e-mail'ов: {limit}</phrase>
+	<phrase module_id="share" version_id="2.0.0rc4" var_name="subject" added="1255335734">Тема</phrase>
+	<phrase module_id="share" version_id="2.0.0rc4" var_name="message" added="1255335741">Сообщение</phrase>
+	<phrase module_id="share" version_id="2.0.0rc4" var_name="send" added="1255335748">Отправить</phrase>
+	<phrase module_id="share" version_id="2.0.0rc4" var_name="you_are_unable_to_send_any_more_emails_we_have_a_limit_of_how_many_emails_can_be_sent_each_hour_br_current_limit_limit" added="1255335767"><![CDATA[Вы не можете отправлять больше писем. У нас есть предел, сколько электронных писем можно отправлять каждый час. <br /> Лимит: {limit}]]></phrase>
+	<phrase module_id="share" version_id="2.0.0rc4" var_name="social_bookmarks" added="1255335788">Социальные закладки</phrase>
+	<phrase module_id="share" version_id="2.0.0rc4" var_name="friends" added="1255335798">Друзья</phrase>
+	<phrase module_id="share" version_id="2.0.0rc4" var_name="e_mail" added="1255335807">E-Mail</phrase>
+	<phrase module_id="share" version_id="2.0.0rc4" var_name="post" added="1255335814">Сообщение</phrase>
+	<phrase module_id="share" version_id="2.0.0rc4" var_name="need_to_select_some_friends_before_we_try_to_send_the_message" added="1255335828">Вам нужно выбрать несколько друзей, прежде чем отправить сообщение.</phrase>
+	<phrase module_id="share" version_id="2.0.0rc4" var_name="continue" added="1255335844">Продолжить</phrase>
+	<phrase module_id="share" version_id="2.0.0rc4" var_name="site_info" added="1255335933">Информация о сайте</phrase>
+	<phrase module_id="share" version_id="2.0.0rc4" var_name="type" added="1255335939">Тип</phrase>
+	<phrase module_id="share" version_id="2.0.0rc4" var_name="select" added="1255335946">Выбрать</phrase>
+	<phrase module_id="share" version_id="2.0.0rc4" var_name="bookmark" added="1255335951">Закладка</phrase>
+	<phrase module_id="share" version_id="2.0.0rc4" var_name="title" added="1255335962">Название</phrase>
+	<phrase module_id="share" version_id="2.0.0rc4" var_name="url" added="1255335969">URL</phrase>
+	<phrase module_id="share" version_id="2.0.0rc4" var_name="you_can_pass_a_title_and_url_string_by_adding_the_following_replacements_br_url_url_of_the_item_br_title_title_of_the_item" added="1255336002"><![CDATA[Вы можете передать название и URL, добавляя следующие замены... <br /> {URL} = URL для элемента. <br /> {TITLE} = Название элемента.]]></phrase>
+	<phrase module_id="share" version_id="2.0.0rc4" var_name="icon" added="1255336012">Иконка</phrase>
+	<phrase module_id="share" version_id="2.0.0rc4" var_name="click_here_to_change_this_icon" added="1255336032">Нажмите здесь, чтобы изменить иконку.</phrase>
+	<phrase module_id="share" version_id="2.0.0rc4" var_name="cancel" added="1255336041">отмена</phrase>
+	<phrase module_id="share" version_id="2.0.0rc4" var_name="you_can_upload_a_jpg_gif_or_png_file_br_advised_size_is_16x16_pixels" added="1255336057"><![CDATA[Вы можете загрузить JPG, GIF или PNG файл. <br /> Рекомендуемый размер 16x16 пикселей.]]></phrase>
+	<phrase module_id="share" version_id="2.0.0rc4" var_name="is_active" added="1255336067">Активно</phrase>
+	<phrase module_id="share" version_id="2.0.0rc4" var_name="yes" added="1255336074">Да</phrase>
+	<phrase module_id="share" version_id="2.0.0rc4" var_name="no" added="1255336079">Нет</phrase>
+	<phrase module_id="share" version_id="2.0.0rc4" var_name="submit" added="1255336086">Создать</phrase>
+	<phrase module_id="share" version_id="2.0.0rc4" var_name="sites" added="1255336266">Сайты</phrase>
+	<phrase module_id="share" version_id="2.0.0rc4" var_name="name" added="1255336277">Название</phrase>
+	<phrase module_id="share" version_id="2.0.0rc4" var_name="active" added="1255336283">Активно</phrase>
+	<phrase module_id="share" version_id="2.0.0rc4" var_name="manage" added="1255336290">Управление</phrase>
+	<phrase module_id="share" version_id="2.0.0rc4" var_name="edit" added="1255336297">Редактировать</phrase>
+	<phrase module_id="share" version_id="2.0.0rc4" var_name="delete" added="1255336303">Удалить</phrase>
+	<phrase module_id="share" version_id="2.0.0rc4" var_name="are_you_sure" added="1255336311">Вы уверены?</phrase>
+	<phrase module_id="share" version_id="2.0.0rc4" var_name="deactivate" added="1255336320">Дезактивировать</phrase>
+	<phrase module_id="share" version_id="2.0.0rc4" var_name="activate" added="1255336326">Активировать</phrase>
+	<phrase module_id="share" version_id="2.0.0rc4" var_name="please_wait_limit_seconds_before_adding_a_new_shoutout" added="1255336870">Пожалуйста, подождите {limit} секунд, прежде чем добавлять новые.</phrase>
+	<phrase module_id="share" version_id="2.0.0rc4" var_name="hi_check_this_out_bbcode" added="1256557298"><![CDATA[Привет,  Загляни сюда...  [link={url}]{url}[/link]]]></phrase>
+	<phrase module_id="share" version_id="2.0.4" var_name="check_out" added="1266509614">Посмотри:</phrase>
+	<phrase module_id="share" version_id="3.0.0beta1" var_name="setting_share_facebook_like" added="1312362742"><![CDATA[<title>Включить Нравится от Facebook</title><info>Установите "Да" для того, чтобы включить кнопку Нравится от Facebook.</info>]]></phrase>
+	<phrase module_id="share" version_id="3.0.0beta1" var_name="setting_share_twitter_link" added="1312371053"><![CDATA[<title>Включить Twitter кнопку</title><info>Установите "Да" для того, чтобы включить кнопку Twitter.</info>]]></phrase>
+	<phrase module_id="share" version_id="3.0.0beta1" var_name="setting_share_google_plus_one" added="1312371128"><![CDATA[<title>Google +1</title><info>Установите "Да" для того, чтобы включить кнопку Google +1.</info>]]></phrase>
+	<phrase module_id="share" version_id="3.0.0beta1" var_name="setting_share_on_facebook" added="1312531324"><![CDATA[<title>Facebook Social Sharing</title><info>Позвольте вашим пользователям обмениваться контентом используя ваш сайт и Facebook.</info>]]></phrase>
+	<phrase module_id="share" version_id="3.0.0beta1" var_name="setting_share_on_twitter" added="1312531396"><![CDATA[<title>Twitter Social Sharing</title><info>Позвольте вашим пользователям обмениваться контентом используя ваш сайт и Twitter.</info>]]></phrase>
+	<phrase module_id="share" version_id="3.0.0beta5" var_name="social_sharing" added="1319122174">Социальный обмен</phrase>
+	<phrase module_id="share" version_id="3.0.0rc1" var_name="before_using_this_feature_you_will_have_to_setup_up_a_connection_with_this_3rd_party_service" added="1320229448">Перед использованием этой функции необходимо установить связь с 3-ей службой.</phrase>
+	<phrase module_id="share" version_id="3.0.0rc1" var_name="connect_now" added="1320229456">Соединиться сейчас</phrase>
+	<phrase module_id="share" version_id="3.3.0beta1" var_name="on_your_wall" added="1336400616">На вашей стене</phrase>
+	<phrase module_id="share" version_id="3.3.0beta1" var_name="on_a_friend_s_wall" added="1336400624"><![CDATA[На стене друга]]></phrase>
+</phrases>

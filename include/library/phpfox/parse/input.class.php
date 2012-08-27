@@ -14,7 +14,7 @@ defined('PHPFOX') or exit('NO DICE!');
  * @copyright		[PHPFOX_COPYRIGHT]
  * @author			Raymond Benc
  * @package 		Phpfox
- * @version 		$Id: input.class.php 4407 2012-06-28 08:30:19Z Miguel_Espinoza $
+ * @version 		$Id: input.class.php 3213 2011-09-28 12:03:57Z Miguel_Espinoza $
  */
 class Phpfox_Parse_Input
 {
@@ -186,8 +186,7 @@ class Phpfox_Parse_Input
 		}
 		$sOut = '';
 		$iOutLen = 0;
-		$iPos = 0; 
-		$iTxtLen = strlen($sTxt);
+		$iPos = 0; $iTxtLen = strlen($sTxt);
 		for ($iPos; $iPos < $iTxtLen && $iOutLen <= $iLetters; $iPos++)
 		{
 			if ($sTxt[$iPos] == '&')
@@ -196,12 +195,7 @@ class Phpfox_Parse_Input
 				$sTemp = substr($sTxt, $iPos, $iEnd - $iPos);
 				if (preg_match('/(&#[0-9]+;)/', $sTemp))
 				{
-					$sTmp = $sOut;
 					$sOut .= $sTemp; // add the entity altogether
-					if (strlen($sOut) > $iLetters)
-					{
-						return $sTmp;
-					}
 					$iOutLen++; // increment the length of the returning string
 					$iPos = $iEnd-1; // move the pointer to skip the entity in the next run
 					continue;
@@ -235,10 +229,10 @@ class Phpfox_Parse_Input
 	{
 		$sUrls = trim(strip_tags($sUrls));
 		$sUrls = $this->_utf8ToUnicode($sUrls, true);		
-		$sUrls = preg_replace("/ +/", "-", $sUrls);		
-		$sUrls = rawurlencode($sUrls);		
-		$sUrls = str_replace(array('"', "'"), '', $sUrls);
+		$sUrls = preg_replace("/ +/", "-", $sUrls);			
+		$sUrls = str_replace(array('"', "'", '.', ',', ';', '/', '\\', '`', '+'), '', $sUrls);
 		$sUrls = str_replace(' ', '-', $sUrls);
+        $sUrls = str_replace('_', '-', $sUrls);
 		$sUrls = str_replace(array('-----', '----', '---', '--'), '-', $sUrls);
 		$sUrls = rtrim($sUrls, '-');
 		$sUrls = ltrim($sUrls, '-');
@@ -248,6 +242,7 @@ class Phpfox_Parse_Input
 			$sUrls = PHPFOX_TIME;
 		}
 		
+		$sUrls = rawurlencode($sUrls);		
 		$sUrls = strtolower($sUrls);
 
 		return $sUrls;
@@ -373,7 +368,7 @@ class Phpfox_Parse_Input
 	 * @param string $sTxt Text to parse.
 	 * @return string Parsed string.
 	 */
-	public function prepare($sTxt, $bNoClean = false)
+	public function prepare($sTxt)
 	{
 		// Parse Emoticons
 		if (Phpfox::isModule('emoticon'))
@@ -393,20 +388,13 @@ class Phpfox_Parse_Input
 		$sTxt = str_replace('\\', '&#92;', $sTxt);
 		
 		// Clean out the HTML
-		if (!$bNoClean)
-		{
-			$sTxt = $this->_cleanHtml($sTxt);
-		}
+		$sTxt = $this->_cleanHtml($sTxt);
 
 		// Parse BBCode
 		$sTxt = $oFilterBbcode->parse($sTxt);		
 		
 		$sTxt = str_replace('<br /><li>', '<li>', $sTxt);
-		$sTxt = str_replace('<br /></ul>', '</ul>', $sTxt);	
-		$sTxt = str_replace('<br /><tr>', '<tr>', $sTxt);
-		$sTxt = str_replace('<br /><td>', '<td>', $sTxt);
-		$sTxt = str_replace('<br /></tr>', '</tr>', $sTxt);
-		$sTxt = str_replace('<br /></table>', '</table>', $sTxt);		
+		$sTxt = str_replace('<br /></ul>', '</ul>', $sTxt);		
 
 		return $sTxt;
 	}
@@ -570,7 +558,7 @@ class Phpfox_Parse_Input
 
 		if (!defined('PHPFOX_INSTALLER'))
 		{
-		    $sNewTitle = substr($sNewTitle, 0, Phpfox::getParam('core.crop_seo_url'));
+		   $sNewTitle = rawurlencode(substr(rawurldecode($sNewTitle), 0, Phpfox::getParam('core.crop_seo_url')));
 		}
 
 		$oDb = Phpfox::getLib('database');
@@ -792,7 +780,6 @@ class Phpfox_Parse_Input
 		{
 			$sTemp = str_replace($aMatched[1][$iKey], '', $sMatch);
 			$sTemp = strtolower($sTemp);
-
 			if (strpos($sAllowed, $sTemp) !== false)
 			{				
 				$sMatch2 = str_replace($aMatched[1][$iKey], $this->_removeEvilAttributes($aMatched[1][$iKey], true), $sMatch);
@@ -802,10 +789,12 @@ class Phpfox_Parse_Input
 			}
 			
 		}
-		
+		//d($sTxt);
 		$sTxt = str_replace(array('<', '>'), array('&lt;', '&gt;'), $sTxt);
-		$sTxt = str_replace(array($iUnid1, $iUnid2), array('<', '>'), $sTxt);		
-		
+		$sTxt = str_replace(array($iUnid1, $iUnid2), array('<', '>'), $sTxt);
+		// $sTxt = preg_replace('/&lt;(.*?) (.*?)&gt;(.*?)&lt;\/\\1&gt;/ise', "''.\$this->_removeEvilAttributes('\\1 \\2').'\\3'.\$this->_removeEvilAttributes('/\\1').''", $sTxt);
+		// $sTxt = preg_replace('/&lt;(.*?)&gt;(.*?)&lt;\/\\1&gt;/ise', "''.\$this->_removeEvilAttributes('\\1').'\\2'.\$this->_removeEvilAttributes('/\\1').''", $sTxt);
+
 		if (!defined('PHPFOX_DO_NOT_PARSE_BREAK'))
 		{
 			$sTxt = str_replace('[br]', '<br />', $sTxt);
@@ -814,8 +803,8 @@ class Phpfox_Parse_Input
 		if ( (Phpfox::isModule('video') && Phpfox::getParam('video.allow_youtube_iframe')) || defined('PHPFOX_FORCE_IFRAME'))
 		{
 			/* get all the iframes in text*/
-			if (preg_match_all('/(&lt;iframe [a-z0-9=_\-\.:&\/\?; \"]*&gt;&lt;\/iframe&gt;)/i', $sTxt, $aIframes))
-			{	
+			if (preg_match_all('/(&lt;iframe [a-z0-9=_\-\.:&\/; \"]*&gt;&lt;\/iframe&gt;)/i',$sTxt,$aIframes))
+			{				
 				/* for each iframe get the params */
 				foreach ($aIframes as $iKey => $aFrame)
 				{
@@ -843,14 +832,7 @@ class Phpfox_Parse_Input
 									else
 									{
 										$sLink = preg_match('/http:\/\/www\.youtube.com\/embed\/([a-z0-9\-_]*)/i',$aSub[2],$aVal);
-										if (isset($aVal[1]))
-										{
-											$sReplace .= 'src="http://www.youtube.com/embed/' . $this->clean($aVal[1]) .'?wmode=transparent" wmode="Opaque"';
-										}
-										else
-										{
-											$sReplace = '';
-										}
+										$sReplace .= 'src="http://www.youtube.com/embed/' . $this->clean($aVal[1]) .'?wmode=transparent" wmode="Opaque"';
 									}
 							}
 						}
@@ -948,24 +930,12 @@ class Phpfox_Parse_Input
         {
 			$sTxt = preg_replace('/'. $sCss .':(.*?)/i', 'replaced:', $sTxt);
        	}      
-		
-		$aParams = $this->getParams(substr_replace($sTxt, '', 0, strlen($aParts[0]))); 
-		foreach ($aParams as $sKey => $mValue)
-        {
-			if ($sKey == 'src')
-			{
-				if (!preg_match('/(http|https):\/\//is', $mValue))
-				{
-					$sTxt = preg_replace('/'. $sKey .'=' . preg_quote($mValue, '/')  . '/is', 'replaced=""', $sTxt);
-				}
-			}			
-		}
        	
        	if ($bCleanOnly === true)
        	{
        		return $sTxt;
        	}       	
-
+        
        	$bFailed = false;       	
         switch (strtolower($aParts[0]))
         {
@@ -973,7 +943,7 @@ class Phpfox_Parse_Input
         	case 'embed':
         	case 'param':
         	case 'iframe':
-  
+        		
         		break;   
         	case 'font':
         		$aParams = $this->getParams(substr_replace($sTxt, '', 0, strlen($aParts[0]))); 		
@@ -1056,6 +1026,7 @@ class Phpfox_Parse_Input
      */
     private function _utf8ToUnicode($str, $bForUrl = false)
     {
+		return $str;
         $unicode = array();
         $values = array();
         $lookingFor = 1;
@@ -1121,7 +1092,6 @@ class Phpfox_Parse_Input
         		$entities .= ($value == 42 ? '&#' . $value . ';' : ( $value > 127 ) ? '&#' . $value . ';' : chr($value));
         	}
         }
-		$entities = str_replace("'", '&#039;', $entities);
         return $entities;
     }
 

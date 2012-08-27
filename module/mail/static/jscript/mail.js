@@ -46,7 +46,3 @@ $Core.mailThreadReset = function(){
 	$('#js_mail_thread_current_cnt').html(iTotal + 1);
 	$.scrollTo('.is_last_message:first');
 }
-
-$(function() {
-    $( "#message-tabs" ).tabs();
-});

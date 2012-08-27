@@ -1,0 +1,124 @@
+<phrases>
+	<phrase module_id="comment" version_id="2.0.0alpha1" var_name="user_setting_wysiwyg_on_comments" added="1214975355">Можно ли использовать WYSIWYG-редактор для комментариев?  Примечание: Использование WYSIWYG-редактора должно быть разрешено.</phrase>
+	<phrase module_id="comment" version_id="2.0.0alpha1" var_name="user_setting_edit_own_comment" added="1214975363">Можно ли редактировать свои комментарии?</phrase>
+	<phrase module_id="comment" version_id="2.0.0alpha1" var_name="user_setting_edit_user_comment" added="1214975374">Можно ли редактировать комментарии, добавленные другими пользователями?</phrase>
+	<phrase module_id="comment" version_id="2.0.0alpha1" var_name="user_setting_delete_own_comment" added="1214975381">Можно ли удалять свои комментарии?</phrase>
+	<phrase module_id="comment" version_id="2.0.0alpha1" var_name="user_setting_delete_user_comment" added="1214975391">Можно ли удалять комментарии, добавленные другими пользователями?</phrase>
+	<phrase module_id="comment" version_id="2.0.0alpha1" var_name="user_setting_points_comment" added="1214975689">Количество очков, которое пользователь получает при добавлении нового комментария.</phrase>
+	<phrase module_id="comment" version_id="2.0.0alpha1" var_name="user_setting_can_vote_on_comments" added="1218723462">Можно ли пользователям голосовать в комментариях?</phrase>
+	<phrase module_id="comment" version_id="2.0.0alpha1" var_name="user_setting_can_post_comments" added="1219216463">Можно ли размещать комментарии?</phrase>
+	<phrase module_id="comment" version_id="2.0.0alpha1" var_name="module_comment" added="1219147587">Комментарий</phrase>
+	<phrase module_id="comment" version_id="2.0.0alpha1" var_name="x_wrote" added="1212758463"><![CDATA[Пользователь <a href="{link}">{full_name}</a> писал {date}]]></phrase>
+	<phrase module_id="comment" version_id="2.0.0alpha1" var_name="edit" added="1212758797">Редактировать</phrase>
+	<phrase module_id="comment" version_id="2.0.0alpha1" var_name="reply" added="1212758815">Ответить</phrase>
+	<phrase module_id="comment" version_id="2.0.0alpha1" var_name="quote" added="1212758831">Цитировать</phrase>
+	<phrase module_id="comment" version_id="2.0.0alpha1" var_name="delete" added="1212758847">Удалить</phrase>
+	<phrase module_id="comment" version_id="2.0.0alpha1" var_name="delete_comment" added="1212758863">Удалить комментарий</phrase>
+	<phrase module_id="comment" version_id="2.0.0alpha1" var_name="last_update_on_x_by_x" added="1212761285">Последнее обновление {date} пользователем {full_name}</phrase>
+	<phrase module_id="comment" version_id="2.0.0alpha1" var_name="fill_text_your_comment" added="1212761438">Введите текст вашего комментария</phrase>
+	<phrase module_id="comment" version_id="2.0.0alpha1" var_name="leave_a_reply" added="1212761679">Оставить Ответ</phrase>
+	<phrase module_id="comment" version_id="2.0.0alpha1" var_name="comment" added="1212761697">Комментарий</phrase>
+	<phrase module_id="comment" version_id="2.0.0alpha1" var_name="submit_comment" added="1212761728">Добавить комментарий</phrase>
+	<phrase module_id="comment" version_id="2.0.0alpha1" var_name="adding_comment" added="1212761764">Добавление комментария</phrase>
+	<phrase module_id="comment" version_id="2.0.0alpha1" var_name="comment_deleted" added="1215261123">Комментарий удален</phrase>
+	<phrase module_id="comment" version_id="2.0.0alpha1" var_name="voted" added="1218714564">Голос принят!</phrase>
+	<phrase module_id="comment" version_id="2.0.0alpha1" var_name="vote" added="1218723227">{total} Голосов</phrase>
+	<phrase module_id="comment" version_id="2.0.0alpha1" var_name="votes" added="1218723235">{total} голосов</phrase>
+	<phrase module_id="comment" version_id="2.0.0alpha1" var_name="vote_this_comment" added="1218723252">Голосовать за</phrase>
+	<phrase module_id="comment" version_id="2.0.0alpha1" var_name="vote_this_comment_down" added="1218723273">Голосовать против</phrase>
+	<phrase module_id="comment" version_id="2.0.0alpha1" var_name="comments_header" added="1218724890">Комментарии</phrase>
+	<phrase module_id="comment" version_id="2.0.0alpha1" var_name="comments" added="1219061995"><![CDATA[Нет комментариев. Вы будете первым, кто <a href="#add-comment" onclick="$.scrollTo('#add-comment', 360); return false;">добавит комментарий</a>.]]></phrase>
+	<phrase module_id="comment" version_id="2.0.0alpha1" var_name="user_wrote_date" added="1219404347">{full_name}. Дата: {date}</phrase>
+	<phrase module_id="comment" version_id="2.0.0alpha1" var_name="name" added="1219404436">Название</phrase>
+	<phrase module_id="comment" version_id="2.0.0alpha1" var_name="email_will_not_published" added="1219404453">Email (Не будет опубликован)</phrase>
+	<phrase module_id="comment" version_id="2.0.0alpha1" var_name="website" added="1219404463">Веб-сайт</phrase>
+	<phrase module_id="comment" version_id="2.0.0alpha1" var_name="comments_must_login_signup" added="1219405155"><![CDATA[Нет комментариев. Необходимо <a href="{login}">войти</a> или <a href="{register}">зарегистрироваться</a>.]]></phrase>
+	<phrase module_id="comment" version_id="2.0.0alpha3" var_name="user_setting_comment_post_flood_control" added="1239106180">Задает, через какой промежуток в минутах эта группа пользователей может разместить новый комментарий.  Примечание: Установите 0, для отмены ограничений.</phrase>
+	<phrase module_id="comment" version_id="2.0.0beta5" var_name="setting_allow_rss_feed_on_comments" added="1245661168"><![CDATA[<title>RSS- Каналы в Комментариях</title><info>Установите в <b>Да</b> для разрешения RSS-каналов в комментариях.</info>]]></phrase>
+	<phrase module_id="comment" version_id="2.0.0rc1" var_name="setting_total_child_comments" added="1250665239"><![CDATA[<title>Всего Дочерних Комментариев</title><info>Задает количество дочерних комментариев, которое может иметь родительский комментарий.  Примечание: Используется только в том случае, если разрешено ветвление ответов.</info>]]></phrase>
+	<phrase module_id="comment" version_id="2.0.0rc1" var_name="user_setting_can_moderate_comments" added="1251193218">Можно проверять комментарии?</phrase>
+	<phrase module_id="comment" version_id="2.0.0rc1" var_name="setting_spam_check_comments" added="1251271192"><![CDATA[<title>Проверка Комментариев на Спам</title><info>Проверка Комментариев на Спам</info>]]></phrase>
+	<phrase module_id="comment" version_id="2.0.0rc1" var_name="setting_comment_hash_check" added="1251284550"><![CDATA[<title>Хэш-Проверка Комментариев</title><info>Если эта опция включена, будет производиться проверка, нет ли среди последних X комментариев, добавленных за последние Y минут, комментария, идентичного добавляемому.  Примечание: Значения X и Y могут быть изменены.</info>]]></phrase>
+	<phrase module_id="comment" version_id="2.0.0rc1" var_name="setting_comments_to_check" added="1251284777"><![CDATA[<title>Число Комментариев для Проверки</title><info>Если включена проверка комментариев, здесь можно задать количество проверяемых комментариев.</info>]]></phrase>
+	<phrase module_id="comment" version_id="2.0.0rc1" var_name="setting_total_minutes_to_wait_for_comments" added="1251284849"><![CDATA[<title>Интервал Проверки</title><info>Если включена проверка комментариев, здесь можно задать проверяемый промежуток времени в минутах.</info>]]></phrase>
+	<phrase module_id="comment" version_id="2.0.0rc2" var_name="posting_a_comment_a_little_too_soon_total_time" added="1252996489">Вы публикуете комментарии слишком часто, попробуйте через {total_time} минут.</phrase>
+	<phrase module_id="comment" version_id="2.0.0rc2" var_name="add_some_text_to_your_comment" added="1252996511">Введите текст вашего комментария.</phrase>
+	<phrase module_id="comment" version_id="2.0.0rc2" var_name="your_comment_was_successfully_added_moderated" added="1252996553">Ваш комментарий успешно добавлен, необходимо дождаться проверки комментария администратором.</phrase>
+	<phrase module_id="comment" version_id="2.0.0rc2" var_name="last_update_on_time_stamp_by_full_name" added="1252996649">Исправлено пользователем {full_name} {time_stamp}.</phrase>
+	<phrase module_id="comment" version_id="2.0.0rc2" var_name="comment_successfully_deleted" added="1252998594">Комментарий успешно удален.</phrase>
+	<phrase module_id="comment" version_id="2.0.0rc2" var_name="fill_in_your_name" added="1252998674">Введите ваше Название.</phrase>
+	<phrase module_id="comment" version_id="2.0.0rc2" var_name="comment_title" added="1252998712">Комментарии</phrase>
+	<phrase module_id="comment" version_id="2.0.0rc2" var_name="last_activity" added="1252998824">Последняя активность</phrase>
+	<phrase module_id="comment" version_id="2.0.0rc2" var_name="rating" added="1252998834">Рейтинг</phrase>
+	<phrase module_id="comment" version_id="2.0.0rc2" var_name="rss_feeds_are_disabled_for_comments" added="1252998882">RSS-каналы отключены для комментариев.</phrase>
+	<phrase module_id="comment" version_id="2.0.0rc2" var_name="comment_does_not_exist" added="1252998893">Комментарий не существует.</phrase>
+	<phrase module_id="comment" version_id="2.0.0rc2" var_name="nothing_new_to_approve" added="1252998943">Нет ничего для одобрения.</phrase>
+	<phrase module_id="comment" version_id="2.0.0rc2" var_name="comments_pending_approval" added="1252998961">Комментарии, ожидающие одобрения</phrase>
+	<phrase module_id="comment" version_id="2.0.0rc2" var_name="comments_pending_approval_total" added="1252998996"><![CDATA[Комментарии, ожидающие одобрения (<span id="js_request_comment_count_total">{total}</span>)]]></phrase>
+	<phrase module_id="comment" version_id="2.0.0rc2" var_name="new_comments" added="1252999027">Новые комментарии</phrase>
+	<phrase module_id="comment" version_id="2.0.0rc2" var_name="comments_for_approval" added="1252999037">Комментарии для одобрения</phrase>
+	<phrase module_id="comment" version_id="2.0.0rc2" var_name="add_comment" added="1252999047">Добавить комментарий</phrase>
+	<phrase module_id="comment" version_id="2.0.0rc2" var_name="view_comments" added="1252999055">Посмотреть комментарии</phrase>
+	<phrase module_id="comment" version_id="2.0.0rc2" var_name="user_link_added_a_comment_and_is_pending_your_approval" added="1252999095">Пользователь {user_link} добавил комментарий и ожидает вашего одобрения.</phrase>
+	<phrase module_id="comment" version_id="2.0.0rc2" var_name="by_full_name" added="1252999214">Пользователь: {full_name}</phrase>
+	<phrase module_id="comment" version_id="2.0.0rc2" var_name="latest_comments_on_site_title" added="1252999246">Последние комментарии на сайте {site_title}.</phrase>
+	<phrase module_id="comment" version_id="2.0.0rc2" var_name="latest_comments" added="1252999267">Последние комментарии</phrase>
+	<phrase module_id="comment" version_id="2.0.0rc2" var_name="your_comment_has_been_marked_as_spam_it_will_have_to_be_approved_by_an_admin" added="1252999400">Ваш комментарий похож на спам. Если ваш комментарий не является спамом он будет опубликован после проверки Администрацией.</phrase>
+	<phrase module_id="comment" version_id="2.0.0rc2" var_name="not_a_valid_comment" added="1252999445">Неверный комментарий.</phrase>
+	<phrase module_id="comment" version_id="2.0.0rc2" var_name="unable_to_moderate_this_comment" added="1252999489">Невозможно модерировать этот комментарий.</phrase>
+	<phrase module_id="comment" version_id="2.0.0rc2" var_name="email" added="1252999530">E-mail</phrase>
+	<phrase module_id="comment" version_id="2.0.0rc2" var_name="will_not_be_published" added="1252999537">Не будет опубликовано.</phrase>
+	<phrase module_id="comment" version_id="2.0.0rc2" var_name="message" added="1252999547">Сообщение</phrase>
+	<phrase module_id="comment" version_id="2.0.0rc2" var_name="item" added="1252999578">Тема</phrase>
+	<phrase module_id="comment" version_id="2.0.0rc2" var_name="approve" added="1252999602">Одобрить</phrase>
+	<phrase module_id="comment" version_id="2.0.0rc2" var_name="deny" added="1252999610">Отменить</phrase>
+	<phrase module_id="comment" version_id="2.0.0rc2" var_name="your_comment_has_successfully_added" added="1253003073">Ваш комментарий успешно добавлен.</phrase>
+	<phrase module_id="comment" version_id="2.0.0rc2" var_name="view_replies_total_to_this_comment" added="1253003246">Посмотреть ответы ({total}) на этот комментарий.</phrase>
+	<phrase module_id="comment" version_id="2.0.0rc2" var_name="are_you_sure" added="1253003269">Вы уверены?</phrase>
+	<phrase module_id="comment" version_id="2.0.0rc2" var_name="user_link_at_item_time_stamp" added="1253003465">{user_link} в {item_time_stamp}.</phrase>
+	<phrase module_id="comment" version_id="2.0.0rc2" var_name="view_more" added="1253005082">Ещё</phrase>
+	<phrase module_id="comment" version_id="2.0.0rc2" var_name="moderate_comments" added="1253005324">Проверить комментарии</phrase>
+	<phrase module_id="comment" version_id="2.0.0rc2" var_name="comment_successfully_approved" added="1253005331">Комментарий успешно одобрен.</phrase>
+	<phrase module_id="comment" version_id="2.0.0rc2" var_name="user_link_left_a_comment_on_your_item" added="1253005615"><![CDATA[{user_link} оставил комментарий в вашем <a href="{link}">{item_name}</a>.]]></phrase>
+	<phrase module_id="comment" version_id="2.0.0rc2" var_name="no_comments" added="1253007452">Нет комментариев.</phrase>
+	<phrase module_id="comment" version_id="2.0.0rc3" var_name="user_setting_can_delete_comments_posted_on_own_profile" added="1254142484">Может ли эта группа пользователей удалять комментарии, размещенные в своем собственном профиле?</phrase>
+	<phrase module_id="comment" version_id="2.0.0rc3" var_name="no_comments_added" added="1254575996">Нет комментариев.</phrase>
+	<phrase module_id="comment" version_id="2.0.0rc4" var_name="setting_allow_comments_on_profiles" added="1255773488"><![CDATA[<title>Разрешить комментарии к профилю</title><info>Включите эту функцию, чтобы позволить комментировать профили.</info>]]></phrase>
+	<phrase module_id="comment" version_id="2.0.0rc4" var_name="loading" added="1255779973">Загрузка</phrase>
+	<phrase module_id="comment" version_id="2.0.0rc4" var_name="view_all_total_left_comments" added="1255780014">Посмотреть все комментарии ({total_left})</phrase>
+	<phrase module_id="comment" version_id="2.0.0rc4" var_name="comments_text" added="1255860241">Текст комментариев</phrase>
+	<phrase module_id="comment" version_id="2.0.0rc4" var_name="view_all_comments" added="1256652089">Читать все комментарии</phrase>
+	<phrase module_id="comment" version_id="2.0.0rc4" var_name="view_all_comments_total" added="1256652375">Посмотреть все комментарии ({total})</phrase>
+	<phrase module_id="comment" version_id="2.0.0rc8" var_name="cannot_comment_on_this_item_as_it_does_not_exist_any_longer" added="1258388355">Невозможно прокомментировать это, так как это удалено.</phrase>
+	<phrase module_id="comment" version_id="2.0.0rc8" var_name="comments_activity" added="1258500371">Комментариев</phrase>
+	<phrase module_id="comment" version_id="2.0.0rc8" var_name="new_comments_stats" added="1258756851">Комментарии</phrase>
+	<phrase module_id="comment" version_id="2.0.0rc8" var_name="you_cannot_write_a_comment_on_your_own_profile" added="1258848075">Вы не можете написать комментарий в собственном профиле.</phrase>
+	<phrase module_id="comment" version_id="2.0.0rc8" var_name="user_setting_can_comment_on_own_profile" added="1258848146">Можно комментировать в собственном профиле?</phrase>
+	<phrase module_id="comment" version_id="2.0.0rc8" var_name="update_owner_id_for_comments_only_for_those_that_upgraded_from_v1_6_21" added="1258985244">Обновить ID# автора комментариев (Только для тех, кто произвел апгрейд с версии 1.6.21).</phrase>
+	<phrase module_id="comment" version_id="2.0.0rc8" var_name="your_old_v1_6_21_setting_file_must_exist" added="1258985284">Для того, чтобы продолжить, должен существовать файл ваших прежних настроек для версии 1.6.21. Файл настроек: {file}</phrase>
+	<phrase module_id="comment" version_id="2.0.0rc8" var_name="the_database_table_table_does_not_exist" added="1258985369"><![CDATA[Таблица БД "{table}" не существует.]]></phrase>
+	<phrase module_id="comment" version_id="2.0.0rc11" var_name="full_name_approved_your_comment_on_site_title" added="1260134308">{full_name} подтвердил ваш комментарий на {site_title}.</phrase>
+	<phrase module_id="comment" version_id="2.0.0rc11" var_name="full_name_approved_your_comment_on_site_title_message" added="1260134338"><![CDATA[{full_name} подтвердил ваш комментарий на {site_title}. Чтобы посмотреть комментарий, пожалуйста перейдите по ссылке: <a href="{link}">{link}</a>]]></phrase>
+	<phrase module_id="comment" version_id="2.0.0rc12" var_name="a_href_user_link_full_name_a_likes_your_a_href_link_comment_a" added="1260473572"><![CDATA[<a href="{user_link}">{full_name}</a> нравится твой <a href="{link}">комментарий</a>.]]></phrase>
+	<phrase module_id="comment" version_id="2.0.0rc12" var_name="a_href_user_link_full_name_a_likes_their_own_a_href_link_coment_a" added="1260483353"><![CDATA[<a href="{user_link}">{full_name}</a> нравится {gender} свой <a href="{link}">комментарий</a>.]]></phrase>
+	<phrase module_id="comment" version_id="2.0.0rc12" var_name="a_href_user_link_full_name_a_likes_a_href_view_user_link_view_full_name_a_s_a_href_link_comment_a" added="1260483372"><![CDATA[<a href="{user_link}">{full_name}</a> нравится <a href="{view_user_link}">{view_full_name}</a> <a href="{link}">комментарий</a>.]]></phrase>
+	<phrase module_id="comment" version_id="2.0.5dev1" var_name="user_setting_approve_all_comments" added="1275006612">Проверять комментарии перед тем, как они будут отображены?</phrase>
+	<phrase module_id="comment" version_id="2.0.5dev1" var_name="your_comment_has_successfully_been_added_however_it_is_pending_an_admins_approval" added="1275010416">Ваш комментарий успешно добавлен. Он появится сразу после проверки администрацией.</phrase>
+	<phrase module_id="comment" version_id="2.0.5dev1" var_name="comments_approve" added="1275010577">Комментарии</phrase>
+	<phrase module_id="comment" version_id="2.0.5dev1" var_name="comment_approved_on_site_title" added="1275012409">Комментарий проверен и одобрен на {site_title}</phrase>
+	<phrase module_id="comment" version_id="2.0.5dev1" var_name="one_of_your_comments_on_site_title" added="1275012488"><![CDATA[Один из ваших комментариев на {site_title} был проверен и одобрен. Чтобы посмотреть этот комментарий, пожалуйста, перейдите по ссылке: <a href="{link}">{link}</a>]]></phrase>
+	<phrase module_id="comment" version_id="2.0.6" var_name="subscribe_to_comments" added="1282665092">Подписаться на комментарии</phrase>
+	<phrase module_id="comment" version_id="3.0.0Beta1" var_name="setting_total_comments_in_activity_feed" added="1295000248"><![CDATA[<title>Total Comments in Activity Feed</title><info>Define how many comments should be displayed within each activity feed.</info>]]></phrase>
+	<phrase module_id="comment" version_id="3.0.0Beta1" var_name="setting_total_amount_of_comments_to_load" added="1295000484"><![CDATA[<title>Total Amount of Comments To Load</title><info>When a user clicks to view more comments on a feed or item this setting controls how many comments to load via AJAX on the page they are on. If this number is surpassed they are then directed to the parent item where it will display all the comments and comes built in with a pager.</info>]]></phrase>
+	<phrase module_id="comment" version_id="3.0.0beta5" var_name="delete_this_comment" added="1319121256">Удалить этот комментарий</phrase>
+	<phrase module_id="comment" version_id="3.0.0beta5" var_name="1_person" added="1319121314">1 человек</phrase>
+	<phrase module_id="comment" version_id="3.0.0beta5" var_name="total_people" added="1319121332">{total} людей</phrase>
+	<phrase module_id="comment" version_id="3.0.0" var_name="viewing_comment" added="1322467136">Просмотр комментариев</phrase>
+	<phrase module_id="comment" version_id="3.0.0" var_name="setting_thread_comment_total_display" added="1322566739"><![CDATA[<title>Всего вложенных комментариев</title><info>Определите, сколько вложенных комментариев доступно для просмотра.
+
+Примечание: Этот параметр используется только если включена функция, ответа на комментарии.</info>]]></phrase>
+	<phrase module_id="comment" version_id="3.0.0" var_name="view_total_more" added="1322634365">Показать {total}</phrase>
+	<phrase module_id="comment" version_id="3.0.0" var_name="viewing_a_single_comment" added="1323170547">Просмотр одного комментария.</phrase>
+	<phrase module_id="comment" version_id="3.0.0" var_name="view_previous_comments" added="1323170568">Прошлые комментарии</phrase>	
+	<phrase module_id="comment" version_id="3.2.0beta1" var_name="comment_on_items" added="1334578769">Комментарии на темы</phrase>
+</phrases>

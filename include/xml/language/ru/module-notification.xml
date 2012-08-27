@@ -1,0 +1,29 @@
+<phrases>
+	<phrase module_id="notification" version_id="2.0.0alpha2" var_name="module_notification" added="1237801970">Уведомления</phrase>
+	<phrase module_id="notification" version_id="2.0.0alpha3" var_name="setting_always_display_notification_box" added="1239097725"><![CDATA[<title>Показывать блок уведомлений</title><info>Выберите <b>Да</b> если вы хотите отображать уведомления (например, новые сообщения) на главной странице сайта, даже если пользователь не получил уведомления.</info>]]></phrase>
+	<phrase module_id="notification" version_id="2.0.0alpha4" var_name="setting_notify_on_new_request" added="1240226075"><![CDATA[<title>Уведомления на сайте</title><info>Если включено пользователи будут уведомлены, когда поступит новый запрос или уведомление.
+
+<b>Внимание:</b> Эта функция будет состоять из двух (2) дополнительных SQL запроса на каждой странице пользователя.</info>]]></phrase>
+	<phrase module_id="notification" version_id="2.0.0alpha4" var_name="setting_notify_ajax_refresh" added="1240226972"><![CDATA[<title>AJAX уведомление - Обновление (минуты)</title><info>AJAX будет делать запрос каждые Х минут, где X является численным значением этого параметра.
+
+<b>Внимание:</b> Этот параметр будет включен только если активна настройка верхнего уровня "<setting>notification.notify_on_new_request</setting>".</info>]]></phrase>
+	<phrase module_id="notification" version_id="2.0.0rc4" var_name="notifications" added="1255093133">Уведомления</phrase>
+	<phrase module_id="notification" version_id="2.0.0rc4" var_name="view" added="1255093204">Посмотреть</phrase>
+	<phrase module_id="notification" version_id="2.0.0rc4" var_name="hide" added="1255093211">Скрыть</phrase>
+	<phrase module_id="notification" version_id="2.0.0rc4" var_name="no_new_notifications" added="1255093253">Нет новых уведомлений.</phrase>
+	<phrase module_id="notification" version_id="2.0.0rc4" var_name="unable_to_find_the_page_you_are_looking_for" added="1255093295">Невозможно найти страницу, которую вы ищете.</phrase>
+	<phrase module_id="notification" version_id="3.0.0Beta1" var_name="setting_total_notification_title_length" added="1296210370"><![CDATA[<title>Длина заголовка</title><info>Когда пользователи получают уведомления определенные элементы включают в себя название. Этот параметр определяет длину заголовка.</info>]]></phrase>
+	<phrase module_id="notification" version_id="3.0.0beta5" var_name="see_all_notifications" added="1319116590">Все уведомления</phrase>
+	<phrase module_id="notification" version_id="3.0.0rc1" var_name="delete_all_notifications" added="1321287473">Удалить все уведомления</phrase>
+	<phrase module_id="notification" version_id="3.0.0rc1" var_name="delete_this_notification" added="1321287483">Удалить это уведомление</phrase>
+	<phrase module_id="notification" version_id="3.0.0rc1" var_name="reset_notification_count" added="1321288351">Сброс графы уведомления</phrase>
+	<phrase module_id="notification" version_id="3.0.0rc1" var_name="today" added="1321288827">Сегодня</phrase>
+	<phrase module_id="notification" version_id="3.0.0rc1" var_name="yesterday" added="1321288834">Вчера</phrase>
+	<phrase module_id="notification" version_id="3.0.0rc1" var_name="you" added="1321288853">Вам</phrase>
+	<phrase module_id="notification" version_id="3.0.0rc1" var_name="and" added="1321288864">и</phrase>
+	<phrase module_id="notification" version_id="3.0.0rc1" var_name="other" added="1321288891">другой</phrase>
+	<phrase module_id="notification" version_id="3.0.0rc1" var_name="others" added="1321288918">другие</phrase>
+	<phrase module_id="notification" version_id="3.0.0" var_name="get_the_total_number_of_unseen_notifications_if_you_do_not_pass_the_user_id_we_will_return_information_about_the_user_that_is_currently_logged_in" added="1323335575">Получить общее число непрочитанных сообщений.</phrase>
+	<phrase module_id="notification" version_id="3.0.0" var_name="get_all_of_the_users_notifications_if_you_do_not_pass_the_user_id_we_will_return_information_about_the_user_that_is_currently_logged_in" added="1323335594">Получить все пользовательские уведомления.</phrase>
+	<phrase module_id="notification" version_id="3.3.0beta2" var_name="setting_notification_browse_messages" added="1341248596"><![CDATA[<title>Уведомление - отметка времени</title><info>Отметка времени используется, когда пользователь просматривает все свои уведомления.</info>]]></phrase>
+</phrases>

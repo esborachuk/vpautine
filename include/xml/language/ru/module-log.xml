@@ -1,0 +1,14 @@
+<phrases>
+	<phrase module_id="log" version_id="2.0.0alpha1" var_name="module_log" added="1219151809">Лог</phrase>
+	<phrase module_id="log" version_id="2.0.0rc4" var_name="recent_logins" added="1255010369">Недавние посетители</phrase>
+	<phrase module_id="log" version_id="2.0.0rc4" var_name="admincp_dashboard" added="1255010448">AdminCP главная</phrase>
+	<phrase module_id="log" version_id="2.0.0rc4" var_name="site_index" added="1255010458">Индекс сайта</phrase>
+	<phrase module_id="log" version_id="2.0.0rc4" var_name="current_active_users" added="1255010487">Текущая активность пользователей</phrase>
+	<phrase module_id="log" version_id="2.0.0rc4" var_name="members_members_and_guests_guests" added="1255010523">{members} пользователей и {guests} гостей</phrase>
+	<phrase module_id="log" version_id="2.0.0rc4" var_name="view" added="1255010595">Посмотреть</phrase>
+	<phrase module_id="log" version_id="2.0.0rc4" var_name="save" added="1255010604">Сохранить</phrase>
+	<phrase module_id="log" version_id="2.0.0rc4" var_name="cancel" added="1255010610">Отменить</phrase>
+	<phrase module_id="log" version_id="2.0.0rc12" var_name="everyone" added="1260824015">Все</phrase>
+	<phrase module_id="log" version_id="2.0.0rc12" var_name="friends_only" added="1260824023">Только друзья</phrase>
+	<phrase module_id="log" version_id="3.0.0beta5" var_name="active_users_total" added="1319196397">Активные пользователи ({total})</phrase>
+</phrases>

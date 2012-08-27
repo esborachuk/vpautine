@@ -1,0 +1,48 @@
+<phrases>
+	<phrase module_id="invite" version_id="2.0.0alpha1" var_name="module_invite" added="1232964659">Пригласить</phrase>
+	<phrase module_id="invite" version_id="2.0.0alpha1" var_name="menu_invite" added="1232964676">Пригласить</phrase>
+	<phrase module_id="invite" version_id="2.0.0alpha1" var_name="menu_pending_invitations" added="1235390476">В ожидании</phrase>
+	<phrase module_id="invite" version_id="2.0.0alpha1" var_name="menu_invite_friends" added="1235390890">Пригласить друзей</phrase>
+	<phrase module_id="invite" version_id="2.0.0alpha1" var_name="setting_invite_expire" added="1236536751"><![CDATA[<title>Срок действия приглашения</title><info>Сколько дней приглашение действительно? Примечание: это зависит от cookies.</info>]]></phrase>
+	<phrase module_id="invite" version_id="2.0.0alpha1" var_name="setting_pendings_to_show_per_page" added="1237058214"><![CDATA[<title>Сколько приглашений отображать</title><info>Это показывает, сколько пунктов в ожидании приглашения отображается на каждой странице.</info>]]></phrase>
+	<phrase module_id="invite" version_id="2.0.0alpha1" var_name="setting_check_duplicate_invites" added="1237283223"><![CDATA[<title>Проверка дубликатов приглашений</title><info>Проверка дубликатов приглашений для избежания спама.</info>]]></phrase>
+	<phrase module_id="invite" version_id="2.0.0alpha1" var_name="setting_make_friends_on_invitee_registration" added="1237540055"><![CDATA[<title>Автоматическая дружба</title><info>Когда пользователь приглашает aPerson и aPerson становится пользователем, они должны стать друзьями?</info>]]></phrase>
+	<phrase module_id="invite" version_id="2.0.0alpha2" var_name="user_setting_points_invite" added="1237542827">Сколько очков пользователь получит за принятое приглашение.</phrase>
+	<phrase module_id="invite" version_id="2.0.0rc4" var_name="find_friends" added="1254984401">Поиск друзей</phrase>
+	<phrase module_id="invite" version_id="2.0.0rc4" var_name="full_name_invites_you_to_site_title" added="1254984544">{full_name} приглашает тебя в {site_title}.</phrase>
+	<phrase module_id="invite" version_id="2.0.0rc4" var_name="full_name_invites_you_to_site_title_link" added="1254984752"><![CDATA[{full_name} приглашает вас в {site_title}.  Чтобы посмотреть приглашение, перейдите по ссылке: <a href="{link}">{link}</a>]]></phrase>
+	<phrase module_id="invite" version_id="2.0.0rc4" var_name="invite_s_were_not_sent_due_to_that_the_email_s" added="1254984797">Ошибка.</phrase>
+	<phrase module_id="invite" version_id="2.0.0rc4" var_name="your_friends_have_successfully_been_invited" added="1254984809">Ваши друзья успешно приглашены.</phrase>
+	<phrase module_id="invite" version_id="2.0.0rc4" var_name="invite_your_friends" added="1254984820">Пригласите своих друзей.</phrase>
+	<phrase module_id="invite" version_id="2.0.0rc4" var_name="invitation_deleted" added="1254984836">Удалено.</phrase>
+	<phrase module_id="invite" version_id="2.0.0rc4" var_name="invitation_not_found" added="1254984843">Не найдено.</phrase>
+	<phrase module_id="invite" version_id="2.0.0rc4" var_name="pending_invitations" added="1254984862">Ожидающие.</phrase>
+	<phrase module_id="invite" version_id="2.0.0rc4" var_name="search_by_name_or_email" added="1254984970">Искать по имени или e-mail.</phrase>
+	<phrase module_id="invite" version_id="2.0.0rc4" var_name="search" added="1254984979">Поиск</phrase>
+	<phrase module_id="invite" version_id="2.0.0rc4" var_name="skip_this_step" added="1255000683">Пропустить этот шаг</phrase>
+	<phrase module_id="invite" version_id="2.0.0rc4" var_name="you_have_successfully_sent_an_invitation_to" added="1255000692">Вы успешно отправили приглашения</phrase>
+	<phrase module_id="invite" version_id="2.0.0rc4" var_name="your_friend_will_automatically_be_added_to_your_friends_list_when_they_join" added="1255000702">Ваши друзья автоматически будут добавлены в список друзей как только они зарегистрируются!</phrase>
+	<phrase module_id="invite" version_id="2.0.0rc4" var_name="invite_your_friends_to_b_title_b" added="1255000903"><![CDATA[Пригласите ваших друзей в <b>{title}</b>.]]></phrase>
+	<phrase module_id="invite" version_id="2.0.0rc4" var_name="email_your_friends" added="1255000927">E-mail ваших друзей</phrase>
+	<phrase module_id="invite" version_id="2.0.0rc4" var_name="subject" added="1255000934">Тема</phrase>
+	<phrase module_id="invite" version_id="2.0.0rc4" var_name="from" added="1255000941">От</phrase>
+	<phrase module_id="invite" version_id="2.0.0rc4" var_name="to" added="1255000951">Кому</phrase>
+	<phrase module_id="invite" version_id="2.0.0rc4" var_name="full_name_invites_you_to_title" added="1255000987">{full_name} пригласил вас в сеть {title}.</phrase>
+	<phrase module_id="invite" version_id="2.0.0rc4" var_name="separate_multiple_emails_with_a_comma" added="1255001011">Отделить несколько e-mail адресов запятыми.</phrase>
+	<phrase module_id="invite" version_id="2.0.0rc4" var_name="send_invitation_s" added="1255001022">Отправить приглашение</phrase>
+	<phrase module_id="invite" version_id="2.0.0rc4" var_name="send_a_custom_invitation_link" added="1255001031">Отправить собственное приглашение</phrase>
+	<phrase module_id="invite" version_id="2.0.0rc4" var_name="send_friends_your_custom_invitation_link_by_copy_and_pasting_it_into_your_own_email_application" added="1255001053">Отправь друзьям собственное приглашение - скопируй, а затем вставь в свое сообщение код, с помощью которого ты хочешь пригласить своего друга.</phrase>
+	<phrase module_id="invite" version_id="2.0.0rc4" var_name="select" added="1255001064">Выбрать</phrase>
+	<phrase module_id="invite" version_id="2.0.0rc4" var_name="none" added="1255001072">Никого</phrase>
+	<phrase module_id="invite" version_id="2.0.0rc4" var_name="all" added="1255001078">Все</phrase>
+	<phrase module_id="invite" version_id="2.0.0rc4" var_name="delete" added="1255001085">Удалить</phrase>
+	<phrase module_id="invite" version_id="2.0.0rc4" var_name="there_are_no_pending_invitations" added="1255009666">Нет ожидающих приглашений.</phrase>
+	<phrase module_id="invite" version_id="2.0.0rc8" var_name="invites" added="1258500553">Приглашения</phrase>
+	<phrase module_id="invite" version_id="2.0.0rc8" var_name="the_following_emails_were_not_sent" added="1258755327">Следующие письма небыли отправлены</phrase>
+	<phrase module_id="invite" version_id="2.0.0rc8" var_name="you_have_already_invited" added="1258755409">Вы уже пригласили</phrase>
+	<phrase module_id="invite" version_id="2.0.0rc8" var_name="not_a_valid_email" added="1258755419">Неверный адрес e-mail</phrase>
+	<phrase module_id="invite" version_id="3.0.0beta5" var_name="successfully_removed_invites" added="1319184093">Приглашение успешно удалено.</phrase>
+	<phrase module_id="invite" version_id="3.0.0beta5" var_name="moderation" added="1319184099">Модерация</phrase>
+	<phrase module_id="invite" version_id="3.3.0beta2" var_name="unable_to_find_your_invitation" added="1340288672">Не удалось найти ваше приглашение.</phrase>
+	<phrase module_id="invite" version_id="3.3.0beta2" var_name="this_email_is_already_registered_within_our_community" added="1340288682">Этот адрес уже зарегистрирован в нашем сообществе.</phrase>
+</phrases>

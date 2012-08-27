@@ -1,0 +1,187 @@
+<phrases>
+	<phrase module_id="custom" version_id="2.0.0alpha3" var_name="module_custom" added="1238394705">Поля</phrase>
+	<phrase module_id="custom" version_id="2.0.0alpha3" var_name="user_setting_can_edit_own_custom_field" added="1238403255">Можно ли редактировать собственные пользовательские поля?</phrase>
+	<phrase module_id="custom" version_id="2.0.0alpha3" var_name="user_setting_can_edit_other_custom_fields" added="1238403455">Можно ли редактировать пользовательские поля других пользователей?</phrase>
+	<phrase module_id="custom" version_id="2.0.0alpha3" var_name="admin_menu_add_custom_field" added="1238430261">Добавить поле</phrase>
+	<phrase module_id="custom" version_id="2.0.0alpha3" var_name="admin_menu_manage_custom_fields" added="1238611269">Управление полями</phrase>
+	<phrase module_id="custom" version_id="2.0.0alpha3" var_name="user_setting_can_add_custom_fields" added="1238611534">Можно ли добавлять новые пользовательские поля?</phrase>
+	<phrase module_id="custom" version_id="2.0.0alpha3" var_name="setting_hide_custom_fields_when_empty" added="1238613571"><![CDATA[<title>Скрывать Пустые Пользовательские Поля (Профиль Пользователей)</title><info>Задает, будут ли скрываться пустые пользовательские поля при просмотре пользователем профиля без посещения страницы дизайна.</info>]]></phrase>
+	<phrase module_id="custom" version_id="2.0.0alpha3" var_name="admin_menu_add_custom_group" added="1238665028">Добавить группу</phrase>
+	<phrase module_id="custom" version_id="2.0.0alpha3" var_name="user_setting_can_add_custom_fields_group" added="1238665815">Можно ли добавить группу для пользовательских полей?</phrase>
+	<phrase module_id="custom" version_id="2.0.0beta1" var_name="user_setting_has_special_custom_fields" added="1240596597">Можно ли добавить специальные пользовательские поля?</phrase>
+	<phrase module_id="custom" version_id="2.0.0beta1" var_name="user_setting_custom_table_name" added="1240597480">Название таблицы базы данных для пользовательских полей?</phrase>
+	<phrase module_id="custom" version_id="2.0.0beta1" var_name="admincp_custom_fields" added="1241342492">Поля</phrase>
+	<phrase module_id="custom" version_id="2.0.0rc3" var_name="nothing_added_yet_click_to_edit" added="1254382815"><![CDATA[Ничего не добавлено. Нажмите <a href="#" onclick="{link}">здесь</a> для редактирования.]]></phrase>
+	<phrase module_id="custom" version_id="2.0.0rc3" var_name="select_a_product_this_custom_field_will_belong_to" added="1254383181">Выберите продукт, к которому будет относиться это пользовательское поле.</phrase>
+	<phrase module_id="custom" version_id="2.0.0rc3" var_name="select_a_module_this_custom_field_will_belong_to" added="1254383838">Выберите модуль, к которому будет относиться это пользовательское поле.</phrase>
+	<phrase module_id="custom" version_id="2.0.0rc3" var_name="select_where_this_custom_field_should_be_located" added="1254383854">Выберите, где будет располагаться это пользовательское поле.</phrase>
+	<phrase module_id="custom" version_id="2.0.0rc3" var_name="group_successfully_updated" added="1254383870">Группа успешно обновлена.</phrase>
+	<phrase module_id="custom" version_id="2.0.0rc3" var_name="group_successfully_added" added="1254383896">Группа успешно добавлена.</phrase>
+	<phrase module_id="custom" version_id="2.0.0rc3" var_name="add_a_new_custom_group" added="1254383958">Добавить Новую Пользовательскую Группу</phrase>
+	<phrase module_id="custom" version_id="2.0.0rc3" var_name="select_what_type_of_custom_field_this_is" added="1254384409">Выберите тип этого пользовательского поля.</phrase>
+	<phrase module_id="custom" version_id="2.0.0rc3" var_name="field_successfully_updated" added="1254384441">Поле успешно обновлено.</phrase>
+	<phrase module_id="custom" version_id="2.0.0rc3" var_name="field_successfully_added" added="1254384461">Поле успешно добавлено.</phrase>
+	<phrase module_id="custom" version_id="2.0.0rc3" var_name="add_a_new_custom_field" added="1254384520">Добавить Новое Пользовательское Поле</phrase>
+	<phrase module_id="custom" version_id="2.0.0rc3" var_name="custom_group_successfully_deleted" added="1254384555">Пользовательская группа успешно удалена.</phrase>
+	<phrase module_id="custom" version_id="2.0.0rc3" var_name="custom_fields_successfully_updated" added="1254384566">Пользовательские поля успешно обновлены.</phrase>
+	<phrase module_id="custom" version_id="2.0.0rc3" var_name="manage_custom_fields" added="1254384579">Управление полями</phrase>
+	<phrase module_id="custom" version_id="2.0.0rc3" var_name="provide_a_module_for_this_group_to_belong_to" added="1254384647">Укажите, к какому модулю будет относиться эта группа.</phrase>
+	<phrase module_id="custom" version_id="2.0.0rc3" var_name="provide_a_name_for_this_group" added="1254384681">Введите Название этой группы.</phrase>
+	<phrase module_id="custom" version_id="2.0.0rc3" var_name="there_is_already_a_group_with_the_same_name" added="1254384698">Группа с таким именем уже существует.</phrase>
+	<phrase module_id="custom" version_id="2.0.0rc3" var_name="unable_to_find_the_custom_group" added="1254384946">Невозможно найти пользовательскую группу.</phrase>
+	<phrase module_id="custom" version_id="2.0.0rc3" var_name="unable_to_find_the_group_you_plan_on_deleting" added="1254384964">Невозможно найти группу, которую вы планируете удалить.</phrase>
+	<phrase module_id="custom" version_id="2.0.0rc3" var_name="not_a_valid_custom_field_to_edit" added="1254385041">Неверное пользовательское поле для редактирования.</phrase>
+	<phrase module_id="custom" version_id="2.0.0rc3" var_name="you_do_not_have_permission_to_edit_this_field" added="1254385054">У вас нет разрешения на редактирование этого поля.</phrase>
+	<phrase module_id="custom" version_id="2.0.0rc3" var_name="updating" added="1254385075">Обновление</phrase>
+	<phrase module_id="custom" version_id="2.0.0rc3" var_name="cancel" added="1254385096">отмена</phrase>
+	<phrase module_id="custom" version_id="2.0.0rc3" var_name="provide_a_name_for_the_custom_field" added="1254385184">Введите Название пользовательского поля.</phrase>
+	<phrase module_id="custom" version_id="2.0.0rc3" var_name="name_of_this_custom_field_is_already_in_use" added="1254385200">Название этого пользовательского поля уже используется.</phrase>
+	<phrase module_id="custom" version_id="2.0.0rc3" var_name="not_a_valid_type_of_custom_field" added="1254385228">Неверный тип пользовательского поля.</phrase>
+	<phrase module_id="custom" version_id="2.0.0rc3" var_name="you_have_selected_that_this_field_is_a_select_custom_field_which_requires_at_least_one_option" added="1254385243"><![CDATA[Вы пометили это поле как "избранное" пользовательское поле, что требует наличия как минимум одной опции.]]></phrase>
+	<phrase module_id="custom" version_id="2.0.0rc3" var_name="unable_to_find_the_custom_field" added="1254385584">Невозможно найти пользовательское поле.</phrase>
+	<phrase module_id="custom" version_id="2.0.0rc3" var_name="unable_to_find_the_custom_field_you_want_to_delete" added="1254385593">Невозможно найти пользовательское поле, которое вы хотите удалить.</phrase>
+	<phrase module_id="custom" version_id="2.0.0rc3" var_name="unable_to_find_the_custom_option_you_plan_on_deleting" added="1254385607">Невозможно найти пользовательскую опцию, которую вы планируете удалить.</phrase>
+	<phrase module_id="custom" version_id="2.0.0rc3" var_name="are_you_sure_you_want_to_delete_this_custom_option" added="1254385722">Вы уверены в том, что хотите удалить эту пользовательскую опцию?  Обратите внимание, это пользовательское поле возвратится к набору опций по умолчанию.</phrase>
+	<phrase module_id="custom" version_id="2.0.0rc3" var_name="select" added="1254387580">Выбрать</phrase>
+	<phrase module_id="custom" version_id="2.0.0rc3" var_name="no_answer" added="1254387590">Нет Ответа</phrase>
+	<phrase module_id="custom" version_id="2.0.0rc3" var_name="group_details" added="1254387601">Детали Группы</phrase>
+	<phrase module_id="custom" version_id="2.0.0rc3" var_name="location" added="1254387608">Страна</phrase>
+	<phrase module_id="custom" version_id="2.0.0rc3" var_name="user_group" added="1254387623">Группа Пользователей</phrase>
+	<phrase module_id="custom" version_id="2.0.0rc3" var_name="select_only_if_you_want_a_specific_user_group_to_have_special_custom_fields" added="1254387639">Выберите, только если вы хотите, чтобы определенная группа пользователей имела специальные пользовательские поля.</phrase>
+	<phrase module_id="custom" version_id="2.0.0rc3" var_name="group" added="1254387647">Группа</phrase>
+	<phrase module_id="custom" version_id="2.0.0rc3" var_name="add_group" added="1254387667">Добавить Группу</phrase>
+	<phrase module_id="custom" version_id="2.0.0rc3" var_name="cancel_uppercase" added="1254387686">Отмена</phrase>
+	<phrase module_id="custom" version_id="2.0.0rc3" var_name="field_details" added="1254387694">Детали Поля</phrase>
+	<phrase module_id="custom" version_id="2.0.0rc3" var_name="create_a_new_group" added="1254388379">Создать Новую Группу</phrase>
+	<phrase module_id="custom" version_id="2.0.0rc3" var_name="required" added="1254388430">Требуется</phrase>
+	<phrase module_id="custom" version_id="2.0.0rc3" var_name="yes" added="1254388436">Да</phrase>
+	<phrase module_id="custom" version_id="2.0.0rc3" var_name="no" added="1254388445">Нет</phrase>
+	<phrase module_id="custom" version_id="2.0.0rc3" var_name="type" added="1254388454">Тип</phrase>
+	<phrase module_id="custom" version_id="2.0.0rc3" var_name="large_text_area" added="1254388469">Большая Площадь Текста</phrase>
+	<phrase module_id="custom" version_id="2.0.0rc3" var_name="small_text_area_255_characters_max" added="1254388477">Малая Площадь Текста (Не Более 255 Символов)</phrase>
+	<phrase module_id="custom" version_id="2.0.0rc3" var_name="selection" added="1254388483">Выбранное</phrase>
+	<phrase module_id="custom" version_id="2.0.0rc3" var_name="field_name_amp_values" added="1254388493"><![CDATA[Field Name &amp; Values]]></phrase>
+	<phrase module_id="custom" version_id="2.0.0rc3" var_name="name" added="1254388502">Название</phrase>
+	<phrase module_id="custom" version_id="2.0.0rc3" var_name="current_values" added="1254388513">Текущие Значения</phrase>
+	<phrase module_id="custom" version_id="2.0.0rc3" var_name="option_count" added="1254388554">Опция {count}</phrase>
+	<phrase module_id="custom" version_id="2.0.0rc3" var_name="values" added="1254388568">Значения</phrase>
+	<phrase module_id="custom" version_id="2.0.0rc3" var_name="option_html_count" added="1254388585"><![CDATA[Опция <span class="js_option_count"></span>]]></phrase>
+	<phrase module_id="custom" version_id="2.0.0rc3" var_name="add_new_option" added="1254388596">Добавить Новую Опцию</phrase>
+	<phrase module_id="custom" version_id="2.0.0rc3" var_name="update" added="1254388602">Обновить</phrase>
+	<phrase module_id="custom" version_id="2.0.0rc3" var_name="add" added="1254388609">Добавить</phrase>
+	<phrase module_id="custom" version_id="2.0.0rc3" var_name="edit" added="1254388627">Редактировать</phrase>
+	<phrase module_id="custom" version_id="2.0.0rc3" var_name="set_to_inactive" added="1254388637">Сделать Неактивной</phrase>
+	<phrase module_id="custom" version_id="2.0.0rc3" var_name="delete" added="1254388643">Удалить</phrase>
+	<phrase module_id="custom" version_id="2.0.0rc3" var_name="custom_fields" added="1254388653">Поля</phrase>
+	<phrase module_id="custom" version_id="2.0.0rc3" var_name="general" added="1254388664">Общие</phrase>
+	<phrase module_id="custom" version_id="2.0.0rc3" var_name="update_order" added="1254388687">Порядок Обновления</phrase>
+	<phrase module_id="custom" version_id="2.0.0rc3" var_name="no_custom_fields_have_been_added" added="1254388696">Пользовательские поля не добавлены.</phrase>
+	<phrase module_id="custom" version_id="2.0.0" var_name="include_on_registration" added="1261424334">Включить при Регистрации</phrase>
+	<phrase module_id="custom" version_id="2.0.4" var_name="user_setting_can_manage_custom_fields" added="1267027044">Может управлять пользовательскими полями?</phrase>
+	<phrase module_id="custom" version_id="2.0.5" var_name="submit" added="1273137049">Создать</phrase>
+	<phrase module_id="custom" version_id="2.0.7" var_name="table_does_not_exist" added="1288716106">Таблица которую вы пытаетесь использовать ({sTableName}) не существует. Используйте редактор таблиц БД чтобы создать таблицу.</phrase>
+	<phrase module_id="custom" version_id="3.0.0beta1" var_name="user_setting_can_have_relationship" added="1305879106">Могут ли члены этой группы пользователей, определить их семейное положение?</phrase>
+	<phrase module_id="custom" version_id="3.0.0beta1" var_name="admin_menu_manage_relationships" added="1305879144">Управление семейным положениям</phrase>
+	<phrase module_id="custom" version_id="3.0.0beta1" var_name="custom_relation_blank" added="1305882451" />
+	<phrase module_id="custom" version_id="3.0.0beta1" var_name="custom_relation_single" added="1305882680">Свободен(дна)</phrase>
+	<phrase module_id="custom" version_id="3.0.0beta1" var_name="custom_relation_engaged" added="1305882691">Занят(а)</phrase>
+	<phrase module_id="custom" version_id="3.0.0beta1" var_name="custom_relation_married" added="1305882698">В браке</phrase>
+	<phrase module_id="custom" version_id="3.0.0beta1" var_name="custom_relation_it_s_complicated" added="1305882857">Всё сложно</phrase>
+	<phrase module_id="custom" version_id="3.0.0beta1" var_name="custom_relation_in_an_open_relationship" added="1305882905">В открытых отношениях</phrase>
+	<phrase module_id="custom" version_id="3.0.0beta1" var_name="custom_relation_widowed" added="1305882984">Вдовец(вдова)</phrase>
+	<phrase module_id="custom" version_id="3.0.0beta1" var_name="custom_relation_separated" added="1305882992">Разведен(а)</phrase>
+	<phrase module_id="custom" version_id="3.0.0beta1" var_name="custom_relation_divorced" added="1305883008">Разведен(а)</phrase>
+	<phrase module_id="custom" version_id="3.0.0beta1" var_name="relationship_status" added="1305884797">Семейное положение:</phrase>
+	<phrase module_id="custom" version_id="3.0.0beta1" var_name="custom_relation_single_new" added="1306403775">не женат</phrase>
+	<phrase module_id="custom" version_id="3.0.0beta1" var_name="user_is_no_longer_listed_as" added="1306412736"><![CDATA[больше не будет отображаться, как "{previous}"]]></phrase>
+	<phrase module_id="custom" version_id="3.0.0beta1" var_name="custom_relation_engaged_new" added="1306413530">занят(а)</phrase>
+	<phrase module_id="custom" version_id="3.0.0beta1" var_name="custom_relation_engaged_with" added="1306413743">занят(а) с {with_full_name}</phrase>
+	<phrase module_id="custom" version_id="3.0.0beta1" var_name="custom_relation_married_with" added="1306415046">состоит в браке с {with_full_name}</phrase>
+	<phrase module_id="custom" version_id="3.0.0beta1" var_name="custom_relation_married_new" added="1306415429">состоит в браке</phrase>
+	<phrase module_id="custom" version_id="3.0.0beta1" var_name="custom_relation_it_s_complicated_new" added="1306417354">находится в отношениях, и это сложно</phrase>
+	<phrase module_id="custom" version_id="3.0.0beta1" var_name="custom_relation_it_s_complicated_with" added="1306418181">находится в сложных отношениях с {with_full_name}</phrase>
+	<phrase module_id="custom" version_id="3.0.0beta1" var_name="custom_relation_in_an_open_relationship_new" added="1306418345">в открытых отношениях</phrase>
+	<phrase module_id="custom" version_id="3.0.0beta1" var_name="custom_relation_in_an_open_relationship_with" added="1306477750">В открытых отношениях с {with_full_name}</phrase>
+	<phrase module_id="custom" version_id="3.0.0beta1" var_name="custom_relation_widowed_new" added="1306482879">потерял {their} любовь</phrase>
+	<phrase module_id="custom" version_id="3.0.0beta1" var_name="custom_relation_custom_relation_separated_with" added="1306744450">больше не с {with_full_name}</phrase>
+	<phrase module_id="custom" version_id="3.0.0beta1" var_name="custom_relation_custom_relation_separated_new" added="1306744460">больше не с {with_full_name}</phrase>
+	<phrase module_id="custom" version_id="3.0.0beta1" var_name="custom_relation_separated_with" added="1306744557">больше не с {with_full_name}</phrase>
+	<phrase module_id="custom" version_id="3.0.0beta1" var_name="custom_relation_separated_new" added="1306744557">больше не с {with_full_name}</phrase>
+	<phrase module_id="custom" version_id="3.0.0beta1" var_name="custom_relation_divorced_with" added="1306744851">сейчас в разводе</phrase>
+	<phrase module_id="custom" version_id="3.0.0beta1" var_name="custom_relation_divorced_new" added="1306744851" />
+	<phrase module_id="custom" version_id="3.0.0beta1" var_name="custom_relation_cheating_with" added="1306744882">изменил его взаимоотношения с {with_full_name}</phrase>
+	<phrase module_id="custom" version_id="3.0.0beta1" var_name="custom_relation_cheating_new" added="1306744882">в настоящее время неверный</phrase>
+	<phrase module_id="custom" version_id="3.0.0beta1" var_name="custom_relation_blank_with" added="1306744911">больше не будет отображаться, как {previous_status}</phrase>
+	<phrase module_id="custom" version_id="3.0.0beta1" var_name="custom_relation_blank_new" added="1306744911" />
+	<phrase module_id="custom" version_id="3.0.0beta1" var_name="custom_relation_in_a_relationship" added="1309168519">В отношениях</phrase>
+	<phrase module_id="custom" version_id="3.0.0beta1" var_name="custom_relation_in_a_relationship_with" added="1309168519">{full_name} в отношениях</phrase>
+	<phrase module_id="custom" version_id="3.0.0beta1" var_name="custom_relation_in_a_relationship_new" added="1309168519">{full_name} в отношениях</phrase>
+	<phrase module_id="custom" version_id="3.0.0beta1" var_name="relation_went_from_old_status_to_new_status" added="1309169257"><![CDATA[прошел путь от "{sOldStatus}" к "{sNewStatus}"]]></phrase>
+	<phrase module_id="custom" version_id="" var_name="custom_relation_single_with" added="1309169257">не замужем</phrase>
+	<phrase module_id="custom" version_id="3.0.0beta5" var_name="could_not_delete" added="1319184040">Не удается удалить</phrase>
+	<phrase module_id="custom" version_id="3.0.0beta5" var_name="full_name_liked_your_change_on_phrase_var_name" added="1319533243"><![CDATA[{full_name} понравились ваши изменения в "{phrase_var_name}"]]></phrase>
+	<phrase module_id="custom" version_id="3.0.0beta5" var_name="full_name_liked_your_change_on_message" added="1319533321"><![CDATA[{full_name} нравится ваши изменения "<a href="{link}">{phrase_var_name}</a>" Для просмотра этого обновления перейдите по следующей ссылке: <a href="{link}">{link}</a>]]></phrase>
+	<phrase module_id="custom" version_id="3.0.0beta5" var_name="full_name_liked_your_change_in_relationship_title" added="1319533383"><![CDATA[{full_name} нравится ваши изменения в семейном положении "{title}"]]></phrase>
+	<phrase module_id="custom" version_id="3.0.0beta5" var_name="full_name_liked_your_change_in_relationship_message" added="1319534017"><![CDATA[{full_name} нравится ваши изменения в семейном положении "<a href="{link}">{title}</a>" Для просмотра, перейдите по следующей ссылке: <a href="{link}">{link}</a>]]></phrase>
+	<phrase module_id="custom" version_id="3.0.0beta5" var_name="full_name_liked_your_photo_title" added="1319535072"><![CDATA[{full_name} нравится ваше фото "{title}"]]></phrase>
+	<phrase module_id="custom" version_id="3.0.0beta5" var_name="full_name_liked_your_photo_message" added="1319535150"><![CDATA[{full_name} нравится ваше фото "<a href="{link}">{title}</a>" Для просмотра этой фотографии, перейдите по ссылке ниже: <a href="{link}">{link}</a>]]></phrase>
+	<phrase module_id="custom" version_id="3.0.0beta5" var_name="full_name_liked_your_photo_album_name" added="1319535205"><![CDATA[{full_name} нравится ваш фотоальбом "{name}"]]></phrase>
+	<phrase module_id="custom" version_id="3.0.0beta5" var_name="full_name_liked_your_photo_album_message" added="1319535835"><![CDATA[{full_name} нравится ваш фотоальбом "<a href="{link}">{name}</a>" Для просмотра этого фотоальбома перейдите по следующей ссылке: <a href="{link}">{link}</a>]]></phrase>
+	<phrase module_id="custom" version_id="3.0.0beta5" var_name="users_liked_gender_own_profile_update_title" added="1319542994"><![CDATA[{users} нравится {gender} обновление профиля "{title}"]]></phrase>
+	<phrase module_id="custom" version_id="3.0.0beta5" var_name="users_liked_your_profile_update_title" added="1319543032"><![CDATA[{users} нравится ваше обновление профиля "{title}"]]></phrase>
+	<phrase module_id="custom" version_id="3.0.0beta5" var_name="users_liked_span_class_drop_data_user_row_full_name" added="1319543079"><![CDATA[{users} нравится <span class="drop_data_user">{row_full_name}</span> обновление профиля "{title}"]]></phrase>
+	<phrase module_id="custom" version_id="3.0.0beta5" var_name="name_commented_on_your_profile_update_title" added="1319543288"><![CDATA[{name} прокомментировано ваше обновление профиля "{title}".]]></phrase>
+	<phrase module_id="custom" version_id="3.0.0beta5" var_name="name_commented_on_your_profile_update_a_href_link_content_a" added="1319543350"><![CDATA[{name} прокомментировано ваше обновление профиля "<a href="{link}">{content}</a>". Чтобы увидеть комментарий, перейдите по следующей ссылке: <a href="{link}">{link}</a>]]></phrase>
+	<phrase module_id="custom" version_id="3.0.0beta5" var_name="name_commented_on_gender_profile_update" added="1319543391">{name} прокомментировано {gender} обновление профиля.</phrase>
+	<phrase module_id="custom" version_id="3.0.0beta5" var_name="name_commented_on_full_name_s_profile_update" added="1319543433">{name} прокомментировано {full_name} обновление профиля.</phrase>
+	<phrase module_id="custom" version_id="3.0.0beta5" var_name="user_commented_on_gender_profile_update_message" added="1319543511"><![CDATA[{user} прокомментировано {gender} обновление профиля "<a href="{link}">{content}</a>". Чтобы увидеть комментарий, перейдите по следующей ссылке: <a href="{link}">{link}</a>]]></phrase>
+	<phrase module_id="custom" version_id="3.0.0beta5" var_name="name_commented_on_full_name_s_profile_update_message" added="1319543604"><![CDATA[{name} прокомментировано {full_name} обновление профиля "<a href="{link}">{content}</a>". Чтобы увидеть комментарий, перейдите по следующей ссылке: <a href="{link}">{link}</a>]]></phrase>
+	<phrase module_id="custom" version_id="3.0.0beta5" var_name="unable_to_post_a_comment_on_this_item_due_to_privacy_settings" added="1319543675">Невозможно оставить комментарий по этому вопросу в связи с настройками приватности.</phrase>
+	<phrase module_id="custom" version_id="3.0.0beta5" var_name="users_commented_on_gender_album_title" added="1319543768"><![CDATA[{users} прокомментировано {gender} альбом "{title}"]]></phrase>
+	<phrase module_id="custom" version_id="3.0.0beta5" var_name="users_commented_on_your_relationship_status_title" added="1319543805"><![CDATA[{users} прокомментировано ваше семейное положение "{title}"]]></phrase>
+	<phrase module_id="custom" version_id="3.0.0beta5" var_name="users_commented_on_span_class_drop_data_user_full_name_s_span_relationship_status_title" added="1319543843"><![CDATA[{users} прокомментировано <span class="drop_data_user">{full_name}</span> семейное положение "{title}"]]></phrase>
+	<phrase module_id="custom" version_id="3.0.0beta5" var_name="users_liked_gender_own_relationship_status_title" added="1319543942"><![CDATA[{users} нравится {gender} семейное положение "{title}"]]></phrase>
+	<phrase module_id="custom" version_id="3.0.0beta5" var_name="users_liked_your_relationship_status_title" added="1319543985"><![CDATA[{users} нравится ваше семейное положение "{title}"]]></phrase>
+	<phrase module_id="custom" version_id="3.0.0beta5" var_name="users_liked_span_class_drop_data_user_full_name_s_span_relationship_status_title" added="1319544025"><![CDATA[{users} нравится <span class="drop_data_user">{full_name}</span> семейное положение "{title}"]]></phrase>
+	<phrase module_id="custom" version_id="3.0.0beta5" var_name="import_custom_fields" added="1319544058">Импорт пользовательских полей</phrase>
+	<phrase module_id="custom" version_id="3.0.0beta5" var_name="invalid_callback_on_comment" added="1319544079">Недействительный отзыв на комментарий.</phrase>
+	<phrase module_id="custom" version_id="3.0.0beta5" var_name="full_name_commented_on_your_profile_update_title" added="1319544106"><![CDATA[{full_name} прокомментировал(а) ваше обновление профиля "{title}".]]></phrase>
+	<phrase module_id="custom" version_id="3.0.0beta5" var_name="full_name_commented_on_your_profile_update_message" added="1319544208"><![CDATA[{full_name} прокомментировал(а) ваше обновление профиля "<a href="{link}">{title}</a>". Чтобы увидеть комментарий, перейдите по следующей ссылке: <a href="{link}">{link}</a>]]></phrase>
+	<phrase module_id="custom" version_id="3.0.0beta5" var_name="full_name_commented_on_gender_profile_update" added="1319544257">{full_name} прокомментировал(а) {gender} обновление профиля.</phrase>
+	<phrase module_id="custom" version_id="3.0.0beta5" var_name="full_name_commented_on_row_full_name_s_video" added="1319544297">{full_name} прокомментировал(а) {row_full_name} видео.</phrase>
+	<phrase module_id="custom" version_id="3.0.0beta5" var_name="full_name_commented_on_gender_profile_update_message" added="1319544379"><![CDATA[{full_name} прокомментировал(а) {gender} обновление профиля "<a href="{link}">{title}</a>". Чтобы увидеть комментарий, перейдите по следующей ссылке: <a href="{link}">{link}</a>]]></phrase>
+	<phrase module_id="custom" version_id="3.0.0beta5" var_name="full_name_commented_on_row_full_name_s_profile_update" added="1319544494"><![CDATA[{full_name} прокомментировал(а) {row_full_name} обновление профиля "<a href="{link}">{title}</a>". Чтобы увидеть комментарий, перейдите по следующей ссылке: <a href="{link}">{link}</a>]]></phrase>
+	<phrase module_id="custom" version_id="3.0.0beta5" var_name="users_commented_on_gender_profile_update_title" added="1319545221"><![CDATA[{users} прокомментировал(а) {gender} обновление профиля "{title}"]]></phrase>
+	<phrase module_id="custom" version_id="3.0.0beta5" var_name="users_commented_on_your_profile_update_title" added="1319545268"><![CDATA[{users} прокомментировал(а) ваше обновление профиля "{title}"]]></phrase>
+	<phrase module_id="custom" version_id="3.0.0beta5" var_name="users_commented_on_span_class_drop_data_user_row_full_name_s_span_profile_update_title" added="1319545739"><![CDATA[{users} прокомментировал(а) <span class="drop_data_user">{row_full_name}</span> обновление профиля "{title}"]]></phrase>
+	<phrase module_id="custom" version_id="3.0.0rc2" var_name="relationship_status_confirmed" added="1321349812">Семейное положение подтверждено</phrase>
+	<phrase module_id="custom" version_id="3.0.0rc2" var_name="full_name_and_full_name_with_are_now_phrase_var_name" added="1321349847">{full_name} и {full_name_with} в настоящее время {phrase_var_name}</phrase>
+	<phrase module_id="custom" version_id="3.0.0rc2" var_name="add_status" added="1321349975">Добавить статус</phrase>
+	<phrase module_id="custom" version_id="3.0.0rc2" var_name="you_can_add_a_language_phrase_if_you_enter_it_like_this" added="1321349987">Вы можете добавить языковую фразу, если вы введете это так</phrase>
+	<phrase module_id="custom" version_id="3.0.0rc2" var_name="otherwise_the_script_will_create_the_language_phrase_for_you" added="1321349995">В противном случае скрипт создаст языковую фразу для вас</phrase>
+	<phrase module_id="custom" version_id="3.0.0rc2" var_name="feed_when_confirmed" added="1321350003">Лента после подтверждения</phrase>
+	<phrase module_id="custom" version_id="3.0.0rc2" var_name="this_is_the_message_for_the_feed_when_the_relationship_has_been_confirmed" added="1321350014"><![CDATA[Это сообщение для ленты, когда семейное положение подтверждено.     В некоторых случаях этот канал не нужен, и оставить это поле пустым, это отказатся от показа в ленте.     Например, "user1 женат на user2".]]></phrase>
+	<phrase module_id="custom" version_id="3.0.0rc2" var_name="feed_before_confirming" added="1321350023">Лента до подтверждения</phrase>
+	<phrase module_id="custom" version_id="3.0.0rc2" var_name="this_message_will_be_shown_in_the_feed_when_a_user_has_set_a_relationship" added="1321350037"><![CDATA[Это сообщение будет показано в ленте, когда пользователь установил семейное положение с другим пользователем, но      другой пользователь не подтвердил это. Он также применяется, когда пользователь устанавливает статус без определения другого пользователя.     Например, "user1 состоит в браке".]]></phrase>
+	<phrase module_id="custom" version_id="3.0.0rc2" var_name="requires_confirmation" added="1321350054">Требуется подтверждение</phrase>
+	<phrase module_id="custom" version_id="3.0.0rc2" var_name="if_this_field_is_enabled_this_relationship_status_requires_that_both_users_agree_on_displaying_their_relationship" added="1321350066">Если это поле включено, семейное положение требует, чтобы пользователи согласились           для отображения их семейного положения.</phrase>
+	<phrase module_id="custom" version_id="3.0.0rc2" var_name="for_all_these_phrases_the_following_transformations_apply" added="1321350079">Для всех этих фраз применяются следующие преобразования</phrase>
+	<phrase module_id="custom" version_id="3.0.0rc2" var_name="user_name_of_the_receiving_party" added="1321350086">Название пользователя, принимающей стороны</phrase>
+	<phrase module_id="custom" version_id="3.0.0rc2" var_name="full_name_of_the_receiving_party" added="1321350093">Полное Название принимающей стороны</phrase>
+	<phrase module_id="custom" version_id="3.0.0rc2" var_name="sender_s_user_name" added="1321350101">Название пользователя отправителя</phrase>
+	<phrase module_id="custom" version_id="3.0.0rc2" var_name="sender_s_full_name" added="1321350108">полное Название отправителя</phrase>
+	<phrase module_id="custom" version_id="3.0.0rc2" var_name="sender_s_possessive_adjective_his_her" added="1321350117">Прилагательное отправителя (его, ее)</phrase>
+	<phrase module_id="custom" version_id="3.0.0rc2" var_name="edit_status" added="1321350126">Изменить статус</phrase>
+	<phrase module_id="custom" version_id="3.0.0rc2" var_name="manage_relationship_statuses" added="1321350143">Управление статусами отношений</phrase>
+	<phrase module_id="custom" version_id="3.0.0rc2" var_name="status_name" added="1321350152">Название статуса</phrase>
+	<phrase module_id="custom" version_id="3.0.0rc2" var_name="feed_when_new" added="1321350165">Новое в ленте</phrase>
+	<phrase module_id="custom" version_id="3.0.0rc2" var_name="confirmation" added="1321350172">Подтверждение</phrase>
+	<phrase module_id="custom" version_id="3.0.0rc2" var_name="no_relationship_statuses_have_been_added" added="1321350187">Статус отношений добавлен.</phrase>
+	<phrase module_id="custom" version_id="3.0.0rc2" var_name="status_added" added="1321350233">Статус добавлен</phrase>
+	<phrase module_id="custom" version_id="3.0.0rc2" var_name="status_deleted" added="1321350243">Статус удален</phrase>
+	<phrase module_id="custom" version_id="3.0.0rc2" var_name="not_found" added="1321350256">Не найдено</phrase>
+	<phrase module_id="custom" version_id="3.1.0beta1" var_name="relationship_status_confirmation" added="1331647154">Подтверждение семейного положения</phrase>
+	<phrase module_id="custom" version_id="3.1.0beta1" var_name="full_name_wants_to_list_you_both_as_phrase_var_name" added="1331647215"><![CDATA[{full_name} хочет добавить вас "{phrase_var_name}"
+Все ваши запросы доступны по ссылке ниже:
+<a href="{link}">{link}</a>]]></phrase>
+</phrases>

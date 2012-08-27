@@ -131,6 +131,7 @@ class Phpfox_Database_Driver_Mysql extends Phpfox_Database_Dba
 		if (!@($this->_aCmd['mysql_select_db'] == 'mysqli_select_db' ? $this->_aCmd['mysql_select_db']($this->_hMaster, $sName) : $this->_aCmd['mysql_select_db']($sName, $this->_hMaster)))
 		{
 			return Phpfox_Error::set('Cannot connect to the database: ' . $this->_sqlError());
+			$this->query('SET NAMES utf8'); 
 		}
 
 		return true;

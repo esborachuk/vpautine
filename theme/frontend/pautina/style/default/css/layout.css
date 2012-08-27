@@ -152,14 +152,16 @@ select
 */
 #header
 {
-	background:rgb(51, 51, 51) url('../image/layout/header.png') repeat-x;	
+	background: none;
 	color:#fff;	
 }
 
 #header_holder
 {
+    background: url(../image/layout/header_bg.png) no-repeat;
 	position:relative;
-	z-index:1001;	
+	z-index:1001;
+    height: 78px;
 }
 
 #header_menu_page_holder
@@ -188,6 +190,7 @@ select
 	font-weight:bold;	
 	text-decoration:none;
 	color:#fff;
+    padding: 20px 0 0 35px;
 }
 
 .header_logo #logo,
@@ -800,7 +803,7 @@ input.button_register,
 #holder_notify
 {
 	position:absolute;
-	left:270px;	
+	top: 0;
 }
 
 #holder_notify ul
@@ -1079,7 +1082,7 @@ input.button_register,
 */
 #header_menu
  {
-     background:url('../image/layout/header_menu.png') no-repeat;
+     background: #404042;
  }
 
 #header_menu_right
@@ -1106,16 +1109,16 @@ input.button_register,
 #header_menu ul li a:hover
 {	
 	display:block;
-	line-height:30px;
+	line-height:44px;
 	padding:0px 10px 0px 10px;	
 	text-decoration:none;
-	color:#333;
-	border-right:1px #9FDBFF solid;
+	color:#b5b6b9;
 }
 
 #header_menu ul li a:hover
 {
-	background:#9FDBFF;	
+	background:#818286;
+    color: #eeeeee;
 }
 
 #header_menu ul li#unpin a,
@@ -4350,4 +4353,8 @@ a.like_count_link:hover
 {
 	background-color:#333;
 	color:#fff;
+}
+
+#header_search {
+    margin-left: 200px;
 }
