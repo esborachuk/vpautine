@@ -1,8 +1,13 @@
 <?php
-/**
- * Created by JetBrains PhpStorm.
- * User: Den
- * Date: 22.08.12
- * Time: 11:13
- * To change this template use File | Settings | File Templates.
- */
+class Pautina_Component_Block_Friends extends Phpfox_Component
+{
+    public function process() {
+        list($iTotalFriends, $aFriends) = Phpfox::getService('friend')->get('friend.user_id = ' . Phpfox::getUserId());
+
+        $this->template()->assign(array(
+            'iTotalFriends' => $iTotalFriends,
+            'aFriends' => $aFriends
+        ));
+
+    }
+}
