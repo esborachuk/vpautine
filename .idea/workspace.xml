@@ -1,122 +1,218 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="BookmarkManager">
+    <bookmark url="file://$PROJECT_DIR$/module/mail/template/pautina/controller/compose.html.php" line="139" />
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="04e9d087-ca25-40da-8781-d864861fb97f" name="Default" comment="update sms module">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/module/pautina/template/default/block/friends.html.php" />
-      <change type="DELETED" beforePath="D:\Work\www\localhost\file\cache\ad_0e18bc5ddf1451ff894a9896c0fc5911.php" afterPath="" />
-      <change type="DELETED" beforePath="D:\Work\www\localhost\file\cache\ad_4135f5befb9ee2ef0ec564dd50a6a37d.php" afterPath="" />
-      <change type="DELETED" beforePath="D:\Work\www\localhost\file\cache\ad_c0a146bcb8752effc36795db606295b2.php" afterPath="" />
-      <change type="DELETED" beforePath="D:\Work\www\localhost\file\cache\country_en.php" afterPath="" />
-      <change type="DELETED" beforePath="D:\Work\www\localhost\file\cache\index.html" afterPath="" />
-      <change type="DELETED" beforePath="D:\Work\www\localhost\file\cache\locale\language_en.php" afterPath="" />
-      <change type="DELETED" beforePath="D:\Work\www\localhost\file\cache\locale\language_en_phrase_ad.php" afterPath="" />
-      <change type="DELETED" beforePath="D:\Work\www\localhost\file\cache\locale\language_en_phrase_admincp.php" afterPath="" />
-      <change type="DELETED" beforePath="D:\Work\www\localhost\file\cache\locale\language_en_phrase_announcement.php" afterPath="" />
-      <change type="DELETED" beforePath="D:\Work\www\localhost\file\cache\locale\language_en_phrase_api.php" afterPath="" />
-      <change type="DELETED" beforePath="D:\Work\www\localhost\file\cache\locale\language_en_phrase_apps.php" afterPath="" />
-      <change type="DELETED" beforePath="D:\Work\www\localhost\file\cache\locale\language_en_phrase_attachment.php" afterPath="" />
-      <change type="DELETED" beforePath="D:\Work\www\localhost\file\cache\locale\language_en_phrase_ban.php" afterPath="" />
-      <change type="DELETED" beforePath="D:\Work\www\localhost\file\cache\locale\language_en_phrase_blog.php" afterPath="" />
-      <change type="DELETED" beforePath="D:\Work\www\localhost\file\cache\locale\language_en_phrase_captcha.php" afterPath="" />
-      <change type="DELETED" beforePath="D:\Work\www\localhost\file\cache\locale\language_en_phrase_comment.php" afterPath="" />
-      <change type="DELETED" beforePath="D:\Work\www\localhost\file\cache\locale\language_en_phrase_contact.php" afterPath="" />
-      <change type="DELETED" beforePath="D:\Work\www\localhost\file\cache\locale\language_en_phrase_core.php" afterPath="" />
-      <change type="DELETED" beforePath="D:\Work\www\localhost\file\cache\locale\language_en_phrase_custom.php" afterPath="" />
-      <change type="DELETED" beforePath="D:\Work\www\localhost\file\cache\locale\language_en_phrase_egift.php" afterPath="" />
-      <change type="DELETED" beforePath="D:\Work\www\localhost\file\cache\locale\language_en_phrase_emoticon.php" afterPath="" />
-      <change type="DELETED" beforePath="D:\Work\www\localhost\file\cache\locale\language_en_phrase_error.php" afterPath="" />
-      <change type="DELETED" beforePath="D:\Work\www\localhost\file\cache\locale\language_en_phrase_event.php" afterPath="" />
-      <change type="DELETED" beforePath="D:\Work\www\localhost\file\cache\locale\language_en_phrase_facebook.php" afterPath="" />
-      <change type="DELETED" beforePath="D:\Work\www\localhost\file\cache\locale\language_en_phrase_favorite.php" afterPath="" />
-      <change type="DELETED" beforePath="D:\Work\www\localhost\file\cache\locale\language_en_phrase_feed.php" afterPath="" />
-      <change type="DELETED" beforePath="D:\Work\www\localhost\file\cache\locale\language_en_phrase_forum.php" afterPath="" />
-      <change type="DELETED" beforePath="D:\Work\www\localhost\file\cache\locale\language_en_phrase_friend.php" afterPath="" />
-      <change type="DELETED" beforePath="D:\Work\www\localhost\file\cache\locale\language_en_phrase_help.php" afterPath="" />
-      <change type="DELETED" beforePath="D:\Work\www\localhost\file\cache\locale\language_en_phrase_im.php" afterPath="" />
-      <change type="DELETED" beforePath="D:\Work\www\localhost\file\cache\locale\language_en_phrase_invite.php" afterPath="" />
-      <change type="DELETED" beforePath="D:\Work\www\localhost\file\cache\locale\language_en_phrase_janrain.php" afterPath="" />
-      <change type="DELETED" beforePath="D:\Work\www\localhost\file\cache\locale\language_en_phrase_language.php" afterPath="" />
-      <change type="DELETED" beforePath="D:\Work\www\localhost\file\cache\locale\language_en_phrase_like.php" afterPath="" />
-      <change type="DELETED" beforePath="D:\Work\www\localhost\file\cache\locale\language_en_phrase_link.php" afterPath="" />
-      <change type="DELETED" beforePath="D:\Work\www\localhost\file\cache\locale\language_en_phrase_log.php" afterPath="" />
-      <change type="DELETED" beforePath="D:\Work\www\localhost\file\cache\locale\language_en_phrase_mail.php" afterPath="" />
-      <change type="DELETED" beforePath="D:\Work\www\localhost\file\cache\locale\language_en_phrase_marketplace.php" afterPath="" />
-      <change type="DELETED" beforePath="D:\Work\www\localhost\file\cache\locale\language_en_phrase_mobile.php" afterPath="" />
-      <change type="DELETED" beforePath="D:\Work\www\localhost\file\cache\locale\language_en_phrase_music.php" afterPath="" />
-      <change type="DELETED" beforePath="D:\Work\www\localhost\file\cache\locale\language_en_phrase_newsletter.php" afterPath="" />
-      <change type="DELETED" beforePath="D:\Work\www\localhost\file\cache\locale\language_en_phrase_notification.php" afterPath="" />
-      <change type="DELETED" beforePath="D:\Work\www\localhost\file\cache\locale\language_en_phrase_page.php" afterPath="" />
-      <change type="DELETED" beforePath="D:\Work\www\localhost\file\cache\locale\language_en_phrase_pages.php" afterPath="" />
-      <change type="DELETED" beforePath="D:\Work\www\localhost\file\cache\locale\language_en_phrase_photo.php" afterPath="" />
-      <change type="DELETED" beforePath="D:\Work\www\localhost\file\cache\locale\language_en_phrase_poke.php" afterPath="" />
-      <change type="DELETED" beforePath="D:\Work\www\localhost\file\cache\locale\language_en_phrase_poll.php" afterPath="" />
-      <change type="DELETED" beforePath="D:\Work\www\localhost\file\cache\locale\language_en_phrase_privacy.php" afterPath="" />
-      <change type="DELETED" beforePath="D:\Work\www\localhost\file\cache\locale\language_en_phrase_profile.php" afterPath="" />
-      <change type="DELETED" beforePath="D:\Work\www\localhost\file\cache\locale\language_en_phrase_quiz.php" afterPath="" />
-      <change type="DELETED" beforePath="D:\Work\www\localhost\file\cache\locale\language_en_phrase_rate.php" afterPath="" />
-      <change type="DELETED" beforePath="D:\Work\www\localhost\file\cache\locale\language_en_phrase_report.php" afterPath="" />
-      <change type="DELETED" beforePath="D:\Work\www\localhost\file\cache\locale\language_en_phrase_request.php" afterPath="" />
-      <change type="DELETED" beforePath="D:\Work\www\localhost\file\cache\locale\language_en_phrase_rss.php" afterPath="" />
-      <change type="DELETED" beforePath="D:\Work\www\localhost\file\cache\locale\language_en_phrase_search.php" afterPath="" />
-      <change type="DELETED" beforePath="D:\Work\www\localhost\file\cache\locale\language_en_phrase_share.php" afterPath="" />
-      <change type="DELETED" beforePath="D:\Work\www\localhost\file\cache\locale\language_en_phrase_shoutbox.php" afterPath="" />
-      <change type="DELETED" beforePath="D:\Work\www\localhost\file\cache\locale\language_en_phrase_sms.php" afterPath="" />
-      <change type="DELETED" beforePath="D:\Work\www\localhost\file\cache\locale\language_en_phrase_subscribe.php" afterPath="" />
-      <change type="DELETED" beforePath="D:\Work\www\localhost\file\cache\locale\language_en_phrase_tag.php" afterPath="" />
-      <change type="DELETED" beforePath="D:\Work\www\localhost\file\cache\locale\language_en_phrase_theme.php" afterPath="" />
-      <change type="DELETED" beforePath="D:\Work\www\localhost\file\cache\locale\language_en_phrase_tinymce.php" afterPath="" />
-      <change type="DELETED" beforePath="D:\Work\www\localhost\file\cache\locale\language_en_phrase_track.php" afterPath="" />
-      <change type="DELETED" beforePath="D:\Work\www\localhost\file\cache\locale\language_en_phrase_user.php" afterPath="" />
-      <change type="DELETED" beforePath="D:\Work\www\localhost\file\cache\locale\language_en_phrase_video.php" afterPath="" />
-      <change type="DELETED" beforePath="D:\Work\www\localhost\file\cache\locale\language_rule_en.php" afterPath="" />
-      <change type="DELETED" beforePath="D:\Work\www\localhost\file\cache\rss_link_en.php" afterPath="" />
-      <change type="DELETED" beforePath="D:\Work\www\localhost\file\cache\template\admincp_template_default_block_module_form.html.php_admincp.php" afterPath="" />
-      <change type="DELETED" beforePath="D:\Work\www\localhost\file\cache\template\admincp_template_default_block_product_form.html.php_admincp.php" afterPath="" />
-      <change type="DELETED" beforePath="D:\Work\www\localhost\file\cache\template\admincp_template_default_controller_plugin_add.html.php_admincp.php" afterPath="" />
-      <change type="DELETED" beforePath="D:\Work\www\localhost\file\cache\template\admincp_template_default_controller_plugin_index.html.php_admincp.php" afterPath="" />
-      <change type="DELETED" beforePath="D:\Work\www\localhost\file\cache\template\apps_template_default_block_categories.html.php.php" afterPath="" />
-      <change type="DELETED" beforePath="D:\Work\www\localhost\file\cache\template\apps_template_default_controller_index.html.php.php" afterPath="" />
-      <change type="DELETED" beforePath="D:\Work\www\localhost\file\cache\template\blog_template_default_block_categories.html.php.php" afterPath="" />
-      <change type="DELETED" beforePath="D:\Work\www\localhost\file\cache\template\blog_template_default_controller_index.html.php.php" afterPath="" />
-      <change type="DELETED" beforePath="D:\Work\www\localhost\file\cache\template\core_template_default_block_moderation.html.php.php" afterPath="" />
-      <change type="DELETED" beforePath="D:\Work\www\localhost\file\cache\template\core_template_default_block_template-breadcrumblist.html.php.php" afterPath="" />
-      <change type="DELETED" beforePath="D:\Work\www\localhost\file\cache\template\core_template_default_block_template-breadcrumbmenu.html.php.php" afterPath="" />
-      <change type="DELETED" beforePath="D:\Work\www\localhost\file\cache\template\feed_template_default_block_comment.html.php.php" afterPath="" />
-      <change type="DELETED" beforePath="D:\Work\www\localhost\file\cache\template\frontend_default_template_pager.html.php.php" afterPath="" />
-      <change type="DELETED" beforePath="D:\Work\www\localhost\file\cache\template\sms_template_default_block_display.html.php.php" afterPath="" />
-      <change type="DELETED" beforePath="D:\Work\www\localhost\file\cache\template\sms_template_default_block_panel.html.php.php" afterPath="" />
-      <change type="DELETED" beforePath="D:\Work\www\localhost\file\cache\template\sms_template_default_controller_index.html.php.php" afterPath="" />
-      <change type="DELETED" beforePath="D:\Work\www\localhost\file\cache\template\theme_template_default_controller_admincp_style_add.html.php_admincp.php" afterPath="" />
-      <change type="DELETED" beforePath="D:\Work\www\localhost\file\cache\theme\menu_apps.index1.php" afterPath="" />
-      <change type="DELETED" beforePath="D:\Work\www\localhost\file\cache\theme\menu_blog.index1.php" afterPath="" />
-      <change type="DELETED" beforePath="D:\Work\www\localhost\file\cache\theme\menu_sms.index1.php" afterPath="" />
-      <change type="DELETED" beforePath="D:\Work\www\localhost\file\cache\theme\theme_css019ca990043db604ccdcfbc02fa2d403.php" afterPath="" />
-      <change type="DELETED" beforePath="D:\Work\www\localhost\file\cache\theme\theme_css01c7ff5c3fe5599e13129824bf331c0b.php" afterPath="" />
-      <change type="DELETED" beforePath="D:\Work\www\localhost\file\cache\theme\theme_css0b4c6eca984b524494813a07cb9b76f1.php" afterPath="" />
-      <change type="DELETED" beforePath="D:\Work\www\localhost\file\cache\theme\theme_css1c7f70cd08087304ab148fcb47c48559.php" afterPath="" />
-      <change type="DELETED" beforePath="D:\Work\www\localhost\file\cache\theme\theme_css1fc4e88ad4521054ef679218a59061ab.php" afterPath="" />
-      <change type="DELETED" beforePath="D:\Work\www\localhost\file\cache\theme\theme_css20f07e4768a1b9c54536210871483510.php" afterPath="" />
-      <change type="DELETED" beforePath="D:\Work\www\localhost\file\cache\theme\theme_css2d3d9d4053a55fd750b454e5e7619b73.php" afterPath="" />
-      <change type="DELETED" beforePath="D:\Work\www\localhost\file\cache\theme\theme_css3a7cf0bde1080b24252471ec71c714c2.php" afterPath="" />
-      <change type="DELETED" beforePath="D:\Work\www\localhost\file\cache\theme\theme_css42a7a4a801665b2fd42de9c052ab5a3a.php" afterPath="" />
-      <change type="DELETED" beforePath="D:\Work\www\localhost\file\cache\theme\theme_css4759c24b585e375ee11dcad5a1dd6525.php" afterPath="" />
-      <change type="DELETED" beforePath="D:\Work\www\localhost\file\cache\theme\theme_css4813f937fb38385d51bea4fc072c2be5.php" afterPath="" />
-      <change type="DELETED" beforePath="D:\Work\www\localhost\file\cache\theme\theme_css4dc935293e53ae12f4f956e52d92406b.php" afterPath="" />
-      <change type="DELETED" beforePath="D:\Work\www\localhost\file\cache\theme\theme_css5f201d01fe6d87f67cb867e3a9e71f4e.php" afterPath="" />
-      <change type="DELETED" beforePath="D:\Work\www\localhost\file\cache\theme\theme_css88958211736f4e24e31da21bc91985ab.php" afterPath="" />
-      <change type="DELETED" beforePath="D:\Work\www\localhost\file\cache\theme\theme_cssb1056154d309a8eaa8d8b2975214310d.php" afterPath="" />
-      <change type="DELETED" beforePath="D:\Work\www\localhost\file\cache\theme\theme_cssbb3d60a0b3ec870e1f95d272cb50cf97.php" afterPath="" />
-      <change type="DELETED" beforePath="D:\Work\www\localhost\file\cache\theme\theme_cssc7176f09d92da5a6f59bff82e578515f.php" afterPath="" />
-      <change type="DELETED" beforePath="D:\Work\www\localhost\file\cache\theme\theme_cssc894a8741aa09cb08b2a2f8998b81f36.php" afterPath="" />
-      <change type="DELETED" beforePath="D:\Work\www\localhost\file\cache\theme\theme_cssf321fde12d66dc52c8c5cd10586ee1e9.php" afterPath="" />
-      <change type="DELETED" beforePath="D:\Work\www\localhost\file\cache\theme\theme_cssfa1c88c8c651d2e080686444017121ca.php" afterPath="" />
-      <change type="DELETED" beforePath="D:\Work\www\localhost\file\cache\user_activity_blog.php" afterPath="" />
-      <change type="DELETED" beforePath="D:\Work\www\localhost\theme\frontend\mytheme\index.html" afterPath="" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/module/pautina/include/component/block/profile/image.class.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/module/pautina/include/component/block/profile/menu.class.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/module/pautina/template/default/block/profile/image.html.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/module/pautina/template/default/block/profile/menu.html.php" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/file/cache/ad_0a4fba04d59ad0767db23dbd96110d6a.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/file/cache/ad_1.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/file/cache/ad_10.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/file/cache/ad_11.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/file/cache/ad_12.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/file/cache/ad_2.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/file/cache/ad_3.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/file/cache/ad_4.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/file/cache/ad_5.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/file/cache/ad_56eafb11e6ee0836c3d12c3120d19393.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/file/cache/ad_6.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/file/cache/ad_6f39214edde75b472bd07d626bbae0ac.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/file/cache/ad_7.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/file/cache/ad_7ed50276beead9b7046367faf84fbc94.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/file/cache/ad_8.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/file/cache/ad_9.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/file/cache/ad_9f82a6c4664ef3b8db41602f06da963e.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/file/cache/ad_c43fbc627446bf066be9d47586bb8ecb.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/file/cache/ad_fe6bf9a2621b2f8c223acd69060afbc0.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/file/cache/admincp_note.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/file/cache/announcements.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/file/cache/ban_display_name.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/file/cache/ban_email.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/file/cache/block/all_2.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/file/cache/block/all_3.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/file/cache/block/location_2.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/file/cache/block/location_3.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/file/cache/block/move_2.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/file/cache/block/move_3.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/file/cache/block/source_code_2.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/file/cache/block/source_code_3.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/file/cache/country_ru.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/file/cache/egift_category.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/file/cache/emoticon_parse.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/file/cache/feed_share_link.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/file/cache/friend_birthday_1.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/file/cache/friend_birthday_5.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/file/cache/module_masscall_getProfileMenu.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/file/cache/module_masscall_getSiteStatsForAdmins.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/file/cache/module_masscall_pendingApproval.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/file/cache/module_masscall_spamCheck.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/file/cache/phpfox_news.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/file/cache/rss_link_ru.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/file/cache/template/ad_template_default_block_inner.html.php.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/file/cache/template/ad_template_default_block_inner.html.php_ajax.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/file/cache/template/admincp_template_default_controller_index.html.php_admincp.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/file/cache/template/admincp_template_default_controller_setting_edit.html.php_admincp.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/file/cache/template/admincp_template_default_controller_setting_index.html.php_admincp.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/file/cache/template/blog_template_default_block_share.html.php.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/file/cache/template/captcha_template_default_block_form.html.php.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/file/cache/template/core_template_default_block_active-admin.html.php_admincp.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/file/cache/template/core_template_default_block_news.html.php_admincp.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/file/cache/template/core_template_default_block_note.html.php_admincp.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/file/cache/template/core_template_default_block_site-stat.html.php_admincp.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/file/cache/template/core_template_default_block_template-body.html.php.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/file/cache/template/core_template_default_block_template-contentclass.html.php.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/file/cache/template/core_template_default_block_template-copyright.html.php.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/file/cache/template/core_template_default_block_template-footer.html.php.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/file/cache/template/core_template_default_block_template-holdername.html.php.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/file/cache/template/core_template_default_block_template-logo.html.php.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/file/cache/template/core_template_default_block_template-menu.html.php.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/file/cache/template/core_template_default_block_template-menuaccount.html.php.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/file/cache/template/core_template_default_block_template-menufooter.html.php.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/file/cache/template/core_template_default_block_template-menusub.html.php.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/file/cache/template/core_template_default_block_template-notification.html.php.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/file/cache/template/core_template_default_block_welcome.html.php.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/file/cache/template/core_template_default_controller_index-member.html.php.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/file/cache/template/core_template_default_controller_index-visitor.html.php.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/file/cache/template/feed_template_default_block_display.html.php.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/file/cache/template/feed_template_default_block_display.html.php_ajax.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/file/cache/template/feed_template_default_block_mini.html.php.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/file/cache/template/friend_template_default_block_accept.html.php_ajax.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/file/cache/template/friend_template_default_block_birthday.html.php.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/file/cache/template/friend_template_default_block_mini.html.php.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/file/cache/template/friend_template_default_block_notify.html.php.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/file/cache/template/friend_template_default_block_profile_small.html.php.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/file/cache/template/friend_template_default_block_request.html.php_ajax.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/file/cache/template/friend_template_pautina_block_notify.html.php.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/file/cache/template/frontend_default_template_breadcrumb.html.php.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/file/cache/template/frontend_default_template_error.html.php.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/file/cache/template/frontend_default_template_search.html.php.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/file/cache/template/frontend_pautina_template_template.html.php.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/file/cache/template/im_template_default_block_footer.html.php.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/file/cache/template/im_template_default_block_messenger.html.php_ajax.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/file/cache/template/im_template_default_block_user.html.php.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/file/cache/template/im_template_default_block_user.html.php_ajax.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/file/cache/template/like_template_default_block_link.html.php.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/file/cache/template/like_template_default_block_link.html.php_ajax.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/file/cache/template/link_template_default_block_share.html.php.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/file/cache/template/log_template_default_block_login.html.php.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/file/cache/template/mail_template_default_block_notify.html.php.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/file/cache/template/music_template_default_block_share.html.php.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/file/cache/template/notification_template_default_block_notify.html.php.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/file/cache/template/photo_template_default_block_share.html.php.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/file/cache/template/poll_template_default_block_share.html.php.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/file/cache/template/privacy_template_default_block_form.html.php.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/file/cache/template/profile_template_default_block_header.html.php.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/file/cache/template/profile_template_default_block_pic.html.php.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/file/cache/template/profile_template_default_controller_index.html.php.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/file/cache/template/report_template_default_block_profile.html.php.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/file/cache/template/share_template_default_block_link.html.php.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/file/cache/template/share_template_default_block_link.html.php_ajax.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/file/cache/template/shoutbox_template_default_block_display.html.php.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/file/cache/template/theme_template_default_controller_admincp_index.html.php_admincp.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/file/cache/template/theme_template_default_controller_admincp_style_index.html.php_admincp.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/file/cache/template/theme_template_default_controller_admincp_style_logo.html.php_admincp.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/file/cache/template/track_template_default_block_recent-views.html.php.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/file/cache/template/user_template_default_block_images.html.php.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/file/cache/template/user_template_default_block_login-header.html.php.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/file/cache/template/user_template_default_block_register-top.html.php.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/file/cache/template/user_template_default_block_register.html.php.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/file/cache/template/user_template_default_block_tooltip.html.php_ajax.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/file/cache/template/user_template_default_block_welcome.html.php.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/file/cache/theme/menu_core.index-member1.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/file/cache/theme/menu_core.index-member2.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/file/cache/theme/menu_core.index-visitor0.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/file/cache/theme/menu_explore0.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/file/cache/theme/menu_explore1.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/file/cache/theme/menu_explore2.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/file/cache/theme/menu_footer0.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/file/cache/theme/menu_footer1.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/file/cache/theme/menu_footer2.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/file/cache/theme/menu_main0.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/file/cache/theme/menu_main1.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/file/cache/theme/menu_main2.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/file/cache/theme/menu_main_right0.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/file/cache/theme/menu_main_right1.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/file/cache/theme/menu_main_right2.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/file/cache/theme/menu_profile.index0.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/file/cache/theme/menu_profile.index2.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/file/cache/theme/theme_css039c41c0a181bf452999486434560f8b.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/file/cache/theme/theme_css0aad57647baba59189ec62b7c16fc5ff.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/file/cache/theme/theme_css0b6dd62c3c50ae6cd3e5f182a7bf105e.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/file/cache/theme/theme_css197852287158b6895144b935e282e931.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/file/cache/theme/theme_css1e5f7c09978d6e7316d93bc7a489b944.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/file/cache/theme/theme_css294fc5bed4cab56542041f95dc82a3f9.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/file/cache/theme/theme_css435e953b299170fefcd490877b5ae4ea.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/file/cache/theme/theme_css4795ace63c391d5483f0f2b2bed9e53d.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/file/cache/theme/theme_css47f67083321b38ef4f1dd384a1c48ef9.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/file/cache/theme/theme_css4c79f3ec94896608edcedf596f98b02a.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/file/cache/theme/theme_css5f277b2fe314041d35b62de81cba55c4.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/file/cache/theme/theme_css8c1b34a1d0b65683518969483d20c209.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/file/cache/theme/theme_css8ef6a48a17519383a632c840af0b5c3a.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/file/cache/theme/theme_css910f7ae78ffcd5ab68241e0c8ee96198.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/file/cache/theme/theme_css97f57fb75df672de1d818431bdbf58ce.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/file/cache/theme/theme_css9a30a1e921d4cd8e00cefb7c281dd9c0.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/file/cache/theme/theme_cssa1093095b1ad387d4e43bfc70d404fa8.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/file/cache/theme/theme_cssadb1ba09e515665363c50a96f77b0d94.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/file/cache/theme/theme_cssaed8a2ddebadc291bec0947ca819174b.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/file/cache/theme/theme_cssaede37e893db4014661c480965c67ed6.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/file/cache/theme/theme_cssc89edef44adcdd8e8565fdfd7b7ff739.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/file/cache/theme/theme_cssc8b62162bf97a8aa5f51be6329f4a6b7.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/file/cache/theme/theme_cssc921465853fc3403e7de28436abd7dfe.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/file/cache/theme/theme_cssd82246f0821617d086204504746504cf.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/file/cache/theme/theme_logo_pautina_default.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/file/cache/time_zones.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/file/cache/user/user_welcome_image.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/file/cache/user_group_setting_2.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/file/cache/user_group_setting_3.php" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/file/cache/block/all_1.php" afterPath="$PROJECT_DIR$/file/cache/block/all_1.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/file/cache/block/file_126.php" afterPath="$PROJECT_DIR$/file/cache/block/file_126.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/file/cache/block/file_54.php" afterPath="$PROJECT_DIR$/file/cache/block/file_54.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/file/cache/block/file_56.php" afterPath="$PROJECT_DIR$/file/cache/block/file_56.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/file/cache/block/file_63.php" afterPath="$PROJECT_DIR$/file/cache/block/file_63.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/file/cache/block/location_1.php" afterPath="$PROJECT_DIR$/file/cache/block/location_1.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/file/cache/cron.php" afterPath="$PROJECT_DIR$/file/cache/cron.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/file/cache/locale/language_ru.php" afterPath="$PROJECT_DIR$/file/cache/locale/language_ru.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/file/cache/locale/language_ru_phrase_ad.php" afterPath="$PROJECT_DIR$/file/cache/locale/language_ru_phrase_ad.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/file/cache/locale/language_ru_phrase_comment.php" afterPath="$PROJECT_DIR$/file/cache/locale/language_ru_phrase_comment.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/file/cache/locale/language_ru_phrase_core.php" afterPath="$PROJECT_DIR$/file/cache/locale/language_ru_phrase_core.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/file/cache/locale/language_ru_phrase_custom.php" afterPath="$PROJECT_DIR$/file/cache/locale/language_ru_phrase_custom.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/file/cache/locale/language_ru_phrase_event.php" afterPath="$PROJECT_DIR$/file/cache/locale/language_ru_phrase_event.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/file/cache/locale/language_ru_phrase_feed.php" afterPath="$PROJECT_DIR$/file/cache/locale/language_ru_phrase_feed.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/file/cache/locale/language_ru_phrase_im.php" afterPath="$PROJECT_DIR$/file/cache/locale/language_ru_phrase_im.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/file/cache/locale/language_ru_phrase_link.php" afterPath="$PROJECT_DIR$/file/cache/locale/language_ru_phrase_link.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/file/cache/locale/language_ru_phrase_mail.php" afterPath="$PROJECT_DIR$/file/cache/locale/language_ru_phrase_mail.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/file/cache/locale/language_ru_phrase_marketplace.php" afterPath="$PROJECT_DIR$/file/cache/locale/language_ru_phrase_marketplace.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/file/cache/locale/language_ru_phrase_music.php" afterPath="$PROJECT_DIR$/file/cache/locale/language_ru_phrase_music.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/file/cache/locale/language_ru_phrase_newsletter.php" afterPath="$PROJECT_DIR$/file/cache/locale/language_ru_phrase_newsletter.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/file/cache/locale/language_ru_phrase_notification.php" afterPath="$PROJECT_DIR$/file/cache/locale/language_ru_phrase_notification.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/file/cache/locale/language_ru_phrase_page.php" afterPath="$PROJECT_DIR$/file/cache/locale/language_ru_phrase_page.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/file/cache/locale/language_ru_phrase_pages.php" afterPath="$PROJECT_DIR$/file/cache/locale/language_ru_phrase_pages.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/file/cache/locale/language_ru_phrase_photo.php" afterPath="$PROJECT_DIR$/file/cache/locale/language_ru_phrase_photo.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/file/cache/locale/language_ru_phrase_poll.php" afterPath="$PROJECT_DIR$/file/cache/locale/language_ru_phrase_poll.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/file/cache/locale/language_ru_phrase_privacy.php" afterPath="$PROJECT_DIR$/file/cache/locale/language_ru_phrase_privacy.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/file/cache/locale/language_ru_phrase_profile.php" afterPath="$PROJECT_DIR$/file/cache/locale/language_ru_phrase_profile.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/file/cache/locale/language_ru_phrase_quiz.php" afterPath="$PROJECT_DIR$/file/cache/locale/language_ru_phrase_quiz.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/file/cache/locale/language_ru_phrase_tag.php" afterPath="$PROJECT_DIR$/file/cache/locale/language_ru_phrase_tag.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/file/cache/locale/language_ru_phrase_user.php" afterPath="$PROJECT_DIR$/file/cache/locale/language_ru_phrase_user.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/file/cache/locale/language_ru_phrase_video.php" afterPath="$PROJECT_DIR$/file/cache/locale/language_ru_phrase_video.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/file/cache/plugin/plugin.php" afterPath="$PROJECT_DIR$/file/cache/plugin/plugin.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/file/cache/template/adminpanel_default_template_error.html.php_admincp.php" afterPath="$PROJECT_DIR$/file/cache/template/adminpanel_default_template_error.html.php_admincp.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/file/cache/template/adminpanel_default_template_template.html.php_admincp.php" afterPath="$PROJECT_DIR$/file/cache/template/adminpanel_default_template_template.html.php_admincp.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/file/cache/template/im_template_default_block_list.html.php_ajax.php" afterPath="$PROJECT_DIR$/file/cache/template/im_template_default_block_list.html.php_ajax.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/file/log/phpfox_error_log_19_08_12_593ed86d9e989b97a31fa84858ccd5a0.php" afterPath="$PROJECT_DIR$/file/log/phpfox_error_log_19_08_12_593ed86d9e989b97a31fa84858ccd5a0.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/file/log/phpfox_error_log_20_08_12_593ed86d9e989b97a31fa84858ccd5a0.php" afterPath="$PROJECT_DIR$/file/log/phpfox_error_log_20_08_12_593ed86d9e989b97a31fa84858ccd5a0.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/file/log/phpfox_error_log_21_08_12_593ed86d9e989b97a31fa84858ccd5a0.php" afterPath="$PROJECT_DIR$/file/log/phpfox_error_log_21_08_12_593ed86d9e989b97a31fa84858ccd5a0.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/file/log/phpfox_error_log_22_08_12_593ed86d9e989b97a31fa84858ccd5a0.php" afterPath="$PROJECT_DIR$/file/log/phpfox_error_log_22_08_12_593ed86d9e989b97a31fa84858ccd5a0.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/file/log/phpfox_error_log_23_08_12_593ed86d9e989b97a31fa84858ccd5a0.php" afterPath="$PROJECT_DIR$/file/log/phpfox_error_log_23_08_12_593ed86d9e989b97a31fa84858ccd5a0.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/file/log/phpfox_error_log_24_08_12_593ed86d9e989b97a31fa84858ccd5a0.php" afterPath="$PROJECT_DIR$/file/log/phpfox_error_log_24_08_12_593ed86d9e989b97a31fa84858ccd5a0.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/module/mail/template/pautina/controller/compose.html.php" afterPath="$PROJECT_DIR$/module/mail/template/pautina/controller/compose.html.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/module/pautina/include/component/block/friends.class.php" afterPath="$PROJECT_DIR$/module/pautina/include/component/block/friends.class.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/module/sms/include/component/block/sms.class.php" afterPath="$PROJECT_DIR$/module/sms/include/component/block/sms.class.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/module/sms/template/default/block/sms.html.php" afterPath="$PROJECT_DIR$/module/sms/template/default/block/sms.html.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/theme/frontend/pautina/style/default/css/layout.css" afterPath="$PROJECT_DIR$/theme/frontend/pautina/style/default/css/layout.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/theme/frontend/pautina/style/default/jscript/sms.js" afterPath="$PROJECT_DIR$/theme/frontend/pautina/style/default/jscript/sms.js" />
     </list>
     <ignored path="localhost.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -140,46 +236,91 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="layout.css" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/theme/frontend/pautina/style/default/css/layout.css">
+      <file leaf-file-name="pic.class.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/module/profile/include/component/block/pic.class.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="834" column="23" selection-start="12190" selection-end="12190" vertical-scroll-proportion="0.0">
+            <state line="15" column="6" selection-start="261" selection-end="261" vertical-scroll-proportion="-1.574074">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="notify.html.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/module/friend/template/default/block/notify.html.php">
+      <file leaf-file-name="menu.class.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/module/pautina/include/component/block/profile/menu.class.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="16" column="29" selection-start="523" selection-end="523" vertical-scroll-proportion="0.0">
+            <state line="9" column="59" selection-start="281" selection-end="281" vertical-scroll-proportion="-5.5">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="notify.html.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/module/friend/template/pautina/block/notify.html.php">
+      <file leaf-file-name="menu.html.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/module/pautina/template/default/block/profile/menu.html.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="15" column="179" selection-start="502" selection-end="502" vertical-scroll-proportion="-5.7586207">
+            <state line="10" column="33" selection-start="466" selection-end="466" vertical-scroll-proportion="-7.857143">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="sms.html.php" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/module/sms/template/default/block/sms.html.php">
+      <file leaf-file-name="index.class.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/module/profile/include/component/controller/index.class.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="18" column="12" selection-start="672" selection-end="672" vertical-scroll-proportion="0.7777778">
+            <state line="176" column="80" selection-start="5112" selection-end="5126" vertical-scroll-proportion="-4.214286">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="template.html.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/theme/frontend/pautina/template/template.html.php">
+      <file leaf-file-name="profile.class.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/module/profile/include/service/profile.class.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="50" column="33" selection-start="2242" selection-end="2242" vertical-scroll-proportion="0.0">
+            <state line="142" column="64" selection-start="3769" selection-end="3783" vertical-scroll-proportion="-9.5">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="menu.class.php" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/module/profile/include/component/block/menu.class.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="29" column="42" selection-start="655" selection-end="655" vertical-scroll-proportion="-0.19266056">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="phpfox.class.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/include/library/phpfox/phpfox/phpfox.class.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="381" column="57" selection-start="8205" selection-end="8217" vertical-scroll-proportion="-11.035714">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="module.class.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/include/library/phpfox/module/module.class.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="1140" column="41" selection-start="32957" selection-end="32965" vertical-scroll-proportion="6.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="photo.html.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/module/pages/template/default/block/photo.html.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="31" column="41" selection-start="1310" selection-end="1310" vertical-scroll-proportion="-7.178571">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="form.html.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/module/feed/template/default/block/form.html.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="40" column="35" selection-start="2401" selection-end="2401" vertical-scroll-proportion="-19.142857">
               <folding />
             </state>
           </provider>
@@ -201,22 +342,22 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/module/sms/include/service/sms.class.php" />
-        <option value="$PROJECT_DIR$/module/sms/template/default/controller/index.html.php" />
-        <option value="$PROJECT_DIR$/module/mail/template/default/controller/compose.html.php" />
-        <option value="$PROJECT_DIR$/theme/frontend/default/template/template.html.php" />
-        <option value="$PROJECT_DIR$/module/mail/template/pautina/controller/compose.html.php" />
-        <option value="$PROJECT_DIR$/module/sms/include/component/block/sms.class.php" />
-        <option value="$PROJECT_DIR$/theme/frontend/default/style/default/jscript/sms.js" />
-        <option value="$PROJECT_DIR$/theme/frontend/default/style/default/php/header.php" />
-        <option value="$PROJECT_DIR$/module/mail/static/jscript/mail.js" />
-        <option value="$PROJECT_DIR$/static/jscript/main.js" />
-        <option value="$PROJECT_DIR$/static/jscript/thickbox/thickbox.js" />
-        <option value="$PROJECT_DIR$/theme/frontend/pautina/style/default/jscript/sms.js" />
-        <option value="$PROJECT_DIR$/theme/frontend/pautina/template/template.html.php" />
-        <option value="$PROJECT_DIR$/theme/frontend/pautina/style/default/css/layout.css" />
-        <option value="$PROJECT_DIR$/module/friend/template/pautina/block/notify.html.php" />
         <option value="$PROJECT_DIR$/module/sms/template/default/block/sms.html.php" />
+        <option value="$PROJECT_DIR$/include/setting/server.sett.php" />
+        <option value="$PROJECT_DIR$/module/mail/template/pautina/controller/compose.html.php" />
+        <option value="$PROJECT_DIR$/theme/frontend/pautina/style/default/jscript/sms.js" />
+        <option value="$PROJECT_DIR$/module/core/template/default/block/template-menusub.html.php" />
+        <option value="$PROJECT_DIR$/module/profile/template/default/block/pic.html.php" />
+        <option value="$PROJECT_DIR$/module/admincp/include/service/module/process.class.php" />
+        <option value="$PROJECT_DIR$/module/pautina/template/default/block/pic.html.php" />
+        <option value="$PROJECT_DIR$/module/pautina/include/component/block/pic.class.php" />
+        <option value="$PROJECT_DIR$/module/pautina/include/component/block/profileimage.class.php" />
+        <option value="$PROJECT_DIR$/module/pautina/template/default/block/profilemenu.html.php" />
+        <option value="$PROJECT_DIR$/module/pautina/template/default/block/profileimage.html.php" />
+        <option value="$PROJECT_DIR$/module/pautina/include/component/block/profile/menu.class.php" />
+        <option value="$PROJECT_DIR$/module/pautina/include/component/block/profile/image.class.php" />
+        <option value="$PROJECT_DIR$/theme/frontend/pautina/style/default/css/layout.css" />
+        <option value="$PROJECT_DIR$/module/pautina/template/default/block/profile/menu.html.php" />
       </list>
     </option>
   </component>
@@ -228,10 +369,9 @@
   </component>
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
   <component name="ProjectFrameBounds">
-    <option name="x" value="-8" />
-    <option name="y" value="-8" />
-    <option name="width" value="1382" />
-    <option name="height" value="754" />
+    <option name="y" value="22" />
+    <option name="width" value="1366" />
+    <option name="height" value="742" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
     <OptionsSetting value="true" id="Add" />
@@ -259,16 +399,6 @@
       <sortByType />
     </navigator>
     <panes>
-      <pane id="Scope">
-        <subPane subId="Project Files">
-          <PATH>
-            <PATH_ELEMENT USER_OBJECT="Root">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-          </PATH>
-        </subPane>
-      </pane>
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -284,6 +414,124 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="localhost" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="localhost" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="localhost" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="theme" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="localhost" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="localhost" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="theme" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="frontend" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="localhost" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="localhost" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="theme" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="frontend" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="pautina" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="localhost" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="localhost" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="theme" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="frontend" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="pautina" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="style" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="default" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="localhost" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="localhost" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="theme" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="frontend" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="pautina" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="style" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="default" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="css" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -375,6 +623,370 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="localhost" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="localhost" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="module" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="sms" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="include" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="localhost" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="localhost" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="module" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="sms" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="include" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="service" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="localhost" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="localhost" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="module" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="sms" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="include" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="component" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="localhost" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="localhost" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="module" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="sms" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="include" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="component" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="block" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="localhost" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="localhost" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="module" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="profile" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="localhost" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="localhost" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="module" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="profile" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="include" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="localhost" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="localhost" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="module" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="profile" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="include" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="service" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="localhost" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="localhost" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="module" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="profile" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="include" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="component" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="localhost" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="localhost" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="module" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="profile" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="include" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="component" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="block" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="localhost" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="localhost" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="module" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="pautina" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="template" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="default" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="block" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="localhost" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="localhost" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="module" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="pautina" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="template" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="default" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="block" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="profile" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="localhost" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="localhost" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="module" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="pautina" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="include" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="component" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="block" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="localhost" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="localhost" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="module" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="pautina" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="include" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="component" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="block" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="profile" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+        </subPane>
+      </pane>
+      <pane id="Scope">
+        <subPane subId="Project Files">
+          <PATH>
+            <PATH_ELEMENT USER_OBJECT="Root">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+          </PATH>
         </subPane>
       </pane>
     </panes>
@@ -382,43 +994,23 @@
   <component name="PropertiesComponent">
     <property name="options.splitter.main.proportions" value="0.3" />
     <property name="WebServerToolWindowFactoryState" value="true" />
-    <property name="options.lastSelected" value="project.propVCSSupport.Mappings" />
     <property name="recentsLimit" value="5" />
-    <property name="GoToClass.includeJavaFiles" value="false" />
-    <property name="options.splitter.details.proportions" value="0.2" />
+    <property name="options.lastSelected" value="project.propVCSSupport.Mappings" />
+    <property name="FullScreen" value="false" />
     <property name="options.searchVisible" value="true" />
+    <property name="options.splitter.details.proportions" value="0.2" />
+    <property name="GoToClass.includeJavaFiles" value="false" />
   </component>
   <component name="PublishConfig">
     <servers>
-      <server id="185df6d5-ea3f-4db0-9a94-1ebf1a6edea3">
+      <server id="07cbbab1-d94d-479e-b341-88454ce9af8b">
         <serverdata>
           <mappings>
             <mapping local="$PROJECT_DIR$" />
           </mappings>
         </serverdata>
       </server>
-      <server id="20988508-1d35-4e22-bac3-3d9d8484df33">
-        <serverdata>
-          <mappings>
-            <mapping local="$PROJECT_DIR$" />
-          </mappings>
-        </serverdata>
-      </server>
-      <server id="24cee31b-62ad-495a-8321-e547a67b46c8">
-        <serverdata>
-          <mappings>
-            <mapping local="$PROJECT_DIR$" />
-          </mappings>
-        </serverdata>
-      </server>
-      <server id="f3d7a208-b7ff-4078-8a6b-dd3245a78c03">
-        <serverdata>
-          <mappings>
-            <mapping local="$PROJECT_DIR$" />
-          </mappings>
-        </serverdata>
-      </server>
-      <server id="f8a59d43-70d1-4803-81c7-e088f2980fc4">
+      <server id="7adc8bc0-62bb-4695-a921-4a5673bd4fb7">
         <serverdata>
           <mappings>
             <mapping local="$PROJECT_DIR$" />
@@ -429,13 +1021,16 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/module/pautina/template/default/block" />
+      <recent name="$PROJECT_DIR$/module/pautina/include/component/block" />
       <recent name="D:\Work\www\localhost\module\friend\template\pautina\block" />
       <recent name="D:\Work\www\localhost\theme\frontend\pautina\style\default" />
       <recent name="D:\Work\www\localhost\module\mail\template\pautina\controller" />
-      <recent name="D:\Work\www\localhost\theme\frontend\pautina\style\default\css" />
-      <recent name="D:\Work\www\localhost\theme\frontend\pautina\template" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/module/pautina/template/default/block/profile" />
+      <recent name="$PROJECT_DIR$/module/pautina/include/component/block/profile" />
+      <recent name="$PROJECT_DIR$/module/pautina/template/default/block" />
       <recent name="D:\Work\www\localhost\theme\frontend\pautina\style\default\jscript" />
       <recent name="D:\Work\www\localhost\module\mail\template" />
     </key>
@@ -531,16 +1126,16 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1382" height="754" extended-state="6" />
-    <editor active="true" />
+    <frame x="0" y="22" width="1366" height="742" extended-state="0" />
+    <editor active="false" />
     <layout>
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Data Sources" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32996634" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Changes" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32850242" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32850242" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.2530303" sideWeight="0.3872054" order="1" side_tool="true" content_ui="tabs" />
       <window_info id="Remote Host" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.26060605" sideWeight="0.6700337" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.27348486" sideWeight="0.6714976" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.2901515" sideWeight="0.6700337" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
@@ -549,7 +1144,7 @@
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32996634" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -610,95 +1205,124 @@
     <MESSAGE value="update sms module" />
   </component>
   <component name="XDebuggerManager">
-    <breakpoint-manager />
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="php">
+          <url>file://$PROJECT_DIR$/module/profile/include/service/profile.class.php</url>
+          <line>124</line>
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/static/jscript/ajax.js">
+    <entry file="file://$PROJECT_DIR$/module/video/include/service/convert.class.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="8" column="1" selection-start="219" selection-end="219" vertical-scroll-proportion="0.0" />
+        <state line="232" column="12" selection-start="6629" selection-end="6629" vertical-scroll-proportion="0.36085626">
+          <folding />
+        </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/static/jscript/main.js">
+    <entry file="file://$PROJECT_DIR$/module/music/include/service/process.class.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="927" column="8" selection-start="22519" selection-end="22519" vertical-scroll-proportion="0.0" />
+        <state line="126" column="12" selection-start="3786" selection-end="3786" vertical-scroll-proportion="7.669725">
+          <folding />
+        </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/theme/frontend/pautina/style/default/php/header.php">
+    <entry file="file://$PROJECT_DIR$/module/profile/template/default/block/pic.html.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" />
+        <state line="30" column="20" selection-start="852" selection-end="852" vertical-scroll-proportion="-7.071429">
+          <folding />
+        </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/static/jscript/editarea/plugins/core/core.js">
+    <entry file="file://$PROJECT_DIR$/module/pautina/include/component/block/profile/image.class.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="62" column="19" selection-start="1523" selection-end="1523" vertical-scroll-proportion="0.0" />
+        <state line="12" column="26" selection-start="362" selection-end="362" vertical-scroll-proportion="-7.857143">
+          <folding />
+        </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/static/jscript/thickbox/thickbox.js">
+    <entry file="file://$PROJECT_DIR$/module/pautina/template/default/block/profile/image.html.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="610" column="21" selection-start="18025" selection-end="18025" vertical-scroll-proportion="0.8776978" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/module/sms/template/default/controller/index.html.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="651" vertical-scroll-proportion="-0.0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/module/mail/template/pautina/controller/compose.html.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="16" column="23" selection-start="333" selection-end="333" vertical-scroll-proportion="-1.6551725" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/theme/frontend/pautina/style/default/jscript/sms.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="12" column="91" selection-start="299" selection-end="299" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/module/sms/include/component/controller/index.class.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="6" column="0" selection-start="153" selection-end="153" vertical-scroll-proportion="0.26666668" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/include/xml/language/ru/module-ad.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" />
+        <state line="16" column="0" selection-start="412" selection-end="412" vertical-scroll-proportion="-10.321428">
+          <folding />
+        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/theme/frontend/pautina/style/default/css/layout.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="834" column="23" selection-start="12190" selection-end="12190" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/module/friend/template/default/block/notify.html.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="16" column="29" selection-start="523" selection-end="523" vertical-scroll-proportion="0.0">
+        <state line="4404" column="1" selection-start="66823" selection-end="66823" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/theme/frontend/pautina/template/template.html.php">
+    <entry file="file://$PROJECT_DIR$/module/pautina/include/component/block/profile/menu.class.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="50" column="33" selection-start="2242" selection-end="2242" vertical-scroll-proportion="0.0">
+        <state line="9" column="59" selection-start="281" selection-end="281" vertical-scroll-proportion="-5.5">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/file/cache/template/ad_template_default_block_inner.html.php_ajax.php">
+    <entry file="file://$PROJECT_DIR$/module/profile/include/component/block/pic.class.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-2.407855">
+        <state line="15" column="6" selection-start="261" selection-end="261" vertical-scroll-proportion="-1.574074">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/module/friend/template/pautina/block/notify.html.php">
+    <entry file="file://$PROJECT_DIR$/module/pages/template/default/block/photo.html.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="15" column="179" selection-start="502" selection-end="502" vertical-scroll-proportion="-5.7586207">
+        <state line="31" column="41" selection-start="1310" selection-end="1310" vertical-scroll-proportion="-7.178571">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/module/sms/template/default/block/sms.html.php">
+    <entry file="file://$PROJECT_DIR$/module/feed/template/default/block/form.html.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="18" column="12" selection-start="672" selection-end="672" vertical-scroll-proportion="0.7777778">
+        <state line="40" column="35" selection-start="2401" selection-end="2401" vertical-scroll-proportion="-19.142857">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/module/pautina/template/default/block/profile/menu.html.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="10" column="33" selection-start="466" selection-end="466" vertical-scroll-proportion="-7.857143">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/module/profile/include/component/controller/index.class.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="176" column="80" selection-start="5112" selection-end="5126" vertical-scroll-proportion="-4.214286">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/include/library/phpfox/module/module.class.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="1140" column="41" selection-start="32957" selection-end="32965" vertical-scroll-proportion="6.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/include/library/phpfox/phpfox/phpfox.class.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="381" column="57" selection-start="8205" selection-end="8217" vertical-scroll-proportion="-11.035714">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/module/profile/include/service/profile.class.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="142" column="64" selection-start="3769" selection-end="3783" vertical-scroll-proportion="-9.5">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/module/profile/include/component/block/menu.class.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="29" column="42" selection-start="655" selection-end="655" vertical-scroll-proportion="-0.19266056">
           <folding />
         </state>
       </provider>

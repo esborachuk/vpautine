@@ -143,14 +143,12 @@ select
 */
 .holder
 {
-    position: fixed;
-    top: 0;
-    left: 50%;
-    margin-left: -490px;
+    margin: auto;
+    width: 980px;
 }
 
 #main_core_body_holder {
-    margin-top:  100px;
+
 }
 
 /**
@@ -4409,4 +4407,8 @@ a.like_count_link:hover
 #header_search {
     margin-left: 275px;
     margin-top: 20px;
+}
+
+.pautina_profile_menu {
+
 }

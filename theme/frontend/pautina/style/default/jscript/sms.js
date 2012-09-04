@@ -2,13 +2,7 @@ $(function() {
     $(document).bind('ajaxStop', function() {
         Sms.init();
     });
-
-/*    $(document).bind('notification.update', function() {
-        alert('1');
-    });*/
 });
-
-
 
 Sms = {
     init: function() {
