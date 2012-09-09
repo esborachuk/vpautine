@@ -1,0 +1,26 @@
+<phrases>
+	<phrase module_id="search" version_id="2.0.0alpha1" var_name="module_search" added="1232969305">Поиск</phrase>
+	<phrase module_id="search" version_id="2.0.0rc8" var_name="provide_a_search_query" added="1258738780">Обеспечение поискового запроса.</phrase>
+	<phrase module_id="search" version_id="2.0.0rc8" var_name="tags" added="1258740328">Метки</phrase>
+	<phrase module_id="search" version_id="2.0.0rc8" var_name="results" added="1259089709">Результаты</phrase>
+	<phrase module_id="search" version_id="2.0.0rc8" var_name="search" added="1259089719">Поиск</phrase>
+	<phrase module_id="search" version_id="2.0.0rc8" var_name="results_for" added="1259089736">Результаты для</phrase>
+	<phrase module_id="search" version_id="2.0.7" var_name="user_setting_can_use_global_search" added="1288616524">Могут использовать глобальный инструмент поиска?</phrase>
+	<phrase module_id="search" version_id="3.0.0" var_name="no_more_search_results_to_show" added="1322738857">Нет больше результатов поиска, чтобы показать.</phrase>
+	<phrase module_id="search" version_id="3.0.0" var_name="no_search_results_found" added="1322738868">Нет результатов поиска.</phrase>
+	<phrase module_id="search" version_id="3.0.0" var_name="view_more" added="1322738882">Посмотреть больше</phrase>
+	<phrase module_id="search" version_id="3.0.0" var_name="all_results" added="1323335939">Все результаты</phrase>
+	<phrase module_id="search" version_id="3.0.0" var_name="poll" added="1323336059">Опрос</phrase>
+	<phrase module_id="search" version_id="3.0.0" var_name="members" added="1323336072">Пользователи</phrase>
+	<phrase module_id="search" version_id="3.0.0" var_name="videos" added="1323336086">Видеозаписи</phrase>
+	<phrase module_id="search" version_id="3.0.0" var_name="video" added="1323336092">Видеозапись</phrase>
+	<phrase module_id="search" version_id="3.0.0" var_name="listings" added="1323336105">Объявления</phrase>
+	<phrase module_id="search" version_id="3.0.0" var_name="marketplace_listing" added="1323336112">Объявление</phrase>
+	<phrase module_id="search" version_id="3.0.0" var_name="songs" added="1323336131">Аудиозаписи</phrase>
+	<phrase module_id="search" version_id="3.0.0" var_name="song" added="1323336136">Аудиозапись</phrase>
+	<phrase module_id="search" version_id="3.0.0" var_name="photos" added="1323336144">Фотографии</phrase>
+	<phrase module_id="search" version_id="3.0.0" var_name="photo" added="1323336151">Фотография</phrase>
+	<phrase module_id="search" version_id="3.0.0" var_name="quizzes" added="1323336160">Викторины</phrase>
+	<phrase module_id="search" version_id="3.0.0" var_name="quiz" added="1323336165">Викторина</phrase>
+	<phrase module_id="search" version_id="3.0.0" var_name="forum_thread" added="1323336176">Тема на форуме</phrase>
+</phrases>

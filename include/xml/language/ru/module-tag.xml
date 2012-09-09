@@ -1,0 +1,27 @@
+<phrases>
+	<phrase module_id="tag" version_id="2.0.0alpha1" var_name="user_setting_edit_own_tags" added="1214436301">Могут редактировать свои собственные теги?</phrase>
+	<phrase module_id="tag" version_id="2.0.0alpha1" var_name="user_setting_edit_user_tags" added="1214975277">Могут редактировать теги, добавленные другими пользователями?</phrase>
+	<phrase module_id="tag" version_id="2.0.0alpha1" var_name="user_setting_can_add_tags_on_blogs" added="1214975295">Могут добавлять теги в блогах?</phrase>
+	<phrase module_id="tag" version_id="2.0.0alpha1" var_name="module_tag" added="1219147106">Тег</phrase>
+	<phrase module_id="tag" version_id="2.0.0alpha1" var_name="click_to_edit" added="1212122994">Нажмите для редактирования</phrase>
+	<phrase module_id="tag" version_id="2.0.0alpha1" var_name="tags" added="1212123035">теги</phrase>
+	<phrase module_id="tag" version_id="2.0.0alpha1" var_name="separate_tags_commas" added="1213612331">Разделяйте теги запятыми.</phrase>
+	<phrase module_id="tag" version_id="2.0.0alpha1" var_name="setting_total_tag_display" added="1237049953"><![CDATA[<title>Количество тегов для показа</title><info>Определите количество тегов для отображения в облаке тегов.
+
+<b>Примечание:</b> Это глобальная настройка по умолчанию, в других модулях, можно изменить эту настройку.</info>]]></phrase>
+	<phrase module_id="tag" version_id="2.0.0rc4" var_name="add_tags" added="1255341335">Добавить теги.</phrase>
+	<phrase module_id="tag" version_id="2.0.0rc4" var_name="missing_param_stagtype" added="1255341378">Отсутствие параметров: $sTagType</phrase>
+	<phrase module_id="tag" version_id="2.0.0rc4" var_name="missing_param_stype" added="1255341401">Отсутствие параметров: sType</phrase>
+	<phrase module_id="tag" version_id="2.0.0rc4" var_name="separate_multiple_tags_with_commas" added="1255341461">Если тегов несколько, разделите их запятыми</phrase>
+	<phrase module_id="tag" version_id="2.0.0rc4" var_name="last_modified_time_stamp_by_full_name" added="1255341533">Последние изменения {time_stamp} от {full_name}</phrase>
+	<phrase module_id="tag" version_id="2.0.0rc8" var_name="tag_cloud" added="1258731513">Облако тегов</phrase>
+	<phrase module_id="tag" version_id="2.0.0rc8" var_name="no_tags_have_been_found" added="1258731805">Теги не найдены.</phrase>
+	<phrase module_id="tag" version_id="2.1.0Beta1" var_name="setting_tag_days_treading" added="1293606550"><![CDATA[<title>Популярность тега</title><info>Определите, сколько дней тег может быть популярен.</info>]]></phrase>
+	<phrase module_id="tag" version_id="2.1.0Beta1" var_name="setting_tag_trend_total_display" added="1293606604"><![CDATA[<title>Количество тегов для отображения</title><info>Определите количество популярных тегов для отображения в блоке тегов по каждому разделу.</info>]]></phrase>
+	<phrase module_id="tag" version_id="3.0.0beta5" var_name="topics" added="1319188777">Темы</phrase>
+	<phrase module_id="tag" version_id="3.0.0beta5" var_name="separate_multiple_topics_with_commas" added="1319188797">Разделите несколько тем запятыми.</phrase>
+	<phrase module_id="tag" version_id="3.0.0rc1" var_name="topic" added="1320239182">Тема</phrase>
+	<phrase module_id="tag" version_id="3.0.0rc1" var_name="trending_since_since" added="1320239415">Популярен с {since}</phrase>
+	<phrase module_id="tag" version_id="3.0.1" var_name="trending_topics" added="1327429607">Популярные темы</phrase>
+	<phrase module_id="tag" version_id="3.0.1" var_name="setting_trending_topics_timestamp" added="1327429718"><![CDATA[<title>Популярные темы отметка времени</title><info>Эта метка используется для выражения в "Отметка времени {time}"</info>]]></phrase>
+</phrases>

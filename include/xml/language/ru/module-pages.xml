@@ -1,0 +1,200 @@
+<phrases>
+	<phrase module_id="pages" version_id="3.0.0beta1" var_name="module_pages" added="1309870711">Создать страницу</phrase>
+	<phrase module_id="pages" version_id="3.0.0beta1" var_name="menu_pages_pages_fad58de7366495db4650cfefac2fcd61" added="1309937808">Страницы</phrase>
+	<phrase module_id="pages" version_id="3.0.0beta1" var_name="user_setting_max_upload_size_pages" added="1310024854"><![CDATA[Максимальный размер файла изображения для события в килобитах (kb). (1000 kb = 1 mb) Для снятия ограничений "0" без кавычек.]]></phrase>
+	<phrase module_id="pages" version_id="3.0.0beta1" var_name="menu_pages_create_a_page_42a6b1a9f5d9d3cb02b85677b552fda0" added="1310037453">Создать страницу</phrase>
+	<phrase module_id="pages" version_id="3.0.0beta1" var_name="user_setting_can_moderate_pages" added="1311776645">Может модерировать страницы? Это позволит пользователю редактировать/удалять/утверждать страницы, добавленные другими пользователями.</phrase>
+	<phrase module_id="pages" version_id="3.0.0beta1" var_name="user_setting_approve_pages" added="1311780223">Проверить новую страницу, прежде чем она будет опубликована?</phrase>
+	<phrase module_id="pages" version_id="3.0.0beta1" var_name="user_setting_points_pages" added="1311782221">Количество баллов, которые получит пользователь при создании новой страницы.</phrase>
+	<phrase module_id="pages" version_id="3.0.0beta1" var_name="admin_menu_add_category" added="1312875739">Добавить категорию</phrase>
+	<phrase module_id="pages" version_id="3.0.0beta1" var_name="admin_menu_manage_categories" added="1312875739">Управление категориями</phrase>
+	<phrase module_id="pages" version_id="3.0.0beta3" var_name="user_setting_can_add_new_pages" added="1315737678">Может создавать новые страницы?</phrase>
+	<phrase module_id="pages" version_id="3.0.0beta3" var_name="pages" added="1316525998">Страницы</phrase>
+	<phrase module_id="pages" version_id="3.0.0beta3" var_name="widgets" added="1316530442">Виджеты</phrase>
+	<phrase module_id="pages" version_id="3.0.0beta3" var_name="unable_to_find_the_page_you_are_trying_to_comment_on" added="1316530460">Не удается найти страницу, которую вы пытаетесь прокомментировать.</phrase>
+	<phrase module_id="pages" version_id="3.0.0beta3" var_name="full_name_wrote_a_comment_on_your_page_title" added="1316530494"><![CDATA[{full_name} новый комментарий на странице "{title}".]]></phrase>
+	<phrase module_id="pages" version_id="3.0.0beta3" var_name="full_name_wrote_a_comment_link" added="1316530579"><![CDATA[{full_name} написал(а) комментарий на странице "<a href="{link}">{title}</a>". Чтобы увидеть комментарии, перейдите по следующей ссылке: <a href="{link}">{link}</a>]]></phrase>
+	<phrase module_id="pages" version_id="3.0.0beta3" var_name="page_name_not_allowed_please_select_another_name" added="1316530628">Недопустимое название страницы. Пожалуйста, выберите другое название.</phrase>
+	<phrase module_id="pages" version_id="3.0.0beta3" var_name="successfully_updated_your_pages_url" added="1316530638">URL страницы успешно обновлен.</phrase>
+	<phrase module_id="pages" version_id="3.0.0beta3" var_name="url_updated" added="1316530648">URL обновлен</phrase>
+	<phrase module_id="pages" version_id="3.0.0beta3" var_name="successfully_registered_for_this_page" added="1316530667">Успешно зарегистрирован для этой страницы.</phrase>
+	<phrase module_id="pages" version_id="3.0.0beta3" var_name="moderation" added="1316530678">Модерация</phrase>
+	<phrase module_id="pages" version_id="3.0.0beta3" var_name="login_as_a_page" added="1316530696">Мои страницы</phrase>
+	<phrase module_id="pages" version_id="3.0.0beta3" var_name="pages_s_successfully_approved" added="1316530707">Страницы успешно одобрены.</phrase>
+	<phrase module_id="pages" version_id="3.0.0beta3" var_name="pages_s_successfully_deleted" added="1316530717">Страницы успешно удалены.</phrase>
+	<phrase module_id="pages" version_id="3.0.0beta3" var_name="page_has_been_approved" added="1316530735">Страница была одобрена.</phrase>
+	<phrase module_id="pages" version_id="3.0.0beta3" var_name="page_approved" added="1316530745">Страница утверждена</phrase>
+	<phrase module_id="pages" version_id="3.0.0beta3" var_name="sub_categories" added="1316530764">Подкатегории</phrase>
+	<phrase module_id="pages" version_id="3.0.0beta3" var_name="categories" added="1316530772">Категории</phrase>
+	<phrase module_id="pages" version_id="3.0.0beta3" var_name="members_total" added="1316530806">Пользователи ({total})</phrase>
+	<phrase module_id="pages" version_id="3.0.0beta3" var_name="likes" added="1316530831">Мне нравится</phrase>
+	<phrase module_id="pages" version_id="3.0.0beta3" var_name="successfully_updated_the_category" added="1316530873">Категории успешно обновлены.</phrase>
+	<phrase module_id="pages" version_id="3.0.0beta3" var_name="successfully_created_a_new_category" added="1316530894">Новая категория успешно создана.</phrase>
+	<phrase module_id="pages" version_id="3.0.0beta3" var_name="add_category" added="1316530904">Добавить категорию</phrase>
+	<phrase module_id="pages" version_id="3.0.0beta3" var_name="successfully_deleted_the_category" added="1316530922">Категория успешно удалена.</phrase>
+	<phrase module_id="pages" version_id="3.0.0beta3" var_name="manage_sub_categories" added="1316530937">Управление подкатегориями</phrase>
+	<phrase module_id="pages" version_id="3.0.0beta3" var_name="manage_categories" added="1316530950">Управление категориями</phrase>
+	<phrase module_id="pages" version_id="3.0.0beta4" var_name="details" added="1316617701">Детали</phrase>
+	<phrase module_id="pages" version_id="3.0.0beta4" var_name="information" added="1316617709">Информация</phrase>
+	<phrase module_id="pages" version_id="3.0.0beta4" var_name="photo" added="1316617718">Фото</phrase>
+	<phrase module_id="pages" version_id="3.0.0beta4" var_name="permissions" added="1316617725">Приватность</phrase>
+	<phrase module_id="pages" version_id="3.0.0beta4" var_name="invite" added="1316617734">Приглашения</phrase>
+	<phrase module_id="pages" version_id="3.0.0beta4" var_name="url" added="1316617744">URL</phrase>
+	<phrase module_id="pages" version_id="3.0.0beta4" var_name="admins" added="1316617752">Администраторы</phrase>
+	<phrase module_id="pages" version_id="3.0.0beta4" var_name="view_this_page" added="1316617776">Просмотреть эту страницу</phrase>
+	<phrase module_id="pages" version_id="3.0.0beta4" var_name="editing_page" added="1316625572">Редактирование страниц</phrase>
+	<phrase module_id="pages" version_id="3.0.0beta4" var_name="creating_a_page" added="1316625585">Создать страницы</phrase>
+	<phrase module_id="pages" version_id="3.0.0beta4" var_name="page_successfully_deleted" added="1316625616">Страница успешно удалена.</phrase>
+	<phrase module_id="pages" version_id="3.0.0beta4" var_name="search_pages" added="1316625648">Поиск...</phrase>
+	<phrase module_id="pages" version_id="3.0.0beta4" var_name="latest" added="1316625658">Последние</phrase>
+	<phrase module_id="pages" version_id="3.0.0beta4" var_name="most_liked" added="1316625670">Очень нравится</phrase>
+	<phrase module_id="pages" version_id="3.0.0beta4" var_name="all_pages" added="1316625685">Все страницы</phrase>
+	<phrase module_id="pages" version_id="3.0.0beta4" var_name="my_pages" added="1316625695">Мои страницы</phrase>
+	<phrase module_id="pages" version_id="3.0.0beta4" var_name="friends_pages" added="1316626008">Страницы друзей</phrase>
+	<phrase module_id="pages" version_id="3.0.0beta4" var_name="pending_pages" added="1316626019">Страницы в ожидании</phrase>
+	<phrase module_id="pages" version_id="3.0.0beta4" var_name="delete" added="1316626031">Удалить</phrase>
+	<phrase module_id="pages" version_id="3.0.0beta4" var_name="approve" added="1316626042">Одобрить</phrase>
+	<phrase module_id="pages" version_id="3.0.0beta4" var_name="the_page_you_are_looking_for_cannot_be_found" added="1316626056">Извините, данной страницы не существует.</phrase>
+	<phrase module_id="pages" version_id="3.0.0beta4" var_name="unable_to_view_this_section_due_to_privacy_settings" added="1316626084">Не удается просмотреть этот раздел из-за параметров приватности.</phrase>
+	<phrase module_id="pages" version_id="3.0.0beta4" var_name="in_the_page_link_title" added="1316626179"><![CDATA[На странице <a href="{link}">{title}</a>]]></phrase>
+	<phrase module_id="pages" version_id="3.0.0beta4" var_name="liked_the_page_link_title_title" added="1316626262"><![CDATA[понравилась страница "<a href="{link}" title="{link_title}">{title}</a>".]]></phrase>
+	<phrase module_id="pages" version_id="3.0.0beta4" var_name="users_invited_you_to_check_out_the_page_title" added="1316626340"><![CDATA[{users} пригласил(а) вас, посмотреть страницу "{title}"]]></phrase>
+	<phrase module_id="pages" version_id="3.0.0beta4" var_name="full_name_liked_your_page_title" added="1316626489"><![CDATA[{full_name} понравилась Ваша страница "{title}"]]></phrase>
+	<phrase module_id="pages" version_id="3.0.0beta4" var_name="full_name_liked_your_page" added="1316626575"><![CDATA[{full_name} понравилась Ваша страница "<a href="{link}">{title}</a>" Для просмотра этой страницы, перейдите по ссылке ниже: <a href="{link}">{link}</a>]]></phrase>
+	<phrase module_id="pages" version_id="3.0.0beta4" var_name="membership_accepted_to_title" added="1316626617"><![CDATA[Участник "{title}"]]></phrase>
+	<phrase module_id="pages" version_id="3.0.0beta4" var_name="your_membership_to_the_page_link" added="1316626679"><![CDATA[Вы стали участником страницы "<a href="{link}">{title}</a>". Для просмотра этой страницы перейдите по ссылке ниже: <a href="{link}">{link}</a>]]></phrase>
+	<phrase module_id="pages" version_id="3.0.0beta4" var_name="your_membership_has_been_accepted_to_join_the_page_title" added="1316626814"><![CDATA[Вы присоединились к странице "{title}".]]></phrase>
+	<phrase module_id="pages" version_id="3.0.0beta4" var_name="users_joined_gender_own_page_title" added="1316626982"><![CDATA[{users} присоединился(лась) к {gender} странице "{title}"]]></phrase>
+	<phrase module_id="pages" version_id="3.0.0beta4" var_name="users_joined_your_page_title" added="1316627022"><![CDATA[{users} присоединился(лась) к вашей странице "{title}"]]></phrase>
+	<phrase module_id="pages" version_id="3.0.0beta4" var_name="users_joined_full_names_page_title" added="1316627075"><![CDATA[{users} присоединился(лась) к <span class="drop_data_user">{full_name}</span> странице "{title}"]]></phrase>
+	<phrase module_id="pages" version_id="3.0.0beta4" var_name="users_liked_gender_own_page_title" added="1316627125"><![CDATA[{users} нравится {gender} страница "{title}"]]></phrase>
+	<phrase module_id="pages" version_id="3.0.0beta4" var_name="users_liked_your_page_title" added="1316627180"><![CDATA[{users} нравится ваша страница "{title}"]]></phrase>
+	<phrase module_id="pages" version_id="3.0.0beta4" var_name="users_liked_full_names_page_title" added="1316627228"><![CDATA[{users} нравится <span class="drop_data_user">{full_name}</span> страница "{title}"]]></phrase>
+	<phrase module_id="pages" version_id="3.0.0beta4" var_name="who_can_post_a_comment" added="1316627275">Кто может отправлять комментарии?</phrase>
+	<phrase module_id="pages" version_id="3.0.0beta4" var_name="who_can_view_browse_comments" added="1316627285">Кто может просматривать комментарии?</phrase>
+	<phrase module_id="pages" version_id="3.0.0beta4" var_name="unable_to_post_a_comment_on_this_item_due_to_privacy_settings" added="1316627297">Невозможно оставить комментарий в связи с настройками приватности.</phrase>
+	<phrase module_id="pages" version_id="3.0.0beta4" var_name="full_name_commented_on_a_comment_posted_on_the_page_title" added="1316627327"><![CDATA[{full_name} получен ответ на комментарий на странице "{title}".]]></phrase>
+	<phrase module_id="pages" version_id="3.0.0beta4" var_name="full_name_commented_on_one_of_your_comments" added="1316627408"><![CDATA[{full_name} получен ответ на один из ваших комментариев на странице "<a href="{item_link}">{title}</a>". Чтобы увидеть комментарии, перейдите по следующей ссылке: <a href="{link}">{link}</a>]]></phrase>
+	<phrase module_id="pages" version_id="3.0.0beta4" var_name="full_name_commented_on_one_of_gender_page_comments" added="1316627479">{full_name} прокомментирован один из {gender} комментариев на странице.</phrase>
+	<phrase module_id="pages" version_id="3.0.0beta4" var_name="full_name_commented_on_one_of_other_full_name_s_page_comments" added="1316627535">{full_name} получен ответ на один из {other_full_name} комментариев на странице.</phrase>
+	<phrase module_id="pages" version_id="3.0.0beta4" var_name="full_name_comment_on_one_of_gender" added="1316627681"><![CDATA[{full_name} получен ответ на один из {gender} комментариев на странице "<a href="{item_link}">{title}</a>". Чтобы увидеть комментарии, перейдите по следующей ссылке: <a href="{link}">{link}</a>]]></phrase>
+	<phrase module_id="pages" version_id="3.0.0beta4" var_name="full_name_commented_on_one_of_other_full_name" added="1316627849"><![CDATA[{full_name} получен ответ на один из {other_full_name} комментариев на странице "<a href="{item_link}">{title}</a>". Чтобы увидеть комментарии, перейдите по следующей ссылке: <a href="{link}">{link}</a>]]></phrase>
+	<phrase module_id="pages" version_id="3.0.0beta4" var_name="users_commented_on_full_names_page" added="1316712977"><![CDATA[{users} прокомментирована <span class="drop_data_user">{full_name}</span> страница "{title}"]]></phrase>
+	<phrase module_id="pages" version_id="3.0.0beta4" var_name="users_commented_on_gender_own_page_title" added="1316713081"><![CDATA[{users} прокомментирована {gender} страница "{title}"]]></phrase>
+	<phrase module_id="pages" version_id="3.0.0beta4" var_name="users_commented_on_your_page_title" added="1316713123"><![CDATA[{users} прокомментирована ваша страница "{title}"]]></phrase>
+	<phrase module_id="pages" version_id="3.0.0beta4" var_name="users_commented_on_span_class_drop_data_user_full_name_s_span_comment_on_the_page_title" added="1316713344"><![CDATA[{users} получен ответ на один из <span class="drop_data_user">{full_name}</span> комментарией на странице "{title}"]]></phrase>
+	<phrase module_id="pages" version_id="3.0.0beta4" var_name="users_commented_on_gender_own_comment_on_the_page_title" added="1316713395"><![CDATA[{users} прокомментирован {gender} собственный комментарий на странице "{title}"]]></phrase>
+	<phrase module_id="pages" version_id="3.0.0beta4" var_name="users_commented_on_one_of_your_comments_on_the_page_title" added="1316713436"><![CDATA[{users} получен ответ на один из ваших комментариев на странице "{title}"]]></phrase>
+	<phrase module_id="pages" version_id="3.0.0beta4" var_name="users_commented_on_one_of_full_name" added="1316713481"><![CDATA[{users} получен ответ на один из <span class="drop_data_user">{full_name}</span> комментариев на странице "{title}"]]></phrase>
+	<phrase module_id="pages" version_id="3.0.0beta4" var_name="page" added="1316713666">Страница</phrase>
+	<phrase module_id="pages" version_id="3.0.0beta4" var_name="unable_to_find_the_page_you_are_looking_for" added="1316713720">Невозможно найти страницу, которую вы ищете.</phrase>
+	<phrase module_id="pages" version_id="3.0.0beta4" var_name="pending_memberships" added="1316713736">Вступление в ожидании</phrase>
+	<phrase module_id="pages" version_id="3.0.0beta4" var_name="wall" added="1316713746">Стена</phrase>
+	<phrase module_id="pages" version_id="3.0.0beta4" var_name="info" added="1316713755">Информация</phrase>
+	<phrase module_id="pages" version_id="3.0.0beta4" var_name="unable_to_find_the_page_you_are_trying_to_edit" added="1316713777">Невозможно найти страницу, которую вы пытаетесь редактировать.</phrase>
+	<phrase module_id="pages" version_id="3.0.0beta4" var_name="you_are_unable_to_edit_this_page" added="1316713789">Вы не можете редактировать эту страницу.</phrase>
+	<phrase module_id="pages" version_id="3.0.0beta4" var_name="unable_to_delete_this_widget" added="1316713824">Не удается удалить этот виджет.</phrase>
+	<phrase module_id="pages" version_id="3.0.0beta4" var_name="unable_to_add_a_widget_to_this_page" added="1316713845">Не удалось добавить виджет к этой странице.</phrase>
+	<phrase module_id="pages" version_id="3.0.0beta4" var_name="provide_a_title_for_your_widget" added="1316713858">Обеспечить название для вашего виджета.</phrase>
+	<phrase module_id="pages" version_id="3.0.0beta4" var_name="provide_content_for_your_widget" added="1316713884">Обеспечить наличие информации для вашего виджета.</phrase>
+	<phrase module_id="pages" version_id="3.0.0beta4" var_name="provide_a_menu_title_for_your_widget" added="1316713894">Введите заголовок для вашего виджета.</phrase>
+	<phrase module_id="pages" version_id="3.0.0beta4" var_name="provide_a_url_title_for_your_widget" added="1316713909">Введите название URL для виджета.</phrase>
+	<phrase module_id="pages" version_id="3.0.0beta4" var_name="you_cannot_use_this_url_for_your_widget" added="1316713922">Вы не можете использовать этот адрес для вашего виджета.</phrase>
+	<phrase module_id="pages" version_id="3.0.0beta4" var_name="page_name_cannot_be_empty" added="1316713946">Название страницы не может быть пустым.</phrase>
+	<phrase module_id="pages" version_id="3.0.0beta4" var_name="full_name_invited_you_to_the_page_title" added="1316713980"><![CDATA[{full_name} приглашает вас на страницу "{title}".]]></phrase>
+	<phrase module_id="pages" version_id="3.0.0beta4" var_name="to_view_this_page_click_the_link_below_a_href_link_link_a" added="1316714024"><![CDATA[Для просмотра этой страницы нажмите на ссылку ниже: <a href="{link}">{link}</a>]]></phrase>
+	<phrase module_id="pages" version_id="3.0.0beta4" var_name="full_name_sent_you_a_page_invitation" added="1316714062">{full_name} приглашает вас на страницу.</phrase>
+	<phrase module_id="pages" version_id="3.0.0beta4" var_name="unable_to_find_the_page_you_are_trying_to_login_to" added="1316714098">Не удается найти страницу, на которую вы пытаетесь Войти.</phrase>
+	<phrase module_id="pages" version_id="3.0.0beta4" var_name="unable_to_log_in_as_this_page" added="1316714108">Не удалось войти в систему с этой страницы.</phrase>
+	<phrase module_id="pages" version_id="3.0.0beta4" var_name="unable_to_find_the_page_you_are_trying_to_delete" added="1316714120">Невозможно найти страницу, которую вы пытаетесь удалить.</phrase>
+	<phrase module_id="pages" version_id="3.0.0beta4" var_name="you_are_unable_to_delete_this_page" added="1316714132">Вы не можете удалить эту страницу.</phrase>
+	<phrase module_id="pages" version_id="3.0.0beta4" var_name="unable_to_find_the_page_you_are_trying_to_approve" added="1316714149">Не удается найти страницу, которую вы пытаетесь подтвердить.</phrase>
+	<phrase module_id="pages" version_id="3.0.0beta4" var_name="page_title_approved" added="1316714174"><![CDATA[Страница "{title}" подтверждена!]]></phrase>
+	<phrase module_id="pages" version_id="3.0.0beta4" var_name="your_page_title_has_been_approved" added="1316714245"><![CDATA[Ваша страница "{title}" была одобрена. Для просмотра этой страницы перейдите по ссылке ниже: <a href="{link}">{link}</a>]]></phrase>
+	<phrase module_id="pages" version_id="3.0.0beta4" var_name="users_commented_on_the_page_title" added="1317032878"><![CDATA[{users} прокомментировали страницу "{title}"]]></phrase>
+	<phrase module_id="pages" version_id="3.0.0beta4" var_name="users_commented_on_full_name_comment" added="1317900448"><![CDATA[{users} прокомментировали <span class="drop_data_user">{full_name}</span> страницу "{title}"]]></phrase>
+	<phrase module_id="pages" version_id="3.0.0beta4" var_name="users_commented_on_gender_own_comment" added="1317900524"><![CDATA[{users} прокомментирован {gender} комментарий на странице "{title}"]]></phrase>
+	<phrase module_id="pages" version_id="3.0.0beta4" var_name="users_commented_on_one_of_your_comments" added="1317900589"><![CDATA[{users} получен ответ на один из ваших комментариев на странице "{title}"]]></phrase>
+	<phrase module_id="pages" version_id="3.0.0beta4" var_name="users_commented_on_one_of_full_name_comments" added="1317900666"><![CDATA[{users} получен ответ на один из <span class="drop_data_user">{full_name}</span> комментариев страницы "{title}"]]></phrase>
+	<phrase module_id="pages" version_id="3.0.0beta5" var_name="invitations_sent_out" added="1319112534">Приглашения разосланы.</phrase>
+	<phrase module_id="pages" version_id="3.0.0beta5" var_name="unable_to_find_the_page" added="1319112551">Не удается найти страницу.</phrase>
+	<phrase module_id="pages" version_id="3.0.0beta5" var_name="unable_to_moderate_this_page" added="1319112561">Невозможно модерировать эту страницу.</phrase>
+	<phrase module_id="pages" version_id="3.0.0beta5" var_name="go_to_app" added="1319112599">К приложению</phrase>
+	<phrase module_id="pages" version_id="3.0.0beta5" var_name="create_a_page" added="1319112605">Создать страницу</phrase>
+	<phrase module_id="pages" version_id="3.0.0beta5" var_name="join" added="1319112623">Вступайте</phrase>
+	<phrase module_id="pages" version_id="3.0.0beta5" var_name="like" added="1319112629">Нравится</phrase>
+	<phrase module_id="pages" version_id="3.0.0beta5" var_name="no_members_yet" added="1319112645">Нет еще пользователей.</phrase>
+	<phrase module_id="pages" version_id="3.0.0beta5" var_name="person_likes_this" added="1319112678">пользователю нравится это</phrase>
+	<phrase module_id="pages" version_id="3.0.0beta5" var_name="people_like_this" added="1319112686">людям это нравится</phrase>
+	<phrase module_id="pages" version_id="3.0.0beta5" var_name="manage" added="1319112696">Управление</phrase>
+	<phrase module_id="pages" version_id="3.0.0beta5" var_name="are_you_sure" added="1319112714">Вы уверены?</phrase>
+	<phrase module_id="pages" version_id="3.0.0beta5" var_name="select_switch_below_to_use_this_site_as_a_page" added="1319112741"><![CDATA[Выберите пункт "Переключатель", чтобы использовать эту страницу как сайт.]]></phrase>
+	<phrase module_id="pages" version_id="3.0.0beta5" var_name="switch" added="1319112752">Переключатель</phrase>
+	<phrase module_id="pages" version_id="3.0.0beta5" var_name="you_currently_do_not_have_any_pages" added="1319112778"><![CDATA[У вас нет никаких страниц. Создайте новую страницу <a href="{link}">здесь</a>.]]></phrase>
+	<phrase module_id="pages" version_id="3.0.0beta5" var_name="edit_page" added="1319112827">Изменить страницу</phrase>
+	<phrase module_id="pages" version_id="3.0.0beta5" var_name="remove_membership" added="1319112839">Покинуть страницу</phrase>
+	<phrase module_id="pages" version_id="3.0.0beta5" var_name="unlike" added="1319112846">Не нравится</phrase>
+	<phrase module_id="pages" version_id="3.0.0beta5" var_name="more" added="1319112897">Еще</phrase>
+	<phrase module_id="pages" version_id="3.0.0beta5" var_name="category_details" added="1319112915">Детали категории</phrase>
+	<phrase module_id="pages" version_id="3.0.0beta5" var_name="parent_category" added="1319112923">Родительская категория</phrase>
+	<phrase module_id="pages" version_id="3.0.0beta5" var_name="none" added="1319112929">Ничего</phrase>
+	<phrase module_id="pages" version_id="3.0.0beta5" var_name="name" added="1319112939">Название</phrase>
+	<phrase module_id="pages" version_id="3.0.0beta5" var_name="is_a_group" added="1319112947">Является группой?</phrase>
+	<phrase module_id="pages" version_id="3.0.0beta5" var_name="yes" added="1319112956">Да</phrase>
+	<phrase module_id="pages" version_id="3.0.0beta5" var_name="no" added="1319112961">Нет</phrase>
+	<phrase module_id="pages" version_id="3.0.0beta5" var_name="if_a_page_is_considered_a_group_it_will_require_users_to_become_members" added="1319112975">Если страницу будут считаться группой, то она потребует, чтобы пользователи стали участниками этой страницы.</phrase>
+	<phrase module_id="pages" version_id="3.0.0beta5" var_name="submit" added="1319112982">Создать</phrase>
+	<phrase module_id="pages" version_id="3.0.0beta5" var_name="active" added="1319113002">Активно</phrase>
+	<phrase module_id="pages" version_id="3.0.0beta5" var_name="edit" added="1319113016">Редактировать</phrase>
+	<phrase module_id="pages" version_id="3.0.0beta5" var_name="manage_sub_categories_total" added="1319113029">Управление подкатегориями ({total})</phrase>
+	<phrase module_id="pages" version_id="3.0.0beta5" var_name="deactivate" added="1319113064">Отключить</phrase>
+	<phrase module_id="pages" version_id="3.0.0beta5" var_name="activate" added="1319113071">Активировать</phrase>
+	<phrase module_id="pages" version_id="3.0.0beta5" var_name="category" added="1319113085">Категория</phrase>
+	<phrase module_id="pages" version_id="3.0.0beta5" var_name="app" added="1319113090">Приложение</phrase>
+	<phrase module_id="pages" version_id="3.0.0beta5" var_name="landing_page" added="1319113115">Целевая страница</phrase>
+	<phrase module_id="pages" version_id="3.0.0beta5" var_name="update" added="1319113124">Обновить</phrase>
+	<phrase module_id="pages" version_id="3.0.0beta5" var_name="vanity_url" added="1319113132">Плохая URL</phrase>
+	<phrase module_id="pages" version_id="3.0.0beta5" var_name="check_url" added="1319113147">Проверка URL</phrase>
+	<phrase module_id="pages" version_id="3.0.0beta5" var_name="click_here_to_change_this_photo" added="1319113175"><![CDATA[Нажмите <a href="#" id="js_pages_add_change_photo">здесь</a>, для смены фотографии.]]></phrase>
+	<phrase module_id="pages" version_id="3.0.0beta5" var_name="upload_photo" added="1319113186">Загрузить фото</phrase>
+	<phrase module_id="pages" version_id="3.0.0beta5" var_name="page_privacy" added="1319113202">Приватность страницы</phrase>
+	<phrase module_id="pages" version_id="3.0.0beta5" var_name="control_who_can_see_this_page" added="1319113214">Кто может просматривать эту страницу.</phrase>
+	<phrase module_id="pages" version_id="3.0.0beta5" var_name="page_registration_method" added="1319113231">Присоединиться к странице</phrase>
+	<phrase module_id="pages" version_id="3.0.0beta5" var_name="anyone" added="1319113237">Все</phrase>
+	<phrase module_id="pages" version_id="3.0.0beta5" var_name="approval_first" added="1319113248">Сначала одобрить</phrase>
+	<phrase module_id="pages" version_id="3.0.0beta5" var_name="members_only" added="1319113255">Только для вступивших</phrase>
+	<phrase module_id="pages" version_id="3.0.0beta5" var_name="admins_only" added="1319113263">Только администраторы</phrase>
+	<phrase module_id="pages" version_id="3.0.0beta5" var_name="remove" added="1319113282">Удаление</phrase>
+	<phrase module_id="pages" version_id="3.0.0beta5" var_name="search_friends_by_their_name" added="1319113296">Поиск друзей по имени...</phrase>
+	<phrase module_id="pages" version_id="3.0.0beta5" var_name="create_new_widget" added="1319113311">Создать новый виджет</phrase>
+	<phrase module_id="pages" version_id="3.0.0beta5" var_name="actions" added="1319113335">Действия</phrase>
+	<phrase module_id="pages" version_id="3.0.0beta5" var_name="connect_with_friends_associates_amp_fans" added="1319113360">Общайтесь с друзьями, партнерами и фанатами.</phrase>
+	<phrase module_id="pages" version_id="3.0.0beta5" var_name="choose_a_category" added="1319113390">Выберите категорию</phrase>
+	<phrase module_id="pages" version_id="3.0.0beta5" var_name="get_started" added="1319113406">Создать</phrase>
+	<phrase module_id="pages" version_id="3.0.0beta5" var_name="invite_only" added="1319114205">Только по приглашениям</phrase>
+	<phrase module_id="pages" version_id="3.0.0beta5" var_name="note_that_pages_displayed_here_are_pages_created_by_the_page" added="1319114265">Note that Pages displayed here are pages created by the Page ({global_full_name}) and not by the parent user ({profile_full_name}).</phrase>
+	<phrase module_id="pages" version_id="3.0.0beta5" var_name="moderate" added="1319114337">Модерация</phrase>
+	<phrase module_id="pages" version_id="3.0.0beta5" var_name="total_members" added="1319114360">{total} пользователей</phrase>
+	<phrase module_id="pages" version_id="3.0.0beta5" var_name="1_member" added="1319114380">1 пользователь</phrase>
+	<phrase module_id="pages" version_id="3.0.0beta5" var_name="no_members" added="1319114389">Нет пользователей</phrase>
+	<phrase module_id="pages" version_id="3.0.0beta5" var_name="no_pages_found" added="1319114396">Страницы не найдены.</phrase>
+	<phrase module_id="pages" version_id="3.0.0beta5" var_name="this_page_is_pending_an_admins_approval_before_it_can_be_displayed_publicly" added="1319114407">Эта страница находится в состоянии ожидания утверждения администратором, и она не может быть показана публично.</phrase>
+	<phrase module_id="pages" version_id="3.0.0beta5" var_name="you_have_been_invited_to_join_this_community" added="1319114443">Вас пригласили присоединиться к этому сообществу.</phrase>
+	<phrase module_id="pages" version_id="3.0.0beta5" var_name="due_to_privacy_settings_this_page_is_not_visible" added="1319114456">В связи с настройками приватности эта страница не отображается.</phrase>
+	<phrase module_id="pages" version_id="3.0.0beta5" var_name="this_page_is_also_invite_only" added="1319114467"><![CDATA[Эта страница только  по "приглашениям".]]></phrase>
+	<phrase module_id="pages" version_id="3.0.0beta5" var_name="title" added="1319114483">Название</phrase>
+	<phrase module_id="pages" version_id="3.0.0beta5" var_name="is_a_block" added="1319114491">Есть блок?</phrase>
+	<phrase module_id="pages" version_id="3.0.0beta5" var_name="menu_title" added="1319114510">Название меню</phrase>
+	<phrase module_id="pages" version_id="3.0.0beta5" var_name="content" added="1319114526">Контент</phrase>
+	<phrase module_id="pages" version_id="3.0.0beta5" var_name="successfully_moderated_user_s" added="1319183922">Пользователи успешно проверены.</phrase>
+	<phrase module_id="pages" version_id="3.0.0beta5" var_name="events" added="1319187962">События</phrase>
+	<phrase module_id="pages" version_id="3.0.0beta5" var_name="music" added="1319187976">Аудиозаписи</phrase>
+	<phrase module_id="pages" version_id="3.0.0beta5" var_name="photos" added="1319187984">Фотографии</phrase>
+	<phrase module_id="pages" version_id="3.0.0beta5" var_name="discussions" added="1319187992">Обсуждения</phrase>
+	<phrase module_id="pages" version_id="3.0.0rc1" var_name="logged_in_as_a_page" added="1320237087">Вы вошли в систему как страница. Чтобы создать новую регистрацию страницы, войдите назад как Ваш родительский счет ({full_name}).</phrase>
+	<phrase module_id="pages" version_id="3.0.0rc1" var_name="unable_to_view_this_item_due_to_privacy_settings" added="1320414300">Не удается просмотреть этот пункт в связи с настройками приватности.</phrase>
+	<phrase module_id="pages" version_id="3.0.0rc2" var_name="url_title" added="1321431242">Название URL</phrase>
+	<phrase module_id="pages" version_id="3.0.0rc3" var_name="user_setting_can_view_browse_pages" added="1322053902">Может просматривать страницы?</phrase>
+	<phrase module_id="pages" version_id="3.3.0beta1" var_name="full_name_tagged_you_on_a_page" added="1339081181">{full_name} отметил вас на странице.</phrase>
+	<phrase module_id="pages" version_id="3.3.0beta1" var_name="user_setting_can_design_pages" added="1339066422">Пользователи этой группы могут использовать свой дизайн на страницах?</phrase>
+</phrases>

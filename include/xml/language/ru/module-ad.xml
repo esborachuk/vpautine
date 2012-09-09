@@ -1,0 +1,227 @@
+<phrases>
+	<phrase module_id="ad" version_id="2.0.0beta3" var_name="admin_menu_create_new_campaign" added="1243091789">Создать кампанию</phrase>
+	<phrase module_id="ad" version_id="2.0.0beta3" var_name="admin_menu_manage_campaigns" added="1243091789">Управление кампаниями</phrase>
+	<phrase module_id="ad" version_id="2.0.0beta3" var_name="module_ad" added="1243091789">Менеджер рекламных объявлений</phrase>
+	<phrase module_id="ad" version_id="2.0.0beta3" var_name="setting_ad_cache_limit" added="1243185354"><![CDATA[<title>Время кэширования рекламных объявлений (в минутах)</title><info>Определите интервал обновления рекламных объявлений в кеше</info>]]></phrase>
+	<phrase module_id="ad" version_id="2.0.0beta3" var_name="setting_ad_ajax_refresh" added="1243185608"><![CDATA[<title>Обновление рекламных объявлений (AJAX)</title><info>Включить эту функцию для обновления объявления с помощью AJAX.</info>]]></phrase>
+	<phrase module_id="ad" version_id="2.0.0beta3" var_name="setting_ad_ajax_refresh_time" added="1243185732"><![CDATA[<title>Обновление рекламных объявлений (минуты)</title><info>Определите интервал обновления рекламных объявлений в минутах.</info>]]></phrase>
+	<phrase module_id="ad" version_id="2.0.0beta3" var_name="setting_enable_ads" added="1243241593"><![CDATA[<title>Включить рекламные объявления</title><info>Установите <b>Да</b> чтобы сделать возможными рекламные кампании</info>]]></phrase>
+	<phrase module_id="ad" version_id="30" var_name="user_setting_show_ads" added="1247583832">Показывать рекламные объявления участникам этой группы пользователей?</phrase>
+	<phrase module_id="ad" version_id="2.0.0rc2" var_name="select_a_banner_type" added="1252753837">Выберите тип баннера.</phrase>
+	<phrase module_id="ad" version_id="2.0.0rc2" var_name="provide_a_name_for_this_campaign" added="1252753852">Укажите название для этой кампании.</phrase>
+	<phrase module_id="ad" version_id="2.0.0rc2" var_name="provide_a_link_for_your_banner" added="1252753867">Укажите ссылку для вашего баннера.</phrase>
+	<phrase module_id="ad" version_id="2.0.0rc2" var_name="provide_html_for_your_banner" added="1252753880">Укажите HTML для вашего баннера.</phrase>
+	<phrase module_id="ad" version_id="2.0.0rc2" var_name="ad_successfully_updated" added="1252753898">Объявление успешно обновлено.</phrase>
+	<phrase module_id="ad" version_id="2.0.0rc2" var_name="ad_successfully_added" added="1252753912">Объявление успешно добавлено.</phrase>
+	<phrase module_id="ad" version_id="2.0.0rc2" var_name="create_new_campaign" added="1252753952">Создать новую кампанию</phrase>
+	<phrase module_id="ad" version_id="2.0.0rc2" var_name="ad_successfully_deleted" added="1252753984">Объявление успешно удалено.</phrase>
+	<phrase module_id="ad" version_id="2.0.0rc2" var_name="ad_s_successfully_updated" added="1252753996">Объявление(я) успешно обновлено(ы).</phrase>
+	<phrase module_id="ad" version_id="2.0.0rc2" var_name="manage_ad_campaigns" added="1252754009">Менеджер рекламных кампаний</phrase>
+	<phrase module_id="ad" version_id="2.0.0rc2" var_name="live" added="1252754044">Live</phrase>
+	<phrase module_id="ad" version_id="2.0.0rc2" var_name="inactive" added="1252754056">Неактивна</phrase>
+	<phrase module_id="ad" version_id="2.0.0rc2" var_name="pending" added="1252754087">В ожидании</phrase>
+	<phrase module_id="ad" version_id="2.0.0rc2" var_name="the_ad_you_are_looking_for_does_not_exist" added="1252754114">Объявление, которое вы ищете, не существует</phrase>
+	<phrase module_id="ad" version_id="2.0.0rc2" var_name="unable_to_find_this_ad" added="1252754128">Не удается найти это объявление.</phrase>
+	<phrase module_id="ad" version_id="2.0.0rc2" var_name="unable_to_find_the_ad_you_want_to_delete" added="1252754169">Не удается найти объявление, которое нужно удалить.</phrase>
+	<phrase module_id="ad" version_id="2.0.0rc2" var_name="media" added="1252754277">Вид рекламного материала</phrase>
+	<phrase module_id="ad" version_id="2.0.0rc2" var_name="banner_type" added="1252754868">Тип баннера</phrase>
+	<phrase module_id="ad" version_id="2.0.0rc2" var_name="image" added="1252755783">Картинка</phrase>
+	<phrase module_id="ad" version_id="2.0.0rc2" var_name="html" added="1252755791">HTML</phrase>
+	<phrase module_id="ad" version_id="2.0.0rc2" var_name="banner_image" added="1252755809">Баннер</phrase>
+	<phrase module_id="ad" version_id="2.0.0rc2" var_name="click_here_to_change_this_banner_image" added="1252755843"><![CDATA[Нажмите <a href="#" onclick="$('#js_ad_upload_banner').show(); $('#js_ad_banner').hide(); return false;">здесь</a> чтобы изменить изображение баннера.]]></phrase>
+	<phrase module_id="ad" version_id="2.0.0rc2" var_name="you_can_upload_a_jpg_gif_or_png_file" added="1252755856">Вы можете загружать файлы в формате: JPG, GIF или PNG</phrase>
+	<phrase module_id="ad" version_id="2.0.0rc2" var_name="cancel" added="1252755868">Отменить</phrase>
+	<phrase module_id="ad" version_id="2.0.0rc2" var_name="banner_link" added="1252755962">Ссылка для баннера</phrase>
+	<phrase module_id="ad" version_id="2.0.0rc2" var_name="campaign_details" added="1252755974">Информация о кампании</phrase>
+	<phrase module_id="ad" version_id="2.0.0rc2" var_name="campaign_name" added="1252755984">Название кампании</phrase>
+	<phrase module_id="ad" version_id="2.0.0rc2" var_name="start_date" added="1252755996">Дата начала</phrase>
+	<phrase module_id="ad" version_id="2.0.0rc2" var_name="end_date" added="1252756009">Дата окончания</phrase>
+	<phrase module_id="ad" version_id="2.0.0rc2" var_name="do_not_end_this_campaign" added="1252756023">Данная рекламная кампания бессрочна</phrase>
+	<phrase module_id="ad" version_id="2.0.0rc2" var_name="end_on_a_specific_date" added="1252756033">Данная рекламная кампания будет закончена в указанную Вами дату.</phrase>
+	<phrase module_id="ad" version_id="2.0.0rc2" var_name="total_views" added="1252756046">Показов</phrase>
+	<phrase module_id="ad" version_id="2.0.0rc2" var_name="unlimited" added="1252756064">Неограниченно</phrase>
+	<phrase module_id="ad" version_id="2.0.0rc2" var_name="total_clicks" added="1252756100">Общее число кликов</phrase>
+	<phrase module_id="ad" version_id="2.0.0rc2" var_name="active" added="1252756118">Активна</phrase>
+	<phrase module_id="ad" version_id="2.0.0rc2" var_name="placement" added="1252756132">Размещение рекламных материалов на сайте</phrase>
+	<phrase module_id="ad" version_id="2.0.0rc2" var_name="block_placement" added="1252756143">Размещение блока</phrase>
+	<phrase module_id="ad" version_id="2.0.0rc2" var_name="view_site_layout" added="1252756155">Посмотреть схему размещения рекламы на сайте</phrase>
+	<phrase module_id="ad" version_id="2.0.0rc2" var_name="notice_the_ad_sizes_provided_is_a_recommendation" added="1252756164">Внимание: размер рекламного объявления носит рекомендательный характер.</phrase>
+	<phrase module_id="ad" version_id="2.0.0rc2" var_name="audience" added="1252756171">Целевая аудитория (настройка таргетинга)</phrase>
+	<phrase module_id="ad" version_id="2.0.0rc2" var_name="user_groups" added="1252756180">Группы пользователей</phrase>
+	<phrase module_id="ad" version_id="2.0.0rc2" var_name="all_user_groups" added="1252756189">Все группы пользователей</phrase>
+	<phrase module_id="ad" version_id="2.0.0rc2" var_name="selected_user_groups" added="1252756197">Выбранные группы пользователей</phrase>
+	<phrase module_id="ad" version_id="2.0.0rc2" var_name="location" added="1252756209">Страна</phrase>
+	<phrase module_id="ad" version_id="2.0.0rc2" var_name="gender" added="1252756218">Пол</phrase>
+	<phrase module_id="ad" version_id="2.0.0rc2" var_name="age_group_between" added="1252756226">Возраст (задайте интервал)</phrase>
+	<phrase module_id="ad" version_id="2.0.0rc2" var_name="any" added="1252756234">Любой</phrase>
+	<phrase module_id="ad" version_id="2.0.0rc2" var_name="min_age_cannot_be_higher_than_max_age" added="1252756315">Минимальный возраст не может быть выше, чем максимальный.</phrase>
+	<phrase module_id="ad" version_id="2.0.0rc2" var_name="max_age_cannot_be_lower_than_the_min_age" added="1252756568">Максимальный возраст не может быть ниже, чем минимальный.</phrase>
+	<phrase module_id="ad" version_id="2.0.0rc2" var_name="ads" added="1252756602">Рекламные кампании</phrase>
+	<phrase module_id="ad" version_id="2.0.0rc2" var_name="id" added="1252756610">ID</phrase>
+	<phrase module_id="ad" version_id="2.0.0rc2" var_name="name" added="1252756618">Название</phrase>
+	<phrase module_id="ad" version_id="2.0.0rc2" var_name="status" added="1252756626">Статус</phrase>
+	<phrase module_id="ad" version_id="2.0.0rc2" var_name="views" added="1252756642">Показов</phrase>
+	<phrase module_id="ad" version_id="2.0.0rc2" var_name="clicks" added="1252756682">Переходов</phrase>
+	<phrase module_id="ad" version_id="2.0.0rc2" var_name="edit" added="1252756691">Редактировать</phrase>
+	<phrase module_id="ad" version_id="2.0.0rc2" var_name="delete" added="1252756699">Удалить</phrase>
+	<phrase module_id="ad" version_id="2.0.0rc2" var_name="no_ads_have_been_created" added="1252756733">Рекламные кампании отсутствуют.</phrase>
+	<phrase module_id="ad" version_id="2.0.0rc2" var_name="add_a_new_add" added="1252756768">Добавить рекламную кампанию</phrase>
+	<phrase module_id="ad" version_id="2.0.0rc2" var_name="cache_manager" added="1252757546">Диспетчер кэша</phrase>
+	<phrase module_id="ad" version_id="2.0.0rc2" var_name="note_the_time_is_set_to_your_registered_time_zone" added="1253448407">Обратите внимание - время будет установлено относительно  часового пояса, который Вы указали при регистрации.</phrase>
+	<phrase module_id="ad" version_id="2.0.5" var_name="advertise" added="1269358548">Рекламировать</phrase>
+	<phrase module_id="ad" version_id="2.0.5" var_name="creating_an_ad" added="1269358674">Создать объявление</phrase>
+	<phrase module_id="ad" version_id="2.0.5" var_name="there_are_pending_ads_that_require_your_attention_view_all_pending_ads_a_href_link_here_a" added="1270622615"><![CDATA[Есть объявления, требующие Вашего внимания. Посмотреть объявления <a href="{link}">можно здесь</a>.]]></phrase>
+	<phrase module_id="ad" version_id="2.0.5" var_name="approve" added="1270625082">Утвердить</phrase>
+	<phrase module_id="ad" version_id="2.0.5" var_name="deny" added="1270625107">Запретить</phrase>
+	<phrase module_id="ad" version_id="2.0.5" var_name="view_edit" added="1270625193">Показать / Изменить</phrase>
+	<phrase module_id="ad" version_id="2.0.5" var_name="preview_this_ad" added="1270629557">Предварительный просмотр</phrase>
+	<phrase module_id="ad" version_id="2.0.5" var_name="no_search_results_were_found" added="1270632300">Поиск не дал результатов.</phrase>
+	<phrase module_id="ad" version_id="2.0.5" var_name="pending_approval" added="1270634365">В ожидании утверждения</phrase>
+	<phrase module_id="ad" version_id="2.0.5" var_name="denied" added="1270638343">Отказано</phrase>
+	<phrase module_id="ad" version_id="2.0.5" var_name="ad_filter" added="1270638612">Фильтр рекламных кампаний</phrase>
+	<phrase module_id="ad" version_id="2.0.5" var_name="type" added="1270638651">Тип</phrase>
+	<phrase module_id="ad" version_id="2.0.5" var_name="display" added="1270638660">Отображать по</phrase>
+	<phrase module_id="ad" version_id="2.0.5" var_name="sort_by" added="1270638669">Сортировать по</phrase>
+	<phrase module_id="ad" version_id="2.0.5" var_name="ad_successfully_approved" added="1270639259">Объявление одобрено.</phrase>
+	<phrase module_id="ad" version_id="2.0.5" var_name="ad_successfully_denied" added="1270639290">Показ рекламы запрещен.</phrase>
+	<phrase module_id="ad" version_id="2.0.5" var_name="manage" added="1270641630">Управлять</phrase>
+	<phrase module_id="ad" version_id="2.0.5" var_name="n_a" added="1270641646">Не Доступно</phrase>
+	<phrase module_id="ad" version_id="2.0.5" var_name="recently_added" added="1270642427">Недавно добавленные</phrase>
+	<phrase module_id="ad" version_id="2.0.5" var_name="pending_payment" added="1270642444">Не оплаченные</phrase>
+	<phrase module_id="ad" version_id="2.0.5" var_name="unable_to_edit_purchase_this_ad" added="1270642518">Невозможно изменить / купить это объявление.</phrase>
+	<phrase module_id="ad" version_id="2.0.5" var_name="not_a_valid_ad_plan" added="1270642532">Нет действующего тарифного плана для подачи объявления.</phrase>
+	<phrase module_id="ad" version_id="2.0.5" var_name="your_ad_has_successfully_been_submitted_to_complete_the_process_continue_with_paying_below" added="1270646738">Ваше объявление была успешно сохранено. Для завершения процесса оплатите его ниже.</phrase>
+	<phrase module_id="ad" version_id="2.0.5" var_name="payment_methods" added="1270646751">Способы оплаты</phrase>
+	<phrase module_id="ad" version_id="2.0.5" var_name="image_placement" added="1270646772">Хранилище изображений</phrase>
+	<phrase module_id="ad" version_id="2.0.5" var_name="example_ad" added="1270646787">Пример объявления</phrase>
+	<phrase module_id="ad" version_id="2.0.5" var_name="this_is_a_sample_ad" added="1270646804">Это пример объявления.</phrase>
+	<phrase module_id="ad" version_id="2.0.5" var_name="1_ad_design" added="1270646819">1. Внешний вид объявлений</phrase>
+	<phrase module_id="ad" version_id="2.0.5" var_name="create_an_ad" added="1270646829">Создать объявление</phrase>
+	<phrase module_id="ad" version_id="2.0.5" var_name="upload_an_ad" added="1270646837">Добавить объявление</phrase>
+	<phrase module_id="ad" version_id="2.0.5" var_name="ad_placement" added="1270646848">Размещение объявлений</phrase>
+	<phrase module_id="ad" version_id="2.0.5" var_name="change" added="1270646872">Изменение</phrase>
+	<phrase module_id="ad" version_id="2.0.5" var_name="select_a_position" added="1270646879">Выбор позиции</phrase>
+	<phrase module_id="ad" version_id="2.0.5" var_name="background_color" added="1270647281">Цвет фона</phrase>
+	<phrase module_id="ad" version_id="2.0.5" var_name="select" added="1270647289">Выбор</phrase>
+	<phrase module_id="ad" version_id="2.0.5" var_name="border_color" added="1270647301">Цвет рамки</phrase>
+	<phrase module_id="ad" version_id="2.0.5" var_name="text_color" added="1270647308">Цвет текста</phrase>
+	<phrase module_id="ad" version_id="2.0.5" var_name="title" added="1270647319">Название</phrase>
+	<phrase module_id="ad" version_id="2.0.5" var_name="25_character_limit" added="1270647330">Лимит 25 символов.</phrase>
+	<phrase module_id="ad" version_id="2.0.5" var_name="135_character_limit" added="1270647339">Лимит 135 символов.</phrase>
+	<phrase module_id="ad" version_id="2.0.5" var_name="body_text" added="1270647346">Текст сообщения</phrase>
+	<phrase module_id="ad" version_id="2.0.5" var_name="image_optional" added="1270647361">Изображение (по желанию)</phrase>
+	<phrase module_id="ad" version_id="2.0.5" var_name="change_image" added="1270647371">Изменить изображение</phrase>
+	<phrase module_id="ad" version_id="2.0.5" var_name="we_only_accept_the_following_extensions_gif_jpg_and_png" added="1270647382">Допустимые расширения: GIF, JPG и PNG</phrase>
+	<phrase module_id="ad" version_id="2.0.5" var_name="supported_extensions_gif_jpg_and_png" added="1270647390">Поддержка расширений: GIF, JPG и PNG</phrase>
+	<phrase module_id="ad" version_id="2.0.5" var_name="destination_url" added="1270647421">назначение URL</phrase>
+	<phrase module_id="ad" version_id="2.0.5" var_name="example_http_www_yourwebsite_com" added="1270647431">Пример: http://www.yourwebsite.com/</phrase>
+	<phrase module_id="ad" version_id="2.0.5" var_name="2_targeting" added="1270647443">2. Таргетинг</phrase>
+	<phrase module_id="ad" version_id="2.0.5" var_name="continue" added="1270647453">Продолжить</phrase>
+	<phrase module_id="ad" version_id="2.0.5" var_name="3_campaigns_and_pricing" added="1270647483">3. Кампании и цены</phrase>
+	<phrase module_id="ad" version_id="2.0.5" var_name="impressions" added="1270647502">Впечатления</phrase>
+	<phrase module_id="ad" version_id="2.0.5" var_name="recalculate_costs" added="1270647518">Пересчитать расходы</phrase>
+	<phrase module_id="ad" version_id="2.0.5" var_name="submit" added="1270647538">Сохранить</phrase>
+	<phrase module_id="ad" version_id="2.0.5" var_name="select_an_ad_placement" added="1270647720">Выбор места размещения рекламного объявлений.</phrase>
+	<phrase module_id="ad" version_id="2.0.5" var_name="ad_management" added="1270726614">Управление рекламными кампаниями</phrase>
+	<phrase module_id="ad" version_id="2.0.5" var_name="management" added="1270726624">Управление</phrase>
+	<phrase module_id="ad" version_id="2.0.5" var_name="approved" added="1270727477">Утвержденные</phrase>
+	<phrase module_id="ad" version_id="2.0.5" var_name="campaign" added="1270727516">Кампания</phrase>
+	<phrase module_id="ad" version_id="2.0.5" var_name="continue_this_campaign" added="1270727549">Продолжить эту кампанию</phrase>
+	<phrase module_id="ad" version_id="2.0.5" var_name="pause_this_campaign" added="1270727556">Пауза для этой кампании</phrase>
+	<phrase module_id="ad" version_id="2.0.5" var_name="no_ads_found" added="1270727566">Объявления не найдены.</phrase>
+	<phrase module_id="ad" version_id="2.0.5" var_name="updating_an_ad" added="1270728858">Обновление объявлений</phrase>
+	<phrase module_id="ad" version_id="2.0.5" var_name="the_file_dimensions_are_too_big" added="1270730916">Размер файла слишком велик.</phrase>
+	<phrase module_id="ad" version_id="2.0.5" var_name="provide_a_campaign_name" added="1270731048">Задайте название кампании</phrase>
+	<phrase module_id="ad" version_id="2.0.5" var_name="admin_menu_manage_placements" added="1270807089">Управление размещением</phrase>
+	<phrase module_id="ad" version_id="2.0.5" var_name="admin_menu_ad_placement" added="1270807089">Размещение рекламы</phrase>
+	<phrase module_id="ad" version_id="2.0.5" var_name="ad_placement_successfully_deleted" added="1271066010">Место размещения рекламы удалено.</phrase>
+	<phrase module_id="ad" version_id="2.0.5" var_name="manage_ad_placements" added="1271066020">Менеджер местоположением рекламы</phrase>
+	<phrase module_id="ad" version_id="2.0.5" var_name="ad_placements" added="1271066046">Местоположения рекламы</phrase>
+	<phrase module_id="ad" version_id="2.0.5" var_name="campaigns" added="1271066068">Кампаний</phrase>
+	<phrase module_id="ad" version_id="2.0.5" var_name="ad_placement_successfully_updated" added="1271066099">Место размещения рекламы обновлено.</phrase>
+	<phrase module_id="ad" version_id="2.0.5" var_name="ad_placement_successfully_added" added="1271066107">Местоположение рекламы добавлено.</phrase>
+	<phrase module_id="ad" version_id="2.0.5" var_name="add_ad_placement" added="1271066118">Добавить местоположение объявления</phrase>
+	<phrase module_id="ad" version_id="2.0.5" var_name="manage_placements" added="1271066132">Управление размещением</phrase>
+	<phrase module_id="ad" version_id="2.0.5" var_name="ad_placement_details" added="1271066207">Детали размещением рекламы</phrase>
+	<phrase module_id="ad" version_id="2.0.5" var_name="price" added="1271066229">Цена</phrase>
+	<phrase module_id="ad" version_id="2.0.5" var_name="is_active" added="1271066237">Активна</phrase>
+	<phrase module_id="ad" version_id="2.0.5" var_name="yes" added="1271066249">Да</phrase>
+	<phrase module_id="ad" version_id="2.0.5" var_name="no" added="1271066255">Нет</phrase>
+	<phrase module_id="ad" version_id="2.0.5" var_name="provide_a_title" added="1271070431">Укажите название</phrase>
+	<phrase module_id="ad" version_id="2.0.5" var_name="select_a_placement" added="1271070598">Выбор места размещения.</phrase>
+	<phrase module_id="ad" version_id="2.0.5" var_name="provide_a_cost" added="1271070607">Выбор стоимости</phrase>
+	<phrase module_id="ad" version_id="2.0.5" var_name="select_if_this_ad_placement_is_active_or_not" added="1271070619">Выберите, если это объявление активно или нет.</phrase>
+	<phrase module_id="ad" version_id="2.0.5" var_name="ad_invoices" added="1271141914">Счета за рекламу</phrase>
+	<phrase module_id="ad" version_id="2.0.5" var_name="invoices" added="1271141922">Счета</phrase>
+	<phrase module_id="ad" version_id="2.0.5" var_name="paid" added="1271141986">Оплачено</phrase>
+	<phrase module_id="ad" version_id="2.0.5" var_name="cancelled" added="1271141993">Отменено</phrase>
+	<phrase module_id="ad" version_id="2.0.5" var_name="date" added="1271142436">Дата</phrase>
+	<phrase module_id="ad" version_id="2.0.5" var_name="pay_now" added="1271142446">Оплатить сейчас</phrase>
+	<phrase module_id="ad" version_id="2.0.5" var_name="you_do_not_have_any_invoices" added="1271142492">У вас нет выставленных счетов.</phrase>
+	<phrase module_id="ad" version_id="2.0.5" var_name="admin_menu_invoices" added="1271157077">Счета</phrase>
+	<phrase module_id="ad" version_id="2.0.5" var_name="there_are_no_invoices" added="1271158304">Нет счетов</phrase>
+	<phrase module_id="ad" version_id="2.0.5" var_name="invoice_filter" added="1271158419">Фильтр счетов</phrase>
+	<phrase module_id="ad" version_id="2.0.5" var_name="menu_ad_create_an_ad_523af537946b79c4f8369ed39ba78605" added="1271158736">Создать объявление</phrase>
+	<phrase module_id="ad" version_id="2.0.5" var_name="menu_ad_manage_ads_523af537946b79c4f8369ed39ba78605" added="1271158767">Управление рекламой</phrase>
+	<phrase module_id="ad" version_id="2.0.5" var_name="menu_ad_manage_invoices_523af537946b79c4f8369ed39ba78605" added="1271158788">Управление счетами</phrase>
+	<phrase module_id="ad" version_id="2.0.5" var_name="reach_your_exact_audience_and_connect_real_customers_to_your_business" added="1271159708">Охватите вашу целевую аудиторию и установите контакт с вашими потенциальными клиентами.</phrase>
+	<phrase module_id="ad" version_id="2.0.5" var_name="create_your_ad" added="1271159717">Создайте объявление</phrase>
+	<phrase module_id="ad" version_id="2.0.5" var_name="menu_ad_advertise_251d164643533a527361dbe1a7b9235d" added="1271159780">Рекламировать</phrase>
+	<phrase module_id="ad" version_id="2.0.5" var_name="click_on_the_ad_size_you_want_to_create_an_ad_for" added="1271160387">Нажмите на размер объявления, для которого вы хотите создать рекламное объявление.</phrase>
+	<phrase module_id="ad" version_id="2.0.5" var_name="block_location_cost_cpm_1_000_views" added="1271160406">Block {location} - {cost} стоимость за тысячу показов</phrase>
+	<phrase module_id="ad" version_id="2.0.5" var_name="1_confirm_your_item" added="1271321429">1. Подтвердите пункт</phrase>
+	<phrase module_id="ad" version_id="2.0.5" var_name="for_currency_total_cost" added="1271330091">для {currency} {total_cost}</phrase>
+	<phrase module_id="ad" version_id="2.0.5" var_name="impressions_cant_be_less_than_a_thousand" added="1271330965">Заданное количество показов не может быть меньше тысячи</phrase>
+	<phrase module_id="ad" version_id="2.0.5" var_name="menu_ad_manage_sponsorships_6a992d5529f459a44fee58c733255e86" added="1271752252">Управление рекламой</phrase>
+	<phrase module_id="ad" version_id="2.0.5" var_name="sponsor_error_owner" added="1272015812">Эта позиция может быть использована для рекламы пользователем или администрацией сайта</phrase>
+	<phrase module_id="ad" version_id="2.0.5" var_name="default_campaign_name" added="1272449447">Администратор создал кампанию</phrase>
+	<phrase module_id="ad" version_id="2.0.5" var_name="manage_sponsor_campaigns" added="1272465557">Управление рекламными кампаниями</phrase>
+	<phrase module_id="ad" version_id="2.0.5" var_name="admin_menu_manage_sponsorships" added="1272549823"><![CDATA[Менеджер "рекламы"]]></phrase>
+	<phrase module_id="ad" version_id="2.0.5" var_name="the_currency_for_your_membership_has_no_price" added="1272971541">Валюта для Ваших участников не имеет номинала</phrase>
+	<phrase module_id="ad" version_id="2.0.5" var_name="the_default_currency_has_no_price" added="1272971574">Валюта, установленная по умолчанию не определена</phrase>
+	<phrase module_id="ad" version_id="2.0.5" var_name="no_placements_found" added="1273003077">Места размещения не найдены.</phrase>
+	<phrase module_id="ad" version_id="2.0.5" var_name="add_a_placement" added="1273003196">Добавить место размещения</phrase>
+	<phrase module_id="ad" version_id="2.0.5" var_name="can_create_ad_campaigns" added="1273048621">Разрешить создавать рекламные кампании?</phrase>
+	<phrase module_id="ad" version_id="2.0.5" var_name="user_setting_can_create_ad_campaigns" added="1273048700">Разрешить создавать рекламные кампании?</phrase>
+	<phrase module_id="ad" version_id="2.0.5" var_name="there_is_minimum_of_1000_impressions" added="1271337234">Не менее 1000 показов.</phrase>
+	<phrase module_id="ad" version_id="2.0.5" var_name="define_how_many_impressions_for_this_ad" added="1271337402">Определите количество показов для этого объявления.</phrase>
+	<phrase module_id="ad" version_id="2.0.5" var_name="provide_a_title_for_your_ad" added="1271403313">Дайте название для своего объявления.</phrase>
+	<phrase module_id="ad" version_id="2.0.5" var_name="provide_text_for_your_ad" added="1271403325">Создайте текст рекламного объявления</phrase>
+	<phrase module_id="ad" version_id="2.0.5" var_name="provide_a_url_for_your_ad" added="1271403334">Укажите URL для Вашей рекламы.</phrase>
+	<phrase module_id="ad" version_id="2.0.5" var_name="select_an_image_for_your_ad" added="1271942180">Выберите изображение для своего объявления.</phrase>
+	<phrase module_id="ad" version_id="2.0.5" var_name="thank_you_for_your_purchase_your_ad_is_currently_pending_approval" added="1271942565">Благодарим Вас за покупку. Ваше объявление в настоящее время ожидает утверждения.</phrase>
+	<phrase module_id="ad" version_id="2.0.5" var_name="no_ad_placements_have_been_created_check_back_here_shortly" added="1273050956">Свободных рекламных мест нет. Зайдите позже.</phrase>
+	<phrase module_id="ad" version_id="2.0.5" var_name="ad_approved" added="1273065665">Реклама одобрена</phrase>
+	<phrase module_id="ad" version_id="2.0.5" var_name="your_ad_on_site_name_has_been_approved" added="1273066852"><![CDATA[Ваша реклама на сайте {site_name} одобрена:<a href="{link}">{link}</a>]]></phrase>
+	<phrase module_id="ad" version_id="2.0.5" var_name="ad_denied" added="1273067107">Реклама запрещена</phrase>
+	<phrase module_id="ad" version_id="2.0.5" var_name="your_ad_on_site_name_has_been_denied" added="1273067141"><![CDATA[Вашей рекламе на сайте {site_name} отказано:<a href="{link}">{link}</a>]]></phrase>
+	<phrase module_id="ad" version_id="2.0.5" var_name="sponsor_ad_approved" added="1273150101">Рекламная компания одобрена</phrase>
+	<phrase module_id="ad" version_id="2.0.5" var_name="your_sponsor_ad_on_site_name_has_been_approved" added="1273150164"><![CDATA[Ваша реклама на сайте {site_name} одобрена:<a href="{link}">{link}</a>]]></phrase>
+	<phrase module_id="ad" version_id="2.0.5" var_name="sponsor_ad_denied" added="1273150461">Рекламная компания запрещена</phrase>
+	<phrase module_id="ad" version_id="2.0.5" var_name="your_sponsor_ad_on_site_name_has_been_denied" added="1273150501"><![CDATA[Вашей рекламе на сайте {site_name} отказано:<a href="{link}">{link}</a>]]></phrase>
+	<phrase module_id="ad" version_id="2.0.5dev1" var_name="your_order_has_been_processed" added="1274289160">Ваш заказ в обработке.</phrase>
+	<phrase module_id="ad" version_id="2.0.6" var_name="and" added="1285598055">и</phrase>
+	<phrase module_id="ad" version_id="2.0.7" var_name="total_ad_views" added="1288277434">{total} просмотры</phrase>
+	<phrase module_id="ad" version_id="2.0.7" var_name="invoice_successfully_deleted" added="1288620889">Счет успешно удален</phrase>
+	<phrase module_id="ad" version_id="3.0.0beta5" var_name="enabled" added="1319184231">Включено</phrase>
+	<phrase module_id="ad" version_id="3.0.0beta5" var_name="disabled" added="1319184236">Отключено</phrase>
+	<phrase module_id="ad" version_id="3.0.0rc2" var_name="blogs" added="1321448291">Блоги</phrase>
+	<phrase module_id="ad" version_id="2.1.0" var_name="none_subject" added="1316360617">Без темы</phrase>
+	<phrase module_id="ad" version_id="3.0.0" var_name="manage_ads" added="1323261463">Управление рекламом</phrase>
+	<phrase module_id="ad" version_id="3.0.0" var_name="manage_invoices" added="1323261476">Управление счетами</phrase>
+	<phrase module_id="ad" version_id="3.0.0" var_name="manage_sponsorships" added="1323261491">Управление рекламными компаниями</phrase>
+	<phrase module_id="ad" version_id="3.0.0" var_name="choose_image" added="1323261560">Выберите изображение</phrase>	
+	<phrase module_id="ad" version_id="3.2.0beta1" var_name="setting_how_many_ads_per_location" added="1332855052"><![CDATA[<title>Сколько объявлений на рекламном месте</title><info>Этот параметр указывает, сколько объявлений будет показано на выбраном месте.
+
+Если вы установите ноль (0) он будет загружаться в каждом объявлении для этого места.
+
+По умолчанию 1</info>]]></phrase>
+	<phrase module_id="ad" version_id="3.2.0beta1" var_name="completed" added="1332928081">Завершенный</phrase>
+	<phrase module_id="ad" version_id="3.2.0beta1" var_name="block_location_cost_ppc" added="1333024947">Блок {location} - {cost} за клик</phrase>
+	<phrase module_id="ad" version_id="3.2.0beta1" var_name="you_are_not_the_owner_of_this_ad" added="1333451181">Вы не являетесь владельцем данной рекламы</phrase>
+	<phrase module_id="ad" version_id="3.2.0beta1" var_name="this_ad_has_used_all_its_views" added="1333451198">Эта реклама исчерпала количество просмотров</phrase>
+	<phrase module_id="ad" version_id="3.2.0beta1" var_name="this_ad_has_used_all_its_clicks" added="1333451211">Эта реклама исчерпала количество кликов</phrase>
+	<phrase module_id="ad" version_id="3.3.0beta2" var_name="sponsored" added="1340791705">Оплаченные</phrase>
+	<phrase module_id="ad" version_id="3.3.0rc1" var_name="amount_currency_per_1000_impressions" added="1341399162">{amount} {currency} за 1000 показов</phrase>
+	<phrase module_id="ad" version_id="3.3.0rc1" var_name="amount_currency_per_click" added="1341399183">{amount} {currency} за клик</phrase>
+</phrases>

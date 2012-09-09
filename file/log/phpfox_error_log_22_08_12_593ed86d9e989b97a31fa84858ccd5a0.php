@@ -1,12 +1,625 @@
 <?php defined('PHPFOX') or exit('NO DICE!');  ?>##
+<<<<<<< HEAD
 a:4:{s:7:"message";s:56:"Query Error:Table 'vpautine.phpfox_plugin' doesn't exist";s:9:"backtrace";s:856:"array (
   0 => 
   array (
     'file' => '/home/den/www/localhost/include/library/phpfox/error/error.class.php',
+=======
+a:4:{s:7:"message";s:19:"Undefined offset: 0";s:9:"backtrace";s:1370:"array (
+  0 => 
+  array (
+    'file' => 'D:\\Work\\www\\localhost\\include\\library\\phpfox\\template\\cache.class.php',
+    'line' => 314,
+  ),
+  1 => 
+  array (
+    'file' => 'D:\\Work\\www\\localhost\\include\\library\\phpfox\\template\\cache.class.php',
+    'line' => 149,
+  ),
+  2 => 
+  array (
+    'file' => 'D:\\Work\\www\\localhost\\include\\library\\phpfox\\template\\template.class.php',
+    'line' => 2759,
+  ),
+  3 => 
+  array (
+    'file' => 'D:\\Work\\www\\localhost\\include\\library\\phpfox\\template\\template.class.php',
+    'line' => 2239,
+  ),
+  4 => 
+  array (
+    'file' => 'D:\\Work\\www\\localhost\\include\\library\\phpfox\\module\\module.class.php',
+    'line' => 436,
+  ),
+  5 => 
+  array (
+    'file' => 'D:\\Work\\www\\localhost\\file\\cache\\template\\frontend_pautina_template_template.html.php.php',
+    'line' => 138,
+  ),
+  6 => 
+  array (
+    'file' => 'D:\\Work\\www\\localhost\\include\\library\\phpfox\\template\\template.class.php',
+    'line' => 2770,
+  ),
+  7 => 
+  array (
+    'file' => 'D:\\Work\\www\\localhost\\include\\library\\phpfox\\template\\template.class.php',
+    'line' => 1987,
+  ),
+  8 => 
+  array (
+    'file' => 'D:\\Work\\www\\localhost\\include\\library\\phpfox\\phpfox\\phpfox.class.php',
+    'line' => 1307,
+  ),
+  9 => 
+  array (
+    'file' => 'D:\\Work\\www\\localhost\\index.php',
+    'line' => 42,
+  ),
+)";s:7:"request";s:37:"array (
+  'do' => '/mail/compose/',
+)";s:2:"ip";s:3:"::1";}##
+<?php defined('PHPFOX') or exit('NO DICE!');  ?>##
+a:4:{s:7:"message";s:19:"Undefined offset: 0";s:9:"backtrace";s:1370:"array (
+  0 => 
+  array (
+    'file' => 'D:\\Work\\www\\localhost\\include\\library\\phpfox\\template\\cache.class.php',
+    'line' => 314,
+  ),
+  1 => 
+  array (
+    'file' => 'D:\\Work\\www\\localhost\\include\\library\\phpfox\\template\\cache.class.php',
+    'line' => 149,
+  ),
+  2 => 
+  array (
+    'file' => 'D:\\Work\\www\\localhost\\include\\library\\phpfox\\template\\template.class.php',
+    'line' => 2759,
+  ),
+  3 => 
+  array (
+    'file' => 'D:\\Work\\www\\localhost\\include\\library\\phpfox\\template\\template.class.php',
+    'line' => 2239,
+  ),
+  4 => 
+  array (
+    'file' => 'D:\\Work\\www\\localhost\\include\\library\\phpfox\\module\\module.class.php',
+    'line' => 436,
+  ),
+  5 => 
+  array (
+    'file' => 'D:\\Work\\www\\localhost\\file\\cache\\template\\frontend_pautina_template_template.html.php.php',
+    'line' => 138,
+  ),
+  6 => 
+  array (
+    'file' => 'D:\\Work\\www\\localhost\\include\\library\\phpfox\\template\\template.class.php',
+    'line' => 2770,
+  ),
+  7 => 
+  array (
+    'file' => 'D:\\Work\\www\\localhost\\include\\library\\phpfox\\template\\template.class.php',
+    'line' => 1987,
+  ),
+  8 => 
+  array (
+    'file' => 'D:\\Work\\www\\localhost\\include\\library\\phpfox\\phpfox\\phpfox.class.php',
+    'line' => 1307,
+  ),
+  9 => 
+  array (
+    'file' => 'D:\\Work\\www\\localhost\\index.php',
+    'line' => 42,
+  ),
+)";s:7:"request";s:37:"array (
+  'do' => '/mail/compose/',
+)";s:2:"ip";s:3:"::1";}##
+<?php defined('PHPFOX') or exit('NO DICE!');  ?>##
+a:4:{s:7:"message";s:19:"Undefined offset: 0";s:9:"backtrace";s:1370:"array (
+  0 => 
+  array (
+    'file' => 'D:\\Work\\www\\localhost\\include\\library\\phpfox\\template\\cache.class.php',
+    'line' => 314,
+  ),
+  1 => 
+  array (
+    'file' => 'D:\\Work\\www\\localhost\\include\\library\\phpfox\\template\\cache.class.php',
+    'line' => 149,
+  ),
+  2 => 
+  array (
+    'file' => 'D:\\Work\\www\\localhost\\include\\library\\phpfox\\template\\template.class.php',
+    'line' => 2759,
+  ),
+  3 => 
+  array (
+    'file' => 'D:\\Work\\www\\localhost\\include\\library\\phpfox\\template\\template.class.php',
+    'line' => 2239,
+  ),
+  4 => 
+  array (
+    'file' => 'D:\\Work\\www\\localhost\\include\\library\\phpfox\\module\\module.class.php',
+    'line' => 436,
+  ),
+  5 => 
+  array (
+    'file' => 'D:\\Work\\www\\localhost\\file\\cache\\template\\frontend_pautina_template_template.html.php.php',
+    'line' => 138,
+  ),
+  6 => 
+  array (
+    'file' => 'D:\\Work\\www\\localhost\\include\\library\\phpfox\\template\\template.class.php',
+    'line' => 2770,
+  ),
+  7 => 
+  array (
+    'file' => 'D:\\Work\\www\\localhost\\include\\library\\phpfox\\template\\template.class.php',
+    'line' => 1987,
+  ),
+  8 => 
+  array (
+    'file' => 'D:\\Work\\www\\localhost\\include\\library\\phpfox\\phpfox\\phpfox.class.php',
+    'line' => 1307,
+  ),
+  9 => 
+  array (
+    'file' => 'D:\\Work\\www\\localhost\\index.php',
+    'line' => 42,
+  ),
+)";s:7:"request";s:37:"array (
+  'do' => '/mail/compose/',
+)";s:2:"ip";s:3:"::1";}##
+<?php defined('PHPFOX') or exit('NO DICE!');  ?>##
+a:4:{s:7:"message";s:19:"Undefined offset: 0";s:9:"backtrace";s:1370:"array (
+  0 => 
+  array (
+    'file' => 'D:\\Work\\www\\localhost\\include\\library\\phpfox\\template\\cache.class.php',
+    'line' => 314,
+  ),
+  1 => 
+  array (
+    'file' => 'D:\\Work\\www\\localhost\\include\\library\\phpfox\\template\\cache.class.php',
+    'line' => 149,
+  ),
+  2 => 
+  array (
+    'file' => 'D:\\Work\\www\\localhost\\include\\library\\phpfox\\template\\template.class.php',
+    'line' => 2759,
+  ),
+  3 => 
+  array (
+    'file' => 'D:\\Work\\www\\localhost\\include\\library\\phpfox\\template\\template.class.php',
+    'line' => 2239,
+  ),
+  4 => 
+  array (
+    'file' => 'D:\\Work\\www\\localhost\\include\\library\\phpfox\\module\\module.class.php',
+    'line' => 436,
+  ),
+  5 => 
+  array (
+    'file' => 'D:\\Work\\www\\localhost\\file\\cache\\template\\frontend_pautina_template_template.html.php.php',
+    'line' => 138,
+  ),
+  6 => 
+  array (
+    'file' => 'D:\\Work\\www\\localhost\\include\\library\\phpfox\\template\\template.class.php',
+    'line' => 2770,
+  ),
+  7 => 
+  array (
+    'file' => 'D:\\Work\\www\\localhost\\include\\library\\phpfox\\template\\template.class.php',
+    'line' => 1987,
+  ),
+  8 => 
+  array (
+    'file' => 'D:\\Work\\www\\localhost\\include\\library\\phpfox\\phpfox\\phpfox.class.php',
+    'line' => 1307,
+  ),
+  9 => 
+  array (
+    'file' => 'D:\\Work\\www\\localhost\\index.php',
+    'line' => 42,
+  ),
+)";s:7:"request";s:37:"array (
+  'do' => '/mail/compose/',
+)";s:2:"ip";s:3:"::1";}##
+<?php defined('PHPFOX') or exit('NO DICE!');  ?>##
+a:4:{s:7:"message";s:18:"Invalid function: ";s:9:"backtrace";s:1642:"array (
+  0 => 
+  array (
+    'file' => 'D:\\Work\\www\\localhost\\include\\library\\phpfox\\error\\error.class.php',
     'line' => 91,
   ),
   1 => 
   array (
+    'file' => 'D:\\Work\\www\\localhost\\include\\library\\phpfox\\template\\cache.class.php',
+    'line' => 381,
+  ),
+  2 => 
+  array (
+    'file' => 'D:\\Work\\www\\localhost\\include\\library\\phpfox\\template\\cache.class.php',
+    'line' => 314,
+  ),
+  3 => 
+  array (
+    'file' => 'D:\\Work\\www\\localhost\\include\\library\\phpfox\\template\\cache.class.php',
+    'line' => 149,
+  ),
+  4 => 
+  array (
+    'file' => 'D:\\Work\\www\\localhost\\include\\library\\phpfox\\template\\template.class.php',
+    'line' => 2759,
+  ),
+  5 => 
+  array (
+    'file' => 'D:\\Work\\www\\localhost\\include\\library\\phpfox\\template\\template.class.php',
+    'line' => 2239,
+  ),
+  6 => 
+  array (
+    'file' => 'D:\\Work\\www\\localhost\\include\\library\\phpfox\\module\\module.class.php',
+    'line' => 436,
+  ),
+  7 => 
+  array (
+    'file' => 'D:\\Work\\www\\localhost\\file\\cache\\template\\frontend_pautina_template_template.html.php.php',
+    'line' => 138,
+  ),
+  8 => 
+  array (
+    'file' => 'D:\\Work\\www\\localhost\\include\\library\\phpfox\\template\\template.class.php',
+    'line' => 2770,
+  ),
+  9 => 
+  array (
+    'file' => 'D:\\Work\\www\\localhost\\include\\library\\phpfox\\template\\template.class.php',
+    'line' => 1987,
+  ),
+  10 => 
+  array (
+    'file' => 'D:\\Work\\www\\localhost\\include\\library\\phpfox\\phpfox\\phpfox.class.php',
+    'line' => 1307,
+  ),
+  11 => 
+  array (
+    'file' => 'D:\\Work\\www\\localhost\\index.php',
+    'line' => 42,
+  ),
+)";s:7:"request";s:37:"array (
+  'do' => '/mail/compose/',
+)";s:2:"ip";s:3:"::1";}##
+<?php defined('PHPFOX') or exit('NO DICE!');  ?>##
+a:4:{s:7:"message";s:19:"Undefined offset: 0";s:9:"backtrace";s:2091:"array (
+  0 => 
+  array (
+    'file' => 'D:\\Work\\www\\localhost\\include\\library\\phpfox\\template\\cache.class.php',
+    'line' => 314,
+  ),
+  1 => 
+  array (
+    'file' => 'D:\\Work\\www\\localhost\\include\\library\\phpfox\\template\\cache.class.php',
+    'line' => 149,
+  ),
+  2 => 
+  array (
+    'file' => 'D:\\Work\\www\\localhost\\include\\library\\phpfox\\template\\template.class.php',
+    'line' => 2759,
+  ),
+  3 => 
+  array (
+    'file' => 'D:\\Work\\www\\localhost\\include\\library\\phpfox\\template\\template.class.php',
+    'line' => 2239,
+  ),
+  4 => 
+  array (
+    'file' => 'D:\\Work\\www\\localhost\\include\\library\\phpfox\\module\\module.class.php',
+    'line' => 851,
+  ),
+  5 => 
+  array (
+    'file' => 'D:\\Work\\www\\localhost\\include\\library\\phpfox\\phpfox\\phpfox.class.php',
+    'line' => 351,
+  ),
+  6 => 
+  array (
+    'file' => 'D:\\Work\\www\\localhost\\file\\cache\\template\\mail_template_pautina_controller_compose.html.php.php',
+    'line' => 140,
+  ),
+  7 => 
+  array (
+    'file' => 'D:\\Work\\www\\localhost\\include\\library\\phpfox\\template\\template.class.php',
+    'line' => 2770,
+  ),
+  8 => 
+  array (
+    'file' => 'D:\\Work\\www\\localhost\\include\\library\\phpfox\\template\\template.class.php',
+    'line' => 2239,
+  ),
+  9 => 
+  array (
+    'file' => 'D:\\Work\\www\\localhost\\include\\library\\phpfox\\module\\module.class.php',
+    'line' => 436,
+  ),
+  10 => 
+  array (
+    'file' => 'D:\\Work\\www\\localhost\\file\\cache\\template\\frontend_pautina_template_template.html.php.php',
+    'line' => 138,
+  ),
+  11 => 
+  array (
+    'file' => 'D:\\Work\\www\\localhost\\include\\library\\phpfox\\template\\template.class.php',
+    'line' => 2770,
+  ),
+  12 => 
+  array (
+    'file' => 'D:\\Work\\www\\localhost\\include\\library\\phpfox\\template\\template.class.php',
+    'line' => 1987,
+  ),
+  13 => 
+  array (
+    'file' => 'D:\\Work\\www\\localhost\\include\\library\\phpfox\\phpfox\\phpfox.class.php',
+    'line' => 1307,
+  ),
+  14 => 
+  array (
+    'file' => 'D:\\Work\\www\\localhost\\index.php',
+    'line' => 42,
+  ),
+)";s:7:"request";s:37:"array (
+  'do' => '/mail/compose/',
+)";s:2:"ip";s:3:"::1";}##
+<?php defined('PHPFOX') or exit('NO DICE!');  ?>##
+a:4:{s:7:"message";s:19:"Undefined offset: 0";s:9:"backtrace";s:2091:"array (
+  0 => 
+  array (
+    'file' => 'D:\\Work\\www\\localhost\\include\\library\\phpfox\\template\\cache.class.php',
+    'line' => 314,
+  ),
+  1 => 
+  array (
+    'file' => 'D:\\Work\\www\\localhost\\include\\library\\phpfox\\template\\cache.class.php',
+    'line' => 149,
+  ),
+  2 => 
+  array (
+    'file' => 'D:\\Work\\www\\localhost\\include\\library\\phpfox\\template\\template.class.php',
+    'line' => 2759,
+  ),
+  3 => 
+  array (
+    'file' => 'D:\\Work\\www\\localhost\\include\\library\\phpfox\\template\\template.class.php',
+    'line' => 2239,
+  ),
+  4 => 
+  array (
+    'file' => 'D:\\Work\\www\\localhost\\include\\library\\phpfox\\module\\module.class.php',
+    'line' => 851,
+  ),
+  5 => 
+  array (
+    'file' => 'D:\\Work\\www\\localhost\\include\\library\\phpfox\\phpfox\\phpfox.class.php',
+    'line' => 351,
+  ),
+  6 => 
+  array (
+    'file' => 'D:\\Work\\www\\localhost\\file\\cache\\template\\mail_template_pautina_controller_compose.html.php.php',
+    'line' => 140,
+  ),
+  7 => 
+  array (
+    'file' => 'D:\\Work\\www\\localhost\\include\\library\\phpfox\\template\\template.class.php',
+    'line' => 2770,
+  ),
+  8 => 
+  array (
+    'file' => 'D:\\Work\\www\\localhost\\include\\library\\phpfox\\template\\template.class.php',
+    'line' => 2239,
+  ),
+  9 => 
+  array (
+    'file' => 'D:\\Work\\www\\localhost\\include\\library\\phpfox\\module\\module.class.php',
+    'line' => 436,
+  ),
+  10 => 
+  array (
+    'file' => 'D:\\Work\\www\\localhost\\file\\cache\\template\\frontend_pautina_template_template.html.php.php',
+    'line' => 138,
+  ),
+  11 => 
+  array (
+    'file' => 'D:\\Work\\www\\localhost\\include\\library\\phpfox\\template\\template.class.php',
+    'line' => 2770,
+  ),
+  12 => 
+  array (
+    'file' => 'D:\\Work\\www\\localhost\\include\\library\\phpfox\\template\\template.class.php',
+    'line' => 1987,
+  ),
+  13 => 
+  array (
+    'file' => 'D:\\Work\\www\\localhost\\include\\library\\phpfox\\phpfox\\phpfox.class.php',
+    'line' => 1307,
+  ),
+  14 => 
+  array (
+    'file' => 'D:\\Work\\www\\localhost\\index.php',
+    'line' => 42,
+  ),
+)";s:7:"request";s:37:"array (
+  'do' => '/mail/compose/',
+)";s:2:"ip";s:3:"::1";}##
+<?php defined('PHPFOX') or exit('NO DICE!');  ?>##
+a:4:{s:7:"message";s:19:"Undefined offset: 0";s:9:"backtrace";s:2091:"array (
+  0 => 
+  array (
+    'file' => 'D:\\Work\\www\\localhost\\include\\library\\phpfox\\template\\cache.class.php',
+    'line' => 314,
+  ),
+  1 => 
+  array (
+    'file' => 'D:\\Work\\www\\localhost\\include\\library\\phpfox\\template\\cache.class.php',
+    'line' => 149,
+  ),
+  2 => 
+  array (
+    'file' => 'D:\\Work\\www\\localhost\\include\\library\\phpfox\\template\\template.class.php',
+    'line' => 2759,
+  ),
+  3 => 
+  array (
+    'file' => 'D:\\Work\\www\\localhost\\include\\library\\phpfox\\template\\template.class.php',
+    'line' => 2239,
+  ),
+  4 => 
+  array (
+    'file' => 'D:\\Work\\www\\localhost\\include\\library\\phpfox\\module\\module.class.php',
+    'line' => 851,
+  ),
+  5 => 
+  array (
+    'file' => 'D:\\Work\\www\\localhost\\include\\library\\phpfox\\phpfox\\phpfox.class.php',
+    'line' => 351,
+  ),
+  6 => 
+  array (
+    'file' => 'D:\\Work\\www\\localhost\\file\\cache\\template\\mail_template_pautina_controller_compose.html.php.php',
+    'line' => 140,
+  ),
+  7 => 
+  array (
+    'file' => 'D:\\Work\\www\\localhost\\include\\library\\phpfox\\template\\template.class.php',
+    'line' => 2770,
+  ),
+  8 => 
+  array (
+    'file' => 'D:\\Work\\www\\localhost\\include\\library\\phpfox\\template\\template.class.php',
+    'line' => 2239,
+  ),
+  9 => 
+  array (
+    'file' => 'D:\\Work\\www\\localhost\\include\\library\\phpfox\\module\\module.class.php',
+    'line' => 436,
+  ),
+  10 => 
+  array (
+    'file' => 'D:\\Work\\www\\localhost\\file\\cache\\template\\frontend_pautina_template_template.html.php.php',
+    'line' => 138,
+  ),
+  11 => 
+  array (
+    'file' => 'D:\\Work\\www\\localhost\\include\\library\\phpfox\\template\\template.class.php',
+    'line' => 2770,
+  ),
+  12 => 
+  array (
+    'file' => 'D:\\Work\\www\\localhost\\include\\library\\phpfox\\template\\template.class.php',
+    'line' => 1987,
+  ),
+  13 => 
+  array (
+    'file' => 'D:\\Work\\www\\localhost\\include\\library\\phpfox\\phpfox\\phpfox.class.php',
+    'line' => 1307,
+  ),
+  14 => 
+  array (
+    'file' => 'D:\\Work\\www\\localhost\\index.php',
+    'line' => 42,
+  ),
+)";s:7:"request";s:37:"array (
+  'do' => '/mail/compose/',
+)";s:2:"ip";s:3:"::1";}##
+<?php defined('PHPFOX') or exit('NO DICE!');  ?>##
+a:4:{s:7:"message";s:19:"Undefined offset: 0";s:9:"backtrace";s:2091:"array (
+  0 => 
+  array (
+    'file' => 'D:\\Work\\www\\localhost\\include\\library\\phpfox\\template\\cache.class.php',
+    'line' => 314,
+  ),
+  1 => 
+  array (
+    'file' => 'D:\\Work\\www\\localhost\\include\\library\\phpfox\\template\\cache.class.php',
+    'line' => 149,
+  ),
+  2 => 
+  array (
+    'file' => 'D:\\Work\\www\\localhost\\include\\library\\phpfox\\template\\template.class.php',
+    'line' => 2759,
+  ),
+  3 => 
+  array (
+    'file' => 'D:\\Work\\www\\localhost\\include\\library\\phpfox\\template\\template.class.php',
+    'line' => 2239,
+  ),
+  4 => 
+  array (
+    'file' => 'D:\\Work\\www\\localhost\\include\\library\\phpfox\\module\\module.class.php',
+    'line' => 851,
+  ),
+  5 => 
+  array (
+    'file' => 'D:\\Work\\www\\localhost\\include\\library\\phpfox\\phpfox\\phpfox.class.php',
+    'line' => 351,
+  ),
+  6 => 
+  array (
+    'file' => 'D:\\Work\\www\\localhost\\file\\cache\\template\\mail_template_pautina_controller_compose.html.php.php',
+    'line' => 140,
+  ),
+  7 => 
+  array (
+    'file' => 'D:\\Work\\www\\localhost\\include\\library\\phpfox\\template\\template.class.php',
+    'line' => 2770,
+  ),
+  8 => 
+  array (
+    'file' => 'D:\\Work\\www\\localhost\\include\\library\\phpfox\\template\\template.class.php',
+    'line' => 2239,
+  ),
+  9 => 
+  array (
+    'file' => 'D:\\Work\\www\\localhost\\include\\library\\phpfox\\module\\module.class.php',
+    'line' => 436,
+  ),
+  10 => 
+  array (
+    'file' => 'D:\\Work\\www\\localhost\\file\\cache\\template\\frontend_pautina_template_template.html.php.php',
+    'line' => 138,
+  ),
+  11 => 
+  array (
+    'file' => 'D:\\Work\\www\\localhost\\include\\library\\phpfox\\template\\template.class.php',
+    'line' => 2770,
+  ),
+  12 => 
+  array (
+    'file' => 'D:\\Work\\www\\localhost\\include\\library\\phpfox\\template\\template.class.php',
+    'line' => 1987,
+  ),
+  13 => 
+  array (
+    'file' => 'D:\\Work\\www\\localhost\\include\\library\\phpfox\\phpfox\\phpfox.class.php',
+    'line' => 1307,
+  ),
+  14 => 
+  array (
+    'file' => 'D:\\Work\\www\\localhost\\index.php',
+    'line' => 42,
+  ),
+)";s:7:"request";s:37:"array (
+  'do' => '/mail/compose/',
+)";s:2:"ip";s:3:"::1";}##
+<?php defined('PHPFOX') or exit('NO DICE!');  ?>##
+a:4:{s:7:"message";s:18:"Invalid function: ";s:9:"backtrace";s:2363:"array (
+  0 => 
+  array (
+    'file' => 'D:\\Work\\www\\localhost\\include\\library\\phpfox\\error\\error.class.php',
+>>>>>>> 9da4617833e288c8ee1de4dcd8b5f62c57afbb3f
+    'line' => 91,
+  ),
+  1 => 
+  array (
+<<<<<<< HEAD
     'file' => '/home/den/www/localhost/include/library/phpfox/database/driver/mysql.class.php',
     'line' => 577,
   ),
@@ -42,10 +655,419 @@ a:4:{s:7:"message";s:54:"Unable to load module template: pautina->block/friends"
   0 => 
   array (
     'file' => '/home/den/www/localhost/include/library/phpfox/error/error.class.php',
+=======
+    'file' => 'D:\\Work\\www\\localhost\\include\\library\\phpfox\\template\\cache.class.php',
+    'line' => 381,
+  ),
+  2 => 
+  array (
+    'file' => 'D:\\Work\\www\\localhost\\include\\library\\phpfox\\template\\cache.class.php',
+    'line' => 314,
+  ),
+  3 => 
+  array (
+    'file' => 'D:\\Work\\www\\localhost\\include\\library\\phpfox\\template\\cache.class.php',
+    'line' => 149,
+  ),
+  4 => 
+  array (
+    'file' => 'D:\\Work\\www\\localhost\\include\\library\\phpfox\\template\\template.class.php',
+    'line' => 2759,
+  ),
+  5 => 
+  array (
+    'file' => 'D:\\Work\\www\\localhost\\include\\library\\phpfox\\template\\template.class.php',
+    'line' => 2239,
+  ),
+  6 => 
+  array (
+    'file' => 'D:\\Work\\www\\localhost\\include\\library\\phpfox\\module\\module.class.php',
+    'line' => 851,
+  ),
+  7 => 
+  array (
+    'file' => 'D:\\Work\\www\\localhost\\include\\library\\phpfox\\phpfox\\phpfox.class.php',
+    'line' => 351,
+  ),
+  8 => 
+  array (
+    'file' => 'D:\\Work\\www\\localhost\\file\\cache\\template\\mail_template_pautina_controller_compose.html.php.php',
+    'line' => 140,
+  ),
+  9 => 
+  array (
+    'file' => 'D:\\Work\\www\\localhost\\include\\library\\phpfox\\template\\template.class.php',
+    'line' => 2770,
+  ),
+  10 => 
+  array (
+    'file' => 'D:\\Work\\www\\localhost\\include\\library\\phpfox\\template\\template.class.php',
+    'line' => 2239,
+  ),
+  11 => 
+  array (
+    'file' => 'D:\\Work\\www\\localhost\\include\\library\\phpfox\\module\\module.class.php',
+    'line' => 436,
+  ),
+  12 => 
+  array (
+    'file' => 'D:\\Work\\www\\localhost\\file\\cache\\template\\frontend_pautina_template_template.html.php.php',
+    'line' => 138,
+  ),
+  13 => 
+  array (
+    'file' => 'D:\\Work\\www\\localhost\\include\\library\\phpfox\\template\\template.class.php',
+    'line' => 2770,
+  ),
+  14 => 
+  array (
+    'file' => 'D:\\Work\\www\\localhost\\include\\library\\phpfox\\template\\template.class.php',
+    'line' => 1987,
+  ),
+  15 => 
+  array (
+    'file' => 'D:\\Work\\www\\localhost\\include\\library\\phpfox\\phpfox\\phpfox.class.php',
+    'line' => 1307,
+  ),
+  16 => 
+  array (
+    'file' => 'D:\\Work\\www\\localhost\\index.php',
+    'line' => 42,
+  ),
+)";s:7:"request";s:37:"array (
+  'do' => '/mail/compose/',
+)";s:2:"ip";s:3:"::1";}##
+<?php defined('PHPFOX') or exit('NO DICE!');  ?>##
+a:4:{s:7:"message";s:19:"Undefined offset: 0";s:9:"backtrace";s:2091:"array (
+  0 => 
+  array (
+    'file' => 'D:\\Work\\www\\localhost\\include\\library\\phpfox\\template\\cache.class.php',
+    'line' => 314,
+  ),
+  1 => 
+  array (
+    'file' => 'D:\\Work\\www\\localhost\\include\\library\\phpfox\\template\\cache.class.php',
+    'line' => 149,
+  ),
+  2 => 
+  array (
+    'file' => 'D:\\Work\\www\\localhost\\include\\library\\phpfox\\template\\template.class.php',
+    'line' => 2759,
+  ),
+  3 => 
+  array (
+    'file' => 'D:\\Work\\www\\localhost\\include\\library\\phpfox\\template\\template.class.php',
+    'line' => 2239,
+  ),
+  4 => 
+  array (
+    'file' => 'D:\\Work\\www\\localhost\\include\\library\\phpfox\\module\\module.class.php',
+    'line' => 851,
+  ),
+  5 => 
+  array (
+    'file' => 'D:\\Work\\www\\localhost\\include\\library\\phpfox\\phpfox\\phpfox.class.php',
+    'line' => 351,
+  ),
+  6 => 
+  array (
+    'file' => 'D:\\Work\\www\\localhost\\file\\cache\\template\\mail_template_pautina_controller_compose.html.php.php',
+    'line' => 140,
+  ),
+  7 => 
+  array (
+    'file' => 'D:\\Work\\www\\localhost\\include\\library\\phpfox\\template\\template.class.php',
+    'line' => 2770,
+  ),
+  8 => 
+  array (
+    'file' => 'D:\\Work\\www\\localhost\\include\\library\\phpfox\\template\\template.class.php',
+    'line' => 2239,
+  ),
+  9 => 
+  array (
+    'file' => 'D:\\Work\\www\\localhost\\include\\library\\phpfox\\module\\module.class.php',
+    'line' => 436,
+  ),
+  10 => 
+  array (
+    'file' => 'D:\\Work\\www\\localhost\\file\\cache\\template\\frontend_pautina_template_template.html.php.php',
+    'line' => 138,
+  ),
+  11 => 
+  array (
+    'file' => 'D:\\Work\\www\\localhost\\include\\library\\phpfox\\template\\template.class.php',
+    'line' => 2770,
+  ),
+  12 => 
+  array (
+    'file' => 'D:\\Work\\www\\localhost\\include\\library\\phpfox\\template\\template.class.php',
+    'line' => 1987,
+  ),
+  13 => 
+  array (
+    'file' => 'D:\\Work\\www\\localhost\\include\\library\\phpfox\\phpfox\\phpfox.class.php',
+    'line' => 1307,
+  ),
+  14 => 
+  array (
+    'file' => 'D:\\Work\\www\\localhost\\index.php',
+    'line' => 42,
+  ),
+)";s:7:"request";s:37:"array (
+  'do' => '/mail/compose/',
+)";s:2:"ip";s:3:"::1";}##
+<?php defined('PHPFOX') or exit('NO DICE!');  ?>##
+a:4:{s:7:"message";s:19:"Undefined offset: 0";s:9:"backtrace";s:2091:"array (
+  0 => 
+  array (
+    'file' => 'D:\\Work\\www\\localhost\\include\\library\\phpfox\\template\\cache.class.php',
+    'line' => 314,
+  ),
+  1 => 
+  array (
+    'file' => 'D:\\Work\\www\\localhost\\include\\library\\phpfox\\template\\cache.class.php',
+    'line' => 149,
+  ),
+  2 => 
+  array (
+    'file' => 'D:\\Work\\www\\localhost\\include\\library\\phpfox\\template\\template.class.php',
+    'line' => 2759,
+  ),
+  3 => 
+  array (
+    'file' => 'D:\\Work\\www\\localhost\\include\\library\\phpfox\\template\\template.class.php',
+    'line' => 2239,
+  ),
+  4 => 
+  array (
+    'file' => 'D:\\Work\\www\\localhost\\include\\library\\phpfox\\module\\module.class.php',
+    'line' => 851,
+  ),
+  5 => 
+  array (
+    'file' => 'D:\\Work\\www\\localhost\\include\\library\\phpfox\\phpfox\\phpfox.class.php',
+    'line' => 351,
+  ),
+  6 => 
+  array (
+    'file' => 'D:\\Work\\www\\localhost\\file\\cache\\template\\mail_template_pautina_controller_compose.html.php.php',
+    'line' => 140,
+  ),
+  7 => 
+  array (
+    'file' => 'D:\\Work\\www\\localhost\\include\\library\\phpfox\\template\\template.class.php',
+    'line' => 2770,
+  ),
+  8 => 
+  array (
+    'file' => 'D:\\Work\\www\\localhost\\include\\library\\phpfox\\template\\template.class.php',
+    'line' => 2239,
+  ),
+  9 => 
+  array (
+    'file' => 'D:\\Work\\www\\localhost\\include\\library\\phpfox\\module\\module.class.php',
+    'line' => 436,
+  ),
+  10 => 
+  array (
+    'file' => 'D:\\Work\\www\\localhost\\file\\cache\\template\\frontend_pautina_template_template.html.php.php',
+    'line' => 138,
+  ),
+  11 => 
+  array (
+    'file' => 'D:\\Work\\www\\localhost\\include\\library\\phpfox\\template\\template.class.php',
+    'line' => 2770,
+  ),
+  12 => 
+  array (
+    'file' => 'D:\\Work\\www\\localhost\\include\\library\\phpfox\\template\\template.class.php',
+    'line' => 1987,
+  ),
+  13 => 
+  array (
+    'file' => 'D:\\Work\\www\\localhost\\include\\library\\phpfox\\phpfox\\phpfox.class.php',
+    'line' => 1307,
+  ),
+  14 => 
+  array (
+    'file' => 'D:\\Work\\www\\localhost\\index.php',
+    'line' => 42,
+  ),
+)";s:7:"request";s:37:"array (
+  'do' => '/mail/compose/',
+)";s:2:"ip";s:3:"::1";}##
+<?php defined('PHPFOX') or exit('NO DICE!');  ?>##
+a:4:{s:7:"message";s:19:"Undefined offset: 0";s:9:"backtrace";s:2091:"array (
+  0 => 
+  array (
+    'file' => 'D:\\Work\\www\\localhost\\include\\library\\phpfox\\template\\cache.class.php',
+    'line' => 314,
+  ),
+  1 => 
+  array (
+    'file' => 'D:\\Work\\www\\localhost\\include\\library\\phpfox\\template\\cache.class.php',
+    'line' => 149,
+  ),
+  2 => 
+  array (
+    'file' => 'D:\\Work\\www\\localhost\\include\\library\\phpfox\\template\\template.class.php',
+    'line' => 2759,
+  ),
+  3 => 
+  array (
+    'file' => 'D:\\Work\\www\\localhost\\include\\library\\phpfox\\template\\template.class.php',
+    'line' => 2239,
+  ),
+  4 => 
+  array (
+    'file' => 'D:\\Work\\www\\localhost\\include\\library\\phpfox\\module\\module.class.php',
+    'line' => 851,
+  ),
+  5 => 
+  array (
+    'file' => 'D:\\Work\\www\\localhost\\include\\library\\phpfox\\phpfox\\phpfox.class.php',
+    'line' => 351,
+  ),
+  6 => 
+  array (
+    'file' => 'D:\\Work\\www\\localhost\\file\\cache\\template\\mail_template_pautina_controller_compose.html.php.php',
+    'line' => 140,
+  ),
+  7 => 
+  array (
+    'file' => 'D:\\Work\\www\\localhost\\include\\library\\phpfox\\template\\template.class.php',
+    'line' => 2770,
+  ),
+  8 => 
+  array (
+    'file' => 'D:\\Work\\www\\localhost\\include\\library\\phpfox\\template\\template.class.php',
+    'line' => 2239,
+  ),
+  9 => 
+  array (
+    'file' => 'D:\\Work\\www\\localhost\\include\\library\\phpfox\\module\\module.class.php',
+    'line' => 436,
+  ),
+  10 => 
+  array (
+    'file' => 'D:\\Work\\www\\localhost\\file\\cache\\template\\frontend_pautina_template_template.html.php.php',
+    'line' => 138,
+  ),
+  11 => 
+  array (
+    'file' => 'D:\\Work\\www\\localhost\\include\\library\\phpfox\\template\\template.class.php',
+    'line' => 2770,
+  ),
+  12 => 
+  array (
+    'file' => 'D:\\Work\\www\\localhost\\include\\library\\phpfox\\template\\template.class.php',
+    'line' => 1987,
+  ),
+  13 => 
+  array (
+    'file' => 'D:\\Work\\www\\localhost\\include\\library\\phpfox\\phpfox\\phpfox.class.php',
+    'line' => 1307,
+  ),
+  14 => 
+  array (
+    'file' => 'D:\\Work\\www\\localhost\\index.php',
+    'line' => 42,
+  ),
+)";s:7:"request";s:37:"array (
+  'do' => '/mail/compose/',
+)";s:2:"ip";s:3:"::1";}##
+<?php defined('PHPFOX') or exit('NO DICE!');  ?>##
+a:4:{s:7:"message";s:19:"Undefined offset: 0";s:9:"backtrace";s:2091:"array (
+  0 => 
+  array (
+    'file' => 'D:\\Work\\www\\localhost\\include\\library\\phpfox\\template\\cache.class.php',
+    'line' => 314,
+  ),
+  1 => 
+  array (
+    'file' => 'D:\\Work\\www\\localhost\\include\\library\\phpfox\\template\\cache.class.php',
+    'line' => 149,
+  ),
+  2 => 
+  array (
+    'file' => 'D:\\Work\\www\\localhost\\include\\library\\phpfox\\template\\template.class.php',
+    'line' => 2759,
+  ),
+  3 => 
+  array (
+    'file' => 'D:\\Work\\www\\localhost\\include\\library\\phpfox\\template\\template.class.php',
+    'line' => 2239,
+  ),
+  4 => 
+  array (
+    'file' => 'D:\\Work\\www\\localhost\\include\\library\\phpfox\\module\\module.class.php',
+    'line' => 851,
+  ),
+  5 => 
+  array (
+    'file' => 'D:\\Work\\www\\localhost\\include\\library\\phpfox\\phpfox\\phpfox.class.php',
+    'line' => 351,
+  ),
+  6 => 
+  array (
+    'file' => 'D:\\Work\\www\\localhost\\file\\cache\\template\\mail_template_pautina_controller_compose.html.php.php',
+    'line' => 140,
+  ),
+  7 => 
+  array (
+    'file' => 'D:\\Work\\www\\localhost\\include\\library\\phpfox\\template\\template.class.php',
+    'line' => 2770,
+  ),
+  8 => 
+  array (
+    'file' => 'D:\\Work\\www\\localhost\\include\\library\\phpfox\\template\\template.class.php',
+    'line' => 2239,
+  ),
+  9 => 
+  array (
+    'file' => 'D:\\Work\\www\\localhost\\include\\library\\phpfox\\module\\module.class.php',
+    'line' => 436,
+  ),
+  10 => 
+  array (
+    'file' => 'D:\\Work\\www\\localhost\\file\\cache\\template\\frontend_pautina_template_template.html.php.php',
+    'line' => 138,
+  ),
+  11 => 
+  array (
+    'file' => 'D:\\Work\\www\\localhost\\include\\library\\phpfox\\template\\template.class.php',
+    'line' => 2770,
+  ),
+  12 => 
+  array (
+    'file' => 'D:\\Work\\www\\localhost\\include\\library\\phpfox\\template\\template.class.php',
+    'line' => 1987,
+  ),
+  13 => 
+  array (
+    'file' => 'D:\\Work\\www\\localhost\\include\\library\\phpfox\\phpfox\\phpfox.class.php',
+    'line' => 1307,
+  ),
+  14 => 
+  array (
+    'file' => 'D:\\Work\\www\\localhost\\index.php',
+    'line' => 42,
+  ),
+)";s:7:"request";s:37:"array (
+  'do' => '/mail/compose/',
+)";s:2:"ip";s:3:"::1";}##
+<?php defined('PHPFOX') or exit('NO DICE!');  ?>##
+a:4:{s:7:"message";s:18:"Invalid function: ";s:9:"backtrace";s:2363:"array (
+  0 => 
+  array (
+    'file' => 'D:\\Work\\www\\localhost\\include\\library\\phpfox\\error\\error.class.php',
+>>>>>>> 9da4617833e288c8ee1de4dcd8b5f62c57afbb3f
     'line' => 91,
   ),
   1 => 
   array (
+<<<<<<< HEAD
     'file' => '/home/den/www/localhost/include/library/phpfox/template/template.class.php',
     'line' => 2171,
   ),
@@ -87,10 +1109,54 @@ a:4:{s:7:"message";s:54:"Unable to load module template: pautina->block/friends"
   9 => 
   array (
     'file' => '/home/den/www/localhost/include/library/phpfox/template/template.class.php',
+=======
+    'file' => 'D:\\Work\\www\\localhost\\include\\library\\phpfox\\template\\cache.class.php',
+    'line' => 381,
+  ),
+  2 => 
+  array (
+    'file' => 'D:\\Work\\www\\localhost\\include\\library\\phpfox\\template\\cache.class.php',
+    'line' => 314,
+  ),
+  3 => 
+  array (
+    'file' => 'D:\\Work\\www\\localhost\\include\\library\\phpfox\\template\\cache.class.php',
+    'line' => 149,
+  ),
+  4 => 
+  array (
+    'file' => 'D:\\Work\\www\\localhost\\include\\library\\phpfox\\template\\template.class.php',
+    'line' => 2759,
+  ),
+  5 => 
+  array (
+    'file' => 'D:\\Work\\www\\localhost\\include\\library\\phpfox\\template\\template.class.php',
+    'line' => 2239,
+  ),
+  6 => 
+  array (
+    'file' => 'D:\\Work\\www\\localhost\\include\\library\\phpfox\\module\\module.class.php',
+    'line' => 851,
+  ),
+  7 => 
+  array (
+    'file' => 'D:\\Work\\www\\localhost\\include\\library\\phpfox\\phpfox\\phpfox.class.php',
+    'line' => 351,
+  ),
+  8 => 
+  array (
+    'file' => 'D:\\Work\\www\\localhost\\file\\cache\\template\\mail_template_pautina_controller_compose.html.php.php',
+    'line' => 140,
+  ),
+  9 => 
+  array (
+    'file' => 'D:\\Work\\www\\localhost\\include\\library\\phpfox\\template\\template.class.php',
+>>>>>>> 9da4617833e288c8ee1de4dcd8b5f62c57afbb3f
     'line' => 2770,
   ),
   10 => 
   array (
+<<<<<<< HEAD
     'file' => '/home/den/www/localhost/include/library/phpfox/template/template.class.php',
     'line' => 1987,
   ),
@@ -102,12 +1168,46 @@ a:4:{s:7:"message";s:54:"Unable to load module template: pautina->block/friends"
   12 => 
   array (
     'file' => '/home/den/www/localhost/index.php',
+=======
+    'file' => 'D:\\Work\\www\\localhost\\include\\library\\phpfox\\template\\template.class.php',
+    'line' => 2239,
+  ),
+  11 => 
+  array (
+    'file' => 'D:\\Work\\www\\localhost\\include\\library\\phpfox\\module\\module.class.php',
+    'line' => 436,
+  ),
+  12 => 
+  array (
+    'file' => 'D:\\Work\\www\\localhost\\file\\cache\\template\\frontend_pautina_template_template.html.php.php',
+    'line' => 138,
+  ),
+  13 => 
+  array (
+    'file' => 'D:\\Work\\www\\localhost\\include\\library\\phpfox\\template\\template.class.php',
+    'line' => 2770,
+  ),
+  14 => 
+  array (
+    'file' => 'D:\\Work\\www\\localhost\\include\\library\\phpfox\\template\\template.class.php',
+    'line' => 1987,
+  ),
+  15 => 
+  array (
+    'file' => 'D:\\Work\\www\\localhost\\include\\library\\phpfox\\phpfox\\phpfox.class.php',
+    'line' => 1307,
+  ),
+  16 => 
+  array (
+    'file' => 'D:\\Work\\www\\localhost\\index.php',
+>>>>>>> 9da4617833e288c8ee1de4dcd8b5f62c57afbb3f
     'line' => 42,
   ),
 )";s:7:"request";s:37:"array (
   'do' => '/mail/compose/',
 )";s:2:"ip";s:3:"::1";}##
 <?php defined('PHPFOX') or exit('NO DICE!');  ?>##
+<<<<<<< HEAD
 a:4:{s:7:"message";s:54:"Unable to load module template: pautina->block/friends";s:9:"backtrace";s:1734:"array (
   0 => 
   array (
@@ -172,12 +1272,89 @@ a:4:{s:7:"message";s:54:"Unable to load module template: pautina->block/friends"
   12 => 
   array (
     'file' => '/home/den/www/localhost/index.php',
+=======
+a:4:{s:7:"message";s:19:"Undefined offset: 0";s:9:"backtrace";s:2091:"array (
+  0 => 
+  array (
+    'file' => 'D:\\Work\\www\\localhost\\include\\library\\phpfox\\template\\cache.class.php',
+    'line' => 314,
+  ),
+  1 => 
+  array (
+    'file' => 'D:\\Work\\www\\localhost\\include\\library\\phpfox\\template\\cache.class.php',
+    'line' => 149,
+  ),
+  2 => 
+  array (
+    'file' => 'D:\\Work\\www\\localhost\\include\\library\\phpfox\\template\\template.class.php',
+    'line' => 2759,
+  ),
+  3 => 
+  array (
+    'file' => 'D:\\Work\\www\\localhost\\include\\library\\phpfox\\template\\template.class.php',
+    'line' => 2239,
+  ),
+  4 => 
+  array (
+    'file' => 'D:\\Work\\www\\localhost\\include\\library\\phpfox\\module\\module.class.php',
+    'line' => 851,
+  ),
+  5 => 
+  array (
+    'file' => 'D:\\Work\\www\\localhost\\include\\library\\phpfox\\phpfox\\phpfox.class.php',
+    'line' => 351,
+  ),
+  6 => 
+  array (
+    'file' => 'D:\\Work\\www\\localhost\\file\\cache\\template\\mail_template_pautina_controller_compose.html.php.php',
+    'line' => 140,
+  ),
+  7 => 
+  array (
+    'file' => 'D:\\Work\\www\\localhost\\include\\library\\phpfox\\template\\template.class.php',
+    'line' => 2770,
+  ),
+  8 => 
+  array (
+    'file' => 'D:\\Work\\www\\localhost\\include\\library\\phpfox\\template\\template.class.php',
+    'line' => 2239,
+  ),
+  9 => 
+  array (
+    'file' => 'D:\\Work\\www\\localhost\\include\\library\\phpfox\\module\\module.class.php',
+    'line' => 436,
+  ),
+  10 => 
+  array (
+    'file' => 'D:\\Work\\www\\localhost\\file\\cache\\template\\frontend_pautina_template_template.html.php.php',
+    'line' => 138,
+  ),
+  11 => 
+  array (
+    'file' => 'D:\\Work\\www\\localhost\\include\\library\\phpfox\\template\\template.class.php',
+    'line' => 2770,
+  ),
+  12 => 
+  array (
+    'file' => 'D:\\Work\\www\\localhost\\include\\library\\phpfox\\template\\template.class.php',
+    'line' => 1987,
+  ),
+  13 => 
+  array (
+    'file' => 'D:\\Work\\www\\localhost\\include\\library\\phpfox\\phpfox\\phpfox.class.php',
+    'line' => 1307,
+  ),
+  14 => 
+  array (
+    'file' => 'D:\\Work\\www\\localhost\\index.php',
+>>>>>>> 9da4617833e288c8ee1de4dcd8b5f62c57afbb3f
     'line' => 42,
   ),
 )";s:7:"request";s:37:"array (
   'do' => '/mail/compose/',
 )";s:2:"ip";s:3:"::1";}##
 <?php defined('PHPFOX') or exit('NO DICE!');  ?>##
+<<<<<<< HEAD
 a:4:{s:7:"message";s:54:"Unable to load module template: pautina->block/friends";s:9:"backtrace";s:1734:"array (
   0 => 
   array (
@@ -242,12 +1419,89 @@ a:4:{s:7:"message";s:54:"Unable to load module template: pautina->block/friends"
   12 => 
   array (
     'file' => '/home/den/www/localhost/index.php',
+=======
+a:4:{s:7:"message";s:19:"Undefined offset: 0";s:9:"backtrace";s:2091:"array (
+  0 => 
+  array (
+    'file' => 'D:\\Work\\www\\localhost\\include\\library\\phpfox\\template\\cache.class.php',
+    'line' => 314,
+  ),
+  1 => 
+  array (
+    'file' => 'D:\\Work\\www\\localhost\\include\\library\\phpfox\\template\\cache.class.php',
+    'line' => 149,
+  ),
+  2 => 
+  array (
+    'file' => 'D:\\Work\\www\\localhost\\include\\library\\phpfox\\template\\template.class.php',
+    'line' => 2759,
+  ),
+  3 => 
+  array (
+    'file' => 'D:\\Work\\www\\localhost\\include\\library\\phpfox\\template\\template.class.php',
+    'line' => 2239,
+  ),
+  4 => 
+  array (
+    'file' => 'D:\\Work\\www\\localhost\\include\\library\\phpfox\\module\\module.class.php',
+    'line' => 851,
+  ),
+  5 => 
+  array (
+    'file' => 'D:\\Work\\www\\localhost\\include\\library\\phpfox\\phpfox\\phpfox.class.php',
+    'line' => 351,
+  ),
+  6 => 
+  array (
+    'file' => 'D:\\Work\\www\\localhost\\file\\cache\\template\\mail_template_pautina_controller_compose.html.php.php',
+    'line' => 140,
+  ),
+  7 => 
+  array (
+    'file' => 'D:\\Work\\www\\localhost\\include\\library\\phpfox\\template\\template.class.php',
+    'line' => 2770,
+  ),
+  8 => 
+  array (
+    'file' => 'D:\\Work\\www\\localhost\\include\\library\\phpfox\\template\\template.class.php',
+    'line' => 2239,
+  ),
+  9 => 
+  array (
+    'file' => 'D:\\Work\\www\\localhost\\include\\library\\phpfox\\module\\module.class.php',
+    'line' => 436,
+  ),
+  10 => 
+  array (
+    'file' => 'D:\\Work\\www\\localhost\\file\\cache\\template\\frontend_pautina_template_template.html.php.php',
+    'line' => 138,
+  ),
+  11 => 
+  array (
+    'file' => 'D:\\Work\\www\\localhost\\include\\library\\phpfox\\template\\template.class.php',
+    'line' => 2770,
+  ),
+  12 => 
+  array (
+    'file' => 'D:\\Work\\www\\localhost\\include\\library\\phpfox\\template\\template.class.php',
+    'line' => 1987,
+  ),
+  13 => 
+  array (
+    'file' => 'D:\\Work\\www\\localhost\\include\\library\\phpfox\\phpfox\\phpfox.class.php',
+    'line' => 1307,
+  ),
+  14 => 
+  array (
+    'file' => 'D:\\Work\\www\\localhost\\index.php',
+>>>>>>> 9da4617833e288c8ee1de4dcd8b5f62c57afbb3f
     'line' => 42,
   ),
 )";s:7:"request";s:37:"array (
   'do' => '/mail/compose/',
 )";s:2:"ip";s:3:"::1";}##
 <?php defined('PHPFOX') or exit('NO DICE!');  ?>##
+<<<<<<< HEAD
 a:4:{s:7:"message";s:21:"Undefined index: name";s:9:"backtrace";s:1742:"array (
   0 => 
   array (
@@ -312,12 +1566,89 @@ a:4:{s:7:"message";s:21:"Undefined index: name";s:9:"backtrace";s:1742:"array (
   12 => 
   array (
     'file' => '/home/den/www/localhost/index.php',
+=======
+a:4:{s:7:"message";s:19:"Undefined offset: 0";s:9:"backtrace";s:2091:"array (
+  0 => 
+  array (
+    'file' => 'D:\\Work\\www\\localhost\\include\\library\\phpfox\\template\\cache.class.php',
+    'line' => 314,
+  ),
+  1 => 
+  array (
+    'file' => 'D:\\Work\\www\\localhost\\include\\library\\phpfox\\template\\cache.class.php',
+    'line' => 149,
+  ),
+  2 => 
+  array (
+    'file' => 'D:\\Work\\www\\localhost\\include\\library\\phpfox\\template\\template.class.php',
+    'line' => 2759,
+  ),
+  3 => 
+  array (
+    'file' => 'D:\\Work\\www\\localhost\\include\\library\\phpfox\\template\\template.class.php',
+    'line' => 2239,
+  ),
+  4 => 
+  array (
+    'file' => 'D:\\Work\\www\\localhost\\include\\library\\phpfox\\module\\module.class.php',
+    'line' => 851,
+  ),
+  5 => 
+  array (
+    'file' => 'D:\\Work\\www\\localhost\\include\\library\\phpfox\\phpfox\\phpfox.class.php',
+    'line' => 351,
+  ),
+  6 => 
+  array (
+    'file' => 'D:\\Work\\www\\localhost\\file\\cache\\template\\mail_template_pautina_controller_compose.html.php.php',
+    'line' => 140,
+  ),
+  7 => 
+  array (
+    'file' => 'D:\\Work\\www\\localhost\\include\\library\\phpfox\\template\\template.class.php',
+    'line' => 2770,
+  ),
+  8 => 
+  array (
+    'file' => 'D:\\Work\\www\\localhost\\include\\library\\phpfox\\template\\template.class.php',
+    'line' => 2239,
+  ),
+  9 => 
+  array (
+    'file' => 'D:\\Work\\www\\localhost\\include\\library\\phpfox\\module\\module.class.php',
+    'line' => 436,
+  ),
+  10 => 
+  array (
+    'file' => 'D:\\Work\\www\\localhost\\file\\cache\\template\\frontend_pautina_template_template.html.php.php',
+    'line' => 138,
+  ),
+  11 => 
+  array (
+    'file' => 'D:\\Work\\www\\localhost\\include\\library\\phpfox\\template\\template.class.php',
+    'line' => 2770,
+  ),
+  12 => 
+  array (
+    'file' => 'D:\\Work\\www\\localhost\\include\\library\\phpfox\\template\\template.class.php',
+    'line' => 1987,
+  ),
+  13 => 
+  array (
+    'file' => 'D:\\Work\\www\\localhost\\include\\library\\phpfox\\phpfox\\phpfox.class.php',
+    'line' => 1307,
+  ),
+  14 => 
+  array (
+    'file' => 'D:\\Work\\www\\localhost\\index.php',
+>>>>>>> 9da4617833e288c8ee1de4dcd8b5f62c57afbb3f
     'line' => 42,
   ),
 )";s:7:"request";s:37:"array (
   'do' => '/mail/compose/',
 )";s:2:"ip";s:3:"::1";}##
 <?php defined('PHPFOX') or exit('NO DICE!');  ?>##
+<<<<<<< HEAD
 a:4:{s:7:"message";s:44:"Query Error:Duplicate column name 'cf_phone'";s:9:"backtrace";s:1570:"array (
   0 => 
   array (
@@ -446,10 +1777,97 @@ a:4:{s:7:"message";s:45:"Query Error:Duplicate column name 'cf_mobile'";s:9:"bac
   0 => 
   array (
     'file' => '/home/den/www/localhost/include/library/phpfox/error/error.class.php',
+=======
+a:4:{s:7:"message";s:19:"Undefined offset: 0";s:9:"backtrace";s:2091:"array (
+  0 => 
+  array (
+    'file' => 'D:\\Work\\www\\localhost\\include\\library\\phpfox\\template\\cache.class.php',
+    'line' => 314,
+  ),
+  1 => 
+  array (
+    'file' => 'D:\\Work\\www\\localhost\\include\\library\\phpfox\\template\\cache.class.php',
+    'line' => 149,
+  ),
+  2 => 
+  array (
+    'file' => 'D:\\Work\\www\\localhost\\include\\library\\phpfox\\template\\template.class.php',
+    'line' => 2759,
+  ),
+  3 => 
+  array (
+    'file' => 'D:\\Work\\www\\localhost\\include\\library\\phpfox\\template\\template.class.php',
+    'line' => 2239,
+  ),
+  4 => 
+  array (
+    'file' => 'D:\\Work\\www\\localhost\\include\\library\\phpfox\\module\\module.class.php',
+    'line' => 851,
+  ),
+  5 => 
+  array (
+    'file' => 'D:\\Work\\www\\localhost\\include\\library\\phpfox\\phpfox\\phpfox.class.php',
+    'line' => 351,
+  ),
+  6 => 
+  array (
+    'file' => 'D:\\Work\\www\\localhost\\file\\cache\\template\\mail_template_pautina_controller_compose.html.php.php',
+    'line' => 140,
+  ),
+  7 => 
+  array (
+    'file' => 'D:\\Work\\www\\localhost\\include\\library\\phpfox\\template\\template.class.php',
+    'line' => 2770,
+  ),
+  8 => 
+  array (
+    'file' => 'D:\\Work\\www\\localhost\\include\\library\\phpfox\\template\\template.class.php',
+    'line' => 2239,
+  ),
+  9 => 
+  array (
+    'file' => 'D:\\Work\\www\\localhost\\include\\library\\phpfox\\module\\module.class.php',
+    'line' => 436,
+  ),
+  10 => 
+  array (
+    'file' => 'D:\\Work\\www\\localhost\\file\\cache\\template\\frontend_pautina_template_template.html.php.php',
+    'line' => 138,
+  ),
+  11 => 
+  array (
+    'file' => 'D:\\Work\\www\\localhost\\include\\library\\phpfox\\template\\template.class.php',
+    'line' => 2770,
+  ),
+  12 => 
+  array (
+    'file' => 'D:\\Work\\www\\localhost\\include\\library\\phpfox\\template\\template.class.php',
+    'line' => 1987,
+  ),
+  13 => 
+  array (
+    'file' => 'D:\\Work\\www\\localhost\\include\\library\\phpfox\\phpfox\\phpfox.class.php',
+    'line' => 1307,
+  ),
+  14 => 
+  array (
+    'file' => 'D:\\Work\\www\\localhost\\index.php',
+    'line' => 42,
+  ),
+)";s:7:"request";s:37:"array (
+  'do' => '/mail/compose/',
+)";s:2:"ip";s:3:"::1";}##
+<?php defined('PHPFOX') or exit('NO DICE!');  ?>##
+a:4:{s:7:"message";s:18:"Invalid function: ";s:9:"backtrace";s:2363:"array (
+  0 => 
+  array (
+    'file' => 'D:\\Work\\www\\localhost\\include\\library\\phpfox\\error\\error.class.php',
+>>>>>>> 9da4617833e288c8ee1de4dcd8b5f62c57afbb3f
     'line' => 91,
   ),
   1 => 
   array (
+<<<<<<< HEAD
     'file' => '/home/den/www/localhost/include/library/phpfox/database/driver/mysql.class.php',
     'line' => 382,
   ),
@@ -564,4 +1982,131 @@ a:4:{s:7:"message";s:45:"Query Error:Duplicate column name 'cf_mobile'";s:9:"bac
       ),
     ),
   ),
+=======
+    'file' => 'D:\\Work\\www\\localhost\\include\\library\\phpfox\\template\\cache.class.php',
+    'line' => 381,
+  ),
+  2 => 
+  array (
+    'file' => 'D:\\Work\\www\\localhost\\include\\library\\phpfox\\template\\cache.class.php',
+    'line' => 314,
+  ),
+  3 => 
+  array (
+    'file' => 'D:\\Work\\www\\localhost\\include\\library\\phpfox\\template\\cache.class.php',
+    'line' => 149,
+  ),
+  4 => 
+  array (
+    'file' => 'D:\\Work\\www\\localhost\\include\\library\\phpfox\\template\\template.class.php',
+    'line' => 2759,
+  ),
+  5 => 
+  array (
+    'file' => 'D:\\Work\\www\\localhost\\include\\library\\phpfox\\template\\template.class.php',
+    'line' => 2239,
+  ),
+  6 => 
+  array (
+    'file' => 'D:\\Work\\www\\localhost\\include\\library\\phpfox\\module\\module.class.php',
+    'line' => 851,
+  ),
+  7 => 
+  array (
+    'file' => 'D:\\Work\\www\\localhost\\include\\library\\phpfox\\phpfox\\phpfox.class.php',
+    'line' => 351,
+  ),
+  8 => 
+  array (
+    'file' => 'D:\\Work\\www\\localhost\\file\\cache\\template\\mail_template_pautina_controller_compose.html.php.php',
+    'line' => 140,
+  ),
+  9 => 
+  array (
+    'file' => 'D:\\Work\\www\\localhost\\include\\library\\phpfox\\template\\template.class.php',
+    'line' => 2770,
+  ),
+  10 => 
+  array (
+    'file' => 'D:\\Work\\www\\localhost\\include\\library\\phpfox\\template\\template.class.php',
+    'line' => 2239,
+  ),
+  11 => 
+  array (
+    'file' => 'D:\\Work\\www\\localhost\\include\\library\\phpfox\\module\\module.class.php',
+    'line' => 436,
+  ),
+  12 => 
+  array (
+    'file' => 'D:\\Work\\www\\localhost\\file\\cache\\template\\frontend_pautina_template_template.html.php.php',
+    'line' => 138,
+  ),
+  13 => 
+  array (
+    'file' => 'D:\\Work\\www\\localhost\\include\\library\\phpfox\\template\\template.class.php',
+    'line' => 2770,
+  ),
+  14 => 
+  array (
+    'file' => 'D:\\Work\\www\\localhost\\include\\library\\phpfox\\template\\template.class.php',
+    'line' => 1987,
+  ),
+  15 => 
+  array (
+    'file' => 'D:\\Work\\www\\localhost\\include\\library\\phpfox\\phpfox\\phpfox.class.php',
+    'line' => 1307,
+  ),
+  16 => 
+  array (
+    'file' => 'D:\\Work\\www\\localhost\\index.php',
+    'line' => 42,
+  ),
+)";s:7:"request";s:37:"array (
+  'do' => '/mail/compose/',
+)";s:2:"ip";s:3:"::1";}##
+<?php defined('PHPFOX') or exit('NO DICE!');  ?>##
+a:4:{s:7:"message";s:24:"Invalid function: jQuery";s:9:"backtrace";s:1066:"array (
+  0 => 
+  array (
+    'file' => 'D:\\Work\\www\\localhost\\include\\library\\phpfox\\error\\error.class.php',
+    'line' => 91,
+  ),
+  1 => 
+  array (
+    'file' => 'D:\\Work\\www\\localhost\\include\\library\\phpfox\\template\\cache.class.php',
+    'line' => 381,
+  ),
+  2 => 
+  array (
+    'file' => 'D:\\Work\\www\\localhost\\include\\library\\phpfox\\template\\cache.class.php',
+    'line' => 314,
+  ),
+  3 => 
+  array (
+    'file' => 'D:\\Work\\www\\localhost\\include\\library\\phpfox\\template\\cache.class.php',
+    'line' => 149,
+  ),
+  4 => 
+  array (
+    'file' => 'D:\\Work\\www\\localhost\\include\\library\\phpfox\\template\\template.class.php',
+    'line' => 2759,
+  ),
+  5 => 
+  array (
+    'file' => 'D:\\Work\\www\\localhost\\include\\library\\phpfox\\template\\template.class.php',
+    'line' => 1987,
+  ),
+  6 => 
+  array (
+    'file' => 'D:\\Work\\www\\localhost\\include\\library\\phpfox\\phpfox\\phpfox.class.php',
+    'line' => 1307,
+  ),
+  7 => 
+  array (
+    'file' => 'D:\\Work\\www\\localhost\\index.php',
+    'line' => 42,
+  ),
+)";s:7:"request";s:37:"array (
+  'do' => '/mail/compose/',
+>>>>>>> 9da4617833e288c8ee1de4dcd8b5f62c57afbb3f
 )";s:2:"ip";s:3:"::1";}##

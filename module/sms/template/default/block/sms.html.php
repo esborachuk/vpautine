@@ -1,10 +1,10 @@
-<form method="post" action={url link='current'}>
+<form method="post" action={url link='sms.index'}>
     <div class="table">
         <div class="table_left">
             Phone number:
         </div>
         <div class="table_right">
-            <input type="text" name="sms[sms-phone]" id="sms-phone" />
+            <input type="text" name="val[sms-phone]" id="sms-phone" />
         </div>
         <div class="clear"></div>
 
@@ -12,9 +12,11 @@
             Message:
         </div>
         <div class="table_right">
-            <textarea name="sms[sms-message]" id="sms-message" rows="8" cols="50" ></textarea>
+            <textarea name="val[sms-message]" id="sms-message" rows="8" cols="50" ></textarea>
         </div>
-        <input type="submit" name="sms[sms-submit]" value="{phrase var='mail.submit'}" class="button"/>
+        <a href="#" onclick="Sms.send($('#sms-phone').val(), $('#sms-message').html()); return false;">
+            {phrase var='mail.submit'}
+        </a>
         <div class="clear"></div>
     </div>
 </form>

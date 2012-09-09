@@ -25,14 +25,14 @@
   array (
     'type_id' => 'string',
     'var_name' => 'title_delim',
-    'value_actual' => '&raquo;',
+    'value_actual' => '»',
     'module_name' => 'core',
   ),
   4 => 
   array (
     'type_id' => 'string',
     'var_name' => 'site_title',
-    'value_actual' => 'SiteName',
+    'value_actual' => 'Pautina',
     'module_name' => 'core',
   ),
   5 => 
@@ -102,7 +102,7 @@
   array (
     'type_id' => 'boolean',
     'var_name' => 'allow_html',
-    'value_actual' => true,
+    'value_actual' => false,
     'module_name' => 'core',
   ),
   15 => 
@@ -211,7 +211,7 @@
   array (
     'type_id' => 'string',
     'var_name' => 'site_copyright',
-    'value_actual' => 'SiteName &copy;',
+    'value_actual' => 'Pautina ©',
     'module_name' => 'core',
   ),
   25 => 
@@ -681,7 +681,7 @@ Site Name',
   array (
     'type_id' => 'string',
     'var_name' => 'global_site_title',
-    'value_actual' => 'Social Networking Community',
+    'value_actual' => 'Pautina',
     'module_name' => 'core',
   ),
   92 => 
@@ -844,7 +844,7 @@ Site Name',
   array (
     'type_id' => 'boolean',
     'var_name' => 'disable_ie_warning',
-    'value_actual' => false,
+    'value_actual' => true,
     'module_name' => 'core',
   ),
   113 => 
@@ -1005,7 +1005,7 @@ Site Name',
   array (
     'type_id' => 'string',
     'var_name' => 'default_lang_id',
-    'value_actual' => 'en',
+    'value_actual' => 'ru',
     'module_name' => 'core',
   ),
   136 => 
@@ -1893,7 +1893,7 @@ Site Name',
   array (
     'type_id' => 'boolean',
     'var_name' => 'comment_is_threaded',
-    'value_actual' => false,
+    'value_actual' => true,
     'module_name' => 'comment',
   ),
   260 => 
@@ -2440,7 +2440,7 @@ Site Name',
   array (
     'type_id' => 'boolean',
     'var_name' => 'enable_im_in_footer_bar',
-    'value_actual' => false,
+    'value_actual' => true,
     'module_name' => 'im',
   ),
   336 => 

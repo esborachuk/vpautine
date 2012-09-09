@@ -1,0 +1,22 @@
+<phrases>
+	<phrase module_id="like" version_id="2.1.0Beta1" var_name="module_like" added="1293004519"><![CDATA[Мне нравится]]></phrase>
+	<phrase module_id="like" version_id="3.0.0beta5" var_name="you" added="1319121089"><![CDATA[Вам]]></phrase>
+	<phrase module_id="like" version_id="3.0.0beta5" var_name="you_and" added="1319121111"><![CDATA[Вам и]]></phrase>
+	<phrase module_id="like" version_id="3.0.0beta5" var_name="you_comma" added="1319121128"><![CDATA[Вам,]]></phrase>
+	<phrase module_id="like" version_id="3.0.0beta5" var_name="and" added="1319121140"><![CDATA[и]]></phrase>
+	<phrase module_id="like" version_id="3.0.0beta5" var_name="1_other_person" added="1319121152">1</phrase>
+	<phrase module_id="like" version_id="3.0.0beta5" var_name="others" added="1319121160"><![CDATA[другие]]></phrase>
+	<phrase module_id="like" version_id="3.0.0beta5" var_name="like_this" added="1319121169"><![CDATA[нравится это.]]></phrase>
+	<phrase module_id="like" version_id="3.0.0beta5" var_name="likes_this" added="1319121177"><![CDATA[нравится это.]]></phrase>
+	<phrase module_id="like" version_id="3.0.0beta5" var_name="1_person" added="1319121390">1</phrase>
+	<phrase module_id="like" version_id="3.0.0beta5" var_name="total_people" added="1319121408"><![CDATA[{total} людям]]></phrase>
+	<phrase module_id="like" version_id="3.0.0beta5" var_name="members" added="1319122349"><![CDATA[Пользователи]]></phrase>
+	<phrase module_id="like" version_id="3.0.0beta5" var_name="people_who_like_this" added="1319122357"><![CDATA[Люди, которым это нравится]]></phrase>
+	<phrase module_id="like" version_id="3.0.0" var_name="nobody_likes_this" added="1323438376">Никто не заинтересовался.</phrase>
+	<phrase module_id="like" version_id="3.0.0" var_name="this_group_has_no_members" added="1323438391">В этой группе нет пользователей.</phrase>
+	<phrase module_id="like" version_id="3.0.0" var_name="article_to_upper" added="1323687563" />
+	<phrase module_id="like" version_id="3.0.0" var_name="article_to_lower" added="1323689277" />
+	<phrase module_id="like" version_id="3.0.0" var_name="you_like" added="1323786728">нравится это</phrase>
+	<phrase module_id="like" version_id="3.0.1" var_name="notification_for_likes" added="1327479557"><![CDATA[Уведомление о "Мне нравится"]]></phrase>
+		<phrase module_id="like" version_id="3.3.0beta2" var_name="setting_show_user_photos" added="1340878575"><![CDATA[<title>Показать фото</title><info>Включите эту функцию, чтобы показать фото пользователя вместо его имени при отображении "Нравится".</info>]]></phrase>
+</phrases>

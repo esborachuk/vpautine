@@ -1,0 +1,21 @@
+<phrases>
+	<phrase module_id="shoutbox" version_id="2.0.0alpha1" var_name="module_shoutbox" added="1232969781">Чат</phrase>
+	<phrase module_id="shoutbox" version_id="2.0.0alpha1" var_name="setting_shoutbox_is_live" added="1233911435"><![CDATA[<title>Живой чат</title><info>Установите <b>Да</b> если вы хотите, чтобы ваш чат, был живым. Если установлено <b>Да</b> ваш чат будет обновляться автоматически, без необходимости для пользователей обновлять страницу вручную для того, чтобы просмотреть новые сообщения.  <b>Примечание: </b> Не все серверы могут обрабатывать такую ​​возможность нагрузки, так что используйте с осторожностью.</info>]]></phrase>
+	<phrase module_id="shoutbox" version_id="2.0.0alpha1" var_name="setting_shoutbox_flood_limit" added="1233912129"><![CDATA[<title>Чат защита от флуда (Секунды)</title><info>Определить предельный поток флуда в считанные секунды.</info>]]></phrase>
+	<phrase module_id="shoutbox" version_id="2.0.0alpha1" var_name="setting_shoutbox_refresh" added="1233913715"><![CDATA[<title>Обновление живого чата (Секунды)</title><info>Определите в секундах, когда следует обновить чат и получить новые сообщения.  <b>Примечание:</b> Настройку <setting>shoutbox_flood_limit</setting> необходимо установить на <b>Да</b> для того, чтобы этот параметр работал.</info>]]></phrase>
+	<phrase module_id="shoutbox" version_id="2.0.0alpha1" var_name="setting_shoutbox_display_limit" added="1233913988"><![CDATA[<title>Лимит отображения</title><info>Выберите, сколько сообщений должно отображаться в чате.</info>]]></phrase>
+	<phrase module_id="shoutbox" version_id="2.0.0alpha1" var_name="setting_shoutbox_time_stamp" added="1233914427"><![CDATA[<title>Штамп времени</title><info>Управление метками времени, которые отображаются возле каждого сообщения.</info>]]></phrase>
+	<phrase module_id="shoutbox" version_id="2.0.0alpha1" var_name="user_setting_can_view_shoutbox" added="1233914536">Может просматривать Мини-чат?</phrase>
+	<phrase module_id="shoutbox" version_id="2.0.0alpha1" var_name="user_setting_can_add_shoutout" added="1233916307">Может писать в чате?</phrase>
+	<phrase module_id="shoutbox" version_id="2.0.0alpha1" var_name="setting_shoutbox_wordwrap" added="1233916620"><![CDATA[<title>Перенос</title><info>Определите, когда переносить текст. Целое число, будет использоваться для переноса длинных фраз, чтобы не растягивать чат.</info>]]></phrase>
+	<phrase module_id="shoutbox" version_id="2.0.0alpha1" var_name="setting_shoutbox_total" added="1233922563"><![CDATA[<title>Сохранение сообщений</title><info>Выберите количество сообщений для сохранения. </info>]]></phrase>
+	<phrase module_id="shoutbox" version_id="2.0.0rc4" var_name="please_wait_limit_seconds_before_adding_a_new_shoutout" added="1255336884">Пожалуйста, подождите {limit} секунд, прежде чем добавлять новые сообщения.</phrase>
+	<phrase module_id="shoutbox" version_id="2.0.0rc4" var_name="only_members_of_this_group_can_leave_a_message" added="1255336919">Только пользователи этой группы могут оставить сообщение.</phrase>
+	<phrase module_id="shoutbox" version_id="2.0.0rc4" var_name="shoutbox" added="1255337003">Чат</phrase>
+	<phrase module_id="shoutbox" version_id="2.0.0rc4" var_name="view_shoutbox" added="1255337022">Посмотреть чат</phrase>
+	<phrase module_id="shoutbox" version_id="2.0.0rc4" var_name="adding_your_shoutout" added="1255337063">Добавление вашего чата</phrase>
+	<phrase module_id="shoutbox" version_id="2.0.0rc4" var_name="user_setting_can_delete_all_shoutbox_messages" added="1255864855">Может удалить все сообщения чата?</phrase>
+	<phrase module_id="shoutbox" version_id="2.0.0rc4" var_name="delete_this_shoutout" added="1255865184">Удалить переписку.</phrase>
+	<phrase module_id="shoutbox" version_id="2.0.0rc4" var_name="are_you_sure" added="1255865416">Вы уверены?</phrase>
+	<phrase module_id="shoutbox" version_id="2.0.0rc8" var_name="enter_a_shoutout" added="1258389086">Войдите, чтобы написать.</phrase>
+</phrases>

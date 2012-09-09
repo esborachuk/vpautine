@@ -1,0 +1,344 @@
+<phrases>
+	<phrase module_id="video" version_id="2.0.0alpha1" var_name="module_video" added="1232964371">Видеозаписи</phrase>
+	<phrase module_id="video" version_id="2.0.0alpha1" var_name="menu_video" added="1232964384">Видеозаписи</phrase>
+	<phrase module_id="video" version_id="2.0.0beta2" var_name="user_setting_can_add_comment_on_video" added="1241971648">Может добавлять комментарии к видео?</phrase>
+	<phrase module_id="video" version_id="2.0.0beta2" var_name="setting_video_time_stamp" added="1242026906"><![CDATA[<title>Видео штамп времени</title><info>м</info>]]></phrase>
+	<phrase module_id="video" version_id="2.0.0beta2" var_name="user_setting_can_edit_own_video" added="1242112583">Может редактировать свое видео?</phrase>
+	<phrase module_id="video" version_id="2.0.0beta2" var_name="user_setting_can_edit_other_video" added="1242112616">Может редактировать видео, добавленное другими пользователями?</phrase>
+	<phrase module_id="video" version_id="2.0.0beta2" var_name="user_setting_can_delete_own_video" added="1242113706">Может удалять собственное видео?</phrase>
+	<phrase module_id="video" version_id="2.0.0beta2" var_name="user_setting_can_delete_other_video" added="1242113732">Может удалить видео, добавленное другими пользователями?</phrase>
+	<phrase module_id="video" version_id="2.0.0beta2" var_name="menu_upload_a_new_video" added="1242118593">Загрузить видеозапись</phrase>
+	<phrase module_id="video" version_id="2.0.0beta2" var_name="menu_share_a_video" added="1242204714">Добавить видео</phrase>
+	<phrase module_id="video" version_id="2.0.0beta2" var_name="menu_videos" added="1242291396">Видеозаписи</phrase>
+	<phrase module_id="video" version_id="2.0.0beta2" var_name="admin_menu_add_category" added="1242293663">Добавить категорию</phrase>
+	<phrase module_id="video" version_id="2.0.0beta2" var_name="admin_menu_manage_categories" added="1242293693">Управление категориями</phrase>
+	<phrase module_id="video" version_id="2.0.0beta2" var_name="setting_ffmpeg_path" added="1242374616"><![CDATA[<title>Путь к FFMPEG</title><info>Путь к FFMPEG</info>]]></phrase>
+	<phrase module_id="video" version_id="2.0.0beta2" var_name="setting_mencoder_path" added="1242374658"><![CDATA[<title>Путь к MENCODER</title><info>Путь к MENCODER</info>]]></phrase>
+	<phrase module_id="video" version_id="2.0.0beta2" var_name="setting_video_file_size_limit" added="1242561688"><![CDATA[<title>Видео максимальный размер файла</title><info>Видео максимальный размер файла в магабайтах</info>]]></phrase>
+	<phrase module_id="video" version_id="2.0.0beta2" var_name="user_setting_video_file_size_limit" added="1242736067">Максимальный размер файла в мегабайтах.</phrase>
+	<phrase module_id="video" version_id="2.0.0beta2" var_name="setting_allow_video_uploading" added="1242803593"><![CDATA[<title>Включить загрузку видео</title><info>Включите эту опцию, если вы хотите, дать пользователям возможность загружать видео со своего компьютера.  <b>Примечание:</b> Эта функция требует, чтобы FFMPEG и MENCODER были установлены. Как только вы попытаетесь включить эту функцию, скрипт сделает првоерку, имеет ли сервер все необходимые скрипты.</info>]]></phrase>
+	<phrase module_id="video" version_id="2.0.0beta2" var_name="user_setting_can_upload_videos" added="1242805129">Может загружать видео?</phrase>
+	<phrase module_id="video" version_id="2.0.0beta3" var_name="setting_embed_auto_play" added="1243855646"><![CDATA[<title>Автоматическое воспроизведение</title><info>Если включить этот параметр, система будет пытаться запустить автоматическое воспроизведение для видео с других ресурсов (например, Youtube). Примечание: Это будет работать только на новом видео.</info>]]></phrase>
+	<phrase module_id="video" version_id="2.0.0rc1" var_name="user_setting_can_feature_videos" added="1250115994">Может изменить параметры?</phrase>
+	<phrase module_id="video" version_id="2.0.0rc1" var_name="user_setting_can_spotlight_videos" added="1250146300">Может добавлять видео в фокус?</phrase>
+	<phrase module_id="video" version_id="2.0.0rc1" var_name="setting_total_my_videos" added="1250235604"><![CDATA[<title>Другое видео</title><info>При просмотре видео, мы покажем другое видео, которое принадлежат владельцу видео. Определите, сколько видео должно отображаться в этом блоке.</info>]]></phrase>
+	<phrase module_id="video" version_id="2.0.0rc1" var_name="setting_total_related_videos" added="1250236359"><![CDATA[<title>Показ похожих видеозаписей</title><info>Определите, сколько похожих видеозаписей должно отображаться при просмотре видео.</info>]]></phrase>
+	<phrase module_id="video" version_id="2.0.0rc1" var_name="user_setting_approve_video_before_display" added="1250238662">Если пользователь этой группы добавил видео, оно проверятся перед публикацией?</phrase>
+	<phrase module_id="video" version_id="2.0.0rc1" var_name="user_setting_can_approve_videos" added="1250242183">Может проверять видео?</phrase>
+	<phrase module_id="video" version_id="2.0.0rc1" var_name="user_setting_max_size_for_video_photos" added="1250251876"><![CDATA[Максимальный размер файла для загрузки фотографий в килобитах (кб). (1000 Кб = 1 Мб) Для неограниченного добавления "0" без кавычек.]]></phrase>
+	<phrase module_id="video" version_id="2.0.0rc1" var_name="setting_video_meta_keywords" added="1252131246"><![CDATA[<title>Ключевые слова видео</title><info>Ключевые слова, используемые в видео-разделе.</info>]]></phrase>
+	<phrase module_id="video" version_id="2.0.0rc1" var_name="setting_video_meta_description" added="1252131304"><![CDATA[<title>Мета описание видео</title><info>Мета описание используемое в разделе видео.</info>]]></phrase>
+	<phrase module_id="video" version_id="2.0.0rc2" var_name="setting_full_screen_with_youtube" added="1253532536"><![CDATA[<title>Включите полноэкранный режим для YouTube</title><info>Включите эту опцию для того, чтобы поддерживалась функция "Полноэкранный режим" для видео с YouTube.</info>]]></phrase>
+	<phrase module_id="video" version_id="2.0.0rc2" var_name="setting_disable_youtube_related_videos" added="1253532687"><![CDATA[<title>Отключение похожих видео с YouTube</title><info>Включите эту функцию, чтобы отключить похожие видео с YouTube.</info>]]></phrase>
+	<phrase module_id="video" version_id="2.0.0rc3" var_name="setting_show_share_and_upload_video_on_dashboard" added="1254218034"><![CDATA[<title>Показать загрузку и обмен на панели</title><info>Здесь вы можете выбрать, что показать на панели управления.</info>]]></phrase>
+	<phrase module_id="video" version_id="2.0.0rc3" var_name="unable_to_edit_this_video_as_there_is_no_video_id" added="1254401648">Невозможно редактировать видео, так как нет видео ID#</phrase>
+	<phrase module_id="video" version_id="2.0.0rc3" var_name="done" added="1254401673">Готово!</phrase>
+	<phrase module_id="video" version_id="2.0.0rc3" var_name="categories" added="1254402091">Категории</phrase>
+	<phrase module_id="video" version_id="2.0.0rc3" var_name="sub_categories" added="1254402112">Подкатегории</phrase>
+	<phrase module_id="video" version_id="2.0.0rc3" var_name="video_details" added="1254402131">Информация о видео</phrase>
+	<phrase module_id="video" version_id="2.0.0rc3" var_name="browse_filter" added="1254402149">Поиск</phrase>
+	<phrase module_id="video" version_id="2.0.0rc3" var_name="more_from" added="1254402174">Больше:</phrase>
+	<phrase module_id="video" version_id="2.0.0rc3" var_name="videos" added="1254402214">Видеозаписи</phrase>
+	<phrase module_id="video" version_id="2.0.0rc3" var_name="view_more" added="1254402255">Ещё</phrase>
+	<phrase module_id="video" version_id="2.0.0rc3" var_name="related_videos" added="1254402325">Похожие видео</phrase>
+	<phrase module_id="video" version_id="2.0.0rc3" var_name="afooter" added="1254402338">aFooter</phrase>
+	<phrase module_id="video" version_id="2.0.0rc3" var_name="spotlight" added="1254402421">В фокусе</phrase>
+	<phrase module_id="video" version_id="2.0.0rc3" var_name="category_successfully_updated" added="1254402459">Категория успешно обновлена.</phrase>
+	<phrase module_id="video" version_id="2.0.0rc3" var_name="category_successfully_added" added="1254402474">Категория успешно добавлена.</phrase>
+	<phrase module_id="video" version_id="2.0.0rc3" var_name="edit_a_category" added="1254402486">Редактировать категорию</phrase>
+	<phrase module_id="video" version_id="2.0.0rc3" var_name="create_a_new_category" added="1254402498">Создать новую категорию</phrase>
+	<phrase module_id="video" version_id="2.0.0rc3" var_name="category_order_successfully_updated" added="1254402543">Порядок категорий успешно обновлён.</phrase>
+	<phrase module_id="video" version_id="2.0.0rc3" var_name="category_successfully_deleted" added="1254402580">Категория успешно удалена.</phrase>
+	<phrase module_id="video" version_id="2.0.0rc3" var_name="manage_categories" added="1254402591">Управление категориями</phrase>
+	<phrase module_id="video" version_id="2.0.0rc3" var_name="id_must_be_defined" added="1254402634">ID должен быть определен.</phrase>
+	<phrase module_id="video" version_id="2.0.0rc3" var_name="unable_to_edit_this_video" added="1254402663">Невозможно изменить это видео</phrase>
+	<phrase module_id="video" version_id="2.0.0rc3" var_name="video_successfully_updated" added="1254402685">Видео успешно обновлено.</phrase>
+	<phrase module_id="video" version_id="2.0.0rc3" var_name="edit_a_video" added="1254402735">Изменить видео</phrase>
+	<phrase module_id="video" version_id="2.0.0rc3" var_name="upload_failed_file_is_too_large" added="1254402946">Загрузка отменена. Видео слишком большое.</phrase>
+	<phrase module_id="video" version_id="2.0.0rc3" var_name="video_section_is_closed" added="1254403051">Этот раздел закрыт.</phrase>
+	<phrase module_id="video" version_id="2.0.0rc3" var_name="video_successfully_deleted" added="1254403096">Видео успешно удалено.</phrase>
+	<phrase module_id="video" version_id="2.0.0rc3" var_name="full_name_s_videos_full_name_has_total_video_s" added="1254403381">{full_name} - Видеозапись. У {full_name} есть {total} видео.</phrase>
+	<phrase module_id="video" version_id="2.0.0rc3" var_name="full_name_s_videos" added="1254403482">{full_name} - Видеозапись</phrase>
+	<phrase module_id="video" version_id="2.0.0rc3" var_name="videos_for_this_profile_is_set_to_private" added="1254403646">Видео только для этого профиля.</phrase>
+	<phrase module_id="video" version_id="2.0.0rc3" var_name="video_successfully_added" added="1254403678">Видеозапись успешно добавлена.</phrase>
+	<phrase module_id="video" version_id="2.0.0rc3" var_name="video_successfull_added_however_you_will_have_to_manually_upload_a_photo_for_it" added="1254403699">Видеозапись успешно добавлена. Необходимо загрузить картинку предпросмотра.</phrase>
+	<phrase module_id="video" version_id="2.0.0rc3" var_name="share_a_video" added="1254403721">Добавить видео</phrase>
+	<phrase module_id="video" version_id="2.0.0rc3" var_name="video_successfully_uploaded" added="1254403776">Видеозапись успешно загружена.</phrase>
+	<phrase module_id="video" version_id="2.0.0rc3" var_name="upload_a_video" added="1254403788">Загрузить видео</phrase>
+	<phrase module_id="video" version_id="2.0.0rc3" var_name="the_video_you_are_looking_for_does_not_exist_or_has_been_removed" added="1254403835">Видеозапись которую вы ищете не существует.</phrase>
+	<phrase module_id="video" version_id="2.0.0rc3" var_name="total_rating_ratings" added="1254403888">{total_rating} Оценок</phrase>
+	<phrase module_id="video" version_id="2.0.0rc3" var_name="poor" added="1254403954">Плохо</phrase>
+	<phrase module_id="video" version_id="2.0.0rc3" var_name="nothing_special" added="1254403965">Ничего особенного</phrase>
+	<phrase module_id="video" version_id="2.0.0rc3" var_name="worth_watching" added="1254403976">Нормально</phrase>
+	<phrase module_id="video" version_id="2.0.0rc3" var_name="pretty_cool" added="1254403987">Хорошо</phrase>
+	<phrase module_id="video" version_id="2.0.0rc3" var_name="awesome" added="1254403996">Отлично</phrase>
+	<phrase module_id="video" version_id="2.0.0rc3" var_name="you_have_already_voted" added="1254404170">Вы уже голосовали.</phrase>
+	<phrase module_id="video" version_id="2.0.0rc3" var_name="you_cannot_rate_your_own_video" added="1254404183">Вы не можете оценивать собственное видео.</phrase>
+	<phrase module_id="video" version_id="2.0.0rc3" var_name="select" added="1254404840">Выбрать</phrase>
+	<phrase module_id="video" version_id="2.0.0rc3" var_name="select_a_sub_category" added="1254404852">Выберите подкатегорию</phrase>
+	<phrase module_id="video" version_id="2.0.0rc3" var_name="nothing_to_convert" added="1254404948">Нет файлов для конвертации.</phrase>
+	<phrase module_id="video" version_id="2.0.0rc3" var_name="started_converting_process" added="1254404962">Начат процесс конвертации.</phrase>
+	<phrase module_id="video" version_id="2.0.0rc3" var_name="converting_store_in_cache_video_id" added="1254405048">Конвертация (хранить в кэше): {video_id}</phrase>
+	<phrase module_id="video" version_id="2.0.0rc3" var_name="updated_process_id" added="1254405081">Обновлен процесс ID#</phrase>
+	<phrase module_id="video" version_id="2.0.0rc3" var_name="start_converting_process_video_id" added="1254405113">Начат процесс конвертации: {video_id}</phrase>
+	<phrase module_id="video" version_id="2.0.0rc3" var_name="file_exists_sdestination" added="1254405171">Файл существует: {sDestination}</phrase>
+	<phrase module_id="video" version_id="2.0.0rc3" var_name="cant_convert_ssource" added="1254405251">Невозможно конвертировать: {sSource}</phrase>
+	<phrase module_id="video" version_id="2.0.0rc3" var_name="converting_ssource" added="1254405295">Конвертирование: {sSource}</phrase>
+	<phrase module_id="video" version_id="2.0.0rc3" var_name="converting_completed_sdestination" added="1254405335">Конвертирование завершено: {sDestination}</phrase>
+	<phrase module_id="video" version_id="2.0.0rc3" var_name="updated_database_video_table" added="1254405376">Обновлена ​​таблица базы данных видео.</phrase>
+	<phrase module_id="video" version_id="2.0.0rc3" var_name="updated_user_points" added="1254405390">Обновлены быллы пользователя.</phrase>
+	<phrase module_id="video" version_id="2.0.0rc3" var_name="removed_source_file" added="1254405401">Удален исходный файл.</phrase>
+	<phrase module_id="video" version_id="2.0.0rc3" var_name="completed_image_simagelocation" added="1254405456">Завершено: {sImageLocation}</phrase>
+	<phrase module_id="video" version_id="2.0.0rc3" var_name="completed_sdestination" added="1254405513">Завершено: {sDestination}</phrase>
+	<phrase module_id="video" version_id="2.0.0rc3" var_name="unable_to_convert_video" added="1254405571">Невозможно конвертировать видео.</phrase>
+	<phrase module_id="video" version_id="2.0.0rc3" var_name="not_a_valid_site_valid_sites_asites" added="1254405633">Мы не загружаем видео с этого сайта. Используйте сайты: {aSites}</phrase>
+	<phrase module_id="video" version_id="2.0.0rc3" var_name="provide_a_category_this_video_will_belong_to" added="1254487824">Укажите категорию для видео.</phrase>
+	<phrase module_id="video" version_id="2.0.0rc3" var_name="unable_to_embed_this_video_due_to_privacy_settings" added="1254487845">Невозможно настроить это видео из-за параметров приватности.</phrase>
+	<phrase module_id="video" version_id="2.0.0rc3" var_name="select_a_video_to_upload" added="1254487878">Выберите видео для загрузки.</phrase>
+	<phrase module_id="video" version_id="2.0.0rc3" var_name="not_a_valid_file_we_only_allow_sallow" added="1254487914">Недопустимый файл. Мы разрешаем: {sAllow}</phrase>
+	<phrase module_id="video" version_id="2.0.0rc3" var_name="select_a_video" added="1254487977">Выберите видео.</phrase>
+	<phrase module_id="video" version_id="2.0.0rc3" var_name="unable_to_process_this_video" added="1254488029">Не удается обработать это видео.</phrase>
+	<phrase module_id="video" version_id="2.0.0rc3" var_name="unable_to_find_the_video_you_plan_to_edit" added="1254488075">Не удалось найти видео, которое планируется изменить.</phrase>
+	<phrase module_id="video" version_id="2.0.0rc3" var_name="provide_a_title_for_this_video" added="1254488086">Придумайте название для этого видео.</phrase>
+	<phrase module_id="video" version_id="2.0.0rc3" var_name="invalid_permissions" added="1254488133">Неверное Расширение.</phrase>
+	<phrase module_id="video" version_id="2.0.0rc3" var_name="unable_to_find_the_video_you_plan_to_delete" added="1254488148">Не удалось найти видео, которое вы планируете удалить.</phrase>
+	<phrase module_id="video" version_id="2.0.0rc3" var_name="unable_to_find_the_video_image_you_plan_to_delete" added="1254488214">Не удалось найти изображение видео, которое вы планируете удалить.</phrase>
+	<phrase module_id="video" version_id="2.0.0rc3" var_name="unable_to_find_the_video_you_want_to_approve" added="1254488246">Не удалось найти видео, которое вы хотите одобрить.</phrase>
+	<phrase module_id="video" version_id="2.0.0rc3" var_name="your_video_has_been_approved_on_site_title" added="1254488300">Ваше видео было утверждено {site_title}</phrase>
+	<phrase module_id="video" version_id="2.0.0rc3" var_name="your_video_has_been_approved_on_site_title_n_nto_view_this_video_follow_the_link_below_n_a_href" added="1254488463"><![CDATA[Ваше видео было утверждено {site_title}. Для просмотра этого видео, перейдите по ссылке ниже:n<a href="{sLink}"> {sLink} </a>]]></phrase>
+	<phrase module_id="video" version_id="2.0.0rc3" var_name="not_a_valid_video_to_display" added="1254488610">Не действительное видео для показа.</phrase>
+	<phrase module_id="video" version_id="2.0.0rc3" var_name="are_you_sure_this_will_delete_all_videos_that_belong_to_this_category_and_cannot_be_undone" added="1254488826">Вы уверены? Данная операция удалит все видеозаписи в этой категории.</phrase>
+	<phrase module_id="video" version_id="2.0.0rc3" var_name="added_by" added="1254488943">Добавил</phrase>
+	<phrase module_id="video" version_id="2.0.0rc3" var_name="rating" added="1254488976">Рейтинг</phrase>
+	<phrase module_id="video" version_id="2.0.0rc3" var_name="category" added="1254488990">Категория</phrase>
+	<phrase module_id="video" version_id="2.0.0rc3" var_name="url" added="1254489013">URL</phrase>
+	<phrase module_id="video" version_id="2.0.0rc3" var_name="embed" added="1254489021">Вставить</phrase>
+	<phrase module_id="video" version_id="2.0.0rc3" var_name="featured" added="1254489041">Рекомендуемые</phrase>
+	<phrase module_id="video" version_id="2.0.0rc3" var_name="pending" added="1254489059">В ожидание</phrase>
+	<phrase module_id="video" version_id="2.0.0rc3" var_name="approve_this_video" added="1254489109">Подтвердить это видео</phrase>
+	<phrase module_id="video" version_id="2.0.0rc3" var_name="approved" added="1254489134">Одобрить</phrase>
+	<phrase module_id="video" version_id="2.0.0rc3" var_name="edit_this_video" added="1254489227">Изменить это видео</phrase>
+	<phrase module_id="video" version_id="2.0.0rc3" var_name="edit" added="1254489247">Изменить</phrase>
+	<phrase module_id="video" version_id="2.0.0rc3" var_name="delete_this_video" added="1254489283">Удалить это видео</phrase>
+	<phrase module_id="video" version_id="2.0.0rc3" var_name="are_you_sure" added="1254489302">Вы уверены?</phrase>
+	<phrase module_id="video" version_id="2.0.0rc3" var_name="delete" added="1254489334">Удалить</phrase>
+	<phrase module_id="video" version_id="2.0.0rc3" var_name="feature_this_video" added="1254489427">Рекомендовать это видео</phrase>
+	<phrase module_id="video" version_id="2.0.0rc3" var_name="unfeature" added="1254489453">Функции</phrase>
+	<phrase module_id="video" version_id="2.0.0rc3" var_name="spotlight_this_video" added="1254489500">Добавить видео в фокус</phrase>
+	<phrase module_id="video" version_id="2.0.0rc3" var_name="remove_the_spotlight_from_this_video" added="1254489533">Снять фокус с этого видео</phrase>
+	<phrase module_id="video" version_id="2.0.0rc3" var_name="remove_spotlight" added="1254489549">Сделать скрытым</phrase>
+	<phrase module_id="video" version_id="2.0.0rc3" var_name="keywords" added="1254489744">Ключевые Слова</phrase>
+	<phrase module_id="video" version_id="2.0.0rc3" var_name="submit" added="1254489754">Поиск</phrase>
+	<phrase module_id="video" version_id="2.0.0rc3" var_name="reset" added="1254489762">Сброс</phrase>
+	<phrase module_id="video" version_id="2.0.0rc3" var_name="video_title" added="1254489785">Название видеозаписи</phrase>
+	<phrase module_id="video" version_id="2.0.0rc3" var_name="description" added="1254489808">Описание</phrase>
+	<phrase module_id="video" version_id="2.0.0rc3" var_name="by" added="1254490481">Автор</phrase>
+	<phrase module_id="video" version_id="2.0.0rc3" var_name="report_a_video" added="1254490573">Пожаловаться на видеозапись</phrase>
+	<phrase module_id="video" version_id="2.0.0rc3" var_name="report" added="1254490584">Пожаловаться</phrase>
+	<phrase module_id="video" version_id="2.0.0rc3" var_name="add_to_your_favorites" added="1254490592">Добавить в избранное</phrase>
+	<phrase module_id="video" version_id="2.0.0rc3" var_name="add_to_favorites" added="1254490600">Добавить в избранное</phrase>
+	<phrase module_id="video" version_id="2.0.0rc3" var_name="edit_this_video_menu" added="1254490709">Изменить эту видеозапись</phrase>
+	<phrase module_id="video" version_id="2.0.0rc3" var_name="delete_this_video_menu" added="1254490763">Удалить эту видеозапись</phrase>
+	<phrase module_id="video" version_id="2.0.0rc3" var_name="total_views_views" added="1254490886">{total_views} просмотров</phrase>
+	<phrase module_id="video" version_id="2.0.0rc3" var_name="no_videos_have_been_added_yet" added="1254490981">Видеозапись ещё не добавлена.</phrase>
+	<phrase module_id="video" version_id="2.0.0rc3" var_name="be_the_first_to_add_a_video" added="1254490991">Будьте первым! Добавьте видео.</phrase>
+	<phrase module_id="video" version_id="2.0.0rc3" var_name="go_advanced" added="1254491246">Расширенный</phrase>
+	<phrase module_id="video" version_id="2.0.0rc3" var_name="cancel" added="1254491255">отмена</phrase>
+	<phrase module_id="video" version_id="2.0.0rc3" var_name="no_videos_added_yet_link_to_add" added="1254491516"><![CDATA[Видеозаписи ещё не добавлены. Нажмите <a href="{sAddNewVideoLink}"> здесь</a>, чтобы добавить новую видеозапись.]]></phrase>
+	<phrase module_id="video" version_id="2.0.0rc3" var_name="update" added="1254491664">Обновить</phrase>
+	<phrase module_id="video" version_id="2.0.0rc3" var_name="no_videos_added_yet" added="1254491928">Видеозаписи ещё не добавили.</phrase>
+	<phrase module_id="video" version_id="2.0.0rc3" var_name="add_a_new_video" added="1254491938">Добавить новую видеозапись</phrase>
+	<phrase module_id="video" version_id="2.0.0rc3" var_name="video_category_details" added="1254492010">Подробная информация о категории</phrase>
+	<phrase module_id="video" version_id="2.0.0rc3" var_name="name" added="1254492016">Название</phrase>
+	<phrase module_id="video" version_id="2.0.0rc3" var_name="parent_category" added="1254492030">Категория</phrase>
+	<phrase module_id="video" version_id="2.0.0rc3" var_name="select_form_select" added="1254492052">Выбрать</phrase>
+	<phrase module_id="video" version_id="2.0.0rc3" var_name="update_order" added="1254492100">Обновление описания</phrase>
+	<phrase module_id="video" version_id="2.0.0rc3" var_name="view_this_video" added="1254492141">Смотреть видео</phrase>
+	<phrase module_id="video" version_id="2.0.0rc3" var_name="step_2" added="1254492172">Шаг 2</phrase>
+	<phrase module_id="video" version_id="2.0.0rc3" var_name="photo" added="1254492181">Фотография</phrase>
+	<phrase module_id="video" version_id="2.0.0rc3" var_name="step_1" added="1254492220">Шаг 1</phrase>
+	<phrase module_id="video" version_id="2.0.0rc3" var_name="save" added="1254492263">Сохранить</phrase>
+	<phrase module_id="video" version_id="2.0.0rc3" var_name="video_photo" added="1254492274">Изображение для видео</phrase>
+	<phrase module_id="video" version_id="2.0.0rc3" var_name="here" added="1254492361">здесь</phrase>
+	<phrase module_id="video" version_id="2.0.0rc3" var_name="click_to_delete_this_image" added="1254492819"><![CDATA[Нажмите <a href="#" onclick="{on_delete_image}">здесь</a> для удаления этого изображения и загрузки нового.]]></phrase>
+	<phrase module_id="video" version_id="2.0.0rc3" var_name="you_can_upload_a_jpg_gif_or_png_file" added="1254567468">Вы можете загрузить JPG, GIF или PNG файл.</phrase>
+	<phrase module_id="video" version_id="2.0.0rc3" var_name="the_file_size_limit_is" added="1254568982">Максимальный размер файла равен {iMaxFileSize_filesize}. Если ваша загрузка не работает, попытайтесь загрузить картинку меньшего размера.</phrase>
+	<phrase module_id="video" version_id="2.0.0rc3" var_name="you_have_not_added_any_videos" added="1254569091">Вы не добавили ни одного видео.</phrase>
+	<phrase module_id="video" version_id="2.0.0rc3" var_name="browse_other_videos" added="1254569752">Смотреть другие видеозаписи</phrase>
+	<phrase module_id="video" version_id="2.0.0rc3" var_name="no_videos_have_been_added" added="1254569764">Нет добавленных видео.</phrase>
+	<phrase module_id="video" version_id="2.0.0rc3" var_name="there_is_one_video_that_is_pending_approval" added="1254569791">Существует один видео файл, ожидающий подтверждения.</phrase>
+	<phrase module_id="video" version_id="2.0.0rc3" var_name="there_are_ivideoapprovecnt_videos_that_are_pending_approval" added="1254569811">{iVideoApproveCnt} видеозаписи, которые ожидают подтверждение.</phrase>
+	<phrase module_id="video" version_id="2.0.0rc3" var_name="click_here_to_approve_videos" added="1254569985"><![CDATA[Нажмите <a href="{sLinkPendingVideos}">здесь</a> чтобы сохранить видео.]]></phrase>
+	<phrase module_id="video" version_id="2.0.0rc3" var_name="video_url" added="1254570126">Видеозапись URL</phrase>
+	<phrase module_id="video" version_id="2.0.0rc3" var_name="supported_sites" added="1254570139">Поддержка сайтов</phrase>
+	<phrase module_id="video" version_id="2.0.0rc3" var_name="add" added="1254570150">Добавить</phrase>
+	<phrase module_id="video" version_id="2.0.0rc3" var_name="add_a_video" added="1254570165">Добавить видеозапись</phrase>
+	<phrase module_id="video" version_id="2.0.0rc3" var_name="view_your_videos" added="1254570239">Просмотр видео</phrase>
+	<phrase module_id="video" version_id="2.0.0rc3" var_name="upload_more_videos" added="1254570254">Добавить видеозаписи</phrase>
+	<phrase module_id="video" version_id="2.0.0rc3" var_name="uploading" added="1254570297">Загружаю</phrase>
+	<phrase module_id="video" version_id="2.0.0rc3" var_name="upload_copyrights_notice" added="1254570328">Вы должны иметь все права на видеозаписи, которые загружаете. Вы должны загружать видеозаписи, на которое у вас есть все права. Если Вы хотите загрузить видеозапись, у которого вы не владеете всеми правами, вы можете нарушить авторское право.</phrase>
+	<phrase module_id="video" version_id="2.0.0rc3" var_name="copyright_consequences_notice" added="1254570461">Загрузка видео с авторскими правами без явного согласия владельца, ваш профиль, была отменена.</phrase>
+	<phrase module_id="video" version_id="2.0.0rc3" var_name="select_video" added="1254570475">Выберите видеозапись</phrase>
+	<phrase module_id="video" version_id="2.0.0rc3" var_name="you_can_upload_a_sfileext_file" added="1254570500">Вы можете загрузить {sFileExt} файл.</phrase>
+	<phrase module_id="video" version_id="2.0.0rc3" var_name="max_file_size_iuploadlimit" added="1254570537">Максимальный размер файла: {iUploadLimit}</phrase>
+	<phrase module_id="video" version_id="2.0.0rc3" var_name="video_is_being_processed" added="1254570641">Видеозапись находится в обработке.</phrase>
+	<phrase module_id="video" version_id="2.0.0rc3" var_name="video_is_pending_approval" added="1254570697">Видеозапись ожидает одобрения.</phrase>
+	<phrase module_id="video" version_id="2.0.0rc3" var_name="user_link_has_not_added_any_videos" added="1254570788">{user_link} не добавил ни одного видео.</phrase>
+	<phrase module_id="video" version_id="2.0.0rc3" var_name="date_added" added="1254570903">Добавлено</phrase>
+	<phrase module_id="video" version_id="2.0.0rc3" var_name="popular" added="1254570916">Популярное</phrase>
+	<phrase module_id="video" version_id="2.0.0rc3" var_name="most_discussed" added="1254570931">Наиболее часто обсуждаемые</phrase>
+	<phrase module_id="video" version_id="2.0.0rc3" var_name="most_viewed" added="1254570958">Популярное</phrase>
+	<phrase module_id="video" version_id="2.0.0rc3" var_name="recent_videos" added="1254570986">Новые</phrase>
+	<phrase module_id="video" version_id="2.0.0rc3" var_name="sort" added="1254571208">Сортировка</phrase>
+	<phrase module_id="video" version_id="2.0.0rc3" var_name="in_sorting_order" added="1254571227">в</phrase>
+	<phrase module_id="video" version_id="2.0.0rc4" var_name="manage_videos" added="1255354432">Управление видео</phrase>
+	<phrase module_id="video" version_id="2.0.0rc4" var_name="your_video_title_has_been_approved" added="1255354861"><![CDATA[Ваше видео "{title}" было одобрено.]]></phrase>
+	<phrase module_id="video" version_id="2.0.0rc4" var_name="view_videos" added="1255354886">Просмотреть видеозапись</phrase>
+	<phrase module_id="video" version_id="2.0.0rc4" var_name="a_href_user_link_owner_full_name_a_added_a_new_video_a_href_title_link_title_a" added="1255354930"><![CDATA[<a href="{user_link}">{owner_full_name}</a> добавил(а) новое видео "<a href="{title_link}">{title}</a>".]]></phrase>
+	<phrase module_id="video" version_id="2.0.0rc4" var_name="a_href_user_link_full_name_a_added_a_new_comment_on_their_own_a_href_title_link_video_a" added="1255355112"><![CDATA[<a href="{user_link}">{full_name}</a> написал(а) новый комментарий на собственное <a href="{title_link}">видео</a>.]]></phrase>
+	<phrase module_id="video" version_id="2.0.0rc4" var_name="a_href_user_link_full_name_a_added_a_new_comment_on_your_a_href_title_link_video_a" added="1255355165"><![CDATA[<a href="{user_link}">{full_name}</a> написал(а) новый комментарий на <a href="{title_link}">видео</a>.]]></phrase>
+	<phrase module_id="video" version_id="2.0.0rc4" var_name="a_href_user_link_full_name_a_added_a_new_comment_on_a_href_item_user_link_item_user_name_s_a_a_href_title_link_video_a" added="1255355190"><![CDATA[<a href="{user_link}">{full_name}</a> написал(а) комментарий к <a href="{item_user_link}">{item_user_name}</a> <a href="{title_link}">видео</a>.]]></phrase>
+	<phrase module_id="video" version_id="2.0.0rc4" var_name="on_name_s_video" added="1255355310">На {name} видео.</phrase>
+	<phrase module_id="video" version_id="2.0.0rc4" var_name="user_name_left_you_a_comment_on_site_title" added="1255355342">{user_name} Слева ваши комментарии {site_title}.</phrase>
+	<phrase module_id="video" version_id="2.0.0rc4" var_name="user_name_left_you_a_comment_on_your_video_title" added="1255355395"><![CDATA[{user_name} слева ваши комментарии на видео "{title}".  Для просмотра данного комментария, перейдите по ссылке ниже: <a href="{link}">{link}</a>]]></phrase>
+	<phrase module_id="video" version_id="2.0.0rc4" var_name="video_text" added="1255860208">Видеозапись Текст</phrase>
+	<phrase module_id="video" version_id="2.0.0rc6" var_name="added" added="1256899507">Добавлено</phrase>
+	<phrase module_id="video" version_id="2.0.0rc6" var_name="comments" added="1256899516">Комментарии</phrase>
+	<phrase module_id="video" version_id="2.0.0rc6" var_name="view" added="1256899530">Просмотр</phrase>
+	<phrase module_id="video" version_id="2.0.0rc6" var_name="embedding_this_video_is_not_allowed_try_another_video" added="1256905055">Данный формат видео не разрешен. Попробуйте другой.</phrase>
+	<phrase module_id="video" version_id="2.0.0rc6" var_name="full_name_wrote_a_comment_on_your_video" added="1257316881"><![CDATA[<a href="{user_link}">{full_name}</a> пишет комментарий к видео "<a href="{link}">{title}</a>".]]></phrase>
+	<phrase module_id="video" version_id="2.0.0rc7" var_name="un_feature_this_video" added="1257799894">Снять рекомендацию с этого видео</phrase>
+	<phrase module_id="video" version_id="2.0.0rc8" var_name="user_setting_points_video" added="1258461532">Баллы, полученные при добавление видео.</phrase>
+	<phrase module_id="video" version_id="2.0.0rc8" var_name="tags" added="1258733037">Метки</phrase>
+	<phrase module_id="video" version_id="2.0.0rc8" var_name="view_more_videos" added="1258739743">Количество просмотров видеозаписи</phrase>
+	<phrase module_id="video" version_id="2.0.0rc8" var_name="video_added_on_time_stamp_by_full_name" added="1258739906"><![CDATA[<a href="{link}">Видеозапись</a> добавлена {time_stamp} <a href="{user_link}">{full_name}</a>.]]></phrase>
+	<phrase module_id="video" version_id="2.0.0rc8" var_name="update_video_view_count" added="1258986172"><![CDATA[Обновление статистики видео "посмотров" (только для обновившихся с v1.6.21).]]></phrase>
+	<phrase module_id="video" version_id="2.0.0rc8" var_name="total_views" added="1259000889">{total} просмотров</phrase>
+	<phrase module_id="video" version_id="2.0.0rc10" var_name="favorite" added="1259352726">Избранное</phrase>
+	<phrase module_id="video" version_id="2.0.0rc11" var_name="user_setting_can_access_videos" added="1260286300">Может просматривать видео модуль?</phrase>
+	<phrase module_id="video" version_id="2.0.0rc12" var_name="a_href_user_link_full_name_a_likes_your_a_href_link_video_a" added="1260472724"><![CDATA[<a href="{user_link}">{full_name}</a> нравится ваше <a href="{link}">видео</a>.]]></phrase>
+	<phrase module_id="video" version_id="2.0.0rc12" var_name="a_href_user_link_full_name_a_likes_their_own_a_href_link_video_a" added="1260472742"><![CDATA[<a href="{user_link}">{full_name}</a> нравится {gender} <a href="{link}">видео</a>.]]></phrase>
+	<phrase module_id="video" version_id="2.0.0rc12" var_name="a_href_user_link_full_name_a_likes_a_href_view_user_link_view_full_name_a_s_a_href_link_video_a" added="1260472757"><![CDATA[<a href="{user_link}">{full_name}</a> нравится <a href="{view_user_link}">{view_full_name}</a> <a href="{link}">видео</a>.]]></phrase>
+	<phrase module_id="video" version_id="2.0.0rc12" var_name="upload_videos" added="1260904165">Загрузить видео</phrase>
+	<phrase module_id="video" version_id="2.0.0" var_name="update_tags_videos" added="1261056044">Обновление тегов видеозаписи</phrase>
+	<phrase module_id="video" version_id="2.0.0" var_name="1_view" added="1261163385">1 просмотр</phrase>
+	<phrase module_id="video" version_id="2.0.0" var_name="no_videos_found" added="1261413540">Видеозаписи не найдены.</phrase>
+	<phrase module_id="video" version_id="2.0.0" var_name="total_rating_out_of_10" added="1261569933">{total_rating} из 10</phrase>
+	<phrase module_id="video" version_id="2.0.2" var_name="rss_group_name_4" added="1263216651">Видеозаписи</phrase>
+	<phrase module_id="video" version_id="2.0.2" var_name="rss_title_5" added="1263216811">Новые</phrase>
+	<phrase module_id="video" version_id="2.0.2" var_name="rss_description_5" added="1263216811">Список всех последних видео файлов.</phrase>
+	<phrase module_id="video" version_id="2.0.4" var_name="please_provide_a_valid_url_for_your_video" added="1266501161">Просим предоставить верную URL для вашего видео.</phrase>
+	<phrase module_id="video" version_id="2.0.5" var_name="user_setting_can_sponsor_video" added="1270026188">Могут ли пользователи этой группы стать рекламодателями в разделе видео?</phrase>
+	<phrase module_id="video" version_id="2.0.5" var_name="unsponsor_this_video" added="1270026492">Рекламировать</phrase>
+	<phrase module_id="video" version_id="2.0.5" var_name="sponsor_this_video" added="1270026503">Не рекламировать</phrase>
+	<phrase module_id="video" version_id="2.0.5" var_name="video_successfully_sponsored" added="1270029791">Видео успешно прорекламировано</phrase>
+	<phrase module_id="video" version_id="2.0.5" var_name="video_successfully_un_sponsored" added="1270029804">Видео больше не рекламируется</phrase>
+	<phrase module_id="video" version_id="2.0.5" var_name="sponsored_video" added="1270031934">Автор видеозаписи</phrase>
+	<phrase module_id="video" version_id="2.0.5" var_name="user_setting_can_purchase_sponsor" added="1271076186">Могут ли пользователи данной группы купить рекламное место для объявлений?</phrase>
+	<phrase module_id="video" version_id="2.0.5" var_name="sponsor_help" added="1271148643"><![CDATA[Для покупки рекламного места для вашего видео, выберите видео, нажав на него, а затем нажмите кнопку "Реклама" в меню с правой стороны]]></phrase>
+	<phrase module_id="video" version_id="2.0.5" var_name="encourage_sponsor" added="1271150347">Автор видеозаписи</phrase>
+	<phrase module_id="video" version_id="2.0.5" var_name="user_setting_video_sponsor_price" added="1271756668">Сколько стоит рекламное место для видео? Работает на основе CPM.</phrase>
+	<phrase module_id="video" version_id="2.0.5" var_name="sponsor_paypal_message" added="1271941483">Оплата за использованное место для видео: {sVideoTitle}</phrase>
+	<phrase module_id="video" version_id="2.0.5" var_name="sponsor_title" added="1271941956">Видеозапись: {sVideoTitle}</phrase>
+	<phrase module_id="video" version_id="2.0.5" var_name="sponsor_error_not_found" added="1271942415">Видео, которое вы пытаетесь найти, не существует.</phrase>
+	<phrase module_id="video" version_id="2.0.5" var_name="user_setting_auto_publish_sponsored_item" added="1272007206">Проверять видео перед появлением на сайте?</phrase>
+	<phrase module_id="video" version_id="2.0.5" var_name="comments_total_comment" added="1273233241">Комментарии ({total_comment})</phrase>
+	<phrase module_id="video" version_id="2.0.5" var_name="total_score_out_of_10" added="1273233268">{total_score} из 10</phrase>
+	<phrase module_id="video" version_id="2.0.5dev2" var_name="user_setting_flood_control_videos" added="1275107164"><![CDATA[Сколько минут должен ждать пользователь перед тем как сможет поделиться или загрузить другой файл?  Примечание: если значение установлено на "0" (без кавычек), по умолчанию, пользователям не придется ждать.]]></phrase>
+	<phrase module_id="video" version_id="2.0.5dev2" var_name="you_are_sharing_a_video_a_little_too_soon" added="1275107266">Слишком быстро, не спешите.</phrase>
+	<phrase module_id="video" version_id="2.0.5dev2" var_name="you_are_uploading_a_video_a_little_too_soon" added="1275107571">Слишком быстро, не спешите.</phrase>
+	<phrase module_id="video" version_id="2.0.5" var_name="setting_params_for_ffmpeg" added="1275917842"><![CDATA[<title>Параметры для FFMPEG</title><info>Это строки, которые будут использоваться при конвертации видео, используя FFmpeg. Следующие параметры применяются: {source} путь к файлу видео, для преобразования {destination} путь к файлу преобразованного видео {width} ширина области {height} высота области</info>]]></phrase>
+	<phrase module_id="video" version_id="2.0.5" var_name="setting_params_for_mencoder" added="1275918473"><![CDATA[<title>Параметры для Mencoder</title><info>Это строки, которые будут использоваться при конвертировании видео с помощью MEncoder. Следующие параметры применяются: {source} путь к файлу видео, для преобразования {destination} путь к файлу преобразованного видео {width} ширина области {height} высота области</info>]]></phrase>
+	<phrase module_id="video" version_id="2.0.5" var_name="setting_params_for_mencoder_fallback" added="1275919046"><![CDATA[<title>Параметры для Mencoder</title><info>Это строки, которые будут использоваться при конвертировании видео с помощью MEncoder. Следующие параметры применяются: {source} путь к файлу видео, для преобразования {destination} путь к файлу преобразованного видео {width} ширина области {height} высота области</info>]]></phrase>
+	<phrase module_id="video" version_id="2.0.5" var_name="setting_flvtool2_path" added="1275991521"><![CDATA[<title>Путь к FLVTool2</title><info>Путь к FLVTool2</info>]]></phrase>
+	<phrase module_id="video" version_id="2.0.5" var_name="setting_params_for_flvtool2" added="1275991617"><![CDATA[<title>Параметры для FLVTool2</title><info>Это строки, которые будут использоваться при конвертировании видео с помощью FLVTool2. Следующие параметры применяются: {source} путь к файлу видео, для преобразования {destination} путь к файлу преобразованного видео {width} ширина области {height} высота области</info>]]></phrase>
+	<phrase module_id="video" version_id="2.0.5" var_name="setting_enable_flvtool2" added="1275992422"><![CDATA[<title>Включить FLVTool2</title><info>Вызывать скрипт FLVTool2 после конвертации видео?</info>]]></phrase>
+	<phrase module_id="video" version_id="2.0.7" var_name="setting_close_sql_connection_while_converting" added="1288619093"><![CDATA[<title>Закрыть подключение SQL во время конвертирования</title><info>Включите этот параметр, чтобы закрыть подключение SQL при конвертировании видео.</info>]]></phrase>
+	<phrase module_id="video" version_id="3.0.0Beta1" var_name="video" added="1302203053">Видеозаписи</phrase>
+	<phrase module_id="video" version_id="3.0.0Beta1" var_name="say_something_about_this_video" added="1302203060">Расскажите что-нибудь об этом видео...</phrase>
+	<phrase module_id="video" version_id="2.0.8" var_name="setting_video_enable_mass_uploader" added="1295446768"><![CDATA[<title>Включить массовую загрузку</title><info>Когда включено, пользователи смогут выбрать несколько файлов для загрузки. Используется SWFUpload (http://code.google.com/p/swfupload/) и Flash объекты.</info>]]></phrase>
+	<phrase module_id="video" version_id="2.0.8" var_name="use_simple_uploader" added="1296655127">Использовать простой загрузчик</phrase>
+	<phrase module_id="video" version_id="2.0.8" var_name="use_mass_uploader" added="1296655149">Использовать массовый загрузчик</phrase>
+	<phrase module_id="video" version_id="2.1.0beta1" var_name="setting_allow_youtube_iframe" added="1299846652"><![CDATA[<title>Разрешить IFrame с Youtube</title><info>IFrame представляют угрозу безопасности, и по умолчанию отключены в системе. Если вы хотите, разрешить пользователям вставлять видео с YouTube можно включить IFrame только для YouTube здесь.</info>]]></phrase>
+	<phrase module_id="video" version_id="3.0.0beta5" var_name="viewing_video" added="1319121862">Просмотр видео</phrase>
+	<phrase module_id="video" version_id="3.0.0beta5" var_name="title" added="1319122758">Название</phrase>
+	<phrase module_id="video" version_id="3.0.0beta5" var_name="select_a_video_to_attach" added="1319122771">Выберите видео для вложения.</phrase>
+	<phrase module_id="video" version_id="3.0.0beta5" var_name="video_has_been_approved" added="1319183708">Видеозапись была одобрена.</phrase>
+	<phrase module_id="video" version_id="3.0.0beta5" var_name="video_approved" added="1319183716">Видеозапись проверена</phrase>
+	<phrase module_id="video" version_id="3.0.0beta5" var_name="go_advanced_uppercase" added="1319198040">Расширенный</phrase>
+	<phrase module_id="video" version_id="3.0.0beta5" var_name="cancel_uppercase" added="1319198053">Отмена</phrase>
+	<phrase module_id="video" version_id="3.0.0beta5" var_name="search_videos" added="1319198077">Поиск видео...</phrase>
+	<phrase module_id="video" version_id="3.0.0beta5" var_name="latest" added="1319198083">Последнее</phrase>
+	<phrase module_id="video" version_id="3.0.0beta5" var_name="most_liked" added="1319198098">Наиболее понравившееся</phrase>
+	<phrase module_id="video" version_id="3.0.0beta5" var_name="all_videos" added="1319198120">Все видео</phrase>
+	<phrase module_id="video" version_id="3.0.0beta5" var_name="my_videos" added="1319198127">Мое видео</phrase>
+	<phrase module_id="video" version_id="3.0.0beta5" var_name="friends_videos" added="1319198136">Видеозаписи друзей</phrase>
+	<phrase module_id="video" version_id="3.0.0beta5" var_name="featured_videos" added="1319198144">Избранные видео</phrase>
+	<phrase module_id="video" version_id="3.0.0beta5" var_name="topic" added="1319198185">Тема</phrase>
+	<phrase module_id="video" version_id="3.0.0beta5" var_name="approve" added="1319198200">Одобрить</phrase>
+	<phrase module_id="video" version_id="3.0.0beta5" var_name="your_video_has_successfully_been_uploaded_please_standby_while_we_convert_your_video" added="1319198239">Ваше видео было успешно загружено. Пожалуйста, подождите, пока видео конвертируется.</phrase>
+	<phrase module_id="video" version_id="3.0.0beta5" var_name="upload_problems_try_the_basic_uploader" added="1319198271"><![CDATA[Проблемы с загрузкой? Попробуйте <a href="{link}">простой загрузчик</a>.]]></phrase>
+	<phrase module_id="video" version_id="3.0.0beta5" var_name="upload" added="1319198287">Загрузить</phrase>
+	<phrase module_id="video" version_id="3.0.0beta5" var_name="click_here_to_view_a_list_of_supported_sites" added="1319198319"><![CDATA[Нажмите <a href="#" onclick="$Core.box('video.supportedSites', 600); return false;">здесь</a> для просмотра списка поддерживаемых сайтов, с которые вы можете импортировать видео.]]></phrase>
+	<phrase module_id="video" version_id="3.0.0beta5" var_name="privacy" added="1319198327">Приватность</phrase>
+	<phrase module_id="video" version_id="3.0.0beta5" var_name="control_who_can_see_this_video" added="1319198336">Кто может смотреть это видео?</phrase>
+	<phrase module_id="video" version_id="3.0.0beta5" var_name="comment_privacy" added="1319198343">Кто может комментировать?</phrase>
+	<phrase module_id="video" version_id="3.0.0beta5" var_name="control_who_can_comment_on_this_video" added="1319198352">Кто может комментировать это видео?</phrase>
+	<phrase module_id="video" version_id="3.0.0beta5" var_name="link" added="1319198605">Ссылка</phrase>
+	<phrase module_id="video" version_id="3.0.0beta5" var_name="un_sponsor" added="1319198617">Не рекламировать</phrase>
+	<phrase module_id="video" version_id="3.0.0beta5" var_name="sponsor" added="1319198623">Рекламировать</phrase>
+	<phrase module_id="video" version_id="3.0.0beta5" var_name="feature" added="1319198632">Показать</phrase>
+	<phrase module_id="video" version_id="3.0.0beta5" var_name="un_feature" added="1319198641">Скрыть</phrase>
+	<phrase module_id="video" version_id="3.0.0beta5" var_name="sponsored" added="1319198652">Рекламные</phrase>
+	<phrase module_id="video" version_id="3.0.0beta5" var_name="moderate" added="1319198660">Модерация</phrase>
+	<phrase module_id="video" version_id="3.0.0beta5" var_name="by_full_name" added="1319198682">от {full_name}</phrase>
+	<phrase module_id="video" version_id="3.0.0beta5" var_name="actions" added="1319198997">Действия</phrase>
+	<phrase module_id="video" version_id="3.0.0beta5" var_name="show_more" added="1319199102">Показать больше</phrase>
+	<phrase module_id="video" version_id="3.0.0beta5" var_name="show_less" added="1319199109">Показать меньше</phrase>
+	<phrase module_id="video" version_id="3.0.0beta5" var_name="report_this_video" added="1319199203">Пожаловаться на видео</phrase>
+	<phrase module_id="video" version_id="3.0.0beta5" var_name="unable_to_view_this_item_due_to_privacy_settings" added="1319199213">Не удается просмотреть этот элемент в связи с настройками приватности.</phrase>
+	<phrase module_id="video" version_id="3.0.0beta5" var_name="editing_video" added="1319199289">Изменение видеозаписи</phrase>
+	<phrase module_id="video" version_id="3.0.0beta5" var_name="full_name_liked_your_video_title" added="1319530124"><![CDATA[{full_name} нравится ваша видеозапись "{title}"]]></phrase>
+	<phrase module_id="video" version_id="3.0.0beta5" var_name="full_name_liked_your_video_message" added="1319530311"><![CDATA[{full_name} нравится ваша видеозапись "<a href="{link}">{title}</a>" Для просмотра этой видеозаписи, перейдите по ссылке ниже: <a href="{link}">{link}</a>]]></phrase>
+	<phrase module_id="video" version_id="3.0.0" var_name="update_user_video_count" added="1322462306">Обновить счетчик видео пользователя</phrase>
+	<phrase module_id="video" version_id="3.0.0" var_name="full_name_commented_on_your_video_title" added="1322465905"><![CDATA[{full_name} прокомментировал(а) вашу видеозапись "{title}".]]></phrase>
+	<phrase module_id="video" version_id="3.0.0" var_name="unable_to_post_a_comment_on_this_item_due_to_privacy_settings" added="1322733641">Невозможно, оставить комментарий в связи с настройками приватности.</phrase>
+	<phrase module_id="video" version_id="3.0.0" var_name="posted_a_comment_on_gender_video" added="1322733804">прокомментировал(а) {gender} видеозапись</phrase>
+	<phrase module_id="video" version_id="3.0.0" var_name="posted_a_comment_on_user_name_s_video" added="1322733958"><![CDATA[прокомментировал(а) {user_name} видеозапись]]></phrase>
+	<phrase module_id="video" version_id="3.0.0" var_name="full_name_commented_on_your_video_a_href_link_title_a_to_see_the_comment_thread_follow_the_link_below_a_href_link_link_a" added="1322734285"><![CDATA[{full_name} прокомментировал(а) вашу видеозапись "<a href="{link}">{title}</a>".
+Чтобы увидеть комментарии, пройдите по ссылке ниже:
+<a href="{link}">{link}</a>]]></phrase>
+	<phrase module_id="video" version_id="3.0.0" var_name="full_name_commented_on_gender_video" added="1322734362">{full_name} прокомментировал(а) {gender} видеозапись.</phrase>
+	<phrase module_id="video" version_id="3.0.0" var_name="full_name_commented_on_other_full_name_s_video" added="1322734464"><![CDATA[{full_name} прокомментировал(а) {other_full_name} видеозапись.]]></phrase>
+	<phrase module_id="video" version_id="3.0.0" var_name="full_name_commented_on_gender_video_a_href_link_title_a_to_see_the_comment_thread_follow_the_link_below_a_href_link_link_a" added="1322734665"><![CDATA[{full_name} прокомментировал(а) {gender} видеозапись "<a href="{link}">{title}</a>".
+Чтобы увидеть комментарии, пройдите по ссылке ниже:
+<a href="{link}">{link}</a>]]></phrase>
+	<phrase module_id="video" version_id="3.0.0" var_name="full_name_commented_on_other_full_name_s_video_a_href_link_title_a_to_see_the_comment_thread_follow_the_link_below_a_href_link_link_a" added="1322734859"><![CDATA[{full_name} прокомментировал(а) {other_full_name} видеозапись "<a href="{link}">{title}</a>.
+Чтобы увидеть комментарии, пройдите по ссылке ниже:
+<a href="{link}">{link}</a>]]></phrase>
+	<phrase module_id="video" version_id="3.0.0" var_name="user_name_liked_gender_own_video_title" added="1322735128"><![CDATA[{user_name} нравится {gender} своя видеозапись "{title}"]]></phrase>
+	<phrase module_id="video" version_id="3.0.0" var_name="user_name_liked_your_video_title" added="1322735324"><![CDATA[{user_name} нравится ваша видеозапись "{title}"]]></phrase>
+	<phrase module_id="video" version_id="3.0.0" var_name="user_name_liked_span_class_drop_data_user_full_name_s_span_video_title" added="1322735723"><![CDATA[{user_name} нравится <span class="drop_data_user">{full_name}</span> видеозапись "{title}"]]></phrase>
+	<phrase module_id="video" version_id="3.0.0" var_name="user_name_commented_on_gender_video_title" added="1322735795"><![CDATA[{user_name} прокомментировал(а) {gender} видеозапись "{title}"]]></phrase>
+	<phrase module_id="video" version_id="3.0.0" var_name="user_name_commented_on_your_video_title" added="1322735885"><![CDATA[{user_name} прокомментировал(а) вашу видеозапись "{title}"]]></phrase>
+	<phrase module_id="video" version_id="3.0.0" var_name="user_name_commented_on_span_class_drop_data_user_full_name_s_span_video_title" added="1322736016"><![CDATA[{user_name} прокомментировал(а) <span class="drop_data_user">{full_name}</span видеозапись "{title}"]]></phrase>
+	<phrase module_id="video" version_id="3.0.0" var_name="span_no_more_suggestions_found_span" added="1322739044"><![CDATA[<span>Поиск не дал результатов</span>]]></phrase>
+	<phrase module_id="video" version_id="3.0.0" var_name="video_s_successfully_approved" added="1322739062">Видеозапись(и) успешно проверена(ы)</phrase>
+	<phrase module_id="video" version_id="3.0.0" var_name="video_s_successfully_deleted" added="1322739077">Видеозапись(и) успешно удалена(ы).</phrase>
+	<phrase module_id="video" version_id="3.0.0" var_name="suggestions" added="1323096802">Интересное</phrase>
+	<phrase module_id="video" version_id="3.0.0" var_name="load_more_suggestions" added="1323096814">Показать интересное</phrase>
+	<phrase module_id="video" version_id="3.0.0" var_name="user_setting_can_feature_videos_" added="1323336926">Может изменить видео?</phrase>
+	<phrase module_id="video" version_id="3.0.0" var_name="can_feature_videos" added="1323337001">Может изменить видео?</phrase>
+	<phrase module_id="video" version_id="3.0.1" var_name="setting_group_embedly" added="1327498650"><![CDATA[<title>Embed.ly</title><info>Embedly обеспечивает мощный API для преобразования стандартного URL, встроенные в видео и изображения.</info>]]></phrase>
+	<phrase module_id="video" version_id="3.0.1" var_name="setting_enabled_embedly_import" added="1327499697"><![CDATA[<title>Включить поддержку Embed.ly</title><info><a href="http://embed.ly/" target="_blank">Embedly</a> обеспечивает мощный API для преобразования стандартного URL, встроенные в видео, изображения, и богатый набор превью от 218 ведущих поставщиков.</info>]]></phrase>
+	<phrase module_id="video" version_id="3.0.1" var_name="setting_embedly_api_key" added="1327500393"><![CDATA[<title>Embed.ly API Key</title><info>Введите ваш API ключ здесь.</info>]]></phrase>
+	<phrase module_id="video" version_id="3.1.0beta1" var_name="user_name_tagged_you_in_a_comment_in_a_video" added="1331220935">{user_name} отметил(а) ваш комментарий на видеозапись</phrase>
+	<phrase module_id="video" version_id="3.3.0beta2" var_name="converting_video" added="1340288404">Преобразование видео</phrase>
+	<phrase module_id="video" version_id="3.3.0beta2" var_name="setting_vidly_support" added="1340653094"><![CDATA[<title>Включите поддержку Vid.ly</title><info>Установите <b>Да</b> чтобы включить <a href="http://vid.ly" target="_blank">Vid.ly</a> поддержку.</info>]]></phrase>
+	<phrase module_id="video" version_id="3.3.0beta2" var_name="setting_video_upload_private_key" added="1341145410"><![CDATA[<title>Private Key</title><info>Введите ваш секретный ключ для видео здесь.</info>]]></phrase>
+	<phrase module_id="video" version_id="3.3.0beta2" var_name="setting_video_upload_public_key" added="1341145872"><![CDATA[<title>Public Key</title><info>Введите ваш публичный ключ для видео здесь.</info>]]></phrase>
+	<phrase module_id="video" version_id="3.3.0beta2" var_name="setting_video_upload_service" added="1341145938"><![CDATA[<title>Служба загрузки видео</title><info>Включите эту опцию, если у вас есть наш сервис загрузки видео.</info>]]></phrase>
+	<phrase module_id="video" version_id="3.3.0beta2" var_name="setting_vidly_user_key" added="1341168583"><![CDATA[<title>Vid.ly User Key</title><info>Укажите Vid.ly ключ пользователя здесь.</info>]]></phrase>
+	<phrase module_id="video" version_id="3.3.0beta2" var_name="setting_vidly_api_key" added="1341249013"><![CDATA[<title>Vid.ly API key</title><info>Укажите Vid.ly ключ API здесь.</info>]]></phrase>
+	<phrase module_id="video" version_id="3.3.0rc1" var_name="not_a_valid_video_site_url" added="1341562252">Не является допустимым URL для видео на сайте.</phrase>
+</phrases>

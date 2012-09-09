@@ -1,0 +1,171 @@
+<phrases>
+	<phrase module_id="feed" version_id="2.0.0alpha1" var_name="module_feed" added="1219147598">RSS-каналы</phrase>
+	<phrase module_id="feed" version_id="2.0.0alpha3" var_name="setting_feed_display_time_stamp" added="1238753352"><![CDATA[<title>Формат времени для RSS-каналов</title><info>Формат времени используемый в RSS-каналах.</info>]]></phrase>
+	<phrase module_id="feed" version_id="2.0.0alpha3" var_name="user_setting_can_post_comment_on_feed" added="1238755242">Можно ли разместить комментарий в RSS-каналах?</phrase>
+	<phrase module_id="feed" version_id="2.0.0alpha3" var_name="setting_allow_comments_on_feeds" added="1238758105"><![CDATA[<title>Разрешить комментарии в RSS-каналах</title><info>Установите <b>Да</b>, если вы хотите разрешить комментарии в RSS-каналах.</info>]]></phrase>
+	<phrase module_id="feed" version_id="2.0.0alpha3" var_name="setting_comment_feed_cutoff" added="1238758497"><![CDATA[<title>Анонс комментариев в RSS-каналах</title><info>Задает размер анонса комментариев в каждом RSS-канале.</info>]]></phrase>
+	<phrase module_id="feed" version_id="2.0.0beta3" var_name="setting_user_feed_display_limit" added="1243628690"><![CDATA[<title>Массив пределов отображения (Выбор пользователя)</title><info>Этот массив содержит значения, которые пользователь может выбирать для модификации значения глобального предела отображения RSS-каналов в панели и в профиле.</info>]]></phrase>
+	<phrase module_id="feed" version_id="2.0.0beta3" var_name="user_setting_can_remove_feeds_from_dashboard" added="1243629838">Можно ли удалить RSS-каналы из панели?</phrase>
+	<phrase module_id="feed" version_id="2.0.0beta3" var_name="user_setting_can_remove_feeds_from_profile" added="1243630626">Можно ли удалить RSS-каналы из профиля?</phrase>
+	<phrase module_id="feed" version_id="2.0.0rc2" var_name="setting_integrate_comments_into_feeds" added="1252753029"><![CDATA[<title>Разрешить комментарии в RSS-каналах</title><info>Включение этой опции позволит членам добавлять комментарии в RSS-каналах.</info>]]></phrase>
+	<phrase module_id="feed" version_id="2.0.0rc3" var_name="you_do_not_have_permission_to_add_a_comment_on_this_persons_profile" added="1254466421">У вас нет прав добавлять комментарии в этом профиле.</phrase>
+	<phrase module_id="feed" version_id="2.0.0rc3" var_name="posting_a_comment_a_little_too_soon" added="1254466440">Вы отправляете комментарии слишком часто.</phrase>
+	<phrase module_id="feed" version_id="2.0.0rc3" var_name="add_some_text_to_your_comment" added="1254466451">Введите текст вашего комментария.</phrase>
+	<phrase module_id="feed" version_id="2.0.0rc3" var_name="updates" added="1254466478">Лента активности</phrase>
+	<phrase module_id="feed" version_id="2.0.0rc3" var_name="invalid_user" added="1254466543">Ошибочный пользователь.</phrase>
+	<phrase module_id="feed" version_id="2.0.0rc3" var_name="missing_feed_id" added="1254466556">Отсутствует RSS-канал ID#</phrase>
+	<phrase module_id="feed" version_id="2.0.0rc3" var_name="invalid_feed_id" added="1254466565">Ошибочный RSS-канал ID#</phrase>
+	<phrase module_id="feed" version_id="2.0.0rc3" var_name="full_name_left_you_a_comment_on_site_title" added="1254466611">{full_name} оставил вам комментарий в {site_title}.</phrase>
+	<phrase module_id="feed" version_id="2.0.0rc3" var_name="full_name_left_you_a_comment_on_site_title_to_view_this_comment" added="1254466675"><![CDATA[{full_name} оставил вам комментарий в {site_title}. Чтобы посмотреть этот комментарий, перейдите по этой ссылке: <a href="{link}">{link}</a>]]></phrase>
+	<phrase module_id="feed" version_id="2.0.0rc3" var_name="on_name_s_feed" added="1254466723">В RSS-канале {name}.</phrase>
+	<phrase module_id="feed" version_id="2.0.0rc3" var_name="adding_your_comment" added="1254466821">Добавить ваш комментарий</phrase>
+	<phrase module_id="feed" version_id="2.0.0rc3" var_name="comment" added="1254466836">Добавить комментарий</phrase>
+	<phrase module_id="feed" version_id="2.0.0rc3" var_name="cancel" added="1254466844">Отмена</phrase>
+	<phrase module_id="feed" version_id="2.0.0rc3" var_name="post" added="1254466883">Комментарий</phrase>
+	<phrase module_id="feed" version_id="2.0.0rc3" var_name="view_more" added="1254466897">Показать больше</phrase>
+	<phrase module_id="feed" version_id="2.0.0rc3" var_name="user_link_wrote" added="1254467370">{user_link} пишет...</phrase>
+	<phrase module_id="feed" version_id="2.0.0rc3" var_name="viewer_full_name_wrote_on_owner_full_name_s_profile" added="1254467724"><![CDATA[<a href="{viewer_user_link}">{viewer_full_name}</a> написал(а) в профиле <a href="{owner_user_link}">{owner_full_name}</a>...]]></phrase>
+	<phrase module_id="feed" version_id="2.0.0rc3" var_name="show_total_left_more_comments" added="1254468247">Показать еще {total_left} комментариев...</phrase>
+	<phrase module_id="feed" version_id="2.0.0rc3" var_name="total_feeds_to_display" added="1254468363">Количество отображаемых RSS-каналов</phrase>
+	<phrase module_id="feed" version_id="2.0.0rc3" var_name="save" added="1254468372">Сохранить</phrase>
+	<phrase module_id="feed" version_id="2.0.0rc3" var_name="cancel_uppercase" added="1254468388">Отмена</phrase>
+	<phrase module_id="feed" version_id="2.0.0rc4" var_name="setting_allow_rating_of_feeds" added="1255781516"><![CDATA[<title>Разрешить оценивать RSS-каналы</title><info>Включите эту опцию, чтобы позволить пользователям оценивать RSS-каналы.</info>]]></phrase>
+	<phrase module_id="feed" version_id="2.0.0rc4" var_name="are_you_sure" added="1255781764">Вы уверены?</phrase>
+	<phrase module_id="feed" version_id="2.0.0rc4" var_name="user_setting_can_delete_own_feed" added="1255781932">Можно удалять собственные RSS-каналы?</phrase>
+	<phrase module_id="feed" version_id="2.0.0rc4" var_name="user_setting_can_delete_other_feeds" added="1255781966">Можно удалять другие RSS-каналы?</phrase>
+	<phrase module_id="feed" version_id="2.0.0rc4" var_name="delete" added="1255782554">Удалить</phrase>
+	<phrase module_id="feed" version_id="2.0.0rc4" var_name="feed_successfully_deleted" added="1255782937">RSS-канал успешно удален.</phrase>
+	<phrase module_id="feed" version_id="2.0.0rc4" var_name="owner_full_name_commented_on_full_names_feed" added="1256492983"><![CDATA[<a href="{owner_link}">{owner_full_name}</a> прокомментировал <a href="{link}">RSS-канал</a> <a href="{viewer_link}">{viewer_full_name}.]]></phrase>
+	<phrase module_id="feed" version_id="2.0.0rc4" var_name="a_href_owner_link_owner_full_name_a_commented_on_their_own_a_href_link_feed_a" added="1256493985"><![CDATA[<a href="{owner_link}">{owner_full_name}</a> оставил комментарий в собственном <a href="{link}">RSS-канале</a>.]]></phrase>
+	<phrase module_id="feed" version_id="2.0.0rc4" var_name="write_a_comment" added="1256502047">Написать комментарий...</phrase>
+	<phrase module_id="feed" version_id="2.0.0rc4" var_name="loading" added="1256542012">Загрузка...</phrase>
+	<phrase module_id="feed" version_id="2.0.0rc4" var_name="hide" added="1256542058">Спрятать</phrase>
+	<phrase module_id="feed" version_id="2.0.0rc4" var_name="viewing_feed_with_a_comment_id" added="1256660407">Просмотр RSS-канала с комментариями: #{id}</phrase>
+	<phrase module_id="feed" version_id="2.0.0rc4" var_name="viewing_feed_id" added="1256660424">Просмотр RSS-канала: #{id}</phrase>
+	<phrase module_id="feed" version_id="2.0.0rc4" var_name="view_all" added="1256660461">Все</phrase>
+	<phrase module_id="feed" version_id="2.0.0rc4" var_name="full_name_commented_on_their_own_profile" added="1256661031"><![CDATA[<a href="{user_link}">{full_name}</a> написал в собственном <a href="{user_link}">профиле</a>.]]></phrase>
+	<phrase module_id="feed" version_id="2.0.0rc7" var_name="edit" added="1257841247">Изменить</phrase>
+	<phrase module_id="feed" version_id="2.0.0rc8" var_name="the_activity_feed_you_are_looking_for_does_not_exist" added="1258848578">RSS-канал активности который вы ищете не существует.</phrase>
+	<phrase module_id="feed" version_id="2.0.0rc12" var_name="nobody_likes_this" added="1260439366">Никому не нравится это</phrase>
+	<phrase module_id="feed" version_id="2.0.0rc12" var_name="you_like_this" added="1260439664">Тебе нравится это</phrase>
+	<phrase module_id="feed" version_id="2.0.0rc12" var_name="people_who_like_this" added="1260439672">Пользователи, которым нравится это</phrase>
+	<phrase module_id="feed" version_id="2.0.0rc12" var_name="user_link_likes_this" added="1260439694">{user_link} нравится это.</phrase>
+	<phrase module_id="feed" version_id="2.0.0rc12" var_name="you_and_user_link_like_this" added="1260439746">Тебе и {user_link} нравится это.</phrase>
+	<phrase module_id="feed" version_id="2.0.0rc12" var_name="and" added="1260439790">и</phrase>
+	<phrase module_id="feed" version_id="2.0.0rc12" var_name="you" added="1260439797">Ты</phrase>
+	<phrase module_id="feed" version_id="2.0.0rc12" var_name="other_person" added="1260439817">другой пользователь</phrase>
+	<phrase module_id="feed" version_id="2.0.0rc12" var_name="others" added="1260439830">другие</phrase>
+	<phrase module_id="feed" version_id="2.0.0rc12" var_name="like_this" added="1260439841">нравится это</phrase>
+	<phrase module_id="feed" version_id="2.0.0rc12" var_name="like" added="1260439890">Нравится</phrase>
+	<phrase module_id="feed" version_id="2.0.0rc12" var_name="unlike" added="1260439897">Не нравится</phrase>
+	<phrase module_id="feed" version_id="2.0.0rc12" var_name="you_have_already_liked_this_feed" added="1260440751"><![CDATA[Тебе уже это "Нравится".]]></phrase>
+	<phrase module_id="feed" version_id="2.0.0rc12" var_name="user_link_and_user_link_like_this" added="1260445733">{user_link_owner} и {user_link} нравится это.</phrase>
+	<phrase module_id="feed" version_id="2.0.0rc12" var_name="the_feed_you_are_trying_to_like_unlike_does_not_exist_any_longer" added="1260459851">Больше не существует.</phrase>
+	<phrase module_id="feed" version_id="2.0.0rc12" var_name="a_href_user_link_full_name_a_likes_your_a_href_link_status_a" added="1260475302"><![CDATA[<a href="{user_link}">{full_name}</a> нравится твой <a href="{link}">статус</a>.]]></phrase>
+	<phrase module_id="feed" version_id="2.0.0rc12" var_name="setting_enable_like_system" added="1260830264"><![CDATA[<title>Включить систему "Нравится"</title><info>С помощью этой функции пользователи могут оценивать все как "Нравится"/"Не нравится". Не все каналы поддерживают данную опцию. <b>Внимание:</b> Это экспериментальный функционал - он нестабилен.</info>]]></phrase>
+	<phrase module_id="feed" version_id="2.0.4" var_name="successfully_added_your_comment" added="1267542907">Добавлен комментарий</phrase>
+	<phrase module_id="feed" version_id="2.0.4" var_name="successfully_liked_this_feed" added="1267542946">Successfully liked this feed</phrase>
+	<phrase module_id="feed" version_id="2.0.4" var_name="successfully_unliked_this_feed" added="1267542968">Successfully unliked this feed</phrase>
+	<phrase module_id="feed" version_id="2.0.4" var_name="not_a_valid_feed" added="1267542980">Поле указано неверно.</phrase>
+	<phrase module_id="feed" version_id="2.0.4" var_name="total_comments" added="1267544302">{total} комментариев</phrase>
+	<phrase module_id="feed" version_id="2.0.4" var_name="1_comment" added="1267544350">1 Комментарий</phrase>
+	<phrase module_id="feed" version_id="2.0.4" var_name="comments" added="1267544379">Комментарии</phrase>
+	<phrase module_id="feed" version_id="2.0.5dev1" var_name="profile_comments" added="1275017584">Комментарии профиля</phrase>
+	<phrase module_id="feed" version_id="2.0.5dev1" var_name="profile_comment_s_successfully_approved" added="1275019497">Комментарии профиля успешно проверены.</phrase>
+	<phrase module_id="feed" version_id="2.0.5dev1" var_name="nothing_to_approve_at_this_time" added="1275019538">На данный момент одобрить нечего</phrase>
+	<phrase module_id="feed" version_id="2.0.5dev1" var_name="profile_comment_s_successfully_deleted" added="1275019685">Комментарии профиля успешно удалены.</phrase>
+	<phrase module_id="feed" version_id="2.0.5dev1" var_name="profile_feed_comments" added="1275020064">RSS-канал комментариев профиля</phrase>
+	<phrase module_id="feed" version_id="2.0.5dev1" var_name="id" added="1275020070">ID#</phrase>
+	<phrase module_id="feed" version_id="2.0.5dev1" var_name="owner" added="1275020076">Владелец</phrase>
+	<phrase module_id="feed" version_id="2.0.5dev1" var_name="profile" added="1275020082">Профиль</phrase>
+	<phrase module_id="feed" version_id="2.0.5dev1" var_name="posted_on" added="1275020089">Написал на</phrase>
+	<phrase module_id="feed" version_id="2.0.5dev1" var_name="content" added="1275020095">Содержание</phrase>
+	<phrase module_id="feed" version_id="2.0.5dev1" var_name="approve_selected" added="1275020108">Разрешить выбранное</phrase>
+	<phrase module_id="feed" version_id="2.0.5dev1" var_name="deny_selected" added="1275020115">Запретить выбранное</phrase>
+	<phrase module_id="feed" version_id="2.0.6" var_name="setting_feedcache_timeout" added="1282124296"><![CDATA[<title>Кэшировать материал</title><info>Измеряется в минутах. Это увеличивает производительность сайтов со средней производительностью хостинга</info>]]></phrase>
+	<phrase module_id="feed" version_id="2.1.0beta2" var_name="setting_height_for_resized_videos" added="1300963794"><![CDATA[<title>Высота превью видео</title><info>Установите размер.</info>]]></phrase>
+	<phrase module_id="feed" version_id="2.1.0beta2" var_name="setting_width_for_resized_videos" added="1300963796"><![CDATA[<title>Ширина превью видео</title><info>Установите размер.</info>]]></phrase>
+	<phrase module_id="feed" version_id="3.0.0Beta1" var_name="setting_total_likes_to_display" added="1295002683"><![CDATA[<title>Количество Нравится для отображения</title><info>Определяет, сколько пользователей должно отображаться в элементе Нравится.</info>]]></phrase>
+	<phrase module_id="feed" version_id="3.0.0Beta1" var_name="setting_group_duplicate_feeds" added="1296125315"><![CDATA[<title>Объединение элементов в ленте новостей</title><info>Если вы установили "0" (без кавычек), это не будет группировать новости. Обратите внимание, эта функция работает только на глобальном канале активности и предназначена для предотвращения спама.</info>]]></phrase>
+	<phrase module_id="feed" version_id="3.0.0beta1" var_name="setting_refresh_activity_feed" added="1309267841"><![CDATA[<title>Обновление Ленты новостей (секунды)</title><info>Использование AJAX для обновления ленты новостей. Значение "0" выключает данную функцию.</info>]]></phrase>
+	<phrase module_id="feed" version_id="3.0.0beta3" var_name="setting_feed_limit_days" added="1316518935"><![CDATA[<title>Время жизни ленты новостей</title><info>Этот параметр определяет, на сколько дней можно вернуться назад при просмотре ленты. Если вы установите этот параметр в 0 это распространится на все новости. Мы советуем выставить ограничение, чтобы поддерживать сайт свежим. Обратите внимание, что этот параметр не применяется при просмотре профиля пользователя.</info>]]></phrase>
+	<phrase module_id="feed" version_id="3.0.0beta5" var_name="share" added="1319111584">Добавить</phrase>
+	<phrase module_id="feed" version_id="3.0.0beta5" var_name="status" added="1319111596">Статус</phrase>
+	<phrase module_id="feed" version_id="3.0.0beta5" var_name="write_something" added="1319111621">Напишите что-нибудь...</phrase>
+	<phrase module_id="feed" version_id="3.0.0beta5" var_name="what_s_on_your_mind" added="1319111629">О чем вы думаете?</phrase>
+	<phrase module_id="feed" version_id="3.0.0beta5" var_name="post_as" added="1319111689">Разместить как</phrase>
+	<phrase module_id="feed" version_id="3.0.0beta5" var_name="share_this_on" added="1319111697">Поделится на</phrase>
+	<phrase module_id="feed" version_id="3.0.0beta5" var_name="facebook" added="1319111703">Facebook</phrase>
+	<phrase module_id="feed" version_id="3.0.0beta5" var_name="twitter" added="1319111711">Twitter</phrase>
+	<phrase module_id="feed" version_id="3.0.0beta5" var_name="1_new_update" added="1319111732">1 новое обновление</phrase>
+	<phrase module_id="feed" version_id="3.0.0beta5" var_name="span_id_js_new_update_view_span_new_updates" added="1319111742"><![CDATA[<span id="js_new_update_view"></span> новые обновления]]></phrase>
+	<phrase module_id="feed" version_id="3.0.0beta5" var_name="recent_activity" added="1319111752">Последние действия</phrase>
+	<phrase module_id="feed" version_id="3.0.0beta5" var_name="there_are_no_new_feeds_to_view_at_this_time" added="1319111769">Нет новых новостей.</phrase>
+	<phrase module_id="feed" version_id="3.0.0beta5" var_name="delete_this_feed" added="1319111801">Удалить этот канал</phrase>
+	<phrase module_id="feed" version_id="3.0.0beta5" var_name="play" added="1319111882">Играть</phrase>
+	<phrase module_id="feed" version_id="3.0.0beta5" var_name="see_total_more_posts_from_full_name" added="1319111952">Посмотреть еще {total} сообщений от {full_name}</phrase>
+	<phrase module_id="feed" version_id="3.0.0beta5" var_name="tweet" added="1319112008">Tweet</phrase>
+	<phrase module_id="feed" version_id="3.0.0beta5" var_name="report" added="1319112027">Пожаловаться</phrase>
+	<phrase module_id="feed" version_id="3.0.0beta5" var_name="posted_a_blog" added="1319117943">размещает блог.</phrase>
+	<phrase module_id="feed" version_id="3.0.0beta5" var_name="created_a_poll" added="1319117964">добавляет опрос.</phrase>
+	<phrase module_id="feed" version_id="3.0.0beta5" var_name="is_now_friends_with" added="1319118016">теперь дружит с</phrase>
+	<phrase module_id="feed" version_id="3.0.0beta5" var_name="updated_gender_profile_photo" added="1319118045">обновляет {gender} фотографию в профиле.</phrase>
+	<phrase module_id="feed" version_id="3.0.0beta5" var_name="content_on_a_href_link_parent_full_name_a_s_a_href_wall_link_wall_a" added="1319118139"><![CDATA["{content}" на <a href="{link}">{parent_full_name}</a> <a href="{wall_link}">стене</a>.]]></phrase>
+	<phrase module_id="feed" version_id="3.0.0beta5" var_name="shared_a_video" added="1319118245">добавлена видеозапись</phrase>
+	<phrase module_id="feed" version_id="3.0.0beta5" var_name="full_name_posted_a_href_link_a_video_a_on_a_href_profile_parent_full_name_a_s_a_href_profile_link_wall_a" added="1319118316"><![CDATA[{full_name} добавлено <a href="{link}">видео</a> на <a href="{profile}">{parent_full_name}</a> <a href="{profile_link}">стене</a>.]]></phrase>
+	<phrase module_id="feed" version_id="3.0.0beta5" var_name="created_an_event" added="1319118398">создает событие.</phrase>
+	<phrase module_id="feed" version_id="3.0.0beta5" var_name="created_a_listing" added="1319118416">добавляет объявление.</phrase>
+	<phrase module_id="feed" version_id="3.0.0beta5" var_name="shared_a_song" added="1319118456">добавляет аудиозапись.</phrase>
+	<phrase module_id="feed" version_id="3.0.0beta5" var_name="shared_a_song_from_gender_album_a_href_album_link_album_name_a" added="1319118507"><![CDATA[добавлена аудиозапись в {gender} альбом "<a href="{album_link}">{album_name}</a>".]]></phrase>
+	<phrase module_id="feed" version_id="3.0.0beta5" var_name="updated_gender_profile_information" added="1319118569">обновляет {gender} информацию в профиле.</phrase>
+	<phrase module_id="feed" version_id="3.0.0beta5" var_name="shared_a_photo" added="1319118611">добавлено фото</phrase>
+	<phrase module_id="feed" version_id="3.0.0beta5" var_name="shared_a_few_photos" added="1319118619">добавлено несколько фото</phrase>
+	<phrase module_id="feed" version_id="3.0.0beta5" var_name="added_new_photos_to_gender_album_a_href_link_name_a" added="1319118656"><![CDATA[добавляет фото в альбом "<a href="{link}">{name}</a>"]]></phrase>
+	<phrase module_id="feed" version_id="3.0.0beta5" var_name="tagged_a_href_row_link_full_name_a_on_gender_a_href_link_photo_a" added="1319119466"><![CDATA[отмечено <a href="{row_link}">{full_name}</a> на {gender} <a href="{link}">фото</a>.]]></phrase>
+	<phrase module_id="feed" version_id="3.0.0beta5" var_name="tagged_a_href_row_link_full_name_a_on_a_href_photo_user_name_photo_full_name_a_a_href_link_photo_a" added="1319119548"><![CDATA[отмечено <a href="{row_link}">{full_name}</a> на <a href="{photo_user_name}">{photo_full_name}</a> <a href="{link}">фото</a>.]]></phrase>
+	<phrase module_id="feed" version_id="3.0.0beta5" var_name="created_a_quiz" added="1319119623">создает викторину.</phrase>
+	<phrase module_id="feed" version_id="3.0.0beta5" var_name="replied_on_gender_thread_a_href_link_title_a" added="1319119665"><![CDATA[публикует сообщение на {gender} ленту новостей "<a href="{link}">{title}</a>".]]></phrase>
+	<phrase module_id="feed" version_id="3.0.0beta5" var_name="replied_on_a_href_user_name_full_name_a_s_thread_a_href_link_title_a" added="1319119731"><![CDATA[публикует сообщение на <a href="{user_name}">{full_name}</a> ленту новостей "<a href="{link}">{title}</a>".]]></phrase>
+	<phrase module_id="feed" version_id="3.0.0beta5" var_name="posted_a_thread" added="1319119773">добавлена тема.</phrase>
+	<phrase module_id="feed" version_id="3.0.0beta5" var_name="feed_deletion" added="1319124821">Лента удалена</phrase>
+	<phrase module_id="feed" version_id="3.0.0beta5" var_name="unable_to_delete_this_entry" added="1319124834">Не удается удалить эту запись.</phrase>
+	<phrase module_id="feed" version_id="3.0.0beta5" var_name="news_feed" added="1319551853">Лента новостей</phrase>
+	<phrase module_id="feed" version_id="3.0.0beta5" var_name="full_name_commented_on_one_of_your_wall_comments" added="1319551890">{full_name} прокомментирован один из ваших комментариев стены.</phrase>
+	<phrase module_id="feed" version_id="3.0.0beta5" var_name="full_name_commented_on_one_of_your_wall_comments_to_see_the_comment_thread_follow_the_link_below_a_href_link_link_a" added="1319551940"><![CDATA[{full_name} прокомментирован один из ваших комментариев стены. Чтобы увидеть комментарий, перейдите по следующей ссылке: <a href="{link}">{link}</a>]]></phrase>
+	<phrase module_id="feed" version_id="3.0.0beta5" var_name="full_name_commented_on_one_of_gender_wall_comments" added="1319551977">{full_name} прокомментирован один из {gender} комментариев стены.</phrase>
+	<phrase module_id="feed" version_id="3.0.0beta5" var_name="full_name_commented_on_one_of_row_full_name_s_wall_comments" added="1319552013">{full_name} прокомментирован один из {row_full_name} комментариев стены.</phrase>
+	<phrase module_id="feed" version_id="3.0.0beta5" var_name="full_name_commented_on_one_of_gender_wall_comments_message" added="1319552085"><![CDATA[{full_name} прокомментирован один из {gender} комментариев стены. Чтобы увидеть комментарий, перейдите по следующей ссылке: <a href="{link}">{link}</a>]]></phrase>
+	<phrase module_id="feed" version_id="3.0.0beta5" var_name="full_name_commented_on_one_of_row_full_name_s_wall_comments_message" added="1319552153"><![CDATA[{full_name} прокомментирован один из {row_full_name} комментариев стены. Чтобы увидеть комментарий, перейдите по следующей ссылке: <a href="{link}">{link}</a>]]></phrase>
+	<phrase module_id="feed" version_id="3.0.0beta5" var_name="unable_to_post_a_comment_on_this_item_due_to_privacy_settings" added="1319552190">Невозможно оставить комментарий по этому вопросу из-за параметров приватности.</phrase>
+	<phrase module_id="feed" version_id="3.0.0beta5" var_name="users_commented_on_one_of_gender_wall_comments" added="1319552231">{users} прокомментирован один из {gender} комментариев стены</phrase>
+	<phrase module_id="feed" version_id="3.0.0beta5" var_name="users_commented_on_one_of_your_wall_comments" added="1319552257">{users} прокомментирован один из ваших комментариев стены</phrase>
+	<phrase module_id="feed" version_id="3.0.0beta5" var_name="users_commented_on_one_of_span_class_drop_data_user_row_full_name_s_span_wall_comments" added="1319552284"><![CDATA[{users} прокомментирован один из <span class="drop_data_user">{row_full_name}</span> комментариев стены]]></phrase>
+	<phrase module_id="feed" version_id="3.0.0beta5" var_name="users_commented_on_gender_wall" added="1319552335">{users} прокомментирован {gender} стену</phrase>
+	<phrase module_id="feed" version_id="3.0.0beta5" var_name="users_commented_on_your_wall" added="1319552359">{users} прокомментирована ваша стена</phrase>
+	<phrase module_id="feed" version_id="3.0.0beta5" var_name="users_commented_on_one_span_class_drop_data_user_row_full_name_span_wall" added="1319552385"><![CDATA[{users} прокомментирована <span class="drop_data_user">{row_full_name}</span> стена]]></phrase>
+	<phrase module_id="feed" version_id="3.0.0beta5" var_name="users_liked_your_comment_text_that_you_posted" added="1319552432"><![CDATA[{users} нравится ваш комментарий "{text}" что вы писали.]]></phrase>
+	<phrase module_id="feed" version_id="3.0.0beta5" var_name="users_liked_gender_own_comment_content" added="1319552518"><![CDATA[{users} нравится {gender} собственный комментарий "{content}"]]></phrase>
+	<phrase module_id="feed" version_id="3.0.0beta5" var_name="users_liked_your_comment_content_that_you_posted_on_span_class_drop_data_user_parent_full_name_s_span_wall" added="1319552563"><![CDATA[{users} нравится ваш комментарий "{content}" что вы писали на  <span class="drop_data_user">{parent_full_name}</span> стене]]></phrase>
+	<phrase module_id="feed" version_id="3.0.0beta5" var_name="users_liked_span_class_drop_data_user_full_name_s_span_comment_content" added="1319552639"><![CDATA[{users} нравится <span class="drop_data_user">{full_name}</span> комментарий "{content}"]]></phrase>
+	<phrase module_id="feed" version_id="3.0.0rc1" var_name="activity_feed" added="1320067556">Лента новостей</phrase>
+	<phrase module_id="feed" version_id="3.0.0rc1" var_name="setting_twitter_share_via" added="1320229326"><![CDATA[<title>Twitter Share VIA</title><info>Получать имя пользователя из Twitter.</info>]]></phrase>
+	<phrase module_id="feed" version_id="3.0.0rc3" var_name="find_missing_share_buttons" added="1321891270"><![CDATA[Найти пропавшие "Поделиться"]]></phrase>
+	<phrase module_id="feed" version_id="3.0.0" var_name="status_update_iid" added="1323088288">Status Update: #{iId}</phrase>
+	<phrase module_id="feed" version_id="3.0.0" var_name="link_iid" added="1323088326">Ссылка: #{iId}</phrase>
+	<phrase module_id="feed" version_id="3.0.0" var_name="poke_iid" added="1323088374">Подмигнуть: #{iId}</phrase>
+	<phrase module_id="feed" version_id="3.0.0" var_name="wall_comment_iid" added="1323096556">Комментарии на стене: #{iId}</phrase>
+	<phrase module_id="feed" version_id="3.0.0" var_name="feed" added="1323096581">Подписка</phrase>
+	<phrase module_id="feed" version_id="3.1.0beta1" var_name="full_name_wrote_a_comment_on_your_wall" added="1331645835">{full_name} написал(а) комментарий на вашей стене.</phrase>
+	<phrase module_id="feed" version_id="3.1.0beta1" var_name="full_name_wrote_a_comment_on_your_wall_message" added="1331646391"><![CDATA[{full_name} написал(а) комментарий на вашей <a href="{link}">стене</a>.
+Чтобы увидеть комментарии, пройдите по ссылке ниже:
+<a href="{link}">{link}</a>]]></phrase>
+	<phrase module_id="feed" version_id="3.2.0beta1" var_name="comments_on_profiles" added="1334579341">Комментарии в профилях</phrase>
+	<phrase module_id="feed" version_id="3.3.0beta1" var_name="shared" added="1336400814">поделиться...</phrase>
+	<phrase module_id="feed" version_id="3.3.0beta1" var_name="successfully_shared_this_item_on_your_friends_wall" added="1336400863">Успешно поделился этой информацией на вашей стене друзей.</phrase>
+	<phrase module_id="feed" version_id="3.3.0beta1" var_name="successfully_shared_this_item" added="1336400883">Успешно опубликовано.</phrase>
+	<phrase module_id="feed" version_id="3.3.0beta1" var_name="setting_force_timeline" added="1337095087"><![CDATA[<title>Хронология</title><info>Включите эту функцию, чтобы заставить ленту активности в профиле пользователей использовать Хронологию.</info>]]></phrase>
+	<phrase module_id="feed" version_id="3.3.0beta1" var_name="setting_can_add_past_dates" added="1338364887"><![CDATA[<title>Записи в прошлом</title><info>Если эта опция включена и функция Хронология тоже, это позволит пользователям добавлять записи из своего профиля в прошлое.</info>]]></phrase>
+	<phrase module_id="feed" version_id="3.3.0beta1" var_name="setting_timeline_optional" added="1339423430"><![CDATA[<title>Хронология дополнительное</title><info>Если параметр "Хронология" отключен, а этот параметр включен, пользователи могут выбирать, хотят ли они, преобразовать свои профили в Хронологию.</info>]]></phrase>
+	<phrase module_id="feed" version_id="3.3.0beta2" var_name="now" added="1340275631">Сейчас</phrase>
+	<phrase module_id="feed" version_id="3.3.0beta2" var_name="set_a_date" added="1340275767">Установить дату</phrase>
+</phrases>

@@ -104,7 +104,7 @@ class Language_Service_Phrase_Process extends Phpfox_Service
 		
 		Phpfox::getService('log.staff')->add('phrase', 'add', array('phrase' => $sPhrase));		
 		
-		$this->cache()->remove('locale', 'substr');
+		$this->cache()->remove('language', 'substr');
 		
 		return $sFinalPhrase;
 	}
@@ -136,7 +136,7 @@ class Language_Service_Phrase_Process extends Phpfox_Service
 
 		$this->database()->delete($this->_sTable, ($bIsVar ? "module_id = '" . $this->database()->escape($aParts[0]) . "' AND var_name = '" . $this->database()->escape($aParts[1]) . "'" : 'phrase_id = ' . (int) $mId));
 		
-		$this->cache()->remove('locale', 'substr');
+		$this->cache()->remove('language', 'substr');
 		return true;
 	}	
 	
@@ -335,7 +335,7 @@ class Language_Service_Phrase_Process extends Phpfox_Service
 						continue;
 					}					
 					
-					$aPhrases = Phpfox::getLib('xml.parser')->parse(file_get_contents($sDir . $sFile));		
+					$aPhrases = Phpfox::getLib('xml.parser')->parse(file_get_contents($sDir . $sFile), 'UTF-8');
 					$aRows = (isset($aPhrases['phrase'][1]) ? $aPhrases['phrase'] : array($aPhrases['phrase']));
 					foreach ($aRows as $aPhrase)
 					{

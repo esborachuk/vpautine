@@ -1,0 +1,299 @@
+<phrases>
+	<phrase module_id="marketplace" version_id="2.0.0alpha4" var_name="module_marketplace" added="1239387125">Объявления</phrase>
+	<phrase module_id="marketplace" version_id="2.0.0alpha4" var_name="menu_marketplace" added="1239387152">Объявления</phrase>
+	<phrase module_id="marketplace" version_id="2.0.0alpha4" var_name="setting_marketplace_view_time_stamp" added="1239457199"><![CDATA[<title>Объявления штамп времени</title><info>Объявления штамп времени</info>]]></phrase>
+	<phrase module_id="marketplace" version_id="2.0.0alpha4" var_name="user_setting_can_post_comment_on_listing" added="1239459827">Может комментировать объявления?</phrase>
+	<phrase module_id="marketplace" version_id="2.0.0alpha4" var_name="user_setting_can_edit_own_listing" added="1239463634">Может редактировать свои объявления?</phrase>
+	<phrase module_id="marketplace" version_id="2.0.0alpha4" var_name="user_setting_can_edit_other_listing" added="1239463695">Может редактировать объявления, добавленные другими пользователями?</phrase>
+	<phrase module_id="marketplace" version_id="2.0.0alpha4" var_name="menu_add_new_listing" added="1239472943">Добавить объявление</phrase>
+	<phrase module_id="marketplace" version_id="2.0.0alpha4" var_name="user_setting_can_delete_own_listing" added="1239541511">Может удалять собственные объявления?</phrase>
+	<phrase module_id="marketplace" version_id="2.0.0alpha4" var_name="user_setting_can_delete_other_listings" added="1239541555">Может удалять объявления, добавленные другими пользователями?</phrase>
+	<phrase module_id="marketplace" version_id="2.0.0alpha4" var_name="admin_menu_add_category" added="1239552185">Добавить категорию</phrase>
+	<phrase module_id="marketplace" version_id="2.0.0alpha4" var_name="admin_menu_manage_categories" added="1239552185">Управление категориями</phrase>
+	<phrase module_id="marketplace" version_id="2.0.0rc1" var_name="user_setting_max_upload_size_listing" added="1250258666"><![CDATA[Максимальный размер файла для загрузки фотографий в килобитах (кб). (1000 кб = 1 мб) Для неограниченного добавления "0" без кавычек.]]></phrase>
+	<phrase module_id="marketplace" version_id="2.0.0rc1" var_name="setting_total_listing_more_from" added="1250340296"><![CDATA[<title>Total "Далее" объявлений на странице</title><info>Определите, сколько показывать объявлений до появления кнопки "Далее".</info>]]></phrase>
+	<phrase module_id="marketplace" version_id="2.0.0rc1" var_name="user_setting_can_feature_listings" added="1250355847">Может рекомендовать объявления?</phrase>
+	<phrase module_id="marketplace" version_id="2.0.0rc1" var_name="user_setting_listing_approve" added="1250357077">Включите, если объявления должны быть проверены, прежде чем они будут отображаться публично.</phrase>
+	<phrase module_id="marketplace" version_id="2.0.0rc1" var_name="user_setting_can_approve_listings" added="1250357731">Может проверять объявления?</phrase>
+	<phrase module_id="marketplace" version_id="2.0.0rc4" var_name="categories" added="1255076189">Категории</phrase>
+	<phrase module_id="marketplace" version_id="2.0.0rc4" var_name="sub_categories" added="1255076202">Подкатегории</phrase>
+	<phrase module_id="marketplace" version_id="2.0.0rc4" var_name="browse_filter" added="1255076215">Поиск</phrase>
+	<phrase module_id="marketplace" version_id="2.0.0rc4" var_name="price" added="1255076233">Цена</phrase>
+	<phrase module_id="marketplace" version_id="2.0.0rc4" var_name="free" added="1255076244">Бесплатно</phrase>
+	<phrase module_id="marketplace" version_id="2.0.0rc4" var_name="invites" added="1255076258">Приглашения</phrase>
+	<phrase module_id="marketplace" version_id="2.0.0rc4" var_name="visited" added="1255076267">Посетили</phrase>
+	<phrase module_id="marketplace" version_id="2.0.0rc4" var_name="not_responded" added="1255076279">Не посетили</phrase>
+	<phrase module_id="marketplace" version_id="2.0.0rc4" var_name="more_from" added="1255076293">Еще</phrase>
+	<phrase module_id="marketplace" version_id="2.0.0rc4" var_name="view_more" added="1255076304">Еще</phrase>
+	<phrase module_id="marketplace" version_id="2.0.0rc4" var_name="marketplace_listings" added="1255076319">Объявления</phrase>
+	<phrase module_id="marketplace" version_id="2.0.0rc4" var_name="category_successfully_updated" added="1255076338">Категория успешно обновлена.</phrase>
+	<phrase module_id="marketplace" version_id="2.0.0rc4" var_name="category_successfully_added" added="1255076349">Категория успешно добавлена.</phrase>
+	<phrase module_id="marketplace" version_id="2.0.0rc4" var_name="edit_a_category" added="1255076358">Редактировать категорию</phrase>
+	<phrase module_id="marketplace" version_id="2.0.0rc4" var_name="create_a_new_category" added="1255076369">Создать новую категорию</phrase>
+	<phrase module_id="marketplace" version_id="2.0.0rc4" var_name="category_order_successfully_updated" added="1255076387">Порядок категорий успешно обновлён.</phrase>
+	<phrase module_id="marketplace" version_id="2.0.0rc4" var_name="category_successfully_deleted" added="1255076397">Категория успешно удалена.</phrase>
+	<phrase module_id="marketplace" version_id="2.0.0rc4" var_name="manage_categories" added="1255076405">Управление категориями</phrase>
+	<phrase module_id="marketplace" version_id="2.0.0rc4" var_name="provide_a_name_for_this_listing" added="1255076432">Введите название для этого объявления.</phrase>
+	<phrase module_id="marketplace" version_id="2.0.0rc4" var_name="provide_a_location_for_this_listing" added="1255076442">Предоставление места для этого объявления.</phrase>
+	<phrase module_id="marketplace" version_id="2.0.0rc4" var_name="listing_successfully_updated" added="1255076452">Объявления успешно обновлены.</phrase>
+	<phrase module_id="marketplace" version_id="2.0.0rc4" var_name="successfully_uploaded_images_for_this_listing" added="1255076461">Изображения успешно загружены.</phrase>
+	<phrase module_id="marketplace" version_id="2.0.0rc4" var_name="successfully_invited_users_for_this_listing" added="1255076470">Пользователи успешно приглашены для просмотра этого объявления.</phrase>
+	<phrase module_id="marketplace" version_id="2.0.0rc4" var_name="successfully_updated_this_listing" added="1255076481">Успешное обновление этого объявления.</phrase>
+	<phrase module_id="marketplace" version_id="2.0.0rc4" var_name="listing_successfully_added" added="1255076490">Объявление успешно добавлено.</phrase>
+	<phrase module_id="marketplace" version_id="2.0.0rc4" var_name="edit_a_marketplace_listing" added="1255076501">Изменить объявление</phrase>
+	<phrase module_id="marketplace" version_id="2.0.0rc4" var_name="edit_a_listing" added="1255076526">Изменить объявление</phrase>
+	<phrase module_id="marketplace" version_id="2.0.0rc4" var_name="create_a_marketplace_listing" added="1255076534">Добавить объявление</phrase>
+	<phrase module_id="marketplace" version_id="2.0.0rc4" var_name="create_a_listing" added="1255076542">Добавить объявление</phrase>
+	<phrase module_id="marketplace" version_id="2.0.0rc4" var_name="marketplace" added="1255076548">Объявления</phrase>
+	<phrase module_id="marketplace" version_id="2.0.0rc4" var_name="listing_successfully_deleted" added="1255076562">Объявление успешно удалено.</phrase>
+	<phrase module_id="marketplace" version_id="2.0.0rc4" var_name="date_added" added="1255076575">По дате</phrase>
+	<phrase module_id="marketplace" version_id="2.0.0rc4" var_name="name" added="1255076582">Название</phrase>
+	<phrase module_id="marketplace" version_id="2.0.0rc4" var_name="recent_listings" added="1255076608">Новые</phrase>
+	<phrase module_id="marketplace" version_id="2.0.0rc4" var_name="my_listings" added="1255076616">Мои объявления</phrase>
+	<phrase module_id="marketplace" version_id="2.0.0rc4" var_name="featured" added="1255076623">Рекомендуемые</phrase>
+	<phrase module_id="marketplace" version_id="2.0.0rc4" var_name="invitations" added="1255076629">Предложения</phrase>
+	<phrase module_id="marketplace" version_id="2.0.0rc4" var_name="pending" added="1255076637">Ожидают</phrase>
+	<phrase module_id="marketplace" version_id="2.0.0rc4" var_name="the_listing_you_are_looking_for_either_does_not_exist_or_has_been_removed" added="1255076663">Объявление которое вы ищете не существует или было удалено.</phrase>
+	<phrase module_id="marketplace" version_id="2.0.0rc4" var_name="select" added="1255076724">Выбрать</phrase>
+	<phrase module_id="marketplace" version_id="2.0.0rc4" var_name="select_a_sub_category" added="1255076733">Выберите подкатегорию</phrase>
+	<phrase module_id="marketplace" version_id="2.0.0rc4" var_name="provide_a_category_name" added="1255076745">Укажите название категории.</phrase>
+	<phrase module_id="marketplace" version_id="2.0.0rc4" var_name="invalid_callback_on_marketplace_listing" added="1255076781">Неверный ответ при обращение к объявлению.</phrase>
+	<phrase module_id="marketplace" version_id="2.0.0rc4" var_name="user_name_left_you_a_comment_on_site_title" added="1255076800">{user_name} оставил(а) вам комментарий на{site_title}.</phrase>
+	<phrase module_id="marketplace" version_id="2.0.0rc4" var_name="user_name_left_you_a_comment_on_your_marketplace_listing" added="1255076862"><![CDATA[{user_name} оставил(а) комментарий на объявление. Чтобы прочитать этот комментарий, перейдите по следующей ссылке: <a href="{link}">{link}</a>]]></phrase>
+	<phrase module_id="marketplace" version_id="2.0.0rc4" var_name="a_href_user_link_full_name_a_added_a_new_comment_on_their_own_a_href_title_link_listin" added="1255077003"><![CDATA[<a href="{user_link}">{full_name}</a> оставил(а) новый комментарий на свое <a href="{title_link}">объявление</a>.]]></phrase>
+	<phrase module_id="marketplace" version_id="2.0.0rc4" var_name="a_href_user_link_full_name_a_added_a_new_comment_on_your_a_href_title_link_listing_a" added="1255077073"><![CDATA[<a href="{user_link}">{full_name}</a> оставил(а) новый комментарий на <a href="{title_link}">объявление</a>.]]></phrase>
+	<phrase module_id="marketplace" version_id="2.0.0rc4" var_name="a_href_user_link_full_name_a_added_a_new_comment_on_a_href_item_user_link_item_user_n" added="1255077120"><![CDATA[<a href="{user_link}">{full_name}</a> оставил(а) новый комментарий на <a href="{item_user_link}">{item_user_name}</a> <a href="{title_link}">объявление</a>.]]></phrase>
+	<phrase module_id="marketplace" version_id="2.0.0rc4" var_name="a_href_user_link_owner_full_name_a_added_a_new_listing_a_href_title_link_title_a" added="1255077808"><![CDATA[<a href="{user_link}">{owner_full_name}</a> добавил(а) новое объявление "<a href="{title_link}">{title}</a>".]]></phrase>
+	<phrase module_id="marketplace" version_id="2.0.0rc4" var_name="your_listing_title_has_been_approved" added="1255077901"><![CDATA[Ваше объявление "{title}" прошло проверку.]]></phrase>
+	<phrase module_id="marketplace" version_id="2.0.0rc4" var_name="listings" added="1255077920">Объявления</phrase>
+	<phrase module_id="marketplace" version_id="2.0.0rc4" var_name="user_link_invited_you_to_a_marketplace_listing" added="1255077951">{user_link} приглашает вас посмотреть объявление.</phrase>
+	<phrase module_id="marketplace" version_id="2.0.0rc4" var_name="no_listing_invites" added="1255077972">Нет приглашений.</phrase>
+	<phrase module_id="marketplace" version_id="2.0.0rc4" var_name="marketplace_invites" added="1255078002">Приглашения</phrase>
+	<phrase module_id="marketplace" version_id="2.0.0rc4" var_name="marketplace_text" added="1255078012">О объявление</phrase>
+	<phrase module_id="marketplace" version_id="2.0.0rc4" var_name="full_name_invited_you_to_view_the_marketplace_listing_title" added="1255078462"><![CDATA[{full_name} пригласил(а) вас, просмотреть объявление на "{title}". Чтобы посмотреть это объявление, перейдите по следующей ссылке: <a href="{link}">{link}</a>"]]></phrase>
+	<phrase module_id="marketplace" version_id="2.0.0rc4" var_name="full_name_added_the_following_personal_message" added="1255078552">{full_name} добавил(а) следующие личное сообщение</phrase>
+	<phrase module_id="marketplace" version_id="2.0.0rc4" var_name="full_name_invited_you_to_view_the_listing_title" added="1255078586"><![CDATA[{full_name} пригласил(а) вас, посмотреть объявление "{title}".]]></phrase>
+	<phrase module_id="marketplace" version_id="2.0.0rc4" var_name="unable_to_find_the_listing_you_want_to_delete" added="1255078649">Не удалось найти объявление, который вы хотите удалить.</phrase>
+	<phrase module_id="marketplace" version_id="2.0.0rc4" var_name="you_do_not_have_sufficient_permission_to_delete_this_listing" added="1255078659">У вас нет прав на удаление этого объявления.</phrase>
+	<phrase module_id="marketplace" version_id="2.0.0rc4" var_name="you_do_not_have_sufficient_permission_to_modify_this_listing" added="1255078673">У вас нет прав для изменения этого объявления.</phrase>
+	<phrase module_id="marketplace" version_id="2.0.0rc4" var_name="unable_to_find_the_listing_you_want_to_approve" added="1255078695">Не удалось найти объявление.</phrase>
+	<phrase module_id="marketplace" version_id="2.0.0rc4" var_name="your_listing_has_been_approved_on_site_title" added="1255078720">Ваше объявление было проверено на {site_title}.</phrase>
+	<phrase module_id="marketplace" version_id="2.0.0rc4" var_name="your_listing_has_been_approved_on_site_title_message" added="1255078774"><![CDATA[Ваше объявление было проверено на {site_title}. Чтобы просмотреть это объявление, перейдите по следующей ссылке: <a href="{link}">{link}</a>]]></phrase>
+	<phrase module_id="marketplace" version_id="2.0.0rc4" var_name="provide_a_category_this_listing_will_belong_to" added="1255078805">Выберите категорию для объявления.</phrase>
+	<phrase module_id="marketplace" version_id="2.0.0rc4" var_name="are_you_sure_this_will_delete_all_listings_that_belong_to_this_category_and_cannot_be_undone" added="1255078851">Вы уверены? Это удалит все объявления, которые принадлежат к этой категории и действие не может быть отменено.</phrase>
+	<phrase module_id="marketplace" version_id="2.0.0rc4" var_name="posted_on_time_stamp" added="1255080265">Размещено {time_stamp}.</phrase>
+	<phrase module_id="marketplace" version_id="2.0.0rc4" var_name="the_file_size_limit_is_file_size_if_your_upload_does_not_work_try_uploading_a_smaller_picture" added="1255080312">Максимальный размер файла {file_size}. Если не получилось загрузить, попытайтесь загрузить картинку меньшего размера.</phrase>
+	<phrase module_id="marketplace" version_id="2.0.0rc4" var_name="click_here_to_approve_listings" added="1255080631">Нажмите здесь чтобы подтвердить объявление.</phrase>
+	<phrase module_id="marketplace" version_id="2.0.0rc4" var_name="posted_time_samp_in_country_iso" added="1255080684">{time_samp} разместил {country_iso}.</phrase>
+	<phrase module_id="marketplace" version_id="2.0.0rc4" var_name="posted_time_stamp_by_user_info_in_country_iso" added="1255080740">{time_stamp} разместил {user_info}.</phrase>
+	<phrase module_id="marketplace" version_id="2.0.0rc4" var_name="this_song_has_been_added_to_your_profile" added="1255081050">Эта аудиозапись добавлена в ваш профиль.</phrase>
+	<phrase module_id="marketplace" version_id="2.0.0rc4" var_name="this_song_has_been_removed_from_your_profile" added="1255081059">Эта аудиозапись удалена из вашего профиля.</phrase>
+	<phrase module_id="marketplace" version_id="2.0.0rc4" var_name="basic_info" added="1255081085">Основная информация</phrase>
+	<phrase module_id="marketplace" version_id="2.0.0rc3" var_name="keywords" added="1254402580">Ключевые слова</phrase>
+	<phrase module_id="marketplace" version_id="2.0.0rc3" var_name="location" added="1254402616">Страна</phrase>
+	<phrase module_id="marketplace" version_id="2.0.0rc3" var_name="city" added="1254402631">Город</phrase>
+	<phrase module_id="marketplace" version_id="2.0.0rc3" var_name="zip_postal_code" added="1254402651">Почтовый индекс</phrase>
+	<phrase module_id="marketplace" version_id="2.0.0rc3" var_name="sort" added="1254402662">Сортировать</phrase>
+	<phrase module_id="marketplace" version_id="2.0.0rc3" var_name="submit" added="1254402705">Создать</phrase>
+	<phrase module_id="marketplace" version_id="2.0.0rc3" var_name="reset" added="1254402715">Сбросить</phrase>
+	<phrase module_id="marketplace" version_id="2.0.0rc3" var_name="photos" added="1254402743">Фотография</phrase>
+	<phrase module_id="marketplace" version_id="2.0.0rc3" var_name="summary" added="1254402845">Описание</phrase>
+	<phrase module_id="marketplace" version_id="2.0.0rc3" var_name="posted_on" added="1254402857">Дата</phrase>
+	<phrase module_id="marketplace" version_id="2.0.0rc3" var_name="posted_by" added="1254402869">Автор</phrase>
+	<phrase module_id="marketplace" version_id="2.0.0rc3" var_name="user_rating" added="1254402880">Рейтинг пользователя</phrase>
+	<phrase module_id="marketplace" version_id="2.0.0rc3" var_name="user_activity" added="1254402889">Пунктов активности</phrase>
+	<phrase module_id="marketplace" version_id="2.0.0rc3" var_name="no_visits" added="1254402947">Нет просмотров.</phrase>
+	<phrase module_id="marketplace" version_id="2.0.0rc3" var_name="no_results" added="1254402982">Нет результатов.</phrase>
+	<phrase module_id="marketplace" version_id="2.0.0rc3" var_name="add_new_listing" added="1254403011">Добавить продукт</phrase>
+	<phrase module_id="marketplace" version_id="2.0.0rc3" var_name="edit_listing" added="1254403026">Изменить список</phrase>
+	<phrase module_id="marketplace" version_id="2.0.0rc3" var_name="manage_photos" added="1254403038">Изменить изображения</phrase>
+	<phrase module_id="marketplace" version_id="2.0.0rc3" var_name="send_invitations" added="1254403047">Отправить предложения</phrase>
+	<phrase module_id="marketplace" version_id="2.0.0rc3" var_name="manage_invites" added="1254403080">Посещения</phrase>
+	<phrase module_id="marketplace" version_id="2.0.0rc3" var_name="contact" added="1254403096">Контакты</phrase>
+	<phrase module_id="marketplace" version_id="2.0.0rc3" var_name="report_this_listing" added="1254403154">Пожаловаться на объявление</phrase>
+	<phrase module_id="marketplace" version_id="2.0.0rc3" var_name="report" added="1254403163">Пожаловаться</phrase>
+	<phrase module_id="marketplace" version_id="2.0.0rc3" var_name="delete_listing" added="1254403180">Удалить объявление</phrase>
+	<phrase module_id="marketplace" version_id="2.0.0rc3" var_name="delete_this_image_for_the_listing" added="1254403406">Удалить это изображение из объявления.</phrase>
+	<phrase module_id="marketplace" version_id="2.0.0rc3" var_name="are_you_sure" added="1254403483">Вы уверены?</phrase>
+	<phrase module_id="marketplace" version_id="2.0.0rc3" var_name="click_to_set_as_default_image" added="1254403502">Нажмите, чтобы установить по умолчанию изображение.</phrase>
+	<phrase module_id="marketplace" version_id="2.0.0rc3" var_name="no_listings_added_yet" added="1254403561">Нет объявлений.</phrase>
+	<phrase module_id="marketplace" version_id="2.0.0rc3" var_name="add_a_listing" added="1254403593">Добавить объявление</phrase>
+	<phrase module_id="marketplace" version_id="2.0.0rc3" var_name="marketplace_category_details" added="1254403721">Детали категорий</phrase>
+	<phrase module_id="marketplace" version_id="2.0.0rc3" var_name="parent_category" added="1254403743">Родительская категория</phrase>
+	<phrase module_id="marketplace" version_id="2.0.0rc3" var_name="edit" added="1254403812">Изменить</phrase>
+	<phrase module_id="marketplace" version_id="2.0.0rc3" var_name="delete" added="1254403821">Удалить</phrase>
+	<phrase module_id="marketplace" version_id="2.0.0rc3" var_name="update_order" added="1254403847">Обновить порядок</phrase>
+	<phrase module_id="marketplace" version_id="2.0.0rc3" var_name="view_this_listing" added="1254403868">Посмотреть список</phrase>
+	<phrase module_id="marketplace" version_id="2.0.0rc3" var_name="skip_amp_view_this_listing" added="1254403899">Пропустить</phrase>
+	<phrase module_id="marketplace" version_id="2.0.0rc3" var_name="step_1" added="1254403972">Шаг 1</phrase>
+	<phrase module_id="marketplace" version_id="2.0.0rc3" var_name="listing_details" added="1254403981">Детали объявления</phrase>
+	<phrase module_id="marketplace" version_id="2.0.0rc3" var_name="step_2" added="1254403992">Шаг 2</phrase>
+	<phrase module_id="marketplace" version_id="2.0.0rc3" var_name="step_3" added="1254404014">Шаг 3</phrase>
+	<phrase module_id="marketplace" version_id="2.0.0rc3" var_name="invite" added="1254404022">Пригласить</phrase>
+	<phrase module_id="marketplace" version_id="2.0.0rc3" var_name="title" added="1254404178">Заголовок</phrase>
+	<phrase module_id="marketplace" version_id="2.0.0rc3" var_name="short_description" added="1254404192">Краткое описание</phrase>
+	<phrase module_id="marketplace" version_id="2.0.0rc3" var_name="full_description" added="1254404207">Полное описание</phrase>
+	<phrase module_id="marketplace" version_id="2.0.0rc3" var_name="usd" added="1254404241">USD</phrase>
+	<phrase module_id="marketplace" version_id="2.0.0rc3" var_name="select_image_s" added="1254404309">Выберите изображения</phrase>
+	<phrase module_id="marketplace" version_id="2.0.0rc3" var_name="you_can_upload_a_jpg_gif_or_png_file" added="1254404325">Вы можете загрузить JPG, GIF или PNG файл.</phrase>
+	<phrase module_id="marketplace" version_id="2.0.0rc3" var_name="upload" added="1254404368">Загрузить</phrase>
+	<phrase module_id="marketplace" version_id="2.0.0rc3" var_name="invite_friends" added="1254404380">Пригласить друзей</phrase>
+	<phrase module_id="marketplace" version_id="2.0.0rc3" var_name="invite_people_via_email" added="1254404393">Пригласить людей по Email</phrase>
+	<phrase module_id="marketplace" version_id="2.0.0rc3" var_name="separate_multiple_emails_with_a_comma" added="1254404408">Разделите несколько адресов почты запятой.</phrase>
+	<phrase module_id="marketplace" version_id="2.0.0rc3" var_name="add_a_personal_message" added="1254404419">Добавить сообщение</phrase>
+	<phrase module_id="marketplace" version_id="2.0.0rc3" var_name="new_guest_list" added="1254404448">Гости</phrase>
+	<phrase module_id="marketplace" version_id="2.0.0rc3" var_name="unable_to_find_what_you_are_looking_for" added="1254404484">Не удается найти то, что вы ищете.</phrase>
+	<phrase module_id="marketplace" version_id="2.0.0rc3" var_name="no_listings_have_been_added" added="1254404494">Нет объявлений.</phrase>
+	<phrase module_id="marketplace" version_id="2.0.0rc3" var_name="be_the_first_to_add_a_listing" added="1254404504">Будьте первым, кто разместит объявление.</phrase>
+	<phrase module_id="marketplace" version_id="2.0.0rc3" var_name="there_is_one_listing_that_is_pending_approval" added="1254404516">Одно объявление ожидает проверки.</phrase>
+	<phrase module_id="marketplace" version_id="2.0.0rc3" var_name="there_are_total_listings_that_are_pending_approval" added="1254404607">{total} объявлений ожидают проверки.</phrase>
+	<phrase module_id="marketplace" version_id="2.0.0rc3" var_name="approve_this_listing" added="1254404827">Разрешить это объявление.</phrase>
+	<phrase module_id="marketplace" version_id="2.0.0rc3" var_name="approve" added="1254404842">Разрешить</phrase>
+	<phrase module_id="marketplace" version_id="2.0.0rc3" var_name="feature_this_listing" added="1254404858">Рекомендовать это объявление.</phrase>
+	<phrase module_id="marketplace" version_id="2.0.0rc3" var_name="feature" added="1254404873">Рекомендовать</phrase>
+	<phrase module_id="marketplace" version_id="2.0.0rc3" var_name="un_feature_this_listing" added="1254404888">Не рекомендовать это объявление.</phrase>
+	<phrase module_id="marketplace" version_id="2.0.0rc3" var_name="unfeature" added="1254404901">Не рекомендовать</phrase>
+	<phrase module_id="marketplace" version_id="2.0.0rc3" var_name="listing_is_pending_approval" added="1254404992">Список ожидает проверки.</phrase>
+	<phrase module_id="marketplace" version_id="2.0.0rc3" var_name="successfully_deleted_listing" added="1254405051">Объявление успешно удалено.</phrase>
+	<phrase module_id="marketplace" version_id="2.0.0rc3" var_name="rating" added="1254405133">Рейтинг</phrase>
+	<phrase module_id="marketplace" version_id="2.0.0rc8" var_name="category" added="1258986746">Категория</phrase>
+	<phrase module_id="marketplace" version_id="2.0.0rc8" var_name="update" added="1258986799">Обновить</phrase>
+	<phrase module_id="marketplace" version_id="2.0.0rc8" var_name="cancel" added="1258986813">Отмена</phrase>
+	<phrase module_id="marketplace" version_id="2.0.0rc10" var_name="you_have_not_added_any_listings_yet" added="1259610367">Вы еще не добавили ни одного объявления.</phrase>
+	<phrase module_id="marketplace" version_id="2.0.0rc10" var_name="no_listings_have_been_featured" added="1259610438">Нет рекомендуемых объявлений.</phrase>
+	<phrase module_id="marketplace" version_id="2.0.0rc10" var_name="you_have_not_received_any_invites" added="1259610865">У вас нет предложений.</phrase>
+	<phrase module_id="marketplace" version_id="2.0.0rc10" var_name="no_listings_pending_approval" added="1259610971">Нет объявлений ожидающих проверки.</phrase>
+	<phrase module_id="marketplace" version_id="2.0.0rc11" var_name="this_category_name_cannot_be_used_due_to_that_there_is_already_another_category_with_the_same_name_being_used" added="1260237609">Это название категории не может быть использовано, т.к. уже существует другая категория с таким же названием.</phrase>
+	<phrase module_id="marketplace" version_id="2.0.0rc11" var_name="user_setting_can_access_marketplace" added="1260286697">Может искать и смотреть объявления?</phrase>
+	<phrase module_id="marketplace" version_id="2.0.0rc11" var_name="user_setting_can_create_listing" added="1260329360">Может создавать объявления?</phrase>
+	<phrase module_id="marketplace" version_id="2.0.0rc12" var_name="a_href_user_link_full_name_a_likes_your_a_href_link_listing_a" added="1260470252"><![CDATA[<a href="{user_link}">{full_name}</a> нравится твое <a href="{link}">объявление</a>.]]></phrase>
+	<phrase module_id="marketplace" version_id="2.0.0rc12" var_name="a_href_user_link_full_name_a_likes_their_own_a_href_link_listing_a" added="1260470283"><![CDATA[<a href="{user_link}">{full_name}</a> нравится {gender} свое <a href="{link}">объявление</a>.]]></phrase>
+	<phrase module_id="marketplace" version_id="2.0.0rc12" var_name="a_href_user_link_full_name_a_likes_a_href_view_user_link_view_full_name_a_s_a_href_link_listing_a" added="1260470300"><![CDATA[<a href="{user_link}">{full_name}</a> нравится <a href="{link}">объявление</a> <a href="{view_user_link}">{view_full_name}</a>.]]></phrase>
+	<phrase module_id="marketplace" version_id="2.0.5" var_name="sponsored_listing" added="1270732646">Рекламировать объявления</phrase>
+	<phrase module_id="marketplace" version_id="2.0.5" var_name="setting_how_many_sponsored_listings" added="1270733482"><![CDATA[<title>Количество объявлений в блоке рекламы</title><info>Этот параметр указывает, сколько рекламы по теме будет показано в рекламном блоке. По умолчанию 5.</info>]]></phrase>
+	<phrase module_id="marketplace" version_id="2.0.5" var_name="user_setting_can_sponsor_listing" added="1270806106">Могут ли пользователи этой группы стать рекламодателями в разделе объявлений?</phrase>
+	<phrase module_id="marketplace" version_id="2.0.5" var_name="sponsor_this_listing" added="1270806257">Рекламировать</phrase>
+	<phrase module_id="marketplace" version_id="2.0.5" var_name="unsponsor_this_listing" added="1270806408">Не рекламировать</phrase>
+	<phrase module_id="marketplace" version_id="2.0.5" var_name="listing_successfully_sponsored" added="1270807171">Объявление успешно прорекламировано</phrase>
+	<phrase module_id="marketplace" version_id="2.0.5" var_name="listing_successfully_un_sponsored" added="1270807213">Объявление больше не рекламируется</phrase>
+	<phrase module_id="marketplace" version_id="2.0.5" var_name="encourage_sponsor" added="1270810350">Оплатить рекламу</phrase>
+	<phrase module_id="marketplace" version_id="2.0.5" var_name="sponsor_help" added="1270810696"><![CDATA[Чтобы рекламировать объявление, пожалуйста, нажмите на "Рекламировать" рядом с объявлением]]></phrase>
+	<phrase module_id="marketplace" version_id="2.0.5" var_name="user_setting_can_purchase_sponsor" added="1270811006">Могут ли пользователи этой группы приобрести рекламное место?</phrase>
+	<phrase module_id="marketplace" version_id="2.0.5" var_name="user_setting_marketplace_sponsor_price" added="1271938987">Сколько стоит рекламное место в объявлениях? Это работает на основе CPM.</phrase>
+	<phrase module_id="marketplace" version_id="2.0.5" var_name="sponsor_error_not_found" added="1271944391">Объявление, которое Вы пытаетесь рекламировать, не найдено.</phrase>
+	<phrase module_id="marketplace" version_id="2.0.5" var_name="sponsor_title" added="1271944423">Объявления: {sListingTitle}</phrase>
+	<phrase module_id="marketplace" version_id="2.0.5" var_name="sponsor_paypal_message" added="1271944508">Оплата рекламного места в объявление: {sListingTitle}</phrase>
+	<phrase module_id="marketplace" version_id="2.0.5" var_name="user_setting_auto_publish_sponsored_item" added="1272007636">После того, как пользователь купил рекламную площадку, должна ли реклама быть опубликована сразу? Если нет, администрации необходимо будет проверять рекламу перед публикацией.</phrase>
+	<phrase module_id="marketplace" version_id="2.0.5" var_name="buy_it_now" added="1272015921">Купить сейчас</phrase>
+	<phrase module_id="marketplace" version_id="2.0.5" var_name="enable_instant_payment" added="1272015950">Включить дистанционную оплату</phrase>
+	<phrase module_id="marketplace" version_id="2.0.5" var_name="user_setting_can_sell_items_on_marketplace" added="1272016020">Может принимать оплату за объявление?</phrase>
+	<phrase module_id="marketplace" version_id="2.0.5" var_name="unable_to_find_the_listing_you_are_looking_for" added="1272016275">Объявление которое вы ищете не найдено.</phrase>
+	<phrase module_id="marketplace" version_id="2.0.5" var_name="sold" added="1272277592">Продано</phrase>
+	<phrase module_id="marketplace" version_id="2.0.5" var_name="this_listing_has_already_been_marked_as_sold" added="1272278384"><![CDATA[Это объявление уже было помечено как "Продано".]]></phrase>
+	<phrase module_id="marketplace" version_id="2.0.5" var_name="notice_this_listing_is_marked_as_sold" added="1272278515"><![CDATA[Примечание: Это объявление помечено как "Продано".]]></phrase>
+	<phrase module_id="marketplace" version_id="2.0.5" var_name="auto_sold" added="1272278527">Авто-продажа</phrase>
+	<phrase module_id="marketplace" version_id="2.0.5" var_name="if_you_enable_this_option_buyers_can_make_a_payment_to_one_of_the_payment_gateways_you_have_on_file_with_us_to_manage_your_payment_gateways_go_a_href_link_here_a" added="1272278556"><![CDATA[Если вы включите эту опцию, покупатели смогут сделать платеж в одной из платежных систем. По управлению платежными системами Вы можете ознакомиться <a href="{link}">здесь</a>.]]></phrase>
+	<phrase module_id="marketplace" version_id="2.0.5" var_name="if_this_is_enabled_and_once_a_successful_purchase_of_this_item_is_made" added="1272278641">Если эта опция включена, после первой покупки этого объявления, оно автоматически будет помечено как проданное.</phrase>
+	<phrase module_id="marketplace" version_id="2.0.5" var_name="closed_item_sold" added="1272278655">Закрыто (Продано)</phrase>
+	<phrase module_id="marketplace" version_id="2.0.5" var_name="enable_this_option_if_this_item_is_sold_and_this_listing_should_be_closed" added="1272278665">Включите эту опцию, если это объявление оплачено, и должно быть снято с публикации.</phrase>
+	<phrase module_id="marketplace" version_id="2.0.5" var_name="unable_to_purchase_this_item" added="1272278822">Невозможно оплатить это объявление.</phrase>
+	<phrase module_id="marketplace" version_id="2.0.5" var_name="review_and_confirm_purchase" added="1272278843">Предварительный просмотр и подтверждение оплаты.</phrase>
+	<phrase module_id="marketplace" version_id="2.0.5" var_name="item_you_re_buying" added="1272278863">Объявления которые вы оплачивали</phrase>
+	<phrase module_id="marketplace" version_id="2.0.5" var_name="by_clicking_on_the_button_below_you_commit_to_buy_this_item_from_the_seller" added="1272278880">Нажатием этой кнопки, вы соглашаетесь на резервацию этого объявления у этого продавца.</phrase>
+	<phrase module_id="marketplace" version_id="2.0.5" var_name="commit_to_buy" added="1272278890">Зарезервировать</phrase>
+	<phrase module_id="marketplace" version_id="2.0.5" var_name="payment_methods" added="1272278912">Способы оплаты</phrase>
+	<phrase module_id="marketplace" version_id="2.0.5" var_name="item_sold_title" added="1272279705">Товар оплачен: {title}</phrase>
+	<phrase module_id="marketplace" version_id="2.0.5" var_name="full_name_has_purchased_an_item_of_yours_on_site_name" added="1272279966"><![CDATA[{full_name} оплатил одно из ваших объявлений на {site_name}.  Объявление: {title} Ссылка на страницу объявления: <a href="{link}">{link}</a> Название пользователя: {full_name} Профиль пользователя: <a href="{user_link}">{user_link}</a> Цена: {price}]]></phrase>
+	<phrase module_id="marketplace" version_id="2.0.5" var_name="purchased_by" added="1272462303">Оплатил</phrase>
+	<phrase module_id="marketplace" version_id="2.0.5" var_name="you_haven_t_made_any_purchases_yet" added="1272462603">Вы еще не сделали ни одной покупки.</phrase>
+	<phrase module_id="marketplace" version_id="2.0.5" var_name="you_haven_t_sold_any_items_yet" added="1272462628">Вы еще не продали ни одного объявления.</phrase>
+	<phrase module_id="marketplace" version_id="2.0.5" var_name="purchased" added="1272462658">Оплачено</phrase>
+	<phrase module_id="marketplace" version_id="2.0.5" var_name="you_do_not_have_any_invoices" added="1272550735">У вас нет ни одного счета.</phrase>
+	<phrase module_id="marketplace" version_id="2.0.5" var_name="id" added="1272550744">ID</phrase>
+	<phrase module_id="marketplace" version_id="2.0.5" var_name="status" added="1272550751">Статус</phrase>
+	<phrase module_id="marketplace" version_id="2.0.5" var_name="date" added="1272550762">Дата</phrase>
+	<phrase module_id="marketplace" version_id="2.0.5" var_name="pay_now" added="1272550771">Оплатить сейчас</phrase>
+	<phrase module_id="marketplace" version_id="2.0.5" var_name="marketplace_invoices" added="1272550785">Оплата объявлений</phrase>
+	<phrase module_id="marketplace" version_id="2.0.5" var_name="invoices" added="1272550799">Счета</phrase>
+	<phrase module_id="marketplace" version_id="2.0.5" var_name="paid" added="1272550810">Оплачен</phrase>
+	<phrase module_id="marketplace" version_id="2.0.5" var_name="cancelled" added="1272550817">Отменён</phrase>
+	<phrase module_id="marketplace" version_id="2.0.5" var_name="pending_payment" added="1272550825">Ожидает оплаты</phrase>
+	<phrase module_id="marketplace" version_id="2.0.5" var_name="menu_marketplace_manage_invoices_ad23f7587e12dc025eefdfbc37ca854a" added="1272550993">Управление счетами</phrase>
+	<phrase module_id="marketplace" version_id="2.0.5dev1" var_name="user_setting_can_sponsor_marketplace" added="1274299652">Разрешить рекламу?</phrase>
+	<phrase module_id="marketplace" version_id="2.0.5dev2" var_name="user_setting_flood_control_marketplace" added="1275108549"><![CDATA[Сколько минут пользователю необходимо ждать, перед тем как он сможет создать объявление? Примечание: Значение "0" (без кавычек), стандартное, при нем пользователям не придется ждать.]]></phrase>
+	<phrase module_id="marketplace" version_id="2.0.5dev2" var_name="you_are_creating_a_listing_a_little_too_soon" added="1275108611"><![CDATA[Слишком быстро, не спешите.]]></phrase>
+	<phrase module_id="marketplace" version_id="3.0.0beta1" var_name="user_setting_points_marketplace" added="1304598138">Сколько баллов должен получить пользователь при добавлении новой записи?</phrase>
+	<phrase module_id="marketplace" version_id="3.0.0beta5" var_name="listing_successfully_featured" added="1319183858">Объявление успешно зарекомендовано</phrase>
+	<phrase module_id="marketplace" version_id="3.0.0beta5" var_name="listing_successfully_un_featured" added="1319183873">Объявление больше не рекомендуется</phrase>
+	<phrase module_id="marketplace" version_id="3.0.0beta5" var_name="un_feature" added="1319183880">Не рекомендовать</phrase>
+	<phrase module_id="marketplace" version_id="3.0.0beta5" var_name="listing_has_been_approved" added="1319183893">Объявление было проверено.</phrase>
+	<phrase module_id="marketplace" version_id="3.0.0beta5" var_name="listing_approved" added="1319183904">Объявление проверено</phrase>
+	<phrase module_id="marketplace" version_id="3.0.0beta5" var_name="search_listings" added="1319456698">Поиск объявлений...</phrase>
+	<phrase module_id="marketplace" version_id="3.0.0beta5" var_name="latest" added="1319456704">Последние</phrase>
+	<phrase module_id="marketplace" version_id="3.0.0beta5" var_name="most_viewed" added="1319456716">Самые популярные</phrase>
+	<phrase module_id="marketplace" version_id="3.0.0beta5" var_name="most_liked" added="1319456724">Избранные</phrase>
+	<phrase module_id="marketplace" version_id="3.0.0beta5" var_name="most_discussed" added="1319456733">Самые обсуждаемые</phrase>
+	<phrase module_id="marketplace" version_id="3.0.0beta5" var_name="anywhere" added="1319456742">Все</phrase>
+	<phrase module_id="marketplace" version_id="3.0.0beta5" var_name="all_listings" added="1319456760">Все объявления</phrase>
+	<phrase module_id="marketplace" version_id="3.0.0beta5" var_name="listing_invites" added="1319456779">Объявления приглашения</phrase>
+	<phrase module_id="marketplace" version_id="3.0.0beta5" var_name="friends_listings" added="1319456933"><![CDATA[Объявления друзей]]></phrase>
+	<phrase module_id="marketplace" version_id="3.0.0beta5" var_name="pending_listings" added="1319456941">Объявления в ожидание</phrase>
+	<phrase module_id="marketplace" version_id="3.0.0beta5" var_name="full_name_s_listings" added="1319456961"><![CDATA[{full_name} Объявления]]></phrase>
+	<phrase module_id="marketplace" version_id="3.0.0beta5" var_name="no_marketplace_listings_found" added="1319457071">Объявления в магазине не найдены.</phrase>
+	<phrase module_id="marketplace" version_id="3.0.0beta5" var_name="pending_approval" added="1319457090">В ожидании проверки</phrase>
+	<phrase module_id="marketplace" version_id="3.0.0beta5" var_name="sponsored" added="1319457102">Рекламировать</phrase>
+	<phrase module_id="marketplace" version_id="3.0.0beta5" var_name="actions" added="1319457110">Действия</phrase>
+	<phrase module_id="marketplace" version_id="3.0.0beta5" var_name="see_more" added="1319457128">Посмотреть еще</phrase>
+	<phrase module_id="marketplace" version_id="3.0.0beta5" var_name="what_are_you_selling" added="1319457178">Что вы продаете?</phrase>
+	<phrase module_id="marketplace" version_id="3.0.0beta5" var_name="description" added="1319457186">Описание</phrase>
+	<phrase module_id="marketplace" version_id="3.0.0beta5" var_name="add_city_zip" added="1319457214">Добавить город/индекс</phrase>
+	<phrase module_id="marketplace" version_id="3.0.0beta5" var_name="listing_privacy" added="1319457259">Приватность объявления</phrase>
+	<phrase module_id="marketplace" version_id="3.0.0beta5" var_name="control_who_can_see_this_listing" added="1319457267">Кто может видеть это объявление.</phrase>
+	<phrase module_id="marketplace" version_id="3.0.0beta5" var_name="comment_privacy" added="1319457274">Приватность комментариев</phrase>
+	<phrase module_id="marketplace" version_id="3.0.0beta5" var_name="control_who_can_comment_on_this_listing" added="1319457285">Кто может видеть комментарии.</phrase>
+	<phrase module_id="marketplace" version_id="3.0.0beta5" var_name="successfully_uploaded_images" added="1319457355">Изображение успешно загружено.</phrase>
+	<phrase module_id="marketplace" version_id="3.0.0beta5" var_name="successfully_invited_users" added="1319457363">Пользователи успешно приглашены.</phrase>
+	<phrase module_id="marketplace" version_id="3.0.0beta5" var_name="editing_listing" added="1319457416">Изменить объявление</phrase>
+	<phrase module_id="marketplace" version_id="3.0.0beta5" var_name="align_left" added="1319463767">Выровнять по левому краю</phrase>
+	<phrase module_id="marketplace" version_id="3.0.0beta5" var_name="report_this_listing_lowercase" added="1319464027">Пожаловаться</phrase>
+	<phrase module_id="marketplace" version_id="3.0.0beta5" var_name="full_name_liked_your_listing_title" added="1319530743"><![CDATA[{full_name} нравится ваше объявление "{title}"]]></phrase>
+	<phrase module_id="marketplace" version_id="3.0.0beta5" var_name="full_name_liked_your_listing_message" added="1319530825"><![CDATA[{full_name} нравится ваше объявление "<a href="{link}">{title}</a>"
+Чтобы просмотреть это объявление пройдите по ссылке ниже:
+<a href="{link}">{link}</a>]]></phrase>
+	<phrase module_id="marketplace" version_id="3.0.0rc1" var_name="loading" added="1320324900">Загрузка...</phrase>
+	<phrase module_id="marketplace" version_id="3.0.0rc1" var_name="close" added="1320324906">Закрыть</phrase>
+	<phrase module_id="marketplace" version_id="3.0.0rc1" var_name="more_from_seller" added="1320324937">Остальные объявления этого продавца</phrase>
+	<phrase module_id="marketplace" version_id="3.0.0rc2" var_name="users_wants_you_to_check_out_the_listing_title" added="1321347798"><![CDATA[{users} хочет, чтобы вы, проверили объявление "{title}"]]></phrase>
+	<phrase module_id="marketplace" version_id="3.0.0rc2" var_name="contact_seller" added="1321350297">Контакты</phrase>
+	<phrase module_id="marketplace" version_id="3.0.0" var_name="full_name_commented_on_your_listing_title" added="1322466110"><![CDATA[{full_name} прокомментировал(а) ваше объявление "{title}".]]></phrase>
+	<phrase module_id="marketplace" version_id="3.0.0" var_name="featured_listings" added="1322467168">Популярные объявления</phrase>
+	<phrase module_id="marketplace" version_id="3.0.0" var_name="posted_a_comment_on_gender_listing_a_href_link_title_a" added="1322565737"><![CDATA[прокомментировал(а) {gender} объявление <a href="{link}">{title}</a>]]></phrase>
+	<phrase module_id="marketplace" version_id="3.0.0" var_name="posted_a_comment_on_user_name_s_listing_a_href_link_title_a" added="1322565852"><![CDATA[прокомментировал(а) {user_name} объявление "<a href="{link}"> {title} </a>"]]></phrase>
+	<phrase module_id="marketplace" version_id="3.0.0" var_name="full_name_commented_on_your_listing_a_href_link_title_a_to_see_the_comment_thread_follow_the_link_below_a_href_link_link_a" added="1322566098"><![CDATA[{full_name} прокомментировал(а) ваше объявление "<a href="{link}">{title}</a>". Чтобы увидеть комментарии, пройдите по ссылке ниже: <a href="{link}"> {link} </a>]]></phrase>
+	<phrase module_id="marketplace" version_id="3.0.0" var_name="full_name_commented_on_gender_listing" added="1322566215">{full_name} прокомментировал(а) ваше {gender} объявление.</phrase>
+	<phrase module_id="marketplace" version_id="3.0.0" var_name="full_name_commented_on_other_full_name_s_listing" added="1322566288"><![CDATA[{full_name} прокомментировал(а) {other_full_name} объявление.]]></phrase>
+	<phrase module_id="marketplace" version_id="3.0.0" var_name="full_name_commented_on_gender_listing_a_href_link_title_a_to_see_the_comment_thread_follow_the_link_below_a_href_link_link_a" added="1322566654"><![CDATA[{full_name} прокомментировал(а) {gender} объявление "<a href="{link}">{title}</a>". 
+Чтобы увидеть комментарии, пройдите по ссылке ниже:
+<a href="{link}">{link}</a>]]></phrase>
+	<phrase module_id="marketplace" version_id="3.0.0" var_name="full_name_commented_on_other_full_name" added="1322566833"><![CDATA[{full_name} прокомментировал(а) {other_full_name} объявление "<a href="{link}">{title}</a>".
+Чтобы увидеть комментарии, пройдите по ссылке ниже:
+<a href="{link}">{link}</a>]]></phrase>
+	<phrase module_id="marketplace" version_id="3.0.0" var_name="a_href_link_on_name_s_listing_a" added="1322567030"><![CDATA[<a href="{link}">{name} объявление.</a>]]></phrase>
+	<phrase module_id="marketplace" version_id="3.0.0" var_name="user_name_liked_gender_own_listing_title" added="1322567423"><![CDATA[{user_name} нравится {gender} свое объявление "{title}"]]></phrase>
+	<phrase module_id="marketplace" version_id="3.0.0" var_name="user_names_liked_your_listing_title" added="1322567624"><![CDATA[{user_names} нравится ваше объявление "{title}"]]></phrase>
+	<phrase module_id="marketplace" version_id="3.0.0" var_name="user_names_liked_span_class_drop_data_user_full_name_s_span_listing_title" added="1322567869"><![CDATA[{user_names} нравится <span class="drop_data_user">{full_name}</span> объявление "{title}"]]></phrase>
+	<phrase module_id="marketplace" version_id="3.0.0" var_name="user_names_commented_on_gender_listing_title" added="1322568005"><![CDATA[{user_names} прокомментировал(а) {gender} объявление "{title}"]]></phrase>
+	<phrase module_id="marketplace" version_id="3.0.0" var_name="user_names_commented_on_your_listing_title" added="1322568178"><![CDATA[{user_names} прокомментировал(а) ваше объявление "{title}"]]></phrase>
+	<phrase module_id="marketplace" version_id="3.0.0" var_name="user_names_commented_on_span_class_drop_data_user_full_name_s_span_listing_title" added="1322568344"><![CDATA[{user_names} прокомментировал(а) <span class="drop_data_user">{full_name}</span> объявление "{title}"]]></phrase>
+	<phrase module_id="marketplace" version_id="3.0.0" var_name="your_marketplace_listing_title_has_been_approved" added="1322568476"><![CDATA[Ваше объявление "{title}" было проверено]]></phrase>
+	<phrase module_id="marketplace" version_id="3.0.0" var_name="listing_s_successfully_approved" added="1322739750">Объявление(я) успешно проверено(ы).</phrase>
+	<phrase module_id="marketplace" version_id="3.0.0" var_name="listing_s_successfully_deleted" added="1322739765">Объявление(я) успешно удалено(ы).</phrase>
+	<phrase module_id="marketplace" version_id="3.0.0" var_name="listing_s_successfully_featured" added="1322739778">Объявление(я) успешно добавлены в избранное.</phrase>
+	<phrase module_id="marketplace" version_id="3.0.0" var_name="listing_s_successfully_un_featured" added="1322739794">Объявление(я) успешно удалены из избранного.</phrase>
+	<phrase module_id="marketplace" version_id="3.0.0" var_name="user_setting_total_photo_upload_limit" added="1323674894">Сколько фотографий пользователь может загрузить при размещение объявлений.</phrase>
+	<phrase module_id="marketplace" version_id="3.1.0beta1" var_name="user_name_tagged_you_in_a_marketplace_listing" added="1331221452">{user_name} отметил вас в объявлениях</phrase>
+	<phrase module_id="marketplace" version_id="3.1.0beta1" var_name="html_not_allowed" added="1331555316">HTML запрещен</phrase>
+	<phrase module_id="marketplace" version_id="3.2.0rc1" var_name="view_all" added="1335275381">Посмотреть все</phrase>
+	<phrase module_id="marketplace" version_id="3.3.0beta1" var_name="visted" added="1339155389">Посетили</phrase>
+	<phrase module_id="marketplace" version_id="3.3.0beta1" var_name="invited" added="1339155396">Приглашенный</phrase>
+</phrases>
