@@ -42,18 +42,18 @@ defined('PHPFOX') or exit('NO DICE!');
     <ul>
         {foreach from=$aRightMenus key=iKey item=aMenu}
             <li>
-                <a href="{url link=$aMenu.url}" {if isset($aMenu.children) && count($aMenu.children) && is_array($aMenu.children)} class="has_drop_down no_ajax_link"{/if}>
+                <a href="{url link=$aMenu.url}" class="{if isset($aMenu.children) && count($aMenu.children) && is_array($aMenu.children)} has_drop_down no_ajax_link{/if} {if Phpfox::isUser() && $aMenu.url == 'user.setting'}menu-settings{/if}">
                     {if Phpfox::isUser() && $aMenu.url == 'profile.my'}
                         <?php
                         $profileUrl = Phpfox::getParam('core.url_user');
                         $profileUrl .= Phpfox::getUserBy('user_image');
-                        $profileUrl = str_replace("%s","_50",$profileUrl);
+                        $profileUrl = str_replace("%s","_50_square",$profileUrl);
                         ?>
                         <span class="right-menu-profile">
                             <img src="<?php  echo $profileUrl; ?>" alt="" />
                         </span>
                     {elseif Phpfox::isUser() && $aMenu.url == 'user.setting'}
-                        <img src="" alt="" />
+                        <span>settings</span>
                     {else}
                         {phrase var=$aMenu.module'.'$aMenu.var_name}{if isset($aMenu.suffix)}{$aMenu.suffix}{/if}
                     {/if}
@@ -81,6 +81,11 @@ defined('PHPFOX') or exit('NO DICE!');
                 {/if}
             </li>
         {/foreach}
+        {if Phpfox::isUser()}
+            <li>
+                <a href="{url link='user.logout'}" class="menu-exit"><span>exit</span></a>
+            </li>
+        {/if}
     {unset var=$aRightMenus var1=$aMenu}
     </ul>
 {/if}

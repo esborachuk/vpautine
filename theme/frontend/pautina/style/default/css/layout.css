@@ -163,7 +163,7 @@ select
 
 #header_holder
 {
-    background: url(../image/layout/header_bg.png) no-repeat;
+    background: #bfc3c6;
 	position:relative;
 	z-index:1001;
     height: 68px;
@@ -224,7 +224,7 @@ select
 {
     position: absolute;
     right: 0;
-    top: 28px;
+    top: 6px;
 }
 
 #header_menu_holder ul
@@ -238,39 +238,28 @@ select
 {
 	float:left;
 	position:relative;
+    margin-right: 12px;
 }
 
 #header_menu_holder ul li a,
 #header_menu_holder ul li a:hover
 {	
 	display:block;
-	line-height:40px;
-	padding:0px 8px 0px 8px;
+	padding:0;
 	font-weight:bold;
 	text-decoration:none;
 	color:#fff;	
 }
 
-#header_menu_holder ul li a.has_drop_down
-{
-	background:url('../image/layout/has_drop_down.png') no-repeat 90% 0px;
-	padding-right:22px;
-}
-
 #header_menu_holder ul li a:hover
 {
-	background:#4F4F4F;
-}
-
-#header_menu_holder ul li a.has_drop_down:hover
-{
-	background:#4F4F4F url('../image/layout/has_drop_down.png') no-repeat 90% 0px;
+	background-color:#404042;
+    border-radius: 5px;
 }
 
 #header_menu_holder ul li a.active,
 #header_menu_holder ul li a.active:hover
 {
-	background:#fff url('../image/layout/has_drop_down.png') no-repeat 90% -40px;
 	color:#333;
 }
 
@@ -389,6 +378,7 @@ select
 #header_menu_login
 {
 	position:relative;
+    top: -12px;
 }
 
 #header_menu_login_holder
@@ -745,7 +735,7 @@ input.button_register,
 
 #header_sub_menu_search_input
 {
-	background:url('../image/layout/header_search_input.png') no-repeat;
+    background:url('../image/layout/header_search_input.png') no-repeat 0px -26px;
 	width:165px;
 	height:26px;
 	line-height:26px;
@@ -807,8 +797,7 @@ input.button_register,
 {
     left: 20px;
     position: absolute;
-    top: 0;
-}
+    top: 5px;
 }
 
 #holder_notify ul
@@ -844,7 +833,7 @@ input.button_register,
 }
 
 #holder_notify li {
-    margin: 0 5px;
+    margin: 0;
 }
 
 #holder_notify ul li a.friend_notification
@@ -877,6 +866,18 @@ input.button_register,
 #holder_notify ul li a.status_update
 {
 	background:url('../image/layout/holder_notify_status_update.png') no-repeat 50% 50%;
+}
+
+#holder_notify ul li a.notification.active span.notify_image {
+    background-position: 8px -41px;
+}
+
+#holder_notify ul li a.message.active span.notify_image {
+    background-position: -7px -45px;
+}
+
+#holder_notify ul li a.friend_notification.active span.notify_image {
+    background-position: 0px -145px;
 }
 
 span.notify_image {
@@ -4412,6 +4413,35 @@ a.like_count_link:hover
     margin-top: 15px;
 }
 
-.pautina_profile_menu {
+.right-menu-profile {
+    padding: 3px 4px 0px 3px;
+    display: block;
+}
 
+.right-menu-profile img {
+    border-radius: 5px;
+    box-shadow: inset -5px -5px 5px #888;
+}
+
+a.menu-settings {
+    display: block;
+    background: url(../image/pautina/menu-settings.png) no-repeat 2px 2px;
+    height: 50px;
+    width: 50px;
+}
+
+.menu-settings span, .menu-exit span {
+    display: none;
+}
+
+a.menu-exit {
+    display: block;
+    background: url(../image/pautina/menu-exit.png) no-repeat 3px 2px;
+    height: 50px;
+    width: 50px;
+}
+
+.profile_user_image {
+    width: 200px;
+    height: auto;
 }
