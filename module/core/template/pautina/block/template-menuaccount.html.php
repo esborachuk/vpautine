@@ -16,7 +16,7 @@ defined('PHPFOX') or exit('NO DICE!');
     <li>
         <a href="#" class="has_drop_down">{phrase var='pages.account'}</a>
         <ul>
-            <li class="header_menu_user_lin k">
+            <li class="header_menu_user_link">
                 <div id="header_menu_user_image">
                     {img user=$aGlobalUser suffix='_50_square' max_width=50 max_height=50}
                 </div>
@@ -41,10 +41,13 @@ defined('PHPFOX') or exit('NO DICE!');
 {else}
 <ul>
     {foreach from=$aRightMenus key=iKey item=aMenu}
-    <li><a href="{url link=$aMenu.url}"{if isset($aMenu.children) && count($aMenu.children) && is_array($aMenu.children)} class="has_drop_down no_ajax_link"{/if}>{phrase var=$aMenu.module'.'$aMenu.var_name}{if isset($aMenu.suffix)}{$aMenu.suffix}{/if} </a>
-        {if Phpfox::isUser() && $aMenu.url == ''}
+    <li>
+        {if Phpfox::isUser() && $aMenu.url == 'user.setting'}
         hello
         {/if}
+        <a href="{url link=$aMenu.url}"{if isset($aMenu.children) && count($aMenu.children) && is_array($aMenu.children)} class="has_drop_down no_ajax_link"{/if}>
+        {phrase var=$aMenu.module'.'$aMenu.var_name}{if isset($aMenu.suffix)}{$aMenu.suffix}{/if}
+        </a>
         {if isset($aMenu.children) && count($aMenu.children) && is_array($aMenu.children)}
         <ul>
             {if Phpfox::isUser() && $aMenu.url == 'user.setting'}
@@ -64,7 +67,7 @@ defined('PHPFOX') or exit('NO DICE!');
             {foreach from=$aMenu.children item=aChild name=child_menu}
             <li{if $phpfox.iteration.child_menu == 1} class="first"{/if}><a {if $aChild.url == 'pages.login'}id="js_login_as_page"{/if} href="{url link=$aChild.url}"{if $aChild.url == 'profile.designer' || $aChild.url == 'pages.login'} class="no_ajax_link"{/if}>{phrase var=$aChild.module'.'$aChild.var_name}</a></li>
     {/foreach}
-</ul>
+        </ul>
 {/if}
 </li>
 {/foreach}
