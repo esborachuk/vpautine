@@ -4,9 +4,13 @@ PautinaNotification = {
     },
 
     check: function() {
-        var botifyBlock = $('.holder_notify_count:visible');
-        if (botifyBlock.size() > 0) {
-            botifyBlock.next().addClass('active');
+        var notifyBlockHidden = $('.holder_notify_count:visible');
+        if (notifyBlockHidden.size() > 0) {
+            notifyBlockHidden.next().addClass('active');
+        }
+        var notifyBlockShow = $('.holder_notify_count:hidden');
+        if (notifyBlockShow.size() > 0) {
+            notifyBlockShow.next().removeClass('active');
         }
     }
 };

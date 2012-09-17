@@ -19,7 +19,7 @@ defined('PHPFOX') or exit('NO DICE!');
 		{header}
 	</head>
 	<body>
-		{body}	
+		{body}
 		{block location='9'}
 		<div id="header" class="pautina">
 			<div class="holder">
@@ -84,8 +84,8 @@ defined('PHPFOX') or exit('NO DICE!');
 			<div id="main_content_holder">
 			{/if}
 				<div {holder_name}>		
-					<div {is_page_view} class="holder">	
-						
+					<div {is_page_view} class="holder">
+
 						{module name='profile.logo'}
 						
 						<div id="content_holder">		
@@ -108,7 +108,9 @@ defined('PHPFOX') or exit('NO DICE!');
 								{search}
 								{/if}
 								<div id="main_content_padding">
-
+                                    {if Phpfox::isUser()}
+                                    {module name='pautina.profile.usermenu'}
+                                    {/if}
 									{if defined('PHPFOX_IS_USER_PROFILE')}
 									{block location='12'}
 									{module name='profile.header'}							
@@ -135,7 +137,8 @@ defined('PHPFOX') or exit('NO DICE!');
 										</div>
 
 										{if !$bUseFullSite && (count($aBlocks3) || count($aAdBlocks3))}
-										<div id="right">								
+										<div id="right">
+                                            {module name='pages.header'}
 											{block location='3'}
 										</div>
 										{/if}
