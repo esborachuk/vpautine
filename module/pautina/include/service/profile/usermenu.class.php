@@ -1,6 +1,8 @@
 <?php
 class Pautina_Service_Profile_Usermenu extends Phpfox_Service {
     public function getMenu() {
+        $currentUser = Phpfox::getLib('request')->get('req1');
+        $userName = Phpfox::getUserBy('user_name');
         $currentPage = Phpfox::getLib('request')->get('req2');
 
         $userId = Phpfox::getUserId();
@@ -64,9 +66,11 @@ class Pautina_Service_Profile_Usermenu extends Phpfox_Service {
             ),
         );
 
-        foreach ($menu as $key => $item) {
-            if ($key == $currentPage) {
-                $menu[$key]['class'] .= ' ' . 'active';
+        if ($currentUser == $userName) {
+            foreach ($menu as $key => $item) {
+                if ($key == $currentPage) {
+                    $menu[$key]['class'] .= ' ' . 'active';
+                }
             }
         }
 
