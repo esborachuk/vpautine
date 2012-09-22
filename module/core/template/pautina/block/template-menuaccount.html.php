@@ -48,12 +48,14 @@ defined('PHPFOX') or exit('NO DICE!');
                         $profileUrl = Phpfox::getParam('core.url_user');
                         $profileUrl .= Phpfox::getUserBy('user_image');
                         $profileUrl = str_replace("%s","_50_square",$profileUrl);
+                        $profileName = Phpfox::getUserBy('user_name');
                         ?>
                         <span class="right-menu-profile">
-                            <img src="<?php  echo $profileUrl; ?>" alt="" />
+                            <img width="35" src="<?php  echo $profileUrl; ?>" alt="" />
+                            <span><?php echo $profileName ?></span>
                         </span>
                     {elseif Phpfox::isUser() && $aMenu.url == 'user.setting'}
-                        <span>settings</span>
+                        <span>настройки</span>
                     {else}
                         {phrase var=$aMenu.module'.'$aMenu.var_name}{if isset($aMenu.suffix)}{$aMenu.suffix}{/if}
                     {/if}
@@ -61,15 +63,6 @@ defined('PHPFOX') or exit('NO DICE!');
                 {if isset($aMenu.children) && count($aMenu.children) && is_array($aMenu.children)}
                     <ul>
                         {if Phpfox::isUser() && $aMenu.url == 'user.setting'}
-                            <li class="header_menu_user_link">
-
-                                <div id="header_menu_user_image">
-                                    {img user=$aGlobalUser suffix='_50_square' max_width=50 max_height=50}
-                                </div>
-                                <div id="header_menu_user_profile">
-                                    {$aGlobalUser|user:'':'':20}
-                                </div>
-                            </li>
                             {if Phpfox::isModule('pages') && Phpfox::getUserParam('pages.can_add_new_pages')}
                                 <li><a href="#" onclick="$Core.box('pages.login', 400); return false;">{phrase var='core.login_as_page'}</a></li>
                             {/if}
@@ -83,7 +76,7 @@ defined('PHPFOX') or exit('NO DICE!');
         {/foreach}
         {if Phpfox::isUser()}
             <li>
-                <a href="{url link='user.logout'}" class="menu-exit"><span>exit</span></a>
+                <a href="{url link='user.logout'}" class="menu-exit"><span>Выход</span></a>
             </li>
         {/if}
     {unset var=$aRightMenus var1=$aMenu}

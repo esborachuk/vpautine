@@ -148,8 +148,8 @@ select
     box-shadow: 0 0 10px #CCC;
 }
 
-#main_core_body_holder {
-
+#header .holder {
+    position: relative;
 }
 
 /**
@@ -223,8 +223,8 @@ select
 #header_menu_holder
 {
     position: absolute;
-    right: 0;
-    top: 6px;
+    right: -20px;
+    top: 4px;
 }
 
 #header_menu_holder ul
@@ -253,7 +253,7 @@ select
 
 #header_menu_holder ul li a:hover
 {
-	background-color:#404042;
+	background-color:#606263;
     border-radius: 5px;
 }
 
@@ -797,7 +797,7 @@ input.button_register,
 {
     left: 20px;
     position: absolute;
-    top: 5px;
+    top: 0px;
 }
 
 #holder_notify ul
@@ -1258,7 +1258,6 @@ span.notify_image {
 {
 	float:left;
 	width:180px;
-	overflow:hidden;
 	padding:10px 0px 10px 0px;
 	border-right:1px #D7D7D7 solid;	
 }
@@ -1843,6 +1842,9 @@ a.item_bar_flag:hover
 {
 	display:block;
 	position:relative;
+    padding-left: 20px;
+    margin: 5px 0;
+    height: 38px;
 }	
 
 .sub_section_menu ul li.menu_line
@@ -1859,23 +1861,32 @@ a.item_bar_flag:hover
 
 .sub_section_menu ul li a:hover
 {
-	background: #727272;
     color: #4c4c4c;
     text-decoration: none;
 }
 
-.sub_section_menu ul li.active a,
-.sub_section_menu ul li.active a:hover
+.sub_section_menu ul li:hover
 {
-	font-weight:bold;
-    background: #727272;
+    background: url(../image/pautina/menu-bg.png) repeat-x 0 0;
     color: #4c4c4c;
+}
+
+.sub_section_menu ul li.active {
+    background: url(../image/pautina/menu-bg.png) repeat-x 0 -42px;
 }
 
 .sub_section_menu ul li a span
 {
-	padding-left:4px;
-	color:#9F9F9F;
+    padding-left: 4px;
+    color: white;
+    background: #4C4C4C;
+    border-radius: 3px;
+    padding: 0 1px;
+    margin-left: 5px;
+    float: right;
+    margin-right: 38px;
+    line-height: 12px;
+    margin-top: 7px;
 }
 
 .sub_section_menu ul li a span.pending,
@@ -4421,27 +4432,129 @@ a.like_count_link:hover
 .right-menu-profile img {
     border-radius: 5px;
     box-shadow: inset -5px -5px 5px #888;
+    margin-top: 1px;
 }
 
 a.menu-settings {
     display: block;
     background: url(../image/pautina/menu-settings.png) no-repeat 2px 2px;
-    height: 50px;
-    width: 50px;
+    height: 40px;
+    width: 41px;
 }
 
-.menu-settings span, .menu-exit span {
-    display: none;
+.menu-settings span, .menu-exit span, .right-menu-profile span {
+    display: block;
+    position: absolute;
+    top: 42px;
+    text-align: center;
+    width: 40px;
+    color: #586065;
+    font-size: 10px;
+    font-weight: normal;
+    text-shadow: rgba(255, 255, 255, 0.5) 0px 3px 3px;
 }
 
 a.menu-exit {
     display: block;
     background: url(../image/pautina/menu-exit.png) no-repeat 3px 2px;
-    height: 50px;
-    width: 50px;
+    height: 40px;
+    width: 40px;
 }
 
 .profile_user_image {
     width: 200px;
     height: auto;
+}
+
+#user-menu {
+    position: absolute;
+    right: -145px;
+    width: 122px;
+    top: -85px;
+}
+
+#user-menu .title {
+    color: white;
+    background: #4C4C4C;
+    border-radius: 3px;
+    padding: 1px;
+    line-height: 12px;
+    text-align: center;
+}
+
+#user-menu li {
+    margin: 10px 0;
+}
+
+#user-menu li a {
+    background-repeat: no-repeat;
+    background-position: left top;
+    display: block;
+    height: 30px;
+    color: #808080;
+}
+
+#user-menu li a:hover, #user-menu li.active a {
+    background-position: left -56px;
+    color: #595959;
+    text-decoration: none;
+}
+
+#user-menu li a span {
+    position: relative;
+    left: 40px;
+    padding: 2px;
+    top: 4px;
+}
+
+#user-menu li a:hover span, #user-menu li.active span {
+    color: white;
+    background: #4C4C4C;
+    border-radius: 3px;
+    padding: 0 1px;
+    line-height: 12px;
+}
+
+#user-menu .wall a {
+    background-image: url(../image/pautina/right-menu/wall.png);
+}
+
+#user-menu .info a {
+    background-image: url(../image/pautina/right-menu/info.png);
+}
+
+#user-menu .blog a {
+    background-image: url(../image/pautina/right-menu/blog.png);
+}
+
+#user-menu .event a {
+    background-image: url(../image/pautina/right-menu/event.png);
+}
+
+#user-menu .friend a {
+    background-image: url(../image/pautina/right-menu/friend.png);
+}
+
+#user-menu .marketplace a {
+    background-image: url(../image/pautina/right-menu/marketplace.png);
+}
+
+#user-menu .music a {
+    background-image: url(../image/pautina/right-menu/music.png);
+}
+
+#user-menu .photo a {
+    background-image: url(../image/pautina/right-menu/photo.png);
+}
+
+#user-menu .poll a {
+    background-image: url(../image/pautina/right-menu/poll.png);
+}
+
+user#user-menu .quizz a {
+    background-image: url(../image/pautina/right-menu/quizz.png);
+}
+
+#user-menu .video a {
+    background-image: url(../image/pautina/right-menu/video.png);
 }
