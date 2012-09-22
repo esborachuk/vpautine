@@ -72,8 +72,11 @@
 					|| (!isset($aFeed.comment_type_id) && isset($aFeed.total_comment))
 					}				
 				<li>
-					<a href="{$aFeed.feed_link}add-comment/" class="{if (isset($sFeedType) && $sFeedType == 'mini') || (!isset($aFeed.comment_type_id) && isset($aFeed.total_comment))}{else}js_feed_entry_add_comment no_ajax_link{/if}">{phrase var='feed.comment'}</a>
-				</li>				
+					<a class="comment-link" href="{$aFeed.feed_link}add-comment/" class="{if (isset($sFeedType) && $sFeedType == 'mini') || (!isset($aFeed.comment_type_id) && isset($aFeed.total_comment))}{else}js_feed_entry_add_comment no_ajax_link{/if}">
+<!--                        <img src="--><?php //echo Phpfox::getLib('phpfox.image.helper')->display(array('theme' => 'layout/comment.png','return_url' => true)); ?><!--" />-->
+                    </a>
+<!--				<a href="{$aFeed.feed_link}add-comment/" class="{if (isset($sFeedType) && $sFeedType == 'mini') || (!isset($aFeed.comment_type_id) && isset($aFeed.total_comment))}{else}js_feed_entry_add_comment no_ajax_link{/if}">{phrase var='feed.comment'}</a>-->
+				</li>
 				{if (Phpfox::isModule('share') && !isset($aFeed.no_share))}
 					<li><span>&middot;</span></li>
 				{/if}

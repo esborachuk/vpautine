@@ -1,0 +1,53 @@
+
+a.comment-link {
+    background: url(../image/pautina/comment-link.png) no-repeat 4px 3px;
+    width: 85px;
+    height: 17px;
+    display: block;
+}
+
+a.comment-link:hover {
+    background: url(../image/pautina/comment-link-hover.png) no-repeat 0 0;
+    width: 85px;
+    height: 17px;
+}
+
+a#like-link {
+    background: url(../image/layout/like_no.png) no-repeat 0 0;
+    width: 38px;
+    height: 15px;
+    display: block;
+
+}
+
+a#like-link:hover {
+    background: url(../image/layout/like.png) no-repeat 0 0;
+    width: 38px;
+    height: 15px;
+    display: block;
+
+}
+
+a#unlike-link {
+    background: url(../image/layout/like.png) no-repeat 0 0;
+    width: 38px;
+    height: 15px;
+    display: block;
+}
+
+a#unlike-link:hover {
+    background: url(../image/layout/like_no.png) no-repeat 0 0;
+    width: 38px;
+    height: 15px;
+    display: block;
+}
+
+a.share-link {
+    background: url(../image/pautina/share-link.png) no-repeat 0 2px;
+    width: 53px;
+    height: 17px;
+    display: block;
+}
+
+.activity_like_holder img {margin-top: -5px;}
+.activity_like_holder {color: #63799F;}
