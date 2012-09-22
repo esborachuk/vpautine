@@ -366,7 +366,7 @@ Site Name',
   array (
     'type_id' => 'drop',
     'var_name' => 'admin_debug_mode',
-    'value_actual' => 'Level 1',
+    'value_actual' => 'Level 0',
     'module_name' => 'core',
   ),
   47 => 
@@ -788,7 +788,7 @@ Site Name',
   array (
     'type_id' => 'boolean',
     'var_name' => 'site_wide_ajax_browsing',
-    'value_actual' => false,
+    'value_actual' => true,
     'module_name' => 'core',
   ),
   105 => 
@@ -1005,7 +1005,7 @@ Site Name',
   array (
     'type_id' => 'string',
     'var_name' => 'default_lang_id',
-    'value_actual' => 'ru',
+    'value_actual' => 'en',
     'module_name' => 'core',
   ),
   136 => 
@@ -1264,6 +1264,8 @@ Site Name',
       4 => '100',
       5 => '120',
       6 => '200',
+      7 => '250',
+      8 => '300',
     ),
     'module_name' => 'user',
   ),
@@ -1271,7 +1273,7 @@ Site Name',
   array (
     'type_id' => 'drop',
     'var_name' => 'login_type',
-    'value_actual' => 'email',
+    'value_actual' => 'both',
     'module_name' => 'user',
   ),
   172 => 
@@ -1341,7 +1343,7 @@ Site Name',
   array (
     'type_id' => 'boolean',
     'var_name' => 'verify_email_at_signup',
-    'value_actual' => false,
+    'value_actual' => true,
     'module_name' => 'user',
   ),
   182 => 
@@ -1362,7 +1364,7 @@ Site Name',
   array (
     'type_id' => 'boolean',
     'var_name' => 'display_user_online_status',
-    'value_actual' => false,
+    'value_actual' => true,
     'module_name' => 'user',
   ),
   185 => 
