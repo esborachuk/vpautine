@@ -49,5 +49,76 @@ a.share-link {
     display: block;
 }
 
-.activity_like_holder img {margin-top: -5px;}
-.activity_like_holder {color: #63799F;}
+.activity_like_holder img {margin-top: -6px;}
+.activity_like_holder {color: #952430;}
+
+div.comment_mini_content_border {
+    background: none repeat scroll 0 0 #c2c2c2;
+}
+
+div.comment_mini_end {
+    background: url("../image/layout/comment_mini_end_pautina.png") repeat-x scroll center bottom transparent;
+}
+
+div.comment_mini {
+    border-bottom: 1px solid #929292;
+    padding: 6px 8px;
+}
+div.comment_mini_text {
+    color: #404040;
+    margin-left: 10px;
+}
+
+.row_feed_loop .js_feed_comment_border ul li a, .row_feed_loop .js_feed_comment_border ul li a:hover, .comment_mini_action ul li a, .comment_mini_action ul li a:hover, .activity_feed_content_status ul li a, .activity_feed_content_status ul li a:hover {
+    color: #3B5998;
+}
+span.js_like_link_holder_info {
+    background: none repeat scroll 0 0 #404040;
+    border-radius: 7px;
+    -moz-border-radius: 7px;
+    -webkit-border-radius: 7px;
+    color: #FFFFFF;
+    font-size: 10px;
+    line-height: 19px;
+    padding: 1px 6px 2px;
+}
+.js_like_link_holder_info:hover {
+    color: #fff;
+}
+.comment_mini_action, .activity_feed_content_status {
+    color: #454242;
+}
+
+.js_comment_feed_textarea, .activity_feed_form textarea {
+    color: #212121;
+}
+div.comment_mini_content_holder_icon {
+    background: url("../image/layout/comment_mini_content_holder_pautina.png") no-repeat scroll 10px 0 transparent;
+}
+
+.action_delete, .action_delete:hover {
+    background: url("../image/layout/action_delete_pautina.png") no-repeat scroll 0 0 transparent;
+}
+
+#content{
+    background: #EBEBEB;
+}
+
+#content .block .title, ul.activity_feed_form_attach {
+    padding: 5px 0 5px 10px;
+}
+
+.activity_feed_image {
+    left: 10px;
+}
+.activity_feed_content {
+    margin-left: 66px;
+    margin-right: 10px;
+}
+#header_menu_holder ul li a, #header_menu_holder ul li a:hover {
+    padding: 2px 5px 4px;
+}
+
+#content {
+    width: 540px;
+}
