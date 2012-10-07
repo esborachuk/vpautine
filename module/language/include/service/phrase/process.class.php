@@ -11,7 +11,7 @@ defined('PHPFOX') or exit('NO DICE!');
  * @copyright		[PHPFOX_COPYRIGHT]
  * @author  		Raymond Benc
  * @package  		Module_Language
- * @version 		$Id: process.class.php 3410 2011-11-02 09:24:12Z Miguel_Espinoza $
+ * @version 		$Id: process.class.php 1496 2010-03-05 17:15:05Z Raymond_Benc $
  */
 class Language_Service_Phrase_Process extends Phpfox_Service 
 {
@@ -137,6 +137,7 @@ class Language_Service_Phrase_Process extends Phpfox_Service
 		$this->database()->delete($this->_sTable, ($bIsVar ? "module_id = '" . $this->database()->escape($aParts[0]) . "' AND var_name = '" . $this->database()->escape($aParts[1]) . "'" : 'phrase_id = ' . (int) $mId));
 		
 		$this->cache()->remove('language', 'substr');
+		
 		return true;
 	}	
 	
@@ -248,22 +249,12 @@ class Language_Service_Phrase_Process extends Phpfox_Service
 		return $iCnt;
 	}
 	
-	public function findMissingPhrases($sLangId, $aXml, $bCheck = false)
+	public function findMissingPhrases($sLangId, $aXml)
 	{
 		$iCnt = 0;
 		foreach ($aXml as $sModule => $aPhrases)
 		{
-			if ($bCheck === true)
-			{
-				$aRows = $this->database()->select('*')
-					->from(Phpfox::getT('language_phrase'))
-					->where('language_id = \'en\' AND module_id = \'' . $this->database()->escape($sModule) . '\'')
-					->execute('getRows');			
-			}
-			else 
-			{
-				$aRows = (isset($aPhrases['phrase'][1]) ? $aPhrases['phrase'] : array($aPhrases['phrase']));			
-			}
+			$aRows = (isset($aPhrases['phrase'][1]) ? $aPhrases['phrase'] : array($aPhrases['phrase']));
 			
 			foreach ($aRows as $aPhrase)
 			{
@@ -271,16 +262,10 @@ class Language_Service_Phrase_Process extends Phpfox_Service
 					->from(Phpfox::getT('language_phrase'))
 					->where('language_id = \'' . $sLangId . '\' AND module_id = \'' . $sModule . '\' AND var_name = \'' . $aPhrase['var_name'] . '\'')
 					->execute('getSlaveField');
-					
+				
 				if (!$iMissing)
-				{					
+				{				
 					$iCnt++;
-					
-					if (!isset($aPhrase['value']))
-					{
-						$aPhrase['value'] = $aPhrase['text'];
-					}
-					
 					$this->database()->insert(Phpfox::getT('language_phrase'), array(
 							'language_id' => $sLangId,
 							'module_id' => $sModule,
@@ -293,8 +278,8 @@ class Language_Service_Phrase_Process extends Phpfox_Service
 						)
 					);
 				}
-			}			
-		}		
+			}
+		}
 		
 		return $iCnt;
 	}	
@@ -335,7 +320,7 @@ class Language_Service_Phrase_Process extends Phpfox_Service
 						continue;
 					}					
 					
-					$aPhrases = Phpfox::getLib('xml.parser')->parse(file_get_contents($sDir . $sFile), 'UTF-8');
+					$aPhrases = Phpfox::getLib('xml.parser')->parse(file_get_contents($sDir . $sFile), 'UTF-8');		
 					$aRows = (isset($aPhrases['phrase'][1]) ? $aPhrases['phrase'] : array($aPhrases['phrase']));
 					foreach ($aRows as $aPhrase)
 					{
@@ -366,44 +351,6 @@ class Language_Service_Phrase_Process extends Phpfox_Service
 		return ($iCnt ? true : false);
 	}
 
-	/**
-	 * This function updates language phrases based on the changes made by the user from the
-	 * controller admincp.language.email
-	 * In this context phrase_id is the full phrase variable: <module>.<var_name>
-	 * @param arary $aVals
-	 */
-	public function updateMailPhrases($aVals)
-	{
-		// Safetey checks		
-		if (!isset($aVals['text']) || !is_array($aVals['text']))
-		{
-			return Phpfox_Error::set('This shouldnt happen.');
-		}
-
-		if (isset($aVals['language_id']) && $aVals['language_id'] != '')
-		{
-			$sLanguage = $aVals['language_id'];
-		}
-		else
-		{
-			$sLanguage = Phpfox::getLib('locale')->getLang();
-			$sLanguage = $sLanguage['language_id'];
-		}
-		
-		foreach ($aVals['text'] as $sPhraseId => $sNewText)
-		{
-			// update the phrase
-			$aVar = explode('.', $sPhraseId);
-			$aUpdate = array(
-				'text' => Phpfox::getLib('parse.input')->convert($sNewText)
-			);
-			$sWhere = 'language_id = "' . $sLanguage . '" AND module_id = "' . $aVar[0] . '" AND var_name = "' . $aVar[1] . '"';
-			$this->database()->update($this->_sTable, $aUpdate, $sWhere);
-		}
-		$this->cache()->remove('locale', 'substr');
-		
-		return true;
-	}
 	/**
 	 * If a call is made to an unknown method attempt to connect
 	 * it to a specific plug-in with the same name thus allowing 

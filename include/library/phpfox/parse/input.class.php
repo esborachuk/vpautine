@@ -14,7 +14,7 @@ defined('PHPFOX') or exit('NO DICE!');
  * @copyright		[PHPFOX_COPYRIGHT]
  * @author			Raymond Benc
  * @package 		Phpfox
- * @version 		$Id: input.class.php 3213 2011-09-28 12:03:57Z Miguel_Espinoza $
+ * @version 		$Id: input.class.php 1884 2010-10-05 08:44:48Z Miguel_Espinoza $
  */
 class Phpfox_Parse_Input
 {
@@ -232,7 +232,6 @@ class Phpfox_Parse_Input
 		$sUrls = preg_replace("/ +/", "-", $sUrls);			
 		$sUrls = str_replace(array('"', "'", '.', ',', ';', '/', '\\', '`', '+'), '', $sUrls);
 		$sUrls = str_replace(' ', '-', $sUrls);
-        $sUrls = str_replace('_', '-', $sUrls);
 		$sUrls = str_replace(array('-----', '----', '---', '--'), '-', $sUrls);
 		$sUrls = rtrim($sUrls, '-');
 		$sUrls = ltrim($sUrls, '-');
@@ -309,12 +308,7 @@ class Phpfox_Parse_Input
 		if (Phpfox::getService('user')->isUser($sTitle))
 		{
 			$bIsOk = false;
-		}	
-		
-		if (Phpfox::isModule('pages') && Phpfox::getService('pages')->isPage($sTitle))
-		{
-			$bIsOk = false;
-		}			
+		}		
 		
 		$hDir = opendir(PHPFOX_DIR);
 		while ($sFile = readdir($hDir))
@@ -376,9 +370,6 @@ class Phpfox_Parse_Input
 			$sTxt = Phpfox::getService('emoticon')->parse($sTxt);
 		}		
 		
-		$sTxt = str_replace(array('&lt;', '&gt;'), array('<', '>'), $sTxt);
-		$sTxt = str_replace('[*]', '<li>', $sTxt);
-		
 		$oFilterBbcode = Phpfox::getLib('parse.bbcode');		
 
 		$sTxt = $oFilterBbcode->preParse($sTxt);		
@@ -391,10 +382,7 @@ class Phpfox_Parse_Input
 		$sTxt = $this->_cleanHtml($sTxt);
 
 		// Parse BBCode
-		$sTxt = $oFilterBbcode->parse($sTxt);		
-		
-		$sTxt = str_replace('<br /><li>', '<li>', $sTxt);
-		$sTxt = str_replace('<br /></ul>', '</ul>', $sTxt);		
+		$sTxt = $oFilterBbcode->parse($sTxt);
 
 		return $sTxt;
 	}
@@ -558,7 +546,7 @@ class Phpfox_Parse_Input
 
 		if (!defined('PHPFOX_INSTALLER'))
 		{
-		   $sNewTitle = rawurlencode(substr(rawurldecode($sNewTitle), 0, Phpfox::getParam('core.crop_seo_url')));
+		    $sNewTitle = rawurlencode(substr(rawurldecode($sNewTitle), 0, Phpfox::getParam('core.crop_seo_url')));
 		}
 
 		$oDb = Phpfox::getLib('database');
@@ -775,6 +763,7 @@ class Phpfox_Parse_Input
 		{
 			$sAllowed .= '<' . $sVal.'> </'.$sVal .'> <'.$sVal .'/> <'.$sVal .' /> ';
 		}
+		//d($aMatched);
 		
 		foreach ($aMatched[0] as $iKey => $sMatch)
 		{
@@ -782,9 +771,16 @@ class Phpfox_Parse_Input
 			$sTemp = strtolower($sTemp);
 			if (strpos($sAllowed, $sTemp) !== false)
 			{				
+				//d("\n\n 1__");p($sMatch);
 				$sMatch2 = str_replace($aMatched[1][$iKey], $this->_removeEvilAttributes($aMatched[1][$iKey], true), $sMatch);
-				$sNew = str_replace(array('<', '>'),array($iUnid1, $iUnid2), $sMatch2);
+
+				//d("\n\n 2__");p($sMatch2);
+				$sNew = str_replace(array('<', '>'),array($iUnid1, $iUnid2), $sMatch2);//$sMatch);//$this->_removeEvilAttributes($sMatch, true));
+
+				//d("\n\n 3__");p($sNew);
 				$sTxt = str_replace($sMatch, $sNew, $sTxt);
+
+				//d("\n\n 4__". $sTxt);
 				continue;
 			}
 			
@@ -799,54 +795,9 @@ class Phpfox_Parse_Input
 		{
 			$sTxt = str_replace('[br]', '<br />', $sTxt);
 		}
-		/* Allow iframe from youtube*/
-		if ( (Phpfox::isModule('video') && Phpfox::getParam('video.allow_youtube_iframe')) || defined('PHPFOX_FORCE_IFRAME'))
-		{
-			/* get all the iframes in text*/
-			if (preg_match_all('/(&lt;iframe [a-z0-9=_\-\.:&\/; \"]*&gt;&lt;\/iframe&gt;)/i',$sTxt,$aIframes))
-			{				
-				/* for each iframe get the params */
-				foreach ($aIframes as $iKey => $aFrame)
-				{
-					$sReplace = '<iframe ';					
-					$aFrame = reset($aFrame);
-					if (preg_match_all('/(title|width|height|src|frameborder)="([^"]*)/i',$aFrame,$aMatch,PREG_SET_ORDER))
-					{
-						foreach ($aMatch as $aSub)
-						{
-							switch($aSub[1])
-							{
-								case 'width':
-								case 'height':
-								case 'frameborder':
-									$sReplace .= $aSub[1] .'="' . ((int)$aSub[2]) .'" ';
-									break;
-								case 'title':
-									$sReplace .= 'title="' . $this->clean($aSub[2]).'" ';
-									break;
-								case 'src':
-									if (defined('PHPFOX_FORCE_IFRAME'))
-									{
-										$sReplace .= 'src="' . $aSub[2] . '" ';
-									}
-									else
-									{
-										$sLink = preg_match('/http:\/\/www\.youtube.com\/embed\/([a-z0-9\-_]*)/i',$aSub[2],$aVal);
-										$sReplace .= 'src="http://www.youtube.com/embed/' . $this->clean($aVal[1]) .'?wmode=transparent" wmode="Opaque"';
-									}
-							}
-						}
-						if (strpos($aFrame,'allowfullscreen'))
-						{
-							$sReplace .='allowfullscreen ';
-						}
-					}
-					$sReplace = rtrim($sReplace);
-					$sReplace .='></iframe>';
-					$sTxt = str_replace($aFrame,$sReplace,$sTxt);
-				}
-			}
-		}
+
+		//d($sTxt);
+		//die();
 		return $sTxt;
 		
 	}	
@@ -1026,39 +977,7 @@ class Phpfox_Parse_Input
      */
     private function _utf8ToUnicode($str, $bForUrl = false)
     {
-		return $str;
-        $unicode = array();
-        $values = array();
-        $lookingFor = 1;
-
-        for ($i = 0; $i < strlen( $str ); $i++ )
-        {
-            $thisValue = ord( $str[ $i ] );
-
-            if ( $thisValue < 128 )
-            {
-            	$unicode[] = $thisValue;
-            }
-            else
-            {
-                if ( count( $values ) == 0 ) $lookingFor = ( $thisValue < 224 ) ? 2 : 3;
-
-                $values[] = $thisValue;
-
-                if ( count( $values ) == $lookingFor ) 
-                {
-                    $number = ( $lookingFor == 3 ) ?
-                        ( ( $values[0] % 16 ) * 4096 ) + ( ( $values[1] % 64 ) * 64 ) + ( $values[2] % 64 ):
-                    	( ( $values[0] % 32 ) * 64 ) + ( $values[1] % 64 );
-
-                    $unicode[] = $number;
-                    $values = array();
-                    $lookingFor = 1;
-                }
-            }
-        }
-
-        return $this->_unicodeToEntitiesPreservingAscii($unicode, $bForUrl);
+         return $str;
     }
 
     /**

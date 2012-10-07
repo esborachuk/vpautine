@@ -1,22 +1,29 @@
-<form method="post" action={url link='sms.index'}>
+<form method="post" action="{url link='sms.index'}"  id="js_form_sms" onsubmit="Sms.send(); return false;">
+    {token}
+    <input type="hidden" value="{$aUser.user_id}" name="sms[user-id]">
     <div class="table">
+        <div id="sms-error"></div>
         <div class="table_left">
             Phone number:
         </div>
         <div class="table_right">
-            <input type="text" name="val[sms-phone]" id="sms-phone" />
+            38<input type="text" name="sms[phone]" id="sms-phone" />
         </div>
         <div class="clear"></div>
 
-        <div class="table_left">
+        <label for="sms[message]" class="table_left">
             Message:
-        </div>
+        </label>
         <div class="table_right">
-            <textarea name="val[sms-message]" id="sms-message" rows="8" cols="50" ></textarea>
+            <textarea name="sms[message]" id="sms-message" rows="8" cols="50"></textarea>
         </div>
-        <a href="#" onclick="Sms.send($('#sms-phone').val(), $('#sms-message').html()); return false;">
-            {phrase var='mail.submit'}
-        </a>
+        <div id="sms-button">
+            <button type="submit" class="button">Отправить Sms</button>
+        </div>
         <div class="clear"></div>
     </div>
 </form>
+<div id="sms-success-result">
+    <div class="message"></div>
+    <a id="sendMoreSms" href="#" onclick="Sms.sendMoreSms(); return false;">Отправить еще Sms</a>
+</div>

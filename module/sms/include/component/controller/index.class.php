@@ -1,28 +1,18 @@
 <?php
+defined('PHPFOX') or exit('NO DICE!');
+
 class Sms_Component_Controller_Index extends Phpfox_Component
 {
     public function process()
     {
-        /** @var $template  Phpfox_Template */
-        $template = $this->template();
+        Phpfox::isUser(true);
 
-        $template->setTitle('Send Sms')
-                ->setBreadCrumb('Sms')
-                ->setHeader(array(
-                        'sms.css' => 'module_sms',
-                        'sms.js' => 'module_sms'));
+        $userId = Phpfox::getUserId();
 
-        /** @var $smsService Sms_Service_Sms */
-        $smsService = Phpfox::getService('sms');
+        $sms = Phpfox::getService('sms');
+        $userSms = $sms->getUserSms($userId);
 
-        if ($formVal = $this->request()->getArray('val')) {
-            if (isset($formVal['sms-message']) && !empty($formVal['sms-message'])) {
-                $smsService->sendMessage($formVal);
-            }
-        }
-
-        $aUsers = $smsService->getUsers(10);
-        $template->assign('aUsers', $aUsers);
+        $this->template()->assign('userSms', $userSms);
     }
 }
 

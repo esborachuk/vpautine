@@ -1,22 +1,25 @@
 <?php
 defined('PHPFOX') or exit('NO DICE!');
 
-class Sms_Component_Block_Sms extends Phpfox_Component
+class Sms_Component_Ajax_Ajax extends Phpfox_Ajax
 {
-    public function process()
+    public function smsProcess()
     {
+        Phpfox::isUser(true);
 
-    }
+        $smsFields = $this->get('sms');
 
-    public function sendSms()
-    {
-        $smsFields = $this->request()->getArray('sms');
-
-        if ($this->validateFields($smsFields)) {
+        if (!$this->validateFields($smsFields)) {
+            $this->call('$(\'#sms-error\').html(\'' . $this->_error . '\').show();');
+            unset($this->_error);
+        } else {
             $sms = Phpfox::getService('sms');
             $sms->send($smsFields);
-            Phpfox::getLib('ajax')->call('$Core.processForm(\'#js_form_sms\', true);');
+
+            $this->callSuccessMessage();
         }
+
+        $this->call('$Core.processForm(\'#sms-button\', true);');
     }
 
     public function validateFields($fields)
@@ -26,12 +29,13 @@ class Sms_Component_Block_Sms extends Phpfox_Component
             $error = 'fields are empty';
         }
 
-        if (count($fields['phone']) != 10 && !is_numeric($fields['phone'])) {
+        if (count($fields['phone']) != 10 && !ctype_digit($fields['phone'])) {
             $error = 'phone number is not valid';
         }
 
         if (isset($error)) {
             $this->_error = $error;
+
             return false;
         }
 
@@ -46,9 +50,10 @@ class Sms_Component_Block_Sms extends Phpfox_Component
         return $validateFields;
     }
 
-    public function returnAnswer($message)
+    public function callSuccessMessage()
     {
-        $this->call('$("#success-result").html("' . $message . '").show()');
+        $this->call('$(\'#js_form_sms\').hide();');
+        $this->call('$(\'#sms-success-result .message\').html(\'Сообщение отправлено\').parent().show();');
     }
 }
 ?>

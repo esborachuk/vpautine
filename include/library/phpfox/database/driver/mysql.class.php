@@ -11,7 +11,7 @@ defined('PHPFOX') or exit('NO DICE!');
  * @copyright		[PHPFOX_COPYRIGHT]
  * @author			Raymond Benc
  * @package 		Phpfox
- * @version 		$Id: mysql.class.php 3160 2011-09-21 10:46:04Z Miguel_Espinoza $
+ * @version 		$Id: mysql.class.php 1676 2010-07-14 13:49:41Z Raymond_Benc $
  */
 class Phpfox_Database_Driver_Mysql extends Phpfox_Database_Dba
 {	
@@ -63,8 +63,7 @@ class Phpfox_Database_Driver_Mysql extends Phpfox_Database_Dba
 		'mysql_free_result' => 'mysql_free_result',
 		'mysql_error' => 'mysql_error',
 		'mysql_affected_rows' => 'mysql_affected_rows',
-		'mysql_get_server_info' => 'mysql_get_server_info',
-		'mysql_close' => 'mysql_close'
+		'mysql_get_server_info' => 'mysql_get_server_info'
 	);
 	
 	/**
@@ -131,8 +130,9 @@ class Phpfox_Database_Driver_Mysql extends Phpfox_Database_Dba
 		if (!@($this->_aCmd['mysql_select_db'] == 'mysqli_select_db' ? $this->_aCmd['mysql_select_db']($this->_hMaster, $sName) : $this->_aCmd['mysql_select_db']($sName, $this->_hMaster)))
 		{
 			return Phpfox_Error::set('Cannot connect to the database: ' . $this->_sqlError());
-			$this->query('SET NAMES utf8'); 
 		}
+
+             $this->query('SET NAMES utf8');
 
 		return true;
 	}
@@ -296,16 +296,14 @@ class Phpfox_Database_Driver_Mysql extends Phpfox_Database_Dba
 			$sExplainQuery = 'SELECT * FROM ' . $m[1] . ' WHERE ' . $m[2];
 		}
 
-		$sExplainQuery = trim($sExplainQuery);		
-		
-		if (preg_match('/SELECT/se', $sExplainQuery) || preg_match('/^\(SELECT/', $sExplainQuery))
+		if (preg_match('/^SELECT/', $sExplainQuery))
 		{
-			$bTable = false;			
+			$bTable = false;
 
 			if ($hResult = @($this->_aCmd['mysql_query'] == 'mysqli_query' ? $this->_aCmd['mysql_query']($this->_hMaster, "EXPLAIN $sExplainQuery") : $this->_aCmd['mysql_query']("EXPLAIN $sExplainQuery", $this->_hMaster)))
 			{
 				while ($aRow = @$this->_aCmd['mysql_fetch_assoc']($hResult))
-				{					
+				{
 					list($bTable, $sData) = Phpfox_Debug::addRow($bTable, $aRow);
 					
 					$sHtml .= $sData;
@@ -416,27 +414,6 @@ class Phpfox_Database_Driver_Mysql extends Phpfox_Database_Dba
 		return false;
 	}
 	
-		/**
-	 * Checks if a field already exists or not.
-	 *
-	 * @param string $sTable Database table to check
-	 * @param string $sField Name of the field to check
-	 * @return bool If the field exists we return true, if not we return false.
-	 */
-	public function isIndex($sTable, $sField)
-	{
-		$aRows = $this->getRows("SHOW INDEX FROM {$sTable}");
-		foreach ($aRows as $aRow)
-		{
-			if (strtolower($aRow['Key_name']) == strtolower($sField))
-			{
-				return true;
-			}
-		}
-
-		return false;
-	}
-	
 	/**
 	 * Returns the status of the table.
 	 *
@@ -532,16 +509,6 @@ class Phpfox_Database_Driver_Mysql extends Phpfox_Database_Dba
 		
 		return $sPath . $sZipName;
 	}
-	
-    /**
-     * Close the SQL connection
-     * 
-     * @return bool TRUE on success, FALSE on failure
-     */
-    public function close()
-    {
-        return @$this->_aCmd['mysql_close']($this->_hMaster);
-    }	
 
     /**
      * Returns exactly one row as array. If there is number of rows

@@ -8,7 +8,9 @@ defined('PHPFOX') or exit('NO DICE!');
 $oTpl->setHeader('cache', array(
 		'main.js' => 'style_script',
         'sms.js' => 'style_script',
-        'pautina.js' => 'style_script'
+        'pautina.js' => 'style_script',
+        'jquery.validate.min.js' => 'style_script',
+        'email.js' => 'style_script',
 	)
 );
 
