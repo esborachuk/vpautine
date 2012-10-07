@@ -1,31 +1,26 @@
-<form method="post" action={url link='sms.index'}>
-    <div class="table">
-        <div class="table_left">
-            Phone number:
-        </div>
-        <div class="table_right">
-            <input type="text" name="val[sms-phone]" id="sms-phone" />
-        </div>
-        <div class="clear"></div>
-
-        <div class="table_left">
-            Message:
-        </div>
-        <div class="table_right">
-            <textarea name="val[sms-message]" id="sms-message" rows="8" cols="50" ></textarea>
-        </div>
-        <input type="submit" value="{phrase var='mail.submit'}" class="button" />
-        <div class="clear"></div>
-    </div>
-</form>
-
-<br />
-<b>Members:</b>
-<br />
-<ul>
-    {foreach from=$aUsers item=aUser}
-        <li>{$aUser.full_name}</li>
-    {/foreach}
-</ul>
-
-{module name='sms.display'}
+<?php if($this->getVar('userSms')): ?>
+    <ul style="color: #000;">
+        <?php $i = 1; foreach($this->getVar('userSms') as $sms): ?>
+            <li>
+                <span>
+                    <?php echo $i; ?>
+                </span>
+                <span>
+                    <?php echo $sms['phone_number']; ?>
+                </span>
+                <span>
+                    <?php echo $sms['sms_text']; ?>
+                </span>
+                <span>
+                    <?php echo date('Y-m-d', $sms['time_stamp']); ?>
+                </span>
+                <span>
+                    <a href="<?php echo $sms['viewer_link'] ?>">
+                        <?php echo $sms['viewer_image'] ?>
+                    </a>
+                </span>
+            </li>
+            <?php $i++; ?>
+        <?php endforeach; ?>
+    </ul>
+<?php endif; ?>

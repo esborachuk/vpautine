@@ -4599,3 +4599,7 @@ user#user-menu .quizz a {
 #section_menu ul li#js_add_friend_on_profile a {
     background: url(../image/pautina/profile-page/add-to-friend.png) no-repeat top center;
 }
+
+#sms-success-result, #email-success-result {
+    display: none;
+}

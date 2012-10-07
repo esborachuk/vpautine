@@ -13,9 +13,9 @@ defined('PHPFOX') or exit('NO DICE!');
 ?>
 {$sCreateJs}
 
-<div>
+<!--<div>
     {module name='pautina.friends'}
-</div>
+</div>-->
 
 <div id="js_ajax_compose_error_message"></div>
 <div id="message-tabs">
@@ -135,6 +135,6 @@ defined('PHPFOX') or exit('NO DICE!');
         {module name='sms.sms'}
     </div>
     <div id="email-tab">
-        hello
+        {module name='pautina.email.email'}
     </div>
 </div>

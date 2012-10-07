@@ -1,6 +1,8 @@
 <?php
-class Pautina_Service_Profile_Usermenu extends Phpfox_Service {
-    public function getMenu() {
+class Pautina_Service_Profile_Usermenu extends Phpfox_Service
+{
+    public function getMenu()
+    {
         $currentUser = Phpfox::getLib('request')->get('req1');
         $userName = Phpfox::getUserBy('user_name');
         $currentPage = Phpfox::getLib('request')->get('req2');

@@ -1,3 +1,10 @@
+$(function() {
+    $(document).bind('ajaxStop', function() {
+        Sms.init();
+        Email.init();
+    });
+});
+
 PautinaNotification = {
     update: function() {
         setTimeout(PautinaNotification.check, 200);
@@ -16,5 +23,8 @@ PautinaNotification = {
 };
 
 jQuery(document).ready(function() {
+    // check notifications and update button class
     var pautinaNotificationInterval = setInterval(PautinaNotification.check, 200);
+
+
 });
