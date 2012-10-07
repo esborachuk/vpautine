@@ -122,3 +122,201 @@ div.comment_mini_content_holder_icon {
 #content {
     width: 540px;
 }
+
+.right-menu-profile .profile-link {margin-left: -3px!important;}
+.center-menu-profile.profile-link{margin-left: -6px!important; display: block;}
+.exit-menu-profile.profile-link {margin-left: -1px; display: block;}
+#holder_notify ul li a.notify_drop_link span.notify_title {
+    position: inherit;
+    padding-top: 45px;
+}
+#holder_notify ul li a.notify_drop_link, #holder_notify ul li a.notify_drop_link:hover {
+    line-height: 18px;
+}
+.profile-link{margin-top: 3px;display: block;}
+
+a.menu-exit {
+    background: url(../image/pautina/menu-exit.png) no-repeat 7px 4px;
+}
+
+a.menu-settings {
+    background: url(../image/pautina/menu-settings.png) no-repeat 7px 4px;
+}
+
+a.like_count_link,
+a.like_count_link:hover
+{
+    background: url('../image/layout/like_small.png') no-repeat 6px 4px;
+    right:0;
+    padding: 0px 3px 0px 20px;
+}
+
+.js_comment_like_holder{
+    height: 44px;
+    overflow: hidden;
+}
+
+.comment_mini_action {
+    background: #bebdbd; /* Old browsers */
+    background: -moz-linear-gradient(top,  #C2C2C2 0%, #838181 100%); /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#C2C2C2), color-stop(100%,#838181)); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(top,  #C2C2C2 0%,#838181 100%); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(top,  #C2C2C2 0%,#838181 100%); /* Opera 11.10+ */
+    background: -ms-linear-gradient(top,  #C2C2C2 0%,#838181 100%); /* IE10+ */
+    background: linear-gradient(to bottom,  #C2C2C2 0%,#838181 100%); /* W3C */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#C2C2C2', endColorstr='#838181',GradientType=0 ); /* IE6-9 */
+    padding: 3px 15px;
+    border-radius: 0px 0px 10px 10px;
+    -moz-border-radius: 0px 0px 10px 10px;
+    -webkit-border-radius: 0px 0px 10px 10px;
+
+}
+.inner-background {
+    border-radius: 3px;
+    -moz-border-radius: 3px;
+    -webkit-border-radius: 3px;
+    padding: 3px;
+    display: block;
+    position: relative;
+    z-index: 1;
+    width: auto;
+    height: auto;
+    margin-top: -5px;
+}
+.inner-background:hover {
+    background: #cfcbcb;
+    border-radius: 5px;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+}
+
+.js_feed_comment_view_more_holder .inner-background{
+    margin-top: 0;
+}
+
+.comment_mini_link_like {
+    border-bottom: 1px #848282 solid;
+}
+
+.js_like_link_holder .inner-background {
+    padding: 1px 3px;
+}
+
+input.button, a.button_off_link {
+    cursor: pointer;
+    font-size: 11px;
+    margin: 0;
+    padding: 4px 8px 4px 8px;
+    vertical-align: middle;
+    font-weight: bold;
+    overflow: visible;
+    color: #CDC9C9;
+    background: #666;
+    background: -moz-linear-gradient(top,  #A7A7A7  0%, #09090D 100%); /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#A7A7A7 ), color-stop(100%,#09090D)); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(top,  #A7A7A7  0%,#09090D 100%); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(top,  #A7A7A7  0%,#09090D 100%); /* Opera 11.10+ */
+    background: -ms-linear-gradient(top,  #A7A7A7  0%,#09090D 100%); /* IE10+ */
+    background: linear-gradient(to bottom,  #A7A7A7  0%,#09090D 100%); /* W3C */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#A7A7A7 ', endColorstr='#09090D',GradientType=0 ); /* IE6-9 */
+    border: 1px #848282 solid;
+    -moz-box-shadow: 2px 2px 2px #A5A5A5;
+    -webkit-box-shadow: 2px 2px 2px #A5A5A5;
+    box-shadow: 2px 2px 2px #A5A5A5;
+}
+
+input.button:hover, a.button_off_link:hover {
+    background: -moz-linear-gradient(top,  #09090D  0%, #A7A7A7 100%); /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#09090D ), color-stop(100%,#A7A7A7)); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(top,  #09090D  0%,#A7A7A7 100%); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(top,  #09090D  0%,#A7A7A7 100%); /* Opera 11.10+ */
+    background: -ms-linear-gradient(top,  #09090D  0%,#A7A7A7 100%); /* IE10+ */
+    background: linear-gradient(to bottom,  #09090D  0%,#A7A7A7 100%); /* W3C */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#09090D ', endColorstr='#A7A7A7',GradientType=0 ); /* IE6-9 */
+}
+
+.sub_section_menu ul li a span {
+    padding: 2px 4px;
+}
+
+#site_content {
+    padding: 10px;
+}
+
+#user-menu .title{
+    padding: 6px;
+}
+
+#user-menu li a span, #user-menu li a span:hover, #user-menu li:hover a span  {
+    padding: 2px 8px;
+}
+
+.cover-link a {text-align: left;}
+
+#js_is_user_profile .profile_online_status {
+    top: 15px;
+}
+
+#js_is_user_profile .profile_header #section_menu {
+    right: 100px;
+}
+
+#content_holder {
+    background: #f5f6f8;
+}
+.right-menu-profile {
+    height: 35px;
+    width: 35px;
+    padding: 3px 4px;
+}
+
+.feed_comment_buttons_wrap {
+    margin-right: 10px;
+}
+
+#holder_notify ul li a.message span.notify_image {
+    background: url("../image/layout/holder_notify_message.png") no-repeat scroll -6px 5px transparent;
+}
+
+/*/////////////////////////////////////////////////////////////////////////*/
+
+span.notify_image, #header_menu_holder ul li a:hover {
+    border-radius: 50%;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+}
+
+.upload-photo-button a,
+.upload-photo-button a:hover
+{
+    line-height:22px;
+    background:#fff url('../image/layout/section_menu.png') repeat-x bottom;
+    border:1px #BFBFBF solid;
+    text-decoration:none;
+    padding:7px 60px;
+    color:#333;
+    font-weight:bold;
+    -moz-box-shadow:2px 2px 2px #f1f1f1;
+    -webkit-box-shadow:2px 2px 2px #f1f1f1;
+    box-shadow:2px 2px 2px #f1f1f1;
+}
+
+.upload-photo-button{
+    margin: 10px auto;
+    text-align: center;
+}
+
+.content3, .item_view .js_feed_comment_border, .item_view .item_tag_holder, .item_view .attachment_holder_view {
+    width: 540px!important;
+}
+.comment_mini_link_like {
+    background: #f1eeee;
+    padding: 10px 10px 3px 10px;
+}
+
+#user-menu {
+    position: relative;
+    right: 0;
+    width: auto;
+    top: 0;
+}

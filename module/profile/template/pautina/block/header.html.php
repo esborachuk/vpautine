@@ -80,11 +80,11 @@ defined('PHPFOX') or exit('NO DICE!');
 				</ul>
 				{/if}
 				{else}
-				<ul>
+<!--				<ul>
 					{foreach from=$aSubMenus key=iKey name=submenu item=aSubMenu}
 					<li><a href="{url link=$aSubMenu.url)}" class="ajax_link">{if substr($aSubMenu.url, -4) == '.add' || substr($aSubMenu.url, -7) == '.upload' || substr($aSubMenu.url, -8) == '.compose'}{img theme='layout/section_menu_add.png' class='v_middle'}{/if}{phrase var=$aSubMenu.module'.'$aSubMenu.var_name}</a></li>
 					{/foreach}
-				</ul>	
+				</ul>	-->
 				{/if}
 			</div>						
 
