@@ -22,6 +22,8 @@ defined('PHPFOX') or exit('NO DICE!');
 		{body}
 		{block location='9'}
 		<div id="header" class="pautina">
+            <div class="header-wrapper">
+            <div class="header-content">
 			<div class="holder">
 				{block location='10'}
 				<div id="header_holder" {if !Phpfox::isUser()} class="header_logo"{/if}>				
@@ -62,7 +64,8 @@ defined('PHPFOX') or exit('NO DICE!');
 					{block location='6'}
 				</div>
 			</div>
-						
+			</div>
+
 			{if Phpfox::getParam('user.hide_main_menu') && !Phpfox::isUser()}
 			
 			{else}
@@ -76,7 +79,8 @@ defined('PHPFOX') or exit('NO DICE!');
 			</div>	
 			{/if}					
 		</div>
-		
+		</div>
+
 		<div id="{if Phpfox::isUser()}main_core_body_holder{else}main_core_body_holder_guest{/if}">
 		
 			{block location='11'}
