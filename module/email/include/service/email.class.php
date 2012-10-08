@@ -1,5 +1,5 @@
 <?php
-class Pautina_Service_Email_Email extends Phpfox_Service
+class Email_Service_Email extends Phpfox_Service
 {
     public $emailInfo;
 

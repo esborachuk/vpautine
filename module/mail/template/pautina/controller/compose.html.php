@@ -135,6 +135,6 @@ defined('PHPFOX') or exit('NO DICE!');
         {module name='sms.sms'}
     </div>
     <div id="email-tab">
-        {module name='pautina.email.email'}
+        {module name='email.email'}
     </div>
 </div>

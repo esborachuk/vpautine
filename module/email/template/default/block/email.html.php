@@ -1,4 +1,5 @@
-<form method="post" action="{url link='pautina.email.index'}"  id="js_form_email" onsubmit="Email.send(); return false;">
+<form method="post" action="{url link='email.index'}"  id="js_form_email"
+      onsubmit="Email.send(); return false;">
     {token}
     <input type="hidden" value="{$aUser.user_id}" name="email[user-id]">
     <div class="table">

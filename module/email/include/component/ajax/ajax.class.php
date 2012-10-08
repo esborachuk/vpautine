@@ -1,7 +1,7 @@
 <?php
 defined('PHPFOX') or exit('NO DICE!');
 
-class Pautina_Component_Ajax_Email_Ajax extends Phpfox_Ajax
+class Email_Component_Ajax_Ajax extends Phpfox_Ajax
 {
     public function emailProcess()
     {
@@ -18,6 +18,8 @@ class Pautina_Component_Ajax_Email_Ajax extends Phpfox_Ajax
 
             $this->callSuccessMessage();
         }
+
+        $this->call('$Core.processForm(\'#email-button\', true);');
     }
 
     public function validateFields($fields)

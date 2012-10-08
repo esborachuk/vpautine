@@ -1,7 +1,7 @@
 Email = {
     emailForm: '#js_form_email',
-    emailButton: 'email-button',
-    emailController: 'pautina.email.emailProcess',
+    emailButton: '#email-button',
+    emailController: 'email.emailProcess',
 
     init: function() {
         $(Email.emailForm).validate({
@@ -21,7 +21,11 @@ Email = {
     send: function() {
         if ($(Email.emailForm).valid()) {
             $Core.processForm(Email.emailButton);
-            $(Sms.smsForm).ajaxCall(Email.emailController);
+            $(Email.emailForm).ajaxCall(Email.emailController);
         }
+    },
+
+    sendMoreEmail: function() {
+
     }
 };
