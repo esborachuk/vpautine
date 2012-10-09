@@ -5,10 +5,12 @@ class Sms_Service_Sms extends Phpfox_Service
     const SMS_SERVICE_URL = 'http://letsads.com/api';
     const SMS_LOGIN = '380937649408';
     const SMS_PASS = 'azsxdcfv';
-    const SMS_COUNT_USER_CAN_SEND_TODAY = 5;
+    const SMS_COUNT_USER_CAN_SEND_TODAY = 10;
 
     private $date;
     private $smsInfo;
+    public $viewerUser;
+    public $ownerUser;
 
     public function __construct()
     {
@@ -16,15 +18,39 @@ class Sms_Service_Sms extends Phpfox_Service
         $this->date = date('Ymd', PHPFOX_TIME);
     }
 
-
     public function send($sms)
     {
         $this->smsInfo = $sms;
+        $this->addUserNameToSmsMessage();
 
         if ($this->userCanSendSms()) {
-            //$this->sendSms();
-            //$this->saveMessage();
+            $this->sendSms();
+            $this->saveMessage();
         }
+    }
+
+    public function addUserNameToSmsMessage()
+    {
+        $ownerUser = $this->getOwnerUser();
+        $this->smsInfo['message'] .= '. ' . $ownerUser['full_name'];
+    }
+
+    public function getViewerUser()
+    {
+        if (!$this->viewerUser) {
+            $this->viewerUser = $this->getUserById($this->smsInfo['viewer_user_id']);
+        }
+
+        return $this->viewerUser;
+    }
+
+    public function getOwnerUser()
+    {
+        if (!$this->ownerUser) {
+            $this->ownerUser = $this->getUserById(Phpfox::getUserId());
+        }
+
+        return $this->ownerUser;
     }
 
     public function getUsers($iTotal)
@@ -164,7 +190,8 @@ class Sms_Service_Sms extends Phpfox_Service
         return $aUser;
     }
 
-    public function userCanSendSms() {
+    public function userCanSendSms()
+    {
         $smsTodaySend = $this->getSmsTodaySend();
 
         if ($smsTodaySend['count'] >= self::SMS_COUNT_USER_CAN_SEND_TODAY) {
@@ -176,7 +203,8 @@ class Sms_Service_Sms extends Phpfox_Service
         }
     }
 
-    public function getSmsTodaySend() {
+    public function getSmsTodaySend()
+    {
         $smsTodaySend = $this->database()
             ->select('count')
             ->from(Phpfox::getT('sms_count'))
@@ -186,7 +214,8 @@ class Sms_Service_Sms extends Phpfox_Service
         return $smsTodaySend;
     }
 
-    public function updateUserSmsCount() {
+    public function updateUserSmsCount()
+    {
         $user = $this->database()->select('user_id')
             ->from(Phpfox::getT('sms_count'))
             ->where('user_id = ' . Phpfox::getUserId())

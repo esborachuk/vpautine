@@ -2,6 +2,7 @@ Email = {
     emailForm: '#js_form_email',
     emailButton: '#email-button',
     emailController: 'email.emailProcess',
+    successResultBlock: "#email-success-result",
 
     init: function() {
         $(Email.emailForm).validate({
@@ -26,6 +27,7 @@ Email = {
     },
 
     sendMoreEmail: function() {
-
+        $(Email.emailForm).show();
+        $(Email.successResultBlock).hide();
     }
 };
