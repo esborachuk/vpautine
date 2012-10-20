@@ -51,14 +51,14 @@ defined('PHPFOX') or exit('NO DICE!');
             $profileName = Phpfox::getUserBy('user_name');
             ?>
             <span class="right-menu-profile">
-                            <img width="35" src="<?php  echo $profileUrl; ?>" alt="" />
-                            <span class="profile-link"><?php echo $profileName ?></span>
-                        </span>
-            {elseif Phpfox::isUser() && $aMenu.url == 'user.setting'}
-            <span class="center-menu-profile profile-link">настройки</span>
-            {else}
+                            <img width="30" src="<?php  echo $profileUrl; ?>" alt="" />
+            </span>
+                {elseif Phpfox::isUser() && $aMenu.url == 'user.setting'}
+
+            <span class="center-menu-profile profile-link"><div class="center-menu-profile-bg"></div></span>
+                {else}
             {phrase var=$aMenu.module'.'$aMenu.var_name}{if isset($aMenu.suffix)}{$aMenu.suffix}{/if}
-            {/if}
+                {/if}
         </a>
         {if isset($aMenu.children) && count($aMenu.children) && is_array($aMenu.children)}
         <ul>
@@ -76,7 +76,7 @@ defined('PHPFOX') or exit('NO DICE!');
 {/foreach}
 {if Phpfox::isUser()}
 <li>
-    <a href="{url link='user.logout'}" class="menu-exit"><span class="exit-menu-profile profile-link">Выход</span></a>
+    <a href="{url link='user.logout'}" class="menu-exit"><span class="exit-menu-profile profile-link"><div class="exit-menu-profile-bg"></div></span></a>
 </li>
 {/if}
 {unset var=$aRightMenus var1=$aMenu}

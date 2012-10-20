@@ -1,0 +1,124 @@
+/*----------------------header-------------------------*/
+
+#header_menu_page_holder {
+    display: none;
+}
+
+#header {
+    background: none repeat scroll 0 0 #424242;
+    height: 40px;
+    margin: 0 auto;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 10;
+}
+
+.header_logo #logo, .header_logo #logo:hover {
+    height: 40px;
+    line-height: 40px;
+}
+
+#header_menu_login .header_menu_login_button, #header_menu_login .header_menu_login_left, #header_menu_login .header_menu_login_right {
+    top: 0;
+}
+
+#main_core_body_holder, #main_core_body_holder_guest {
+    Margin-top: 40px;
+}
+
+#header_menu_login .header_menu_login_input {
+    float: left;
+    margin-right: 20px;
+    width: 100px;
+}
+
+#header_menu_login .header_menu_login_left, #header_menu_login .header_menu_login_right {
+    width: 270px;
+}
+
+#header_menu_login .header_menu_login_left {
+    right: 350px;
+}
+
+#header_right {
+    left: 430px;
+    position: absolute;
+    top: 0;
+    width: 550px;
+}
+
+#holder_notify {
+    left: 190px;
+    top: 0;
+}
+
+.holder_notify_count {
+    margin: 3px 0 0;
+    font-size: 8px;
+    background: none repeat scroll 0 0 #F82B2B;
+    color: #FFFFFF;
+    padding: 2px 4px;
+    border: 1px solid #ffe222;
+    border-radius: 4px;
+    -moz-border-radius: 4px;
+    -webkit-border-radius: 4px;
+}
+
+#header_menu_holder {
+    top: 0;
+}
+
+#holder_notify ul li a.message {
+    background: url("../image/layout/holder_notify_message.png") no-repeat scroll 50% 5px transparent;
+    margin-left: 10px;
+}
+
+#holder_notify ul li a.notification {
+    background: url("../image/layout/holder_notify_notification.png") no-repeat scroll 50% 0 transparent;
+}
+
+#holder_notify ul li a.friend_notification {
+    background: url("../image/layout/holder_notify_friend_request.png") no-repeat scroll 50% 3px transparent;
+}
+
+.holder_notify_count {
+    right: -5px;
+}
+
+#header_menu_holder ul li a.has_drop_down {
+    background: none;
+    padding: 0;
+}
+
+#header_menu_holder ul li a, #header_menu_holder ul li a:hover {
+    padding: 0;
+}
+
+.center-menu-profile-bg, .exit-menu-profile-bg {
+    background: url("../image/pautina/menu-settings.png") no-repeat scroll 1px 2px transparent;
+    display: block;
+    height: 40px;
+    width: 40px;
+}
+
+.exit-menu-profile-bg {
+    background: url("../image/pautina/menu-exit.png") no-repeat scroll 3px top transparent;
+
+}
+
+#header_menu_holder ul li a.has_drop_down:hover {
+    background: #4f4f4f;
+}
+
+.right-menu-profile img {
+    padding: 5px 5px 0 ;
+}
+
+#header_menu_holder ul li a, #header_menu_holder ul li a:hover {
+    line-height: 19px;
+}
+
+#header_menu_holder ul li {
+    margin: 0 6px;
+}
