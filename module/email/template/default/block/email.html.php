@@ -1,7 +1,10 @@
-<form method="post" action="{url link='email.index'}"  id="js_form_email"
-      onsubmit="Email.send(); return false;">
+<form method="post" action="{url link='email.index'}"  id="js_form_email" onsubmit="Email.send(); return false;">
     {token}
-    <input type="hidden" value="{$aUser.user_id}" name="email[user-id]">
+    <?php if($this->getVar('aUser')): ?>
+        <input type="hidden" value="{$aUser.user_id}" name="email[user-id]">
+    <?php else: ?>
+        <input type="hidden" value="none" name="email[user-id]">
+    <?php endif; ?>
     <div class="table">
         <div id="email-error"></div>
         <div class="table_left">

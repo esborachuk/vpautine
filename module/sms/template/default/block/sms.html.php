@@ -1,6 +1,10 @@
 <form method="post" action="{url link='sms.index'}"  id="js_form_sms" onsubmit="Sms.send(); return false;">
     {token}
-    <input type="hidden" value="{$aUser.user_id}" name="sms[user-id]">
+    <?php if($this->getVar('aUser')): ?>
+        <input type="hidden" value="{$aUser.user_id}" name="sms[user-id]">
+    <?php else: ?>
+        <input type="hidden" value="none" name="sms[user-id]">
+    <?php endif; ?>
     <div class="table">
         <div id="sms-error"></div>
         <div class="table_left">
