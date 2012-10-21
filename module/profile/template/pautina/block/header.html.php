@@ -45,21 +45,21 @@ defined('PHPFOX') or exit('NO DICE!');
 					{else}
 						{if Phpfox::isModule('mail') && Phpfox::getService('user.privacy')->hasAccess('' . $aUser.user_id . '', 'mail.send_message')}
 							<li id="liMail" class="profile-section-menu"><a href="#" onclick="$Core.composeMessage({left_curly}user_id: {$aUser.user_id}{right_curly}); return false;">
-                                <span>{phrase var='profile.send_message'}</span>
+                                <span><!--{phrase var='profile.send_message'}--></span>
                             </a>
                             </li>
 						{/if}
 						{if Phpfox::isModule('friend') && (!$aUser.is_friend || $aUser.is_friend === 3)}
 							<li id="js_add_friend_on_profile" class='profile-section-menu {if $aUser.is_friend === 3}  "js_profile_online_friend_request"{/if}'>
 								<a href="#" onclick="return $Core.addAsFriend('{$aUser.user_id}');" title="{phrase var='profile.add_to_friends'}">
-									<span>{if $aUser.is_friend === 3}{phrase var='profile.confirm_friend_request'}{else}{phrase var='profile.add_to_friends'}{/if}</span>
+									<span><!--{if $aUser.is_friend === 3}{phrase var='profile.confirm_friend_request'}{else}{phrase var='profile.add_to_friends'}{/if}--></span>
 								</a>
 							</li>
 						{/if}
 						{if $bCanPoke && Phpfox::getService('user.privacy')->hasAccess('' . $aUser.user_id . '', 'poke.can_send_poke')}
 							<li id="liPoke" class="profile-section-menu">
 								<a href="#" id="section_poke" onclick="$.ajaxCall('poke.doPoke', 'user_id=10', 'GET');tb_remove(); return false;">
-                                    <span>{phrase var='poke.poke' full_name=''}</span>
+                                    <span><!--{phrase var='poke.poke' full_name=''}--></span>
                                 </a>
 							</li>
 						{/if}
@@ -120,21 +120,25 @@ defined('PHPFOX') or exit('NO DICE!');
 			<h1 style="width:400px;"><a href="{url link=$aUser.user_name}" title="{$aUser.full_name|clean}">{$aUser.full_name|clean|split:30|shorten:50:'...'}</a>{foreach from=$aBreadCrumbs key=sLink item=sCrumb name=link}{if $phpfox.iteration.link == 1}<span class="profile_breadcrumb">&#187;</span><a href="{$sLink}">{$sCrumb}</a>{/if}{/foreach}</h1>
 
 			<div class="profile_info">
-				{if Phpfox::getService('user.privacy')->hasAccess('' . $aUser.user_id . '', 'profile.view_location') && (!empty($aUser.city_location) || !empty($aUser.country_child_id) || !empty($aUser.location))}
-					{phrase var='profile.lives_in'} {if !empty($aUser.city_location)}{$aUser.city_location}{/if}
-					{if !empty($aUser.city_location) && (!empty($aUser.country_child_id) || !empty($aUser.location))},{/if}
-					{if !empty($aUser.country_child_id)}&nbsp;{$aUser.country_child_id|location_child}{/if} {if !empty($aUser.location)}{$aUser.location}{/if} &middot; 
-				{/if}
-				{if is_array($aUser.birthdate_display) && count($aUser.birthdate_display)}
-				{foreach from=$aUser.birthdate_display key=sAgeType item=sBirthDisplay}
-				{if $aUser.dob_setting == '2'}
-				{phrase var='profile.age_years_old' age=$sBirthDisplay}
-				{else}
-				{phrase var='profile.born_on_birthday' birthday=$sBirthDisplay}
-				{/if}
-				{/foreach}
-				{/if}
-				{if Phpfox::getParam('user.enable_relationship_status') && $sRelationship != ''}&middot; {$sRelationship} {/if}
+				<span class="user-city">
+                     {if Phpfox::getService('user.privacy')->hasAccess('' . $aUser.user_id . '', 'profile.view_location') && (!empty($aUser.city_location) || !empty($aUser.country_child_id) || !empty($aUser.location))}
+                        {phrase var='profile.lives_in'} {if !empty($aUser.city_location)}{$aUser.city_location}{/if}
+                        {if !empty($aUser.city_location) && (!empty($aUser.country_child_id) || !empty($aUser.location))}{/if}<br />
+                        {if !empty($aUser.country_child_id)}{$aUser.country_child_id|location_child}{/if} {if !empty($aUser.location)}{$aUser.location}{/if}
+                    {/if}
+                </span>
+                <span class="user-age">
+                    {if is_array($aUser.birthdate_display) && count($aUser.birthdate_display)}
+                    {foreach from=$aUser.birthdate_display key=sAgeType item=sBirthDisplay}
+                        {if $aUser.dob_setting == '2'}
+                        {phrase var='profile.age_years_old' age=$sBirthDisplay}
+                        {else}
+                        {phrase var='profile.born_on_birthday' birthday=$sBirthDisplay}
+                        {/if}
+                    {/foreach}
+                    {/if}
+                </span>
+				<span class="user-relationships">{if Phpfox::getParam('user.enable_relationship_status') && $sRelationship != ''}{$sRelationship} {/if}</span>
 			</div>
 		</div>
 	</div>
