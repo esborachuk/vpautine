@@ -22,7 +22,7 @@ class Pautina_Service_Profile_Blogbox extends Phpfox_Service
         unset($blog);
 
         foreach ($blogs as &$blog) {
-            $blog['blog_url'] = Phpfox::permalink('blog', $blog['blog_id'], $blog['title']);
+            $blog['url'] = Phpfox::permalink('blog', $blog['blog_id'], $blog['title']);
         }
         unset($blog);
 
