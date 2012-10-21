@@ -1,6 +1,8 @@
 <?php
 class Pautina_Service_Profile_Imagebox extends Phpfox_Service
 {
+    protected $_photoCount;
+
     public function getPhotos($userId, $page = 1, $pageSize = 9)
     {
         $photosService = Phpfox::getService('photo');
@@ -22,6 +24,20 @@ class Pautina_Service_Profile_Imagebox extends Phpfox_Service
         unset($photo);
 
         return $photos;
+    }
+
+    public function getPhotoCount($userId)
+    {
+        if (!$this->_photoCount) {
+            $photoIds = $this->database()->select('photo_id')
+                        ->from(Phpfox::getT('photo'))
+                        ->where('user_id = ' . $userId)
+                        ->execute('getRows');
+
+            $this->_photoCount = count($photoIds);
+        }
+
+        return $this->_photoCount;
     }
 }
 ?>
