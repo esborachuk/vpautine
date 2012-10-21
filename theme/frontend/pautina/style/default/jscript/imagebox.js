@@ -5,16 +5,19 @@ $(document).ready(function() {
 Imagebox = {
     boxDetail: '#imagebox-detail',
 
-    init: function(block) {
+    init: function(block)
+    {
         Imagebox.block = block;
-        jQuery(block).find('a.imagebox').bind('click', Imagebox.showImage);
+        $(block).find('a.imagebox').live('click', Imagebox.showImage);
+        $('#pautina-close').live('click', Imagebox.close);
     },
 
-    showImage: function() {
+    showImage: function()
+    {
+        $('#main_content_padding').prepend('<div id="imagebox-detail"><a id="pautina-close">Close</a><div class="pautina-info"></div></div>');
+
         var currentLink = $(this);
-        var image = '<img src="' + currentLink.data('image') + '"/>';
-        $(Imagebox.block).append(image);
-        var data = 'core[call]=pautina.imagebox&width=940&req2=' + currentLink.data('id') + '$theader=true$no_remove_box=true';
+        var data = 'core[call]=pautina.imagebox&width=580&req2=' + currentLink.data('id') + '$theader=true$no_remove_box=true';
 
         $.ajax(
         {
@@ -24,10 +27,15 @@ Imagebox = {
             data: data,
             success: function(image)
             {
-                $(Imagebox.boxDetail).html(image);
+                $('#imagebox-detail .pautina-info').html(image);
             }
         });
 
         return false;
+    },
+
+    close: function()
+    {
+        $('#imagebox-detail').remove();
     }
 };

@@ -1,3 +1,17 @@
+/* ---------------------------Image Box-----------------------*/
+#imagebox-block {
+    position: relative;
+}
+
+#imagebox-detail {
+    position: absolute;
+    width: 560px;
+    right: 0;
+    top: 0;
+    z-index: 2;
+    background: #fff;
+}
+
 /*----------------------header-------------------------*/
 
 #header_menu_page_holder {

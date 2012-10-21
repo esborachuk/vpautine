@@ -176,7 +176,7 @@ defined('PHPFOX') or exit('NO DICE!');
         $Behavior.autoLoadPhoto = function(){l}{r}
         {r}
 </script>
-			
+
 {else}
 <div class="item_view photo_item_view" {if $bIsTheater} id="photo_view_theater_mode"{/if}>
 	<div id="js_album_outer_content">
@@ -329,7 +329,7 @@ defined('PHPFOX') or exit('NO DICE!');
         </div>
         {if $bIsTheater}
     </div>
-		
+
 		<div class="clear"></div>
 		{/if}
 	</div>
@@ -340,7 +340,7 @@ $Behavior.removeTagBox = function()
 {literal}
 if ($('#noteform').length > 0)$('#noteform').hide(); if ($('#js_photo_view_image').length > 0 && typeof $('#js_photo_view_image').imgAreaSelect == 'function')$('#js_photo_view_image').imgAreaSelect({ hide: true });
 {/literal}
-    {r}
+{r}
 
 </script>
 {/if}

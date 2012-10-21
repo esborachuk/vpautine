@@ -106,6 +106,7 @@ defined('PHPFOX') or exit('NO DICE!');
 								{menu_sub}
 								{block location='1'}
                                 {module name='pautina.profile.imagebox'}
+                                {module name='pautina.profile.blogbox'}
 							</div>					
 							{/if}
 
