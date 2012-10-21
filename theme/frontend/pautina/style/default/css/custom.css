@@ -111,6 +111,18 @@
     background: url("../image/layout/holder_notify_friend_request.png") no-repeat scroll 50% 3px transparent;
 }
 
+#holder_notify ul li a.notification.active {
+    background-position: 8px -41px;
+}
+
+#holder_notify ul li a.message.active {
+    background-position: -7px -45px;
+}
+
+#holder_notify ul li a.friend_notification.active {
+    background-position: 0 -145px;
+}
+
 #holder_notify ul li a.notification.active span.notify_image {
     background-position: 8px -41px;
 }
