@@ -32,15 +32,6 @@
 <ul>
     {if !Phpfox::getService('profile')->timeline()}
     {if !isset($aFeed.feed_mini)}
-    {if !empty($aFeed.feed_icon)}
-    <li><img src="{$aFeed.feed_icon}" alt="" /></li>
-    {/if}
-    {if isset($aFeed.time_stamp)}
-    <li class="feed_entry_time_stamp">
-        <a href="{$aFeed.feed_link}" class="feed_permalink">{$aFeed.time_stamp|convert_time:'feed.feed_display_time_stamp'}</a>{if !empty($aFeed.app_link)} via {$aFeed.app_link}{/if}
-    </li>
-    <li><span>&middot;</span></li>
-    {/if}
 
     {if $aFeed.privacy > 0 && ($aFeed.user_id == Phpfox::getUserId() || Phpfox::getUserParam('core.can_view_private_items'))}
     <li><div class="js_hover_title">{img theme='layout/privacy_icon.png' alt=$aFeed.privacy}<span class="js_hover_info">{$aFeed.privacy|privacy_phrase}</span></div></li>
