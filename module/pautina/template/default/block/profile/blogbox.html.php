@@ -1,4 +1,4 @@
-<div id="menu_box">
+<div class="menu_box">
     <div class="profilebox-title">Блог</div>
         <a href="{$allBlogLink}" class="all-items">Посмотреть все статьи блога...<span>{$blogCount}&nbsp;</span></a>
     <div id="blogbox-block">

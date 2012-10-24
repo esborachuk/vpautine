@@ -1,4 +1,4 @@
-<div id="menu_box">
+<div class="menu_box">
     <div class="profilebox-title">Фото</div>
     <a href="{$allPhotoLink}" class="all-items">Посмотреть все фото...<span></span></a>
     <div id="imagebox-block">
@@ -9,13 +9,15 @@
                         <img src="<?php echo $photo['image_src_small'] ?>" alt="<?php echo $photo['title'] ?>">
                     </a>
 
-                    <?php if ($photo['total_like'] > 0): ?>
-                        <span class="like"><?php echo $photo['total_like']; ?></span>
-                    <?php endif; ?>
+                    <div class="block-like" <?php if($photo['total_like'] <= 0 && $photo['total_comment'] <= 0):  ?>style="display: none!important;" <?php endif; ?>   >
+                        <?php if ($photo['total_like'] > 0): ?>
+                            <span class="like"><?php echo $photo['total_like']; ?></span>
+                        <?php endif; ?>
 
-                    <?php if ($photo['total_comment'] > 0): ?>
-                        <span class="comments"><?php echo $photo['total_comment']; ?></span>
-                    <?php endif; ?>
+                        <?php if ($photo['total_comment'] > 0): ?>
+                            <span class="comments"><?php echo $photo['total_comment']; ?></span>
+                        <?php endif; ?>
+                    </div>
                 </li>
             <?php endforeach; ?>
         </ul>

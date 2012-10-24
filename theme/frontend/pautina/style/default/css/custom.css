@@ -167,7 +167,8 @@
 #header_menu_holder ul li {
     margin: 0 6px;
 }
-
+/**------end-header*/
+/*-------start body ---- left-panel------*/
 .profile_image_holder {
     width: 180px;
     height: 180px;
@@ -182,7 +183,7 @@
     height: 90px;
 }
 
-#imagebox-block li, #videobox-block li{
+#imagebox-block li, #videobox-block li, ul.block_listing li {
     float: left;
     width: 100px;
     height: 100px;
@@ -199,11 +200,13 @@
     display: block;
 }
 
-#menu_box {
+.menu_box {
     clear: both;
+    overflow: hidden;
+    margin-bottom: 20px;
 }
 
-#menu_box .profilebox-title{
+.menu_box .profilebox-title, #left #js_block_border_friend_profile_small .title{
     padding: 6px 0  6px 25px;
     background: #4c4c4c;
     font-size: 18px;
@@ -214,7 +217,7 @@
     -webkit-border-radius: 3px;
 }
 
-#menu_box .all-items {
+.menu_box .all-items {
     padding: 15px 25px;
     color: #3FB6E2;
     font-size: 12px;
@@ -222,7 +225,7 @@
     font-weight: bold;
 }
 
-#menu_box .all-items span{
+.menu_box .all-items span{
     float: right;
     color: #999;
     font-size: 10px;
@@ -285,4 +288,63 @@
 
 #sms-success-result, #email-success-result {
     display: none;
+}
+
+#js_block_content_profile_friend{
+    overflow: hidden;
+}
+
+#js_block_border_friend_profile_small, .pages_view_sub_menu {clear: both;}
+
+#js_is_user_profile .profile_header {
+    padding: 0 0 12px 30px;
+}
+
+ul.block_listing li .block_listing_image {
+    float: none;
+}
+ul.block_listing li .block_listing_title {
+    padding: 7px 0;
+    width: 100%;
+}
+
+#imagebox .block-like {
+    overflow: hidden;
+    height: 30px;
+    display: none;
+}
+
+#imagebox li:hover .block-like {
+    background: url("../image/friend-like-bg.png") repeat-x left top;
+    display: block !important;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+}
+
+#imagebox span.like, #imagebox span.comments {
+    color: #fff;
+    margin-top: 7px;
+}
+
+#imagebox span.like {
+    float: left;
+    padding-left: 20px;
+    background: url("../image/friend-block-like.png") no-repeat left top;
+    margin-left: 5px;
+}
+
+#imagebox li{
+    position: relative;
+}
+
+#imagebox span.comments  {
+    float: right;
+    background: url("../image/friend-block-coments.png") no-repeat right top;
+    padding-right: 22px;
+    margin-right: 5px;
+}
+
+#videobox-block li {
+    height: 112px;
 }
