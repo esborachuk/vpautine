@@ -12,7 +12,7 @@ class Pautina_Service_Profile_Imagebox extends Phpfox_Service
         list($iCnt, $photos) = $photosService->get($where, 'p.time_stamp DESC', $page, $pageSize);
 
         foreach ($photos as &$photo) {
-            $destinationSmall = str_replace('%s', '_75', $photo['destination']);
+            $destinationSmall = str_replace('%s', '_100', $photo['destination']);
             $destinationMedium = str_replace('%s', '_500', $photo['destination']);
             $photo['image_src_small'] = Phpfox::getLib('url')->getDomain()
                                         . 'file' . PHPFOX_DS. 'pic' . PHPFOX_DS . 'photo' . PHPFOX_DS

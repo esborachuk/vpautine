@@ -1,6 +1,6 @@
 <div id="menu_box">
     <div class="profilebox-title">Фото</div>
-    <a href="{$allPhotoLink}" class="all-items">Посмотреть все фото...<span>{$photoCount} фото</span></a>
+    <a href="{$allPhotoLink}" class="all-items">Посмотреть все фото...<span></span></a>
     <div id="imagebox-block">
         <ul id="imagebox">
             <?php foreach ($this->getVar('photos') as $photo): ?>

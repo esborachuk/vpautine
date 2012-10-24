@@ -21,13 +21,10 @@ defined('PHPFOX') or exit('NO DICE!');
                 {if !empty($aFeed.parent_module_id)}
                     <span class="feed-shared_block">{phrase var='feed.shared'}</span>
                 {else}{if isset($aFeed.parent_user)}
-                    {img theme='layout/arrow.png' class='v_middle'}
+                    <span class="parent_user_icon_block">&raquo;</span>
                     {$aFeed.parent_user|user:'parent_':'':50}
                 {/if}
                 <span class="feed_info_block">
-                    {if !empty($aFeed.feed_icon)}
-                        <span class="feed_icon_block"><img src="{$aFeed.feed_icon}" alt="" /></span>
-                    {/if}
                     {if !empty($aFeed.feed_info)}
                         <span class="feed_action_block">{$aFeed.feed_info}</span>
                     {/if}
