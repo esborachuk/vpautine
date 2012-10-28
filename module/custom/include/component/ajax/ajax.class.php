@@ -11,7 +11,7 @@ defined('PHPFOX') or exit('NO DICE!');
  * @copyright		[PHPFOX_COPYRIGHT]
  * @author  		Raymond Benc
  * @package 		Phpfox_Ajax
- * @version 		$Id: ajax.class.php 4315 2012-06-21 13:22:06Z Miguel_Espinoza $
+ * @version 		$Id: ajax.class.php 4882 2012-10-11 04:57:29Z Raymond_Benc $
  */
 class Custom_Component_Ajax_Ajax extends Phpfox_Ajax
 {
@@ -94,10 +94,9 @@ class Custom_Component_Ajax_Ajax extends Phpfox_Ajax
 		{
 			$aCustomFields = Phpfox::getService('custom')->getForEdit(array('user_main', 'user_panel', 'profile_panel'), Phpfox::getUserId(), Phpfox::getUserBy('user_group_id'), false, Phpfox::getUserId());
 			foreach ($aCustomFields as $aCustomField)
-			{
-				
+			{				
 				if (
-					(!isset($aVals[$aCustomField['field_id']]) && $aCustomField['is_required']) 
+					(empty($aVals[$aCustomField['field_id']]) && $aCustomField['is_required']) 
 					)
 				{
 					Phpfox_Error::set(Phpfox::getPhrase('user.the_field_field_is_required', array('field' => Phpfox::getPhrase($aCustomField['phrase_var_name']))));
@@ -113,6 +112,7 @@ class Custom_Component_Ajax_Ajax extends Phpfox_Ajax
 				$bReturnCustom = Phpfox::getService('custom.process')->updateFields(Phpfox::getUserId(), Phpfox::getUserId(), $aVals);
 				$aUser = $this->get('val');
 				$aUser['language_id'] = Phpfox::getUserBy('language_id');
+				define('PHPFOX_IS_CUSTOM_FIELD_UPDATE', true);
 				$bReturnUser = Phpfox::getService('user.process')->update(Phpfox::getUserId(), $aUser);
 				if ($bReturnCustom && $bReturnUser)
 				{
@@ -141,6 +141,7 @@ class Custom_Component_Ajax_Ajax extends Phpfox_Ajax
 				
 				$this->addClass('.js_friend_request_' . $this->get('request_id'), 'row_moderate');
 				$this->call('$(\'.js_friend_request_' . $this->get('request_id') . '\').find(\'.js_drop_data_add\').hide();');
+				$this->call('$(\'.js_friend_request_' . $this->get('request_id') . '\').find(\'.js_drop_data_button\').hide();');
 				$this->call('$(\'.js_friend_request_' . $this->get('request_id') . '\').find(\'.extra_info_middot\').show();');					
 			}
 			else

@@ -57,7 +57,7 @@ class Ad_Component_Block_Sample extends Phpfox_Component
 				'plan_id' => $aPlan['plan_id']
 			);
 			
-			$aPlans[$iKey]['sSizes'] = '<a href="#" onclick="window.parent.$Core.Ad.setPlan('. $aPlan['plan_id'] . ',' 
+			$aPlans[$iKey]['sSizes'] = '<a href="#" onclick="window.parent.$Core.Ad.setPlan('. $iBlockId . ',' 
 			. $aPlan['default_cost'] . ',' 
 			. $aPlan['d_width'] . ',' 
 			. $aPlan['d_height'] . ',' 

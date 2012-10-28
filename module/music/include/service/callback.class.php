@@ -11,7 +11,7 @@ defined('PHPFOX') or exit('NO DICE!');
  * @copyright		[PHPFOX_COPYRIGHT]
  * @author  		Raymond Benc
  * @package  		Module_Music
- * @version 		$Id: callback.class.php 4551 2012-07-23 08:34:47Z Raymond_Benc $
+ * @version 		$Id: callback.class.php 4621 2012-09-12 05:34:34Z Raymond_Benc $
  */
 class Music_Service_Callback extends Phpfox_Service 
 {
@@ -164,7 +164,7 @@ class Music_Service_Callback extends Phpfox_Service
 	
 	public function getCommentItemSong($iId)
 	{
-		$aRow = $this->database()->select('song_id AS comment_item_id, user_id AS comment_user_id')
+		$aRow = $this->database()->select('song_id AS comment_item_id, user_id AS comment_user_id, module_id AS parent_module_id')
 			->from(Phpfox::getT('music_song'))
 			->where('song_id = ' . (int) $iId)
 			->execute('getSlaveRow');
@@ -298,7 +298,7 @@ Phpfox::getPhrase('music.full_name_commented_on_other_full_names_song',array('fu
 	
 	public function getCommentItemAlbum($iId)
 	{
-		$aRow = $this->database()->select('album_id AS comment_item_id, user_id AS comment_user_id')
+		$aRow = $this->database()->select('album_id AS comment_item_id, user_id AS comment_user_id, module_id AS parent_module_id')
 			->from(Phpfox::getT('music_album'))
 			->where('album_id = ' . (int) $iId)
 			->execute('getSlaveRow');
@@ -1096,7 +1096,7 @@ Phpfox::getPhrase('music.full_name_commented_on_other_full_name_s_album_a_href_l
 			'feed_icon' => Phpfox::getLib('image.helper')->display(array('theme' => 'module/music.png', 'return_url' => true)),
 			'time_stamp' => $aRow['time_stamp'],			
 			'enable_like' => true,			
-			'comment_type_id' => 'music_song',
+			'comment_type_id' => ($bIsAlbum ? 'music_album' : 'music_song'),
 			'like_type_id' => 'music_song',
 			'feed_custom_width' => '38px',
 			'song' => array(

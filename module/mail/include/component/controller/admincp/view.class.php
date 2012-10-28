@@ -11,7 +11,7 @@ defined('PHPFOX') or exit('NO DICE!');
  * @copyright		[PHPFOX_COPYRIGHT]
  * @author  		Raymond Benc
  * @package 		Phpfox_Component
- * @version 		$Id: view.class.php 1337 2009-12-17 18:58:27Z Raymond_Benc $
+ * @version 		$Id: view.class.php 4857 2012-10-09 06:32:38Z Raymond_Benc $
  */
 class Mail_Component_Controller_Admincp_View extends Phpfox_Component
 {
@@ -22,9 +22,14 @@ class Mail_Component_Controller_Admincp_View extends Phpfox_Component
 	{
 		$aMessage = Phpfox::getService('mail')->getMail($this->request()->getInt('id'));
 		
-		if (!isset($aMessage['mail_id']))
+		if ((!Phpfox::getParam('mail.threaded_mail_conversation') && !isset($aMessage['mail_id'])) || (Phpfox::getParam('mail.threaded_mail_conversation') && !count($aMessage)))
 		{
 			return Phpfox_Error::display(Phpfox::getPhrase('mail.message_not_found'));
+		}
+		
+		if (Phpfox::getParam('mail.threaded_mail_conversation'))
+		{
+			$this->template()->setHeader(array('mail.css' => 'style_css'));
 		}
 		
 		$this->template()->setTitle(Phpfox::getPhrase('mail.viewing_private_message'))

@@ -5,7 +5,7 @@
  * @copyright		[PHPFOX_COPYRIGHT]
  * @author  		Raymond Benc
  * @package  		Module_Share
- * @version 		$Id: frame.html.php 4516 2012-07-18 08:09:38Z Raymond_Benc $
+ * @version 		$Id: frame.html.php 4781 2012-09-27 08:33:37Z Raymond_Benc $
  */
  
 defined('PHPFOX') or exit('NO DICE!'); 
@@ -16,6 +16,7 @@ defined('PHPFOX') or exit('NO DICE!');
 		{if Phpfox::isUser() && $iFeedId > 0}
 		<li class="label_flow_menu_active"><a href="#share.post?type={$sBookmarkType}&amp;url={$sBookmarkUrl|urlencode}&amp;title={$sBookmarkTitle}&amp;feed_id={$iFeedId}&amp;is_feed_view=1&amp;sharemodule={$sShareModule}">{phrase var='share.post'}</a></li>
 		{/if}
+		{if !Phpfox::isMobile()}
 	    {if Phpfox::isUser()}
 		{if Phpfox::isModule('friend')}
 			<li{if !Phpfox::getParam('share.enable_social_bookmarking')} class="label_flow_menu_active"{/if}><a href="#share.friend?type={$sBookmarkType}&amp;url={$sBookmarkUrl|urlencode}&amp;title={$sBookmarkTitle}">{phrase var='share.message'}</a></li>
@@ -24,6 +25,7 @@ defined('PHPFOX') or exit('NO DICE!');
 		<li{if !Phpfox::getParam('share.enable_social_bookmarking')} class="last"{/if}><a href="#share.email?type={$sBookmarkType}&amp;url={$sBookmarkUrl|urlencode}&amp;title={$sBookmarkTitle}">{phrase var='share.e_mail'}</a></li>
 		{/if}
 		{/if}		
+		{/if}
 	{if Phpfox::getParam('share.enable_social_bookmarking') && $bShowSocialBookmarks}	
 		<li class="last"><a href="#share.bookmark?type={$sBookmarkType}&amp;url={$sBookmarkUrl|urlencode}&amp;title={$sBookmarkTitle}">{phrase var='share.social_bookmarks'}</a></li>
 {/if}

@@ -11,7 +11,7 @@ defined('PHPFOX') or exit('NO DICE!');
  * @copyright		[PHPFOX_COPYRIGHT]
  * @author  		Raymond Benc
  * @package  		Module_User
- * @version 		$Id: activity.class.php 2577 2011-04-29 08:48:05Z Raymond_Benc $
+ * @version 		$Id: activity.class.php 4637 2012-09-17 09:37:20Z Miguel_Espinoza $
  */
 class User_Service_Activity extends Phpfox_Service
 {	
@@ -131,6 +131,52 @@ class User_Service_Activity extends Phpfox_Service
 		
 		(($sPlugin = Phpfox_Plugin::get('user.service_activity_update')) ? eval($sPlugin) : false);
 		
+		return true;
+	}
+	
+	public function doGiftPoints($iTrgUser, $iAmount)
+	{
+		Phpfox::getUserParam('core.can_gift_points', true);
+		$iAmount = (int)$iAmount;
+		// How many points do we have?
+		if ( (Phpfox::getUserBy('activity_points') < 1) || ($iAmount > Phpfox::getUserBy('activity_points')) )
+		{
+			return Phpfox_Error::set('You do not have enough points to gift');
+		}
+		else if (Phpfox::getUserBy('activity_points') == 1)
+		{
+			$iAmount = 1;
+		}
+		
+		// Get current values
+		$aValues = $this->database()->select('activity_points, user_id, activity_points_gifted')
+			->from(Phpfox::getT('user_activity'))
+			->where('user_id = ' . Phpfox::getUserId() . ' OR user_id = ' . (int)$iTrgUser)
+			->execute('getSlaveRows');
+		
+		foreach ($aValues as $aValue)
+		{
+			if ($aValue['user_id'] == Phpfox::getUserId())
+			{
+				$aSender = $aValue;
+				continue;
+			}
+			else if ($aValue['user_id'] == $iTrgUser)
+			{
+				$aReceiver = $aValue; 
+				continue;
+			}
+		}
+		
+		if (!isset($aSender) || !isset($aReceiver))
+		{
+			return Phpfox_Error::set('Invalid Transaction');
+		}
+		
+		// Substract points
+		$this->database()->update(Phpfox::getT('user_activity'), array('activity_points' => ($aSender['activity_points'] - ((int)$iAmount))), 'user_id = ' . Phpfox::getUserId());
+		// Add points
+		$this->database()->update(Phpfox::getT('user_activity'), array('activity_points' => ($aReceiver['activity_points'] + ((int)$iAmount))), 'user_id = ' . (int)$iTrgUser);
 		return true;
 	}
 

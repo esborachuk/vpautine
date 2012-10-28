@@ -60,7 +60,12 @@ class Video_Service_Browse extends Phpfox_Service
 	
 	public function tag($sTag)
 	{
-		$this->_sTag = Phpfox::getLib('parse.input')->clean($sTag);
+		$aTag = Phpfox::getService('tag')->getTagInfo('video', $sTag);
+		
+		if (!empty($aTag['tag_text']))
+		{
+			$this->_sTag = $aTag['tag_text'];
+		}
 		
 		return $this;
 	}

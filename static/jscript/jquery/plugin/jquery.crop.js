@@ -13,7 +13,7 @@ $Core.photo_crop =
 	
 	save: function(oObj)
 	{
-		$('#js_photo_preview_ajax').html($.ajaxProcess('Saving'));
+		$('#js_photo_preview_ajax').html($.ajaxProcess());
 		
 		$(oObj).ajaxCall('user.cropPhoto', 'js_disable_ajax_restart=true'); 
 		

@@ -11,7 +11,7 @@ defined('PHPFOX') or exit('NO DICE!');
  * @copyright		[PHPFOX_COPYRIGHT]
  * @author  		Raymond Benc
  * @package  		Module_Attachment
- * @version 		$Id: process.class.php 3840 2011-12-30 10:38:50Z Miguel_Espinoza $
+ * @version 		$Id: process.class.php 4786 2012-09-27 10:40:14Z Miguel_Espinoza $
  */
 class Attachment_Service_Process extends Phpfox_Service 
 {
@@ -142,19 +142,19 @@ class Attachment_Service_Process extends Phpfox_Service
 			if (file_exists($sThumbnail))
 			{
 				$aFileSizes[$aRow['user_id']] += filesize($sThumbnail);
-				@unlink($sThumbnail);
+				Phpfox::getLib('file')->unlink($sThumbnail);
 			}
 			
 			if (file_exists($sViewImage))
 			{
 				$aFileSizes[$aRow['user_id']] += filesize($sViewImage);
-				@unlink($sViewImage);
+				Phpfox::getLib('file')->unlink($sViewImage);
 			}
 
 			if (file_exists($sActualImage))
 			{
 				$aFileSizes[$aRow['user_id']] += filesize($sActualImage);
-				@unlink($sActualImage);
+				Phpfox::getLib('file')->unlink($sActualImage);
 			}			
 		
 			// Delete attachments for this specific item and category
@@ -189,19 +189,19 @@ class Attachment_Service_Process extends Phpfox_Service
 			if (file_exists($sThumbnail))
 			{
 				$iFileSizes += filesize($sThumbnail);
-				@unlink($sThumbnail);
+				Phpfox::getLib('file')->unlink($sThumbnail);
 			}
 			
 			if (file_exists($sViewImage))
 			{
 				$iFileSizes += filesize($sViewImage);
-				@unlink($sViewImage);
+				Phpfox::getLib('file')->unlink($sViewImage);
 			}
 
 			if (file_exists($sActualImage))
 			{
 				$iFileSizes += filesize($sActualImage);
-				@unlink($sActualImage);
+				Phpfox::getLib('file')->unlink($sActualImage);
 			}	
 			
 			$this->updateItemCount($aRow['category_id'], $aRow['attachment_id'], '-');

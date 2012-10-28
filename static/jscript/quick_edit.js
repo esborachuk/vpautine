@@ -59,7 +59,7 @@ $.fn.createQuickEditForm = function(sUrl)
 			sHtml += '<div class="t_right" style="padding:4px 0 4px 0;">';			
 			sHtml += sProcessing;
 			
-			sHtml += ' <input type="button" value="' + getPhrase('core.save') + '" class="button" onclick="$(\'#js_quick_edit_processing' + $aParams['id'] + '\').show(); $(\'#js_cache_quick_edit' + $aParams['id'] + '\').remove(); $(\'#js_quick_edit' + $aParams['id'] + '\').ajaxCall(\'' + $aParams['call'] + '\', \'' + sParams + '\');" /> ';
+			sHtml += ' <input type="button" value="' + getPhrase('core.save') + '" class="button" onclick="if (function_exists(\'js_quick_edit_callback\')){js_quick_edit_callback();} $(\'#js_quick_edit_processing' + $aParams['id'] + '\').show(); $(\'#js_cache_quick_edit' + $aParams['id'] + '\').remove(); $(\'#js_quick_edit' + $aParams['id'] + '\').ajaxCall(\'' + $aParams['call'] + '\', \'' + sParams + '\');" /> ';
 			sHtml += ' <input type="button" value="' + getPhrase('core.cancel') + '" class="button button_off" onclick="$(\'#' + $aParams['id'] + '\').html($(\'#js_cache_quick_edit' + $aParams['id'] + '\').html()); $(\'#js_cache_quick_edit' + $aParams['id'] + '\').remove()" /> ';
 			if (isset($aParams['main_url']))
 			{

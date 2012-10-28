@@ -11,7 +11,7 @@ defined('PHPFOX') or exit('NO DICE!');
  * @copyright		[PHPFOX_COPYRIGHT]
  * @author  		Raymond_Benc
  * @package 		Phpfox_Service
- * @version 		$Id: callback.class.php 4577 2012-07-31 10:34:58Z Miguel_Espinoza $
+ * @version 		$Id: callback.class.php 4869 2012-10-09 11:25:46Z Raymond_Benc $
  */
 class Pages_Service_Callback extends Phpfox_Service 
 {
@@ -23,6 +23,36 @@ class Pages_Service_Callback extends Phpfox_Service
 		
 	}
 	
+	public function getProfileLink()
+	{
+		return 'profile.pages';
+	}	
+	
+	public function getProfileMenu($aUser)
+	{
+		if (!Phpfox::getParam('profile.show_empty_tabs'))
+		{
+			if (!isset($aUser['total_pages']))
+			{
+				return false;
+			}
+
+			if (isset($aUser['total_pages']) && (int) $aUser['total_pages'] === 0)
+			{
+				return false;
+			}
+		}		
+		
+		$aMenus[] = array(
+			'phrase' => Phpfox::getPhrase('pages.pages'),
+			'url' => 'profile.pages',
+			'total' => (int) (isset($aUser['total_pages']) ? $aUser['total_pages'] : 0),
+			'icon' => 'feed/blog.png'
+		);	
+		
+		return $aMenus;
+	}	
+	
 	public function canShareItemOnFeed(){}
 	
 	public function getActivityFeed($aItem, $aCallback = null, $bIsChildItem = false)
@@ -31,9 +61,10 @@ class Pages_Service_Callback extends Phpfox_Service
 		{
 			$this->database()->select(Phpfox::getUserField('u2') . ', ')->join(Phpfox::getT('user'), 'u2', 'u2.user_id = p.user_id');
 		}		
-		
-		$aRow = $this->database()->select('p.*, pc.page_type')
+
+		$aRow = $this->database()->select('p.*, pc.page_type, pu.vanity_url')
 			->from(Phpfox::getT('pages'), 'p')
+			->leftJoin(Phpfox::getT('pages_url'), 'pu', 'pu.page_id = p.page_id')
 			->leftJoin(Phpfox::getT('pages_category'), 'pc', 'pc.category_id = p.category_id')
 			->where('p.page_id = ' . (int) $aItem['item_id'])
 			->execute('getSlaveRow');
@@ -46,10 +77,10 @@ class Pages_Service_Callback extends Phpfox_Service
 		$aReturn = array(
 			'feed_title' => $aRow['title'],
 			'no_user_show' => true,
-			'feed_content' => ($aRow['page_type'] == '1' ? ($aRow['total_like'] == '1' ? '1 member' : $aRow['total_like'] . ' members') : ($aRow['total_like'] == '1' ? '1 like' : $aRow['total_like'] . ' likes')),
-			'feed_link' => '#',
+			'feed_content' => ($aRow['page_type'] == '1' ? ($aRow['total_like'] == '1' ? Phpfox::getPhrase('pages.1_member') : Phpfox::getPhrase('pages.total_like_members', array('total_like' => $aRow['total_like']))) : ($aRow['total_like'] == '1' ? Phpfox::getPhrase('pages.1_like') : Phpfox::getPhrase('pages.total_like_likes', array('total_like' => $aRow['total_like'])))),
+			'feed_link' => Phpfox::getService('pages')->getUrl($aRow['page_id'], $aRow['title'], $aRow['vanity_url']),
 			'feed_icon' => Phpfox::getLib('image.helper')->display(array('theme' => 'module/marketplace.png', 'return_url' => true)),
-			'time_stamp' => $aRow['time_stamp'],	
+			'time_stamp' => $aRow['time_stamp'],
 			'enable_like' => false,
 		);
 		
@@ -772,6 +803,7 @@ class Pages_Service_Callback extends Phpfox_Service
 		
 		$aPerms['pages.share_updates'] = Phpfox::getPhrase('pages.who_can_post_a_comment');
 		$aPerms['pages.view_browse_updates'] = Phpfox::getPhrase('pages.who_can_view_browse_comments');
+		$aPerms['pages.view_browse_widgets'] = 'Can view widgets?';
 		
 		return $aPerms;
 	}
@@ -840,6 +872,8 @@ class Pages_Service_Callback extends Phpfox_Service
 			
 			unset($aRow['comment_item_id']);
 		}		
+		
+		$aRow['parent_module_id'] = 'pages';
 			
 		return $aRow;
 	}	

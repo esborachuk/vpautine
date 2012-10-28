@@ -26,7 +26,7 @@ class Pages_Service_Browse extends Phpfox_Service
 	public function processRows(&$aRows)
 	{
 		foreach ($aRows as $iKey => $aRow)
-		{				
+		{	
 			$aRows[$iKey]['link'] = Phpfox::getService('pages')->getUrl($aRow['page_id'], $aRow['title'], $aRow['vanity_url']);
 			$aRows[$iKey]['aFeed'] = array(			
 				'feed_display' => 'mini',	
@@ -44,10 +44,9 @@ class Pages_Service_Browse extends Phpfox_Service
 				'feed_link' => Phpfox::getService('pages')->getUrl($aRow['page_id'], $aRow['title'], $aRow['vanity_url']),
 				'feed_title' => $aRow['title'],
 				'type_id' => 'pages'
-			);			
-			
-		}		
-	}	
+			);
+		}
+	}
 	
 	public function query()
 	{

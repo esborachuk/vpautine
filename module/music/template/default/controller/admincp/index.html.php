@@ -5,7 +5,7 @@
  * @copyright		[PHPFOX_COPYRIGHT]
  * @author  		Raymond Benc
  * @package 		Phpfox
- * @version 		$Id: index.html.php 1339 2009-12-19 00:37:55Z Raymond_Benc $
+ * @version 		$Id: index.html.php 4702 2012-09-20 11:39:57Z Raymond_Benc $
  */
  
 defined('PHPFOX') or exit('NO DICE!'); 
@@ -20,7 +20,7 @@ defined('PHPFOX') or exit('NO DICE!');
 	{foreach from=$aGenres key=iKey item=aGenre}
 	<tr id="js_row{$aGenre.genre_id}" class="checkRow{if is_int($iKey/2)} tr{else}{/if}">
 		<td><input type="checkbox" name="id[]" class="checkbox" value="{$aGenre.genre_id}" id="js_id_row{$aGenre.genre_id}" /></td>
-		<td id="js_blog_edit_title{$aGenre.genre_id}"><a href="#?type=input&amp;id=js_blog_edit_title{$aGenre.genre_id}&amp;content=js_category{$aGenre.genre_id}&amp;call=music.updateGenre&amp;category_id={$aGenre.genre_id}" class="quickEdit" id="js_category{$aGenre.genre_id}">{$aGenre.name|convert|clean}</a></td>		
+		<td id="js_blog_edit_title{$aGenre.genre_id}"><a href="#?type=input&amp;id=js_blog_edit_title{$aGenre.genre_id}&amp;content=js_category{$aGenre.genre_id}&amp;call=music.updateGenre&amp;category_id={$aGenre.genre_id}" class="quickEdit" id="js_category{$aGenre.genre_id}">{$aGenre.name|clean|convert}</a></td>		
 	</tr>
 	{/foreach}
 	</table>

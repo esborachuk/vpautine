@@ -11,7 +11,7 @@ defined('PHPFOX') or exit('NO DICE!');
  * @copyright		[PHPFOX_COPYRIGHT]
  * @author  		Raymond Benc
  * @package 		Module_Ad
- * @version 		$Id: callback.class.php 1669 2010-07-12 10:57:57Z Raymond_Benc $
+ * @version 		$Id: callback.class.php 4620 2012-09-09 12:55:15Z Raymond_Benc $
  */
 class Ad_Service_Callback extends Phpfox_Service
 {
@@ -39,29 +39,29 @@ class Ad_Service_Callback extends Phpfox_Service
 		if (preg_match('/sponsor/i', $aParams['item_number']))
 		{	    
 		    // we get the sponsored ad
-		    $iId = preg_replace("/[^0-9]/", '', $aParams['item_number']);	    
-		    $aAd = Phpfox::getService('ad')->getSponsor($iId);
+		    $iId = preg_replace("/[^0-9]/", '', $aParams['item_number']);
 		    Phpfox::log('Ad is sponsored');
 		    $aInvoice = $this->database()
 			    ->select('*')
 			    ->from(Phpfox::getT('ad_invoice'))
-			    ->where('ad_id = ' . $iId . ' AND is_sponsor = 1')
-			    ->execute('getSlaveRow');	    
+			    ->where('invoice_id = ' . $iId . ' AND is_sponsor = 1')
+			    ->execute('getSlaveRow');		    
+
+		    $aAd = Phpfox::getService('ad')->getSponsor($aInvoice['ad_id']);
 		}
 		else
 		{
 		    $aAd = Phpfox::getService('ad')->getForEdit($aParams['item_number']);	   
 		    $aInvoice = Phpfox::getService('ad')->getInvoice($aAd['ad_id']);	    
 		}
-	
-	
+
 		if (empty($aAd) || $aAd === false)
 		{
 		    Phpfox::log('Purchase is not valid');
 		    return false;
 		}
 		if (empty($aInvoice) ||$aInvoice === false)
-		{
+		{			
 		    Phpfox::log('Not a valid invoice');
 		    return false;
 		}
@@ -87,7 +87,7 @@ class Ad_Service_Callback extends Phpfox_Service
 			
 			return false;
 		}		
-	
+
 		Phpfox::log('Handling purchase');
 	
 		$this->database()->update(Phpfox::getT('ad_invoice'), array(
@@ -115,7 +115,7 @@ class Ad_Service_Callback extends Phpfox_Service
 				    $sModule = $aModule[0];
 				    $sSection = $aModule[1];
 				}
-				
+
 				Phpfox::callback($sModule . '.enableSponsor', array('item_id' => $aAd['item_id'], 'section' => $sSection));			
 		    }		   
 		}

@@ -11,7 +11,7 @@ defined('PHPFOX') or exit('NO DICE!');
  * @copyright		[PHPFOX_COPYRIGHT]
  * @author  		Raymond Benc
  * @package  		Module_Admincp
- * @version 		$Id: module.class.php 3469 2011-11-07 16:51:48Z Raymond_Benc $
+ * @version 		$Id: module.class.php 4854 2012-10-09 05:20:40Z Raymond_Benc $
  */
 class Admincp_Service_Module_Module extends Phpfox_Service  
 {
@@ -25,10 +25,23 @@ class Admincp_Service_Module_Module extends Phpfox_Service
 	
 	public function getAdminMenu()
 	{
-		$sCacheId = $this->cache()->set('module_menu');
+		$sCacheId = $this->cache()->set('module_menu_' . Phpfox::getUserId());
 		
 		if (!($aRows = $this->cache()->get($sCacheId)))
-		{			
+		{	
+			$aPrivacyCache = array();
+			$aRows = $this->database()->select('*')
+			->from(Phpfox::getT('admincp_privacy'))
+			->order('time_stamp DESC')
+			->execute('getSlaveRows');
+			foreach ($aRows as $aRow)
+			{
+				foreach ((array) json_decode($aRow['user_group'], true) as $iGroup)
+				{
+					$aPrivacyCache[$iGroup][str_replace('admincp.', '', $aRow['url'])] = ($aRow['wildcard'] ? true : false);
+				}
+			}
+			
 			$aRows = $this->database()->select('m.module_id, m.is_menu, m.menu')
 				->from($this->_sTable, 'm')
 				->where('m.is_active = 1 AND m.is_menu = 1')
@@ -51,6 +64,20 @@ class Admincp_Service_Module_Module extends Phpfox_Service
 					
 					foreach ($aRows[$iKey]['menu'] as $iSubKey => $aSubMenu)
 					{
+						if (isset($aPrivacyCache[Phpfox::getUserBy('user_group_id')][implode('.', $aSubMenu['url'])]))
+						{
+							if ($aPrivacyCache[Phpfox::getUserBy('user_group_id')][implode('.', $aSubMenu['url'])])
+							{
+								unset($aRows[$iKey]);
+								
+								break;
+							}
+							
+							unset($aRows[$iKey]['menu'][$iSubKey]);
+							
+							continue;
+						}						
+						
 						$aRows[$iKey]['menu'][$iSubKey]['url'] = implode('/', $aSubMenu['url']);
 					}
 				}
@@ -68,7 +95,7 @@ class Admincp_Service_Module_Module extends Phpfox_Service
 		
 		foreach ($aRows as $iKey => $aRow)
 		{
-			if (!Phpfox::isModule($aRow['module_id']))
+			if (isset($aRow['module_id']) && !Phpfox::isModule($aRow['module_id']))
 			{
 				unset($aRows[$iKey]);
 			}

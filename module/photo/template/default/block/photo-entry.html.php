@@ -5,7 +5,7 @@
  * @copyright		[PHPFOX_COPYRIGHT]
  * @author  		Raymond Benc
  * @package  		Module_Photo
- * @version 		$Id: photo-entry.html.php 4532 2012-07-19 10:03:18Z Miguel_Espinoza $
+ * @version 		$Id: photo-entry.html.php 4622 2012-09-12 07:18:24Z Miguel_Espinoza $
  */
  
 defined('PHPFOX') or exit('NO DICE!'); 
@@ -38,6 +38,14 @@ defined('PHPFOX') or exit('NO DICE!');
 							<a href="#" onclick="$.ajaxCall('photo.sponsor', 'photo_id={$aPhoto.photo_id}&type={if $aPhoto.is_sponsor == 1}0{else}1{/if}');return false;"> {if $aPhoto.is_sponsor == 1}{phrase var='photo.unsponsor_this_photo'}{else}{phrase var='photo.sponsor_this_photo'}{/if}</a>
 						</li>
 					{/if}	
+					
+					{if isset($aPage) && isset($aPage.page_id)}
+						<li>
+							<a href="#" title="Set this as your Page's cover photo" onclick="$Core.Pages.setAsCover({$aPage.page_id},{$aPhoto.photo_id}); return false;">
+								Set as your page's cover photo
+							</a>
+						</li>
+					{/if}
 					
 					{if Phpfox::getUserParam('photo.can_feature_photo') && !$aPhoto.is_sponsor}
 						<li id="js_photo_feature_{$aPhoto.photo_id}">

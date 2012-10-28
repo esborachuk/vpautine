@@ -114,5 +114,27 @@ $(function()
 		$('#js_user_group').show();
 	}
 	
-		
+		$('#country_iso_custom').change($Core.Ad.handleStates);
 });
+
+
+if ($Core.exists($Core.Ad) == false)
+{
+	$Core.Ad = {
+
+		handleStates : function()
+		{	
+			var aChosenCountry = $('#country_iso_custom').val();
+			$('.tbl_provice, .select_child_country').hide();
+			
+			for (var i in aChosenCountry)
+			{
+				if ( $('#sct_country_' + aChosenCountry[i]).length > 0 && $('#sct_country_' + aChosenCountry[i] + ' option').length > 0)
+				{
+					$('.tbl_province, #country_' + aChosenCountry[i]).show();
+				}
+			}		
+		}
+
+	};
+}

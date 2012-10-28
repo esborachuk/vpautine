@@ -15,22 +15,22 @@ defined('PHPFOX') or exit('NO DICE!');
 </div>
 <div class="table">
 	<div class="table_left">
-		Show users who have not logged in for:
+		{phrase var='user.show_users_who_have_not_logged_in_for'}:
 	</div>
 	<div class="table_right">
-		<input type="text" id="inactive_days" size="3" value="1"> days
+		<input type="text" id="inactive_days" size="3" value="1"> {phrase var='user.days'}
 	</div>
 	<div class="clear"></div>
 </div>
 
 <div class="table">
 	<div class="table_left">
-		Send mails in batches of
+		{phrase var='user.send_mails_in_batches_of'}
 	</div>
 	<div class="table_right">
 		<input type="text" id="mails_per_batch" size="3" value="0">
 		<div class="extra_info">
-			Enter 0 for "all at once"
+			{phrase var='user.enter_0_for_all_at_once'}
 		</div>
 	</div>
 	<div class="clear"></div>
@@ -39,15 +39,15 @@ defined('PHPFOX') or exit('NO DICE!');
 <div class="table">
 	<div class="table_left"></div>
 	<div class="table_right">
-		<div class="extra_info">This feature uses the language phrase "user.mail_inactive_users" to send an email</div>
+		<div class="extra_info">{phrase var='user.this_feature_uses_the_language'}</div>
 	</div>
 	<div class="clear"></div>
 </div>
 
 <div class="table_clear">
-	<input type="submit" value="Get Members Count" class="button" id="btnSearch" />
-	<input type="submit" value="Process Mailing Job" class="button" id="btnProcess"/>
-	<input type="submit" value="Stop Mailing Job" class="button" id="btnStop" />
+	<input type="submit" value="{phrase var='user.get_members_count'}" class="button" id="btnSearch" />
+	<input type="submit" value="{phrase var='user.process_mailing_job'}" class="button" id="btnProcess"/>
+	<input type="submit" value="{phrase var='user.stop_mailing_job'}" class="button" id="btnStop" />
 </div>
 
 <div id="progress"></div>

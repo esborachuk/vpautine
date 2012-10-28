@@ -5,7 +5,7 @@
  * @copyright		[PHPFOX_COPYRIGHT]
  * @author  		Raymond Benc
  * @package 		Phpfox
- * @version 		$Id: profile.html.php 4247 2012-06-11 14:37:59Z Raymond_Benc $
+ * @version 		$Id: profile.html.php 4626 2012-09-12 11:17:50Z Raymond_Benc $
  */
  
 defined('PHPFOX') or exit('NO DICE!'); 
@@ -212,6 +212,24 @@ defined('PHPFOX') or exit('NO DICE!');
 			</div>
 			<div class="clear"></div>
 		</div>			
+		{/if}
+		
+		{if Phpfox::getParam('profile.allow_user_select_landing')}
+		{if Phpfox::isModule('feed') && !Phpfox::getParam('feed.timeline_optional')}
+		<div class="separate"></div>		
+		{/if}
+		<div class="table">
+			<div class="table_left">
+				{phrase var='user.landing_page'}:
+			</div>
+			<div class="table_right">
+				<select name="val[landing_page]">
+					<option value="wall"{value id='landing_page' type='select' default='wall'}>{phrase var='user.wall'}</option>
+					<option value="info"{value id='landing_page' type='select' default='info'}>{phrase var='user.profile_info'}</option>
+				</select>
+			</div>
+			<div class="clear"></div>
+		</div>		
 		{/if}
 </div>
 

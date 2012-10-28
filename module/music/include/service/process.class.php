@@ -11,7 +11,7 @@ defined('PHPFOX') or exit('NO DICE!');
  * @copyright		[PHPFOX_COPYRIGHT]
  * @author  		Raymond Benc
  * @package  		Module_Music
- * @version 		$Id: process.class.php 4227 2012-06-07 14:23:09Z Miguel_Espinoza $
+ * @version 		$Id: process.class.php 4786 2012-09-27 10:40:14Z Miguel_Espinoza $
  */
 class Music_Service_Process extends Phpfox_Service 
 {
@@ -223,7 +223,7 @@ class Music_Service_Process extends Phpfox_Service
 			
 			(($sPlugin = Phpfox_Plugin::get('music.service_process_delete__1')) ? eval($sPlugin) : false);
 			
-			@unlink(Phpfox::getParam('music.dir') . sprintf($aSong['song_path'], ''));
+			Phpfox::getLib('file')->unlink(Phpfox::getParam('music.dir') . sprintf($aSong['song_path'], ''));
 			
 			$this->database()->delete($this->_sTable, 'song_id = ' . $aSong['song_id']);
 			$this->database()->delete(Phpfox::getT('music_song_rating'), 'item_id = ' . $aSong['song_id']);

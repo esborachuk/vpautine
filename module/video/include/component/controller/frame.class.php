@@ -117,8 +117,23 @@ class Video_Component_Controller_Frame extends Phpfox_Component
 		if ($iId = Phpfox::getService('video.process')->add($this->request()->get('val')))
 		{		
 			if (Phpfox::getParam('video.vidly_support'))
-			{
+			{				
 				$aVideo = Phpfox::getService('video')->getVideo($iId, true);
+				
+				Phpfox::getLib('database')->insert(Phpfox::getT('vidly_url'), array(
+						'video_id' => $aVideo['video_id'],
+						'video_url' => Phpfox::getParam('video.url') . sprintf($aVideo['destination'], ''),
+						'upload_video_id' => '0'
+					)
+				);				
+				
+				$mReturn = Phpfox::getService('video')->vidlyPost('AddMedia', array('Source' => array(
+							'SourceFile' => Phpfox::getParam('video.url') . sprintf($aVideo['destination'], ''),
+							'CDN' => 'S3'
+						)
+					), 'vidid_' . $aVideo['video_id'] . '/'
+				);							
+				
 				if ($bMassUploader)
 				{
 					echo 'window.location.href = \'' . Phpfox::permalink('video', $iId, $aVideo['title']) . '\';';

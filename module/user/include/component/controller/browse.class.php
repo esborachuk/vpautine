@@ -11,7 +11,7 @@ defined('PHPFOX') or exit('NO DICE!');
  * @copyright		[PHPFOX_COPYRIGHT]
  * @author  		Raymond Benc
  * @package  		Module_User
- * @version 		$Id: browse.class.php 4548 2012-07-23 07:41:07Z Raymond_Benc $
+ * @version 		$Id: browse.class.php 4876 2012-10-10 10:27:26Z Raymond_Benc $
  */
 class User_Component_Controller_Browse extends Phpfox_Component
 {
@@ -19,7 +19,7 @@ class User_Component_Controller_Browse extends Phpfox_Component
      * Class process method wnich is used to execute this component.
      */
     public function process()
-    {		
+    {    	
 		$aCallback = $this->getParam('aCallback', false);
 		if ($aCallback !== false)
 		{
@@ -163,13 +163,14 @@ class User_Component_Controller_Browse extends Phpfox_Component
 			),
 		    'keyword' => array(
 			    'type' => 'input:text',
-			    'size' => 15
+			    'size' => 15,
+		    	'class' => 'txt_input'
 		    ),
 		    'type' => array(
 			    'type' => 'select',
 			    'options' => array(
 				    '0' => array(Phpfox::getPhrase('user.email_name'), 'AND ((u.full_name LIKE \'%[VALUE]%\' OR (u.email LIKE \'%[VALUE]@%\' OR u.email = \'[VALUE]\'))' . (defined('PHPFOX_IS_ADMIN_SEARCH') ? ' OR u.email LIKE \'%[VALUE]\'' : '') .')'),
-				    '1' => array(Phpfox::getPhrase('user.email'), 'AND ((u.email LIKE \'%[VALUE]@%\' OR u.email = \'[VALUE]\')' . (defined('PHPFOX_IS_ADMIN_SEARCH') ? ' OR u.email LIKE \'%[VALUE]\'' : '') .')'),
+			    	'1' => array(Phpfox::getPhrase('user.email'), 'AND ((u.email LIKE \'%[VALUE]@%\' OR u.email = \'[VALUE]\'' . (defined('PHPFOX_IS_ADMIN_SEARCH') ? ' OR u.email LIKE \'%[VALUE]%\'' : '') .'))'),
 				    '2' => array(Phpfox::getPhrase('user.name'), 'AND (u.full_name LIKE \'%[VALUE]%\')')
 		    	),
 		    	'depend' => 'keyword'
@@ -279,7 +280,10 @@ class User_Component_Controller_Browse extends Phpfox_Component
 			$mFeatured = true;
 			break;
 		    case 3:
-			$bPendingMail = true;
+				if (defined('PHPFOX_IS_ADMIN_SEARCH'))
+		    	{
+		    		$oFilter->setCondition('u.status_id = 1');
+		    	}
 			break;
 		    case 4:
 			$bIsOnline = true;
@@ -443,10 +447,12 @@ class User_Component_Controller_Browse extends Phpfox_Component
 		    ->gender($bIsGender)
 		    ->get();
 
+		/*
 		foreach ($aUsers as $iIndex => $aUser)
 		{
-			$aUsers[$iIndex]['full_name'] = substr($aUser['full_name'],0, Phpfox::getParam('user.maximum_length_for_full_name'));
+			$aUsers[$iIndex]['full_name'] = substr($aUser['full_name'], 0, Phpfox::getParam('user.maximum_length_for_full_name'));
 		}
+		*/
 		
 		$iCnt = $oFilter->getSearchTotal($iCnt);
 
@@ -458,7 +464,9 @@ class User_Component_Controller_Browse extends Phpfox_Component
 		{
 			Phpfox::getLib('pager')->set(array('page' => $iPage, 'size' => $iPageSize, 'count' => $iCnt));
 		}
-
+		
+		Phpfox::getLib('url')->setParam('page', $iPage);
+		
 		if ($this->request()->get('featured') == 1)
 		{
 		    $this->template()->setHeader(array(

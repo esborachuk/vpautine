@@ -11,7 +11,7 @@ defined('PHPFOX') or exit('NO DICE!');
  * @copyright		[PHPFOX_COPYRIGHT]
  * @author  		Raymond Benc
  * @package  		Module_User
- * @version 		$Id: user.class.php 4213 2012-06-05 10:24:49Z Miguel_Espinoza $
+ * @version 		$Id: user.class.php 4654 2012-09-18 06:11:52Z Raymond_Benc $
  */
 class User_Service_User extends Phpfox_Service 
 {	
@@ -554,6 +554,7 @@ class User_Service_User extends Phpfox_Service
 				}
 			}
 			
+			$sPhrase = Phpfox::getPhrase('user.birth_date');
 			switch($aUser['dob_setting'])
 			{
 				case '1':					
@@ -561,12 +562,13 @@ class User_Service_User extends Phpfox_Service
 					break;	
 				case '2':
 					$sDateExtra = $aUser['birthday'];
+					$sPhrase = Phpfox::getPhrase('profile.age');
 					break;
 				default:
 					$sDateExtra = Phpfox::getTime(Phpfox::getParam('user.user_dob_month_day_year'), mktime(0, 0, 0, $aBirthDay['month'], $aBirthDay['day'], $aBirthDay['year']), false);
 					break;
 			}
-			$aUserDetails[Phpfox::getPhrase('profile.age')] = $sDateExtra;
+			$aUserDetails[$sPhrase] = $sDateExtra;
 		}	
 		
 		return $aUserDetails;

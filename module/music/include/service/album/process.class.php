@@ -11,7 +11,7 @@ defined('PHPFOX') or exit('NO DICE!');
  * @copyright		[PHPFOX_COPYRIGHT]
  * @author  		Raymond Benc
  * @package 		Phpfox_Service
- * @version 		$Id: process.class.php 4143 2012-05-02 09:56:53Z Miguel_Espinoza $
+ * @version 		$Id: process.class.php 4786 2012-09-27 10:40:14Z Miguel_Espinoza $
  */
 class Music_Service_Album_Process extends Phpfox_Service 
 {
@@ -284,7 +284,7 @@ class Music_Service_Album_Process extends Phpfox_Service
 				{
 					$iFileSizes += filesize($sImage);
 					
-					@unlink($sImage);					
+					Phpfox::getLib('file')->unlink($sImage);					
 				}
 			}
 			

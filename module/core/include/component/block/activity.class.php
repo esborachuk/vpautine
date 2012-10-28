@@ -11,7 +11,7 @@ defined('PHPFOX') or exit('NO DICE!');
  * @copyright		[PHPFOX_COPYRIGHT]
  * @author  		Raymond Benc
  * @package 		Phpfox_Component
- * @version 		$Id: activity.class.php 982 2009-09-16 08:11:36Z Raymond_Benc $
+ * @version 		$Id: activity.class.php 4633 2012-09-17 07:17:32Z Raymond_Benc $
  */
 class Core_Component_Block_Activity extends Phpfox_Component
 {
@@ -26,7 +26,7 @@ class Core_Component_Block_Activity extends Phpfox_Component
 		
 		$aActivites = array(
 			Phpfox::getPhrase('core.total_items') => $aUser['activity_total'],
-			Phpfox::getPhrase('core.activity_points') => $aUser['activity_points'],
+			Phpfox::getPhrase('core.activity_points') => $aUser['activity_points'] . (Phpfox::getParam('user.can_purchase_activity_points') ? '<span id="purchase_points_link">(<a href="#" onclick="$Core.box(\'user.purchasePoints\', 500); return false;">' . Phpfox::getPhrase('user.purchase_points') . '</a>)</span>' : ''),
 		);
 		foreach ($aModules as $aModule)
 		{

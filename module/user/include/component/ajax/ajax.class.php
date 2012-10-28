@@ -11,10 +11,58 @@ defined('PHPFOX') or exit('NO DICE!');
  * @copyright		[PHPFOX_COPYRIGHT]
  * @author  		Raymond Benc
  * @package  		Module_User
- * @version 		$Id: ajax.class.php 4413 2012-06-28 10:54:17Z Miguel_Espinoza $
+ * @version 		$Id: ajax.class.php 4751 2012-09-25 07:16:33Z Raymond_Benc $
  */
 class User_Component_Ajax_Ajax extends Phpfox_Ajax
 {
+	public function processPurchasePoints()
+	{
+		Phpfox::getBlock('user.processpoints');
+		
+		$this->html('#js_purchase_points', $this->getContent(false));
+	}
+	
+	public function purchasePoints()
+	{
+		$this->setTitle('Purchase Activity Points');
+		Phpfox::getBlock('user.purchasepoints');
+	}
+	
+	public function updateFeedSort()
+	{
+		if (Phpfox::getService('user.process')->updateFeedSort($this->get('order')))
+		{
+			$this->call('window.location.href = \'\';');
+		}
+	}
+	
+	public function confirmEmail()
+	{
+		$aVals = $this->get('val');
+		
+		$bFailed = false;
+		if (empty($aVals['email']) || empty($aVals['confirm_email']))
+		{
+			$bFailed = true;
+		}
+		else
+		{
+			if ($aVals['email'] != $aVals['confirm_email'])
+			{
+				$bFailed = true;
+			}
+		}
+		
+		if ($bFailed)
+		{
+			$this->show('#js_confirm_email_error');
+		}
+		else
+		{
+			$this->hide('#js_confirm_email_error');
+		}
+	}
+	
 	public function setCoverPhoto()
 	{
 		Phpfox::getService('user.process')->updateCoverPhoto($this->get('photo_id'));
@@ -585,10 +633,10 @@ class User_Component_Ajax_Ajax extends Phpfox_Ajax
 	{		
 		$aPostVals = $this->get('val');
 		
-		if (empty($aPostVals['w']))
+		if (empty($aPostVals['w']) && !isset($aPostVals['skip_croping']))
 		{			
 			$this->show('#js_photo_preview_ajax')->html('#js_photo_preview_ajax', '');
-			
+
 			return Phpfox_Error::set(Phpfox::getPhrase('photo.select_an_area_on_your_photo_to_crop'));
 		}		
 		

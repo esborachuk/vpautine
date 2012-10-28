@@ -142,7 +142,7 @@ function selectThreadType(oObj)
 			
 		}
 
-		{if ($bIsEdit && $aForms.is_announcement != 1) || (!$bIsEdit)}
+		{if $aCallback === false && (($bIsEdit && $aForms.is_announcement != 1) || (!$bIsEdit))}
 
 		<h3>{phrase var='forum.additional_options'}</h3>	
 

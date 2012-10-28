@@ -12,7 +12,7 @@ defined('PHPFOX') or exit('NO DICE!');
  * @copyright		[PHPFOX_COPYRIGHT]
  * @author			Raymond Benc
  * @package 		Phpfox
- * @version 		$Id: browse.class.php 2600 2011-05-11 19:54:09Z Raymond_Benc $
+ * @version 		$Id: browse.class.php 4669 2012-09-19 07:31:27Z Miguel_Espinoza $
  */
 final class Phpfox_Search_Browse
 {
@@ -88,7 +88,25 @@ final class Phpfox_Search_Browse
 	 */
 	public function execute()
 	{
-		$aActualConditions = (array) $this->search()->getConditions();
+		$aActualConditions = (array) $this->search()->getConditions();		
+		
+		list($sModule, $sService) = explode('.',$this->_aParams['service']);		
+		if (Phpfox::isModule('input') && (isset($_SESSION[Phpfox::getParam('core.session_prefix')]['search'][$sModule][Phpfox::getLib('request')->get('search-id')]['input'])))
+		{
+			$aInputs = ($_SESSION[Phpfox::getParam('core.session_prefix')]['search'][$sModule][Phpfox::getLib('request')->get('search-id')]['input']);
+			$aInputsToSearch = array();
+			foreach ($aInputs as $iInputId => $mValue)
+			{
+				if (!is_numeric($iInputId) || $iInputId < 1) continue;
+				$aInputsToSearch[$iInputId] = $mValue;
+			}			
+			$aJoins = Phpfox::getService('input')->getJoinsForSearch($aInputsToSearch, $sModule);					
+			if (empty($aJoins))
+			{
+				$aJoins = array(0);
+			}
+			$aActualConditions[] = 'AND (' . $this->_aParams['alias'].'.' . $this->_aParams['field'] .' IN (' . implode(',',$aJoins) . '))';
+		}
 		
 		$this->_aConditions = array();
 		foreach ($aActualConditions as $sCond)
@@ -106,7 +124,9 @@ final class Phpfox_Search_Browse
 					break;
 			}
 		}		
-
+		// testing:
+		// $this->_aConditions = array_merge( (array)array_pop($this->_aConditions), (array)array_pop($this->_aConditions));
+		// d($this->_aConditions);die();
 		if (Phpfox::getParam('core.section_privacy_item_browsing') && (isset($this->_aParams['hide_view']) && !in_array($this->_sView, $this->_aParams['hide_view'])))
 		{			
 			Phpfox::getService('privacy')->buildPrivacy(array_merge($this->_aParams, array('count' => true)));			

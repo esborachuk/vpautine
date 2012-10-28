@@ -11,7 +11,7 @@ defined('PHPFOX') or exit('NO DICE!');
  * @copyright		[PHPFOX_COPYRIGHT]
  * @author  		Raymond_Benc
  * @package 		Phpfox_Service
- * @version 		$Id: browse.class.php 4545 2012-07-20 10:40:35Z Raymond_Benc $
+ * @version 		$Id: browse.class.php 4587 2012-08-07 07:32:02Z Miguel_Espinoza $
  */
 class Poll_Service_Browse extends Phpfox_Service 
 {
@@ -105,7 +105,7 @@ class Poll_Service_Browse extends Phpfox_Service
 			
 			$aPolls2[$aPoll['poll_id']] = $aPoll;
 
-			if ($aPoll['poll_id']['user_id'] == Phpfox::getUserId())
+			if (isset($aPoll['poll_id']['user_id']) && $aPoll['poll_id']['user_id'] == Phpfox::getUserId())
 			{
 				$aPolls2[$aPoll['poll_id']]['user_voted_this_poll'] = 'true';
 			}

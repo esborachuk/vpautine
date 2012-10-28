@@ -11,7 +11,7 @@ defined('PHPFOX') or exit('NO DICE!');
  * @copyright		[PHPFOX_COPYRIGHT]
  * @author  		Raymond Benc
  * @package  		Module_User
- * @version 		$Id: register.class.php 3382 2011-10-31 11:53:10Z Raymond_Benc $
+ * @version 		$Id: register.class.php 4588 2012-08-09 10:18:00Z Raymond_Benc $
  */
 class User_Component_Controller_Register extends Phpfox_Component
 {
@@ -57,6 +57,21 @@ class User_Component_Controller_Register extends Phpfox_Component
 				(($sPlugin = Phpfox_Plugin::get('user.component_controller_register_1')) ? eval($sPlugin) : false);
 	
 				Phpfox::getService('user.validate')->email($aVals['email']);
+				
+				if (Phpfox::getParam('user.reenter_email_on_signup'))
+				{
+					if (empty($aVals['email']) || empty($aVals['confirm_email']))
+					{
+						Phpfox_Error::set(Phpfox::getPhrase('user.email_s_do_not_match'));
+					}
+					else
+					{
+						if ($aVals['email'] != $aVals['confirm_email'])
+						{
+							Phpfox_Error::set(Phpfox::getPhrase('user.email_s_do_not_match'));
+						}
+					}
+				}
 	
 				(($sPlugin = Phpfox_Plugin::get('user.component_controller_register_2')) ? eval($sPlugin) : false);
 				if ($oValid->isValid($aVals))

@@ -583,7 +583,7 @@ input.button_register,
 	background:#f9f9f9;
 	border:1px #dfdfdf solid;
 	*/
-	padding:5x 5px 10px 0px;
+	padding:5px 5px 10px 0px;
 	width:260px;
 }
 
@@ -2590,7 +2590,7 @@ a.activity_feed_report:hover
 .activity_feed_content_text
 {
 	margin-bottom:10px;
-	margin-right:20px;
+	margin-right:0px;
 }
 
 .activity_feed_content_info
@@ -3097,10 +3097,18 @@ ul.block_listing_hover li:hover
 
 #js_photo_view_holder
 {
-	background:#f2f2f2;
-	padding:4px 0px 4px 0px;
+	background:#333;
+	padding:10px;
 	margin-bottom:10px;
 	position:relative;
+	
+	-moz-border-radius:6px;
+	-webkit-border-radius:6px;
+  	border-radius:6px;  	
+	
+  	-moz-box-shadow:6px 6px 6px #CFCFCF;
+  	-webkit-box-shadow:6px 6px 6px #CFCFCF;
+  	box-shadow:6px 6px 6px #CFCFCF;		
 }
 
 .photo_item_view
@@ -4350,4 +4358,45 @@ a.like_count_link:hover
 {
 	background-color:#333;
 	color:#fff;
+}
+
+/* The next blocks are the "popup" used to search for Inputs when clicking "Advanced Filters" */
+#js_search_input_holder
+{
+	display: none;
+	background: url("../image/layout/thickbox_bg.png") repeat scroll 0 0 transparent;
+	border-radius: 10px 10px 10px 10px;	
+	padding: 14px;
+	position: absolute;
+	top: 50px;
+	width: 750px;
+	z-index: 1000;
+}
+
+#js_search_input_content
+{
+	background: none repeat scroll 0 0 #FFFFFF;
+    clear: both;
+    padding: 15px;
+    position: relative;
+    text-align: left;
+}
+.js_search_input_close
+{
+    position: absolute;
+    right: 10px;
+}
+
+.table_below
+{
+	margin-left: 20px;
+}
+
+.table_above
+{
+	padding: 2px 0px 6px 0px;
+	color: #666;
+	font-weight: bold;
+	font-size: 12px;
+	width: 290px;
 }

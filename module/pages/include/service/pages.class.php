@@ -11,7 +11,7 @@ defined('PHPFOX') or exit('NO DICE!');
  * @copyright		[PHPFOX_COPYRIGHT]
  * @author  		Raymond_Benc
  * @package 		Phpfox_Service
- * @version 		$Id: pages.class.php 4389 2012-06-27 10:58:55Z Raymond_Benc $
+ * @version 		$Id: pages.class.php 4858 2012-10-09 06:56:45Z Raymond_Benc $
  */
 class Pages_Service_Pages extends Phpfox_Service 
 {
@@ -59,12 +59,17 @@ class Pages_Service_Pages extends Phpfox_Service
 	
 	public function buildWidgets($iId)
 	{		
+		if (!Phpfox::getService('pages')->hasPerm($iId, 'pages.view_browse_widgets'))
+		{
+			return;
+		}
+		
 		$aWidgets = $this->database()->select('pw.*, pwt.text_parsed AS text')
 			->from(Phpfox::getT('pages_widget'), 'pw')
 			->join(Phpfox::getT('pages_widget_text'), 'pwt', 'pwt.widget_id = pw.widget_id')
 			->where('pw.page_id = ' . (int) $iId)
 			->execute('getSlaveRows');
-		
+
 		foreach ($aWidgets as $aWidget)
 		{
 			$this->_aWidgetEdit[] = array(
@@ -75,7 +80,10 @@ class Pages_Service_Pages extends Phpfox_Service
 			$this->_aWidgetMenus[] = array(
 				'phrase' => $aWidget['menu_title'],
 				'url' => $this->getUrl($aWidget['page_id'], $this->_aRow['title'], $this->_aRow['vanity_url']) . $aWidget['url_title'] . '/',
-				'landing' => $aWidget['url_title']
+				'landing' => $aWidget['url_title'],
+				'icon_pass' => (empty($aWidget['image_path']) ? false : true),
+				'icon' => $aWidget['image_path'],
+				'icon_server' => $aWidget['image_server_id']
 			);
 			
 			$this->_aWidgetUrl[$aWidget['url_title']] = $aWidget['widget_id'];
@@ -113,7 +121,10 @@ class Pages_Service_Pages extends Phpfox_Service
 		
 		if (!$this->isAdmin($aPage))
 		{
-			return false;
+			if (!Phpfox::getUserParam('pages.can_moderate_pages'))
+			{
+				return false;
+			}
 		}
 		
 		return $aWidget;
@@ -206,15 +217,17 @@ class Pages_Service_Pages extends Phpfox_Service
 			$this->database()->select('f.friend_id AS is_friend, ')->leftJoin(Phpfox::getT('friend'), 'f', "f.user_id = p.user_id AND f.friend_user_id = " . Phpfox::getUserId());					
 		}			
 		
-		$this->_aRow = $this->database()->select('p.*, pu.vanity_url, pg.name AS category_name, pg.page_type, pt.text_parsed AS text, l.like_id AS is_liked, u.full_name, ts.style_id AS designer_style_id, ts.folder AS designer_style_folder, t.folder AS designer_theme_folder, t.total_column, ts.l_width, ts.c_width, ts.r_width, t.parent_id AS theme_parent_id')
-			->from($this->_sTable, 'p')	
+		$this->_aRow = $this->database()->select('p.*, pc.claim_id, pu.vanity_url, pg.name AS category_name, pg.page_type, pt.text_parsed AS text, l.like_id AS is_liked, u.full_name, ts.style_id AS designer_style_id, ts.folder AS designer_style_folder, t.folder AS designer_theme_folder, t.total_column, ts.l_width, ts.c_width, ts.r_width, t.parent_id AS theme_parent_id, ' . Phpfox::getUserField('u2', 'owner_'))
+			->from($this->_sTable, 'p')
 			->join(Phpfox::getT('pages_text'), 'pt', 'pt.page_id = p.page_id')
 			->join(Phpfox::getT('user'), 'u', 'u.profile_page_id = p.page_id')
+			->join(Phpfox::getT('user'), 'u2', 'u2.user_id = p.user_id')
 			->leftJoin(Phpfox::getT('pages_url'), 'pu', 'pu.page_id = p.page_id')
 			->leftJoin(Phpfox::getT('pages_category'), 'pg', 'pg.category_id = p.category_id')
 			->leftJoin(Phpfox::getT('like'), 'l', 'l.type_id = \'pages\' AND l.item_id = p.page_id AND l.user_id = ' . Phpfox::getUserId())
 			->leftJoin(Phpfox::getT('theme_style'), 'ts', 'ts.style_id = p.designer_style_id')
 			->leftJoin(Phpfox::getT('theme'), 't', 't.theme_id = ts.theme_id')				
+			->leftJoin(Phpfox::getT('pages_claim'), 'pc','pc.page_id = p.page_id AND pc.user_id = ' . Phpfox::getUserId())
 			->where('p.page_id = ' . (int) $mId)			
 			->execute('getSlaveRow');
 	
@@ -224,7 +237,7 @@ class Pages_Service_Pages extends Phpfox_Service
 		}
 		
 		$this->_aRow['is_admin'] = $this->isAdmin($this->_aRow);		
-		$this->_aRow['link'] = Phpfox::getService('pages')->getUrl($this->_aRow['page_id'], $this->_aRow['title'], $this->_aRow['vanity_url']);
+		$this->_aRow['link'] = Phpfox::getService('pages')->getUrl($this->_aRow['page_id'], $this->_aRow['title'], $this->_aRow['vanity_url']);		
 		
 		if ($this->_aRow['page_type'] == '1' && $this->_aRow['reg_method'] == '1')
 		{
@@ -289,6 +302,28 @@ class Pages_Service_Pages extends Phpfox_Service
 		return ((isset($this->_aRow['is_liked']) && $this->_aRow['is_liked']) ? true : false);
 	}
 	
+	public function getPageAdmins()
+	{
+		$aOwnerAdmin = array();
+		foreach ($this->_aRow as $sKey => $mValue)
+		{
+			if (substr($sKey, 0, 6) == 'owner_')
+			{
+				$aOwnerAdmin[0][str_replace('owner_', '', $sKey)] = $mValue;
+			}
+		}
+		
+		$aPageAdmins = $this->database()->select(Phpfox::getUserField())
+			->from(Phpfox::getT('pages_admin'), 'pa')
+			->join(Phpfox::getT('user'), 'u', 'u.user_id = pa.user_id')
+			->where('pa.page_id = ' . (int) $this->_aRow['page_id'])
+			->execute('getSlaveRows');
+		
+		$aAdmins = array_merge($aOwnerAdmin, $aPageAdmins);	
+		
+		return $aAdmins;
+	}
+	
 	public function isAdmin($aPage)
 	{		
 		if (!Phpfox::isUser())
@@ -306,7 +341,7 @@ class Pages_Service_Pages extends Phpfox_Service
 			$aPage = $this->getPage();
 		}
 		
-		if ($aPage['page_id'] == Phpfox::getUserBy('profile_page_id'))
+		if (isset($aPage['page_id']) && $aPage['page_id'] == Phpfox::getUserBy('profile_page_id'))
 		{
 			return true;
 		}
@@ -341,9 +376,14 @@ class Pages_Service_Pages extends Phpfox_Service
 		$aRow = $this->database()->select('p.*, pu.vanity_url, pg.name AS category_name, pg.page_type')
 			->from($this->_sTable, 'p')			
 			->leftJoin(Phpfox::getT('pages_url'), 'pu', 'pu.page_id = p.page_id')
-			->leftJoin(Phpfox::getT('pages_category'), 'pg', 'pg.category_id = p.category_id')
+			->leftJoin(Phpfox::getT('pages_category'), 'pg', 'pg.category_id = p.category_id')			
 			->where('p.page_id = ' . (int) $iId)			
 			->execute('getSlaveRow');
+		
+		if (empty($aRow) && $iId === null)
+		{
+			return false;
+		}
 
 		if (!isset($aRow['page_id']))
 		{
@@ -558,7 +598,11 @@ class Pages_Service_Pages extends Phpfox_Service
 			->where('pa.page_id = ' . (int) $aRow['page_id'])
 			->execute('getSlaveRows');
 		
-		$aMenus = $this->getMenu($aRow);
+		$aMenus = $this->getMenu($aRow);		
+		foreach ($aMenus as $iKey => $aMenu)
+		{
+			$aMenus[$iKey]['is_selected'] = false;
+		}		
 		if (!empty($aRow['landing_page']))
 		{
 			foreach ($aMenus as $iKey => $aMenu)
@@ -569,7 +613,7 @@ class Pages_Service_Pages extends Phpfox_Service
 				}
 			}
 		}
-		
+
 		$aRow['landing_pages'] = $aMenus;
 		
 		if ($aRow['app_id'])
@@ -585,7 +629,25 @@ class Pages_Service_Pages extends Phpfox_Service
 			$aRow['is_app'] = false;
 		}			
 		
+		define('PHPFOX_PAGES_EDIT_ID', $aRow['page_id']);
+		
 		return $aRow;		
+	}
+	
+	public function getCurrentInvites($iPageId)
+	{
+		$aRows = $this->database()->select('*')
+			->from(Phpfox::getT('pages_invite'))
+			->where('page_id = ' . (int) $iPageId . ' AND type_id = 0 AND user_id = ' . Phpfox::getUserId())
+			->execute('getSlaveRows');
+		
+		$aInvites = array();
+		foreach ($aRows as $aRow)
+		{
+			$aInvites[$aRow['invited_user_id']] = $aRow;
+		}
+		
+		return $aInvites;
 	}
 	
 	public function getMembers($iPage)
@@ -793,6 +855,24 @@ class Pages_Service_Pages extends Phpfox_Service
 		}		
 		
 		return $aRows;
+	}
+	
+	public function getClaims()
+	{
+		$aClaims = $this->database()->select('pc.*, u.full_name, u.user_name, p1.page_id, p1.title, curruser.full_name as curruser_full_name, curruser.user_name as curruser_user_name')
+			->from(Phpfox::getT('pages_claim'), 'pc')
+			->join(Phpfox::getT('user'), 'u', 'u.user_id = pc.user_id')			
+			->join(Phpfox::getT('pages'), 'p1', 'p1.page_id = pc.page_id')
+			->join(Phpfox::getT('user'), 'curruser', 'curruser.user_id = p1.user_id')
+			->where('pc.status_id = 1')
+			->order('pc.time_stamp')
+			->execute('getSlaveRows');
+		
+		foreach ($aClaims as $iIndex => $aClaim)
+		{
+			$aClaims[$iIndex]['url'] = Phpfox::permalink('pages', $aClaim['page_id'], $aClaim['title']);
+		}
+		return $aClaims;
 	}
 	
 	/**

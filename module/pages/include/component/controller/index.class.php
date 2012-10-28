@@ -11,7 +11,7 @@ defined('PHPFOX') or exit('NO DICE!');
  * @copyright		[PHPFOX_COPYRIGHT]
  * @author  		Raymond_Benc
  * @package 		Phpfox_Component
- * @version 		$Id: index.class.php 3952 2012-02-28 14:15:08Z Raymond_Benc $
+ * @version 		$Id: index.class.php 4616 2012-08-31 06:24:56Z Miguel_Espinoza $
  */
 class Pages_Component_Controller_Index extends Phpfox_Component
 {
@@ -19,7 +19,12 @@ class Pages_Component_Controller_Index extends Phpfox_Component
 	 * Class process method wnich is used to execute this component.
 	 */
 	public function process()
-	{
+	{		
+		$bIsUserProfile = $this->getParam('bIsProfile');
+		if ($bIsUserProfile)
+		{
+			$aUser = $this->getParam('aUser');
+		}
 		Phpfox::getUserParam('pages.can_view_browse_pages', true);
 		
 		if ($this->request()->getInt('req2') > 0)
@@ -40,7 +45,7 @@ class Pages_Component_Controller_Index extends Phpfox_Component
 			$this->url()->send('pages', array(), Phpfox::getPhrase('pages.page_successfully_deleted'));
 		}
 		
-		$sView = $this->request()->get('view');	
+		$sView = $this->request()->get('view');
 		
 		if (defined('PHPFOX_IS_AJAX_CONTROLLER'))
 		{
@@ -57,7 +62,7 @@ class Pages_Component_Controller_Index extends Phpfox_Component
 			}
 		}		
 		
-		$this->template()->setTitle(Phpfox::getPhrase('pages.pages'))->setBreadcrumb(Phpfox::getPhrase('pages.pages'), $this->url()->makeUrl('pages'));
+		$this->template()->setTitle(($bIsProfile ? Phpfox::getPhrase('pages.full_name_s_pages', array('full_name' => $aUser['full_name'])) : Phpfox::getPhrase('pages.pages')))->setBreadcrumb(Phpfox::getPhrase('pages.pages'), ($bIsProfile ? $this->url()->makeUrl($aUser['user_name'], array('pages')) : $this->url()->makeUrl('pages')));
 
 		$this->search()->set(array(
 				'type' => 'pages',
@@ -141,9 +146,6 @@ class Pages_Component_Controller_Index extends Phpfox_Component
 		if ($this->request()->get('req2') == 'sub-category' && ($iSubCategoryId = $this->request()->getInt('req3')) && ($aCategory = Phpfox::getService('pages.category')->getById($iSubCategoryId)))
 		{
 			$this->setParam('iCategory', $aCategory['type_id']);
-			
-			
-			
 			$this->template()->setBreadcrumb(Phpfox::getLib('locale')->convert($aCategory['type_name']), Phpfox::permalink('pages.category', $aCategory['type_id'], $aCategory['type_name']) . ($sView ? 'view_' . $sView . '/' . '' : ''));
 			$this->template()->setBreadcrumb(Phpfox::getLib('locale')->convert($aCategory['name']), Phpfox::permalink('pages.sub-category', $aCategory['category_id'], $aCategory['name']) . ($sView ? 'view_' . $sView . '/' . '' : ''), true);
 		}
@@ -162,16 +164,34 @@ class Pages_Component_Controller_Index extends Phpfox_Component
 			$this->search()->setCondition('AND pages.category_id = ' . (int) $aCategory['category_id']);
 		}		
 		
+		if ($bIsUserProfile)
+		{
+			$this->search()->setCondition('AND pages.user_id = ' . (int) $aUser['user_id']);
+		}
+		
 		$this->search()->browse()->params($aBrowseParams)->execute();
 		
 		$aPages = $this->search()->browse()->getRows();
+		
+		foreach ($aPages as $iKey => $aPage)
+		{
+			if (!isset($aPage['vanity_url']) || empty($aPage['vanity_url']))
+			{
+				$aPages[$iKey]['url'] = Phpfox::permalink('pages', $aPage['page_id'], $aPage['title']);
+			}
+			else
+			{
+				$aPages[$iKey]['url'] = $aPage['vanity_url'];
+			}
+		}
 		
 		Phpfox::getLib('pager')->set(array('page' => $this->search()->getPage(), 'size' => $this->search()->getDisplay(), 'count' => $this->search()->browse()->getCount()));		
 		
 		$this->template()->setHeader('cache', array(
 					'comment.css' => 'style_css',
 					'pager.css' => 'style_css',
-					'feed.js' => 'module_feed'	
+					'feed.js' => 'module_feed',
+					'pages.js' => 'module_pages'
 				)
 			)
 			->assign(array(

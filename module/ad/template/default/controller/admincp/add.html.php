@@ -5,7 +5,7 @@
  * @copyright		[PHPFOX_COPYRIGHT]
  * @author  		Raymond Benc
  * @package 		Phpfox
- * @version 		$Id: add.html.php 4177 2012-05-16 11:03:45Z Miguel_Espinoza $
+ * @version 		$Id: add.html.php 4883 2012-10-11 05:28:17Z Raymond_Benc $
  */
  
 defined('PHPFOX') or exit('NO DICE!'); 
@@ -167,10 +167,10 @@ defined('PHPFOX') or exit('NO DICE!');
 	<div class="table_header">
 		{phrase var='ad.placement'}
 	</div>	
-	{module name='admincp.module.form' module_form_title='Module Placement' module_form_required=false module_form_value='All Modules' module_form_id='module_access'}
+	{module name='admincp.module.form' module_form_title='ad.module_placement' module_form_required=false module_form_value='All Modules' module_form_id='module_access'}
 	<div class="table">
 		<div class="table_left">
-			Placement:
+			{phrase var='ad.placement'}:
 		</div>
 		<div class="table_right">
 			<select name="val[location]" id="location">	
@@ -200,12 +200,12 @@ defined('PHPFOX') or exit('NO DICE!');
 	</div>	
 	<div class="table">
 		<div class="table_left">
-			Disallow Controller:
+			{phrase var='ad.disallow_controller'}:
 		</div>
 		<div class="table_right">
-			<input type="text" name="val[disallow_controller]" value="{value type='input' id='disallow_controller'}" id="name" size="40" maxlength="150" />
+			<input type="text" name="val[disallow_controller]" value="{value type='input' id='disallow_controller'}" id="name" size="40" />
 			<div class="extra_info">
-				Separate each controller with a comma. (Eg. blog.index,video.view)
+				{phrase var='ad.separate_each_controller_with_a_comma_eg_blog_index_video_view'}
 			</div>
 		</div>
 		<div class="clear"></div>
@@ -238,10 +238,68 @@ defined('PHPFOX') or exit('NO DICE!');
 			{phrase var='ad.location'}:
 		</div>
 		<div class="table_right">
-			{select_location value_title='phrase var=core.any' multiple=1}
+			{if isset($aAllCountries)}
+				<select multiple="multiple" name="val[country_iso_custom][]" id="country_iso_custom">
+					<option value="">{phrase var='core.any'}
+					{foreach from=$aAllCountries key=sIso item=aCountry}
+						<option value="{$sIso}" {if isset($aForms) && isset($aForms.countries_list)}{foreach from=$aForms.countries_list item=sChosen} {if $sChosen == $sIso} selected="selected" {/if}{/foreach}{/if}> {$aCountry.name}
+					{/foreach}
+				</select>
+			{else}
+				{select_location value_title='phrase var=core.any' multiple=1 name='country_iso_custom'}
+			{/if}
+			
 		</div>
 		<div class="clear"></div>
 	</div>
+	 
+	{if Phpfox::getParam('ad.advanced_ad_filters')}
+		<div class="table tbl_province" style="display:none;">
+			<div class="table_left">
+				State/Province:
+			</div>
+			<div class="table_right">
+				{foreach from=$aAllCountries item=aCountry}
+					{if is_array($aCountry.children) && !empty($aCountry.children)}				
+						<div id="country_{$aCountry.country_iso}" class="select_child_country" style="display:none;">
+							<div>{$aCountry.name}</div>
+							<select class="sct_child_country" id="sct_country_{$aCountry.country_iso}" name="val[child_country][{$aCountry.country_iso}][]" multiple="multiple">
+								{foreach from=$aCountry.children item=aChild}
+									<option value="{$aChild.child_id}">{$aChild.name_decoded}</option>
+								{/foreach}
+							</select>
+						</div>
+					{/if}
+				{/foreach}
+			</div>
+		</div>
+		
+		<div class="table">
+			<div class="table_left">
+				Postal Code:
+			</div>
+			<div class="table_right">
+				<input type="text" name="val[postal_code]" id='postal_code' value="{value type='input' id='postal_code'}">
+				<div class="extra_info">
+					Separate multiple postal codes by a comma.
+				</div>
+			</div>
+		</div>
+		
+		<div class="table">
+			<div class="table_left">
+				City:
+			</div>
+			<div class="table_right">
+				<input type="text" name="val[city_location]" id='city_location' value="{value type='input' id='city_location'}">
+				<div class="extra_info">
+					Separate multiple cities by a comma.
+				</div>
+			</div>
+		</div>
+	{/if}
+	
+	
 	<div class="table">
 		<div class="table_left">
 			{phrase var='ad.gender'}:
@@ -258,9 +316,9 @@ defined('PHPFOX') or exit('NO DICE!');
 		<div class="table_right">
 			<select name="val[age_from]" id="age_from">
 				<option value="">{phrase var='ad.any'}</option>
-			{foreach from=$aAge item=iAge}
-				<option value="{$iAge}"{value type='select' id='age_from' default=$iAge}>{$iAge}</option>
-			{/foreach}
+				{foreach from=$aAge item=iAge}
+					<option value="{$iAge}"{value type='select' id='age_from' default=$iAge}>{$iAge}</option>
+				{/foreach}
 			</select>
 			<span id="js_age_to">
 				and

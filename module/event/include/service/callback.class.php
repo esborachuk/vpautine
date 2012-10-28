@@ -11,7 +11,7 @@ defined('PHPFOX') or exit('NO DICE!');
  * @copyright		[PHPFOX_COPYRIGHT]
  * @author  		Raymond Benc
  * @package  		Module_Event
- * @version 		$Id: callback.class.php 4545 2012-07-20 10:40:35Z Raymond_Benc $
+ * @version 		$Id: callback.class.php 4621 2012-09-12 05:34:34Z Raymond_Benc $
  */
 class Event_Service_Callback extends Phpfox_Service 
 {
@@ -85,6 +85,8 @@ class Event_Service_Callback extends Phpfox_Service
 			
 			unset($aRow['comment_item_id']);
 		}		
+		
+		$aRow['parent_module_id'] = 'event';
 			
 		return $aRow;
 	}	

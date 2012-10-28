@@ -11,7 +11,7 @@ defined('PHPFOX') or exit('NO DICE!');
  * @copyright		[PHPFOX_COPYRIGHT]
  * @author  		Raymond Benc
  * @package 		Phpfox_Service
- * @version 		$Id: process.class.php 4546 2012-07-20 10:51:18Z Miguel_Espinoza $
+ * @version 		$Id: process.class.php 4882 2012-10-11 04:57:29Z Raymond_Benc $
  */
 class Custom_Service_Process extends Phpfox_Service 
 {	
@@ -202,13 +202,16 @@ class Custom_Service_Process extends Phpfox_Service
 					'type' => $sValueTypeName
 				)
 			);		
-			$this->database()->addField(array(
-					'table' => (Phpfox::getT('user_custom_value')),
-					'field' => Phpfox::getService('custom')->getAlias() . $sFieldName,
-					'type' => $sValueTypeName
-				)
-			);		
 			
+			if ($sCustomValueTable != Phpfox::getT('user_custom_value'))
+			{
+				$this->database()->addField(array(
+						'table' => (Phpfox::getT('user_custom_value')),
+						'field' => Phpfox::getService('custom')->getAlias() . $sFieldName,
+						'type' => $sValueTypeName
+					)
+				);		
+			}
 		}
 		if (!$this->database()->isField((Phpfox::getT('user_custom')), Phpfox::getService('custom')->getAlias() . $sFieldName))
 		{			
@@ -740,11 +743,23 @@ class Custom_Service_Process extends Phpfox_Service
 	
 	public function updateOrder($aVals)
 	{
-		Phpfox::getUserParam('custom.can_manage_custom_fields', true);	
-		
+		Phpfox::getUserParam('custom.can_manage_custom_fields', true);
+		$aFields = $this->database()->select('field_id, field_name')
+			->from($this->_sTable)
+			->where('field_id IN ('. implode(',',array_keys($aVals)) .')')
+			->execute('getSlaveRows');
+
+		$this->database()->update(Phpfox::getT('block'), array('ordering' => 1),	'component = "info" AND m_connection="profile.info" AND module_id = "profile"');
 		foreach ($aVals as $iId => $iOrder)
 		{
 			$this->database()->update($this->_sTable, array('ordering' => (int) $iOrder), 'field_id = ' . (int) $iId);
+			foreach ($aFields as $iKey => $aField)
+			{
+				if ($aField['field_id'] == $iId)
+				{
+					$this->database()->update(Phpfox::getT('block'), array('ordering' => (1+(int)$iOrder)),	'component = "cf_'.$aField['field_name'].'" AND m_connection="profile.info"');
+				}
+			}
 		}
 		
 		$this->cache()->remove('custom_field', 'substr');

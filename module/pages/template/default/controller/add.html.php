@@ -5,7 +5,7 @@
  * @copyright		[PHPFOX_COPYRIGHT]
  * @author  		Raymond_Benc
  * @package 		Phpfox
- * @version 		$Id: add.html.php 4365 2012-06-26 14:26:25Z Miguel_Espinoza $
+ * @version 		$Id: add.html.php 4595 2012-08-16 07:30:32Z Raymond_Benc $
  */
  
 defined('PHPFOX') or exit('NO DICE!'); 
@@ -13,7 +13,7 @@ defined('PHPFOX') or exit('NO DICE!');
 ?>
 {if $bIsEdit}
 <div id="js_pages_add_holder">
-	<form method="post" action="{url link='pages.add'}" enctype="multipart/form-data">
+	<form method="post" action="{url link='pages.add'}{if $bIsNewPage}{$sStep}/new_1/{/if}" enctype="multipart/form-data">
 		<div><input type="hidden" name="id" value="{$aForms.page_id}" /></div>
 		<div><input type="hidden" name="val[category_id]" value="{value type='input' id='category_id'}" id="js_category_pages_add_holder" /></div>
 
@@ -146,7 +146,7 @@ defined('PHPFOX') or exit('NO DICE!');
 		
 		<div id="js_pages_block_info" class="js_pages_block page_section_menu_holder" style="display:none;">
 			{editor id='text'}
-			<div class="table_clear">
+			<div class="table_clear p_top_8">
 				<input type="submit" value="{phrase var='pages.update'}" class="button" />
 			</div>			
 		</div>
@@ -250,7 +250,8 @@ defined('PHPFOX') or exit('NO DICE!');
 					</div>				
 					<div class="p_top_8">
 						<input type="submit" value="{phrase var='pages.send_invitations'}" class="button" />
-					</div>				
+					</div>		
+					<br />
 				</div>
 
 				<div style="margin-left:77%; position:relative;">
@@ -294,7 +295,13 @@ defined('PHPFOX') or exit('NO DICE!');
 			{/foreach}
 			</ul>
 		</div>
-
+		{if $sStep != 'invite' && $bIsNewPage}
+		<strong>{phrase var='pages.after_updating'}:</strong> 
+		<select name="action">
+			<option value="1">{phrase var='pages.go_to_the_next_step'}</option>
+			<option value="2">{phrase var='pages.view_this_page_lower'}</option>
+		</select>		
+		{/if}
 	</form>
 </div>
 {else}

@@ -11,7 +11,7 @@ defined('PHPFOX') or exit('NO DICE!');
  * @copyright		[PHPFOX_COPYRIGHT]
  * @author  		Raymond Benc
  * @package 		Phpfox_Service
- * @version 		$Id: gateway.class.php 4203 2012-06-01 08:51:02Z Raymond_Benc $
+ * @version 		$Id: gateway.class.php 4885 2012-10-11 07:43:34Z Raymond_Benc $
  */
 class Api_Service_Gateway_Gateway extends Phpfox_Service 
 {
@@ -107,6 +107,38 @@ class Api_Service_Gateway_Gateway extends Phpfox_Service
 			}
 		}
 		
+		if (Phpfox::getParam('user.can_purchase_with_points') && Phpfox::getUserParam('user.can_purchase_with_points'))
+		{
+			$iTotalPoints = (int) $this->database()->select('activity_points')
+				->from(Phpfox::getT('user_activity'))
+				->where('user_id = ' . (int) Phpfox::getUserId())
+				->execute('getSlaveField');			
+			
+			$sCurreny = $aGatewayData['currency_code'];
+			$aSetting = Phpfox::getParam('user.points_conversion_rate');
+			if (isset($aSetting[$sCurreny]))
+			{
+				$iConversion = $aGatewayData['amount'] * $aSetting[$sCurreny];			
+				if ($iTotalPoints >= $iConversion)
+				{
+					$aPointsGateway = array(
+						'yourpoints' => $iTotalPoints,
+						'yourcost' => $iConversion,		
+						'gateway_id' => 'activitypoints',
+						'title' => Phpfox::getPhrase('user.activity_points'),
+						'description' => Phpfox::getPhrase('user.you_can_purchase_this_with_your_activity_points'),
+						'is_active' => '1',
+						'form' => array(
+							'url' => '#',
+							'param' => $aGatewayData
+						)
+					);
+					
+					$aGateways[] = $aPointsGateway;
+				}		
+			}	
+		}
+		
 		return $aGateways;
 	}
 	
@@ -135,7 +167,7 @@ class Api_Service_Gateway_Gateway extends Phpfox_Service
 			
 			return false;
 		}
-		
+
 		Phpfox::log('Attempting to load gateway: ' . $aGateway['gateway_id']);
 		
 		if (!($oGateway = Phpfox::getLib('gateway')->load($aGateway['gateway_id'], array_merge($_REQUEST, $aGateway))))

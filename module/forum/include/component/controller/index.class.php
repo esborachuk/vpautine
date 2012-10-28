@@ -11,7 +11,7 @@ defined('PHPFOX') or exit('NO DICE!');
  * @copyright		[PHPFOX_COPYRIGHT]
  * @author  		Raymond Benc
  * @package  		Module_Forum
- * @version 		$Id: index.class.php 3595 2011-11-28 11:01:05Z Raymond_Benc $
+ * @version 		$Id: index.class.php 4596 2012-08-16 17:27:10Z Raymond_Benc $
  */
 class Forum_Component_Controller_Index extends Phpfox_Component
 {
@@ -52,6 +52,11 @@ class Forum_Component_Controller_Index extends Phpfox_Component
 		Phpfox::getUserParam('forum.can_view_forum', true);
 		
 		$aParentModule = $this->getParam('aParentModule');	
+		
+		if (Phpfox::getParam('core.phpfox_is_hosted') && empty($aParentModule))
+		{
+			$this->url()->send('');
+		}
 		
 		if ($this->request()->get('req2') == 'topics' || $this->request()->get('req2') == 'posts')
 		{

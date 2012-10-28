@@ -11,7 +11,7 @@ defined('PHPFOX') or exit('NO DICE!');
  * @copyright		[PHPFOX_COPYRIGHT]
  * @author  		Raymond Benc
  * @package  		Module_Photo
- * @version 		$Id: index.class.php 4562 2012-07-23 14:16:07Z Miguel_Espinoza $
+ * @version 		$Id: index.class.php 4770 2012-09-26 07:59:38Z Raymond_Benc $
  */
 class Photo_Component_Controller_Index extends Phpfox_Component
 {
@@ -20,7 +20,7 @@ class Photo_Component_Controller_Index extends Phpfox_Component
 	 */
 	public function process()
 	{		
-		if (defined('PHPFOX_IS_PAGES_VIEW') && $this->request()->get('req4') == 'albums')
+		if (defined('PHPFOX_IS_PAGES_VIEW') && ($this->request()->get('req3') == 'albums' || $this->request()->get('req4') == 'albums'))
 		{
 			Phpfox::getComponent('photo.albums', array('bNoTemplate' => true), 'controller');
 			

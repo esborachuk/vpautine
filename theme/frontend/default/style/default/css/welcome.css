@@ -85,7 +85,7 @@ div#welcome .welcome_quick_link ul li a span
 	top:14px;
 	background:url('../image/layout/action_drop.png') no-repeat 10px 0%;
 	z-index:800;
-	width:250px;
+	width:350px;
 	padding:8px 0px 0px 0px;
 	display:none;	
 }
@@ -158,7 +158,7 @@ div#welcome div.row2
 #welcome div.info_right
 {
 	padding:0px;
-	margin-left:110px;
+	margin-left:150px;	
 }
 
 #welcome a.manage_subscriptions,
@@ -182,4 +182,17 @@ div#welcome div.row2
 #welcome .extra_info
 {
 	color:#BFBFBF;
+}
+
+div#welcome #purchase_points_link
+{
+	margin-left:5px;
+	color:#A0A0A0;	
+}
+
+div#welcome #purchase_points_link a,
+div#welcome #purchase_points_link a:hover
+{	
+	color:#A0A0A0;
+	
 }

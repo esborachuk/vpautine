@@ -11,7 +11,7 @@ defined('PHPFOX') or exit('NO DICE!');
  * @copyright		[PHPFOX_COPYRIGHT]
  * @author  		Raymond Benc
  * @package 		Phpfox_Service
- * @version 		$Id: profile.class.php 4561 2012-07-23 10:59:10Z Raymond_Benc $
+ * @version 		$Id: profile.class.php 4771 2012-09-26 10:06:58Z Raymond_Benc $
  */
 class Profile_Service_Profile extends Phpfox_Service 
 {
@@ -78,7 +78,7 @@ class Profile_Service_Profile extends Phpfox_Service
 			return false;
 		}
 		
-		if (!Phpfox::getParam('feed.force_timeline'))
+		if (Phpfox::isModule('feed') && !Phpfox::getParam('feed.force_timeline'))
 		{
 			if (Phpfox::getParam('feed.timeline_optional') && PHPFOX_IS_AJAX && Phpfox::getLib('request')->get('profile_user_id') > 0)
 			{
@@ -127,14 +127,14 @@ class Profile_Service_Profile extends Phpfox_Service
 		{
 			$aMenus[] = array(
 				'phrase' => Phpfox::getPhrase('profile.wall'),
-				'url' => 'profile',
+				'url' => 'profile' . ($aUser['landing_page'] == 'info' ? '.wall' : ''),
 				'icon' => 'misc/comment.png'	
 			);
 		}
 		
 		$aMenus[] = array(
 			'phrase' => Phpfox::getPhrase('profile.info'),
-			'url' => 'profile.info' . (defined('PHPFOX_IN_DESIGN_MODE') ? '.design' : ''),
+			'url' => 'profile' . ($aUser['landing_page'] == 'info' ? '' : '.info' . (defined('PHPFOX_IN_DESIGN_MODE') ? '.design' : '')),
 			'icon' => 'misc/application_view_list.png'	
 		);	
 		
@@ -182,6 +182,11 @@ class Profile_Service_Profile extends Phpfox_Service
 					|| (Phpfox::getLib('request')->get('req2') == '' && $iKey === 0 && !Phpfox::getService('user.privacy')->hasAccess($aUser['user_id'], 'feed.view_wall'))					
 				)
 			)
+			{
+				$aMenus[$iKey]['is_selected'] = true;
+			}
+			
+			if ($aMenu['url'] == 'profile.photo' && Phpfox::getLib('request')->get('req2') == 'photo' && Phpfox::getLib('request')->get('req3') == 'albums')
 			{
 				$aMenus[$iKey]['is_selected'] = true;
 			}

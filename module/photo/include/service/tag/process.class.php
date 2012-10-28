@@ -11,7 +11,7 @@ defined('PHPFOX') or exit('NO DICE!');
  * @copyright		[PHPFOX_COPYRIGHT]
  * @author  		Raymond Benc
  * @package 		Phpfox_Service
- * @version 		$Id: process.class.php 4522 2012-07-18 14:59:32Z Miguel_Espinoza $
+ * @version 		$Id: process.class.php 4779 2012-09-27 07:47:44Z Raymond_Benc $
  */
 class Photo_Service_Tag_Process extends Phpfox_Service 
 {
@@ -129,8 +129,8 @@ class Photo_Service_Tag_Process extends Phpfox_Service
 				)
 			);
 			
-			if (isset($aUser['user_id']) && $aUser['user_id'] != $aPhoto['user_id'])
-			{
+			// if (isset($aUser['user_id']) && $aUser['user_id'] != $aPhoto['user_id'])
+			// {
 				(($sPlugin = Phpfox_Plugin::get('photo.service_tag_process_add__1')) ? eval($sPlugin) : false);
 				Phpfox::getService('feed.process')->add('photo_tag', $iTagId, 0, 0, $iTagUserId);
 				
@@ -146,7 +146,7 @@ class Photo_Service_Tag_Process extends Phpfox_Service
 					->send();	
 					
 				Phpfox::getService('notification.process')->add('photo_tag', $aPhoto['photo_id'], $iTagUserId);		
-			}
+			// }
 			
 			return $sReturn;
 		}

@@ -11,7 +11,7 @@ defined('PHPFOX') or exit('NO DICE!');
  * @copyright		[PHPFOX_COPYRIGHT]
  * @author  		Raymond Benc
  * @package  		Module_Group
- * @version 		$Id: process.class.php 2526 2011-04-13 18:15:51Z Raymond_Benc $
+ * @version 		$Id: process.class.php 4786 2012-09-27 10:40:14Z Miguel_Espinoza $
  */
 class Group_Service_Process extends Phpfox_Service 
 {
@@ -612,7 +612,7 @@ class Group_Service_Process extends Phpfox_Service
 				{
 					$iFileSizes += filesize($sImage);
 					
-					@unlink($sImage);
+					Phpfox::getLib('file')->unlink($sImage);
 				}
 			}
 			
@@ -664,7 +664,7 @@ class Group_Service_Process extends Phpfox_Service
 				{
 					$iFileSizes += filesize($sImage);
 					
-					@unlink($sImage);
+					Phpfox::getLib('file')->unlink($sImage);
 				}
 			}
 			

@@ -11,7 +11,7 @@ defined('PHPFOX') or exit('NO DICE!');
  * @copyright		[PHPFOX_COPYRIGHT]
  * @author  		Raymond Benc
  * @package 		Phpfox_Service
- * @version 		$Id: callback.class.php 4546 2012-07-20 10:51:18Z Miguel_Espinoza $
+ * @version 		$Id: callback.class.php 4690 2012-09-20 08:05:05Z Miguel_Espinoza $
  */
 class Custom_Service_Callback extends Phpfox_Service 
 {
@@ -820,6 +820,17 @@ class Custom_Service_Callback extends Phpfox_Service
 					'param' => array($iSettingId => 'custom.custom_table_name'));
 				
 				Phpfox::getService('user.group.setting.process')->update($aVal['user_group_id'],$aUpdate);
+				
+				switch ($aVal['user_group_id'])
+				{
+					case 2:
+						$this->database()->update(Phpfox::getT('user_group_setting'), array('is_hidden' => 1, 'default_user' => $sTableName), 'setting_id = ' . $iSettingId);
+						break;
+					case 1:
+						$this->database()->update(Phpfox::getT('user_group_setting'), array('is_hidden' => 1, 'default_admin' => $sTableName), 'setting_id = ' . $iSettingId);
+						break;
+						
+				}
 				
 				return true;				
 			default:

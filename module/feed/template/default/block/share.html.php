@@ -5,7 +5,7 @@
  * @copyright		[PHPFOX_COPYRIGHT]
  * @author  		Raymond Benc
  * @package 		Phpfox
- * @version 		$Id: share.html.php 4545 2012-07-20 10:40:35Z Raymond_Benc $
+ * @version 		$Id: share.html.php 4712 2012-09-21 10:42:01Z Raymond_Benc $
  */
  
 defined('PHPFOX') or exit('NO DICE!'); 
@@ -15,7 +15,7 @@ defined('PHPFOX') or exit('NO DICE!');
 	<form method="post" action="#" onsubmit="$(this).ajaxCall('feed.share'); return false;">
 		<div><input type="hidden" name="val[parent_feed_id]" value="{$iFeedId}" /></div>
 		<div><input type="hidden" name="val[parent_module_id]" value="{$sShareModule|clean}" /></div>
-		Share: 
+		{phrase var='share.share'}: 
 		<select name="val[post_type]" onchange="if (this.value == '1') {l} $('#js_feed_share_friend_holder').hide(); {r} else {l} $('#js_feed_share_friend_holder').show(); {r}">
 			<option value="1">{phrase var='share.on_your_wall'}</option>
 			<option value="2">{phrase var='share.on_a_friend_s_wall'}</option>

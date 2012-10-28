@@ -5,7 +5,7 @@
  * @copyright		[PHPFOX_COPYRIGHT]
  * @author  		Raymond Benc
  * @package  		Module_Photo
- * @version 		$Id: menu.html.php 4370 2012-06-27 07:41:51Z Miguel_Espinoza $
+ * @version 		$Id: menu.html.php 4780 2012-09-27 08:11:52Z Raymond_Benc $
  */
  
 defined('PHPFOX') or exit('NO DICE!'); 
@@ -16,14 +16,14 @@ defined('PHPFOX') or exit('NO DICE!');
 		{/if}
 		
 		{if $aForms.user_id == Phpfox::getUserId()}
-		<li>
-			<a href="#" title="Set this photo as your profile image." onclick="if ($Core.exists('.js_box_image_holder_full')) {l} js_box_remove($('.js_box_image_holder_full').find('.js_box_content')); {r} tb_show('', '', null, '{phrase var='photo.setting_this_photo_as_your_profile_picture_please_hold'}', true); $.ajaxCall('photo.makeProfilePicture', 'photo_id={$aForms.photo_id}', 'GET'); return false;">{phrase var='photo.make_profile_picture'}</a>
-		</li>
-		{if Phpfox::getUserParam('profile.can_change_cover_photo')}
-		<li>
-			<a href="#" title="{phrase var='user.set_this_photo_as_your_profile_cover_photo'}" onclick="$.ajaxCall('user.setCoverPhoto', 'photo_id={$aForms.photo_id}', 'GET'); return false;">{phrase var='user.set_as_cover_photo'}</a>
-		</li>			
-		{/if}		
+			<li>
+				<a href="#" title="Set this photo as your profile image." onclick="if ($Core.exists('.js_box_image_holder_full')) {l} js_box_remove($('.js_box_image_holder_full').find('.js_box_content')); {r} tb_show('', '', null, '{phrase var='photo.setting_this_photo_as_your_profile_picture_please_hold'}', true); $.ajaxCall('photo.makeProfilePicture', 'photo_id={$aForms.photo_id}', 'GET'); return false;">{phrase var='photo.make_profile_picture'}</a>
+			</li>
+			{if Phpfox::getUserParam('profile.can_change_cover_photo')}
+				<li>
+					<a href="#" title="{phrase var='user.set_this_photo_as_your_profile_cover_photo'}" onclick="$.ajaxCall('user.setCoverPhoto', 'photo_id={$aForms.photo_id}', 'GET'); return false;">{phrase var='user.set_as_cover_photo'}</a>
+				</li>
+			{/if}		
 		{/if}	
 		
 		{if Phpfox::getUserParam('photo.can_feature_photo') && !$aForms.is_sponsor}
@@ -59,12 +59,12 @@ defined('PHPFOX') or exit('NO DICE!');
 		
 		{if PHPFOX_IS_AJAX && isset($bIsTheater) && $bIsTheater && (Phpfox::getUserParam('photo.can_edit_own_photo') && $aForms.user_id == Phpfox::getUserId()) || Phpfox::getUserParam('photo.can_edit_other_photo')}
 					<li>
-						<a href="#" onclick="$('#photo_view_ajax_loader').show(); $('#menu').remove(); $('#noteform').hide(); $('#js_photo_view_image').imgAreaSelect({left_curly} hide: true {right_curly}); $('#js_photo_view_holder').hide(); $.ajaxCall('photo.rotate', 'photo_id={$aForms.photo_id}&amp;photo_cmd=right'); return false;">
+						<a href="#" onclick="$('#photo_view_ajax_loader').show(); $('#menu').remove(); $('#noteform').hide(); $('#js_photo_view_image').imgAreaSelect({left_curly} hide: true {right_curly}); $('#js_photo_view_holder').hide(); $.ajaxCall('photo.rotate', 'photo_id={$aForms.photo_id}&amp;photo_cmd=right&amp;currenturl=' + $('#js_current_page_url').html()); return false;">
 							{phrase var='photo.rotate_right'}
 						</a>
 					</li>
 					<li>
-						<a href="#" onclick="$('#photo_view_ajax_loader').show(); $('#menu').remove(); $('#noteform').hide(); $('#js_photo_view_image').imgAreaSelect({left_curly} hide: true {right_curly}); $('#js_photo_view_holder').hide(); $.ajaxCall('photo.rotate', 'photo_id={$aForms.photo_id}&amp;photo_cmd=left'); return false;">		{phrase var='photo.rotate_left'}							
+						<a href="#" onclick="$('#photo_view_ajax_loader').show(); $('#menu').remove(); $('#noteform').hide(); $('#js_photo_view_image').imgAreaSelect({left_curly} hide: true {right_curly}); $('#js_photo_view_holder').hide(); $.ajaxCall('photo.rotate', 'photo_id={$aForms.photo_id}&amp;photo_cmd=left&amp;currenturl=' + $('#js_current_page_url').html()); return false;">		{phrase var='photo.rotate_left'}							
 						</a>
 					</li>		
 		{/if}
@@ -74,3 +74,11 @@ defined('PHPFOX') or exit('NO DICE!');
 		{if (Phpfox::getUserParam('photo.can_delete_own_photo') && $aForms.user_id == Phpfox::getUserId()) || Phpfox::getUserParam('photo.can_delete_other_photos')}
 		<li class="item_delete"><a href="{url link='photo' delete=$aForms.photo_id}" class="sJsConfirm">{phrase var='photo.delete_this_photo'}</a></li>
 		{/if}		
+		
+		{if isset($aCallback)}
+			<li>
+				<a href="#" onclick="$Core.Photo.setCoverPhoto({$aForms.photo_id},{$aCallback.item_id}); return false;" >
+					Set as Page's Cover Photo
+				</a>
+			</li>
+		{/if}

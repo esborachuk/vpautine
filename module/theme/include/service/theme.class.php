@@ -11,7 +11,7 @@ defined('PHPFOX') or exit('NO DICE!');
  * @copyright		[PHPFOX_COPYRIGHT]
  * @author  		Raymond Benc
  * @package  		Module_Theme
- * @version 		$Id: theme.class.php 3583 2011-11-28 06:43:59Z Raymond_Benc $
+ * @version 		$Id: theme.class.php 4887 2012-10-11 11:38:15Z Raymond_Benc $
  */
 class Theme_Service_Theme extends Phpfox_Service 
 {	
@@ -22,6 +22,16 @@ class Theme_Service_Theme extends Phpfox_Service
 	{	
 		$this->_sTable = Phpfox::getT('theme');
 	}
+	
+	public function isTheme($sTheme)
+	{
+		$iInstalled = (int) $this->database()->select('COUNT(*)')
+		->from(Phpfox::getT('theme'))
+		->where('folder = \'' . $this->database()->escape($sTheme) . '\'')
+		->execute('getField');
+			
+		return ($iInstalled ? true : false);
+	}	
 	
 	public function get($aCond = array())
 	{		

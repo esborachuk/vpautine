@@ -11,7 +11,7 @@ defined('PHPFOX') or exit('NO DICE!');
  * @copyright		[PHPFOX_COPYRIGHT]
  * @author  		Raymond Benc
  * @package  		Module_Friend
- * @version 		$Id: friend.class.php 4500 2012-07-11 13:05:52Z Miguel_Espinoza $
+ * @version 		$Id: friend.class.php 4709 2012-09-21 08:37:17Z Raymond_Benc $
  */
 class Friend_Service_Friend extends Phpfox_Service
 {
@@ -49,6 +49,7 @@ class Friend_Service_Friend extends Phpfox_Service
 			if ($bIsListView)
 			{
 				$this->database()->join(Phpfox::getT('friend_list_data'), 'fld', 'fld.friend_user_id = friend.friend_user_id');
+				$aCond[] = 'AND friend.user_id = ' . (int) Phpfox::getUserId() . ' AND friend.friend_user_id = fld.friend_user_id';				
 			}
 			
 			if ((int) $iListId > 0)
@@ -83,11 +84,12 @@ class Friend_Service_Friend extends Phpfox_Service
 			if ($bIsListView)
 			{
 				$this->database()->join(Phpfox::getT('friend_list_data'), 'fld', 'fld.friend_user_id = friend.friend_user_id');		
+				$aCond[] = 'AND friend.user_id = ' . (int) Phpfox::getUserId() . ' AND friend.friend_user_id = fld.friend_user_id';				
 			}
 			
 			if ((int) $iListId > 0)
 			{
-				$this->database()->innerJoin(Phpfox::getT('friend_list_data'), 'fld', 'fld.list_id = ' . (int) $iListId . ' AND fld.friend_user_id = friend.friend_user_id');
+				$this->database()->innerJoin(Phpfox::getT('friend_list_data'), 'fld', 'fld.list_id = ' . (int) $iListId . ' AND fld.friend_user_id = friend.friend_user_id');								
 			}			
 
 			$aRows = $this->database()->select('uf.dob_setting, friend.friend_id, friend.friend_user_id, friend.is_top_friend, friend.time_stamp, ' . Phpfox::getUserField())  
@@ -566,7 +568,10 @@ class Friend_Service_Friend extends Phpfox_Service
 	*/
 	public function getFriendsOfFriends($aFriends = array())
 	{
-		Phpfox::isUser(true);
+		if (!Phpfox::isUser())
+		{
+			return array();
+		}
 		
 		if (is_array($aFriends) && !empty($aFriends))
 		{

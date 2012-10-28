@@ -431,7 +431,7 @@ a.timeline_friendlist_link:hover
 
 .timeline_float_right
 {
-	top:80px; left:-19px; z-index:1000;
+	top:53px; left:-18px; z-index:1000;
 }
 
 .timeline_arrow_left,
@@ -451,7 +451,7 @@ a.timeline_friendlist_link:hover
 {
 	background:url('../image/layout/timeline_arrow_right.png') no-repeat;
 	left:-7px;
-	top:77px;
+	top:50px;
 }
 
 .main_timeline ul.activity_feed_form_attach li ul

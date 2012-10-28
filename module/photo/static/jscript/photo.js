@@ -205,3 +205,10 @@ function uploadComplete()
 		}
 	}
 }
+
+if (typeof $Core.Photo == 'undefined') $Core.Photo = {};
+
+$Core.Photo.setCoverPhoto = function(iPhotoId, iItemId)
+{
+	$.ajaxCall('pages.setCoverPhoto', 'photo_id=' + iPhotoId + '&page_id=' + iItemId);
+}

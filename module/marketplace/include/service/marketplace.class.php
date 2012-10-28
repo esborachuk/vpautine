@@ -11,7 +11,7 @@ defined('PHPFOX') or exit('NO DICE!');
  * @copyright		[PHPFOX_COPYRIGHT]
  * @author  		Raymond Benc
  * @package 		Phpfox_Service
- * @version 		$Id: marketplace.class.php 4242 2012-06-10 17:07:21Z Raymond_Benc $
+ * @version 		$Id: marketplace.class.php 4714 2012-09-21 11:14:44Z Raymond_Benc $
  */
 class Marketplace_Service_Marketplace extends Phpfox_Service 
 {
@@ -79,7 +79,12 @@ class Marketplace_Service_Marketplace extends Phpfox_Service
 			->join(Phpfox::getT('marketplace_text'), 'mt', 'mt.listing_id = l.listing_id')
 			->where('l.listing_id = ' . (int) $iId)
 			->execute('getSlaveRow');
-			
+		
+		if (Phpfox::isModule('input'))
+		{
+			Phpfox::getService('input')->getInputsFor($aListing, 'marketplace.add-listing', $iId);
+		}
+		
 		if ((($aListing['user_id'] == Phpfox::getUserId() && Phpfox::getUserParam('marketplace.can_edit_own_listing')) || Phpfox::getUserParam('marketplace.can_edit_other_listing')) || ($bForce === true))
 		{
 			$aListing['categories'] = Phpfox::getService('marketplace.category')->getCategoryIds($aListing['listing_id']);
@@ -177,7 +182,7 @@ class Marketplace_Service_Marketplace extends Phpfox_Service
 			$aListing = $this->database()->select('s.sponsor_id, m.title, m.currency_id, m.price, m.time_stamp, m.image_path, m.server_id')
 				->from($this->_sTable, 'm')
 				->join(Phpfox::getT('ad_sponsor'), 's', 's.item_id = m.listing_id')
-				->where('m.view_id = 0 AND m.group_id = 0 AND is_sponsor = 1 AND s.module_id = "marketplace"')
+				->where('m.view_id = 0 AND m.group_id = 0 AND m.is_sponsor = 1 AND s.module_id = "marketplace" AND s.is_active = 1')
 				->execute('getSlaveRows');
 	
 			$this->cache()->save($sCacheId, $aListing);

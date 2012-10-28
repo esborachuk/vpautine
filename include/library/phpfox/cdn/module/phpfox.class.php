@@ -11,7 +11,7 @@ defined('PHPFOX') or exit('NO DICE!');
  * @copyright		[PHPFOX_COPYRIGHT]
  * @author			Raymond Benc
  * @package 		Phpfox
- * @version 		$Id: phpfox.class.php 3992 2012-03-12 13:40:21Z Raymond_Benc $
+ * @version 		$Id: phpfox.class.php 4784 2012-09-27 09:02:08Z Miguel_Espinoza $
  */
 class Phpfox_Cdn_Module_Phpfox extends Phpfox_Cdn_Abstract
 {	
@@ -93,7 +93,11 @@ class Phpfox_Cdn_Module_Phpfox extends Phpfox_Cdn_Abstract
 		{
 			return false;
 		}
-		
+		$bDelete = false; // turn this into a setting
+		if ($bDelete)
+		{
+			unlink($sFile);
+		}
 		return true;		
 	}
 	

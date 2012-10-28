@@ -11,7 +11,7 @@ defined('PHPFOX') or exit('NO DICE!');
  * @copyright		[PHPFOX_COPYRIGHT]
  * @author  		Raymond Benc
  * @package  		Module_Mail
- * @version 		$Id: view.class.php 4406 2012-06-27 16:57:19Z Raymond_Benc $
+ * @version 		$Id: view.class.php 4854 2012-10-09 05:20:40Z Raymond_Benc $
  */
 class Mail_Component_Controller_View extends Phpfox_Component
 {
@@ -208,8 +208,8 @@ class Mail_Component_Controller_View extends Phpfox_Component
 				'sCreateJs' => $oValid->createJS(),
 				'sGetJsForm' => $oValid->getJsForm(),
 				'aMail' => $aMail,				
-				'iPrevId' => $oMail->getPrev($aMail['time_updated'],$bIsSentbox),
-				'iNextId' => $oMail->getNext($aMail['time_updated'],$bIsSentbox),
+				'iPrevId' => $oMail->getPrev($aMail['time_updated'], $bIsSentbox, $bIsTrash),
+				'iNextId' => $oMail->getNext($aMail['time_updated'], $bIsSentbox, $bIsTrash),
 				'sSite' => Phpfox::getParam('core.site_title')
 			)
 		); 

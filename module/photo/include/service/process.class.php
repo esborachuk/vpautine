@@ -11,7 +11,7 @@ defined('PHPFOX') or exit('NO DICE!');
  * @copyright		[PHPFOX_COPYRIGHT]
  * @author  		Raymond Benc
  * @package  		Module_Photo
- * @version 		$Id: process.class.php 4574 2012-07-31 09:35:22Z Miguel_Espinoza $
+ * @version 		$Id: process.class.php 4854 2012-10-09 05:20:40Z Raymond_Benc $
  */
 class Photo_Service_Process extends Phpfox_Service
 {
@@ -62,7 +62,7 @@ class Photo_Service_Process extends Phpfox_Service
 	
 		// Create the fields to insert.
 		$aFields = array();
-	
+
 		// Make sure we are updating the album ID
 		(!empty($aVals['album_id']) ? $aFields['album_id'] = 'int' : null);
 	
@@ -351,7 +351,7 @@ class Photo_Service_Process extends Phpfox_Service
 		    $iFileSizes += filesize(Phpfox::getParam('photo.dir_photo') . sprintf($aPhoto['destination'], ''));
 	
 		    // Remove the image
-		    unlink(Phpfox::getParam('photo.dir_photo') . sprintf($aPhoto['destination'], ''));
+		    Phpfox::getLib('file')->unlink(Phpfox::getParam('photo.dir_photo') . sprintf($aPhoto['destination'], ''));
 		}
 	
 		// Loop thru all the other smaller images
@@ -364,7 +364,7 @@ class Photo_Service_Process extends Phpfox_Service
 				$iFileSizes += filesize(Phpfox::getParam('photo.dir_photo') . sprintf($aPhoto['destination'], '_' . $iSize));
 		
 				// Remove the image
-				unlink(Phpfox::getParam('photo.dir_photo') . sprintf($aPhoto['destination'], '_' . $iSize));
+				Phpfox::getLib('file')->unlink(Phpfox::getParam('photo.dir_photo') . sprintf($aPhoto['destination'], '_' . $iSize));
 		    }
 		}
 	

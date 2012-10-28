@@ -11,7 +11,7 @@ defined('PHPFOX') or exit('NO DICE!');
  * @copyright		[PHPFOX_COPYRIGHT]
  * @author  		Raymond Benc
  * @package  		Module_Friend
- * @version 		$Id: search.class.php 4281 2012-06-14 14:30:47Z Raymond_Benc $
+ * @version 		$Id: search.class.php 4593 2012-08-13 09:32:05Z Raymond_Benc $
  */
 class Friend_Component_Block_Search extends Phpfox_Component
 {
@@ -21,7 +21,7 @@ class Friend_Component_Block_Search extends Phpfox_Component
 	public function process()
 	{
 		$iPage = $this->getParam('page', 0);
-		$iPageSize = 9;		
+		$iPageSize = 36;		
 		$bIsOnline = false;		
 		$oDb = Phpfox::getLib('database');
 		$aParams = array();
@@ -110,6 +110,8 @@ class Friend_Component_Block_Search extends Phpfox_Component
 		{		
 			list($iCnt, $aFriends) = Phpfox::getService('friend')->get($aConditions, 'u.full_name ASC', $iPage, $iPageSize, true, true, $bIsOnline, null, false, $iListId);			
 		}
+		
+		(($sPlugin = Phpfox_Plugin::get('friend.component_block_search_get')) ? eval($sPlugin) : false);
 		
 		$aParams['input'] = $this->getParam('input');
 		$aParams['friend_item_id'] = $this->getParam('friend_item_id');

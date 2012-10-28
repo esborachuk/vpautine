@@ -22,7 +22,7 @@ Phpfox::getLibClass('phpfox.mail.interface');
  * @copyright		[PHPFOX_COPYRIGHT]
  * @author			Raymond Benc
  * @package 		Phpfox
- * @version 		$Id: mail.class.php 4578 2012-07-31 13:07:50Z Miguel_Espinoza $
+ * @version 		$Id: mail.class.php 4902 2012-10-17 06:46:17Z Raymond_Benc $
  */
 class Phpfox_Mail
 {
@@ -465,9 +465,9 @@ class Phpfox_Mail
 						$sMessagePlain = preg_replace('/\{setting var=\'(.*)\'\}/ise', "'' . Phpfox::getParam('\\1') . ''", $sMessagePlain);
 						$sSubject = preg_replace('/\{setting var=\'(.*)\'\}/ise', "'' . Phpfox::getParam('\\1') . ''", $sSubject);
 						$sSubject = preg_replace('/\{phrase var=\'(.*)\'\}/ise', "'' . Phpfox::getPhrase('\\1',{$this->_sArray}, false, null, '".$aUser['language_id']."') . ''", $sSubject);
-						// $sSubject = html_entity_decode($sSubject, null, 'UTF-8'); // http://www.phpfox.com/tracker/view/10392/
+						$sSubject = html_entity_decode($sSubject, null, 'UTF-8'); // http://www.phpfox.com/tracker/view/10392/
 						$sEmailSig = preg_replace('/\{phrase var=\'(.*)\'\}/ise', "'' . Phpfox::getPhrase('\\1',{$this->_sArray}, false, null, '".$aUser['language_id']."') . ''", Phpfox::getParam('core.mail_signature'));
-						
+				
 						// Load plain text template
 						$sTextPlain = Phpfox::getLib('template')->assign(array(
 									'sName' => $aUser['full_name'],
@@ -545,6 +545,7 @@ class Phpfox_Mail
 				$sMessagePlain = preg_replace('/\{phrase var=\'(.*)\'\}/ise', "'' . Phpfox::getPhrase('\\1', {$this->_sArray}, false, null, '". Phpfox::getParam('core.default_lang_id')."') . ''", $sMessagePlain);
 				$sMessage = preg_replace('/\{phrase var=\'(.*)\'\}/ise', "'' . Phpfox::getPhrase('\\1', {$this->_sArray}, false, null, '". Phpfox::getParam('core.default_lang_id')."') . ''", $sMessage);
 				$sSubject = preg_replace('/\{phrase var=\'(.*)\'\}/ise', "'' . Phpfox::getPhrase('\\1', {$this->_sArray}, false, null, '". Phpfox::getParam('core.default_lang_id')."') . ''", $sSubject);
+				$sSubject = html_entity_decode($sSubject, null, 'UTF-8');
 				
 				// Load plain text template
 				$sTextPlain = Phpfox::getLib('template')->assign(array(				

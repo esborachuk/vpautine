@@ -1,5 +1,5 @@
 <?php
-/** $Id: version.xml.php 4149 2012-05-02 13:59:01Z Raymond_Benc $ **/
+/** $Id: version.xml.php 4854 2012-10-09 05:20:40Z Raymond_Benc $ **/
 defined('PHPFOX') or exit('NO DICE!');
 ?>
 <versions>
@@ -77,4 +77,6 @@ defined('PHPFOX') or exit('NO DICE!');
 	<version version_id="3.2.0rc1" ordering="91" />
 	<version version_id="3.2.0" ordering="92" />
 	<version version_id="3.3.0beta1" ordering="93" />
+	<version version_id="3.3.0beta2" ordering="94" />
+	<version version_id="3.3.0rc1" ordering="95" />
 </versions>

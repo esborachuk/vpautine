@@ -570,6 +570,7 @@ To see the comment thread, follow the link below:
 		<phrase module_id="video" version_id="3.3.0beta2" var_name="setting_vidly_user_key" added="1341168583"><![CDATA[<title>Vid.ly User Key</title><info>Enter your Vid.ly User Key here.</info>]]></phrase>
 		<phrase module_id="video" version_id="3.3.0beta2" var_name="setting_vidly_api_key" added="1341249013"><![CDATA[<title>Vid.ly API key</title><info>Enter your Vid.ly API key here.</info>]]></phrase>
 		<phrase module_id="video" version_id="3.3.0rc1" var_name="not_a_valid_video_site_url" added="1341562252">Not a valid video site URL.</phrase>
+		<phrase module_id="video" version_id="3.4.0beta1" var_name="setting_group_vidly" added="1345048886"><![CDATA[<title>Vid.ly</title><info>Settings for vid.ly.</info>]]></phrase>
 	</phrases>
 	<rss_group>
 		<group module_id="video" group_id="4" name_var="video.rss_group_name_4" is_active="1" />

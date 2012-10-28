@@ -21,6 +21,12 @@ class Profile_Component_Block_Cover extends Phpfox_Component
 	public function process()
 	{	
 		
+		if ( ($iPageId = $this->request()->get('page_id') ))
+		{
+			$this->template()->assign(array(
+				'iPageId' => $iPageId
+			));
+		}
 	}
 	
 	/**

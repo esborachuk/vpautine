@@ -15,19 +15,19 @@ defined('PHPFOX') or exit('NO DICE!');
 {phrase var='user.you_are_about_to_deny_user', link=$aUser.link user_name=$aUser.user_name}
 
 <div class="table">
-	<div class="table_left">
+	<div class="table_above">
 		Subject:
 	</div>
-	<div class="table_right">
+	<div class="table_below">
 		<input type="text" size="30" id="denySubject" name="denySubject" value="{left_curly}phrase var='user.deny_mail_subject'{right_curly}">
 	</div>
 	<div class="clear">	</div>
 </div>
 <div class="table">
-	<div class="table_left">
+	<div class="table_above">
 		Message:
 	</div>
-	<div class="table_right">
+	<div class="table_below">
 		<textarea name="denyMessage" id="denyMessage" cols="30" rows="3">{left_curly}phrase var='user.deny_mail_message'{right_curly}</textarea>
 	</div>
 	<div class="clear"></div>

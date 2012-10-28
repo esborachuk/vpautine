@@ -11,7 +11,7 @@ defined('PHPFOX') or exit('NO DICE!');
  * @copyright		[PHPFOX_COPYRIGHT]
  * @author  		Raymond Benc
  * @package  		Module_Admincp
- * @version 		$Id: menu.class.php 4565 2012-07-26 12:02:50Z Miguel_Espinoza $
+ * @version 		$Id: menu.class.php 4602 2012-08-18 18:48:02Z Raymond_Benc $
  */
 class Admincp_Service_Menu_Menu extends Phpfox_Service 
 {
@@ -42,7 +42,7 @@ class Admincp_Service_Menu_Menu extends Phpfox_Service
 	public function get($aConds = array(), $bAll = true)
 	{
 		(($sPlugin = Phpfox_Plugin::get('admincp.service_menu_menu_get_start')) ? eval($sPlugin) : false);
-		if ($bAll)
+		if ($bAll && !Phpfox::getParam('core.is_auto_hosted'))
 		{
 			$this->database()->leftJoin(Phpfox::getT('module'), 'm', 'm.module_id = menu.module_id AND m.is_active = 1');
 		}

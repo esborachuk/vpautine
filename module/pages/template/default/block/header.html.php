@@ -23,11 +23,11 @@ defined('PHPFOX') or exit('NO DICE!');
 		{if $aPage.is_app || !$aPage.is_admin}
 		<ul>
 			{if $aPage.is_app}
-			<li><a href="{permalink module='apps' id=$aPage.app_id title=$aPage.title}">{phrase var='pages.go_to_app'}</a></li>
+				<li><a href="{permalink module='apps' id=$aPage.app_id title=$aPage.title}">{phrase var='pages.go_to_app'}</a></li>
 			{/if}
 			{if !$aPage.is_admin}
-			<li><a href="{url link='pages.add'}">{phrase var='pages.create_a_page'}</a></li>		
-			{/if}
+				<li><a href="{url link='pages.add'}">{phrase var='pages.create_a_page'}</a></li>		
+			{/if}	
 		</ul>
 		{/if}
 	{/if}	

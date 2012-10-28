@@ -5,7 +5,7 @@
  * @copyright		[PHPFOX_COPYRIGHT]
  * @author  		Raymond Benc
  * @package  		Module_Mail
- * @version 		$Id: compose.html.php 4086 2012-04-05 12:32:32Z Raymond_Benc $
+ * @version 		$Id: compose.html.php 4629 2012-09-13 08:51:22Z Miguel_Espinoza $
  */
  
 defined('PHPFOX') or exit('NO DICE!'); 
@@ -20,6 +20,12 @@ defined('PHPFOX') or exit('NO DICE!');
 	{else}
 		<form method="post" action="{url link='mail.compose'}" id="js_form_mail" onsubmit="{$sGetJsForm}">
 	{/if}
+	
+	{if isset($iPageId)}
+		<div><input type="hidden" name="val[page_id]" value="{$iPageId}"></div>
+		<div><input type="hidden" name="val[sending_message]" value="{$iPageId}"></div>
+	{/if}
+	
 	{token}
 	<div><input type="hidden" name="val[attachment]" class="js_attachment" value="{value type='input' id='attachment'}" /></div>
 	{if isset($bIsThreadForward) && $bIsThreadForward}
@@ -76,7 +82,7 @@ defined('PHPFOX') or exit('NO DICE!');
 				<label for="subject">{phrase var='mail.subject'}:</label>			
 			</div>
 			<div class="table_right">
-				<input type="text" name="val[subject]" id="subject" value="{value type='input' id='subject'}" size="40" style="{if Phpfox::isMobile()}width:90%;{else}width:400px;{/if}" tabindex="1" />
+				<input type="text" name="val[subject]" id="subject" value="{if isset($iPageId)}Claiming Page '{$aPage.title}'{else}{value type='input' id='subject'}{/if}" size="40" style="{if Phpfox::isMobile()}width:90%;{else}width:400px;{/if}" tabindex="1" />
 			</div>
 			<div class="clear"></div>
 		</div>
@@ -120,3 +126,10 @@ defined('PHPFOX') or exit('NO DICE!');
 		
 	</form>
 </div>
+
+
+{if isset($sMessageClaim)}
+	<script type="text/javascript">
+		$('#js_compose_new_message #message').html('{$sMessageClaim}');
+	</script>
+{/if}

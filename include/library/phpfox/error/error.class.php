@@ -26,7 +26,7 @@ defined('PHPFOX') or exit('NO DICE!');
  * @copyright		[PHPFOX_COPYRIGHT]
  * @author			Raymond Benc
  * @package 		Phpfox
- * @version 		$Id: error.class.php 4488 2012-07-10 08:23:12Z Miguel_Espinoza $
+ * @version 		$Id: error.class.php 4658 2012-09-18 07:26:45Z Raymond_Benc $
  */
 final class Phpfox_Error
 {
@@ -222,7 +222,7 @@ final class Phpfox_Error
 	 * @param array $aVars The fifth parameter is optional, errcontext, which is an array that points to the active symbol table at the point the error occurred. In other words, errcontext  will contain an array of every variable that existed in the scope the error was triggered in. User error handler must not modify error context. 
 	 * @return bool We only return a BOOL FALSE if we need to skip error reporting, otherwise we echo the output.
 	 */
-	public static function errorHandler($nErrNo, $sErrMsg, $sFileName, $nLinenum, $aVars)
+	public static function errorHandler($nErrNo, $sErrMsg, $sFileName, $nLinenum, $aVars = array())
 	{		
 		if (defined('PHPFOX_IS_API'))
 		{

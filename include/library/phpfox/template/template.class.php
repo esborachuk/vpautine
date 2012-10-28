@@ -19,7 +19,7 @@ defined('PHPFOX') or exit('NO DICE!');
  * @copyright		[PHPFOX_COPYRIGHT]
  * @author			Raymond Benc
  * @package 		Phpfox
- * @version 		$Id: template.class.php 4477 2012-07-05 14:45:25Z Miguel_Espinoza $
+ * @version 		$Id: template.class.php 4901 2012-10-17 06:29:50Z Raymond_Benc $
  */
 class Phpfox_Template
 {	
@@ -689,14 +689,17 @@ class Phpfox_Template
 		
 		if ($bIsTitle === true)
 		{
-			$this->_aBreadCrumbTitle = array($sPhrase, $sLink);
+			$this->_aBreadCrumbTitle = array(Phpfox::getLib('locale')->convert($sPhrase), $sLink);
 			if (!empty($sLink))
 			{
 				$this->setMeta('og:url', $sLink);
 			}
 		}
 		
-		$this->_aBreadCrumbs[$sLink] = $sPhrase;
+		if (!defined('PHPFOX_INSTALLER'))
+		{
+			$this->_aBreadCrumbs[$sLink] = Phpfox::getLib('locale')->convert($sPhrase);
+		}
 		
 		/*
 		if ($bIsTitle === true)
@@ -1176,7 +1179,11 @@ class Phpfox_Template
 			}
 			
 			(($sPlugin = Phpfox_Plugin::get('template_getheader_setting')) ? eval($sPlugin) : false);
-
+			
+			if (Phpfox::isModule('input') && false)
+			{
+				/*  */$this->setHeader('cache', array(		    		'browse.css' => 'style_css'		    		    			    	)		    );
+			}
 			$sJs .= "\t\t\tvar oParams = {";
 			$iCnt = 0;
 			foreach ($aJsVars as $sVar => $sValue)
@@ -1663,6 +1670,8 @@ class Phpfox_Template
 			$sData .= "\t\t<script type=\"text/javascript\">\n\t\t\n";
 			foreach ($this->_aPhrases as $sVar => $sPhrase)
 			{
+				$sPhrase = html_entity_decode($sPhrase, null, 'UTF-8');
+				
 				$sData .= "\t\t\toTranslations['{$sVar}'] = '" . str_replace("'", "\'", $sPhrase) . "';\n";
 			}
 			$sData .= "\t\t\n\t\t</script>\n";
@@ -2231,7 +2240,7 @@ class Phpfox_Template
 			}
 			
 			$this->_sSetLayout = '';
-			require($this->_getCachedName($sFile));
+			$this->_requireFile($sFile);
 			$this->_sSetLayout = '';		
 		}
 		else
@@ -2404,6 +2413,23 @@ class Phpfox_Template
 		
 		foreach ($aMenus as $iKey => $aMenu)
 		{	
+			if (Phpfox::getParam('core.phpfox_is_hosted') && isset($aMenu['module']) && !Phpfox::isModule($aMenu['module']))
+			{
+				unset($aMenus[$iKey]);
+				
+				continue;
+			}
+			
+			if (Phpfox::getParam('core.phpfox_is_hosted') 
+				&& $sConnection == 'main'
+				&& $aMenu['url'] == 'forum'
+			)
+			{
+				unset($aMenus[$iKey]);
+				
+				continue;
+			}
+			
 			if (substr($aMenu['url'], 0, 1) == '#')
 			{
 				$aMenus[$iKey]['css_name'] = 'js_core_menu_' . str_replace('#', '', str_replace('-', '_', $aMenu['url']));
@@ -2666,6 +2692,12 @@ class Phpfox_Template
 		{
 			return '<script type="text/javascript">$Behavior.pageSectionMenuRequest = function() { }</script>';
 		}
+
+		if ($this->_aSectionMenu['bIsFullLink'])
+		{
+			return '<script type="text/javascript">$Behavior.pageSectionMenuRequest = function() { }</script>';
+		}		
+		
 		$sName = $this->_aSectionMenu['name'];
 		$aMenu = $this->_aSectionMenu['menu'];
 		$aLink = $this->_aSectionMenu['link'];
@@ -2694,18 +2726,23 @@ class Phpfox_Template
 	 * @param array $aMenu ARRAY of menus
 	 * @param mixed $aLink ARRAY for custom view link, NULL to do nothing
 	 */
-	public function buildPageMenu($sName, $aMenu, $aLink = null)
-	{
+	public function buildPageMenu($sName, $aMenu, $aLink = null, $bIsFullLink = false)
+	{		
 		$this->_aSectionMenu = array(
 			'name' => $sName,
 			'menu' => $aMenu,
-			'link' => $aLink
+			'link' => $aLink,
+			'bIsFullLink' => $bIsFullLink
 		);
 		
+		$sPageCurrentUrl = Phpfox::getLib('url')->makeUrl('current');
+				
 		$this->assign(array(
 				'sPageSectionMenuName' => $sName,
 				'aPageSectionMenu' => $aMenu,
-				'aPageExtraLink' => $aLink
+				'aPageExtraLink' => $aLink,
+				'bPageIsFullLink' => $bIsFullLink,
+				'sPageCurrentUrl' => $sPageCurrentUrl
 			)
 		);
 	}
@@ -2767,8 +2804,22 @@ class Phpfox_Template
 		}
 
 		(PHPFOX_DEBUG ? Phpfox_Debug::start('template') : false);		
-		require($this->_getCachedName($sFile));
+		$this->_requireFile($sFile);
 		(PHPFOX_DEBUG ? Phpfox_Debug::end('template', array('name' => $sFile)) : false);
+	}
+	
+	private function _requireFile($sFile)
+	{
+		if (defined('PHPFOX_IS_HOSTED_SCRIPT'))
+		{
+			$oCache = Phpfox::getLib('cache');
+			$sId = $oCache->set(md5($this->_getCachedName($sFile)));
+			eval('?>' . $oCache->get($sId) . '<?php ');
+		}
+		else
+		{
+			require($this->_getCachedName($sFile));
+		}		
 	}
 	
 	/**
@@ -2782,6 +2833,11 @@ class Phpfox_Template
 		if (defined('PHPFOX_NO_TEMPLATE_CACHE'))
 		{
 			return false;
+		}
+		
+		if (defined('PHPFOX_IS_HOSTED_SCRIPT'))
+		{			
+			return Phpfox::getLib('cache')->memcache()->append(md5(PHPFOX_IS_HOSTED_SCRIPT . md5($this->_getCachedName($sName))), '');
 		}
 		
 		if (!file_exists($this->_getCachedName($sName)))
@@ -2820,7 +2876,7 @@ class Phpfox_Template
 			}
 		}
 		
-		return (defined('PHPFOX_TMP_DIR') ? PHPFOX_TMP_DIR : PHPFOX_DIR_CACHE) . ((defined('PHPFOX_TMP_DIR') || PHPFOX_SAFE_MODE) ? 'template_' : 'template/') . str_replace(array(PHPFOX_DIR_THEME, PHPFOX_DIR_MODULE, PHPFOX_DS), array('', '', '_'), $sName) . (Phpfox::isAdminPanel() ? '_admincp' : '') . (PHPFOX_IS_AJAX ? '_ajax' : '') . '.php';
+		return (defined('PHPFOX_IS_HOSTED_SCRIPT') ? PHPFOX_IS_HOSTED_SCRIPT . '' : '') . (defined('PHPFOX_TMP_DIR') ? PHPFOX_TMP_DIR : PHPFOX_DIR_CACHE) . ((defined('PHPFOX_TMP_DIR') || PHPFOX_SAFE_MODE) ? 'template_' : 'template/') . str_replace(array(PHPFOX_DIR_THEME, PHPFOX_DIR_MODULE, PHPFOX_DS), array('', '', '_'), $sName) . (Phpfox::isAdminPanel() ? '_admincp' : '') . (PHPFOX_IS_AJAX ? '_ajax' : '') . '.php';
 	}	
 	
 	private function _register($sType, $sFunction, $sImplementation)

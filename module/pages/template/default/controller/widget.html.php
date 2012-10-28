@@ -11,8 +11,9 @@
 defined('PHPFOX') or exit('NO DICE!'); 
 
 ?>
+		<iframe src="#" id="js_pages_frame" name="js_pages_frame" style="display:none;"></iframe>
 		<div id="js_pages_widget_error"></div>
-		<form method="post" action="#" onsubmit="$('#js_pages_widget_error').hide(); $Core.processForm('#js_pages_widget_submit_button'); {plugin call='pages.template_controller_widget_ajax_onsubmit'} $(this).ajaxCall('pages.addWidget'); return false;">
+		<form method="post" action="{url link='pages.frame'}" target="js_pages_frame" enctype="multipart/form-data">
 			<div><input type="hidden" name="val[page_id]" value="{$iPageId}" /></div>
 			{if $bIsEdit}
 			<div><input type="hidden" name="widget_id" value="{$aForms.widget_id}" /></div>
@@ -60,6 +61,25 @@ defined('PHPFOX') or exit('NO DICE!');
 					</div>
 					<div class="clear"></div>
 				</div>	
+				 
+				<div class="table">
+					<div class="table_left">
+						{phrase var='pages.icon'}:
+					</div>
+					<div class="table_right">
+						{if $bIsEdit && !empty($aForms.image_path)}
+						{img thickbox=true server_id=$aForms.image_server_id path='pages.url_image' file=$aForms.image_path suffix='_16' class='v_middle'}
+						<div class="extra_info">								
+							{phrase var='pages.upload_a_new_image_below_if_you_wish_to_change_this_icon'}
+						</div>
+						{/if}						
+						<input type="file" name="image" />						
+						<div class="extra_info">
+							{phrase var='user.you_can_upload_a_jpg_gif_or_png_file'}
+						</div>						
+					</div>
+					<div class="clear"></div>
+				</div>				 
 			</div>
 			
 			<div class="table">

@@ -11,7 +11,7 @@ defined('PHPFOX') or exit('NO DICE!');
  * @copyright		[PHPFOX_COPYRIGHT]
  * @author  		Raymond Benc
  * @package 		Phpfox_Service
- * @version 		$Id: process.class.php 4143 2012-05-02 09:56:53Z Miguel_Espinoza $
+ * @version 		$Id: process.class.php 4786 2012-09-27 10:40:14Z Miguel_Espinoza $
  */
 class Marketplace_Service_Process extends Phpfox_Service 
 {
@@ -68,6 +68,17 @@ class Marketplace_Service_Process extends Phpfox_Service
 		);
 		
 		$iId = $this->database()->insert($this->_sTable, $aSql);
+		
+		if (Phpfox::isModule('input'))
+		{
+			// This is how we add the values to the Inputs
+			Phpfox::getService('input.process')->addValue(array(
+				'module' => 'marketplace',
+				'action' => 'add-listing',
+				'item_id' => $iId,
+				'aVals' => $aVals
+			));
+		}		
 		
 		(($sPlugin = Phpfox_Plugin::get('marketplace.service_process_add')) ? eval($sPlugin) : false);
 		
@@ -149,6 +160,17 @@ class Marketplace_Service_Process extends Phpfox_Service
 		}		
 		
 		$this->database()->update($this->_sTable, $aSql, 'listing_id = ' . (int) $iId);
+
+		if (Phpfox::isModule('input'))
+		{
+			$bAdded = Phpfox::getService('input.process')->addValue(array(
+				'item_id' => $iId, // marketplace_id
+				'module' => 'marketplace', 
+				'action' => 'add-listing', 
+				'aVals' => $aVals
+			));
+			
+		}
 		
 		$this->database()->update(Phpfox::getT('marketplace_text'), array(				
 				'description' => (empty($aVals['description']) ? null : $oParseInput->clean($aVals['description'])),
@@ -414,7 +436,7 @@ class Marketplace_Service_Process extends Phpfox_Service
 				{
 					$iFileSizes += filesize($sImage);
 					
-					@unlink($sImage);
+					Phpfox::getLib('file')->unlink($sImage);
 				}
 			}
 			
@@ -504,7 +526,7 @@ class Marketplace_Service_Process extends Phpfox_Service
 			{
 				$iFileSizes += filesize($sImage);
 				
-				@unlink($sImage);
+				Phpfox::getLib('file')->unlink($sImage);
 			}
 		}
 		

@@ -12,7 +12,7 @@ defined('PHPFOX') or exit('NO DICE!');
 
 ?>
 {if isset($aPager) && $aPager.totalPages > 1}
-{if isset($aPager.nextUrl)}<a href="{$aPager.nextUrl}" class="view_more">View More</a>{/if}
+{if isset($aPager.nextUrl)}<a href="{$aPager.nextUrl}" class="view_more">{phrase var='core.view_more'}</a>{/if}
 <div>
 	{phrase var='core.page_x_of_x' current=$aPager.current total=$aPager.totalPages}
 </div>

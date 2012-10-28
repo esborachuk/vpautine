@@ -5,7 +5,7 @@
  * @copyright		[PHPFOX_COPYRIGHT]
  * @author  		Raymond Benc
  * @package  		Module_Admincp
- * @version 		$Id: edit.html.php 4573 2012-07-31 09:01:45Z Raymond_Benc $
+ * @version 		$Id: edit.html.php 4597 2012-08-17 07:27:46Z Raymond_Benc $
  */
  
 defined('PHPFOX') or exit('NO DICE!'); 
@@ -64,7 +64,13 @@ function addInput(oObj, sVarName)
 		{$aSetting.setting_info} 
 	</div>
 	<div class="row_right" style="margin-bottom:20px;">
-		{if $aSetting.type_id == 'large_string'}
+		{if $aSetting.type_id == 'multi_text'}
+		{foreach from=$aSetting.values key=mKey item=sDropValue}
+		<div class="p_4">
+			{$mKey}: <input type="text" name="val[value][{$aSetting.var_name}][{$mKey}]" value="{$sDropValue|clean}" size="8" />
+		</div>
+		{/foreach}
+		{elseif $aSetting.type_id == 'large_string'}
 		<textarea cols="60" rows="8" name="val[value][{$aSetting.var_name}]">{$aSetting.value_actual|htmlspecialchars}</textarea>
 		{elseif ($aSetting.type_id == 'string')}
 		<div><input type="text" name="val[value][{$aSetting.var_name}]" value="{$aSetting.value_actual|clean}" size="40" /></div>		

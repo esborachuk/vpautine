@@ -11,7 +11,7 @@ defined('PHPFOX') or exit('NO DICE!');
  * @copyright		[PHPFOX_COPYRIGHT]
  * @author  		Raymond Benc
  * @package 		Phpfox_Service
- * @version 		$Id: callback.class.php 4545 2012-07-20 10:40:35Z Raymond_Benc $
+ * @version 		$Id: callback.class.php 4669 2012-09-19 07:31:27Z Miguel_Espinoza $
  */
 class Marketplace_Service_Callback extends Phpfox_Service 
 {
@@ -951,6 +951,21 @@ Phpfox::getPhrase('marketplace.full_name_commented_on_other_full_name',array('fu
 		);
 	}
 	
+	public function getEnabledInputField()
+	{
+		return array(
+			// One module may have Inputs in several locations
+			array(
+				'product_id' => 'phpfox', // still not used, candidate for removal
+				'module_id' => 'marketplace', // internal identifier
+				'module_phrase' => 'Marketplace listing', // display name for the AdminCP when adding a new Input
+				'action' => 'add-listing', // This is a unique identifier within this module
+				'add_url' => 'marketplace.add',
+				'item_column' => 'listing_id', // this is the column in the marketplace table, we use this field in the search library,
+				'table' => Phpfox::getT('marketplace')
+			)
+		);
+	}
 	/**
 	 * If a call is made to an unknown method attempt to connect
 	 * it to a specific plug-in with the same name thus allowing 

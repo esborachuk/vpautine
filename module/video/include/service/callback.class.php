@@ -11,7 +11,7 @@ defined('PHPFOX') or exit('NO DICE!');
  * @copyright		[PHPFOX_COPYRIGHT]
  * @author  		Raymond Benc
  * @package  		Module_Video
- * @version 		$Id: callback.class.php 4545 2012-07-20 10:40:35Z Raymond_Benc $
+ * @version 		$Id: callback.class.php 4621 2012-09-12 05:34:34Z Raymond_Benc $
  */
 class Video_Service_Callback extends Phpfox_Service 
 {
@@ -73,7 +73,7 @@ class Video_Service_Callback extends Phpfox_Service
 	
 	public function getCommentItem($iId)
 	{
-		$aRow = $this->database()->select('video_id AS comment_item_id, privacy_comment, user_id AS comment_user_id')
+		$aRow = $this->database()->select('video_id AS comment_item_id, privacy_comment, user_id AS comment_user_id, module_id AS parent_module_id')
 			->from(Phpfox::getT('video'))
 			->where('video_id = ' . (int) $iId)
 			->execute('getSlaveRow');		

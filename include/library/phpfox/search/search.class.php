@@ -12,7 +12,7 @@ defined('PHPFOX') or exit('NO DICE!');
  * @copyright		[PHPFOX_COPYRIGHT]
  * @author			Raymond Benc
  * @package 		Phpfox
- * @version 		$Id: search.class.php 4548 2012-07-23 07:41:07Z Raymond_Benc $
+ * @version 		$Id: search.class.php 4701 2012-09-20 11:10:23Z Raymond_Benc $
  */
 final class Phpfox_Search
 {
@@ -158,7 +158,8 @@ final class Phpfox_Search
 	public function __construct()
 	{		
 		$this->_oReq = Phpfox::getLib('request');
-		$this->_oUrl = Phpfox::getLib('url');			
+		$this->_oUrl = Phpfox::getLib('url');
+		
 	}
 	
 	/**
@@ -169,6 +170,29 @@ final class Phpfox_Search
 	 */
 	public function set($aParams)
 	{	
+		/* Search for Inputs */
+		if (Phpfox::isModule('input') && isset($aParams['search_tool']) )
+		{
+			if (!isset($aParams['search_tool']['custom_filters']))
+			{
+				$aParams['search_tool']['custom_filters'] = array();
+			}
+			$sThisUrl = $this->_oUrl->getUrl();
+			$aInputs = Phpfox::getService('input')->getInputsForSearch($sThisUrl);
+			
+			if (!empty($aInputs))
+			{
+				Phpfox::getLib('template')
+					->setHeader(array(
+						'search.js' => 'static_script'
+					))
+					->assign(array(
+						'bHasInputs' => true,
+						'sModuleForInput' => $sThisUrl
+				));				
+			}
+		}
+		/* Search for Inputs end*/
 		$this->_aParams = $aParams;
 		
 		if (isset($this->_aParams['redirect']) && $this->_aParams['redirect'] && ($aVals = $this->_oReq->getArray('search')))
@@ -382,7 +406,7 @@ final class Phpfox_Search
 			if (Phpfox::getLib('request')->get('search-id') && isset($this->_aSearchTool['search']) && $this->isSearch())
 			{
 				$this->_aSearchTool['search']['actual_value'] = $this->get($this->_aSearchTool['search']['name']);				
-				if (!empty($this->_aSearchTool['search']['actual_value']))
+				if (!empty($this->_aSearchTool['search']['actual_value']) && ($this->_aSearchTool['search']['actual_value'] != $this->_aSearchTool['search']['default_value']))
 				{
 					$this->setCondition('AND (' . Phpfox::getLib('database')->searchKeywords($this->_aSearchTool['search']['field'], $this->_aSearchTool['search']['actual_value']) . ')');
 				}
@@ -508,6 +532,7 @@ final class Phpfox_Search
 	 */
 	public function isSearch()
 	{		
+		
 		if (isset($this->_aSearch['submit']) && isset($this->_aParams['search']))
 		{			
 			if (is_array($this->_aParams['search']))
@@ -599,7 +624,20 @@ final class Phpfox_Search
 	{
 		if ($this->_oReq->get('show'))
 		{
-			return (int) $this->_oReq->get('show');
+			$iReturn = 20;
+			if ($this->_aParams['search_tool'] && isset($this->_aParams['search_tool']['show']))
+			{	
+				$iNew = (int) $this->_oReq->get('show');
+				foreach ($this->_aParams['search_tool']['show'] as $iTotal)
+				{
+					if ((int) $iTotal == (int) $iNew)
+					{
+						return $iNew;
+					}
+				}
+			}
+			
+			return $iReturn;
 		}
 		
 		return (int) ($this->_getVar('display') ? $this->_getVar('display') : (isset($this->_aConditions['display']['default']) ? $this->_aConditions['display']['default'] : 8));
@@ -627,6 +665,7 @@ final class Phpfox_Search
 	 */
 	public function getConditions()
 	{			
+		
 		if ($this->_getParam('cache') && !empty($this->_sSearchResults))
 		{
 			$mField = $this->_getParam('field');
@@ -1028,6 +1067,22 @@ final class Phpfox_Search
 		if ($this->_bLiveQuery === true)
 		{
 			return;
+		}
+		
+		if (Phpfox::isModule('input') && 
+			($aVals = Phpfox::getLib('request')->getArray('val')) && 
+			isset($aVals['searchByInputs']) && $aVals['searchByInputs'])
+		{
+			$this->_aSearch['input'] = array();
+			
+			foreach ($aVals as $sName => $mValue)
+			{
+				if (empty($mValue)) continue;
+				if (strpos($sName, 'input_') !== false)
+				{
+					$this->_aSearch['input'][substr($sName,6)] = $mValue;					
+				}
+			}
 		}
 		
 		if ($this->_bCache)

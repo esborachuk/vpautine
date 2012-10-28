@@ -11,7 +11,7 @@ defined('PHPFOX') or exit('NO DICE!');
  * @copyright		[PHPFOX_COPYRIGHT]
  * @author  		Raymond Benc
  * @package  		Module_Event
- * @version 		$Id: index.class.php 4202 2012-05-31 15:01:29Z Miguel_Espinoza $
+ * @version 		$Id: index.class.php 4596 2012-08-16 17:27:10Z Raymond_Benc $
  */
 class Event_Component_Controller_Index extends Phpfox_Component
 {
@@ -22,8 +22,8 @@ class Event_Component_Controller_Index extends Phpfox_Component
 	{		
 		Phpfox::getUserParam('event.can_access_event', true);
 		
-		$aParentModule = $this->getParam('aParentModule');		
-		
+		$aParentModule = $this->getParam('aParentModule');	
+			
 		if ($aParentModule === null && $this->request()->getInt('req2') > 0)
 		{
 			return Phpfox::getLib('module')->setController('event.view');

@@ -11,7 +11,7 @@ defined('PHPFOX') or exit('NO DICE!');
  * @copyright		[PHPFOX_COPYRIGHT]
  * @author  		Raymond Benc
  * @package  		Module_Photo
- * @version 		$Id: detail.class.php 4157 2012-05-10 15:13:56Z Raymond_Benc $
+ * @version 		$Id: detail.class.php 4854 2012-10-09 05:20:40Z Raymond_Benc $
  */
 class Photo_Component_Block_Detail extends Phpfox_Component
 {
@@ -77,7 +77,7 @@ class Photo_Component_Block_Detail extends Phpfox_Component
 			)
 		);
 
-		return 'block';
+		// return 'block';
 	}
 
 	/**

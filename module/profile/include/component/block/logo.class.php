@@ -11,7 +11,7 @@ defined('PHPFOX') or exit('NO DICE!');
  * @copyright		[PHPFOX_COPYRIGHT]
  * @author  		Raymond Benc
  * @package  		Module_Profile
- * @version 		$Id: logo.class.php 4296 2012-06-18 16:43:42Z Raymond_Benc $
+ * @version 		$Id: logo.class.php 4707 2012-09-21 07:41:18Z Raymond_Benc $
  */
 class Profile_Component_Block_Logo extends Phpfox_Component
 {
@@ -20,12 +20,34 @@ class Profile_Component_Block_Logo extends Phpfox_Component
 	 */
 	public function process()
 	{	
-		if (!defined('PHPFOX_IS_USER_PROFILE'))
+		$bIsPages = ((defined('PHPFOX_IS_PAGES_VIEW') && Phpfox::isModule('pages')) ? true : false);
+		// Used in the template to set the ajax call
+		$sModule = 'user';
+		$aUser = $this->getParam('aUser');
+		if (empty($aUser) && $bIsPages)
 		{
-			return false;
+			$aUser = $this->getParam('aPage');
 		}
 		
-		$aUser = $this->getParam('aUser');
+		if ($bIsPages && !defined('loadedLogo') && isset($aUser['cover_photo_id']))
+		{			
+			$aUser['cover_photo'] = $aUser['cover_photo_id'];
+			$aUser['cover_photo_top'] = isset($aUser['cover_photo_position']) ? $aUser['cover_photo_position'] : 0;
+			$this->template()->assign(array(
+				'bNoPrefix' => true,
+				'sLogoPosition' => $aUser['cover_photo_top']
+			));
+			$sModule = 'pages';
+			define('loadedLogo', true);
+		}
+		else
+		{						
+			if (!defined('PHPFOX_IS_USER_PROFILE'))
+			{
+				return false;
+			}
+		}		
+		$this->template()->assign(array('sAjaxModule' => $sModule));
 		
 		if (empty($aUser['cover_photo']))
 		{

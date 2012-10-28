@@ -5,7 +5,7 @@
  * @copyright		[PHPFOX_COPYRIGHT]
  * @author  		Raymond_Benc
  * @package 		Phpfox
- * @version 		$Id: template-menufooter.html.php 3335 2011-10-20 17:26:57Z Raymond_Benc $
+ * @version 		$Id: template-menufooter.html.php 4775 2012-09-27 06:05:24Z Raymond_Benc $
  */
  
 defined('PHPFOX') or exit('NO DICE!'); 
@@ -14,7 +14,7 @@ defined('PHPFOX') or exit('NO DICE!');
 						{if !Phpfox::getUserBy('profile_page_id')}
 						<ul id="footer_menu">
 							{foreach from=$aFooterMenu key=iKey item=aMenu name=footer}
-							<li{if $phpfox.iteration.footer == 1} class="first"{/if}><a href="{url link=''$aMenu.url''}" class="ajax_link">{phrase var=$aMenu.module'.'$aMenu.var_name}</a></li>
+							<li{if $phpfox.iteration.footer == 1} class="first"{/if}><a href="{url link=''$aMenu.url''}" class="ajax_link{if $aMenu.url == 'mobile'} no_ajax_link{/if}">{phrase var=$aMenu.module'.'$aMenu.var_name}</a></li>
 							{/foreach}					
 							{if Phpfox::getUserParam('core.can_design_dnd')}
 							<li>

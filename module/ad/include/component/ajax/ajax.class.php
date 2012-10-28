@@ -11,7 +11,7 @@ defined('PHPFOX') or exit('NO DICE!');
  * @copyright		[PHPFOX_COPYRIGHT]
  * @author  		Raymond Benc
  * @package 		Phpfox_Ajax
- * @version 		$Id: ajax.class.php 4470 2012-07-05 09:53:29Z Miguel_Espinoza $
+ * @version 		$Id: ajax.class.php 4786 2012-09-27 10:40:14Z Miguel_Espinoza $
  */
 class Ad_Component_Ajax_Ajax extends Phpfox_Ajax
 {
@@ -32,7 +32,7 @@ class Ad_Component_Ajax_Ajax extends Phpfox_Ajax
 	
 	public function changeImage()
 	{
-		unlink(Phpfox::getParam('ad.dir_image') . sprintf($this->get('image'), ''));
+		Phpfox::getLib('file')->unlink(Phpfox::getParam('ad.dir_image') . sprintf($this->get('image'), ''));
 		
 		$this->show('#js_image_holder_link');
 	}

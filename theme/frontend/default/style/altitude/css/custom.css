@@ -141,9 +141,19 @@ body
 }
 
 #header_menu_holder ul li ul li a,
-.privacy_setting_holder ul li a
+#header_menu_holder ul li ul li a:hover
+{
+	color:#fff;	
+}
+
+#header_menu ul li ul li a,
+#header_menu ul li ul li a:hover
 {
 	color:#fff;
+	height:15px;
+	line-height:15px;	
+	padding-left:5px;
+	text-decoration:none;	
 }
 
 .privacy_setting_holder ul li a
@@ -225,7 +235,12 @@ textarea:focus
 
 #holder_notify ul li div.holder_notify_drop .holder_notify_drop_title
 {
-	border-bottom:1px #4F4F4F solid;
+	border-bottom:0px #4F4F4F solid;
+}
+
+.drop_data_empty
+{
+	border-top:1px #4F4F4F solid;
 }
 
 #holder_notify ul li div.holder_notify_drop a.holder_notify_drop_link, #holder_notify ul li div.holder_notify_drop a.holder_notify_drop_link:hover, .js_temp_friend_search_form_holder ul li a.holder_notify_drop_link, .js_temp_friend_search_form_holder ul li a.holder_notify_drop_link:hover, #holder_notify ul li .holder_notify_drop_data ul li a.main_link:hover

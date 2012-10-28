@@ -5,7 +5,7 @@
  * @copyright		[PHPFOX_COPYRIGHT]
  * @author			Raymond Benc
  * @package 		Phpfox
- * @version 		$Id: pager.html.php 4329 2012-06-25 13:52:06Z Raymond_Benc $
+ * @version 		$Id: pager.html.php 4647 2012-09-17 11:38:11Z Raymond_Benc $
  */
  
 defined('PHPFOX') or exit('NO DICE!'); 
@@ -37,7 +37,7 @@ defined('PHPFOX') or exit('NO DICE!');
 			<a class="pager_next_link{if !isset($aPager.nextUrl)} pager_next_link_not{/if}"{if !isset($aPager.nextUrl)} href="#" onclick="return false;" {else}{if $sAjax}href="{$aPager.nextUrl}" onclick="$(this).parent().parent().parent().parent().find('.sJsPagerDisplayCount').html($.ajaxProcess('{phrase var='core.loading'}')); $.ajaxCall('{$sAjax}', 'page={$aPager.nextAjaxUrl}{$aPager.sParams}'); $Core.addUrlPager(this); return false;"{else}href="{$aPager.nextUrl}"{/if}{/if}>{phrase var='core.next'}</a>				
 			<div class="clear"></div>
 		</div>
-		<span class="extra_info">{$aPager.fromRow|number_format}-{$aPager.toRow|number_format} of {$aPager.totalRows|number_format} Results</span>
+		<span class="extra_info">{phrase var='core.fromrow_torow_of_totalrows_results' fromRow=$aPager.fromRow|number_format toRow=$aPager.toRow|number_format totalRows=$aPager.totalRows|number_format}</span>
 	</div>
 	{else}
 	<div class="pager_outer">

@@ -11,7 +11,7 @@ defined('PHPFOX') or exit('NO DICE!');
  * @copyright		[PHPFOX_COPYRIGHT]
  * @author  		Raymond Benc
  * @package  		Module_Video
- * @version 		$Id: process.class.php 4456 2012-07-03 07:39:33Z Raymond_Benc $
+ * @version 		$Id: process.class.php 4786 2012-09-27 10:40:14Z Miguel_Espinoza $
  */
 class Video_Service_Process extends Phpfox_Service 
 {
@@ -42,15 +42,37 @@ class Video_Service_Process extends Phpfox_Service
 			$hFile = fopen(PHPFOX_DIR_FILE . 'log' . PHPFOX_DS . 'vidly.log', 'a+');
 			fwrite($hFile, $iVideoId . "\n" . print_r($aXml, true) . "\n");
 			fclose($hFile);				
-			
+			/*
 			$iUploadVideoId = (int) $this->database()->select('upload_video_id')
 				->from(Phpfox::getT('vidly_url'))
 				->where('video_id = ' . (int) $iVideoId)
 				->execute('getSlaveField');
+			*/
+			foreach ($aXml['Result']['Task']['Formats']['Format'] as $aFormat)
+			{
+				if ($aFormat['FormatName'] == 'link')
+				{
+					$sImageLocation = Phpfox::getLib('file')->getBuiltDir(Phpfox::getParam('video.dir_image')) . md5($iVideoId) . '%s.jpg';	
+					
+					$hFile = fopen(sprintf($sImageLocation, ''), 'a+');
+					fwrite($hFile, file_get_contents($aFormat['Location']));
+					fclose($hFile);
+					
+					Phpfox::getLib('image')->createThumbnail(sprintf($sImageLocation, ''), sprintf($sImageLocation, '_120'), 120, 120);
+					Phpfox::getLib('image')->createThumbnail(sprintf($sImageLocation, ''), sprintf($sImageLocation, '_12090'), 120, 90, false);					
+					
+					break;
+				}
+			}
 			
-			Phpfox::getLib('request')->send('http://vupload.phpfox.com/', array('id' => $iUploadVideoId, 'action' => 'delete', 'key' => Phpfox::getParam('video.video_upload_public_key')));
+			// Phpfox::getLib('request')->send('http://vupload.phpfox.com/', array('id' => $iUploadVideoId, 'action' => 'delete', 'key' => Phpfox::getParam('video.video_upload_public_key')));
 			
-			$this->database()->update(Phpfox::getT('video'), array('in_process' => '0'), 'video_id = ' . (int) $iVideoId);
+			$aUpdate = array(
+				'in_process' => '0',
+				'image_path' => str_replace(Phpfox::getParam('video.dir_image'), '', $sImageLocation),
+				'image_server_id' => Phpfox::getLib('request')->getServer('PHPFOX_SERVER_ID')				
+			);
+			$this->database()->update(Phpfox::getT('video'), $aUpdate, 'video_id = ' . (int) $iVideoId);
 		}
 	}
 	
@@ -509,7 +531,7 @@ class Video_Service_Process extends Phpfox_Service
 					$iSize = 120;			
 					$oImage->createThumbnail(Phpfox::getParam('video.dir_image') . sprintf($sFileName, ''), Phpfox::getParam('video.dir_image') . sprintf($sFileName, '_' . $iSize), $iSize, $iSize);			
 					$iFileSizes += filesize(Phpfox::getParam('video.dir_image') . sprintf($sFileName, '_' . $iSize));
-					@unlink(Phpfox::getParam('video.dir_image') . sprintf($sFileName, ''));
+					Phpfox::getLib('file')->unlink(Phpfox::getParam('video.dir_image') . sprintf($sFileName, ''));
 					
 					// Update user space usage
 					Phpfox::getService('user.space')->update($aVideo['user_id'], 'video', $iFileSizes);					
@@ -601,7 +623,7 @@ class Video_Service_Process extends Phpfox_Service
 				{
 					$iFileSize += filesize($sVideo);
 					
-					@unlink($sVideo);				
+					Phpfox::getLib('file')->unlink($sVideo);				
 				}
 			}
 			
@@ -613,7 +635,7 @@ class Video_Service_Process extends Phpfox_Service
 					$iFileSize += filesize($sImage);
 					if ($iFileSize > 0 )
 					{
-							@unlink($sImage);
+							Phpfox::getLib('file')->unlink($sImage);
 					}
 				}
 			}
@@ -673,18 +695,19 @@ class Video_Service_Process extends Phpfox_Service
 		
 		if (($aVideo['user_id'] == Phpfox::getUserId() && Phpfox::getUserParam('video.can_delete_own_video')) || Phpfox::getUserParam('video.can_delete_other_video'))
 		{		
+			
 			$iFileSize = 0;			
 			if (!empty($aVideo['image_path']))
 			{
-				$sImage = Phpfox::getParam('video.dir_image') . sprintf($aVideo['image_path'], '');
+				$sImage = Phpfox::getParam('video.dir_image') . sprintf($aVideo['image_path'], '_120');
 				if (file_exists($sImage))
-				{
+				{					
 					$iFileSize += filesize($sImage);
 					
-					@unlink($sImage);				
+					Phpfox::getLib('file')->unlink($sImage);				
 				}
 			}
-			
+
 			if ($iFileSize > 0)
 			{
 				Phpfox::getService('user.space')->update($aVideo['user_id'], 'video', $iFileSize, '-');	

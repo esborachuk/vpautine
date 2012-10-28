@@ -5,7 +5,7 @@
  * @copyright		[PHPFOX_COPYRIGHT]
  * @author			Raymond Benc
  * @package 		Phpfox
- * @version 		$Id: template.html.php 4256 2012-06-13 07:37:36Z Raymond_Benc $
+ * @version 		$Id: template.html.php 4872 2012-10-10 06:36:53Z Raymond_Benc $
  */
  
 defined('PHPFOX') or exit('NO DICE!'); 
@@ -89,7 +89,7 @@ defined('PHPFOX') or exit('NO DICE!');
 						{module name='profile.logo'}
 						
 						<div id="content_holder">		
-
+							{block location='13'}
 							{block location='7'}				
 							{if !defined('PHPFOX_IS_USER_PROFILE') && !defined('PHPFOX_IS_PAGES_VIEW')}
 							{breadcrumb}
@@ -110,7 +110,6 @@ defined('PHPFOX') or exit('NO DICE!');
 								<div id="main_content_padding">
 
 									{if defined('PHPFOX_IS_USER_PROFILE')}
-									{block location='12'}
 									{module name='profile.header'}							
 									{/if}
 									{if defined('PHPFOX_IS_PAGES_VIEW')}

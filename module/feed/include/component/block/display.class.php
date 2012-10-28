@@ -11,7 +11,7 @@ defined('PHPFOX') or exit('NO DICE!');
  * @copyright		[PHPFOX_COPYRIGHT]
  * @author  		Raymond Benc
  * @package  		Module_Feed
- * @version 		$Id: display.class.php 4184 2012-05-30 18:21:36Z Raymond_Benc $
+ * @version 		$Id: display.class.php 4621 2012-09-12 05:34:34Z Raymond_Benc $
  */
 class Feed_Component_Block_Display extends Phpfox_Component 
 {
@@ -145,13 +145,15 @@ class Feed_Component_Block_Display extends Phpfox_Component
 		$iUserid = ($bIsProfile > 0 ? $iUserId : null);
 		$iTotalFeeds = (int) Phpfox::getComponentSetting(($iUserid === null ? Phpfox::getUserId() : $iUserid), 'feed.feed_display_limit_' . ($iUserid !== null ? 'profile' : 'dashboard'), Phpfox::getParam('feed.feed_display_limit'));
 
+		/*
 		if (!Phpfox::isMobile())
 		{
 			$this->template()->assign(array(
 					'sHeader' => Phpfox::getPhrase('feed.activity_feed')
 				)
 			);
-		}		
+		}
+		*/		
 		
 		$this->template()->assign(array(				
 				'aFeeds' => $aRows,
@@ -164,7 +166,8 @@ class Feed_Component_Block_Display extends Phpfox_Component
 				'aFeedCallback' => $aFeedCallback,
 				'bIsCustomFeedView' => $bIsCustomFeedView,
 				'sTimelineYear' => $this->request()->get('year'),
-				'sTimelineMonth' => $this->request()->get('month')			
+				'sTimelineMonth' => $this->request()->get('month'),
+				'iFeedUserSortOrder' => Phpfox::getUserBy('feed_sort')
 			)
 		);	
 		

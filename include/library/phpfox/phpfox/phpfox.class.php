@@ -20,14 +20,14 @@ defined('PHPFOX') or exit('NO DICE!');
  * @copyright		[PHPFOX_COPYRIGHT]
  * @author			Raymond Benc
  * @package 		Phpfox
- * @version 		$Id: phpfox.class.php 4519 2012-07-18 14:01:51Z Raymond_Benc $
+ * @version 		$Id: phpfox.class.php 4854 2012-10-09 05:20:40Z Raymond_Benc $
  */
 final class Phpfox
 {	
 	/**
  	* Product Version : major.minor.maintenance [alphaX, betaX or rcX]
  	*/
-	const VERSION = '3.3.0';
+	const VERSION = '3.4.0rc1';
 	
 	/**
 	 * Product Code Name
@@ -1141,7 +1141,7 @@ final class Phpfox
 					);
 				}
 				
-				if (Phpfox::getParam('captcha.recaptcha'))
+				if (Phpfox::isModule('captcha') && Phpfox::getParam('captcha.recaptcha'))
 				{
 					$oTpl->setHeader('<script type="text/javascript" src="http://www.google.com/recaptcha/api/js/recaptcha_ajax.js"></script>');
 				}

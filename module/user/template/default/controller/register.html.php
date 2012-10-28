@@ -5,7 +5,7 @@
  * @copyright		[PHPFOX_COPYRIGHT]
  * @author  		Raymond Benc
  * @package  		Module_User
- * @version 		$Id: register.html.php 3826 2011-12-16 12:30:19Z Raymond_Benc $
+ * @version 		$Id: register.html.php 4875 2012-10-10 08:35:21Z Raymond_Benc $
  */
 
 defined('PHPFOX') or exit('NO DICE!');
@@ -108,11 +108,7 @@ $Behavior.termsAndPrivacy = function()
 		<div id="js_signup_error_message" style="width:350px;"></div>
 		{if Phpfox::getParam('user.allow_user_registration')}
 			<div class="main_break" id="js_registration_holder">	
-				{if Phpfox::getParam('user.multi_step_registration_form') && !isset($bIsPosted)}
-				<form method="post" action="{url link='user.register'}" id="js_form" enctype="multipart/form-data">
-				{else}
-				<form method="post" action="{url link='user.register'}" id="js_form"{if isset($sGetJsForm)} onsubmit="{$sGetJsForm}"{/if} enctype="multipart/form-data">
-				{/if}		
+				<form method="post" action="{url link='user.register'}" id="js_form" enctype="multipart/form-data">	
 				{token}
 
 					<div id="js_signup_block">

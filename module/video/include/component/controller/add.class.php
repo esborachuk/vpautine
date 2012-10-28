@@ -11,7 +11,7 @@ defined('PHPFOX') or exit('NO DICE!');
  * @copyright		[PHPFOX_COPYRIGHT]
  * @author  		Raymond_Benc
  * @package 		Phpfox_Component
- * @version 		$Id: add.class.php 4523 2012-07-19 07:20:55Z Raymond_Benc $
+ * @version 		$Id: add.class.php 4901 2012-10-17 06:29:50Z Raymond_Benc $
  */
 class Video_Component_Controller_Add extends Phpfox_Component
 {
@@ -168,11 +168,17 @@ class Video_Component_Controller_Add extends Phpfox_Component
 		$aMenus = array();		
 		if (Phpfox::getParam('video.allow_video_uploading'))
 		{
-			$aMenus['file'] = Phpfox::getPhrase('video.file_upload');
+			$aMenus[$this->url()->makeUrl('video.add')] = Phpfox::getPhrase('video.file_upload');
 		}
-		$aMenus['url'] = Phpfox::getPhrase('video.paste_url');
+		$aMenus[$this->url()->makeUrl('video.add.url')] = Phpfox::getPhrase('video.paste_url');
 		
-		$this->template()->buildPageMenu('js_upload_video', $aMenus);
+		$bIsVideoUploading = false;
+		if (Phpfox::getParam('video.allow_video_uploading') && $this->request()->get('req3') != 'url')
+		{
+			$bIsVideoUploading = true;
+		}
+		
+		$this->template()->buildPageMenu('js_upload_video', $aMenus, null, true);
 		
 		if (Phpfox::getParam('video.video_upload_service'))
 		{
@@ -194,7 +200,8 @@ class Video_Component_Controller_Add extends Phpfox_Component
 					'sModule' => $sModule,
 					'iItem' => $iItem,				
 					'sMethod' => $sMethod,
-					'sMethodUrl' => $sMethodUrl			
+					'sMethodUrl' => $sMethodUrl,
+					'bIsVideoUploading' => $bIsVideoUploading	
 				)
 			)
 			->setHeader('cache', array(

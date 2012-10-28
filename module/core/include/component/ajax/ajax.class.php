@@ -11,7 +11,7 @@ defined('PHPFOX') or exit('NO DICE!');
  * @copyright		[PHPFOX_COPYRIGHT]
  * @author  		Raymond Benc
  * @package  		Module_Core
- * @version 		$Id: ajax.class.php 4093 2012-04-16 12:54:05Z Raymond_Benc $
+ * @version 		$Id: ajax.class.php 4874 2012-10-10 08:26:35Z Raymond_Benc $
  */
 class Core_Component_Ajax_Ajax extends Phpfox_Ajax
 {	
@@ -386,6 +386,24 @@ class Core_Component_Ajax_Ajax extends Phpfox_Ajax
 		else
 		{
 			$this->alert(Phpfox::getPhrase('friend.cant_delete_it'));
+		}
+	}
+	
+	public function showGiftPoints()
+	{
+		Phpfox::getBlock('core.giftpoints', array('user_id' => $this->get('user_id')));
+	}
+	
+	public function doGiftPoints()
+	{
+		if (Phpfox::getService('user.activity')->doGiftPoints($this->get('user_id'), $this->get('amount')))
+		{			
+			$this->html('#div_show_gift_points', Phpfox::getPhrase('core.gift_sent_successfully'));
+		}
+		else
+		{
+			$sError = Phpfox_Error::get();
+			$this->html('#div_show_gift_points', 'An error occurred: ' . array_pop($sError));
 		}
 	}
 }

@@ -5,7 +5,7 @@
  * @copyright		[PHPFOX_COPYRIGHT]
  * @author  		Raymond Benc
  * @package  		Module_Photo
- * @version 		$Id: album-entry.html.php 4537 2012-07-19 10:29:48Z Raymond_Benc $
+ * @version 		$Id: album-entry.html.php 4660 2012-09-18 08:32:10Z Raymond_Benc $
  */
  
 defined('PHPFOX') or exit('NO DICE!'); 
@@ -62,6 +62,6 @@ defined('PHPFOX') or exit('NO DICE!');
 		
 	</div>
 </div>			
-{if is_int($phpfox.iteration.albums/3)}
+{if is_int($phpfox.iteration.albums/3) || Phpfox::isMobile()}
 <div class="clear"></div>
 {/if}

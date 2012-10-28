@@ -11,7 +11,7 @@ defined('PHPFOX') or exit('NO DICE!');
  * @copyright		[PHPFOX_COPYRIGHT]
  * @author  		Raymond Benc
  * @package  		Module_Admincp
- * @version 		$Id: callback.class.php 4030 2012-03-20 12:28:59Z Miguel_Espinoza $
+ * @version 		$Id: callback.class.php 4880 2012-10-10 11:52:22Z Raymond_Benc $
  */
 class Admincp_Service_Callback extends Phpfox_Service
 {
@@ -139,7 +139,7 @@ class Admincp_Service_Callback extends Phpfox_Service
 		);		
 		
 		$aList[] = array(
-			'name' => 'Fix Birthdays',
+			'name' => Phpfox::getPhrase('admincp.fix_birthdays'),
 			'id' => 'birthdays'
 		);
 		return $aList;

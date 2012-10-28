@@ -30,7 +30,12 @@ class Pages_Component_Controller_View extends Phpfox_Component
 		{
 			return Phpfox_Error::display(Phpfox::getPhrase('pages.the_page_you_are_looking_for_cannot_be_found'));
 		}
-		
+		if (($this->request()->get('req3')) != '')
+		{
+			$this->template()->assign(array(
+				'bRefreshPhoto' => true
+			));
+		}
 		if (Phpfox::getUserParam('pages.can_moderate_pages') || $aPage['is_admin'])
 		{
 			
@@ -120,7 +125,8 @@ class Pages_Component_Controller_View extends Phpfox_Component
 			)
 			->setHeader('cache', array(				
 				'profile.css' => 'style_css',
-				'pages.css' => 'style_css'
+				'pages.css' => 'style_css',
+				'pages.js' => 'module_pages'
 			)
 		);
 		

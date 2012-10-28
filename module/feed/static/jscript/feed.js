@@ -408,16 +408,21 @@ $Behavior.activityFeedProcess = function()
 			{
 				$('.activity_feed_form_button_status_info').hide();
 			}		
-						
-			if (((navigator.userAgent.match(/iPhone/i)) ||  (navigator.userAgent.match(/iPod/i)) || (navigator.userAgent.match(/iPad/i))) )
-			{				
-				if ($('#Filedata').length < 1) /* it means we already added it and triggered mobileInit() */
-				{
-					$('.activity_feed_form_button .button').hide().after('<input type="button" name="Filedata" id="Filedata" value="Choose photo">');
-					mobileInit();
-				}
-				
+					
+			if ($(this).attr('rel') == 'global_attachment_photo'){
+				if (((navigator.userAgent.match(/iPhone/i)) ||  (navigator.userAgent.match(/iPod/i)) || (navigator.userAgent.match(/iPad/i))) )
+				{				
+					// if ($('#Filedata').length < 1) /* it means we already added it and triggered mobileInit() */
+					$('#js_piccup_upload').remove();
+					$('.activity_feed_form_button .button').hide().after('<div id="js_piccup_upload"><input type="button" name="Filedata" id="Filedata" value="Choose photo"></div>');
+					mobileInit();					
+				}			
 			}
+			else{
+				$('.activity_feed_form_button .button').show();
+				$('#js_piccup_upload').hide();
+			}
+			
 			return false;
 		});		
 	}
@@ -515,7 +520,7 @@ $Behavior.activityFeedLoader = function()
 	$('.js_comment_feed_new_reply').click(function(){
 		
 		var oParent = $(this).parents('.js_mini_feed_comment:first').find('.js_comment_form_holder:first');
-		if (Editor.sEditor == 'tiny_mce' || Editor.sEditor == 'tinymce'){
+		if ((Editor.sEditor == 'tiny_mce' || Editor.sEditor == 'tinymce') && isset(tinyMCE) && isset(tinyMCE.activeEditor)){
 			$('.js_comment_feed_form').find('.js_feed_comment_parent_id:first').val($(this).attr('rel'));
 			tinyMCE.activeEditor.focus();			
 			if (typeof($.scrollTo) == 'function'){

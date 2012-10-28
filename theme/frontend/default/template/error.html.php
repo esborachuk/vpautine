@@ -5,7 +5,7 @@
 	{/if}
 	<ul>
 	{foreach from=$aPageSectionMenu key=sPageSectionKey item=sPageSectionMenu name=pagesectionmenu}
-		<li {if $phpfox.iteration.pagesectionmenu == 1} class="active"{/if}><a href="#" rel="{$sPageSectionMenuName}_{$sPageSectionKey}">{$sPageSectionMenu}</a></li>
+		<li {if ($phpfox.iteration.pagesectionmenu == 1 && !$bPageIsFullLink) || ($bPageIsFullLink && $sPageSectionKey == $sPageCurrentUrl)} class="active"{/if}><a href="{if $bPageIsFullLink}{$sPageSectionKey}{else}#{/if}" {if !$bPageIsFullLink}rel="{$sPageSectionMenuName}_{$sPageSectionKey}"{/if}>{$sPageSectionMenu}</a></li>
 	{/foreach}
 	</ul>
 	<div class="clear"></div>

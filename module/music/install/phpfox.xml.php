@@ -574,6 +574,8 @@ To see the commented thread, follow the link below:
 		<phrase module_id="music" version_id="3.3.0beta1" var_name="editing_song" added="1339154155">Editing Song</phrase>
 		<phrase module_id="music" version_id="3.3.0" var_name="users_commented_on_gender_song_title" added="1343032354"><![CDATA[{users} commented on {gender} song "{title}"]]></phrase>
 		<phrase module_id="music" version_id="3.3.0" var_name="users_commented_on_your_song_title" added="1343032427"><![CDATA[{users} commented on your song "{title}"]]></phrase>
+		<phrase module_id="music" version_id="3.4.0beta1" var_name="song_successfully_uploaded" added="1347878252">Song successfully uploaded.</phrase>
+		<phrase module_id="music" version_id="3.4.0beta2" var_name="user_setting_points_music_song" added="1348463640">How many activity points should a user receive for uploading a song?</phrase>
 	</phrases>
 	<user_group_settings>
 		<setting is_admin_setting="0" module_id="music" type="boolean" admin="1" user="1" guest="1" staff="1" module="music" ordering="0">can_upload_music_public</setting>

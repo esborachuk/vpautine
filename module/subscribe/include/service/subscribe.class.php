@@ -11,7 +11,7 @@ defined('PHPFOX') or exit('NO DICE!');
  * @copyright		[PHPFOX_COPYRIGHT]
  * @author  		Raymond Benc
  * @package 		Phpfox_Service
- * @version 		$Id: subscribe.class.php 4203 2012-06-01 08:51:02Z Raymond_Benc $
+ * @version 		$Id: subscribe.class.php 4740 2012-09-24 10:27:52Z Raymond_Benc $
  */
 class Subscribe_Service_Subscribe extends Phpfox_Service 
 {
@@ -199,10 +199,12 @@ class Subscribe_Service_Subscribe extends Phpfox_Service
 			}
 		}
 		
+		/*
 		foreach ($aForCompare['features'] as $iKey => $aFeature)
 		{
 			ksort($aForCompare['features'][$iKey]);
-		}	
+		}
+		*/	
 		
 		return $aForCompare;
 		

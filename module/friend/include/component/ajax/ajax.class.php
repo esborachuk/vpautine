@@ -11,7 +11,7 @@ defined('PHPFOX') or exit('NO DICE!');
  * @copyright		[PHPFOX_COPYRIGHT]
  * @author  		Raymond Benc
  * @package  		Module_Friend
- * @version 		$Id: ajax.class.php 4549 2012-07-23 08:01:44Z Raymond_Benc $
+ * @version 		$Id: ajax.class.php 4767 2012-09-26 05:41:30Z Raymond_Benc $
  */
 class Friend_Component_Ajax_Ajax extends Phpfox_Ajax
 {
@@ -173,6 +173,13 @@ class Friend_Component_Ajax_Ajax extends Phpfox_Ajax
 		elseif (Phpfox::getService('friend')->isFriend($aUser['user_id'], Phpfox::getUserId()))
 		{	
 			return false;
+		}
+		else if (Phpfox::getService('user.block')->isBlocked($aUser['user_id'], Phpfox::getUserId()) /* is user blocked*/
+			&& (Phpfox::isModule('friend') && Phpfox::getParam('friend.allow_blocked_user_to_friend_request') == false)
+				)
+		{
+			$this->call('tb_remove();');
+			return Phpfox_Error::set('Unable to send a friend request to this user at this moment.');
 		}
 		
 		if (Phpfox::getService('friend.request.process')->add(Phpfox::getUserId(), $aVals['user_id'], (isset($aVals['list_id']) ? $aVals['list_id'] : 0), $aVals['text']))
@@ -568,8 +575,8 @@ class Friend_Component_Ajax_Ajax extends Phpfox_Ajax
 					}
 					
 					Phpfox::getService('friend.process')->add(Phpfox::getUserId(), $aRequest['friend_user_id']);
-					$this->call('$("#drop_down_'. $aRequest['friend_user_id'] .'").html("Confirmed");');
-					//$this->slideUp('.js_friend_request_' . $iId);					
+					
+					$this->remove('.js_friend_request_' . $iId);					
 				}				
 				$this->updateCount();
 				$sMessage = 'Friend Request(s) successfully confirmed.';
@@ -584,13 +591,13 @@ class Friend_Component_Ajax_Ajax extends Phpfox_Ajax
 					
 					Phpfox::getService('friend.process')->deny(Phpfox::getUserId(), $aRequest['friend_user_id']);
 					
-					$this->call('$("#drop_down_'. $aRequest['friend_user_id'] .'").html("Denied");');
+					$this->remove('.js_friend_request_' . $iId);
 				}				
 				$sMessage = 'Friend Request(s) successfully denied.';
 				break;
 		}
 		
-		$this->alert($sMessage, 'Moderation', 300, 150, true);
+		// $this->alert($sMessage, 'Moderation', 300, 150, true);
 		$this->hide('.moderation_process');			
 	}	
 }

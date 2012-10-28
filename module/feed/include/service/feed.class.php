@@ -11,7 +11,7 @@ defined('PHPFOX') or exit('NO DICE!');
  * @copyright		[PHPFOX_COPYRIGHT]
  * @author  		Raymond Benc
  * @package  		Module_Feed
- * @version 		$Id: feed.class.php 4491 2012-07-10 10:54:57Z Raymond_Benc $
+ * @version 		$Id: feed.class.php 4885 2012-10-11 07:43:34Z Raymond_Benc $
  */
 class Feed_Service_Feed extends Phpfox_Service 
 {	
@@ -63,8 +63,14 @@ class Feed_Service_Feed extends Phpfox_Service
 		
 		$iBirthYear = date('Y', $iLastTimeStamp);
 		$iDOB = $this->database()->select('dob_setting')->from(Phpfox::getT('user_field'))->execute('getSlaveField');
+				
+		if ($iDOB == 0)
+		{
+			$sPermission = Phpfox::getParam('user.default_privacy_brithdate');
+			$bShowBirthYear = ($sPermission == 'full_birthday' || $sPermission == 'show_age');			
+		}
 		
-		if (!in_array($iBirthYear, $aNewYears) && ($iDOB == 2 || $iDOB == 4))
+		if (!in_array($iBirthYear, $aNewYears) && ($iDOB == 2 || $iDOB == 4 || ($iDOB == 0 && isset($bShowBirthYear) && $bShowBirthYear)))
 		{
 			$aNewYears[] = $iBirthYear;
 		}
@@ -179,7 +185,13 @@ class Feed_Service_Feed extends Phpfox_Service
 		
 		$iOffset = ($iPage * $iTotalFeeds);
 		
-		(($sPlugin = Phpfox_Plugin::get('feed.service_feed_get_start')) ? eval($sPlugin) : false);
+		(($sPlugin = Phpfox_Plugin::get('feed.service_feed_get_start')) ? eval($sPlugin) : false);		
+		
+		$sOrder = 'feed.time_update DESC';
+		if (Phpfox::getUserBy('feed_sort') || defined('PHPFOX_IS_USER_PROFILE'))
+		{
+			$sOrder = 'feed.time_stamp DESC';
+		}
 
 		$aCond = array();
 		if (isset($this->_aCallback['module']))
@@ -202,7 +214,7 @@ class Feed_Service_Feed extends Phpfox_Service
 				->from(Phpfox::getT($this->_aCallback['table_prefix'] . 'feed'), 'feed')			
 				->join(Phpfox::getT('user'), 'u', 'u.user_id = feed.user_id')			
 				->where((isset($aCustomCondition) ? $aCustomCondition : $aNewCond))
-				->order('feed.time_stamp DESC')
+				->order($sOrder)
 				->limit($iOffset, $iTotalFeeds)
 				->execute('getSlaveRows');									
 		}
@@ -281,7 +293,7 @@ class Feed_Service_Feed extends Phpfox_Service
 			$this->database()->select('feed.*')
 				->from($this->_sTable, 'feed')
 				// ->join(Phpfox::getT('friend'), 'f', 'f.user_id = feed.user_id AND f.friend_user_id = ' . Phpfox::getUserId())
-				->where(array_merge($aCond, array('AND feed.user_id = ' . (int) $iUserid)))
+				->where(array_merge($aCond, array('AND feed.user_id = ' . (int) $iUserid . ' AND feed.parent_user_id = 0')))
 				->union();
 			
 			if (Phpfox::isUser())
@@ -352,7 +364,7 @@ class Feed_Service_Feed extends Phpfox_Service
 						->join(Phpfox::getT('user'), 'u', 'u.user_id = feed.user_id')			
 						->leftJoin(Phpfox::getT('friend'), 'f', 'f.user_id = feed.user_id AND f.friend_user_id = ' . Phpfox::getUserId())
 						->leftJoin(Phpfox::getT('app'), 'apps', 'apps.app_id = feed.app_id')
-						->order('feed.time_stamp DESC')
+						->order($sOrder)
 						->group('feed.feed_id')
 						->limit($iOffset, $iTotalFeeds)			
 						->where('feed.time_stamp > \'' . $iLastActiveTimeStamp . '\' AND feed.feed_reference = 0')
@@ -418,7 +430,7 @@ class Feed_Service_Feed extends Phpfox_Service
 						->join(Phpfox::getT('user'), 'u', 'u.user_id = feed.user_id')			
 						->leftJoin(Phpfox::getT('friend'), 'f', 'f.user_id = feed.user_id AND f.friend_user_id = ' . Phpfox::getUserId())
 						->leftJoin(Phpfox::getT('app'), 'apps', 'apps.app_id = feed.app_id')
-						->order('feed.time_stamp DESC')
+						->order($sOrder)
 						->group('feed.feed_id')
 						->limit($iOffset, $iTotalFeeds)			
 						->execute('getSlaveRows');					
@@ -454,7 +466,7 @@ class Feed_Service_Feed extends Phpfox_Service
 					if (isset($aModule[0]) && Phpfox::isModule($aModule[0]) && Phpfox::hasCallback($aModule[0] . (isset($aModule[1]) ? '_' . $aModule[1] : ''), 'getReportRedirect'))
 					{		
 						$aRow['report_module'] = $aRows[$iKey]['report_module'] = $aModule[0] . (isset($aModule[1]) ? '_' . $aModule[1] : '');
-						$aRow['report_phrase'] = $aRows[$iKey]['report_phrase'] = 'Report this entry';
+						$aRow['report_phrase'] = $aRows[$iKey]['report_phrase'] = Phpfox::getPhrase('feed.report_this_entry');
 						$aRow['force_report'] = $aRows[$iKey]['force_report'] = true;
 					}
 				}
@@ -520,6 +532,18 @@ class Feed_Service_Feed extends Phpfox_Service
 				$aFeeds[] = $aReturn;
 			}		
 		}
+		
+		$oReq = Phpfox::getLib('request');
+		if (($oReq->getInt('status-id')
+				|| $oReq->getInt('comment-id')
+				|| $oReq->getInt('link-id')
+				|| $oReq->getInt('poke-id')
+		)
+				&& isset($aFeeds[0]))
+		{
+			$aFeeds[0]['feed_view_comment'] = true;
+			// $this->setParam('aFeed', array_merge(array('feed_display' => 'view', 'total_like' => $aRows[0]['feed_total_like']), $aRows[0]));
+		}		
 		
 		if (Phpfox::getService('profile')->timeline())
 		{		

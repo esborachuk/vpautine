@@ -11,7 +11,7 @@ defined('PHPFOX') or exit('NO DICE!');
  * @copyright		[PHPFOX_COPYRIGHT]
  * @author  		Raymond Benc
  * @package 		Phpfox_Service
- * @version 		$Id: process.class.php 2100 2010-11-09 14:58:35Z Raymond_Benc $
+ * @version 		$Id: process.class.php 4854 2012-10-09 05:20:40Z Raymond_Benc $
  */
 class Facebook_Service_Process extends Phpfox_Service 
 {
@@ -21,6 +21,28 @@ class Facebook_Service_Process extends Phpfox_Service
 	public function __construct()
 	{	
 		$this->_sTable = Phpfox::getT('fbconnect');
+	}
+	
+	public function updateUserPassword($aVals)
+	{
+		if (empty($aVals['password']))
+		{
+			return Phpfox_Error::set(Phpfox::getPhrase('facebook.enter_a_password'));
+		}
+		
+		$sSalt = '';
+		for ($i = 0; $i < 3; $i++)
+		{
+			$sSalt .= chr(rand(33, 91));
+		}
+		$aInsert = array();
+		$aInsert['password'] = Phpfox::getLib('hash')->setHash($aVals['password'], $sSalt);
+		$aInsert['password_salt'] = $sSalt;
+		
+		$this->database()->update(Phpfox::getT('fbconnect'), array('is_unlinked' => '1'), 'user_id = ' . (int) Phpfox::getUserId());
+		$this->database()->update(Phpfox::getT('user'), $aInsert, 'user_id = ' . Phpfox::getUserId());	
+
+		return true;
 	}
 	
 	public function addUser($iUserId, $iFacebookUserId)

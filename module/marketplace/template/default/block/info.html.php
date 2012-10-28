@@ -5,7 +5,7 @@
  * @copyright		[PHPFOX_COPYRIGHT]
  * @author  		Raymond Benc
  * @package 		Phpfox
- * @version 		$Id: info.html.php 3990 2012-03-09 15:28:08Z Raymond_Benc $
+ * @version 		$Id: info.html.php 4605 2012-08-20 11:17:45Z Miguel_Espinoza $
  */
  
 defined('PHPFOX') or exit('NO DICE!'); 
@@ -55,6 +55,11 @@ defined('PHPFOX') or exit('NO DICE!');
 			{/if}			
 		</div>
 	</div>
+	
+	{if Phpfox::isModule('input')}
+		{module name='input.display' action='add-listing' module='marketplace' item_id=$aListing.listing_id}
+	{/if}
+	
 	<div class="item_view_content">
 		{$aListing.description|parse|split:70}
 	</div>

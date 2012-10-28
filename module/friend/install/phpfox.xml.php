@@ -43,7 +43,7 @@
 			<source_code />
 			<source_parsed />
 		</block>
-		<block type_id="0" m_connection="core.index-member" module_id="friend" component="birthday" location="3" is_active="1" ordering="8" disallow_access="" can_move="1">
+		<block type_id="0" m_connection="core.index-member" module_id="friend" component="birthday" location="3" is_active="1" ordering="5" disallow_access="" can_move="1">
 			<title><![CDATA[{phrase var=&#039;event.upcoming_events&#039;}]]></title>
 			<source_code />
 			<source_parsed />
@@ -53,7 +53,7 @@
 			<source_code />
 			<source_parsed />
 		</block>
-		<block type_id="0" m_connection="core.index-member" module_id="friend" component="suggestion" location="3" is_active="1" ordering="9" disallow_access="" can_move="1">
+		<block type_id="0" m_connection="core.index-member" module_id="friend" component="suggestion" location="3" is_active="1" ordering="6" disallow_access="" can_move="1">
 			<title><![CDATA[{phrase var=&#039;friend.suggestions&#039;}]]></title>
 			<source_code />
 			<source_parsed />

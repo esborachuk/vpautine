@@ -12,7 +12,7 @@ defined('PHPFOX') or exit('NO DICE!');
  * @copyright		[PHPFOX_COPYRIGHT]
  * @author			Raymond Benc
  * @package 		Phpfox
- * @version 		$Id: s3.class.php 4303 2012-06-21 10:42:23Z Miguel_Espinoza $
+ * @version 		$Id: s3.class.php 4784 2012-09-27 09:02:08Z Miguel_Espinoza $
  */
 class Phpfox_Cdn_Module_S3 extends Phpfox_Cdn_Abstract
 {
@@ -56,6 +56,24 @@ class Phpfox_Cdn_Module_S3 extends Phpfox_Cdn_Abstract
 		$this->_sBucket = Phpfox::getParam('core.amazon_bucket');		
 	}
 	
+	private function hex2b64($str)
+	{
+		$raw = '';
+		for ($i=0; $i < strlen($str); $i+=2)
+		{
+			$raw .= chr(hexdec(substr($str, $i, 2)));
+		}
+		return base64_encode($raw);
+	}	
+	
+	private function encodeSignature($sString)
+	{
+		$sString = utf8_encode($sString);
+		$sString = hash_hmac('sha1', $sString, Phpfox::getParam('core.amazon_secret_key'), true);
+		$sString = base64_encode($sString);
+		return urlencode($sString);
+	}	
+	
 	/**
 	 * Uploads the file to amazons server.
 	 *
@@ -73,7 +91,7 @@ class Phpfox_Cdn_Module_S3 extends Phpfox_Cdn_Abstract
 				$this->_sBucket = md5(Phpfox::getParam('core.path'));
 			}
 			
-			if (!$this->_oObject->putBucket($this->_sBucket, S3::ACL_PUBLIC_READ))
+			if (!$this->_oObject->putBucket($this->_sBucket, Phpfox::getParam('core.enable_amazon_expire_urls') ? S3::ACL_PRIVATE : S3::ACL_PUBLIC_READ))
 			{
 				return Phpfox_Error::set('Unable to create Amazon bucket: ' . $sBucketName);	
 			}
@@ -96,12 +114,19 @@ class Phpfox_Cdn_Module_S3 extends Phpfox_Cdn_Abstract
 			$sName = str_replace("\\", '/', str_replace(PHPFOX_DIR, '', $sFile));
 		}
 
-		if ($this->_oObject->putObjectFile($sFile, $this->_sBucket, $sName, S3::ACL_PUBLIC_READ))
+		if ($this->_oObject->putObjectFile($sFile, $this->_sBucket, $sName,Phpfox::getParam('core.enable_amazon_expire_urls') ? S3::ACL_PRIVATE : S3::ACL_PUBLIC_READ))
 		{
 			$this->_bIsUploaded = true;
+			$bDelete = false; // turn this into a setting
+			if ($bDelete)
+			{
+				unlink($sFile);
+			}
 	
 			return true;
 		}	
+		
+		
 		
 		return false;
 	}
@@ -138,12 +163,20 @@ class Phpfox_Cdn_Module_S3 extends Phpfox_Cdn_Abstract
 			$sUrl = rtrim($sUrl, '/') . '/';
 		}
 	
-		/*if ($this->_oObject->getObjectInfo(Phpfox::getParam('core.amazon_bucket'), str_replace(Phpfox::getParam('core.path'), '', $sPath)) === false)
+		if (Phpfox::getParam('core.enable_amazon_expire_urls') && Phpfox::getParam('core.amazon_s3_expire_url_timeout') > 0)
 		{
-			return $sPath;			
+			$sObjectName = str_replace(Phpfox::getParam('core.path'), '', $sPath);
+			$sS3URL = ((isset($_SERVER['HTTPS']) && strtolower($_SERVER['HTTPS']) == 'on' && Phpfox::getParam('core.cdn_amazon_https')) ? 'https://' : 'http://') ."s3.amazonaws.com";
+			
+			$iExpires = time() + Phpfox::getParam('core.amazon_s3_expire_url_timeout');
+			$sBucketName = "/".Phpfox::getParam('core.amazon_bucket').'/';
+
+			$sStringToSign = "GET\n\n\n{$iExpires}\n{$sBucketName}{$sObjectName}";
+
+			$sPath = $sS3URL . $sBucketName . $sObjectName .'?AWSAccessKeyId='.Phpfox::getParam('core.amazon_access_key').'&Expires='.$iExpires.'&Signature='.$this->encodeSignature($sStringToSign).'&';
+			
+			return $sPath;
 		}
-		
-		*/
 
 		return str_replace(Phpfox::getParam('core.path'), (empty($sUrl) ? ((isset($_SERVER['HTTPS']) && strtolower($_SERVER['HTTPS']) == 'on' && Phpfox::getParam('core.cdn_amazon_https')) ? 'https://' : 'http://') . Phpfox::getParam('core.amazon_bucket') . '.s3.amazonaws.com/' : $sUrl), $sPath);
 	}

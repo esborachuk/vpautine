@@ -5,7 +5,7 @@
  * @copyright		[PHPFOX_COPYRIGHT]
  * @author  		Raymond Benc
  * @package  		Module_Feed
- * @version 		$Id: display.html.php 4184 2012-05-30 18:21:36Z Raymond_Benc $
+ * @version 		$Id: display.html.php 4757 2012-09-25 08:21:09Z Raymond_Benc $
  */
  
 defined('PHPFOX') or exit('NO DICE!'); 
@@ -19,7 +19,7 @@ defined('PHPFOX') or exit('NO DICE!');
 {if (Phpfox::getUserBy('profile_page_id') > 0 && defined('PHPFOX_IS_USER_PROFILE')) 
 	|| (isset($aFeedCallback.disable_share) && $aFeedCallback.disable_share) 
 	|| (defined('PHPFOX_IS_USER_PROFILE') && !Phpfox::getService('user.privacy')->hasAccess('' . $aUser.user_id . '', 'feed.share_on_wall'))
-	|| (defined('PHPFOX_IS_USER_PROFILE') && !Phpfox::getUserParam('profile.can_post_comment_on_profile'))
+	|| (defined('PHPFOX_IS_USER_PROFILE') && !Phpfox::getUserParam('profile.can_post_comment_on_profile') && $aUser.user_id != Phpfox::getUserId())
 }
 
 {else}
@@ -28,9 +28,17 @@ defined('PHPFOX') or exit('NO DICE!');
 {/if}
 {/if}
 {/if}
-
-
-
+{if !defined('PHPFOX_IS_USER_PROFILE') && !PHPFOX_IS_AJAX}
+<div class="feed_sort_order">
+	<a href="#" class="feed_sort_order_link">{phrase var='feed.sort'}</a>
+	<div class="feed_sort_holder">
+		<ul>
+			<li><a href="#"{if !$iFeedUserSortOrder} class="active"{/if} rel="0">{phrase var='feed.top_stories'}</a></li>
+			<li><a href="#"{if $iFeedUserSortOrder} class="active"{/if} rel="1">{phrase var='feed.most_recent'}</a></li>
+		</ul>
+	</div>
+</div>
+{/if}
 {if Phpfox::getParam('feed.refresh_activity_feed') > 0 && Phpfox::getLib('module')->getFullControllerName() == 'core.index-member'}
 <div id="activity_feed_updates_link_holder">
     <a href="#" id="activity_feed_updates_link_single" class="activity_feed_updates_link" onclick="return $Core.loadMoreFeeds();">{phrase var='feed.1_new_update'}</a>
@@ -60,7 +68,7 @@ defined('PHPFOX') or exit('NO DICE!');
 			{if (Phpfox::getUserBy('profile_page_id') > 0 && defined('PHPFOX_IS_USER_PROFILE')) 
 				|| (isset($aFeedCallback.disable_share) && $aFeedCallback.disable_share) 
 				|| (defined('PHPFOX_IS_USER_PROFILE') && !Phpfox::getService('user.privacy')->hasAccess('' . $aUser.user_id . '', 'feed.share_on_wall'))
-				|| (defined('PHPFOX_IS_USER_PROFILE') && !Phpfox::getUserParam('profile.can_post_comment_on_profile'))
+				|| (defined('PHPFOX_IS_USER_PROFILE') && !Phpfox::getUserParam('profile.can_post_comment_on_profile') && $aUser.user_id != Phpfox::getUserId())
 			}
 
 			{else}			
