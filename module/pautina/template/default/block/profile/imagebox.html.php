@@ -1,8 +1,7 @@
 <div class="menu_box">
     <div class="profilebox-title">
         <a href="{$allPhotoLink}">Фото</a>
-
-        <span><a href="{url link='photo.add'}">add</a></span>
+        <span class="add-photo"><a title="Добавить фото" href="{url link='photo.add'}">(+)</a></span>
 
     </div>
     <a href="{$allPhotoLink}" class="all-items">Посмотреть все фото...<span></span></a>

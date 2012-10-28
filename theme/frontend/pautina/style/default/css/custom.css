@@ -224,7 +224,7 @@ a:hover {
     height: 90px;
 }
 
-#imagebox-block li, #videobox-block li, ul.block_listing li {
+#imagebox-block li, #videobox-block li, ul.block_listing li, #js_block_border_friend_mutual-friend .block_listing_inline li {
     float: left;
     width: 100px;
     height: 100px;
@@ -247,18 +247,18 @@ a:hover {
     margin-bottom: 20px;
 }
 
-.menu_box .profilebox-title, #left #js_block_border_friend_profile_small .title{
+.menu_box .profilebox-title, #left #js_block_border_friend_profile_small .title, #left #js_block_border_friend_mutual-friend .title{
     background: #4c4c4c;
     font-size: 20px;
     font-weight: normal;
     padding: 6px 0 8px 25px;
     color: #3FB6E2;
     border-radius: 3px 0 0 3px;
-    -moz-border-radius: 3px;
-    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px 0 0 3px;
+    -webkit-border-radius: 3px 0 0 3px;
 }
 
-.menu_box .all-items {
+.menu_box .all-items, .p_bottom_5 .all-items{
     padding: 15px 25px;
     color: #3FB6E2;
     font-size: 12px;
@@ -456,5 +456,11 @@ ul.block_listing li .block_listing_title {
 
 ul.block_listing li .block_listing_image a img {
     border-radius: 9px;
+}
+
+.profilebox-title .add-photo {
+    display: block;
+    float: right;
+    margin-right: 25px;
 }
 
