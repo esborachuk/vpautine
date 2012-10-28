@@ -29,7 +29,7 @@ defined('PHPFOX') or exit('NO DICE!');
 			{foreach from=$aFeedStatusLinks item=aFeedStatusLink name=feedlinks}
 			
 			{if $phpfox.iteration.feedlinks == 3 && Phpfox::getService('profile')->timeline()}
-			<li><a href="#" rel="view_more_link" class="timeline_view_more js_hover_title"><span class="js_hover_info">View More</span></a>
+			<li><a href="#" rel="view_more_link" class="timeline_view_more js_hover_title"><span class="js_hover_info">{phrase var='feed.view_more'}</span></a>
 				<ul class="view_more_drop">
 			{/if}
 			
@@ -81,7 +81,7 @@ defined('PHPFOX') or exit('NO DICE!');
 		<div><input type="hidden" name="val[parent_user_id]" value="{$aUser.user_id}" /></div>
 		{/if}	
 		<div class="activity_feed_form_holder">		
-		
+			
 			<div id="activity_feed_upload_error" style="display:none;"><div class="error_message" id="activity_feed_upload_error_message"></div></div>
 			
 			<div class="global_attachment_holder_section" id="global_attachment_status" style="display:block;">

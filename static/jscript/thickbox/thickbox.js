@@ -316,7 +316,7 @@ function tb_show(caption, url, thisObject, sForceMessage, bForceNoCilck)
 		var sUserId = url.match(/userid_([0-9]+)/);
 		var sAlbumId = url.match(/albumid_([0-9]+)/);		
 				
-		var queryString = '' + getParam('sGlobalTokenName') + '[call]=photo.view&width=940&req2=' + $(thisObject).attr('rel') + '&theater=true&no_remove_box=true' + (sUserId != null && isset(sUserId[1]) ? '&userid='+sUserId[1] :'') + (sAlbumId != null && isset(sAlbumId[1]) ? '&albumid='+sAlbumId[1] :'');
+		var queryString = '' + getParam('sGlobalTokenName') + '[call]=photo.view&width=940' + (typeof sPhotoCategory != 'undefined' ? '&category=' + sPhotoCategory : '') + '&req2=' + $(thisObject).attr('rel') + '&theater=true&no_remove_box=true' + (sUserId != null && isset(sUserId[1]) ? '&userid='+sUserId[1] :'') + (sAlbumId != null && isset(sAlbumId[1]) ? '&albumid='+sAlbumId[1] :'');
 		var params = tb_parseQuery(queryString);
 		
 		bIsPhotoImage = true;
@@ -536,9 +536,14 @@ function tb_show(caption, url, thisObject, sForceMessage, bForceNoCilck)
 			return;
 		}
 		
+		var sAjaxType = 'GET';
+		if (params['' + getParam('sGlobalTokenName') + '[call]'] == 'share.popup'){
+			sAjaxType = 'POST';
+		}
+		
 		$.ajax(
 			{
-				type: 'GET',
+				type: sAjaxType,
 				dataType: 'html',
 				url: getParam('sJsAjax'),
 				data: queryString,

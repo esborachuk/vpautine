@@ -11,7 +11,7 @@ defined('PHPFOX') or exit('NO DICE!');
  * @copyright		[PHPFOX_COPYRIGHT]
  * @author  		Raymond Benc
  * @package  		Module_Event
- * @version 		$Id: process.class.php 4502 2012-07-11 14:17:35Z Miguel_Espinoza $
+ * @version 		$Id: process.class.php 4786 2012-09-27 10:40:14Z Miguel_Espinoza $
  */
 class Event_Service_Process extends Phpfox_Service 
 {
@@ -61,7 +61,7 @@ class Event_Service_Process extends Phpfox_Service
 		{
 			$iEndTime = $iStartTime;
 		}
-		
+				
 		$aSql = array(
 			'view_id' => (($sModule == 'event' && Phpfox::getUserParam('event.event_must_be_approved')) ? '1' : '0'),
 			'privacy' => (isset($aVals['privacy']) ? $aVals['privacy'] : '0'),
@@ -428,7 +428,7 @@ class Event_Service_Process extends Phpfox_Service
 				{
 					$iFileSizes += filesize($sImage);
 					
-					@unlink($sImage);
+					Phpfox::getLib('file')->unlink($sImage);
 				}
 			}
 			
@@ -510,7 +510,7 @@ class Event_Service_Process extends Phpfox_Service
 		$mReturn = true;
 		if ($aEvent === null)
 		{
-			$aEvent = $this->database()->select('user_id, module_id, item_id, image_path, is_sponsor')
+			$aEvent = $this->database()->select('user_id, module_id, item_id, image_path, is_sponsor, is_featured')
 				->from($this->_sTable)
 				->where('event_id = ' . (int) $iId)
 				->execute('getRow');
@@ -549,7 +549,7 @@ class Event_Service_Process extends Phpfox_Service
 				{
 					$iFileSizes += filesize($sImage);
 					if ($sPlugin = Phpfox_Plugin::get('event.service_process_delete__pre_unlink')){return eval($sPlugin);}
-					@unlink($sImage);
+					Phpfox::getLib('file')->unlink($sImage);
 				}
 			}
 			
@@ -596,7 +596,10 @@ class Event_Service_Process extends Phpfox_Service
 		{
 			$this->cache()->remove('event_sponsored');
 		}
-		
+		if (isset($aEvent['is_featured']) && $aEvent['is_featured'])
+		{
+			$this->cache()->remove('event_featured', 'substr');
+		}
 		if ($sPlugin = Phpfox_Plugin::get('event.service_process_delete__end')){return eval($sPlugin);}
 		
 		return $mReturn;
@@ -820,7 +823,7 @@ class Event_Service_Process extends Phpfox_Service
 			
 			if ($iEndTime < $iStartTime)
 			{
-				return Phpfox_Error::set(Phpfox::getPhrase('event.your_event_is_ending_before_it_starts'));
+				// return Phpfox_Error::set(Phpfox::getPhrase('event.your_event_is_ending_before_it_starts'));
 				$this->_bIsEndingInThePast = true;
 			}
 			/*

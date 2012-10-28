@@ -17,7 +17,7 @@ defined('PHPFOX') or exit('NO DICE!');
  * @copyright		[PHPFOX_COPYRIGHT]
  * @author			Raymond Benc
  * @package 		Phpfox
- * @version 		$Id: output.class.php 4188 2012-05-31 09:37:56Z Miguel_Espinoza $
+ * @version 		$Id: output.class.php 4782 2012-09-27 08:48:43Z Raymond_Benc $
  */
 class Phpfox_Parse_Output
 {
@@ -510,8 +510,8 @@ class Phpfox_Parse_Output
        		{	       			
        			if (preg_match('/&#?[a-zA-Z0-9]+;/', $aChar[0]))
        			{
-	       		 	$aChar[0] = str_replace('&lt;', '[', $aChar[0]);
-	       			$aChar[0] = str_replace('&gt;', ']', $aChar[0]);
+	       		 	$aChar[0] = str_replace('&lt;', '[PHPFOX_START]', $aChar[0]);
+	       			$aChar[0] = str_replace('&gt;', '[PHPFOX_END]', $aChar[0]);
        				$aChar[0] = html_entity_decode($aChar[0], null, 'UTF-8');
 	       					
 	       			$bHasNonAscii = true;
@@ -529,7 +529,7 @@ class Phpfox_Parse_Output
        		}
    		}   
 		
-   		$sOut = ($bHasNonAscii === true ? str_replace(array('[', ']'), array('&lt;', '&gt;'), Phpfox::getLib('parse.input')->convert($sNewString)) : $sNewString);
+   		$sOut = ($bHasNonAscii === true ? str_replace(array('[PHPFOX_START]', '[PHPFOX_END]'), array('&lt;', '&gt;'), Phpfox::getLib('parse.input')->convert($sNewString)) : $sNewString);
 		
    		return $sOut;
     }    

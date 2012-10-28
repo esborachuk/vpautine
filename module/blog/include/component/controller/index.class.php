@@ -11,7 +11,7 @@ defined('PHPFOX') or exit('NO DICE!');
  * @copyright		[PHPFOX_COPYRIGHT]
  * @author  		Raymond Benc
  * @package  		Module_Blog
- * @version 		$Id: index.class.php 3551 2011-11-22 14:49:19Z Raymond_Benc $
+ * @version 		$Id: index.class.php 4696 2012-09-20 08:59:51Z Miguel_Espinoza $
  */
 class Blog_Component_Controller_Index extends Phpfox_Component
 {
@@ -26,7 +26,8 @@ class Blog_Component_Controller_Index extends Phpfox_Component
 					'field' => array('blog_id', 'title'),
 					'table' => 'blog',		
 					'redirect' => 'blog',
-					'title' => $sLegacyTitle
+					'title' => $sLegacyTitle,
+					'search' => 'title'
 				)
 			);
 		}		

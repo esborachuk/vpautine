@@ -11,13 +11,47 @@ defined('PHPFOX') or exit('NO DICE!');
  * @copyright		[PHPFOX_COPYRIGHT]
  * @author  		Raymond Benc
  * @package  		Module_User
- * @version 		$Id: callback.class.php 4520 2012-07-18 14:08:39Z Miguel_Espinoza $
+ * @version 		$Id: callback.class.php 4645 2012-09-17 11:20:35Z Raymond_Benc $
  */
 class User_Service_Callback extends Phpfox_Service
 {
 	public function  __construct()
 	{
 		$this->_sTable = Phpfox::getT('user');
+	}
+	
+	public function paymentApiCallback($aParams)
+	{
+		Phpfox::log('Module callback recieved: ' . var_export($aParams, true));
+		
+		$aRow = $this->database()->select('pp.*, ua.activity_points')
+			->from(Phpfox::getT('point_purchase'), 'pp')
+			->join(Phpfox::getT('user_activity'), 'ua', 'ua.user_id = pp.user_id')
+			->where('pp.purchase_id = ' . (int) $aParams['item_number'])
+			->execute('getSlaveRow');
+		
+		if (!isset($aRow['purchase_id']))
+		{
+			Phpfox::log('Unable to find this purchase.');
+			
+			return false;
+		}
+		
+		if ($aParams['status'] == 'completed')
+		{
+			$iNewTotal = (int) ($aRow['activity_points'] + $aRow['total_point']);
+			
+			$this->database()->update(Phpfox::getT('point_purchase'), array('status' => '1'), 'purchase_id = ' . (int) $aRow['purchase_id']);
+			$this->database()->update(Phpfox::getT('user_activity'), array('activity_points	' => $iNewTotal), 'user_id = ' . (int) $aRow['user_id']);
+			
+			Phpfox::log('Purchase completed. Giving the user #' . $aRow['user_id'] . ' ' . $iNewTotal . ' points.');
+			
+			return true;
+		}
+		
+		Phpfox::log('Purchase was not paid.');
+		
+		return false;
 	}
 	
 	public function getActivityFeedBirth($aRow)
@@ -843,6 +877,11 @@ class User_Service_Callback extends Phpfox_Service
 			->leftJoin(Phpfox::getT('like'), 'l', 'l.type_id = \'user_status\' AND l.item_id = us.status_id AND l.user_id = ' . Phpfox::getUserId())
 			->where('us.status_id = ' . (int) $aItem['item_id'])
 			->execute('getSlaveRow');	
+		
+		if (empty($aRow))
+		{
+			return false;
+		}
 		
 		if (!empty($aItem['content']))
 		{

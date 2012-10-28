@@ -87,6 +87,11 @@ class Phpfox_Cdn_Module_Rackspace extends Phpfox_Cdn_Abstract
 		$object->load_from_filename($sName);
 		
 		$this->_bIsUploaded = true;
+		$bDelete = false; // turn this into a setting
+		if ($bDelete)
+		{
+			unlink($sFile);
+		}
 		
 		return true;
 	}

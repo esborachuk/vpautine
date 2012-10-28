@@ -5,12 +5,13 @@
  * @copyright		[PHPFOX_COPYRIGHT]
  * @author  		Raymond Benc
  * @package 		Phpfox
- * @version 		$Id: import.html.php 1179 2009-10-12 13:56:40Z Raymond_Benc $
+ * @version 		$Id: import.html.php 4887 2012-10-11 11:38:15Z Raymond_Benc $
  */
  
 defined('PHPFOX') or exit('NO DICE!'); 
 
 ?>
+	{if !Phpfox::getParam('core.is_auto_hosted')}
 	<div class="table_header">
 		{phrase var='theme.manual_install'}
 	</div>
@@ -46,46 +47,48 @@ defined('PHPFOX') or exit('NO DICE!');
 	{/if}
 	<div class="table_clear"></div>
 	<br />
-{*
-<form method="post" action="{url link='admincp.theme.import'}" enctype="multipart/form-data">
-	<div class="table_header">
-		Import
-	</div>
-	{if Phpfox::getParam('core.ftp_enabled')}
-	<div class="table">	
-		<div class="table_left">
-			File:
+	{/if}
+	
+	{if Phpfox::getParam('core.is_auto_hosted')}		
+	<form method="post" action="{url link='admincp.theme.import'}" enctype="multipart/form-data">
+		<div class="table_header">
+			Import
 		</div>
-		<div class="table_right">
-			<input type="file" name="import" size="40" />
+		{if Phpfox::getParam('core.ftp_enabled')}
+		<div class="table">	
+			<div class="table_left">
+				File:
+			</div>
+			<div class="table_right">
+				<input type="file" name="import" size="40" />
+			</div>
+			<div class="clear"></div>
 		</div>
-		<div class="clear"></div>
-	</div>
-	<div class="table">
-		<div class="table_left">
-			Overwrite:
+		<div class="table">
+			<div class="table_left">
+				Overwrite:
+			</div>
+			<div class="table_right">	
+				<div class="item_is_active_holder">		
+					<span class="js_item_active item_is_active"><input type="radio" name="overwrite" value="1" /> Yes</span>
+					<span class="js_item_active item_is_not_active"><input type="radio" name="overwrite" value="0" checked="checked" /> No</span>
+				</div>			
+			</div>
+			<div class="clear"></div>		
+		</div>		
+		<div class="table_clear">
+			<input type="submit" value="Import" class="button" />
 		</div>
-		<div class="table_right">	
-			<div class="item_is_active_holder">		
-				<span class="js_item_active item_is_active"><input type="radio" name="overwrite" value="1" /> Yes</span>
-				<span class="js_item_active item_is_not_active"><input type="radio" name="overwrite" value="0" checked="checked" /> No</span>
-			</div>			
+		{else}
+		<div class="table">
+			<div class="message">
+				FTP support must be enabled in order to import themes.
+			</div>
+			<div class="extra_info">
+				Click <a href="{url link='admincp.setting.edit' group-id='ftp'}">here</a> to enable FTP support.
+			</div>
 		</div>
-		<div class="clear"></div>		
-	</div>		
-	<div class="table_clear">
-		<input type="submit" value="Import" class="button" />
-	</div>
-	{else}
-	<div class="table">
-		<div class="message">
-			FTP support must be enabled in order to import themes.
-		</div>
-		<div class="extra_info">
-			Click <a href="{url link='admincp.setting.edit' group-id='ftp'}">here</a> to enable FTP support.
-		</div>
-	</div>
-	<div class="table_clear"></div>
-	{/if}	
-</form>
-*}
+		<div class="table_clear"></div>
+		{/if}	
+	</form>
+	{/if}

@@ -11,7 +11,7 @@ defined('PHPFOX') or exit('NO DICE!');
  * @copyright		[PHPFOX_COPYRIGHT]
  * @author  		Raymond Benc
  * @package  		Module_Admincp
- * @version 		$Id: admincp.class.php 1496 2010-03-05 17:15:05Z Raymond_Benc $
+ * @version 		$Id: admincp.class.php 4854 2012-10-09 05:20:40Z Raymond_Benc $
  */
 class Admincp_Service_Admincp extends Phpfox_Service 
 {
@@ -20,6 +20,164 @@ class Admincp_Service_Admincp extends Phpfox_Service
 	 */	
 	public function __construct()
 	{	
+	}
+	
+	public function getAdmincpRules()
+	{
+		$aRows = $this->database()->select('*')
+			->from(Phpfox::getT('admincp_privacy'))
+			->order('time_stamp DESC')
+			->execute('getSlaveRows');
+		
+		$aUserGroupCache = array();
+		$aUserGroups = $this->database()->select('*')
+			->from(Phpfox::getT('user_group'))
+			->execute('getSlaveRows');
+		foreach ($aUserGroups as $aUserGroup)
+		{
+			$aUserGroupCache[$aUserGroup['user_group_id']] = $aUserGroup['title'];
+		}
+		
+		foreach ($aRows as $iKey => $aRow)
+		{
+			$aRows[$iKey]['user_groups'] = '';
+			foreach ((array) json_decode($aRow['user_group'], true) as $iGroup)
+			{
+				if (!isset($aUserGroups[$iGroup]))
+				{
+					continue;
+				}
+
+				$aRows[$iKey]['user_groups'] .= $aUserGroupCache[$iGroup] . ', ';
+			}
+			
+			$aRows[$iKey]['user_groups'] = rtrim($aRows[$iKey]['user_groups'] , ', ');
+		}
+				
+		return $aRows;
+	}
+	
+	public function checkAdmincpPrivacy($aMenus)
+	{
+		$aMenuCache = array();
+		$sCacheId = $this->cache()->set('admincp_url_' . Phpfox::getUserId());
+		
+		// if (!($aMenuCache = $this->cache()->get($sCacheId)))
+		{
+			$aPrivacyCache = array();
+			$aRows = $this->database()->select('*')
+				->from(Phpfox::getT('admincp_privacy'))
+				->order('time_stamp DESC')
+				->execute('getSlaveRows');
+			foreach ($aRows as $aRow)
+			{
+				foreach ((array) json_decode($aRow['user_group'], true) as $iGroup)
+				{
+					$aPrivacyCache[$iGroup][$aRow['url']] = ($aRow['wildcard'] ? true : false);
+				}
+			}		
+			
+			$aCache = array();
+			if (isset($aPrivacyCache[Phpfox::getUserBy('user_group_id')]))
+			{
+				$aCache = $aPrivacyCache[Phpfox::getUserBy('user_group_id')];
+				$sUrl = Phpfox::getLib('url')->getFullUrl(true);
+				$sUrl = str_replace('/', '.', $sUrl);
+				$sUrl = trim($sUrl, '.');
+				$sNewParts = '';
+				$aParts = explode('.', $sUrl);
+				foreach ($aParts as $sPart)
+				{
+					if (strpos($sPart, '_'))
+					{
+						continue;
+					}
+					$sNewParts .= $sPart . '.';
+				}
+				$sNewParts = rtrim($sNewParts, '.');			
+				
+				$bFailed = false;
+				foreach ($aCache as $sUrlValue => $bWildcard)
+				{
+					if ($sUrlValue == $sNewParts)
+					{
+						$bFailed = true;					
+					}
+					
+					if ($bWildcard && preg_match('/' . $sUrlValue . '(.*)/i', $sNewParts))
+					{
+						$bFailed = true;
+					}
+				}
+				
+				if ($bFailed)
+				{
+					Phpfox::getLib('url')->send('admincp');
+				}
+			}
+			
+			foreach ($aMenus as $sPhrase1 => $mValue1)
+			{
+				if (is_array($mValue1))
+				{
+					foreach ($mValue1 as $sPhrase2 => $mValue2)
+					{
+						if (is_array($mValue2))
+						{
+							foreach ($mValue2 as $sPhrase3 => $mValue3)
+							{
+								if (isset($aCache[$mValue3]))
+								{
+									unset($aMenus[$sPhrase1][$sPhrase2][$sPhrase3]);
+								}
+								
+								foreach ($aCache as $sUrlValue => $bWildcard)
+								{							
+									if ($bWildcard && preg_match('/' . $sUrlValue . '(.*)/i', $mValue3))
+									{
+										if (isset($aMenus[$sPhrase1][$sPhrase2][$sPhrase3]))
+										{
+											unset($aMenus[$sPhrase1][$sPhrase2][$sPhrase3]);
+										}
+									}
+								}							
+							}
+						}
+						else
+						{
+							if (isset($aCache[$mValue2]))
+							{
+								unset($aMenus[$sPhrase1][$sPhrase2]);
+							}							
+						}
+					}
+				}
+			}
+			
+			$aMenuCache = $aMenus;
+			
+			foreach ($aMenuCache as $sP1 => $mV1)
+			{
+				if (is_array($mV1))
+				{
+					foreach ($mV1 as $sP2 => $mV2)
+					{
+						if (is_array($mV2) && empty($mV2))
+						{
+							unset($aMenuCache[$sP1][$sP2]);
+						}
+					}
+				}
+			}
+			
+			$this->cache()->save($sCacheId, $aMenuCache);
+		}
+		
+		// exit;
+		// d($aMenus);
+		// exit;
+		
+		return $aMenuCache;
 	}
 	
 	public function check()

@@ -25,7 +25,7 @@ defined('PHPFOX') or exit('NO DICE!');
  * @copyright		[PHPFOX_COPYRIGHT]
  * @author			Raymond Benc
  * @package 		Phpfox
- * @version 		$Id: file.class.php 4316 2012-06-21 13:57:37Z Miguel_Espinoza $
+ * @version 		$Id: file.class.php 4854 2012-10-09 05:20:40Z Raymond_Benc $
  */
 class Phpfox_File
 {
@@ -150,11 +150,6 @@ class Phpfox_File
 			$this->_iMaxSize = $iMaxSize;
 		}
 		
-		if (!$this->_passLimit())
-		{
-			return false;
-		}			
-		
 		if (Phpfox::isUser())
 		{
 			if (!Phpfox::getService('user.space')->isAllowedToUpload(Phpfox::getUserId(), filesize($this->_aFile['tmp_name'])))
@@ -177,6 +172,11 @@ class Phpfox_File
 		{
 			return Phpfox_Error::set(Phpfox::getPhrase('core.not_a_valid_image_we_only_accept_the_following_file_extensions_support', array('support' => implode(', ', $aSupported))));
 		}	
+		
+		if (!$this->_passLimit())
+		{
+			return false;
+		}		
 
 		return $this->_aFile;
 	}	
@@ -487,7 +487,7 @@ class Phpfox_File
 	     	}
 		}		
 		
-		if (Phpfox::getParam('core.allow_cdn'))
+		if (Phpfox::getParam('core.allow_cdn') && $iServerId > 0)
 		{
 			//$sFile = Phpfox::getLib('cdn')->getUrl(str_replace(PHPFOX_DIR, Phpfox::getParam('core.path'), $sFile), $iServerId);					
 			$sFileSize = $sFileSize ? $sFileSize : filesize($sFile);

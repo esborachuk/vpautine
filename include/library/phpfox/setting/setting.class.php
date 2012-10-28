@@ -21,7 +21,7 @@ defined('PHPFOX') or exit('NO DICE!');
  * @copyright		[PHPFOX_COPYRIGHT]
  * @author			Raymond Benc
  * @package 		Phpfox
- * @version 		$Id: setting.class.php 4459 2012-07-03 13:11:06Z Miguel_Espinoza $
+ * @version 		$Id: setting.class.php 4900 2012-10-16 16:49:33Z Raymond_Benc $
  */
 class Phpfox_Setting
 {
@@ -81,7 +81,8 @@ class Phpfox_Setting
 		'core.use_jquery_datepicker' => false,
 		'core.date_field_order' => 'MDY',
 		'core.cache_storage' => 'file',
-		'core.allow_cdn' => false
+		'core.allow_cdn' => false,
+		'core.is_auto_hosted' => false
 	);
 	
 	/**
@@ -224,7 +225,7 @@ class Phpfox_Setting
 			$aRows = Phpfox::getLib('database')->select('s.type_id, s.var_name, s.value_actual, m.module_id AS module_name')
 				->from(Phpfox::getT('setting'), 's')
 				->join(Phpfox::getT('module'), 'm', 'm.module_id = s.module_id AND m.is_active = 1')
-				->execute('getRows');				
+				->execute('getRows');			
 
 			foreach ($aRows as $iKey => $aRow)
 			{
@@ -352,8 +353,13 @@ class Phpfox_Setting
 	{		
 		if ($mVar == 'core.wysiwyg' && !defined('PHPFOX_INSTALLER') && Phpfox::isMobile())
 		{
-			//return 'default'; // fixes http://www.phpfox.com/tracker/view/8666/
-		}		
+			return 'default';
+		}				
+		
+		if ($mVar == 'core.phpfox_is_hosted')
+		{
+			return $this->getParam('core.is_auto_hosted');
+		}
 		
 		if (is_array($mVar))
 		{
@@ -371,6 +377,11 @@ class Phpfox_Setting
 			if ($mVar == 'admincp.admin_cp')
 			{
 				$sParam = strtolower($sParam);
+			}	
+			
+			if ($mVar == 'user.points_conversion_rate')
+			{
+				$sParam = (empty($sParam) ? array() : json_decode($sParam, true));
 			}			
 		}
 		

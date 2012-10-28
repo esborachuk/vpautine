@@ -32,10 +32,10 @@
 			<ul>
 				{if !Phpfox::getService('profile')->timeline()}
 				{if !isset($aFeed.feed_mini)}
-				{if !empty($aFeed.feed_icon)}
+				{if !empty($aFeed.feed_icon) && !Phpfox::isMobile()}
 				<li><img src="{$aFeed.feed_icon}" alt="" /></li>
 				{/if}
-				{if isset($aFeed.time_stamp)}
+				{if isset($aFeed.time_stamp) && !Phpfox::isMobile()}
 				<li class="feed_entry_time_stamp">				
 					<a href="{$aFeed.feed_link}" class="feed_permalink">{$aFeed.time_stamp|convert_time:'feed.feed_display_time_stamp'}</a>{if !empty($aFeed.app_link)} via {$aFeed.app_link}{/if}
 				</li>
@@ -70,10 +70,10 @@
 					&& Phpfox::getUserParam('feed.can_post_comment_on_feed')
 					&& (isset($aFeed.comment_type_id) && $aFeed.can_post_comment) 
 					|| (!isset($aFeed.comment_type_id) && isset($aFeed.total_comment))
-					}
-                <li>
-                    <a href="{$aFeed.feed_link}add-comment/" class="{if (isset($sFeedType) && $sFeedType == 'mini') || (!isset($aFeed.comment_type_id) && isset($aFeed.total_comment))}{else}js_feed_entry_add_comment no_ajax_link{/if}">{phrase var='feed.comment'}</a>
-                </li>
+					}				
+				<li>
+					<a href="{$aFeed.feed_link}add-comment/" class="{if (isset($sFeedType) && $sFeedType == 'mini') || (!isset($aFeed.comment_type_id) && isset($aFeed.total_comment))}{else}js_feed_entry_add_comment no_ajax_link{/if}">{phrase var='feed.comment'}</a>
+				</li>				
 				{if (Phpfox::isModule('share') && !isset($aFeed.no_share))}
 					<li><span>&middot;</span></li>
 				{/if}

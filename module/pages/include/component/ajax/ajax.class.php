@@ -11,7 +11,7 @@ defined('PHPFOX') or exit('NO DICE!');
  * @copyright		[PHPFOX_COPYRIGHT]
  * @author  		Raymond_Benc
  * @package 		Phpfox_Ajax
- * @version 		$Id: ajax.class.php 3654 2011-12-05 08:29:00Z Raymond_Benc $
+ * @version 		$Id: ajax.class.php 4637 2012-09-17 09:37:20Z Miguel_Espinoza $
  */
 class Pages_Component_Ajax_Ajax extends Phpfox_Ajax
 {
@@ -56,7 +56,7 @@ class Pages_Component_Ajax_Ajax extends Phpfox_Ajax
 		{
 			$aPage = Phpfox::getService('pages')->getPage($iId);
 			
-			$this->call('window.location.href = \'' . Phpfox::getLib('url')->makeUrl('pages.add', array('id' => $aPage['page_id'])) . '\';');
+			$this->call('window.location.href = \'' . Phpfox::getLib('url')->makeUrl('pages.add', array('id' => $aPage['page_id'], 'new' => '1')) . '\';');
 		}
 		else
 		{
@@ -295,7 +295,79 @@ class Pages_Component_Ajax_Ajax extends Phpfox_Ajax
 		);		
 		
 		Phpfox::getLib('cache')->remove('pages', 'substr');
-	}		
+	}	
+
+	public function approveClaim()
+	{
+		if (Phpfox::getService('pages.process')->approveClaim($this->get('claim_id')))
+		{
+			$this->hide('#claim_' . $this->get('claim_id'));
+		}
+		else
+		{
+			$this->alert('An error occured');
+		}
+	}
+	
+	public function denyClaim()
+	{
+		if (Phpfox::getService('pages.process')->denyClaim($this->get('claim_id')))
+		{
+			$this->hide('#claim_' . $this->get('claim_id'));
+		}
+		else
+		{
+			$this->alert('An error occured');
+		}
+	}
+	
+	public function setCoverPhoto()
+	{
+		$iPageId = $this->get('page_id');
+		$iPhotoId = $this->get('photo_id');
+		
+		if (Phpfox::getService('pages.process')->setCoverPhoto($iPageId , $iPhotoId))
+		{
+			$this->call('window.location.href = "' . Phpfox::permalink('pages', $this->get('page_id'), '') . 'coverupdate_1";');
+			
+		}
+		else
+		{
+			$aErr = Phpfox_Error::get();
+			$sErr = implode($aErr);
+			$this->call('console.log("check 2 ' . $sErr .'");');
+		}
+	}
+	
+	public function updateCoverPosition()
+	{
+		if (Phpfox::getService('pages.process')->updateCoverPosition($this->get('page_id'), $this->get('position')))
+		{
+			$this->call('window.location.href = "' . Phpfox::permalink('pages', $this->get('page_id'), '') . '";');
+			//$this->call('location.reload();');
+			Phpfox::addMessage('Position set correctly.');
+		}
+		else
+		{
+			$aErr = Phpfox_Error::get();
+			$sErr = implode($aErr);
+			$this->call('console.log("check 2 ' . $sErr .'");');
+		}
+	}
+	
+	public function removeCoverPhoto()
+	{
+		if (Phpfox::getService('pages.process')->removeCoverPhoto($this->get('page_id')))
+		{
+			$this->call('window.location.href=window.location.href;');
+		}
+		else
+		{
+			$aErr = Phpfox_Error::get();
+			$sErr = implode($aErr);
+			$this->call('console.log("check 2 ' . $sErr .'");');
+		}
+	}
 }
 
 ?>

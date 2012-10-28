@@ -11,7 +11,7 @@ defined('PHPFOX') or exit('NO DICE!');
  * @copyright		[PHPFOX_COPYRIGHT]
  * @author  		Raymond Benc
  * @package  		Module_Quiz
- * @version 		$Id: process.class.php 4261 2012-06-13 10:49:13Z Raymond_Benc $
+ * @version 		$Id: process.class.php 4855 2012-10-09 05:47:06Z Raymond_Benc $
  */
 class Quiz_Service_Process extends Phpfox_Service 
 {
@@ -351,7 +351,7 @@ class Quiz_Service_Process extends Phpfox_Service
 			
 			if ($sPlugin = Phpfox_Plugin::get('quiz.service_process_deleteimage_1')){eval($sPlugin);}
 			
-			if (!$isset($bSkipDefaultReturn))
+			if (!isset($bSkipDefaultReturn))
 			{
 				return $this->database()->update(Phpfox::getT('quiz'), array('image_path' => ''), 'quiz_id = ' . $iQuiz);
 			}

@@ -1,8 +1,5 @@
 <?php defined('PHPFOX') or exit('NO DICE!'); ?>
-<?php $aContent = 'if (Phpfox::getLib(\'module\')->getFullControllerName() == \'event.index\')
-{
-	Phpfox::getBlock(\'event.rsvp-entry\');
-}  if ((Phpfox::getLib(\'module\')->getFullControllerName() == \'photo.view\' && !PHPFOX_IS_AJAX) && Phpfox::isUser() && !Phpfox::isMobile())
+<?php $aContent = 'if ((Phpfox::getLib(\'module\')->getFullControllerName() == \'photo.view\' && !PHPFOX_IS_AJAX) && Phpfox::isUser() && !Phpfox::isMobile())
 {
 	if (($this->_aVars[\'aForms\'][\'user_id\'] == Phpfox::getUserId() && Phpfox::getUserParam(\'photo.can_tag_own_photo\')) || ($this->_aVars[\'aForms\'][\'user_id\'] != Phpfox::getUserId() && Phpfox::getUserParam(\'photo.can_tag_other_photos\')))
 	{

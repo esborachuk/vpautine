@@ -5,7 +5,7 @@
  * @copyright		[PHPFOX_COPYRIGHT]
  * @author  		Raymond Benc
  * @package 		Phpfox
- * @version 		$Id: display.html.php 4177 2012-05-16 11:03:45Z Miguel_Espinoza $
+ * @version 		$Id: display.html.php 4854 2012-10-09 05:20:40Z Raymond_Benc $
  */
  
 defined('PHPFOX') or exit('NO DICE!'); 
@@ -22,7 +22,7 @@ defined('PHPFOX') or exit('NO DICE!');
 		{if $aAd.type_id == 1}
 			<a href="{url link='ad' id=$aAd.ad_id}" target="_blank" class="no_ajax_link">{img file=$aAd.image_path path='ad.url_image' server_id=$aAd.server_id}</a>
 		{else}
-			{if (defined('PHPFOX_IS_AJAX_PAGE') && PHPFOX_IS_AJAX_PAGE) || $bBlockIdForAds}		
+			{if !defined('PHPFOX_IS_AD_IFRAME') && ((defined('PHPFOX_IS_AJAX_PAGE') && PHPFOX_IS_AJAX_PAGE) || $bBlockIdForAds || Phpfox::getParam('ad.ad_ajax_refresh'))}		
 			<iframe src="{url link='ad.iframe' id={$aAd.location resize=true}" allowtransparency="true" id="js_ad_space_{$aAd.location}_frame" frameborder="0" style="width:100%; height:0px;"></iframe>
 			{else}
 			{$aAd.html_code}		

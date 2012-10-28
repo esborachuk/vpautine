@@ -11,7 +11,7 @@ defined('PHPFOX') or exit('NO DICE!');
  * @copyright		[PHPFOX_COPYRIGHT]
  * @author			Raymond Benc
  * @package 		Phpfox
- * @version 		$Id: paypal.class.php 4304 2012-06-21 10:42:46Z Miguel_Espinoza $
+ * @version 		$Id: paypal.class.php 4880 2012-10-10 11:52:22Z Raymond_Benc $
  */
 class Phpfox_Gateway_Api_Paypal implements Phpfox_Gateway_Interface
 {
@@ -107,7 +107,7 @@ class Phpfox_Gateway_Api_Paypal implements Phpfox_Gateway_Interface
 		}
 		
 		$aForm = array(
-			'url' => ($this->_aParam['is_test'] ? 'https://www.sandbox.paypal.com' : 'https://www.paypal.com/cgi-bin/webscr'),
+			'url' => ($this->_aParam['is_test'] ? 'https://www.sandbox.paypal.com/cgi-bin/webscr' : 'https://www.paypal.com/cgi-bin/webscr'),
 			'param' => array(
 				'business' => $this->_aParam['setting']['paypal_email'],
 				'item_name' => $this->_aParam['item_name'],
@@ -188,8 +188,9 @@ class Phpfox_Gateway_Api_Paypal implements Phpfox_Gateway_Interface
         // Post back to PayPal system to validate
         $header = "POST /cgi-bin/webscr HTTP/1.0\r\n";
         $header .= "Content-Type: application/x-www-form-urlencoded\r\n";
+        $header .= "Host: ". ($this->_aParam['is_test'] ? 'www.sandbox.paypal.com' : 'www.paypal.com') . "\r\n";
         $header .= "Content-Length: " . strlen($req) . "\r\n\r\n";
-        $fp = fsockopen(($this->_aParam['is_test'] ? 'www.sandbox.paypal.com' : 'www.paypal.com'), 80, $error_no, $error_msg, 30);     
+        $fp = fsockopen(($this->_aParam['is_test'] ? 'ssl://www.sandbox.paypal.com' : 'www.paypal.com'), ($this->_aParam['is_test'] ? 443 : 80), $error_no, $error_msg, 30);     
         fputs($fp, $header . $req);
 
         $bVerified = false;

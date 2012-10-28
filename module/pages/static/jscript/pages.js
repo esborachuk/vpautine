@@ -1,4 +1,17 @@
-
+$Core.Pages = {
+	setAsCover : function(iPageId, iPhotoId)
+	{
+		$.ajaxCall('pages.setCoverPhoto', 'page_id=' + iPageId + '&photo_id=' + iPhotoId);
+	},
+	
+	removeCover : function(iPageId)
+	{
+		if (confirm('Are you sure?'))
+		{
+			$.ajaxCall('pages.removeCoverPhoto', 'page_id=' + iPageId);
+		}
+	}
+};
 $Behavior.pagesBuilder = function(){
 	
 	// Creating/Editing pages

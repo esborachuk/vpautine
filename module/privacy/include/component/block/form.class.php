@@ -11,7 +11,7 @@ defined('PHPFOX') or exit('NO DICE!');
  * @copyright		[PHPFOX_COPYRIGHT]
  * @author  		Raymond_Benc
  * @package 		Phpfox_Component
- * @version 		$Id: form.class.php 4205 2012-06-04 08:52:29Z Raymond_Benc $
+ * @version 		$Id: form.class.php 4854 2012-10-09 05:20:40Z Raymond_Benc $
  */
 class Privacy_Component_Block_Form extends Phpfox_Component
 {
@@ -111,7 +111,8 @@ class Privacy_Component_Block_Form extends Phpfox_Component
 				'bPrivacyNoCustom' => (bool) $this->getParam('privacy_no_custom', false),
 				'aPrivacyControls' => $aPrivacyControls,
 				'aSelectedPrivacyControl' => $aSelectedPrivacyControl,
-				'sPrivacyArray' => $this->getParam('privacy_array', null)
+				'sPrivacyArray' => $this->getParam('privacy_array', null),
+				'bNoActive' => $bNoActive
 			)
 		);	
 	}

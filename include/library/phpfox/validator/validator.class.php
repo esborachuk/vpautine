@@ -13,7 +13,7 @@ defined('PHPFOX') or exit('NO DICE!');
  * @copyright		[PHPFOX_COPYRIGHT]
  * @author			Raymond Benc
  * @package 		Phpfox
- * @version 		$Id: validator.class.php 4225 2012-06-07 13:27:24Z Miguel_Espinoza $
+ * @version 		$Id: validator.class.php 4604 2012-08-20 11:17:10Z Miguel_Espinoza $
  */
 final class Phpfox_Validator
 {	
@@ -491,6 +491,46 @@ final class Phpfox_Validator
 	}
 	
 	/**
+	* This implements checks for Input fields
+	*/
+	public function setAction($sAction)
+	{
+		if (!Phpfox::isModule('input'))
+		{
+			return false;
+		}
+		
+		list($sModule, $sAction) = explode('.', $sAction);
+		if (Phpfox::isModule($sModule) && Phpfox::hasCallback($sModule, 'getEnabledInputField'))
+		{
+			$aInputs = Phpfox::callback($sModule.'.getEnabledInputField');
+			$aActions = array();
+			foreach ($aInputs as $aInput)
+			{
+				$aActions[] = $aInput['action'];
+			}
+			if (!empty($aActions))
+			{
+				// get required fields (we can cache this)
+				$aRequired = Phpfox::getLib('database')->select('i.field_id, i.phrase_var, ifc.table_name, ifc.column_name, ifc.operand, ifc.full_value')
+					->from(Phpfox::getT('input_field'), 'i')
+					->leftjoin(Phpfox::getT('input_field_condition'), 'ifc', 'ifc.field_id = i.field_id')
+					->where('module_id = "'.$sModule .'" AND action IN ("'. implode('","',$aActions).'") AND is_required = 1')
+					->execute('getSlaveRows');					
+				$oInput = Phpfox::getService('input');
+				foreach ($aRequired as $aInput)
+				{
+					if ($oInput->canEnterInfo($aInput))
+					{
+						$this->aFields['input_' . $aInput['field_id']] = array(
+							'title' => 'Please provide a value for ' . Phpfox::getPhrase($aInput['phrase_var']), 
+							'def' => 'required');
+					}
+				}
+			}
+		}
+	}
+	/**
 	 * Create the JS form onsubmit=""
 	 *
 	 * @param bool $bReturn TRUE to include the "return" in the JavaScript code.
@@ -628,10 +668,14 @@ final class Phpfox_Validator
 		 	 			{
 		 	 				Phpfox_Error::set($aFieldValue['title']);
 		 	 			}
-		 	 			elseif (Phpfox::getLib('parse.format')->isEmpty($sValue))
+		 	 			elseif (is_string($sValue) && Phpfox::getLib('parse.format')->isEmpty($sValue))
 		 	 			{		 	 						 	 				
 		 	 				Phpfox_Error::set($aFieldValue['title']);
-		 	 			}		 			
+		 	 			}
+						else if (is_array($sValue) && empty($sValue))
+						{
+							Phpfox_Error::set($aFieldValue['title']);
+						}
 		 	 		}
 		 	 		else
 		 	 		{

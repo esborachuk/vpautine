@@ -11,7 +11,7 @@ defined('PHPFOX') or exit('NO DICE!');
  * @copyright		[PHPFOX_COPYRIGHT]
  * @author  		Raymond Benc
  * @package  		Module_Search
- * @version 		$Id: search.class.php 2692 2011-06-27 19:13:17Z Raymond_Benc $
+ * @version 		$Id: search.class.php 4705 2012-09-20 14:25:01Z Miguel_Espinoza $
  */
 class Search_Service_Search extends Phpfox_Service 
 {
@@ -49,6 +49,39 @@ class Search_Service_Search extends Phpfox_Service
 			$aResults[] = array_merge($aRow, (array) Phpfox::callback($aRow['item_type_id'] . '.getSearchInfo', $aRow));
 		}
 		
+		if (Phpfox::getParam('core.section_privacy_item_browsing') && !empty($aResults))
+		{
+			// Check for special filters
+			$aToParse = array();
+			// Group results by their module
+			foreach ($aResults as $aResult)
+			{
+				$aToParse[$aResult['item_type_id']][] = $aResult['item_id'];
+			}
+
+
+			foreach ($aToParse as $sModule => $aItems)
+			{
+				if (Phpfox::hasCallback($sModule, 'filterSearchResults'))
+				{
+					$aNotAllowed = Phpfox::callback($sModule . '.filterSearchResults', $aItems);
+
+					if (!empty($aNotAllowed))
+					{
+						foreach ($aNotAllowed as $aItem)
+						{
+							foreach ($aResults as $iKey => $aResult)
+							{
+								if ($aResult['item_type_id'] == $aItem['item_type_id'] && $aResult['item_id'] == $aItem['item_id'])
+								{
+									unset($aResults[$iKey]);
+								} 
+							}
+						}
+					}
+				}
+			}
+		}
 		return $aResults;
 	}
 	

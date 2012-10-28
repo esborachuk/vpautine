@@ -11,7 +11,7 @@ defined('PHPFOX') or exit('NO DICE!');
  * @copyright		[PHPFOX_COPYRIGHT]
  * @author  		Raymond Benc
  * @package 		Phpfox_Service
- * @version 		$Id: custom.class.php 4546 2012-07-20 10:51:18Z Miguel_Espinoza $
+ * @version 		$Id: custom.class.php 4730 2012-09-24 07:13:57Z Raymond_Benc $
  */
 class Custom_Service_Custom extends Phpfox_Service
 {
@@ -308,7 +308,7 @@ class Custom_Service_Custom extends Phpfox_Service
 			}
 			else
 			{
-				$aConds[] = 'ucv.cf_' . $aFields[$iKey]['field_name'] . ' LIKE \'%' . $this->database()->escape($mValue) . '%\'';
+				$aConds[] = 'ucv.cf_' . $aFields[$iKey]['field_name'] . ' LIKE \'%' . $this->database()->escape($mValue) . '%\' AND ucv.user_id = u.user_id';
 			}
 		}
 		

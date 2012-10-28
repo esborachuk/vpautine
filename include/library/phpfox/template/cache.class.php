@@ -15,7 +15,7 @@ defined('PHPFOX') or exit('NO DICE!');
  * @author			Raymond Benc
  * @package 		Phpfox
  * @subpackage 		Template
- * @version 		$Id: cache.class.php 4448 2012-07-02 12:59:29Z Miguel_Espinoza $
+ * @version 		$Id: cache.class.php 4899 2012-10-16 09:02:56Z Raymond_Benc $
  */
 class Phpfox_Template_Cache extends Phpfox_Template
 {
@@ -96,6 +96,8 @@ class Phpfox_Template_Cache extends Phpfox_Template
 	 */	
 	private $_sFuncRegexp = '[a-zA-Z_]+';
 
+	private $_sCurrentFile = '';
+	
 	/**
 	 * Class constructor. Build all the regex we will be using
 	 * with this class.
@@ -145,6 +147,8 @@ class Phpfox_Template_Cache extends Phpfox_Template
 					->execute('getSlaveRow');				
 			}
 		}
+		
+		$this->_sCurrentFile = $sName;
 
 		$sData = $this->_parse((isset($aTemplate['html_data']) ? $aTemplate['html_data'] : $sData), $bRemoveHeader);
 
@@ -178,6 +182,14 @@ class Phpfox_Template_Cache extends Phpfox_Template
 		$sContent = preg_replace("/defined\('PHPFOX'\) or exit\('NO DICE!'\);/is", "", $sContent);
 		$sContent = "<?php defined('PHPFOX') or exit('NO DICE!'); ?>\n" . $sContent;
 
+		if (defined('PHPFOX_IS_HOSTED_SCRIPT'))
+		{
+			$oCache = Phpfox::getLib('cache');
+			$sId = $oCache->set(md5($sName));
+			$oCache->save($sId, $sContent);
+			
+			return;
+		}
 		if ($rFile = @fopen($sName, 'w+'))
 		{
 			fwrite($rFile, $sContent);
@@ -405,8 +417,15 @@ class Phpfox_Template_Cache extends Phpfox_Template
 				return $this->sRightDelim;
 				break;
 			case 'php':
-				list (,$sPhpBlock) = each($this->_aPhpBlocks);
-				return '<?php ' . $sPhpBlock . ' ?>';
+				if (!Phpfox::getParam('core.is_auto_hosted'))
+				{
+					list (,$sPhpBlock) = each($this->_aPhpBlocks);
+					return '<?php ' . $sPhpBlock . ' ?>';
+				}
+				else
+				{
+					return '';
+				}
 				break;
 			case 'for':
 				$sArguments = preg_replace("/\\$([A-Za-z0-9]+)/ise", "'' . \$this->_parseVariable('\$$1') . ''", $sArguments);
@@ -810,6 +829,12 @@ class Phpfox_Template_Cache extends Phpfox_Template
 			case 'value':
 				$aArgs = $this->_parseArgs($sArguments);
 				$aArgs = array_map(array($this, '_removeQuote'), $aArgs);
+				// Accept variables in ids
+				if (substr($aArgs['id'], 0, 14) == '$this->_aVars[')
+				{
+					$aArgs['id'] = '\'.' . $aArgs['id'] .'.\'';
+				}
+				
 				switch($aArgs['type'])
 				{
 					case 'input':
@@ -1749,13 +1774,17 @@ class Phpfox_Template_Cache extends Phpfox_Template
 	 */
 	private function _compileIf($sArguments, $bElseif = false, $bWhile = false)
 	{
+		$aAllowed = array(
+			'defined', 'is_array', 'isset', 'empty', 'count', '=', 'PHPFOX_IS_AJAX_PAGE', 'PHPFOX_IS_USER_PROFILE', 'PHPFOX_IS_PAGES_VIEW'
+		);
+		
 		$sResult = "";
 		$aArgs = array();
 		$aArgStack	= array();
 
 		preg_match_all('/(?>(' . $this->_sVarRegexp . '|\/?' . $this->_sSvarRegexp . '|\/?' . $this->_sFuncRegexp . ')(?:' . $this->_sModRegexp . '*)?|\-?0[xX][0-9a-fA-F]+|\-?\d+(?:\.\d+)?|\.\d+|!==|===|==|!=|<>|<<|>>|<=|>=|\&\&|\|\||\(|\)|,|\!|\^|=|\&|\~|<|>|\%|\+|\-|\/|\*|\@|\b\w+\b|\S+)/x', $sArguments, $aMatches);
 		$aArgs = $aMatches[0];
-
+		
 		$iCountArgs = count($aArgs);
 		for ($i = 0, $iForMax = $iCountArgs; $i < $iForMax; $i++)
 		{
@@ -1838,11 +1867,26 @@ class Phpfox_Template_Cache extends Phpfox_Template
 					{
 						$sArg = $this->_parseVariables(array($aMatches[1]), array($aMatches[2]));
 					}
+					
+					if (!defined('PHPFOX_INSTALLER') && Phpfox::getParam('core.is_auto_hosted') && preg_match('/frontend_([a-zA-Z0-9]+)_template/i', $this->_sCurrentFile))
+					{
+						if (strtolower($sArg) != 'phpfox' 
+								&& !in_array(trim($sArg, "'"), $aAllowed)
+								&& substr($sArg, 0, 2) != '::'
+								&& substr($sArg, 0, 5) != '$this'								
+							)
+						{
+							if (function_exists($sArg))
+							{
+								$sArg = '';
+							}
+						}
+					}
 
 					break;
 			}
 		}
-
+		
 		if($bWhile)
 		{
 			return implode(' ', $aArgs);

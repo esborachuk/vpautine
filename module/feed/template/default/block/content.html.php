@@ -5,7 +5,7 @@
  * @copyright		[PHPFOX_COPYRIGHT]
  * @author  		Raymond Benc
  * @package  		Module_Feed
- * @version 		$Id: content.html.php 4545 2012-07-20 10:40:35Z Raymond_Benc $
+ * @version 		$Id: content.html.php 4746 2012-09-25 05:12:47Z Raymond_Benc $
  */
  
 defined('PHPFOX') or exit('NO DICE!'); 
@@ -56,7 +56,7 @@ defined('PHPFOX') or exit('NO DICE!');
 						</ul>
 						<div class="clear"></div>
 					{else}
-						<a href="{$aFeed.feed_link}"{if !isset($aFeed.no_target_blank)} target="_blank"{/if} class="{if isset($aFeed.custom_css)} {$aFeed.custom_css} {/if}{if !empty($aFeed.feed_image_onclick)}{if !isset($aFeed.feed_image_onclick_no_image)}play_link {/if} no_ajax_link{/if}"{if !empty($aFeed.feed_image_onclick)} onclick="{$aFeed.feed_image_onclick}"{/if}{if !empty($aFeed.custom_rel)} rel="{$aFeed.custom_rel}"{/if}{if isset($aFeed.custom_js)} {$aFeed.custom_js} {/if}>{if !empty($aFeed.feed_image_onclick)}{if !isset($aFeed.feed_image_onclick_no_image)}<span class="play_link_img">{phrase var='feed.play'}</span>{/if}{/if}{$aFeed.feed_image}</a>						
+						<a href="{$aFeed.feed_link}"{if !isset($aFeed.no_target_blank)} target="_blank"{/if} class="{if isset($aFeed.custom_css)} {$aFeed.custom_css} {/if}{if !empty($aFeed.feed_image_onclick)}{if !isset($aFeed.feed_image_onclick_no_image)}play_link {/if} no_ajax_link{/if}"{if !empty($aFeed.feed_image_onclick)} onclick="{$aFeed.feed_image_onclick}"{/if}{if !empty($aFeed.custom_rel)} rel="{$aFeed.custom_rel}"{/if}{if isset($aFeed.custom_js)} {$aFeed.custom_js} {/if}{if Phpfox::getParam('core.no_follow_on_external_links')} rel="nofollow"{/if}>{if !empty($aFeed.feed_image_onclick)}{if !isset($aFeed.feed_image_onclick_no_image)}<span class="play_link_img">{phrase var='feed.play'}</span>{/if}{/if}{$aFeed.feed_image}</a>						
 					{/if}
 				</div>
 				{/if}
@@ -65,13 +65,13 @@ defined('PHPFOX') or exit('NO DICE!');
 					{if isset($aFeed.feed_title_sub)}
 					<span class="user_profile_link_span" id="js_user_name_link_{$aFeed.feed_title_sub|clean}">
 					{/if}
-					<a href="{$aFeed.feed_link}" class="activity_feed_content_link_title"{if isset($aFeed.feed_title_extra_link)} target="_blank"{/if}>{$aFeed.feed_title|clean|split:30}</a>
+					<a href="{$aFeed.feed_link}" class="activity_feed_content_link_title"{if isset($aFeed.feed_title_extra_link)} target="_blank"{/if}{if Phpfox::getParam('core.no_follow_on_external_links')} rel="nofollow"{/if}>{$aFeed.feed_title|clean|split:30}</a>
 					{if isset($aFeed.feed_title_sub)}
 					</span>
 					{/if}
 					{if !empty($aFeed.feed_title_extra)}
 					<div class="activity_feed_content_link_title_link">
-						<a href="{$aFeed.feed_title_extra_link}" target="_blank">{$aFeed.feed_title_extra|clean}</a>
+						<a href="{$aFeed.feed_title_extra_link}" target="_blank"{if Phpfox::getParam('core.no_follow_on_external_links')} rel="nofollow"{/if}>{$aFeed.feed_title_extra|clean}</a>
 					</div>
 					{/if}
 					{/if}			

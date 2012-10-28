@@ -11,7 +11,7 @@ defined('PHPFOX') or exit('NO DICE!');
  * @copyright		[PHPFOX_COPYRIGHT]
  * @author  		Raymond Benc
  * @package 		Phpfox_Service
- * @version 		$Id: style.class.php 3992 2012-03-12 13:40:21Z Raymond_Benc $
+ * @version 		$Id: style.class.php 4859 2012-10-09 07:17:21Z Raymond_Benc $
  */
 class Theme_Service_Style_Style extends Phpfox_Service 
 {
@@ -629,6 +629,12 @@ class Theme_Service_Style_Style extends Phpfox_Service
             {
                 Phpfox::getLib('file')->write($sThemePath . 'php' . PHPFOX_DS . 'header.php', file_get_contents($sPhpHeaderFile));
             }
+            
+            $sSamplePngFile = PHPFOX_DIR_THEME . 'frontend' . PHPFOX_DS . $aStyle['theme_folder'] . PHPFOX_DS . 'style' . PHPFOX_DS . $aStyle['folder'] . PHPFOX_DS . 'sample.png';
+            if (file_exists($sSamplePngFile))
+            {
+            	Phpfox::getLib('file')->write($sThemePath . 'sample.png', file_get_contents($sSamplePngFile));
+            }            
 					
 			if ($bMultiple === false)
 			{

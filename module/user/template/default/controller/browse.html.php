@@ -5,7 +5,7 @@
  * @copyright		[PHPFOX_COPYRIGHT]
  * @author  		Raymond Benc
  * @package  		Module_User
- * @version 		$Id: browse.html.php 4361 2012-06-26 14:01:00Z Raymond_Benc $
+ * @version 		$Id: browse.html.php 4756 2012-09-25 08:01:54Z Miguel_Espinoza $
  * {* *}
  */
 
@@ -317,11 +317,11 @@ defined('PHPFOX') or exit('NO DICE!');
 				{/if}</a>
 			</div>
 			{/if}
-			{if Phpfox::isUser() && Phpfox::isModule('friend') && !$aUser.is_friend && Phpfox::getUserId() != $aUser.user_id}
-			<div class="user_browse_add_friend">
-				{img theme='misc/friend_added.png' class='v_middle'} <a href="#" onclick="return $Core.addAsFriend('{$aUser.user_id}');">{phrase var='user.add_friend'}</a>
-			</div>
-			{/if}
+				{if Phpfox::isUser() && Phpfox::isModule('friend') && !$aUser.is_friend && Phpfox::getUserId() != $aUser.user_id && (!isset($aUser.user_is_blocked) )}
+					<div class="user_browse_add_friend">
+						{img theme='misc/friend_added.png' class='v_middle'} <a href="#" onclick="return $Core.addAsFriend('{$aUser.user_id}');">{phrase var='user.add_friend'}</a>
+					</div>
+				{/if}
 			{/if}				
 		</div>		
 		<div class="user_browse_image">
@@ -339,7 +339,7 @@ defined('PHPFOX') or exit('NO DICE!');
 			<div class="user_browse_mutual_friend">
 				<a href="#" onclick="$Core.box('friend.getMutualFriends', 300, 'user_id={$aUser.user_id}'); return false;">{if $aUser.mutual_friends == 1}
 				{phrase var='user.1_mutual_friend'}
-				{else}
+				  {else}
 				{phrase var='user.total_mutual_friends' total=$aUser.mutual_friends}
 				{/if}</a>
 			</div>

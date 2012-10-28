@@ -11,7 +11,7 @@ defined('PHPFOX') or exit('NO DICE!');
  * @copyright		[PHPFOX_COPYRIGHT]
  * @author  		Raymond Benc
  * @package  		Module_Shoutbox
- * @version 		$Id: callback.class.php 3416 2011-11-02 10:18:43Z Raymond_Benc $
+ * @version 		$Id: callback.class.php 4858 2012-10-09 06:56:45Z Raymond_Benc $
  */
 class Shoutbox_Service_Callback extends Phpfox_Service 
 {
@@ -22,6 +22,15 @@ class Shoutbox_Service_Callback extends Phpfox_Service
 	{	
 		
 	}
+	
+	public function getPagePerms()
+	{
+		$aPerms = array();
+	
+		$aPerms['shoutbox.view_post_shoutbox'] = Phpfox::getPhrase('shoutbox.can_view_post_in_shoutbox');
+	
+		return $aPerms;
+	}	
 	
 	public function getBlockDetailsDisplay()
 	{

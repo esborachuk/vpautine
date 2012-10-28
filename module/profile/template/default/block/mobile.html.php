@@ -5,7 +5,7 @@
  * @copyright		[PHPFOX_COPYRIGHT]
  * @author  		Raymond_Benc
  * @package 		Phpfox
- * @version 		$Id: mobile.html.php 3335 2011-10-20 17:26:57Z Raymond_Benc $
+ * @version 		$Id: mobile.html.php 4854 2012-10-09 05:20:40Z Raymond_Benc $
  */
  
 defined('PHPFOX') or exit('NO DICE!'); 
@@ -13,6 +13,9 @@ defined('PHPFOX') or exit('NO DICE!');
 ?>
 <div id="mobile_profile_header">
 	<div id="mobile_profile_photo">
+	
+		{if $aUser.is_online}<span class="profile_online_status">({phrase var='profile.online'})</span>{/if}
+	
 		<div id="mobile_profile_photo_image">
 			{$sProfileImage}
 		</div>

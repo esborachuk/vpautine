@@ -11,7 +11,7 @@ defined('PHPFOX') or exit('NO DICE!');
  * @copyright		[PHPFOX_COPYRIGHT]
  * @author  		Raymond Benc
  * @package  		Module_Mail
- * @version 		$Id: compose.class.php 4336 2012-06-25 14:52:38Z Raymond_Benc $
+ * @version 		$Id: compose.class.php 4631 2012-09-13 11:59:05Z Raymond_Benc $
  */
 class Mail_Component_Controller_Compose extends Phpfox_Component
 {
@@ -21,11 +21,15 @@ class Mail_Component_Controller_Compose extends Phpfox_Component
 	{			
 		Phpfox::isUser(true);		
 		Phpfox::getUserParam('mail.can_compose_message', true);		
+		$bClaiming = ($this->getParam('page_id') != false);
 		
 		if (Phpfox::getParam('mail.spam_check_messages') && Phpfox::isSpammer())
 		{			
 			return Phpfox_Error::display(Phpfox::getPhrase('mail.currently_your_account_is_marked_as_a_spammer'));
 		}
+		
+		$aVals = $this->request()->getArray('val');
+		$bIsSending = isset($aVals['sending_message']);
 		
 		$aUser = array();
 		if (($iUserId = $this->request()->get('id')) || ($iUserId = $this->getParam('id')))
@@ -33,12 +37,22 @@ class Mail_Component_Controller_Compose extends Phpfox_Component
 			$aUser = Phpfox::getService('user')->getUser($iUserId, Phpfox::getUserField());			
 			if (isset($aUser['user_id']))
 			{
-				if (Phpfox::getService('mail')->canMessageUser($aUser['user_id']) == false)
+				
+				if ($bClaiming == false && $bIsSending != true && Phpfox::getService('mail')->canMessageUser($aUser['user_id']) == false)
 				{
 					return Phpfox_Error::display(Phpfox::getPhrase('mail.unable_to_send_a_private_message_to_this_user_at_the_moment'));
 				}
 				
 				$this->template()->assign('aUser', $aUser);
+				if ($bClaiming)
+				{
+					$aPage = Phpfox::getService('pages')->getPage($this->getParam('page_id'));					
+					$this->template()->assign(array(
+						'iPageId' => $this->getParam('page_id'),
+						'aPage' => $aPage,
+						'sMessageClaim' => 'Hello, I hereby claim the page "'. $aPage['title'] . '" (url: '. Phpfox::permalink('pages', $aPage['page_id'], $aPage['title']) .') as my own and request your attention to the matter. I am able to provide any documentation that you may require.'
+					));
+				}
 			}
 			
 			(($sPlugin = Phpfox_Plugin::get('mail.component_controller_compose_controller_to')) ? eval($sPlugin) : false);
@@ -113,8 +127,17 @@ class Mail_Component_Controller_Compose extends Phpfox_Component
 				
 				if (Phpfox_Error::isPassed())
 				{
+					if ($bClaiming)
+					{
+						$aVals['claim_page'] = true;
+					}
 					if (($aIds = Phpfox::getService('mail.process')->add($aVals)))
 					{
+						if (isset($aVals['page_id']) && !empty($aVals['page_id']))
+						{
+							Phpfox::getLib('database')->insert(Phpfox::getT('pages_claim'),array('status_id' => '1', 'page_id' => ((int)$aVals['page_id']), 'user_id' => Phpfox::getUserId(), 'time_stamp' => PHPFOX_TIME ));
+						}
+						
 						if (PHPFOX_IS_AJAX)
 						{
 							$this->_bReturn = true;

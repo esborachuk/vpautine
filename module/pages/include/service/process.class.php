@@ -11,7 +11,7 @@ defined('PHPFOX') or exit('NO DICE!');
  * @copyright		[PHPFOX_COPYRIGHT]
  * @author  		Raymond_Benc
  * @package 		Phpfox_Service
- * @version 		$Id: process.class.php 4512 2012-07-16 13:01:22Z Miguel_Espinoza $
+ * @version 		$Id: process.class.php 4786 2012-09-27 10:40:14Z Miguel_Espinoza $
  */
 class Pages_Service_Process extends Phpfox_Service 
 {
@@ -57,6 +57,9 @@ class Pages_Service_Process extends Phpfox_Service
 	
 	public function addWidget($aVals, $iEditId = null)
 	{
+		$bHasImage = false;
+		$oImage = Phpfox::getLib('image');
+		$oFile = Phpfox::getLib('file');		
 		$aPage = Phpfox::getService('pages')->getPage($aVals['page_id']);
 		
 		if (!isset($aPage['page_id']))
@@ -66,7 +69,10 @@ class Pages_Service_Process extends Phpfox_Service
 		
 		if (!Phpfox::getService('pages')->isAdmin($aPage))
 		{
-			return Phpfox_Error::set(Phpfox::getPhrase('pages.unable_to_add_a_widget_to_this_page'));
+			if (!Phpfox::getUserParam('pages.can_moderate_pages'))
+			{
+				return Phpfox_Error::set(Phpfox::getPhrase('pages.unable_to_add_a_widget_to_this_page'));
+			}
 		}
 		
 		if (empty($aVals['title']))
@@ -96,6 +102,17 @@ class Pages_Service_Process extends Phpfox_Service
 		{
 			return Phpfox_Error::set(Phpfox::getPhrase('pages.you_cannot_use_this_url_for_your_widget'));
 		}
+		
+		// upload the image uploaded if allowed
+		if (isset($_FILES['image']['name']) && ($_FILES['image']['name'] != ''))
+		{
+			$aImage = $oFile->load('image', array('jpg','gif','png'));
+			if ($aImage === false)
+			{
+				return false;
+			}
+			$bHasImage = true;
+		}		
 		
 		$oFilter = Phpfox::getLib('parse.input');
 		
@@ -128,6 +145,11 @@ class Pages_Service_Process extends Phpfox_Service
 		}
 		else
 		{
+			$aWidget = $this->database()->select('*')
+				->from(Phpfox::getT('pages_widget'))
+				->where('widget_id = ' . (int) $iEditId)
+				->execute('getSlaveRow');
+			
 			$this->database()->update(Phpfox::getT('pages_widget'), $aSql, 'widget_id = ' . (int) $iEditId);
 			$this->database()->update(Phpfox::getT('pages_widget_text'), array(
 					'text' => $oFilter->clean($aVals['text']),
@@ -136,7 +158,26 @@ class Pages_Service_Process extends Phpfox_Service
 			);			
 			
 			$iId = $iEditId;
+			
+			if ($bHasImage && file_exists(Phpfox::getParam('pages.dir_image') . sprintf($aWidget['image_path'], '_16')))
+			{
+				Phpfox::getLib('file')->unlink(Phpfox::getParam('pages.dir_image') . sprintf($aWidget['image_path'], '_16'));
+			}
 		}
+		
+		if ($bHasImage)
+		{
+			$iSize = 16;
+			$sFileName = $oFile->upload('image', Phpfox::getParam('pages.dir_image'), $iId);
+			
+			$this->database()->update(Phpfox::getT('pages_widget'), array('image_path' => $sFileName), 'widget_id = ' . $iId);			
+			
+			$oImage->createThumbnail(Phpfox::getParam('pages.dir_image') . sprintf($sFileName, ''), Phpfox::getParam('pages.dir_image') . sprintf($sFileName, '_' . $iSize), $iSize, $iSize);
+			
+			Phpfox::getLib('file')->unlink(Phpfox::getParam('pages.dir_image') . sprintf($sFileName, ''));			
+			
+			$this->database()->update(Phpfox::getT('pages_widget'), array('image_server_id' => Phpfox::getLib('request')->getServer('PHPFOX_SERVER_ID')), 'widget_id = ' . (int) $iId);
+		}		
 		
 		return $iId;
 	}
@@ -237,12 +278,12 @@ class Pages_Service_Process extends Phpfox_Service
 		}
 			
 		if ($sPlugin = Phpfox_Plugin::get('pages.service_process_add_1')){eval($sPlugin);}
-		
+		/*
 		if (!defined('PHPFOX_APP_CREATED') && empty($aVals['category_id']))
 		{
 			return Phpfox_Error::set(Phpfox::getPhrase('pages.please_select_a_category'));
 		}
-				
+		*/	
 		$aInsert = array(
 			'view_id' => $iViewId,
 			'type_id' => (isset($aVals['type_id']) ? (int) $aVals['type_id'] : 0),
@@ -299,6 +340,8 @@ class Pages_Service_Process extends Phpfox_Service
 		{
 			Phpfox::getService('user.activity')->update(Phpfox::getUserId(), 'pages');
 		}
+		
+		Phpfox::getService('like.process')->add('pages', $iId);
 		
 		return $iId;
 	}
@@ -489,7 +532,7 @@ class Pages_Service_Process extends Phpfox_Service
 				{
 					$iFileSizes += filesize($sImage);
 					
-					@unlink($sImage);
+					Phpfox::getLib('file')->unlink($sImage);
 				}
 			}
 			
@@ -774,6 +817,125 @@ class Pages_Service_Process extends Phpfox_Service
 			->message(array('pages.your_page_title_has_been_approved', array('title' => $aPage['title'], 'link' => $sLink)))
 			->send();		
 		
+		return true;
+	}
+	
+	/* Claim status:
+			1: Not defined
+			2: Approved
+			3: Denied
+	*/
+	public function approveClaim($iClaimId)
+	{
+		// get the claim
+		$aClaim = $this->database()->select('*')
+			->from(Phpfox::getT('pages_claim'))
+			->where('claim_id = ' . (int)$iClaimId . ' AND status_id = 1')
+			->execute('getSlaveRow');
+		
+		if (empty($aClaim))
+		{
+			return Phpfox_Error::set('Not a valid claim');
+		}
+		
+		// set the user_id to the page
+		$this->database()->update(Phpfox::getT('pages'), array('user_id' => $aClaim['user_id']), 'page_id = ' . $aClaim['page_id']);
+		$this->database()->update(Phpfox::getT('pages_claim'), array('status_id' => 2), 'claim_id = ' . (int)$iClaimId);
+		
+		return true;
+	}
+	
+	public function denyClaim($iClaimId)
+	{
+		// get the claim
+		$aClaim = $this->database()->select('*')
+			->from(Phpfox::getT('pages_claim'))
+			->where('claim_id = ' . (int)$iClaimId . ' AND status_id = 1')
+			->execute('getSlaveRow');
+		
+		if (empty($aClaim))
+		{
+			return Phpfox_Error::set('Not a valid claim');
+		}
+		
+		// set the user_id to the page
+		$this->database()->update(Phpfox::getT('pages_claim'), array('status_id' => 3), 'claim_id = ' . (int)$iClaimId);
+		
+		return true;
+	}
+	
+	/**
+	* param $bAjaxPageUpload 
+	*/
+	public function setCoverPhoto ($iPageId, $iPhotoId, $bIsAjaxPageUpload = false)
+	{
+		/*if (!Phpfox::isAdmin())
+		{
+			$aIsAdmin = $this->database()->select('p.user_id, pa.user_id as admin_user_id')
+				->from(Phpfox::getT('pages'), 'p')
+				->leftJoin(Phpfox::getT('pages_admin'), 'pa', 'pa.page_id = p.page_id AND pa.user_id = ' . Phpfox::getUserId())				
+				->where('p.page_id = ' . (int)$iPageId . ' AND p.user_id = ' . Phpfox::getUserId())
+				->execute('getSlaveRow');
+			d($aIsAdmin, true);
+			if ( (!isset($aIsAdmin['user_id']) || empty($aIsAdmin['user_id'])) && 
+				(!isset($aIsAdmin['admin_user_id']) || empty($aIsAdmin['admin_user_id']))
+			)
+			{
+				return Phpfox_Error::set('User is not an admin: ' . print_r($aIsAdmin, true));
+			}
+		}*/
+		if (!Phpfox::getService('pages')->isAdmin($iPageId) && !Phpfox::isAdmin())
+		{
+			return Phpfox_Error::set('User is not an sasadmin');
+		}
+		
+		if ($bIsAjaxPageUpload == false)
+		{
+			// check that this photo belongs to this page
+			$iPhotoId = $this->database()->select('photo_id')
+				->from(Phpfox::getT('photo'))
+				->where('module_id = "pages" AND group_id = '. (int)$iPageId . ' AND photo_id = ' . (int)$iPhotoId)
+				->execute('getSlaveField');
+		}		
+		
+		if (!empty($iPhotoId))
+		{
+			$this->database()->update(Phpfox::getT('pages'), array('cover_photo_position' => '', 'cover_photo_id' => (int)$iPhotoId), 'page_id = ' . (int)$iPageId);
+			return true;
+		}
+		
+		return Phpfox_Error::set('The photo does not belong to this page');
+	}
+	
+	public function updateCoverPosition($iPageId, $iPosition)
+	{
+		if (!Phpfox::getService('pages')->isAdmin($iPageId) && !Phpfox::isAdmin())
+		{
+			return Phpfox_Error::set('User is not an admin');
+		}
+		$this->database()->update(Phpfox::getT('pages'), array(
+				'cover_photo_position' => (int)$iPosition
+			), 'page_id = ' . (int)$iPageId);
+			
+		return true;
+	}
+	
+	public function removeCoverPhoto($iPageId)
+	{
+		if (!Phpfox::isAdmin())
+		{
+			$bIsAdmin = $this->database()->select('user_id')
+				->from(Phpfox::getT('pages_admin'))
+				->where('page_id = ' . (int)$iPageId . ' AND user_id = ' . Phpfox::getUserId())
+				->execute('getSlaveField');
+				
+			if (empty($bIsAdmin))
+			{
+				return Phpfox_Error::set('User is not an admin');
+			}
+		}
+		
+		$this->database()->update(Phpfox::getT('pages'), array('cover_photo_id' => '', 'cover_photo_position' => ''), 'page_id = ' . (int)$iPageId);
 		return true;
 	}
 	

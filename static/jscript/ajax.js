@@ -44,6 +44,19 @@ $.fn.ajaxCall = function(sCall, sExtra, bNoForm, sType)
 	{
 		sType = 'POST';
 	}
+	
+	switch (sCall){
+		case 'share.friend':
+		case 'share.email':
+		case 'share.bookmark':
+		case 'share.post':
+			sType = 'POST';
+			break;
+		default:
+			
+			break;
+	}	
+	
 	var sUrl = getParam('sJsAjax');
 	
 	if (typeof oParams['im_server'] != 'undefined' && sCall.indexOf('im.') > (-1))

@@ -181,7 +181,7 @@ class Video_Service_Convert extends Phpfox_Service
 				{				
 					if (file_exists($sDestination))
 					{
-						unlink($sDestination);
+						Phpfox::getLib('file')->unlink($sDestination);
 					}
 					$sMencoderParams = str_replace($aFind, $aReplace, Phpfox::getParam('video.params_for_mencoder'));
 					$this->_exec($this->_sMencoder . ' ' . $sMencoderParams);
@@ -191,7 +191,7 @@ class Video_Service_Convert extends Phpfox_Service
 				{
 					if (file_exists($sDestination))
 					{
-						unlink($sDestination);
+						Phpfox::getLib('file')->unlink($sDestination);
 					}				
 					
 					$this->_exec($this->_sMencoder . ' ' . str_replace($aFind, $aReplace, Phpfox::getParam('video.params_for_mencoder_fallback')));
@@ -271,7 +271,7 @@ class Video_Service_Convert extends Phpfox_Service
 			
 			if ($aVideo['file_ext'] != 'flv' && substr($sSource, 0, 4) != 'http')			
 			{
-				@unlink($sSource);
+				Phpfox::getLib('file')->unlink($sSource);
 			
 				$this->_debug(Phpfox::getPhrase('video.removed_source_file'));
 			}			
@@ -312,7 +312,7 @@ class Video_Service_Convert extends Phpfox_Service
     		Phpfox::getLib('image')->createThumbnail(sprintf($sImageLocation, ''), sprintf($sImageLocation, '_120'), 120, 120);
 			Phpfox::getLib('image')->createThumbnail(sprintf($sImageLocation, ''), sprintf($sImageLocation, '_12090'), 120, 90, false);
     		
-    		@unlink(sprintf($sImageLocation, ''));    		    		
+    		Phpfox::getLib('file')->unlink(sprintf($sImageLocation, ''));    		    		
 
 			// 'Completed: ' . $sDestination
 			$this->_debug(Phpfox::getPhrase('video.completed_sdestination', array('sDestination' => $sDestination)));

@@ -135,16 +135,18 @@ class Phpfox_Ftp
 		if (preg_match('/^(.*?)\.(gif|jpg|jpeg|png)$/i', $sNew))
 		{
 			$cType = FTP_BINARY;
-		}
+		}		
 		
-		if (!ftp_put($this->_oFtp, str_replace(PHPFOX_DIR, Phpfox::getParam('core.ftp_dir_path'), $sNew), str_replace(PHPFOX_DIR, Phpfox::getParam('core.ftp_dir_path'), $sOld), $cType))
+		$sNew = ltrim(str_replace(PHPFOX_DIR, Phpfox::getParam('core.ftp_dir_path'), $sNew), '/upload');
+
+		if (!ftp_put($this->_oFtp, $sNew, $sOld, $cType))
 		{
 			return Phpfox_Error::trigger('Unable to move file ' . str_replace(PHPFOX_DIR, Phpfox::getParam('core.ftp_dir_path'), $sNew) . ' to ' . str_replace(PHPFOX_DIR, Phpfox::getParam('core.ftp_dir_path'), $sOld) . '.', E_USER_ERROR);
 		}
 		
 		if (strtolower(PHP_OS) == 'linux')
 		{
-			ftp_chmod($this->_oFtp, 0644, str_replace(PHPFOX_DIR, Phpfox::getParam('core.ftp_dir_path'), $sNew));
+			ftp_chmod($this->_oFtp, 0644, $sNew);
 		}		
 		
 		return true;

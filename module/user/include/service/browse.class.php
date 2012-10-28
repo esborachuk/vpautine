@@ -11,7 +11,7 @@ defined('PHPFOX') or exit('NO DICE!');
  * @copyright		[PHPFOX_COPYRIGHT]
  * @author  		Raymond Benc
  * @package  		Module_User
- * @version 		$Id: browse.class.php 4550 2012-07-23 08:28:41Z Miguel_Espinoza $
+ * @version 		$Id: browse.class.php 4862 2012-10-09 08:00:23Z Raymond_Benc $
  */
 class User_Service_Browse extends Phpfox_Service
 {
@@ -185,7 +185,7 @@ class User_Service_Browse extends Phpfox_Service
 				{
 					$this->database()->join(Phpfox::getT('user_custom'), 'ucv', $aSearchParam);
 					$iJoinsCount++;	
-					$sCondition .= '/* TEST2 */ '.$aSearchParam . ' AND ';					
+					$sCondition .= ' '.$aSearchParam . ' AND ';					
 				}
 				
 				if ( $iJoinsCount > 2)
@@ -267,7 +267,7 @@ class User_Service_Browse extends Phpfox_Service
 			// check if user is pending mail verification
 			if ($this->_bPendingVerify === true)
 			{
-				$this->database()->join(Phpfox::getT('user_verify'), 'uv', 'uv.user_id = u.user_id')->select(', status_id as unverified')->group('u.user_id');
+				// $this->database()->join(Phpfox::getT('user_verify'), 'uv', 'uv.user_id = u.user_id')->select(', status_id as unverified')->group('u.user_id');
 			}
 			
 			if ($this->_aCallback !== false && isset($this->_aCallback['query']))
@@ -320,7 +320,7 @@ class User_Service_Browse extends Phpfox_Service
 				// check if user is pending mail verification
 				if ($this->_bPendingVerify === true)
 				{
-					$this->database()->join(Phpfox::getT('user_verify'), 'uv', 'uv.user_id = u.user_id')->select('uv.email as pendingMail, status_id as unverified, ');
+					// $this->database()->join(Phpfox::getT('user_verify'), 'uv', 'uv.user_id = u.user_id')->select('uv.email as pendingMail, status_id as unverified, ');
 				}
 			}
 			
@@ -331,7 +331,14 @@ class User_Service_Browse extends Phpfox_Service
 				$this->database()
 					->select('uf.user_id as is_featured, uf.ordering as featured_order, ')
 					->leftjoin(Phpfox::getT('user_featured'), 'uf', 'uf.user_id = u.user_id');
-			}			
+			}
+
+			// Users cannot send Friend Requests if they have been blocked by the target user
+			if (!defined('PHPFOX_IS_ADMIN_SEARCH') && Phpfox::getParam('friend.allow_blocked_user_to_friend_request') == false)
+			{
+				$this->database()->select('ub.block_id as user_is_blocked, ')
+					->leftjoin(Phpfox::getT('user_blocked'), 'ub', 'ub.user_id = u.user_id AND block_user_id = ' . Phpfox::getUserId());
+			}		 
 			
 			// display the Unfeature/Feature option when landing on the Search page.
 			if ($this->_mFeatured === true && !$this->_bIsOnline)

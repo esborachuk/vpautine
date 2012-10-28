@@ -11,7 +11,7 @@ defined('PHPFOX') or exit('NO DICE!');
  * @copyright		[PHPFOX_COPYRIGHT]
  * @author  		Raymond Benc
  * @package  		Module_Admincp
- * @version 		$Id: process.class.php 4113 2012-04-18 14:57:54Z Raymond_Benc $
+ * @version 		$Id: process.class.php 4614 2012-08-30 08:02:24Z Raymond_Benc $
  */
 class Admincp_Service_Module_Process extends Phpfox_Service 
 {
@@ -570,7 +570,7 @@ class Admincp_Service_Module_Process extends Phpfox_Service
 			$aModule = Phpfox::getLib('xml.parser')->parse($sFile);			
 			
 			if (isset($aModule['install']))
-			{	 	
+			{
 				eval($aModule['install']);
 			}			
 		}

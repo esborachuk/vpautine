@@ -11,15 +11,16 @@ defined('PHPFOX') or exit('NO DICE!');
  * @copyright		[PHPFOX_COPYRIGHT]
  * @author  		Raymond Benc
  * @package 		Phpfox_Ajax
- * @version 		$Id: ajax.class.php 4235 2012-06-08 11:07:23Z Raymond_Benc $
+ * @version 		$Id: ajax.class.php 4622 2012-09-12 07:18:24Z Miguel_Espinoza $
  */
 class Profile_Component_Ajax_Ajax extends Phpfox_Ajax
 {
 	public function logo()
 	{
 		$this->setTitle(Phpfox::getPhrase('profile.cover_photo'));
+		$aParams = array('page_id' => $this->get('page_id'));
 		
-		Phpfox::getBlock('profile.cover');
+		Phpfox::getBlock('profile.cover', $aParams);
 	}
 	
 	public function loadProfileBlock()

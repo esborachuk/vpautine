@@ -11,7 +11,7 @@ defined('PHPFOX') or exit('NO DICE!');
  * @copyright		[PHPFOX_COPYRIGHT]
  * @author  		Raymond Benc
  * @package  		Module_Photo
- * @version 		$Id: photo.class.php 4532 2012-07-19 10:03:18Z Miguel_Espinoza $
+ * @version 		$Id: photo.class.php 4897 2012-10-15 14:55:21Z Miguel_Espinoza $
  */
 class Photo_Service_Photo extends Phpfox_Service 
 {
@@ -536,7 +536,7 @@ class Photo_Service_Photo extends Phpfox_Service
 		return $aPhoto;
 	}	
 	
-	public function getPhotoStream($iPhotoId, $iAlbumId = 0, $aCallback = null, $iUserId = 0, $iCategory = null)
+	public function getPhotoStream($iPhotoId, $iAlbumId = 0, $aCallback = null, $iUserId = 0, $iCategory = null, $iOwnerId = 0)
 	{		
 		$sQuery = '';
 		if (isset($aCallback['module_id']))
@@ -545,7 +545,7 @@ class Photo_Service_Photo extends Phpfox_Service
 		}
 		else
 		{
-			$sQuery = ' AND photo.group_id = 0 ';
+			$sQuery = ' AND photo.group_id = 0 AND photo.type_id = 0 ';
 		}
 		
 		if ($iAlbumId > 0)
@@ -554,12 +554,22 @@ class Photo_Service_Photo extends Phpfox_Service
 		}
 		if ($iUserId > 0)
 		{
-			$sQuery .= ' AND photo.user_id = ' . (int)$iUserId;
+			$sQuery .= ' AND photo.user_id = ' . (int) $iUserId;
+		}
+		
+		if (!Phpfox::getParam('photo.display_profile_photo_within_gallery'))
+		{
+			$sQuery .= ' AND photo.is_profile_photo = 0';
 		}
 		
 		// Check permissions
-		if (!Phpfox::isAdmin())
+		if ($iAlbumId > 0 && $iOwnerId > 0 && Phpfox::getUserId() == $iOwnerId)
 		{
+			
+		}
+		elseif (!Phpfox::isAdmin())
+		{
+			
 			/*
 				4 => Custom
 				3 => Only Me
@@ -575,7 +585,7 @@ class Photo_Service_Photo extends Phpfox_Service
 				// 3 - "Only me" privacy
 				$sQuery .= ' (photo.privacy = 3 AND photo.user_id = ' . Phpfox::getUserId() . ') '; 				
 				
-				list($iCnt, $aFriends) = Phpfox::getService('friend')->get(array(), '', '', false);
+				list($iCnt, $aFriends) = Phpfox::getService('friend')->get(array('AND friend.user_id = ' . (int) Phpfox::getUserId()), '', '', false);
 				if ($iCnt > 0)
 				{
 					// 1 - Friends
@@ -590,23 +600,29 @@ class Photo_Service_Photo extends Phpfox_Service
 					
 					// 2 - Friends of Frends
 					$aFriendsOfFriends = Phpfox::getService('friend')->getFriendsOfFriends($sFriendsIn);
-					$sIn = implode(',', $aFriendsOfFriends);
-					$sQuery .= ' OR (photo.privacy = 2 AND photo.user_id IN (' . $sIn . '))';
+					if (!empty($aFriendsOfFriends))
+					{
+						$sIn = implode(',', $aFriendsOfFriends);
+						$sQuery .= ' OR (photo.privacy = 2 AND photo.user_id IN (' . $sIn . '))';
+					}
 					
-					$aInList = Phpfox::getService('friend.list')->getUsersInAnyList();					
+					$aInList = Phpfox::getService('friend.list')->getUsersInAnyList();				
 					if (!empty($aInList))
 					{
 						$sIn = implode(',', $aInList);
 						$sQuery .= ' OR (photo.privacy = 4 AND photo.user_id IN (' . $sIn . '))';
-					}
-					
+					}					
+				}
+				else
+				{
+					$sQuery .= ') AND (photo.photo_id = 0';
 				}				
 			}
 			else
 			{
 				$sQuery .= ' AND photo.privacy = 0';
 			}
-			$sQuery .= ')';			
+			$sQuery .= ')';
 		}		
 		
 		list($iPreviousCnt, $aPrevious) = $this->_getPhoto('AND photo.photo_id > ' . (int) $iPhotoId . $sQuery, 'ASC', (empty($sQuery) ? false : true), $iCategory);
@@ -659,7 +675,7 @@ class Photo_Service_Photo extends Phpfox_Service
 			$aRows = $this->database()->select('v.*, ' . Phpfox::getUserField())
 				->from(Phpfox::getT('photo'), 'v')
 				->join(Phpfox::getT('user'), 'u', 'u.user_id = v.user_id')
-				->where('v.is_featured = 1')			
+				->where('v.is_featured = 1 AND v.group_id = 0 AND v.type_id = 0')
 				->execute('getSlaveRows');
 			
 			$this->cache()->save($sCacheId, $aRows);
@@ -795,6 +811,7 @@ class Photo_Service_Photo extends Phpfox_Service
 			}
 			$iPreviousCnt = $this->database()->select('COUNT(*)')
 				->from(Phpfox::getT('photo'), 'photo')
+				->join(Phpfox::getT('user'), 'u', 'u.user_id = photo.user_id')
 				->where(array($sCondition))
 				->execute('getSlaveField');
 
@@ -804,6 +821,7 @@ class Photo_Service_Photo extends Phpfox_Service
 			}
 			$aPrevious = (array) $this->database()->select('photo.*')
 				->from(Phpfox::getT('photo'), 'photo')
+				->join(Phpfox::getT('user'), 'u', 'u.user_id = photo.user_id')
 				->where(array($sCondition))
 				->order('photo.photo_id ' . $sOrder)
 				->execute('getSlaveRow');
@@ -812,7 +830,7 @@ class Photo_Service_Photo extends Phpfox_Service
 			{
 				$aPrevious['link'] = Phpfox::getLib('url')->permalink('photo', $aPrevious['photo_id'], $aPrevious['title']) . ($iCategoryChecked !== null ? 'category_' . $iCategoryChecked : '');			
 			}
-							
+			
 			return array($iPreviousCnt, $aPrevious);	
 		}
 		

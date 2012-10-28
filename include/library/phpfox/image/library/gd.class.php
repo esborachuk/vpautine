@@ -13,7 +13,7 @@ defined('PHPFOX') or exit('NO DICE!');
  * @copyright		[PHPFOX_COPYRIGHT]
  * @author			Raymond Benc
  * @package 		Phpfox
- * @version 		$Id: gd.class.php 4524 2012-07-19 07:28:19Z Raymond_Benc $
+ * @version 		$Id: gd.class.php 4688 2012-09-20 07:26:42Z Raymond_Benc $
  */
 class Phpfox_Image_Library_Gd extends Phpfox_Image_Abstract
 {	
@@ -619,7 +619,7 @@ class Phpfox_Image_Library_Gd extends Phpfox_Image_Abstract
 	 			break;
 	 	}	 	
 
-        list($iRed, $iGreen, $iBlue) = $this->_hex2RGB($sTextColor);
+        list($iRed, $iBlue, $iGreen) = $this->_hex2RGB($sTextColor);
         
         $sTextColor = imagecolorallocate($hImg, $iRed, $iGreen, $iBlue);
         

@@ -91,7 +91,7 @@
 		<div class="js_feed_comment_form" {if isset($sFeedType) &&  $sFeedType == 'view'} id="js_feed_comment_form_{$aFeed.feed_id}"{/if}>
 			<div class="js_comment_feed_textarea_browse"></div>
 			<div class="{if isset($sFeedType) &&  $sFeedType == 'view'} feed_item_view{/if} comment_mini comment_mini_end">
-				<form method="post" action="#" class="js_comment_feed_form">
+				<form method="post" action="#" class="js_comment_feed_form">				
 					<div><input type="hidden" name="val[type]" value="{$aFeed.comment_type_id}" /></div>			
 					<div><input type="hidden" name="val[item_id]" value="{$aFeed.item_id}" /></div>
 					<div><input type="hidden" name="val[parent_id]" value="0" class="js_feed_comment_parent_id" /></div>
@@ -101,7 +101,8 @@
 					{img user=$aGlobalUser suffix='_50_square' max_width='32' max_height='32'}
 					</div>				
 					{/if}	
-					<div class="{if isset($sFeedType) &&  $sFeedType == 'view'}comment_mini_content {/if}comment_mini_textarea_holder">						
+					<div class="{if isset($sFeedType) &&  $sFeedType == 'view'}comment_mini_content {/if}comment_mini_textarea_holder">
+						<div><input type="hidden" name="val[default_feed_value]" value="{phrase var='feed.write_a_comment'}" /></div>						
 						<div class="js_comment_feed_value">{phrase var='feed.write_a_comment'}</div>
 						<textarea cols="60" rows="4" name="val[text]" class="js_comment_feed_textarea" id="js_feed_comment_form_textarea_{$aFeed.feed_id}">{if isset($sFeedType) &&  $sFeedType == 'view' && Phpfox::getUserParam('comment.wysiwyg_on_comments') && Phpfox::getParam('core.wysiwyg') == 'tiny_mce'}{else}{phrase var='feed.write_a_comment'}{/if}</textarea>
 						<div class="js_feed_comment_process_form">{phrase var='feed.adding_your_comment'}{img theme='ajax/add.gif'}</div>
@@ -111,7 +112,7 @@
 							<input type="submit" value="{phrase var='feed.comment'}" class="button" />									
 						</div>								
 					</div>			
-					{if !PHPFOX_IS_AJAX && isset($sFeedType) &&  $sFeedType == 'view' && Phpfox::getUserParam('comment.wysiwyg_on_comments') && Phpfox::getParam('core.wysiwyg') == 'tiny_mce'}
+					{if !PHPFOX_IS_AJAX && !Phpfox::isMobile() && isset($sFeedType) &&  $sFeedType == 'view' && Phpfox::getUserParam('comment.wysiwyg_on_comments') && Phpfox::getParam('core.wysiwyg') == 'tiny_mce'}
 					<div><input type="hidden" name="val[is_in_view]" value="1" /></div>
 					<script type="text/javascript">
 						 $Behavior.commentPreLoadTinymce = function(){l}

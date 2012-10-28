@@ -19,9 +19,9 @@
 	<phrase module_id="feed" version_id="2.0.0rc3" var_name="full_name_left_you_a_comment_on_site_title_to_view_this_comment" added="1254466675"><![CDATA[{full_name} оставил вам комментарий в {site_title}. Чтобы посмотреть этот комментарий, перейдите по этой ссылке: <a href="{link}">{link}</a>]]></phrase>
 	<phrase module_id="feed" version_id="2.0.0rc3" var_name="on_name_s_feed" added="1254466723">В RSS-канале {name}.</phrase>
 	<phrase module_id="feed" version_id="2.0.0rc3" var_name="adding_your_comment" added="1254466821">Добавить ваш комментарий</phrase>
-	<phrase module_id="feed" version_id="2.0.0rc3" var_name="comment" added="1254466836">Добавить комментарий</phrase>
+	<phrase module_id="feed" version_id="2.0.0rc3" var_name="comment" added="1254466836">Комментировать</phrase>
 	<phrase module_id="feed" version_id="2.0.0rc3" var_name="cancel" added="1254466844">Отмена</phrase>
-	<phrase module_id="feed" version_id="2.0.0rc3" var_name="post" added="1254466883">Комментарий</phrase>
+	<phrase module_id="feed" version_id="2.0.0rc3" var_name="post" added="1254466883">Отправить</phrase>
 	<phrase module_id="feed" version_id="2.0.0rc3" var_name="view_more" added="1254466897">Показать больше</phrase>
 	<phrase module_id="feed" version_id="2.0.0rc3" var_name="user_link_wrote" added="1254467370">{user_link} пишет...</phrase>
 	<phrase module_id="feed" version_id="2.0.0rc3" var_name="viewer_full_name_wrote_on_owner_full_name_s_profile" added="1254467724"><![CDATA[<a href="{viewer_user_link}">{viewer_full_name}</a> написал(а) в профиле <a href="{owner_user_link}">{owner_full_name}</a>...]]></phrase>

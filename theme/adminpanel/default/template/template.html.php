@@ -5,7 +5,7 @@
  * @copyright		[PHPFOX_COPYRIGHT]
  * @author			Raymond Benc
  * @package 		Phpfox
- * @version 		$Id: template.html.php 3689 2011-12-06 12:17:08Z Raymond_Benc $
+ * @version 		$Id: template.html.php 4854 2012-10-09 05:20:40Z Raymond_Benc $
  */
  
 defined('PHPFOX') or exit('NO DICE!'); 
@@ -90,6 +90,7 @@ defined('PHPFOX') or exit('NO DICE!');
 					
 						
 							{foreach from=$aModulesMenu item=aModule}
+							{if isset($aModule.module_id)}
 							<div class="main_sub_menu_holder">
 								<div class="main_sub_menu_holder_header">{if isset($aModule.module_image)}<img src="{$aModule.module_image}" /> {/if}{translate var=$aModule.module_id prefix='module'}</a></div>
 								{if $aModule.menu}
@@ -100,6 +101,7 @@ defined('PHPFOX') or exit('NO DICE!');
 								</ul>
 								{/if}								
 							</div>
+							{/if}
 							{/foreach}				
 						
 					

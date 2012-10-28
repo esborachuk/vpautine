@@ -10,26 +10,25 @@
 {/if}
 
 <div class="js_feed_comment_border">
-	
+
+    <div class="js_comment_like_holder" id="js_feed_like_holder_{$aFeed.feed_id}">
+        <div id="js_like_body_{$aFeed.feed_id}">
+            {if isset($aFeed.likes) && is_array($aFeed.likes)}
+            {template file='like.block.display'}
+            {/if}
+        </div>
+    </div><!-- // #js_feed_like_holder_{$aFeed.feed_id} -->
 
 	{plugin call='feed.template_block_comment_border'}
 	{plugin call='core.template_block_comment_border_new'}
 			{if !isset($aFeed.feed_mini)}
 			<div class="comment_mini_link_like">
-				{template file='feed.block.link'}
+                {template file='feed.block.linklike'}
 			</div>
 			{/if}
 
 <div class="comment_mini_content_holder"{if isset($sFeedType) &&  $sFeedType == 'view' && $aFeed.can_post_comment}{else}{if isset($aFeed.likes) || (isset($aFeed.total_comment) && $aFeed.total_comment > 0)}{else}{if ((isset($aFeed.comments) && !count($aFeed.comments)) || !isset($aFeed.comments))} style="display:none;"{/if}{/if}{/if}>	
 	<div class="comment_mini_content_border">
-		<div class="js_comment_like_holder" id="js_feed_like_holder_{$aFeed.feed_id}">
-			<div id="js_like_body_{$aFeed.feed_id}">
-			{if isset($aFeed.likes) && is_array($aFeed.likes)}			
-					{template file='like.block.display'}
-			{/if}
-			</div>
-		</div><!-- // #js_feed_like_holder_{$aFeed.feed_id} -->
-					
 		{if Phpfox::isModule('comment') && Phpfox::getParam('feed.allow_comments_on_feeds')}
 		<div id="js_feed_comment_post_{$aFeed.feed_id}" class="js_feed_comment_view_more_holder">
 		{if isset($sFeedType) &&  $sFeedType == 'view'}
@@ -75,8 +74,10 @@
 			<div id="js_feed_comment_view_more_{$aFeed.feed_id}"></div><!-- // #js_feed_comment_view_more_{$aFeed.feed_id} -->
 		{/if}
 		</div><!-- // #js_feed_comment_post_{$aFeed.feed_id} -->		
-		{/if}		
-		
+		{/if}
+
+        <div class="feed_comment_bottom">{template file='feed.block.link'}</div>
+
 		{if isset($sFeedType) &&  $sFeedType == 'mini'}
 		
 		{else}
@@ -98,15 +99,15 @@
 					{if Phpfox::isUser()}
 					<div class="comment_mini_image"{if isset($sFeedType) &&  $sFeedType == 'view'} {else}style="display:none;"{/if}>
 					{img user=$aGlobalUser suffix='_50_square' max_width='32' max_height='32'}
-					</div>				
-					{/if}	
-					<div class="{if isset($sFeedType) &&  $sFeedType == 'view'}comment_mini_content {/if}comment_mini_textarea_holder">						
+					</div>
+					{/if}
+					<div class="{if isset($sFeedType) &&  $sFeedType == 'view'}comment_mini_content {/if}comment_mini_textarea_holder">
 						<div class="js_comment_feed_value">{phrase var='feed.write_a_comment'}</div>
-						<textarea placeholder="Оставить свой коментарий..." cols="60" rows="4" name="val[text]" class="js_comment_feed_textarea" id="js_feed_comment_form_textarea_{$aFeed.feed_id}">{if isset($sFeedType) &&  $sFeedType == 'view' && Phpfox::getUserParam('comment.wysiwyg_on_comments') && Phpfox::getParam('core.wysiwyg') == 'tiny_mce'}{else}{phrase var='feed.write_a_comment'}{/if}</textarea>
+						<textarea cols="60" rows="4" name="val[text]" class="js_comment_feed_textarea" id="js_feed_comment_form_textarea_{$aFeed.feed_id}">{if isset($sFeedType) &&  $sFeedType == 'view' && Phpfox::getUserParam('comment.wysiwyg_on_comments') && Phpfox::getParam('core.wysiwyg') == 'tiny_mce'}{else}{phrase var='feed.write_a_comment'}{/if}</textarea>
 						<div class="js_feed_comment_process_form">{phrase var='feed.adding_your_comment'}{img theme='ajax/add.gif'}</div>
 					</div>
 					<div class="feed_comment_buttons_wrap" style="display:block;">
-						<div class="js_feed_add_comment_button t_right">
+						<div class="js_feed_add_comment_button">
 							<input type="submit" value="{phrase var='feed.comment'}" class="button" />									
 						</div>								
 					</div>			

@@ -11,7 +11,7 @@ defined('PHPFOX') or exit('NO DICE!');
  * @copyright		[PHPFOX_COPYRIGHT]
  * @author  		Raymond Benc
  * @package  		Module_Poll
- * @version 		$Id: callback.class.php 4545 2012-07-20 10:40:35Z Raymond_Benc $
+ * @version 		$Id: callback.class.php 4684 2012-09-20 06:15:07Z Raymond_Benc $
  */
 class Poll_Service_Callback extends Phpfox_Service 
 {
@@ -22,6 +22,14 @@ class Poll_Service_Callback extends Phpfox_Service
 	{	
 		$this->_sTable = Phpfox::getT('poll');
 	}
+	
+	public function checkFeedShareLink()
+	{
+		if (!Phpfox::getUserParam('poll.can_create_poll'))
+		{
+			return false;
+		}
+	}	
 	
 	public function getSiteStatsForAdmin($iStartTime, $iEndTime)
 	{

@@ -5,7 +5,7 @@
  * @copyright		[PHPFOX_COPYRIGHT]
  * @author  		Raymond Benc
  * @package 		Phpfox
- * @version 		$Id: add.html.php 4074 2012-03-28 14:02:40Z Raymond_Benc $
+ * @version 		$Id: add.html.php 4731 2012-09-24 07:21:33Z Raymond_Benc $
  */
  
 defined('PHPFOX') or exit('NO DICE!'); 
@@ -43,7 +43,6 @@ defined('PHPFOX') or exit('NO DICE!');
 				</div>
 				<div class="table_right">			
 					<select name="val[group_id]" id="js_group_listing">
-						<option value="">{phrase var='custom.select'}:</option>
 					    {foreach from=$aGroups item=aGroup}
 						    <option value="{$aGroup.group_id}"{value type='select' id='group_id' default=$aGroup.group_id}>{phrase var=$aGroup.phrase_var_name}</option>
 					    {/foreach}	

@@ -11,7 +11,7 @@ defined('PHPFOX') or exit('NO DICE!');
  * @copyright		[PHPFOX_COPYRIGHT]
  * @author			natio
  * @package  		Module_User
- * @version 		$Id: setting.class.php 4109 2012-04-18 09:45:11Z Miguel_Espinoza $
+ * @version 		$Id: setting.class.php 4624 2012-09-12 10:16:38Z Raymond_Benc $
  */
 class User_Component_Controller_Setting extends Phpfox_Component
 {
@@ -146,6 +146,20 @@ class User_Component_Controller_Setting extends Phpfox_Component
 		$sFullNamePhrase = Phpfox::getUserParam('user.custom_name_field');	
 		
 		(($sPlugin = Phpfox_Plugin::get('user.component_controller_setting_settitle')) ? eval($sPlugin) : false);
+			
+		if (Phpfox::getParam('user.split_full_name') && empty($aUser['first_name']) && empty($aUser['last_name']))
+		{
+			preg_match('/(.*) (.*)/', $aUser['full_name'], $aNameMatches);
+			if (isset($aNameMatches[1]) && isset($aNameMatches[2]))
+			{
+				$aUser['first_name'] = $aNameMatches[1];
+				$aUser['last_name'] = $aNameMatches[2];
+			}
+			else
+			{
+				$aUser['first_name'] = $aUser['full_name'];
+			}
+		}
 		
 		$this->template()->setTitle(Phpfox::getPhrase('user.account_settings'))
 			->setBreadcrumb(Phpfox::getPhrase('user.account_settings'))

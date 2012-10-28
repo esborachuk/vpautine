@@ -17,7 +17,14 @@ class Friend_Component_Block_Timeline extends Phpfox_Component
 {
 	public function process()
 	{
-		$aUser = (PHPFOX_IS_AJAX ? Phpfox::getService('user')->get(Phpfox::getUserId(), true)  : $this->getParam('aUser'));
+		if($this->request()->get('resettimeline')) 
+		{ 
+		    $aUser = (PHPFOX_IS_AJAX ? Phpfox::getService('user')->get($this->request()->get('profile_user_id'), true)  : $this->getParam('aUser')); 
+		} 
+		else 
+		{ 
+		    $aUser = (PHPFOX_IS_AJAX ? Phpfox::getService('user')->get(Phpfox::getUserId(), true)  : $this->getParam('aUser')); 
+		}
 
 		if (!Phpfox::getService('user.privacy')->hasAccess($aUser['user_id'], 'friend.view_friend'))
 		{

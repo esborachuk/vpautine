@@ -51,6 +51,17 @@ a.forum_thread_link:hover
 	position:relative;
 }
 
+.js_box_content textarea
+{
+	width:80%;	
+}
+
+.feed_share_custom_block
+{
+	float:none;
+	padding-bottom:5px;
+}
+
 #mobile_search
 {
 	background:url('../image/layout/mobile_search.png') repeat-x;	
@@ -616,4 +627,71 @@ input[type="checkbox"]
 .image_hover_menu ul li a:hover
 {
 	padding:0px 4px 0px 4px;
+}
+
+#mobile_profile_photo
+{
+	position:relative;
+}
+
+.profile_online_status
+{
+	position:absolute;
+	left:5px;
+	top:0px;
+	color:#0DDF29;
+	font-weight:bold;
+	background:#333;
+	display:block;
+	background:url('../image/layout/thickbox_bg.png') repeat scroll 0 0 transparent;
+	width:75px;
+	text-align:center;
+}
+
+.photo_next_previous
+{
+	position:static;
+}
+
+.photo_next_previous ul li
+{
+	width:48%;	
+	margin-left:5px;
+}
+
+.photo_next_previous ul li a,
+.photo_next_previous ul li a:hover
+{
+	text-align:center;	
+	background:#EFEFEF;
+	color:#333;
+	border:1px #ccc solid;
+	height:25px;
+	line-height:25px;
+	
+	-moz-border-radius:6px;
+	-webkit-border-radius:6px;
+  	border-radius:6px;  	
+}
+
+.photo_next_previous ul li a:active
+{
+	background:#333;
+	color:#fff;
+}
+
+#js_photo_view_holder
+{
+	background:#333;
+	padding:2px 0px 2px 0px;
+	margin-bottom:10px;
+	position:relative;
+	
+	-moz-border-radius:0px;
+	-webkit-border-radius:0px;
+  	border-radius:0px;  	
+	
+  	-moz-box-shadow:0px 0px 0px #CFCFCF;
+  	-webkit-box-shadow:0px 0px 0px #CFCFCF;
+  	box-shadow:0px 0px 0px #CFCFCF;		
 }

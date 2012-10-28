@@ -11,7 +11,7 @@ defined('PHPFOX') or exit('NO DICE!');
  * @copyright		[PHPFOX_COPYRIGHT]
  * @author  		Raymond Benc
  * @package 		Phpfox_Component
- * @version 		$Id: add.class.php 4273 2012-06-14 07:34:17Z Miguel_Espinoza $
+ * @version 		$Id: add.class.php 4681 2012-09-19 11:47:35Z Raymond_Benc $
  */
 class Event_Component_Controller_Add extends Phpfox_Component
 {
@@ -95,12 +95,9 @@ class Event_Component_Controller_Add extends Phpfox_Component
 							case 'customize':
 								$this->url()->send('event.add.invite.setup', array('id' => $aEvent['event_id']), Phpfox::getPhrase('event.successfully_added_a_photo_to_your_event'));	
 								break;
-							case 'invite':
-								$this->url()->permalink('event', $aEvent['event_id'], $aEvent['title'], true, Phpfox::getPhrase('event.successfully_invited_guests_to_this_event'));
-								break;
 							default:
-								$this->url()->send('event.add', array('id' => $aEvent['event_id']), Phpfox::getPhrase('event.event_successfully_updated'));	
-								break;
+								$this->url()->permalink('event', $aEvent['event_id'], $aEvent['title'], true, Phpfox::getPhrase('event.successfully_invited_guests_to_this_event'));
+								break;							
 						}	
 					}
 					else

@@ -5,7 +5,7 @@
  * @copyright		[PHPFOX_COPYRIGHT]
  * @author  		Raymond Benc
  * @package 		Phpfox
- * @version 		$Id: edit-photo.html.php 4451 2012-07-02 13:53:30Z Raymond_Benc $
+ * @version 		$Id: edit-photo.html.php 4749 2012-09-25 06:41:43Z Raymond_Benc $
  */
  
 defined('PHPFOX') or exit('NO DICE!'); 
@@ -17,7 +17,12 @@ defined('PHPFOX') or exit('NO DICE!');
 	<div><input type="hidden" name="val{if isset($aForms.photo_id)}[{$aForms.photo_id}]{/if}[photo_id]" value="{$aForms.photo_id}" /></div>
 	<div><input type="hidden" name="val{if isset($aForms.photo_id)}[{$aForms.photo_id}]{/if}[album_id]" value="{$aForms.album_id}" /></div>
 	<div id="js_custom_privacy_input_holder">
+		{if $aForms.album_id == '0' && $aForms.group_id == '0'}
 		{module name='privacy.build' privacy_item_id=$aForms.photo_id privacy_module_id='photo'}
+		{else}
+		<div><input type="hidden" name="val{if isset($aForms.photo_id)}[{$aForms.photo_id}]{/if}[privacy]" value="{$aForms.privacy}" /></div>
+		<div><input type="hidden" name="val{if isset($aForms.photo_id)}[{$aForms.photo_id}]{/if}[privacy_comment]" value="{$aForms.privacy_comment}" /></div>
+		{/if}
 	</div>	
 	{if $bIsInline}
 	<div><input type="hidden" name="inline" value="1" /></div>

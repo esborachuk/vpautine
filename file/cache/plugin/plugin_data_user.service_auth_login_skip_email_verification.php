@@ -6,7 +6,7 @@
 		->where(\'user_id = \' . (int) $aRow[\'user_id\'])
 		->execute(\'getSlaveRow\');
 	
-	if (!empty($aFacebook[\'fb_user_id\']))
+	if (!empty($aFacebook[\'fb_user_id\']) && !$aFacebook[\'is_unlinked\'])
 	{
 		Phpfox::getLib(\'url\')->send(\'user.login\', array(\'fbconnect\' => \'1\'), Phpfox::getPhrase(\'facebook.your_account_is_synced_with_your_facebook_account\'));
 	}

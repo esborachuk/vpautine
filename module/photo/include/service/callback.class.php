@@ -11,7 +11,7 @@ defined('PHPFOX') or exit('NO DICE!');
  * @copyright		[PHPFOX_COPYRIGHT]
  * @author  		Raymond Benc
  * @package  		Module_Photo
- * @version 		$Id: callback.class.php 4545 2012-07-20 10:40:35Z Raymond_Benc $
+ * @version 		$Id: callback.class.php 4781 2012-09-27 08:33:37Z Raymond_Benc $
  */
 class Photo_Service_Callback extends Phpfox_Service 
 {
@@ -132,7 +132,7 @@ class Photo_Service_Callback extends Phpfox_Service
 
 	public function getCommentItem($iId)
 	{
-		$aRow = $this->database()->select('photo_id AS comment_item_id, privacy_comment, user_id AS comment_user_id')
+		$aRow = $this->database()->select('photo_id AS comment_item_id, privacy_comment, user_id AS comment_user_id, module_id AS parent_module_id')
 			->from(Phpfox::getT('photo'))
 			->where('photo_id = ' . (int) $iId)
 			->execute('getSlaveRow');
@@ -753,6 +753,11 @@ class Photo_Service_Callback extends Phpfox_Service
 		return $this->getFeedRedirect($iId);
 	}	
 	
+	public function getRedirectCommentAlbum($iId)
+	{
+		return $this->getFeedRedirectAlbum($iId);
+	}	
+	
 	public function getReportRedirectAlbum($iId)
 	{
 		return $this->getFeedRedirectAlbum($iId);
@@ -1201,7 +1206,7 @@ class Photo_Service_Callback extends Phpfox_Service
 		$aList[] = array(
 			'name' => Phpfox::getPhrase('photo.update_profile_photos'),
 			'id' => 'photo-profile'			
-		);		
+		);	
 		
 		return $aList;
 	}		
@@ -1546,7 +1551,7 @@ class Photo_Service_Callback extends Phpfox_Service
 		$sFeedImageOnClick = '';
 		
 		if (($aRow['mature'] == 0 || (($aRow['mature'] == 1 || $aRow['mature'] == 2) && Phpfox::getUserId() && Phpfox::getUserParam('photo.photo_mature_age_limit') <= Phpfox::getUserBy('age'))) || $aRow['user_id'] == Phpfox::getUserId())
-		{
+		{			
 			$iImageMax = (Phpfox::getService('profile')->timeline() ? '300' : '450');
 			$iImageMaxSuffix = (Phpfox::getService('profile')->timeline() ? '500' : '500');
 			$sCustomCss = '' . $sThickbox . ' photo_holder_image';
@@ -1555,8 +1560,8 @@ class Photo_Service_Callback extends Phpfox_Service
 					'path' => 'photo.url_photo',
 					'file' => Phpfox::getService('photo')->getPhotoUrl(array_merge($aRow, array('full_name' => $aItem['full_name']))),
 					'suffix' => '_' . $iImageMaxSuffix,					
-					'max_width' => $iImageMax,
-					'max_height' => $iImageMax,
+					'max_width' => (Phpfox::isMobile() ? 230 : $iImageMax),
+					'max_height' => (Phpfox::isMobile() ? 300 : $iImageMax),
 					'class' => 'photo_holder'
 				)
 			);			
@@ -1577,9 +1582,9 @@ class Photo_Service_Callback extends Phpfox_Service
 		{
 			$aPhotos = $this->database()->select('p.photo_id, p.album_id, p.user_id, p.title, p.server_id, p.destination, p.mature')	
 				->from(Phpfox::getT('photo_feed'), 'pfeed')
-				->join(Phpfox::getT('photo'), 'p', 'p.photo_id = pfeed.photo_id')
+				->join(Phpfox::getT('photo'), 'p', 'p.photo_id = pfeed.photo_id' . (!empty($aRow['module_id']) ?' AND p.module_id = \'' . $this->database()->escape($aRow['module_id']) . '\'' : ''))
 				->where('pfeed.feed_id = ' . (int) $aItem['feed_id'])
-				->limit(3)
+				->limit(((Phpfox::getService('profile')->timeline() || Phpfox::isMobile()) ? 2 : 3))
 				->order('p.time_stamp DESC')
 				->execute('getSlaveRows');
 			
@@ -1760,7 +1765,7 @@ class Photo_Service_Callback extends Phpfox_Service
 		}
 		
 		// Send the user an email
-		$sLink = Phpfox::permalink('photo_album', $aAlbum['album_id'], $aAlbum['name']);
+		$sLink = Phpfox::permalink('photo.album', $aAlbum['album_id'], $aAlbum['name']);
 		
 		Phpfox::getService('comment.process')->notify(array(
 				'user_id' => $aAlbum['user_id'],

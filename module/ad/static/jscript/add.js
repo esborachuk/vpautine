@@ -5,7 +5,14 @@ $Behavior.creatingAnAd = function()
 {
 	$('#js_upload_image_holder').hide();
 	
-	if (!$Core.exists('#js_image_holder')){
+	if ($('.tbl_province').length > 0)
+	{
+		$('#country_iso_custom').change($Core.Ad.handleStates);
+	}
+	
+	// console.log('Test: ' + $('#country_iso_custom').length);
+	
+	if (!$Core.exists('#js_image_holder')){ console.log('exiting');
 		return;
 	}
 	
@@ -132,7 +139,7 @@ $Behavior.creatingAnAd = function()
 $Core.Ad = 
 {
 	oPlan : {},
-	isCPM : false,
+	isCPM : false,	
 	recalculate : function()
 	{
 		var iTotal = $('#total_view').val();
@@ -146,12 +153,12 @@ $Core.Ad =
 			$.ajaxCall('ad.recalculate', 'total=' + iTotal + '&location=' + sLocation + '&isCPM=' + $Core.Ad.isCPM);
 		}		
 	},
-	setPlan : function(block_id, default_cost, width, height, is_cpm)
+	setPlan : function(location_id, block_id, default_cost, width, height, is_cpm)
 	{
 		/* This function is mentioned in the ad.sample block and triggered when the user clicks in a Plan from the 
 		pop up when creating an Ad */
 		
-		$('#location').val(block_id);
+		$('#location').val(location_id);
 		$Core.Ad.oPlan.default_cost = default_cost;
 		$Core.Ad.blockPlacementCallback(width, height, block_id, is_cpm);	
 		
@@ -161,7 +168,7 @@ $Core.Ad =
 		}
 		else
 		{
-			$('#js_ad_info_cost').html(oTranslations['ad.amount_currency_per_click'].replace('amount', default_cost).replace('currency', oCore['core.default_currency']));
+			$('#js_ad_info_cost').html(oTranslations['ad.amount_currency_per_click'].replace('{amount}', default_cost).replace('{currency}', oCore['core.default_currency']));
 		}
 		
 		tb_remove();
@@ -205,5 +212,47 @@ $Core.Ad =
 			$Core.Ad.isCPM = false;
 		}
 		$('#js_is_cpm').val($Core.Ad.isCPM);
+	},
+	
+	/* This function is triggered when the selector for countries changes, so we can display a list of provinces/states*/
+	handleStates : function()
+	{	
+		var aChosenCountry = $('#country_iso_custom').val();
+		$('.tbl_provice, .select_child_country').hide();
+		
+		for (var i in aChosenCountry)
+		{
+			if ( $('#sct_country_' + aChosenCountry[i]).length > 0 && $('#sct_country_' + aChosenCountry[i] + ' option').length > 0)
+			{
+				$('.tbl_province, #country_' + aChosenCountry[i]).show();
+			}
+		}		
+	},
+	
+	setCountries: function(jCountries)
+	{
+		$Core.Ad.countries = JSON.parse(jCountries);		
+	},
+	
+	toggleSelectedCountries : function(jCountries)
+	{		
+		$("#country_iso_custom > option").each(function(){ 
+			if (this.value.length > 0 && (jCountries.indexOf(this.value) > (-1)) || (jCountries == this.value))
+			{
+				$(this).attr("selected", "selected"); 
+				$('.tbl_province, #country_' + jCountries).show();
+			}
+		}); 
+	},
+	
+	toggleSelectedProvinces : function(sProvinces)
+	{		
+		$(".sct_child_country > option").each(function(){ 
+			if ( $(this).val().length > 0 && (sProvinces.indexOf($(this).val()) > (-1)) || (sProvinces == $(this).val()))
+			{
+				$(this).attr("selected", "selected"); 
+				
+			}
+		});
 	}
 }

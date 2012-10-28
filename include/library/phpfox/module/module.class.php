@@ -13,7 +13,7 @@ defined('PHPFOX') or exit('NO DICE!');
  * @copyright		[PHPFOX_COPYRIGHT]
  * @author			Raymond Benc
  * @package 		Phpfox
- * @version 		$Id: module.class.php 4585 2012-08-01 10:02:21Z Miguel_Espinoza $
+ * @version 		$Id: module.class.php 4602 2012-08-18 18:48:02Z Raymond_Benc $
  */
 class Phpfox_Module
 {	
@@ -371,8 +371,8 @@ class Phpfox_Module
 			Phpfox::getLib('locale')->setCache();
 		}		
 		$bCookie = Phpfox::getCookie('page_login');
-		// http://www.phpfox.com/tracker/view/11130/
-		if (Phpfox::isUser() && $bCookie != 1 && Phpfox::getUserParam('user.require_profile_image') && Phpfox::getUserBy('profile_page_id') == 0 && Phpfox::getUserBy('user_image') == '' && 
+		
+		if (Phpfox::isUser() && $bCookie != 1 && Phpfox::getUserParam('user.require_profile_image') && Phpfox::getUserBy('user_image') == '' && 
 			!(
 				($this->_sModule == 'user' && $this->_sController == 'photo') || 
 				($this->_sModule == 'user' && $this->_sController == 'logout') ||
@@ -1369,8 +1369,26 @@ class Phpfox_Module
 				->where('m.is_active = 1')
 				->order('m.module_id')
 				->execute('getRows');
+			
 			foreach ($aRows as $aRow) 
 			{
+				if (Phpfox::getParam('core.is_auto_hosted'))
+				{
+					switch ($aRow['module_id'])
+					{
+						case 'im':
+						case 'music':
+						case 'marketplace':
+						case 'poll':
+						case 'quiz':	
+						case 'shoutbox':
+						case 'blog':
+							Phpfox::getLib('database')->update(Phpfox::getT('module'), array('is_active' => '0'), 'module_id = \'' . $aRow['module_id'] . '\'');
+							continue 2;
+							break;
+					}
+				}
+				
 				switch ($aRow['module_id'])
 				{
 					case 'ad':			
@@ -1401,8 +1419,9 @@ class Phpfox_Module
 				
 				$this->_aModules[$aRow['module_id']] = $aRow['module_id'];
 			}
+
 			$oCache->save($iCachedId, $this->_aModules);
-		}		
+		}					
 	}
 	
 	/**

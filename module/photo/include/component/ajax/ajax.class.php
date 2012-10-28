@@ -11,7 +11,7 @@ defined('PHPFOX') or exit('NO DICE!');
  * @copyright		[PHPFOX_COPYRIGHT]
  * @author  		Raymond Benc
  * @package  		Module_Photo
- * @version 		$Id: ajax.class.php 4166 2012-05-15 06:44:59Z Raymond_Benc $
+ * @version 		$Id: ajax.class.php 4780 2012-09-27 08:11:52Z Raymond_Benc $
  */
 class Photo_Component_Ajax_Ajax extends Phpfox_Ajax
 {
@@ -196,8 +196,8 @@ class Photo_Component_Ajax_Ajax extends Phpfox_Ajax
 		$aPostVals = $this->get('val');		
 		$aVals = $aPostVals[$this->get('photo_id')];		
 		$aVals['set_album_cover'] = (isset($aPostVals['set_album_cover']) ? $aPostVals['set_album_cover'] : null);
-		$aVals['privacy'] = (isset($aPostVals['privacy']) ? $aPostVals['privacy'] : 0);
-		$aVals['privacy_comment'] = (isset($aPostVals['privacy_comment']) ? $aPostVals['privacy_comment'] : 0);
+		$aVals['privacy'] = (isset($aVals['privacy']) ? $aVals['privacy'] : 0);
+		$aVals['privacy_comment'] = (isset($aVals['privacy_comment']) ? $aVals['privacy_comment'] : 0);
 	
 		if (($iUserId = Phpfox::getService('user.auth')->hasAccess('photo', 'photo_id', $aVals['photo_id'], 'photo.can_edit_own_photo', 'photo.can_edit_other_photo')) && Phpfox::getService('photo.process')->update($iUserId, $aVals['photo_id'], $aVals))
 		{
@@ -440,13 +440,13 @@ class Photo_Component_Ajax_Ajax extends Phpfox_Ajax
     }
     
     public function rotate()
-    {
+    {    	
 		Phpfox::isUser(true);
 		if ($aPhoto = Phpfox::getService('photo.process')->rotate($this->get('photo_id'), $this->get('photo_cmd')))
 		{
 		    Phpfox::getService('photo.tag.process')->deleteAll($this->get('photo_id'));
-	
-		    $this->call('window.location.href = \'' . Phpfox::getLib('url')->permalink('photo', $aPhoto['photo_id'], $aPhoto['title']) . 'refresh_1/\';');
+
+		    $this->call('window.location.href = \'' . Phpfox::getLib('url')->permalink('photo', $aPhoto['photo_id'], $aPhoto['title']) . 'refresh_1/' . (!empty($_REQUEST['currenturl']) ? $_REQUEST['currenturl'] : '') . '\';');
 		}
     }
 
@@ -495,6 +495,8 @@ class Photo_Component_Ajax_Ajax extends Phpfox_Ajax
 		$iGroupId = 0;
 		$bProcess = false;
 		$bIsPicup = false;
+		
+		
 		foreach ($aImages as $iKey => $aImage)
 		{
 			if (isset($aImage['picup']))
@@ -597,7 +599,11 @@ class Photo_Component_Ajax_Ajax extends Phpfox_Ajax
 			}
 			
 			// this next if is the one you will have to bypass if they come from sharing a photo in the activity feed.
-			if ($bIsPicup)
+			if ( ($this->get('page_id') > 0) )
+			{
+				$this->call('window.location.href = "' . Phpfox::getLib('url')->permalink('pages', $this->get('page_id'), '') .'coverupdate_1";');
+			}
+			else if ($bIsPicup)
 			{
 				$this->call('window.location.href = "' . Phpfox::getLib('url')->permalink('mobile.photo', $aPhoto['photo_id'], $aPhoto['title']) . 'userid_' . Phpfox::getUserId() . '";');
 
@@ -671,6 +677,12 @@ class Photo_Component_Ajax_Ajax extends Phpfox_Ajax
 			{
 				$sExtra .= '&parent_user_id=' . $this->get('parent_user_id');
 			}
+			
+			$sExtra = '';
+			if ($this->get('start_year') && $this->get('start_month') && $this->get('start_day'))
+			{
+				$sExtra .= '&start_year= ' . $this->get('start_year') . '&start_month= ' . $this->get('start_month') . '&start_day= ' . $this->get('start_day') . '';
+			}			
 			
 			$sExtra .= '&is_cover_photo=' . $this->get('is_cover_photo');
 			

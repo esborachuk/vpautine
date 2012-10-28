@@ -5,17 +5,18 @@
  * @copyright		[PHPFOX_COPYRIGHT]
  * @author  		Raymond_Benc
  * @package 		Phpfox
- * @version 		$Id: add.html.php 2692 2011-06-27 19:13:17Z Raymond_Benc $
+ * @version 		$Id: add.html.php 4901 2012-10-17 06:29:50Z Raymond_Benc $
  */
  
 defined('PHPFOX') or exit('NO DICE!'); 
 
 ?>
-{if Phpfox::getParam('video.allow_video_uploading')}
-<div id="js_upload_video_file" class="page_section_menu_holder">
+{if $bIsVideoUploading}
+<div id="js_upload_video_file">
 	{module name='video.file'}
 </div>
-{/if}
-<div id="js_upload_video_url" class="page_section_menu_holder"{if Phpfox::getParam('video.allow_video_uploading')} style="display:none;"{/if}>
+{else}
+<div id="js_upload_video_url">
 	{module name='video.url'}
 </div>
+{/if}

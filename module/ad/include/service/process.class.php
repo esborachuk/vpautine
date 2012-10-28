@@ -12,7 +12,7 @@ defined('PHPFOX') or exit('NO DICE!');
  * @copyright		[PHPFOX_COPYRIGHT]
  * @author  		Raymond Benc
  * @package 		Module_Ad
- * @version 		$Id: process.class.php 4529 2012-07-19 08:38:44Z Raymond_Benc $
+ * @version 		$Id: process.class.php 4889 2012-10-12 05:31:32Z Raymond_Benc $
  */
 class Ad_Service_Process extends Phpfox_Service 
 {
@@ -132,8 +132,10 @@ class Ad_Service_Process extends Phpfox_Service
 		    'is_sponsor' => 1,
 		    'time_stamp' => Phpfox::getTime()
 	    );
-	    return $this->database()->insert(Phpfox::getT('ad_invoice'), $aInsertInvoice);
-
+	    
+	    $iInsertInvoice = $this->database()->insert(Phpfox::getT('ad_invoice'), $aInsertInvoice);
+	    
+	    return $iInsertInvoice;
 	}
 
 	/**
@@ -168,6 +170,32 @@ class Ad_Service_Process extends Phpfox_Service
 		
 		$iStartTime = Phpfox::getLib('date')->mktime($aVals['start_hour'], $aVals['start_minute'], 0, $aVals['start_month'], $aVals['start_day'], $aVals['start_year']);
 		
+		if (!isset($aVals['country_iso_custom']))
+		{
+			$aVals['country_iso_custom'] = !empty($aVals['country_iso']) ? $aVals['country_iso'] : array();
+		}
+		
+		if (is_array($aVals['country_iso_custom']) && !empty($aVals['country_iso_custom']))
+		{
+			foreach ($aVals['country_iso_custom'] as $iKey => $sCountry)
+			{				
+				if (empty($sCountry))
+				{
+					unset($aVals['country_iso_custom'][$iKey]);
+				} 
+			}
+			
+			if (count($aVals['country_iso_custom']) == 1)
+			{
+				$aVals['country_iso'] = $aVals['country_iso_custom'][0];
+				//unset($aVals['country_iso_custom']);
+			}
+			else
+			{
+				$aVals['country_iso'] = null;
+			}
+		}
+		
 		$aSql = array(
 			'name' => $this->preParse()->clean($aVals['name'], 150),
 			'url_link' => ($aVals['type_id'] == 1 ? $aVals['url_link'] : null),
@@ -178,7 +206,7 @@ class Ad_Service_Process extends Phpfox_Service
 			'is_active' => (int) $aVals['is_active'],
 			'module_access' => (empty($aVals['module_access']) ? null : $aVals['module_access']),
 			'location' => $aVals['location'],
-			'country_iso' => $aVals['country_iso'],
+			'country_iso' => (isset($aVals['country_iso']) ? $aVals['country_iso'] : ''),
 			'gender' => (empty($aVals['gender']) ? 0 : (int) $aVals['gender']),
 			'age_from' => (empty($aVals['age_from']) ? 0 : (int) $aVals['age_from']),
 			'age_to' => (empty($aVals['age_from']) ? 0 : (int) $aVals['age_to']),
@@ -192,21 +220,7 @@ class Ad_Service_Process extends Phpfox_Service
 			unset($aSql['url_link']);
 		}
 		
-		$this->database()->delete(Phpfox::getT('ad_country'), 'ad_id = ' . (int)$iId);
-		if (empty($aVals['country_iso']) || (is_array($aVals['country_iso']) && isset($aVals['country_iso'][0]) && empty($aVals['country_iso'][0])) )
-		{
-			$aSql['country_iso'] = '';			
-		}
-		else
-		{
-			$oParse = Phpfox::getLib('parse.input');
-			$aSql['country_iso'] = '';
-			foreach ($aVals['country_iso'] as $iKey => $sISO)
-			{
-				$this->database()->insert(Phpfox::getT('ad_country'), array('ad_id' => (int)$iId, 'country_id' => $oParse->clean($sISO)));
-			}
-		}
-		
+		$this->_adCountries($aVals, $iId);		
 		
 		if (isset($aVals['approve']))
 		{
@@ -250,7 +264,7 @@ class Ad_Service_Process extends Phpfox_Service
 
 			if (!empty($aAd['image_path']) && file_exists(Phpfox::getParam('ad.dir_image') . sprintf($aAd['image_path'], '')))
 			{
-				unlink(Phpfox::getParam('ad.dir_image') . sprintf($aAd['image_path'], ''));
+				Phpfox::getLib('file')->unlink(Phpfox::getParam('ad.dir_image') . sprintf($aAd['image_path'], ''));
 			}
 			
 			if ($sFileName = Phpfox::getLib('file')->upload('image', Phpfox::getParam('ad.dir_image'), $iId))
@@ -292,7 +306,7 @@ class Ad_Service_Process extends Phpfox_Service
 			$sImagePath = Phpfox::getParam('ad.dir_image') . sprintf($aAd['image_path'], '');
 			if (file_exists($sImagePath))
 			{
-				unlink($sImagePath);
+				Phpfox::getLib('file')->unlink($sImagePath);
 			}
 		}
 		
@@ -332,7 +346,7 @@ class Ad_Service_Process extends Phpfox_Service
 	 * @return bool|int FALSE if ad was not added.|Ad ID# if ad was successfully created.
 	 */
 	public function add($aVals)
-	{
+	{		
 		(($sPlugin = Phpfox_Plugin::get('ad.service_ad_add__start')) ? eval($sPlugin) : false);
 		
 		$iStartTime = Phpfox::getLib('date')->convertToGmt(Phpfox::getLib('date')->mktime($aVals['start_hour'], $aVals['start_minute'], 0, $aVals['start_month'], $aVals['start_day'], $aVals['start_year']));
@@ -341,12 +355,17 @@ class Ad_Service_Process extends Phpfox_Service
 		if ($iEndTime > 0 && $iEndTime < $iStartTime)
 		{
 			return Phpfox_Error::set('End time cannot be earlier than start time');
+		}		
+		
+		if (!isset($aVals['country_iso_custom']))
+		{
+			$aVals['country_iso_custom'] = !empty($aVals['country_iso']) ? $aVals['country_iso'] : array();
 		}
-		$aVals['country_iso_custom'] = !empty($aVals['country_iso']) ? $aVals['country_iso'] : array();
+		
 		if (is_array($aVals['country_iso_custom']) && !empty($aVals['country_iso_custom']))
 		{
 			foreach ($aVals['country_iso_custom'] as $iKey => $sCountry)
-			{
+			{				
 				if (empty($sCountry))
 				{
 					unset($aVals['country_iso_custom'][$iKey]);
@@ -356,13 +375,14 @@ class Ad_Service_Process extends Phpfox_Service
 			if (count($aVals['country_iso_custom']) == 1)
 			{
 				$aVals['country_iso'] = $aVals['country_iso_custom'][0];
-				unset($aVals['country_iso_custom']);
+				//unset($aVals['country_iso_custom']);
 			}
 			else
 			{
 				$aVals['country_iso'] = null;
 			}
-		}
+		}		
+		
 		$aSql = array(
 			'type_id' => (int) $aVals['type_id'],
 			'name' => $this->preParse()->clean($aVals['name'], 150),
@@ -382,6 +402,15 @@ class Ad_Service_Process extends Phpfox_Service
 			'gmt_offset' => Phpfox::getLib('date')->getGmtOffset($iStartTime),
 			'disallow_controller' => (empty($aVals['disallow_controller']) ? null : $aVals['disallow_controller'])
 		);
+		
+		if (Phpfox::getParam('ad.advanced_ad_filters'))
+		{
+			$oParse = Phpfox::getLib('parse.input');			
+			$aSql['postal_code'] = explode(',',$oParse->clean($aVals['postal_code']));
+			$aSql['postal_code'] = json_encode($aSql['postal_code']);
+			$aSql['city_location'] = explode(',',$oParse->clean($aVals['city_location']));
+			$aSql['city_location'] = json_encode($aSql['city_location']);
+		}
 		
 		if (isset($aVals['is_user_group']) && $aVals['is_user_group'] == 2)
 		{
@@ -412,13 +441,8 @@ class Ad_Service_Process extends Phpfox_Service
 		
 		$iId = $this->database()->insert($this->_sTable, $aSql);
 		
-		if (isset($aVals['country_iso_custom']) && is_array($aVals['country_iso_custom']) && !empty($aVals['country_iso_custom']))
-		{
-			foreach ($aVals['country_iso_custom'] as $sCountry)
-			{
-				$this->database()->insert(Phpfox::getT('ad_country'), array('ad_id' => $iId, 'country_id' => $sCountry)); 
-			}
-		}
+		$this->_adCountries($aVals, $iId);
+		
 		if ($aVals['type_id'] == 1)
 		{
 			if ($sFileName = Phpfox::getLib('file')->upload('image', Phpfox::getParam('ad.dir_image'), $iId))
@@ -429,6 +453,7 @@ class Ad_Service_Process extends Phpfox_Service
 		
 		$this->cache()->remove('ad', 'substr');
 		(($sPlugin = Phpfox_Plugin::get('ad.service_ad_add__end')) ? eval($sPlugin) : false);
+		
 		return $iId;
 	}
 	
@@ -467,6 +492,64 @@ class Ad_Service_Process extends Phpfox_Service
 	    $this->database()->update(Phpfox::getT('ad_sponsor'),array('total_view' => $aItem['total_view']+1), 'sponsor_id = ' . (int)$iSponsorId);
 	}
 	
+	/*
+		Handles inserting and updating countries and states
+	*/
+	private function _adCountries(&$aVals, $iId)
+	{
+		if (Phpfox::getParam('ad.advanced_ad_filters') && isset($aVals['country_iso_custom']) && is_array($aVals['country_iso_custom']) && !empty($aVals['country_iso_custom']) && isset($aVals['child_country']) && is_array($aVals['child_country']) && !empty($aVals['child_country']))
+		{
+			// Check that the states are valid for the countries selected
+			$aCountries = $aOptions = array();
+			foreach ($aVals['child_country'] as $sCountry => $aChildren)
+			{
+				$aCountries[] = $sCountry;
+				foreach ($aChildren as $iChild)
+				{
+					$aOptions[] = $iChild;
+				}				
+			}
+			$sCountryIn = '"' .implode('","', $aCountries) .'"';
+			$sOptionsIn = '' .implode(',', $aOptions) .'';
+			
+			$aValid = $this->database()->select('child_id, country_iso')
+				->from(Phpfox::getT('country_child'))
+				->where('country_iso IN ('. $sCountryIn .') AND child_id IN ('. $sOptionsIn .')')
+				->execute('getSlaveRows');
+			
+			$aToInsert = array();
+			// We need to take into account that the user may have chosen a Country but not a state, in this case we assume the user meant the entire country, so we leave the child_id empty
+			$this->database()->delete(Phpfox::getT('ad_country'), 'ad_id = ' . (int)$iId);
+			foreach ($aVals['country_iso_custom'] as $iKey => $sFullCountry)
+			{
+				if (!isset($aVals['child_country'][$sFullCountry]))
+				{
+					$aToInsert[$sFullCountry] = array('ad_id' => $iId, 'country_id' => $sCountry);
+					$this->database()->insert(Phpfox::getT('ad_country'), $aToInsert[$sFullCountry]);
+				}
+			}
+			
+			foreach ($aValid as $aChecked)
+			{				
+				if (!isset($aToInsert[$aChecked['country_iso']]))
+				{
+					$aToInsert[$aChecked['child_id']] = array('ad_id' => $iId, 'country_id' => $aChecked['country_iso'], 'child_id' => $aChecked['child_id']);
+					$this->database()->insert(Phpfox::getT('ad_country'), $aToInsert[$aChecked['child_id']]);
+				}				
+			}
+			$aVals['country_iso_custom'] = '';
+		}
+		else if (isset($aVals['country_iso_custom']) && is_array($aVals['country_iso_custom']) && !empty($aVals['country_iso_custom']))
+		{
+			$this->database()->delete(Phpfox::getT('ad_country'), 'ad_id = ' . (int)$iId);
+			foreach ($aVals['country_iso_custom'] as $sCountry)
+			{
+				$this->database()->insert(Phpfox::getT('ad_country'), array('ad_id' => $iId, 'country_id' => $sCountry)); 
+			}
+			$aVals['country_iso_custom'] = '';
+		}
+	}
+	
 	/**
 	 * Add a custom ad, which are created by the end-users.
 	 *
@@ -501,6 +584,7 @@ class Ad_Service_Process extends Phpfox_Service
 				$aVals['country_iso'] = null;
 			}
 		}
+		
 		
 		$aSize = explode('x', $aVals['ad_size']);	
 		
@@ -553,16 +637,19 @@ class Ad_Service_Process extends Phpfox_Service
 			'is_cpm' => (int)$aVals['is_cpm']
 		);
 		//if ($sPlugin = Phpfox_Plugin::get('ad.service_process_addcustom_before_insert_ad')){eval($sPlugin);}
+		if (Phpfox::getParam('ad.advanced_ad_filters'))
+		{
+			$oParse = Phpfox::getLib('parse.input');			
+			$aInsert['postal_code'] = explode(',',$oParse->clean($aVals['postal_code']));
+			$aInsert['postal_code'] = json_encode($aInsert['postal_code']);
+			$aInsert['city_location'] = explode(',',$oParse->clean($aVals['city_location']));
+			$aInsert['city_location'] = json_encode($aInsert['city_location']);
+		}
 		$iId = $this->database()->insert(Phpfox::getT('ad'), $aInsert);
 		
-		// Insert countries
-		if (isset($aVals['country_iso_custom']) && is_array($aVals['country_iso_custom']) && !empty($aVals['country_iso_custom']))
-		{
-			foreach ($aVals['country_iso_custom'] as $sCountry)
-			{
-				$this->database()->insert(Phpfox::getT('ad_country'), array('ad_id' => $iId, 'country_id' => $sCountry)); 
-			}
-		}
+		// Insert countries		
+		$this->_adCountries($aVals, $iId);
+		
 		
 		if ($aVals['type_id'] == '1')
 		{
@@ -635,22 +722,9 @@ class Ad_Service_Process extends Phpfox_Service
 				return Phpfox_Error::set('You are not allowed to edit this ad.');
 			}
 		}
-		if (is_array($aVals['country_iso_custom']))
-		{
-			$this->database()->delete(Phpfox::getT('ad_country'), 'ad_id = ' . (int)$aVals['id']);
-			foreach ($aVals['country_iso_custom'] as $iKey => $sCountry)
-			{
-				if (empty($sCountry))
-				{
-					unset($aVals['country_iso_custom'][$iKey]);
-				}
-				else
-				{
-					$this->database()->insert(Phpfox::getT('ad_country'), array('ad_id' => (int)$aVals['id'], 'country_id' => $oParse->clean($sCountry)));
-				}
-			}
-			$aVals['country_iso_custom'] = '';
-		}
+		
+		$this->_adCountries($aVals, $iId);
+		
 		$this->database()->update(Phpfox::getT('ad'), array(
 				'name' => $this->preParse()->clean($aVals['name']),
 				'country_iso' => $oParse->clean($aVals['country_iso_custom']),

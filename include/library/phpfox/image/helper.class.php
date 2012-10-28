@@ -13,7 +13,7 @@ defined('PHPFOX') or exit('NO DICE!');
  * @copyright		[PHPFOX_COPYRIGHT]
  * @author			Raymond Benc
  * @package 		Phpfox
- * @version 		$Id: helper.class.php 4426 2012-06-29 11:00:29Z Raymond_Benc $
+ * @version 		$Id: helper.class.php 4767 2012-09-26 05:41:30Z Raymond_Benc $
  */
 class Phpfox_Image_Helper
 {	
@@ -157,12 +157,28 @@ class Phpfox_Image_Helper
 			$aParams['title'] = ($bIsOnline ? Phpfox::getPhrase('core.full_name_is_online', array('full_name' => Phpfox::getLib('parse.output')->shorten($aParams['user'][$sSuffix . 'full_name'], Phpfox::getParam('user.maximum_length_for_full_name')))) : Phpfox::getLib('parse.output')->shorten($aParams['user'][$sSuffix . 'full_name'], Phpfox::getParam('user.maximum_length_for_full_name')));
 			
 			// Create the users link
-			$sLink = Phpfox::getLib('url')->makeUrl('profile', $aParams['user'][$sSuffix . 'user_name']);	
+			// $sLink = Phpfox::getLib('url')->makeUrl('profile', $aParams['user'][$sSuffix . 'user_name']);
+			if(!empty($aParams['user']['profile_page_id']) && !empty($aParams['user']['page_id']))
+			{
+				if(empty($aParams['user']['user_name']))
+				{
+					$sLink = Phpfox::getLib('url')->makeUrl('pages', $aParams['user']['page_id']);
+				}
+			}
+			else
+			{
+				$sLink = Phpfox::getLib('url')->makeUrl('profile', $aParams['user'][$sSuffix . 'user_name']);
+			}			
 			
 			if (!empty($aParams['server_id']))
 			{
 				$bIsServer = true;	
 			}
+			
+			if (Phpfox::getParam('user.prevent_profile_photo_cache') && isset($aParams['user'][$sSuffix . 'user_id']) && $aParams['user'][$sSuffix . 'user_id'] == Phpfox::getUserId())
+			{
+				$aParams['time_stamp'] = true;
+			}			
 		}		
 		
 		$bIsValid = true;

@@ -11,7 +11,7 @@ defined('PHPFOX') or exit('NO DICE!');
  * @copyright		[PHPFOX_COPYRIGHT]
  * @author  		Raymond Benc
  * @package 		Phpfox_Component
- * @version 		$Id: import.class.php 1931 2010-10-25 11:58:06Z Raymond_Benc $
+ * @version 		$Id: import.class.php 4887 2012-10-11 11:38:15Z Raymond_Benc $
  */
 class Theme_Component_Controller_Admincp_Import extends Phpfox_Component
 {
@@ -19,12 +19,7 @@ class Theme_Component_Controller_Admincp_Import extends Phpfox_Component
 	 * Class process method wnich is used to execute this component.
 	 */
 	public function process()
-	{
-		if (Phpfox::getParam('core.phpfox_is_hosted'))
-		{
-			$this->url()->send('admincp');
-		}			
-		
+	{		
 		$oArchiveImport = Phpfox::getLib('archive.import')->set(array('zip'));
 		$bOverwrite = ($this->request()->getInt('overwrite') ? true : false);
 		
@@ -44,15 +39,19 @@ class Theme_Component_Controller_Admincp_Import extends Phpfox_Component
 					{
 						$aParts = explode('-', $aMatches[1]);
 						$sFolderName = $aParts[0];
+					}					
+				
+					if ($this->request()->get('overwrite') && Phpfox::getService('theme')->isTheme($sFolderName))
+					{
+						$this->url()->send('admincp.theme.import', null, 'Theme successfully overwritten.');
 					}
-					
 					$this->url()->send('admincp.theme.import', array('install' => $sFolderName));
 				}
             }
             else 
-            {
+			{
             	Phpfox_Error::set(Phpfox::getPhrase('theme.not_a_valid_theme_to_import'));
-            }
+           	}
 		}
 		
 		$this->template()->setTitle(Phpfox::getPhrase('theme.import_themes'))

@@ -764,7 +764,7 @@ $Core.moderationLinkClick = function(oObj, sType)
 			iTotalItems++;
 		}
 	}    
-	
+	iTotalItems = $('.moderate_link_active').length;
 	$('.js_global_multi_total').html(iTotalItems);
 	
 	if (iTotalItems)

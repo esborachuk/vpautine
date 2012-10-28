@@ -13,7 +13,7 @@ defined('PHPFOX') or exit('NO DICE!');
  * @copyright		[PHPFOX_COPYRIGHT]
  * @author			Raymond Benc
  * @package 		Phpfox
- * @version 		$Id: import.class.php 1666 2010-07-07 08:17:00Z Raymond_Benc $
+ * @version 		$Id: import.class.php 4887 2012-10-11 11:38:15Z Raymond_Benc $
  */
 class Phpfox_Archive_Import
 {
@@ -74,7 +74,10 @@ class Phpfox_Archive_Import
 	
 	public function process($aFile)
 	{
-		return Phpfox_Error::set('Unable to import data using the current routine. Use the manual method of importing data.');
+		if (!Phpfox::getParam('core.is_auto_hosted'))
+		{
+			return Phpfox_Error::set('Unable to import data using the current routine. Use the manual method of importing data.');
+		}
 		
 		if (!preg_match('/^(.*?)\.zip$/i', $aFile['name']))
 		{
@@ -87,21 +90,41 @@ class Phpfox_Archive_Import
 		
 		mkdir($sLocation);
 		
+		$sThemeName = str_replace(array('phpfox-theme-', '.zip'), '', $aFile['name']);
+		
 		Phpfox::getLib('archive', $sExt)->extract($aFile['tmp_name'], $sLocation);
 		
 		$aFiles = Phpfox::getLib('file')->getAllFiles($sLocation);
 		foreach ($aFiles as $sFile)
 		{
 			$sNewFile = str_replace($sLocation, '', $sFile);
+			
+			if (!preg_match('/([a-zA-Z0-9-]\.(xml|css|html.php))/i', $sFile)
+					|| !preg_match('/theme\/frontend\/' . $sThemeName . '\//i', $sFile)	
+				)
+			{
+				continue;
+			}
+
+			if (substr($sFile, -9) == '.html.php')
+			{
+				$sContent = file_get_contents($sFile);
+				$hFile = fopen($sFile, 'w');
+				fwrite($hFile, "<?php defined('PHPFOX') or exit('NO DICE!'); ?>\n" . $sContent);
+				fclose($hFile);
+			}
+						
 			$aParts = explode(PHPFOX_DS, $sNewFile);
 			unset($aParts[(count($aParts) - 1)]);
 			$sDirPath = implode(PHPFOX_DS, $aParts);
+			
+			$sDirPath = ltrim($sDirPath, 'upload/');
 			
 			Phpfox::getLib('ftp')->mkdir(PHPFOX_DIR . $sDirPath, true);	
 			Phpfox::getLib('ftp')->put($sFile, PHPFOX_DIR . $sNewFile);			
 		}
 		
-		Phpfox::getLib('file')->delete_directory($sLocation);		
+		Phpfox::getLib('file')->delete_directory($sLocation);
 		
 		return true;		
 	}

@@ -5,7 +5,7 @@
  * @copyright		[PHPFOX_COPYRIGHT]
  * @author  		Raymond Benc
  * @package  		Module_User
- * @version 		$Id: setting.html.php 4208 2012-06-04 14:37:39Z Miguel_Espinoza $
+ * @version 		$Id: setting.html.php 4592 2012-08-13 07:54:13Z Raymond_Benc $
  */
 
 defined('PHPFOX') or exit('NO DICE!'); 
@@ -15,6 +15,32 @@ defined('PHPFOX') or exit('NO DICE!');
 <div class="main_break">
 	<form method="post" action="{url link='user.setting'}" id="js_form" onsubmit="{$sGetJsForm}">		
 		{if Phpfox::getUserId() == $aForms.user_id && Phpfox::getUserParam('user.can_change_own_full_name')}
+		
+		{if Phpfox::getParam('user.split_full_name')}
+		<div><input type="hidden" name="val[full_name]" id="full_name" value="{value type='input' id='full_name'}" size="30" /></div>
+		<div class="table">
+			<div class="table_left">
+				<label for="first_name">{required}First Name:</label>
+			</div>
+			<div class="table_right">
+				<input type="text" name="val[first_name]" id="first_name" value="{value type='input' id='first_name'}" size="30" {if $iTotalFullNameChangesAllowed != 0 && $aForms.total_full_name_change >= $iTotalFullNameChangesAllowed}readonly="readonly"{/if} />
+			</div>			
+		</div>		
+		<div class="table">
+			<div class="table_left">
+				<label for="last_name">{required}Last Name:</label>
+			</div>
+			<div class="table_right">
+				<input type="text" name="val[last_name]" id="last_name" value="{value type='input' id='last_name'}" size="30" {if $iTotalFullNameChangesAllowed != 0 && $aForms.total_full_name_change >= $iTotalFullNameChangesAllowed}readonly="readonly"{/if} />
+			</div>			
+		</div>		
+		<div class="extra_info">
+			{if $iTotalFullNameChangesAllowed > 0}
+				{phrase var='user.total_full_name_change_out_of_allowed' total_full_name_change=$aForms.total_full_name_change allowed=$iTotalFullNameChangesAllowed}
+			{/if}
+		</div>		
+		<div class="separate"></div>
+		{else}		
 		<div class="table">
 			<div class="table_left">
 				<label for="full_name">{required}{$sFullNamePhrase}:</label>
@@ -33,6 +59,7 @@ defined('PHPFOX') or exit('NO DICE!');
 			</div>
 			<div class="clear"></div>
 		</div>
+		{/if}
 		{/if}
 		{if Phpfox::getUserParam('user.can_change_own_user_name') && !Phpfox::getParam('user.profile_use_id')}
 		<div class="table">

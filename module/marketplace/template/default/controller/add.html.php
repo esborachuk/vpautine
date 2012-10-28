@@ -5,7 +5,7 @@
  * @copyright		[PHPFOX_COPYRIGHT]
  * @author  		Raymond Benc
  * @package 		Phpfox
- * @version 		$Id: add.html.php 3992 2012-03-12 13:40:21Z Raymond_Benc $
+ * @version 		$Id: add.html.php 4605 2012-08-20 11:17:45Z Miguel_Espinoza $
  */
  
 defined('PHPFOX') or exit('NO DICE!'); 
@@ -156,6 +156,10 @@ defined('PHPFOX') or exit('NO DICE!');
 				</div>
 			</div>
 		</div>
+		
+		{if Phpfox::isModule('input')}
+			{module name='input.add' action='add-listing' module='marketplace'}
+		{/if}
 		
 		{if $bIsEdit && ($aForms.view_id == '0' || $aForms.view_id == '2')}
 		<div class="separate"></div>

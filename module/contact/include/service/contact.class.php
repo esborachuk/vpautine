@@ -11,7 +11,7 @@ defined('PHPFOX') or exit('NO DICE!');
  * @copyright		[PHPFOX_COPYRIGHT]
  * @author  		Miguel Espinoza
  * @package  		Module_Contact
- * @version 		$Id: contact.class.php 3831 2011-12-19 14:28:39Z Miguel_Espinoza $
+ * @version 		$Id: contact.class.php 4646 2012-09-17 11:25:24Z Raymond_Benc $
  */
 class Contact_Service_Contact extends Phpfox_Service
 {
@@ -126,7 +126,7 @@ class Contact_Service_Contact extends Phpfox_Service
 					->messageHeader(false)
 					->subject(Phpfox::getParam('contact.auto_responder_subject'))
 					->message(Phpfox::getParam('contact.auto_responder_message'))
-					->fromEmail(Phpfox::getParam('core.mail_from_name'))
+					->fromEmail(Phpfox::getParam('core.email_from_email'))
 					->fromName(Phpfox::getParam('core.site_title'))
 					->send();
 		}

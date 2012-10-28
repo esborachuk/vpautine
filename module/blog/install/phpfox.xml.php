@@ -504,6 +504,7 @@ To see the comment thread, follow the link below:
 		<phrase module_id="blog" version_id="3.0.0" var_name="blog_s_successfully_deleted" added="1322739225">Blog(s) successfully deleted.</phrase>
 		<phrase module_id="blog" version_id="3.1.0beta1" var_name="user_name_tagged_you_in_a_comment_in_a_blog" added="1331221899">{user_name} tagged you in a comment in a blog</phrase>
 		<phrase module_id="blog" version_id="3.1.0rc1" var_name="menu_blog_blogs_532c28d5412dd75bf975fb951c740a30" added="1332257664">Blogs</phrase>
+		<phrase module_id="blog" version_id="3.4.0beta2" var_name="blog_successfully_deleted" added="1348142472">Blog successfully deleted.</phrase>
 	</phrases>
 	<rss_group>
 		<group module_id="blog" group_id="1" name_var="blog.rss_group_name_1" is_active="1" />

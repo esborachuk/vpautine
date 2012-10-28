@@ -11,7 +11,7 @@ defined('PHPFOX') or exit('NO DICE!');
  * @copyright		[PHPFOX_COPYRIGHT]
  * @author			natio
  * @package  		Module_User
- * @version 		$Id: photo.class.php 3185 2011-09-26 15:12:40Z Raymond_Benc $
+ * @version 		$Id: photo.class.php 4703 2012-09-20 11:52:55Z Raymond_Benc $
  */
 class User_Component_Controller_Photo extends Phpfox_Component
 {
@@ -168,18 +168,10 @@ class User_Component_Controller_Photo extends Phpfox_Component
 		
 		if ((Phpfox::getUserBy('user_image') && !empty($sImage)) || ($bIsProcess === true && !empty($sImage)))
 		{
-			if (Phpfox::getParam('core.allow_cdn') && Phpfox::getUserBy('server_id') > 0)
-			{
-				preg_match("/src=\"(.*?)\"/", $sImage, $aMatches);
-
-				list($iWidth, $iHeight) = getimagesize($aMatches[1]);				
-			}	
-			else
-			{		
-				preg_match("/height=\"(.*?)\" width=\"(.*?)\"/", $sImage, $aMatches);			
-				$iHeight = $aMatches[1];
-				$iWidth = $aMatches[2];
-			}
+			preg_match("/height=\"(.*?)\" width=\"(.*?)\"/", $sImage, $aMatches);
+			$iHeight = $aMatches[1];
+			$iWidth = $aMatches[2];
+			
 			$this->template()->setHeader('cache', array(
 						'jquery/plugin/jquery.crop.js' => 'static_script',
 						'<script type="text/javascript">$Core.photo_crop.init({width: 75, height: 75, image_width: ' . $iWidth . ', image_height: ' . $iHeight . '});</script>'		

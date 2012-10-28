@@ -11,7 +11,7 @@ defined('PHPFOX') or exit('NO DICE!');
  * @copyright		[PHPFOX_COPYRIGHT]
  * @author  		Raymond Benc
  * @package  		Module_Blog
- * @version 		$Id: delete.class.php 225 2009-02-13 13:24:59Z Raymond_Benc $
+ * @version 		$Id: delete.class.php 4704 2012-09-20 12:03:15Z Raymond_Benc $
  */
 class Blog_Component_Controller_Delete extends Phpfox_Component 
 {
@@ -25,7 +25,7 @@ class Blog_Component_Controller_Delete extends Phpfox_Component
 		if ($iId = $this->request()->getInt('id'))
 		{
 			Phpfox::getService('blog.process')->deleteInline($iId);
-			$this->url()->send('blog', array('delete'));
+			$this->url()->send('blog', array(), Phpfox::getPhrase('blog.blog_successfully_deleted'));
 		}
 	}
 }

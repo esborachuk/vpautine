@@ -11,7 +11,7 @@ defined('PHPFOX') or exit('NO DICE!');
  * @copyright		[PHPFOX_COPYRIGHT]
  * @author  		Raymond_Benc
  * @package 		Phpfox_Module
- * @version 		$Id: phpfox.class.php 3995 2012-03-12 15:51:10Z Raymond_Benc $
+ * @version 		$Id: phpfox.class.php 4631 2012-09-13 11:59:05Z Raymond_Benc $
  */
 class Module_Pages
 {
@@ -26,6 +26,7 @@ class Module_Pages
 		'pages',
 		'pages_admin',
 		'pages_category',
+		'pages_claim',
 		'pages_design_order',
 		'pages_feed',
 		'pages_feed_comment',
