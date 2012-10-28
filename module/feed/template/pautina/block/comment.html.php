@@ -36,23 +36,25 @@
 		{else}
 		{if isset($aFeed.comment_type_id) && isset($aFeed.total_comment) && (isset($sFeedType) &&  $sFeedType == 'mini' ? $aFeed.total_comment > 0 : $aFeed.total_comment > Phpfox::getParam('comment.total_comments_in_activity_feed'))}
 			<div class="comment_mini comment_mini_link_holder" id="js_feed_comment_view_more_link_{$aFeed.feed_id}">
-				<div class="comment_mini_link_image">
-					{img theme='misc/comment.png' class='v_middle'}				
-				</div>
 				<div class="comment_mini_link_loader" id="js_feed_comment_ajax_link_{$aFeed.feed_id}" style="display:none;">{img theme='ajax/add.gif' class='v_middle'}</div>
 				<div class="comment_mini_link">
 					<a href="#" class="comment_mini_link_block comment_mini_link_block_hidden" style="display:none;" onclick="return false;">{phrase var='feed.loading'}</a>
-					<a href="{if isset($aFeed.feed_link_comment)}{$aFeed.feed_link_comment}{else}{$aFeed.feed_link}{/if}comment/"{if isset($sFeedType) &&  $sFeedType == 'mini'}{else}{if Phpfox::getParam('comment.total_amount_of_comments_to_load') > $aFeed.total_comment}onclick="$('#js_feed_comment_ajax_link_{$aFeed.feed_id}').show(); $(this).parent().find('.comment_mini_link_block_hidden').show(); $(this).hide(); $.ajaxCall('comment.viewMoreFeed', 'comment_type_id={$aFeed.comment_type_id}&amp;item_id={$aFeed.item_id}&amp;feed_id={$aFeed.feed_id}', 'GET'); return false;"{/if}{/if} class="comment_mini_link_block no_ajax_link">{phrase var='comment.view_all_total_left_comments' total_left=$aFeed.total_comment}</a>					
+					<a href="{if isset($aFeed.feed_link_comment)}{$aFeed.feed_link_comment}{else}{$aFeed.feed_link}{/if}comment/"
+                    {if isset($sFeedType) &&  $sFeedType == 'mini'}
+                    {else}
+                        {if Phpfox::getParam('comment.total_amount_of_comments_to_load') > $aFeed.total_comment}
+                            onclick="$('#js_feed_comment_ajax_link_{$aFeed.feed_id}').show(); $(this).parent().find('.comment_mini_link_block_hidden').show(); $(this).hide(); $.ajaxCall('comment.viewMoreFeed', 'comment_type_id={$aFeed.comment_type_id}&amp;item_id={$aFeed.item_id}&amp;feed_id={$aFeed.feed_id}', 'GET'); return false;"
+                        {/if}
+                    {/if} class="comment_mini_link_block no_ajax_link">
+                        {phrase var='comment.view_all_total_left_comments' total_left=$aFeed.total_comment}
+                    </a>
 				</div>
 			</div><!-- // #js_feed_comment_view_more_link_{$aFeed.feed_id} -->
 		{/if}		
 		{if isset($aFeed.total_comment) && !isset($aFeed.comment_type_id) && $aFeed.total_comment > 0}
 			<div class="comment_mini comment_mini_link_holder" id="js_feed_comment_view_more_link_{$aFeed.feed_id}">
-				<div class="comment_mini_link_image">
-					{img theme='misc/comment.png' class='v_middle'}				
-				</div>	
-				<div class="comment_mini_link">	
-					<a href="{if isset($aFeed.feed_link_comment)}{$aFeed.feed_link_comment}{else}{$aFeed.feed_link}{/if}comment/" class="comment_mini_link_block">{phrase var='comment.view_all_total_left_comments' total_left=$aFeed.total_comment}</a>					
+				<div class="comment_mini_link">
+					<a href="{if isset($aFeed.feed_link_comment)}{$aFeed.feed_link_comment}{else}{$aFeed.feed_link}{/if}comment/" class="comment_mini_link_block">{$aFeed.total_comment}{phrase var='comment.view_all_total_left_comments' total_left=$aFeed.total_comment}</a>
 				</div>
 			</div>
 		{/if}

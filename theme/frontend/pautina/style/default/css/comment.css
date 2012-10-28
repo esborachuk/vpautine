@@ -138,13 +138,15 @@ div.comment_mini_end
 
 .comment_mini_link
 {
-	margin-left:18px;
+    margin: 10px 0;
+    font-weight: bold;
 }
 
 a.comment_mini_link_block,
 a.comment_mini_link_block:hover
 {
 	display:block;
+    color: #4c4c4c;
 }
 
 a.comment_mini_link_block_hidden,
