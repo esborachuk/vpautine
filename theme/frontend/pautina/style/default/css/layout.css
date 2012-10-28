@@ -2543,7 +2543,9 @@ ul.activity_feed_multiple_image li
 a.activity_feed_report,
 a.activity_feed_report:hover
 {
-	color:#77859F;
+	color:#474747;
+    line-height: 15px;
+    margin-left: 5px;
 }
 
 .item_feed_entry
@@ -2555,6 +2557,10 @@ a.activity_feed_report:hover
 .item_feed_entry .user_profile_link_span a
 {
     font-size: 14px;
+}
+
+#js_block_border_feed_display .comment_mini_content_head .user_profile_link_span a {
+    font-size: 11px;
 }
 
 #js_block_border_feed_display .user_profile_link_span a:hover,
@@ -2593,6 +2599,8 @@ a.activity_feed_report:hover
 
 .activity_feed_content_text
 {
+    padding-bottom: 15px;
+    border-bottom: 1px solid #d7d7d7;
 }
 
 .activity_feed_content_info
@@ -2663,17 +2671,15 @@ a.activity_feed_content_view_more,
 a.activity_feed_content_view_more:hover
 {
 	display:block;
-	border-top:1px #DFDFDF solid;
-	margin:6px 0px 10px 0px;
-	padding:8px 0px 0px 0px;
+	margin: 7px 0 0 0;
 	font-size:11px;
-	font-weight:bold;
+    color: #4c4c4c;
 }
 
 .comment_mini_action
 {
 	margin:0px;	
-	padding:12px 0px 0px 0px;
+	padding:0;
 	color:#808080;
 }
 
@@ -2692,17 +2698,7 @@ a.activity_feed_content_view_more:hover
 {
 	display:block;
 	float:left;
-	margin-right:4px;	
-}
-
-.row_feed_loop .js_feed_comment_border ul li a,
-.row_feed_loop .js_feed_comment_border ul li a:hover,
-.comment_mini_action ul li a,
-.comment_mini_action ul li a:hover,
-.activity_feed_content_status ul li a,
-.activity_feed_content_status ul li a:hover
-{
-	color:#63799F;
+	margin-right:10px;
 }
 
 .item_view .parent_item_feed .js_feed_comment_border ul li,
@@ -2804,6 +2800,17 @@ a.activity_feed_content_view_more:hover
 .js_feed_comment_border
 {
 	position:relative;
+    background:#f8f8f8;
+    padding: 15px 15px 8px 15px;
+    border: 1px solid #d7d7d7;
+    border-top: none;
+    border-radius:0 0 4px 4px;
+    -moz-border-radius:0 0 4px 4px;
+    -webkit-border-radius:0 0 4px 4px;
+}
+
+.js_comment_like_holder {
+    margin-top: -9px;
 }
 
 .feed_comment_extra
@@ -2822,8 +2829,7 @@ a.activity_feed_content_view_more:hover
 .js_like_link_holder a,
 .js_like_link_holder a:hover
 {
-	background:url('../image/layout/like_small.png') no-repeat;
-	padding-left:16px;
+    color: #4C4C4C;
 }
 
 .row_feed_loop
@@ -4357,10 +4363,6 @@ a.like_count_link:hover
     color:#4c4c4c;
 }
 
-.activity_like_holder_links a.js_like_link_unlike {
-    background:#f8f8f8 url('../image/layout/unlike.png') no-repeat 19px 6px;
-}
-
 .activity_like_holder_links a.js_like_link_like, .activity_like_holder_links a.js_like_link_unlike {
     text-indent: -99999px;
     display: block;
@@ -4384,13 +4386,64 @@ a.like_count_link:hover
     font-size: 10px;
 }
 
-a.like_count_link:hover
-{
+.js_feed_comment_border .comment_mini_link_like .like-btn {
+    background:#f8f8f8;
+    position:absolute;
+    left: -62px;
+    top: -1px;
+    display:block;
+    padding: 0;
+    width: 60px;
+    line-height:27px;
+    height:27px;
+    border: 1px solid #d7d7d7;
+    font-size: 12px;
+    font-weight: bold;
+    -moz-border-radius:3px 0 0 3px;
+    -webkit-border-radius:3px 0 0 3px;
+    border-radius:3px 0 0 3px;
 }
 
-.like-btn .like {
+.js_feed_comment_border .comment_mini_link_like .like-btn a {
+    margin-top: 7px;
+    margin-left: 20px;
+    padding-left: 20px;
+    font-size: 12px;
+    font-weight: bold;
+    line-height: 14px;
+    width: auto;
+}
+
+li.like-btn a {
+    color: #4c4c4c;
     display: block;
-    background:#f8f8f8 url('../image/layout/like.png') no-repeat 19px 6px;
+    width: 13px;
+    text-indent: -9999px;
+}
+
+.comment_mini_link_like ul li.like-btn a:hover {
+    color: #4c4c4c;
+    text-decoration: none;
+}
+
+.like-btn .js_like_link_like {
+    background:#f8f8f8 url('../image/layout/unlike.png') no-repeat;
+}
+
+.like-btn .js_like_link_unlike {
+    background:#f8f8f8 url('../image/layout/like.png') no-repeat;
+}
+
+a.like_count_link {
+    position: absolute;
+    left: -34px;
+    top: 2px;
+    font-weight: bold;
+    z-index: 1;
+}
+
+.comment_mini_link_like {
+    margin: 15px;
 }
 
 .js_feed_view_more_entry_holder {
@@ -4433,4 +4486,21 @@ span.feed_icon_block img {
 
 .parent_user_icon_block {
     margin: 0 3px;
+}
+
+.feed_comment_bottom {
+    margin-top: 20px;
+}
+
+.comment_mini_content_head .user_profile_link_span {
+    float: left;
+    margin-right: 10px;
+}
+
+.comment_mini_content_head .comment_mini_action {
+    margin-top: 3px;
+}
+
+.js_feed_comment_border ul li.js_like_link_total {
+    margin-right: 10px;
 }

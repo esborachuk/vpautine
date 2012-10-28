@@ -35,24 +35,8 @@
 
     {if $aFeed.privacy > 0 && ($aFeed.user_id == Phpfox::getUserId() || Phpfox::getUserParam('core.can_view_private_items'))}
     <li><div class="js_hover_title">{img theme='layout/privacy_icon.png' alt=$aFeed.privacy}<span class="js_hover_info">{$aFeed.privacy|privacy_phrase}</span></div></li>
-    <li><span>&middot;</span></li>
+    
     {/if}
-    {/if}
-    {/if}
-
-    {if Phpfox::isUser() && Phpfox::isModule('like') && isset($aFeed.like_type_id)}
-    {if isset($aFeed.like_item_id)}
-    {module name='like.link' like_type_id=$aFeed.like_type_id like_item_id=$aFeed.like_item_id like_is_liked=$aFeed.feed_is_liked}
-    {else}
-    {module name='like.link' like_type_id=$aFeed.like_type_id like_item_id=$aFeed.item_id like_is_liked=$aFeed.feed_is_liked}
-    {/if}
-    {if Phpfox::isUser()
-    && Phpfox::isModule('comment')
-    && Phpfox::getUserParam('feed.can_post_comment_on_feed')
-    && (isset($aFeed.comment_type_id) && $aFeed.can_post_comment)
-    || (!isset($aFeed.comment_type_id) && isset($aFeed.total_comment))
-    }
-    <li><span>&middot;</span></li>
     {/if}
     {/if}
 
@@ -66,7 +50,7 @@
         <a href="{$aFeed.feed_link}add-comment/" class="{if (isset($sFeedType) && $sFeedType == 'mini') || (!isset($aFeed.comment_type_id) && isset($aFeed.total_comment))}{else}js_feed_entry_add_comment no_ajax_link{/if}">{phrase var='feed.comment'}</a>
     </li>
     {if (Phpfox::isModule('share') && !isset($aFeed.no_share))}
-    <li><span>&middot;</span></li>
+    
     {/if}
     {/if}
     {if Phpfox::isModule('share') && !isset($aFeed.no_share)}
@@ -77,12 +61,12 @@
     {/if}
     {/if}
     {if isset($aFeed.report_module) && isset($aFeed.force_report)}
-    <li><span>&middot;</span></li>
+    
     <li><a href="#?call=report.add&amp;height=100&amp;width=400&amp;type={$aFeed.report_module}&amp;id={$aFeed.item_id}" class="inlinePopup activity_feed_report" title="{$aFeed.report_phrase}">{phrase var='feed.report'}</a></li>
     {/if}
     {plugin call='feed.template_block_entry_2'}
     {if Phpfox::isMobile() && ((defined('PHPFOX_FEED_CAN_DELETE')) || (Phpfox::getUserParam('feed.can_delete_own_feed') && $aFeed.user_id == Phpfox::getUserId()) || Phpfox::getUserParam('feed.can_delete_other_feeds'))}
-    <li><span>&middot;</span></li>
+    
     <li><a href="#" onclick="if (confirm(getPhrase('core.are_you_sure'))){l}$.ajaxCall('feed.delete', 'id={$aFeed.feed_id}{if isset($aFeedCallback.module)}&amp;module={$aFeedCallback.module}&amp;item={$aFeedCallback.item_id}{/if}', 'GET');{r} return false;">{phrase var='feed.delete'}</a></li>
     {/if}
 </ul>

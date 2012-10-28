@@ -18,7 +18,7 @@
 	<phrase module_id="comment" version_id="2.0.0alpha1" var_name="fill_text_your_comment" added="1212761438">Введите текст вашего комментария</phrase>
 	<phrase module_id="comment" version_id="2.0.0alpha1" var_name="leave_a_reply" added="1212761679">Оставить Ответ</phrase>
 	<phrase module_id="comment" version_id="2.0.0alpha1" var_name="comment" added="1212761697">Комментарий</phrase>
-	<phrase module_id="comment" version_id="2.0.0alpha1" var_name="submit_comment" added="1212761728">Добавить комментарий</phrase>
+	<phrase module_id="comment" version_id="2.0.0alpha1" var_name="submit_comment" added="1212761728">Комментировать</phrase>
 	<phrase module_id="comment" version_id="2.0.0alpha1" var_name="adding_comment" added="1212761764">Добавление комментария</phrase>
 	<phrase module_id="comment" version_id="2.0.0alpha1" var_name="comment_deleted" added="1215261123">Комментарий удален</phrase>
 	<phrase module_id="comment" version_id="2.0.0alpha1" var_name="voted" added="1218714564">Голос принят!</phrase>
@@ -57,7 +57,7 @@
 	<phrase module_id="comment" version_id="2.0.0rc2" var_name="comments_pending_approval_total" added="1252998996"><![CDATA[Комментарии, ожидающие одобрения (<span id="js_request_comment_count_total">{total}</span>)]]></phrase>
 	<phrase module_id="comment" version_id="2.0.0rc2" var_name="new_comments" added="1252999027">Новые комментарии</phrase>
 	<phrase module_id="comment" version_id="2.0.0rc2" var_name="comments_for_approval" added="1252999037">Комментарии для одобрения</phrase>
-	<phrase module_id="comment" version_id="2.0.0rc2" var_name="add_comment" added="1252999047">Добавить комментарий</phrase>
+	<phrase module_id="comment" version_id="2.0.0rc2" var_name="add_comment" added="1252999047">Комментировать</phrase>
 	<phrase module_id="comment" version_id="2.0.0rc2" var_name="view_comments" added="1252999055">Посмотреть комментарии</phrase>
 	<phrase module_id="comment" version_id="2.0.0rc2" var_name="user_link_added_a_comment_and_is_pending_your_approval" added="1252999095">Пользователь {user_link} добавил комментарий и ожидает вашего одобрения.</phrase>
 	<phrase module_id="comment" version_id="2.0.0rc2" var_name="by_full_name" added="1252999214">Пользователь: {full_name}</phrase>
