@@ -1200,8 +1200,8 @@ input.button_register,
 */
 #left
 {
+    width: 395px;
 	float:left;
-	width:180px;
 	overflow:hidden;
 	padding:10px 0px 10px 0px;
 	border-right:1px #D7D7D7 solid;	
@@ -1220,7 +1220,8 @@ input.button_register,
 
 #main_content
 {
-	margin-left:180px;
+    width: 580px;
+	margin-left:395px;
     border-right: 1px solid #d7d7d7;
 }
 

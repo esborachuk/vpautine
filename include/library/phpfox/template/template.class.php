@@ -1029,8 +1029,6 @@ class Phpfox_Template
 			$aThemeCache = $this->getThemeCache();
 			if (isset($aThemeCache['l_width']) && $aThemeCache['l_width'] > 0)
 			{
-				$sCustomCss .= '#left { width:' . (int) $aThemeCache['l_width'] . 'px; }';
-				$sCustomCss .= '#main_content { margin-left:' . (int) $aThemeCache['l_width'] . 'px; }';
 			}			
 			if (isset($aThemeCache['c_width']) && $aThemeCache['c_width'] > 0)
 			{
