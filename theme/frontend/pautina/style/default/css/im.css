@@ -499,12 +499,18 @@ div#js_friend_input_search
 
 #user-menu{
     background-color: #F8F8F8;
-    border:4px solid #D0D0D0;
+    border: 3px solid #ECECEC;
+    border-radius: 6px 0 0 6px;
+    box-shadow: 0 2px 1px rgba(0, 0, 0, 0.2), 0 2px 1px rgba(0, 0, 0, 0.2) inset;
+    display: none;
     padding: 0 90px 0 10px;
-    z-index: 100 !important;
     position: fixed !important;
     right: -12px;
     top: 107px;
     width: 122px;
-    display:none;
+    z-index: 100 !important;
+}
+
+#user-menu ul li {
+    font-size: 18px;
 }
