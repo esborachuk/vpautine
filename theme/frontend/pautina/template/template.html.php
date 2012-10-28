@@ -85,14 +85,15 @@ defined('PHPFOX') or exit('NO DICE!');
 		<div id="{if Phpfox::isUser()}main_core_body_holder{else}main_core_body_holder_guest{/if}">
 		
 			{block location='11'}
-
 			<div id="main_content_holder">
 			{/if}
 				<div {holder_name}>		
 					<div {is_page_view} class="holder">
 
 						{module name='profile.logo'}
-						
+                        {if defined('PHPFOX_IS_USER_PROFILE')}
+                            {module name='profile.header'}
+                        {/if}
 						<div id="content_holder">		
 
 							{block location='7'}				
@@ -118,7 +119,6 @@ defined('PHPFOX') or exit('NO DICE!');
 								<div id="main_content_padding">
 									{if defined('PHPFOX_IS_USER_PROFILE')}
 									{block location='12'}
-									{module name='profile.header'}							
 									{/if}
 									{if defined('PHPFOX_IS_PAGES_VIEW')}
 									{block location='12'}

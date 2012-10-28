@@ -375,3 +375,8 @@ a.feed_share_link {
     line-height: 15px;
     display: block;
 }
+
+.activity_feed_content_info .user_profile_link_span a {
+    font-size: 14px;
+    line-height: 15px;
+}

@@ -1200,7 +1200,7 @@ input.button_register,
 */
 #left
 {
-    width: 395px;
+    width: 394px;
 	float:left;
 	overflow:hidden;
 	padding:10px 0px 10px 0px;
@@ -4459,6 +4459,7 @@ a.like_count_link {
 
 .feed_info_block {
     margin-left: 15px;
+    line-height: 15px;
 }
 
 span.feed_entry_time_stamp {
@@ -4469,6 +4470,7 @@ span.feed_entry_time_stamp {
 span.feed_entry_time_stamp a {
     color: #999;
     font-size: 11px;
+    line-height: 19px;
 }
 
 span.feed_entry_time_stamp a:hover {
@@ -4505,3 +4507,12 @@ span.feed_icon_block img {
 .js_feed_comment_border ul li.js_like_link_total {
     margin-right: 10px;
 }
+
+.activity_feed_image img, .block_listing_image img {
+    border-radius: 3px;
+}
+
+.activity_like_holder img {
+    border-radius: 2px;
+}
+
