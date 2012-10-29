@@ -90,7 +90,6 @@ defined('PHPFOX') or exit('NO DICE!');
 				<div {holder_name}>		
 					<div {is_page_view} class="holder">
 
-						{module name='profile.logo'}
                         {if defined('PHPFOX_IS_USER_PROFILE')}
                             {module name='profile.header'}
                         {/if}

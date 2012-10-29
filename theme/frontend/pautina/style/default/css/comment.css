@@ -164,6 +164,7 @@ a.comment_mini_link_block_hidden:hover
 
 div.js_mini_feed_comment
 {
+    border-bottom: 1px solid #D7D7D7;
 	min-height:52px;
 	height:auto !important;
 	height:52px;

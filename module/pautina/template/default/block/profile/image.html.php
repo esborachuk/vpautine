@@ -32,7 +32,6 @@ defined('PHPFOX') or exit('NO DICE!');
 
 {/if}
 
-    <div class="clear"></div>
-    <div class="js_cache_check_on_content_block" style="display:none;"></div>
-    <div class="js_cache_profile_id" style="display:none;">{$aUser.user_id}</div>
-    <div class="js_cache_profile_user_name" style="display:none;">{$aUser.user_name}</div>
+<div class="js_cache_check_on_content_block" style="display:none;"></div>
+<div class="js_cache_profile_id" style="display:none;">{$aUser.user_id}</div>
+<div class="js_cache_profile_user_name" style="display:none;">{$aUser.user_name}</div>

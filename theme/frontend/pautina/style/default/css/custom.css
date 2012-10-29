@@ -83,9 +83,9 @@ a:hover {
     color: #FFFFFF;
     padding: 2px 4px;
     border: 1px solid #ffe222;
-    border-radius: 4px;
-    -moz-border-radius: 4px;
-    -webkit-border-radius: 4px;
+    border-radius: 2px;
+    -moz-border-radius: 2px;
+    -webkit-border-radius: 2px;
 }
 
 #header_menu_holder {
@@ -93,12 +93,13 @@ a:hover {
 }
 
 #header_menu {
-    background: #ababab;
+    background: #424242;
+    border-top: 1px solid #222;
 }
 
 #header_menu ul li a, #header_menu ul li a:hover {
-    border-right: 1px solid #BFBFBF;
-    color: #333333;
+    border-right: 1px solid #222;
+    color: #fff;
     display: block;
 }
 
@@ -211,13 +212,7 @@ a:hover {
 /**------end-header*/
 /*-------start body ---- left-panel------*/
 .profile_image_holder {
-    width: 180px;
-    height: 180px;
-    border-radius: 3px;
-    -moz-border-radius: 3px;
-    -webkit-border-radius: 3px;
-    border: 4px solid #fff;
-    box-sizing: border-box;
+
 }
 
 .header-wrapper {
@@ -243,11 +238,11 @@ a:hover {
 
 .menu_box {
     clear: both;
-    overflow: hidden;
     margin-bottom: 20px;
 }
 
 .menu_box .profilebox-title, #left #js_block_border_friend_profile_small .title, #left #js_block_border_friend_mutual-friend .title{
+    margin-left: -5px;
     background: #4c4c4c;
     font-size: 20px;
     font-weight: normal;
@@ -409,10 +404,6 @@ ul.block_listing li .block_listing_title {
 #blogbox .title, #blogbox .data {
     color: #494949;
     font-size: 12px;
-    }
-
-#left {
-    border-left: 1px solid #D7D7D7;
 }
 
 .pages_view_sub_menu ul {
@@ -421,12 +412,11 @@ ul.block_listing li .block_listing_title {
 
 #holder_notify ul li div.holder_notify_drop, #header_menu_holder ul li ul {
     background: none repeat scroll 0 0 #FFFFFF;
-    border-bottom: 1px solid #000000;
-    border-left: 1px solid #000000;
-    border-radius: 0 0 9px 9px;
-    border-right: 1px solid #000000;
-    color: #333333;
-    box-shadow: 1px 2px 10px #0A0909;
+    border-bottom: 1px solid #d7d7d7;
+    border-left: 1px solid #d7d7d7;
+    border-right: 1px solid #d7d7d7;
+    color: #4c4c4c;
+    border-radius: 0 0 4px 4px;
 }
 
 
