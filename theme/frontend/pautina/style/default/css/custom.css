@@ -349,7 +349,17 @@ ul.block_listing li .block_listing_title {
     padding: 7px 0;
     width: 100%;
     text-align: center;
+    background: url("../image/friend-like-bg.png") repeat-x scroll left top transparent;
+    position: absolute;
+    border-radius: 4px 4px 0 0;
 }
+ul.block_listing li .block_listing_title a {
+    color: #fff;
+}
+ul.block_listing li .block_listing_title a:hover {
+    color: #000;
+}
+
 
 #imagebox .block-like {
     overflow: hidden;
@@ -413,6 +423,12 @@ ul.block_listing li .block_listing_title {
 
 #left {
     border-left: 1px solid #D7D7D7;
+    border-right: 0;
+}
+
+#main_content {
+    border-right: 1px solid #D7D7D7;
+    border-left: 1px solid #D7D7D7;
 }
 
 .pages_view_sub_menu ul {
@@ -455,7 +471,7 @@ ul.block_listing li .block_listing_title {
 }
 
 ul.block_listing li .block_listing_image a img {
-    border-radius: 9px;
+    border-radius: 4px;
 }
 
 .profilebox-title .add-photo {
