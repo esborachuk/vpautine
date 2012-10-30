@@ -478,3 +478,41 @@ ul.block_listing li .block_listing_image a img {
     margin-right: 25px;
 }
 
+#js_controller_video_view #main_content{
+    width: 100%;
+    border:0 ;
+}
+
+#js_controller_video_view #main_content #main_content_padding {
+    padding: 15px 0 15px 85px;
+}
+
+.feed_share_custom {padding: 0;}
+
+#js_video_outer_body .js_feed_comment_border {
+    width: 608px !important;
+}
+
+.video_info_view {
+    color: #c6c6c6;
+    font-size: 12px;
+    font-weight: bold;
+    position: absolute;
+    right: 5px;
+}
+
+#js_controller_photo_index #left, #js_controller_photo_albums #left, #js_controller_photo_rate #left {
+    width: 280px;
+}
+
+#js_controller_photo_index #main_content, #js_controller_photo_albums #main_content, #js_controller_photo_rate #main_content{
+    margin-left: 280px;
+    width: 697px;
+}
+
+#js_controller_photo_index #content, #js_controller_photo_albums #content, #js_controller_photo_rate #content {    width: 648px!important; padding: 0 25px;}
+
+#content_load_data h1 {
+    padding: 0 25px;
+}
+.photo_row_holder { margin: 0 auto;}
