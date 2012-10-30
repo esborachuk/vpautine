@@ -6,8 +6,8 @@
             <?php foreach ($this->getVar('blogs') as $blog): ?>
             <li>
                 <a href="<?php echo $blog['url'] ?>" class="" title="<?php echo $blog['title'] ?>">
-                    <span><?php echo $blog['title']; ?></span>
-                    <span><?php echo date('d.m.Y', $blog['time_stamp']); ?></span>
+                    <span class="title"><?php echo $blog['title']; ?></span>
+                    <span class="data"><?php echo date('d.m.Y', $blog['time_stamp']); ?></span>
                 </a>
             </li>
             <?php endforeach; ?>

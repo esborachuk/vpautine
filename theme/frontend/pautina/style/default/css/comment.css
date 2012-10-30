@@ -138,13 +138,15 @@ div.comment_mini_end
 
 .comment_mini_link
 {
-	margin-left:18px;
+    margin: 10px 0;
+    font-weight: bold;
 }
 
 a.comment_mini_link_block,
 a.comment_mini_link_block:hover
 {
 	display:block;
+    color: #4c4c4c;
 }
 
 a.comment_mini_link_block_hidden,
@@ -162,6 +164,7 @@ a.comment_mini_link_block_hidden:hover
 
 div.js_mini_feed_comment
 {
+    border-bottom: 1px solid #D7D7D7;
 	min-height:52px;
 	height:auto !important;
 	height:52px;
@@ -374,4 +377,9 @@ a.feed_share_link {
     color: #222;
     line-height: 15px;
     display: block;
+}
+
+.activity_feed_content_info .user_profile_link_span a {
+    font-size: 14px;
+    line-height: 15px;
 }

@@ -284,10 +284,7 @@ select
 	background:#fff;
 	border:1px #000 solid;
 	border-top:none;
-	display:none;	
- 	-moz-box-shadow:3px 3px 3px #CFCFCF;
-  	-webkit-box-shadow:3px 3px 3px #CFCFCF;
-  	box-shadow:3px 3px 3px #CFCFCF;		
+	display:none;
 }
 
 #header_menu_holder ul li ul.active
@@ -860,8 +857,8 @@ input.button_register,
 #holder_notify ul li.is_active a.notify_drop_link,
 #holder_notify ul li.is_active a.notify_drop_link:hover
 {
-	border-left:1px #000 solid;
-	border-right:1px #000 solid;
+	border-left:1px #4c4c4c solid;
+	border-right:1px #4c4c4c solid;
 }
 
 #holder_notify ul li.is_active a.friend_notification
@@ -1112,13 +1109,13 @@ input.button_register,
 	line-height:30px;
 	padding:0px 10px 0px 10px;	
 	text-decoration:none;
-	color:#333;
+	color:#28A6FF;
 	border-right:1px #9FDBFF solid;
 }
 
 #header_menu ul li a:hover
 {
-	background:#9FDBFF;	
+	background:#9FDBFF;
 }
 
 #header_menu ul li#unpin a,
@@ -1200,9 +1197,8 @@ input.button_register,
 */
 #left
 {
-    width: 395px;
+    width: 397px;
 	float:left;
-	overflow:hidden;
 	padding:10px 0px 10px 0px;
 	border-right:1px #D7D7D7 solid;	
 }
@@ -1215,14 +1211,15 @@ input.button_register,
 #content_holder
 {
 	position:relative;
-	z-index:1;	
+	z-index:1;
+    border: 1px solid #d7d7d7;
+    border-radius: 4px;
 }
 
 #main_content
 {
     width: 580px;
-	margin-left:395px;
-    border-right: 1px solid #d7d7d7;
+	margin-left:399px;
 }
 
 #main_content_padding
@@ -4025,8 +4022,7 @@ span.attachment_row_link
 	padding:10px 0px 0px 0px;
 	position:relative;
 	color:#9F9F9F;
-	margin:10px 0px 20px 0px;	
-	border-top:1px #DFDFDF solid;
+	margin:10px 0px 20px 0px;
 }
 
 #copyright a,
@@ -4459,6 +4455,7 @@ a.like_count_link {
 
 .feed_info_block {
     margin-left: 15px;
+    line-height: 15px;
 }
 
 span.feed_entry_time_stamp {
@@ -4469,6 +4466,7 @@ span.feed_entry_time_stamp {
 span.feed_entry_time_stamp a {
     color: #999;
     font-size: 11px;
+    line-height: 19px;
 }
 
 span.feed_entry_time_stamp a:hover {
@@ -4505,3 +4503,12 @@ span.feed_icon_block img {
 .js_feed_comment_border ul li.js_like_link_total {
     margin-right: 10px;
 }
+
+.activity_feed_image img, .block_listing_image img {
+    border-radius: 3px;
+}
+
+.activity_like_holder img {
+    border-radius: 2px;
+}
+
