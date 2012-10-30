@@ -14,13 +14,13 @@ defined('PHPFOX') or exit('NO DICE!');
 <ul class="block_listing">
 {foreach from=$aFriends key=iKey name=friend item=aFriend}
     <li>
+        <div class="block_listing_image">
+            {img user=$aFriend suffix='_100_square' max_width=100 max_height=100}
+        </div>
         <div class="block_listing_title">
             {$aFriend|user:'':'':40|split:10}
         </div>
-        <div class="block_listing_image">
-			{img user=$aFriend suffix='_100_square' max_width=100 max_height=100}
-        </div>
-		<div class="clear"></div>
+        <div class="clear"></div>
 	</li>
 {/foreach}
 </ul>
@@ -32,15 +32,15 @@ defined('PHPFOX') or exit('NO DICE!');
 		{foreach from=$aLists.friends item=aList}
 		<li>
 
+
+            <div class="block_listing_image">
+                {img user=$aList suffix='_100_square' max_width=100 max_height=100}
+            </div>
+
             <div class="block_listing_title">
                 {$aList|user:'':'':'':12:true|shorten:40:'...'}
             </div>
-
-			<div class="block_listing_image">
-				{img user=$aList suffix='_100_square' max_width=100 max_height=100}
-			</div>
-
-			<div class="clear"></div>
+            <div class="clear"></div>
 		</li>	
 		{/foreach}
 		</ul>

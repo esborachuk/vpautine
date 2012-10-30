@@ -346,12 +346,15 @@ ul.block_listing li .block_listing_image {
     float: none;
 }
 ul.block_listing li .block_listing_title {
-    padding: 7px 0;
-    width: 100%;
-    text-align: center;
     background: url("../image/friend-like-bg.png") repeat-x scroll left top transparent;
+    border-radius: 0 0 4px 4px;
+    -moz-border-radius: 0 0 4px 4px;
+    -webkit-border-radius: 0 0 4px 4px;
+    bottom: 10px;
+    padding: 7px 0;
     position: absolute;
-    border-radius: 4px 4px 0 0;
+    text-align: center;
+    width: 100%;
 }
 ul.block_listing li .block_listing_title a {
     color: #fff;
@@ -474,7 +477,7 @@ ul.block_listing li .block_listing_image a img {
     border-radius: 4px;
 }
 
-.profilebox-title .add-photo {
+.profilebox-title .add-photo, .total-friend {
     display: block;
     float: right;
     margin-right: 25px;
