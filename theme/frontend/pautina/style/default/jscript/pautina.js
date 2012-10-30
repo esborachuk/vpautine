@@ -26,5 +26,9 @@ jQuery(document).ready(function() {
     // check notifications and update button class
     var pautinaNotificationInterval = setInterval(PautinaNotification.check, 200);
 
-
+    //if isset User Logo Image, add class to user image block
+    var profile_logo_image = $('#profile_logo_image');
+    if (profile_logo_image.size() > 0) {
+        $('.profile_image').addClass('isset_profile_logo_image');
+    };
 });
