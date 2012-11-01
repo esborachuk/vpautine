@@ -45,7 +45,7 @@ defined('PHPFOX') or exit('NO DICE!');
                                 </div>
                             </li>
                             {/if}
-                            <li><a href="{url link='user.profile'}">{phrase var='profile.edit_profile'}</a></li>
+<!--                            <li><a href="{url link='user.profile'}">{phrase var='profile.edit_profile'}</a></li>-->
                             {if Phpfox::getUserParam('profile.can_custom_design_own_profile')}
                             <li><a href="{url link='profile.designer'}" class="no_ajax_link">{phrase var='profile.design_profile'}</a></li>
                             {/if}

@@ -501,18 +501,80 @@ ul.block_listing li .block_listing_image a img {
     right: 5px;
 }
 
-#js_controller_photo_index #left, #js_controller_photo_albums #left, #js_controller_photo_rate #left {
+#js_controller_photo_index #left, #js_controller_photo_albums #left, #js_controller_photo_rate #left,
+#js_controller_video_index #left, #js_controller_blog_index #left, #js_controller_friend_index #left,
+#js_controller_music_index #left, #js_controller_music_browse_album #left, #js_controller_user_browse #left,
+#js_controller_friend_accept #left, #js_controller_friend_pending #left{
     width: 280px;
 }
 
-#js_controller_photo_index #main_content, #js_controller_photo_albums #main_content, #js_controller_photo_rate #main_content{
+#js_controller_photo_index #main_content, #js_controller_photo_albums #main_content, #js_controller_photo_rate #main_content,
+#js_controller_video_index #main_content,#js_controller_blog_index #main_content, #js_controller_friend_index #main_content,
+#js_controller_music_index #main_content, #js_controller_music_browse_album #main_content, #js_controller_user_browse #main_content,
+#js_controller_friend_accept #main_content, #js_controller_friend_pending #main_content{
     margin-left: 280px;
     width: 697px;
 }
 
-#js_controller_photo_index #content, #js_controller_photo_albums #content, #js_controller_photo_rate #content {    width: 648px!important; padding: 0 25px;}
+#js_controller_photo_index #content, #js_controller_photo_albums #content, #js_controller_photo_rate #content,
+#js_controller_video_index #content, #js_controller_blog_index #site_content, #js_controller_friend_index #site_content,
+#js_controller_music_index #site_content, #js_controller_music_browse_album #site_content, #js_controller_user_browse #site_content,
+#js_controller_friend_accept #site_content, #js_controller_friend_pending #site_content{
+    width: 648px!important;
+    padding: 0 25px;
+}
 
 #content_load_data h1 {
     padding: 0 25px;
 }
 .photo_row_holder { margin: 0 auto;}
+.upload-photo-button a{
+    display: block;
+    font-size: 16px;
+    width: 100%;
+    height: auto;
+    padding: 16px 0;
+    background: #4F4F4F;
+    border: 1px solid #222222;
+    margin-bottom: 25px;
+    text-align: center;
+}
+
+.upload-photo-button .v_middle {
+    padding-right: 10px;
+}
+
+.photo_clip_holder_border {
+    box-shadow: none;
+}
+
+.sub_section_menu ul li.active a, .sub_section_menu ul li.active a:hover {
+    background: #4f4f4f;
+    color: #FFFFFF;
+    font-weight: bold;
+}
+
+#breadcrumb_content {
+    padding: 0 25px;
+}
+
+#section_menu ul li#liMail a:hover {
+    background: url("../image/pautina/profile-page/mail.png") no-repeat scroll 50% -68px;
+}
+
+#section_menu ul li#liPoke a:hover {
+    background: url("../image/pautina/profile-page/poke.png") no-repeat scroll 50% -68px;
+}
+
+#js_controller_user_browse form {
+    padding: 0 10px;
+}
+
+#js_controller_user_browse #site_content {
+    overflow: hidden;
+}
+
+#js_controller_user_browse #site_content > div{
+    float: left;
+    width: 310px;
+}
