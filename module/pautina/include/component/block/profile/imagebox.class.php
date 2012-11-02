@@ -10,6 +10,13 @@ class Pautina_Component_Block_Profile_Imagebox extends Phpfox_Component
             return false;
         }
 
+        $loginUserId = Phpfox::getUserId();
+
+        $showAddLink = false;
+        if ($loginUserId == $aUser['user_id']) {
+            $showAddLink = true;
+        }
+
         $imageboxService = Phpfox::getService('pautina.profile.imagebox');
         $photoCount = $imageboxService->getPhotoCount($aUser['user_id']);
 
@@ -22,9 +29,10 @@ class Pautina_Component_Block_Profile_Imagebox extends Phpfox_Component
 
         $this->template()->assign(
             array(
-                'photos' => $photos,
-                'photoCount' => $photoCount,
-                'allPhotoLink' => $allPhotoLink
+                'photos'        => $photos,
+                'photoCount'    => $photoCount,
+                'allPhotoLink'  => $allPhotoLink,
+                'showAddLink'   => $showAddLink
             )
         );
 

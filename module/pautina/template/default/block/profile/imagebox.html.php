@@ -1,8 +1,13 @@
 <div class="menu_box">
     <div class="profilebox-title">
         <a href="{$allPhotoLink}">Фото</a>
-        <span class="add-photo"><a title="Добавить фото" href="{url link='photo.add'}">(+)</a></span>
-
+        <?php if ($this->getVar('showAddLink')): ?>
+            <span class="add-photo">
+                <a title="Добавить фото" href="{url link='photo.add'}">
+                    + добавить...
+                </a>
+            </span>
+        <?php endif; ?>
     </div>
     <a href="{$allPhotoLink}" class="all-items">Посмотреть все фото...<span></span></a>
     <div id="imagebox-block">
@@ -26,3 +31,4 @@
         </ul>
     </div>
 </div>
+<div class="clear"></div>

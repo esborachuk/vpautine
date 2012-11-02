@@ -238,7 +238,6 @@ a:hover {
 
 .menu_box {
     clear: both;
-    overflow: hidden;
     margin-bottom: 20px;
 }
 
@@ -404,28 +403,37 @@ ul.block_listing li .block_listing_title a:hover {
     width: 100px;
 }
 
+#blogbox {
+    margin-right: 15px;
+}
+
 #blogbox .title {
-    background: url("../image/blog-bg.png") no-repeat 25px top ;
+    background: url("../image/blog-bg.png") no-repeat 25px 5px;
     display: inline-block;
     width: 260px;
     padding-left: 60px;
+    color: #494949;
+    font-size: 12px;
 }
 #blogbox .title:hover, #blogbox .data:hover {
     color: #44a5e2;
 }
 
-#blogbox .title, #blogbox .data {
-    color: #494949;
-    font-size: 12px;
-    }
+#blogbox a {
+    line-height: 25px;
+    display: block;
+}
+
+#blogbox .data {
+    color: #999;
+    font-size: 10px;
+}
 
 #left {
-    border-left: 1px solid #D7D7D7;
     border-right: 0;
 }
 
 #main_content {
-    border-right: 1px solid #D7D7D7;
     border-left: 1px solid #D7D7D7;
 }
 
@@ -475,7 +483,9 @@ ul.block_listing li .block_listing_image a img {
 .profilebox-title .add-photo, .total-friend {
     display: block;
     float: right;
-    margin-right: 25px;
+    margin-right: 15px;
+    font-size: 12px;
+    margin-top: 5px;
 }
 
 #js_controller_video_view #main_content{

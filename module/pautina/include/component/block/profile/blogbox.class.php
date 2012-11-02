@@ -10,6 +10,13 @@ class Pautina_Component_Block_Profile_Blogbox extends Phpfox_Component
             return false;
         }
 
+        $loginUserId = Phpfox::getUserId();
+
+        $showAddLink = false;
+        if ($loginUserId == $aUser['user_id']) {
+            $showAddLink = true;
+        }
+
         $blogboxService = Phpfox::getService('pautina.profile.blogbox');
         $blogCount = $blogboxService->getBlogCount($aUser['user_id']);
 
@@ -25,7 +32,8 @@ class Pautina_Component_Block_Profile_Blogbox extends Phpfox_Component
             array(
                 'blogs' => $blogs,
                 'blogCount' => $blogCount,
-                'allBlogLink' => $allBlogLink
+                'allBlogLink' => $allBlogLink,
+                'showAddLink'   => $showAddLink
             )
         );
 

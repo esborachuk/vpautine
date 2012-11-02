@@ -8,3 +8,4 @@
         <?php endforeach; ?>
     </ul>
 </div>
+<div class="clear"></div>
