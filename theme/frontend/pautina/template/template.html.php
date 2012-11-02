@@ -108,6 +108,7 @@ defined('PHPFOX') or exit('NO DICE!');
                                 {module name='pautina.profile.imagebox'}
                                 {module name='pautina.profile.videobox'}
                                 {module name='pautina.profile.blogbox'}
+                                {module name='pautina.profile.musicbox'}
 							</div>					
 							{/if}
 

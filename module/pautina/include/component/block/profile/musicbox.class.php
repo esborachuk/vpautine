@@ -1,7 +1,7 @@
 <?php
 defined('PHPFOX') or exit('NO DICE!');
 
-class Pautina_Component_Block_Profile_Videobox extends Phpfox_Component
+class Pautina_Component_Block_Profile_Musicbox extends Phpfox_Component
 {
     public function process()
     {
@@ -17,22 +17,22 @@ class Pautina_Component_Block_Profile_Videobox extends Phpfox_Component
             $showAddLink = true;
         }
 
-        $videoboxService = Phpfox::getService('pautina.profile.videobox');
-        $videoCount = $videoboxService->getVideoCount($aUser['user_id']);
+        $musicboxService = Phpfox::getService('pautina.profile.musicbox');
 
-        if ($videoCount == 0) {
+        $musics = $musicboxService->getMusics($aUser['user_id']);
+        $musicCount = $musicboxService->getMusicCount($aUser['user_id']);
+
+        if ($musicCount == 0) {
             return false;
         }
 
-        $videos = $videoboxService->getVideos($aUser['user_id']);
-
-        $allVideoLink = $userLink = Phpfox::getService('user')->getLink($aUser['user_id']) . 'video';
+        $allMusicLink = $userLink = Phpfox::getService('user')->getLink($aUser['user_id']) . 'music';
 
         $this->template()->assign(
             array(
-                'videos' => $videos,
-                'videoCount' => $videoCount,
-                'allVideoLink' => $allVideoLink,
+                'musics' => $musics,
+                'musicCount' => $musicCount,
+                'allMusicLink' => $allMusicLink,
                 'showAddLink'   => $showAddLink
             )
         );

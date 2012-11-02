@@ -1197,7 +1197,7 @@ input.button_register,
 */
 #left
 {
-    width: 397px;
+    width: 400px;
 	float:left;
 	padding:10px 0px 10px 0px;
 	border-right:1px #D7D7D7 solid;	
@@ -4512,3 +4512,20 @@ span.feed_icon_block img {
     border-radius: 2px;
 }
 
+#musicbox  {
+    margin: 0 25px;
+}
+
+#musicbox a {
+    font-size: 12px;
+    line-height: 25px;
+    color: #494949;
+    padding-left: 20px;
+    background: url(../image/layout/music.png) no-repeat;
+}
+
+#musicbox .duration {
+    color: #999;
+    font-size: 10px;
+    float: right;
+}

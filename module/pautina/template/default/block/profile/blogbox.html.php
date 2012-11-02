@@ -1,5 +1,14 @@
 <div class="menu_box">
-    <div class="profilebox-title">Блог</div>
+    <div class="profilebox-title">
+        <a href="{$allBlogLink}">Блог</a>
+        <?php if ($this->getVar('showAddLink')): ?>
+        <span class="add-photo">
+                <a title="Добавить блог" href="{url link='blog.add'}">
+                    + добавить...
+                </a>
+        </span>
+        <?php endif; ?>
+    </div>
         <a href="{$allBlogLink}" class="all-items">Посмотреть все статьи блога...<span>{$blogCount}&nbsp;</span></a>
     <div id="blogbox-block">
         <ul id="blogbox">
@@ -14,3 +23,4 @@
         </ul>
     </div>
 </div>
+<div class="clear"></div>
