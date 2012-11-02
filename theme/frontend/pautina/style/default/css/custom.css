@@ -226,6 +226,20 @@ a:hover {
     margin: 10px 15px;
 }
 
+#imagebox-block li, #videobox-block li {
+    border: 1px solid #d7d7d7;
+    text-align: center;
+    background: #F8F8F8;
+    display: table-cell;
+    vertical-align: middle;
+    border-radius: 2px;
+}
+
+#imagebox-block li img {
+    position: relative;
+    height: auto;
+}
+
 #imagebox-block li a, #videobox-block li a{
     width: 100px;
 }

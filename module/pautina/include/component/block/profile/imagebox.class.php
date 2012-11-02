@@ -25,7 +25,7 @@ class Pautina_Component_Block_Profile_Imagebox extends Phpfox_Component
         }
 
         $photos = $imageboxService->getPhotos($aUser['user_id']);
-        $allPhotoLink = $userLink = Phpfox::getService('user')->getLink($aUser['user_id']) . 'photo';
+        $allPhotoLink = Phpfox::getService('user')->getLink($aUser['user_id']) . 'photo';
 
         $this->template()->assign(
             array(

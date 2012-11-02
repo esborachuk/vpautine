@@ -11,7 +11,7 @@
 defined('PHPFOX') or exit('NO DICE!'); 
 
 ?>
-<div id="profile_header_block">
+<div id="profile_header_block" class="{if $aUser.cover_photo}isset_profile_logo_image{/if}">
     <div id="profile_header_logo">
         {module name='profile.logo'}
     </div>
