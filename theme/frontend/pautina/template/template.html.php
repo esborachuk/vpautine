@@ -21,6 +21,10 @@ defined('PHPFOX') or exit('NO DICE!');
 	<body>
 		{body}
 		{block location='9'}
+        {if !$bUseFullSite && (count($aBlocks3) || count($aAdBlocks3))}
+            {if Phpfox::isUser()}
+            {module name='pautina.profile.usermenu'}
+            {/if}
 		<div id="header" class="pautina">
             <div class="header-wrapper">
             <div class="header-content">
@@ -93,7 +97,7 @@ defined('PHPFOX') or exit('NO DICE!');
                         {if defined('PHPFOX_IS_USER_PROFILE')}
                             {module name='profile.header'}
                         {/if}
-						<div id="content_holder">		
+						<div id="content_holder">
 
 							{block location='7'}				
 							{if !defined('PHPFOX_IS_USER_PROFILE') && !defined('PHPFOX_IS_PAGES_VIEW')}
@@ -108,7 +112,8 @@ defined('PHPFOX') or exit('NO DICE!');
                                 {module name='pautina.profile.imagebox'}
                                 {module name='pautina.profile.videobox'}
                                 {module name='pautina.profile.blogbox'}
-							</div>					
+                                {module name='pautina.profile.musicbox'}
+							</div>
 							{/if}
 
 							<div id="main_content">
@@ -140,12 +145,7 @@ defined('PHPFOX') or exit('NO DICE!');
 											{block location='4'}
 										</div>
 
-										{if !$bUseFullSite && (count($aBlocks3) || count($aAdBlocks3))}
 										<div id="right">
-                                            {if Phpfox::isUser()}
-                                            {module name='pautina.profile.usermenu'}
-                                            {/if}
-
                                             {module name='pages.header'}
 											{block location='3'}
 										</div>
