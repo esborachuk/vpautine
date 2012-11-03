@@ -534,6 +534,13 @@ ul.block_listing li .block_listing_image a img {
     padding: 0 25px;
 }
 
+#js_controller_photo_album #main_content {
+    border: 0;
+}
+#js_controller_photo_album .parent_item_feed {
+    margin: 0 0 0 103px;
+}
+
 #content_load_data h1 {
     padding: 0 25px;
 }
@@ -544,8 +551,11 @@ ul.block_listing li .block_listing_image a img {
     width: 100%;
     height: auto;
     padding: 16px 0;
-    background: #4F4F4F;
-    border: 1px solid #222222;
+    background: none repeat scroll 0 0 #F7F7F7;
+    border: 1px solid #D7D7D7;
+    border-radius: 3px;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
     margin-bottom: 25px;
     text-align: center;
 }
@@ -587,4 +597,26 @@ ul.block_listing li .block_listing_image a img {
 #js_controller_user_browse #site_content > div{
     float: left;
     width: 310px;
+}
+
+.js_box_close, #js_marketplace_click_image_viewer_close {
+    background: none repeat scroll 0 0 transparent;
+    display: none;
+    height: auto;
+    line-height: normal!important;
+    position: absolute;
+    right: 20px;
+    top: 14px;
+    border: 0;
+}
+
+.js_box_title {
+    padding: 8px 0 8px 14px;
+}
+
+.js_box {position: relative;}
+
+.js_box_close a, .js_box_close a:hover, #js_marketplace_click_image_viewer_close a, #js_marketplace_click_image_viewer_close a:hover {
+    border: 0;
+    line-height: 23px;
 }
