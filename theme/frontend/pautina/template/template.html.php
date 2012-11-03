@@ -97,7 +97,7 @@ defined('PHPFOX') or exit('NO DICE!');
                         {if defined('PHPFOX_IS_USER_PROFILE')}
                             {module name='profile.header'}
                         {/if}
-						<div id="content_holder">
+						<div id="content_holder">		
 
 							{block location='7'}				
 							{if !defined('PHPFOX_IS_USER_PROFILE') && !defined('PHPFOX_IS_PAGES_VIEW')}
@@ -113,7 +113,7 @@ defined('PHPFOX') or exit('NO DICE!');
                                 {module name='pautina.profile.videobox'}
                                 {module name='pautina.profile.blogbox'}
                                 {module name='pautina.profile.musicbox'}
-							</div>
+							</div>					
 							{/if}
 
 							<div id="main_content">

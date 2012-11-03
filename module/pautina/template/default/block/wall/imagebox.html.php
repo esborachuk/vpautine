@@ -1,15 +1,8 @@
 <div class="menu_box">
     <div class="profilebox-title">
-        <a href="{$allPhotoLink}">Фото</a>
-        <?php if ($this->getVar('showAddLink')): ?>
-            <span class="add-photo">
-                <a title="Добавить фото" href="{url link='photo.add'}">
-                    + добавить...
-                </a>
-            </span>
-        <?php endif; ?>
+        <a href="">Фото</a>
     </div>
-    <a href="{$allPhotoLink}" class="all-items">Посмотреть все фото...<span></span></a>
+    <a href="" class="all-items">Посмотреть все фото...<span></span></a>
     <div id="imagebox-block">
         <ul id="imagebox">
             <?php foreach ($this->getVar('photos') as $photo): ?>

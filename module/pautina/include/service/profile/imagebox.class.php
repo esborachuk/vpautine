@@ -39,5 +39,25 @@ class Pautina_Service_Profile_Imagebox extends Phpfox_Service
 
         return $this->_photoCount;
     }
+
+    public function getLastPhotos()
+    {
+        $photosService = Phpfox::getService('photo');
+        list($iCnt, $photos) = $photosService->get('', 'p.time_stamp DESC', 1, 9);
+
+        foreach ($photos as &$photo) {
+            $destinationSmall = str_replace('%s', '_100', $photo['destination']);
+            $destinationMedium = str_replace('%s', '_500', $photo['destination']);
+            $photo['image_src_small'] = Phpfox::getLib('url')->getDomain()
+                . 'file' . PHPFOX_DS. 'pic' . PHPFOX_DS . 'photo' . PHPFOX_DS
+                . $destinationSmall;
+            $photo['image_src_medium'] = Phpfox::getLib('url')->getDomain()
+                . 'file' . PHPFOX_DS. 'pic' . PHPFOX_DS . 'photo' . PHPFOX_DS
+                . $destinationMedium;
+        }
+        unset($photo);
+
+        return $photos;
+    }
 }
 ?>

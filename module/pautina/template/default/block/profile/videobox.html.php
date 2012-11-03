@@ -1,6 +1,18 @@
 <div class="menu_box">
-    <div class="profilebox-title">Видео</div>
-    <a href="{$allVideoLink}" class="all-items">Посмотреть все видео...<span>{$videoCount}&nbsp; видео</span></a>
+    <div class="profilebox-title">
+        <a href="{$allVideoLink}">Видео</a>
+        <?php if ($this->getVar('showAddLink')): ?>
+        <span class="add-photo">
+                <a title="Добавить видео" href="{url link='video.add'}">
+                    + добавить...
+                </a>
+        </span>
+        <?php endif; ?>
+    </div>
+    <a href="{$allVideoLink}" class="all-items">
+        Посмотреть все видео...
+        <span>{$videoCount}&nbsp; видео</span>
+    </a>
     <div id="videobox-block">
         <ul id="videobox">
             <?php foreach ($this->getVar('videos') as $video): ?>
@@ -14,5 +26,7 @@
             </li>
             <?php endforeach; ?>
         </ul>
+        <div class="clear"></div>
     </div>
 </div>
+<div class="clear"></div>
