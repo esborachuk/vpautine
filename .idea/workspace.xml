@@ -1,12 +1,84 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="eb437bb7-dd57-4164-8cb5-1b7f76f2a42e" name="Default" comment="update feed block design">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/file/cache/module_masscall_getGlobalNotifications.php" afterPath="" />
+    <list default="true" id="eb437bb7-dd57-4164-8cb5-1b7f76f2a42e" name="Default" comment="create SMS module">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/theme/frontend/pautina/style/old/image/module/my_menu.png" />
+      <change type="DELETED" beforePath="C:\xampp\htdocs\pautina\file\cache\ban_ip.php" afterPath="" />
+      <change type="DELETED" beforePath="C:\xampp\htdocs\pautina\file\cache\locale\language.php" afterPath="" />
+      <change type="DELETED" beforePath="C:\xampp\htdocs\pautina\file\cache\module.php" afterPath="" />
+      <change type="DELETED" beforePath="C:\xampp\htdocs\pautina\file\cache\module_masscall_getGlobalNotifications.php" afterPath="" />
+      <change type="DELETED" beforePath="C:\xampp\htdocs\pautina\file\cache\plugin\plugin.php" afterPath="" />
+      <change type="DELETED" beforePath="C:\xampp\htdocs\pautina\file\cache\plugin\plugin_data_blog.component_ajax_addviastatusupdate.php" afterPath="" />
+      <change type="DELETED" beforePath="C:\xampp\htdocs\pautina\file\cache\plugin\plugin_data_blog.component_controller_view_process_end.php" afterPath="" />
+      <change type="DELETED" beforePath="C:\xampp\htdocs\pautina\file\cache\plugin\plugin_data_blog.template_block_entry_end.php" afterPath="" />
+      <change type="DELETED" beforePath="C:\xampp\htdocs\pautina\file\cache\plugin\plugin_data_blog.template_block_entry_left_item_menu.php" afterPath="" />
+      <change type="DELETED" beforePath="C:\xampp\htdocs\pautina\file\cache\plugin\plugin_data_blog.template_controller_view_end.php" afterPath="" />
+      <change type="DELETED" beforePath="C:\xampp\htdocs\pautina\file\cache\plugin\plugin_data_comment.component_ajax_ajax_add_passed.php" afterPath="" />
+      <change type="DELETED" beforePath="C:\xampp\htdocs\pautina\file\cache\plugin\plugin_data_comment.component_ajax_ajax_add_start.php" afterPath="" />
+      <change type="DELETED" beforePath="C:\xampp\htdocs\pautina\file\cache\plugin\plugin_data_core.template_block_comment_border_new.php" afterPath="" />
+      <change type="DELETED" beforePath="C:\xampp\htdocs\pautina\file\cache\plugin\plugin_data_custom.component_ajax_edit.php" afterPath="" />
+      <change type="DELETED" beforePath="C:\xampp\htdocs\pautina\file\cache\plugin\plugin_data_custom.service_process_updatefields.php" afterPath="" />
+      <change type="DELETED" beforePath="C:\xampp\htdocs\pautina\file\cache\plugin\plugin_data_editor_get.php" afterPath="" />
+      <change type="DELETED" beforePath="C:\xampp\htdocs\pautina\file\cache\plugin\plugin_data_event.template_default_controller_view_extra_info.php" afterPath="" />
+      <change type="DELETED" beforePath="C:\xampp\htdocs\pautina\file\cache\plugin\plugin_data_feed.service_process_deletefeed.php" afterPath="" />
+      <change type="DELETED" beforePath="C:\xampp\htdocs\pautina\file\cache\plugin\plugin_data_feed.template_block_comment_border.php" afterPath="" />
+      <change type="DELETED" beforePath="C:\xampp\htdocs\pautina\file\cache\plugin\plugin_data_feed.template_block_entry_2.php" afterPath="" />
+      <change type="DELETED" beforePath="C:\xampp\htdocs\pautina\file\cache\plugin\plugin_data_forum.component_ajax_reply.php" afterPath="" />
+      <change type="DELETED" beforePath="C:\xampp\htdocs\pautina\file\cache\plugin\plugin_data_forum.template_controller_post_ajax_onsubmit.php" afterPath="" />
+      <change type="DELETED" beforePath="C:\xampp\htdocs\pautina\file\cache\plugin\plugin_data_friend.template_block_congratulate_form.php" afterPath="" />
+      <change type="DELETED" beforePath="C:\xampp\htdocs\pautina\file\cache\plugin\plugin_data_get_controller.php" afterPath="" />
+      <change type="DELETED" beforePath="C:\xampp\htdocs\pautina\file\cache\plugin\plugin_data_group.template_default_controller_view_extra_info.php" afterPath="" />
+      <change type="DELETED" beforePath="C:\xampp\htdocs\pautina\file\cache\plugin\plugin_data_init.php" afterPath="" />
+      <change type="DELETED" beforePath="C:\xampp\htdocs\pautina\file\cache\plugin\plugin_data_link.component_ajax_addviastatusupdate.php" afterPath="" />
+      <change type="DELETED" beforePath="C:\xampp\htdocs\pautina\file\cache\plugin\plugin_data_mail.component_ajax_compose.php" afterPath="" />
+      <change type="DELETED" beforePath="C:\xampp\htdocs\pautina\file\cache\plugin\plugin_data_mail.template_controller_compose_ajax_onsubmit.php" afterPath="" />
+      <change type="DELETED" beforePath="C:\xampp\htdocs\pautina\file\cache\plugin\plugin_data_mail_send_call.php" afterPath="" />
+      <change type="DELETED" beforePath="C:\xampp\htdocs\pautina\file\cache\plugin\plugin_data_mail_send_query.php" afterPath="" />
+      <change type="DELETED" beforePath="C:\xampp\htdocs\pautina\file\cache\plugin\plugin_data_marketplace.template_default_controller_view_extra_info.php" afterPath="" />
+      <change type="DELETED" beforePath="C:\xampp\htdocs\pautina\file\cache\plugin\plugin_data_music.component_controller_upload_feed.php" afterPath="" />
+      <change type="DELETED" beforePath="C:\xampp\htdocs\pautina\file\cache\plugin\plugin_data_pages.component_ajax_widget.php" afterPath="" />
+      <change type="DELETED" beforePath="C:\xampp\htdocs\pautina\file\cache\plugin\plugin_data_pages.service_pages_getlastlogin.php" afterPath="" />
+      <change type="DELETED" beforePath="C:\xampp\htdocs\pautina\file\cache\plugin\plugin_data_pages.template_controller_widget_ajax_onsubmit.php" afterPath="" />
+      <change type="DELETED" beforePath="C:\xampp\htdocs\pautina\file\cache\plugin\plugin_data_parse_input__removeevilattributes.php" afterPath="" />
+      <change type="DELETED" beforePath="C:\xampp\htdocs\pautina\file\cache\plugin\plugin_data_parse_input_construct.php" afterPath="" />
+      <change type="DELETED" beforePath="C:\xampp\htdocs\pautina\file\cache\plugin\plugin_data_photo.component_ajax_process_done.php" afterPath="" />
+      <change type="DELETED" beforePath="C:\xampp\htdocs\pautina\file\cache\plugin\plugin_data_photo.template_default_controller_view_extra_info.php" afterPath="" />
+      <change type="DELETED" beforePath="C:\xampp\htdocs\pautina\file\cache\plugin\plugin_data_profile.template_block_info.php" afterPath="" />
+      <change type="DELETED" beforePath="C:\xampp\htdocs\pautina\file\cache\plugin\plugin_data_request.template_controller_index.php" afterPath="" />
+      <change type="DELETED" beforePath="C:\xampp\htdocs\pautina\file\cache\plugin\plugin_data_theme_template_body__end.php" afterPath="" />
+      <change type="DELETED" beforePath="C:\xampp\htdocs\pautina\file\cache\plugin\plugin_data_theme_template_body__start.php" afterPath="" />
+      <change type="DELETED" beforePath="C:\xampp\htdocs\pautina\file\cache\plugin\plugin_data_user.component_ajax_addviastatusupdate.php" afterPath="" />
+      <change type="DELETED" beforePath="C:\xampp\htdocs\pautina\file\cache\plugin\plugin_data_user.component_ajax_updatestatus.php" afterPath="" />
+      <change type="DELETED" beforePath="C:\xampp\htdocs\pautina\file\cache\plugin\plugin_data_user.component_controller_setting_process_check.php" afterPath="" />
+      <change type="DELETED" beforePath="C:\xampp\htdocs\pautina\file\cache\plugin\plugin_data_user.component_controller_setting_process_validation.php" afterPath="" />
+      <change type="DELETED" beforePath="C:\xampp\htdocs\pautina\file\cache\plugin\plugin_data_user.service_auth___construct_end.php" afterPath="" />
+      <change type="DELETED" beforePath="C:\xampp\htdocs\pautina\file\cache\plugin\plugin_data_user.service_auth___construct_query.php" afterPath="" />
+      <change type="DELETED" beforePath="C:\xampp\htdocs\pautina\file\cache\plugin\plugin_data_user.service_auth_login_skip_email_verification.php" afterPath="" />
+      <change type="DELETED" beforePath="C:\xampp\htdocs\pautina\file\cache\plugin\plugin_data_user.service_auth_logout__end.php" afterPath="" />
+      <change type="DELETED" beforePath="C:\xampp\htdocs\pautina\file\cache\plugin\plugin_data_user.service_process_add_start.php" afterPath="" />
+      <change type="DELETED" beforePath="C:\xampp\htdocs\pautina\file\cache\plugin\plugin_data_user.service_process_add_updatestatus.php" afterPath="" />
+      <change type="DELETED" beforePath="C:\xampp\htdocs\pautina\file\cache\plugin\plugin_data_user.template.login_header_set_var.php" afterPath="" />
+      <change type="DELETED" beforePath="C:\xampp\htdocs\pautina\file\cache\plugin\plugin_data_user.template_block_setting_form.php" afterPath="" />
+      <change type="DELETED" beforePath="C:\xampp\htdocs\pautina\file\cache\plugin\plugin_data_user.template_controller_login_block__end.php" afterPath="" />
+      <change type="DELETED" beforePath="C:\xampp\htdocs\pautina\file\cache\plugin\plugin_data_user.template_controller_profile_form.php" afterPath="" />
+      <change type="DELETED" beforePath="C:\xampp\htdocs\pautina\file\cache\plugin\plugin_data_validator_check_routine_default.php" afterPath="" />
+      <change type="DELETED" beforePath="C:\xampp\htdocs\pautina\file\cache\plugin\plugin_data_video.component_ajax_convert_feed.php" afterPath="" />
+      <change type="DELETED" beforePath="C:\xampp\htdocs\pautina\file\cache\plugin\plugin_data_video.component_controller_view_end.php" afterPath="" />
+      <change type="DELETED" beforePath="C:\xampp\htdocs\pautina\file\cache\plugin\plugin_data_video.service_video_getvideo.php" afterPath="" />
+      <change type="DELETED" beforePath="C:\xampp\htdocs\pautina\file\cache\plugin\plugin_data_video.service_video_verify.php" afterPath="" />
+      <change type="DELETED" beforePath="C:\xampp\htdocs\pautina\file\cache\plugin\plugin_data_video.template_default_controller_view_extra_info.php" afterPath="" />
+      <change type="DELETED" beforePath="C:\xampp\htdocs\pautina\file\cache\product.php" afterPath="" />
+      <change type="DELETED" beforePath="C:\xampp\htdocs\pautina\file\cache\rewrite.php" afterPath="" />
+      <change type="DELETED" beforePath="C:\xampp\htdocs\pautina\file\cache\rewrite_reverse.php" afterPath="" />
+      <change type="DELETED" beforePath="C:\xampp\htdocs\pautina\file\cache\setting.php" afterPath="" />
+      <change type="DELETED" beforePath="C:\xampp\htdocs\pautina\file\cache\template\im_template_default_block_list.html.php_ajax.php" afterPath="" />
+      <change type="DELETED" beforePath="C:\xampp\htdocs\pautina\file\cache\theme\theme_all.php" afterPath="" />
+      <change type="DELETED" beforePath="C:\xampp\htdocs\pautina\file\cache\user_group_setting_1.php" afterPath="" />
+      <change type="DELETED" beforePath="C:\xampp\htdocs\pautina\module\pautina\template\pautina\block\profile\usermenu.html.php" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/file/cache/template/im_template_default_block_list.html.php_ajax.php" afterPath="$PROJECT_DIR$/file/cache/template/im_template_default_block_list.html.php_ajax.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/module/feed/template/pautina/block/comment.html.php" afterPath="$PROJECT_DIR$/module/feed/template/pautina/block/comment.html.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/theme/frontend/pautina/style/default/css/comment.css" afterPath="$PROJECT_DIR$/theme/frontend/pautina/style/default/css/comment.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/module/pautina/template/default/block/profile/usermenu.html.php" afterPath="$PROJECT_DIR$/module/pautina/template/default/block/profile/usermenu.html.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/theme/frontend/pautina/style/default/css/im.css" afterPath="$PROJECT_DIR$/theme/frontend/pautina/style/default/css/im.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/theme/frontend/pautina/style/old/css/im.css" afterPath="$PROJECT_DIR$/theme/frontend/pautina/style/old/css/im.css" />
     </list>
     <ignored path="localhost.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -29,76 +101,19 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="entry.html.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/module/feed/template/pautina/block/entry.html.php">
+      <file leaf-file-name="menu.js" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/theme/frontend/pautina/style/default/jscript/menu.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-0.0">
+            <state line="0" column="0" selection-start="0" selection-end="6" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="timeline.html.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/module/feed/template/pautina/block/timeline.html.php">
+      <file leaf-file-name="im.css" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/theme/frontend/pautina/style/default/css/im.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="image.class.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/module/pautina/include/component/block/profile/image.class.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="11" column="1" selection-start="355" selection-end="355" vertical-scroll-proportion="-8.555555">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="comment.css" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/theme/frontend/pautina/style/default/css/comment.css">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="141" column="22" selection-start="1617" selection-end="1617" vertical-scroll-proportion="0.4534687">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="layout.css" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/theme/frontend/pautina/style/default/css/layout.css">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="1207" column="1" selection-start="19099" selection-end="19099" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="comment.html.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/module/feed/template/pautina/block/comment.html.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="30" column="45" selection-start="1386" selection-end="1386" vertical-scroll-proportion="-3.4074075">
-              <folding>
-                <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#3;n#div#0;n#div#2;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#a#0;n#div#1;n#div#0;n#div#0;n#div#3;n#div#0;n#div#2;n#!!top" expanded="true" />
-                <marker date="1351462782459" expanded="true" signature="3507:3725" placeholder="..." />
-                <marker date="1351462782459" expanded="true" signature="3543:3725" placeholder="..." />
-                <marker date="1351462782459" expanded="true" signature="4093:4115" placeholder="..." />
-                <marker date="1351462782459" expanded="true" signature="4184:4304" placeholder="..." />
-                <marker date="1351462782459" expanded="true" signature="5397:5874" placeholder="..." />
-                <marker date="1351462782459" expanded="true" signature="6769:6864" placeholder="..." />
-                <marker date="1351462782459" expanded="true" signature="6816:6864" placeholder="..." />
-                <marker date="1351462782459" expanded="true" signature="7230:7312" placeholder="..." />
-                <marker date="1351462782459" expanded="true" signature="7761:7974" placeholder="..." />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="usermenu.class.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/module/pautina/include/component/block/profile/usermenu.class.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-0.0">
+            <state line="515" column="29" selection-start="7950" selection-end="7950" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -107,16 +122,25 @@
       <file leaf-file-name="usermenu.html.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/module/pautina/template/default/block/profile/usermenu.html.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-0.0">
+            <state line="1" column="0" selection-start="32" selection-end="32" vertical-scroll-proportion="-0.83870965">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
       <file leaf-file-name="template.html.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/theme/frontend/pautina/template/template.html.php">
+        <entry file="file://$PROJECT_DIR$/theme/frontend/default/template/template.html.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="93" column="55" selection-start="3164" selection-end="3164" vertical-scroll-proportion="-6.5185184">
+            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="header.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/theme/frontend/pautina/style/default/php/header.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="14" column="17" selection-start="362" selection-end="362" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -132,28 +156,25 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="GitLogSettings">
-    <option name="myStructureFilterPaths" />
-  </component>
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/module/share/template/pautina/block/link.html.php" />
-        <option value="$PROJECT_DIR$/module/feed/template/pautina/block/link.html.php" />
-        <option value="$PROJECT_DIR$/module/pautina/template/default/block/profile/imagebox.html.php" />
-        <option value="$PROJECT_DIR$/module/contact/include/component/ajax/ajax.class.php" />
+        <option value="$PROJECT_DIR$/module/mail/include/service/mail.class.php" />
+        <option value="$PROJECT_DIR$/module/sms/include/service/sms.class.php" />
+        <option value="$PROJECT_DIR$/module/mail/template/pautina/controller/compose.html.php" />
+        <option value="$PROJECT_DIR$/module/pautina/include/template/default/block/friends.html.php" />
+        <option value="$PROJECT_DIR$/module/pautina/template/default/block/friends.html.php" />
+        <option value="$PROJECT_DIR$/module/sms/include/component/block/sms.class.php" />
+        <option value="$PROJECT_DIR$/module/pautina/include/component/block/friends.class.php" />
+        <option value="$PROJECT_DIR$/module/sms/template/default/block/sms.html.php" />
+        <option value="$PROJECT_DIR$/theme/frontend/pautina/style/default/css/custom.css" />
         <option value="$PROJECT_DIR$/include/setting/server.sett.php" />
-        <option value="$PROJECT_DIR$/include/library/phpfox/template/template.class.php" />
-        <option value="$PROJECT_DIR$/file/cache/ad_1.php" />
-        <option value="$PROJECT_DIR$/.gitignore" />
-        <option value="$PROJECT_DIR$/module/feed/template/default/block/entry.html.php" />
-        <option value="$PROJECT_DIR$/module/feed/template/default/block/timeline.html.php" />
-        <option value="$PROJECT_DIR$/module/pautina/template/default/block/profile/image.html.php" />
-        <option value="$PROJECT_DIR$/theme/frontend/pautina/template/template.html.php" />
-        <option value="$PROJECT_DIR$/module/pautina/include/component/block/profile/image.class.php" />
-        <option value="$PROJECT_DIR$/theme/frontend/pautina/style/default/css/layout.css" />
-        <option value="$PROJECT_DIR$/theme/frontend/pautina/style/default/css/comment.css" />
-        <option value="$PROJECT_DIR$/module/feed/template/pautina/block/comment.html.php" />
+        <option value="$PROJECT_DIR$/theme/frontend/pautina/style/old/css/im.css" />
+        <option value="$PROJECT_DIR$/theme/frontend/pautina/style/default/php/header.php" />
+        <option value="$PROJECT_DIR$/module/pautina/template/pautina/block/profile/usermenu.html.php" />
+        <option value="$PROJECT_DIR$/theme/frontend/pautina/style/default/css/im.css" />
+        <option value="$PROJECT_DIR$/module/pautina/template/default/block/profile/usermenu.html.php" />
+        <option value="$PROJECT_DIR$/theme/frontend/pautina/style/default/jscript/menu.js" />
       </list>
     </option>
   </component>
@@ -164,9 +185,10 @@
   </component>
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
   <component name="ProjectFrameBounds">
-    <option name="x" value="-1" />
-    <option name="width" value="1922" />
-    <option name="height" value="1202" />
+    <option name="x" value="1" />
+    <option name="y" value="1" />
+    <option name="width" value="1364" />
+    <option name="height" value="726" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
     <OptionsSetting value="true" id="Add" />
@@ -208,60 +230,6 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="localhost" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="localhost" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="localhost" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="theme" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="localhost" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="localhost" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="theme" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="frontend" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="localhost" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="localhost" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="theme" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="frontend" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
               <option name="myItemId" value="pautina" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -272,23 +240,11 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="localhost" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="theme" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="frontend" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
               <option name="myItemId" value="pautina" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="template" />
+              <option name="myItemId" value="module" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -296,355 +252,9 @@
             <PATH_ELEMENT>
               <option name="myItemId" value="localhost" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="localhost" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="theme" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="frontend" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="pautina" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="style" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="localhost" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="localhost" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="theme" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="frontend" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="pautina" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="style" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="default" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="localhost" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="localhost" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="theme" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="frontend" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="pautina" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="style" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="default" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="php" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="localhost" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="localhost" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="theme" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="frontend" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="pautina" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="style" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="default" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="css" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="localhost" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="localhost" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="module" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="localhost" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="localhost" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="module" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="profile" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="template" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="localhost" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="localhost" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="module" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="profile" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="template" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="default" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="localhost" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="localhost" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="module" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="profile" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="template" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="default" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="block" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="localhost" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="localhost" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="module" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="profile" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="localhost" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="localhost" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="module" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="profile" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="include" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="localhost" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="localhost" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="module" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="profile" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="include" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="component" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="localhost" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="localhost" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="module" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="profile" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="include" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="component" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="block" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="localhost" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="localhost" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="module" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="pautina" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="template" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="pautina" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="block" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="profile" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="localhost" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="localhost" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
@@ -674,7 +284,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="localhost" />
+              <option name="myItemId" value="pautina" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
@@ -708,7 +318,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="localhost" />
+              <option name="myItemId" value="pautina" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
@@ -719,246 +329,14 @@
               <option name="myItemId" value="pautina" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="template" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="default" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="block" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="notification" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
           </PATH>
           <PATH>
             <PATH_ELEMENT>
               <option name="myItemId" value="localhost" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="localhost" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="module" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="pautina" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="include" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="localhost" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="localhost" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="module" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="pautina" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="include" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="component" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="block" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="localhost" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="localhost" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="module" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="pautina" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="include" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="component" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="block" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="profile" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="localhost" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="localhost" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="module" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="pautina" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="include" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="component" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="localhost" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="localhost" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="module" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="feed" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="template" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="pautina" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="block" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="localhost" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="localhost" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="module" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="feed" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="template" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="default" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="localhost" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="localhost" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="module" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="feed" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="template" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="default" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="block" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="localhost" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="localhost" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="module" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="feed" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="localhost" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="localhost" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
@@ -983,30 +361,20 @@
   <component name="PropertiesComponent">
     <property name="options.splitter.main.proportions" value="0.3" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="options.lastSelected" value="web.server" />
     <property name="recentsLimit" value="5" />
-    <property name="options.splitter.details.proportions" value="0.2" />
-    <property name="options.searchVisible" value="true" />
+    <property name="options.lastSelected" value="project.propVCSSupport.Mappings" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="GoToClass.includeJavaFiles" value="false" />
-  </component>
-  <component name="PublishConfig" serverName="pautina.me" serverId="b3640d33-ff37-4859-9246-bda7bf1e0351">
-    <servers>
-      <server id="b3640d33-ff37-4859-9246-bda7bf1e0351">
-        <serverdata>
-          <mappings>
-            <mapping deploy="/" local="$PROJECT_DIR$" web="/" />
-          </mappings>
-        </serverdata>
-      </server>
-    </servers>
+    <property name="options.searchVisible" value="true" />
+    <property name="options.splitter.details.proportions" value="0.2" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/module/feed/template/pautina/block" />
-      <recent name="$PROJECT_DIR$/module/comment/template/pautina/block" />
+      <recent name="C:\xampp\htdocs\pautina\theme\frontend\pautina\style\default\image\module" />
+      <recent name="C:\xampp\htdocs\pautina\theme\frontend\pautina\style\default\css" />
+      <recent name="C:\xampp\htdocs\pautina\theme\frontend\pautina\style\old\image\module" />
+      <recent name="C:\xampp\htdocs\pautina\module\pautina\template\pautina\block\profile" />
       <recent name="$PROJECT_DIR$/module/sms/include/service" />
-      <recent name="$PROJECT_DIR$/module/sms/template/default/block" />
-      <recent name="$PROJECT_DIR$/module/sms/include/service/sms" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/module/pautina" />
@@ -1021,9 +389,6 @@
       <method />
     </configuration>
     <configuration default="true" type="PhpLocalRunConfigurationType" factoryName="PHP Console">
-      <method />
-    </configuration>
-    <configuration default="true" type="PhpUnitRemoteRunConfigurationType" factoryName="PHPUnit on Server" server_id="b3640d33-ff37-4859-9246-bda7bf1e0351" server_name="pautina.me">
       <method />
     </configuration>
     <configuration default="false" name="localhost" type="PhpWebAppRunConfigurationType" factoryName="PHP Web Application" browser="CHROME" server_name="localhost">
@@ -1075,74 +440,37 @@
       <created>1345659232043</created>
       <updated>1345659232043</updated>
     </task>
-    <task id="LOCAL-00004" summary="update feed block design">
-      <created>1351453647990</created>
-      <updated>1351453647990</updated>
+    <task id="LOCAL-00004" summary="added My Menu js and style">
+      <created>1351373265296</created>
+      <updated>1351373265296</updated>
     </task>
-    <task id="LOCAL-00005" summary="update to 3.4RC1">
-      <created>1351457471507</created>
-      <updated>1351457471507</updated>
+    <task id="LOCAL-00005" summary="added display non for menu">
+      <created>1351375042615</created>
+      <updated>1351375042615</updated>
     </task>
-    <task id="LOCAL-00006" summary="update feed block design">
-      <created>1351458660647</created>
-      <updated>1351458660647</updated>
-    </task>
-    <task id="LOCAL-00007" summary="clean cache">
-      <created>1351458705442</created>
-      <updated>1351458705442</updated>
-    </task>
-    <task id="LOCAL-00008" summary="update feed block design">
-      <created>1351461511393</created>
-      <updated>1351461511393</updated>
-    </task>
-    <task id="LOCAL-00009" summary="update feed block design">
-      <created>1351461868857</created>
-      <updated>1351461868857</updated>
-    </task>
-    <option name="localTasksCounter" value="10" />
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
-  <component name="TodoView" selected-index="0">
-    <todo-panel id="selected-file">
-      <are-packages-shown value="false" />
-      <are-modules-shown value="false" />
-      <flatten-packages value="false" />
-      <is-autoscroll-to-source value="false" />
-    </todo-panel>
-    <todo-panel id="all">
-      <are-packages-shown value="false" />
-      <are-modules-shown value="false" />
-      <flatten-packages value="false" />
-      <is-autoscroll-to-source value="false" />
-    </todo-panel>
-    <todo-panel id="default-changelist">
-      <are-packages-shown value="false" />
-      <are-modules-shown value="false" />
-      <flatten-packages value="false" />
-      <is-autoscroll-to-source value="false" />
-    </todo-panel>
-  </component>
   <component name="ToolWindowManager">
-    <frame x="-1" y="0" width="1922" height="1202" extended-state="6" />
+    <frame x="1" y="1" width="1364" height="726" extended-state="0" />
     <editor active="false" />
     <layout>
-      <window_info id="File Transfer" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32983795" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Changes" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3918017" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32888466" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.35218784" sideWeight="0.67111534" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32983795" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32888466" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32983795" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3270548" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25506938" sideWeight="0.5552297" order="1" side_tool="true" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2764141" sideWeight="0.6081983" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.30491552" sideWeight="0.6712329" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Debug" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.35218784" sideWeight="0.67057675" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32876712" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Data Sources" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32942328" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="3" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -1183,7 +511,7 @@
     <option name="SHOW_VCS_ERROR_NOTIFICATIONS" value="true" />
     <option name="FORCE_NON_EMPTY_COMMENT" value="false" />
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="false" />
-    <option name="LAST_COMMIT_MESSAGE" value="update feed block design" />
+    <option name="LAST_COMMIT_MESSAGE" value="added display non for menu" />
     <option name="MAKE_NEW_CHANGELIST_ACTIVE" value="false" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_FILES_UP_TO_DATE_BEFORE_COMMIT" value="false" />
@@ -1199,9 +527,8 @@
     <MESSAGE value="create SMS module" />
     <MESSAGE value="create SMS form" />
     <MESSAGE value="update SMS module" />
-    <MESSAGE value="update to 3.4RC1" />
-    <MESSAGE value="clean cache" />
-    <MESSAGE value="update feed block design" />
+    <MESSAGE value="added My Menu js and style" />
+    <MESSAGE value="added display non for menu" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1212,137 +539,102 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="php">
           <url>file://$PROJECT_DIR$/module/mail/include/component/controller/compose.class.php</url>
-          <line>25</line>
+          <line>21</line>
         </line-breakpoint>
       </breakpoints>
-      <option name="time" value="1" />
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/module/profile/template/default/block/header.html.php">
+    <entry file="file://$PROJECT_DIR$/theme/frontend/pautina/style/default/php/header.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="15" column="5" selection-start="351" selection-end="351" vertical-scroll-proportion="17.11111">
+        <state line="14" column="17" selection-start="362" selection-end="362" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/module/profile/include/component/block/pic.class.php">
+    <entry file="file://$PROJECT_DIR$/theme/frontend/pautina/style/default/php/header.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="15" column="33" selection-start="261" selection-end="288" vertical-scroll-proportion="-10.111111">
+        <state line="14" column="17" selection-start="362" selection-end="362" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/module/pautina/template/default/block/profile/image.html.php">
+    <entry file="file://$PROJECT_DIR$/module/pautina/include/component/block/friends.class.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="34" column="0" selection-start="0" selection-end="1139" vertical-scroll-proportion="-21.777779">
-          <folding>
-            <element signature="n#style#0;n#div#3;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#4;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#5;n#!!top" expanded="true" />
-          </folding>
-        </state>
+        <state line="11" column="5" selection-start="366" selection-end="366" vertical-scroll-proportion="0.4348837" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/module/profile/template/default/block/pic.html.php">
+    <entry file="file://$PROJECT_DIR$/module/sms/template/default/block/sms.html.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="247" vertical-scroll-proportion="-0.0">
+        <state line="19" column="7" selection-start="706" selection-end="706" vertical-scroll-proportion="0.2488372" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/theme/frontend/pautina/style/default/css/custom.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/theme/frontend/pautina/template/template.html.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-0.5662432" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/theme/frontend/default/template/pager.html.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-1.784029" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/theme/frontend/default/style/default/jscript/main.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-1.8042705" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/theme/frontend/pautina/style/old/css/im.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="509" column="1" selection-start="7774" selection-end="7774" vertical-scroll-proportion="0.8790036" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/include/setting/server.sett.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="36" column="0" selection-start="908" selection-end="908" vertical-scroll-proportion="0.5531915" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/theme/frontend/pautina/style/default/php/header.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="14" column="17" selection-start="362" selection-end="362" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/module/pautina/template/default/block/profile/menu.html.php">
+    <entry file="file://$PROJECT_DIR$/theme/frontend/default/style/default/php/header.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-0.31661442">
-          <folding />
-        </state>
+        <state line="10" column="2" selection-start="142" selection-end="142" vertical-scroll-proportion="0.34368932" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/module/pautina/template/pautina/block/profile/usermenu.html.php">
+    <entry file="file://$PROJECT_DIR$/theme/frontend/default/template/template.html.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="13" column="0" selection-start="412" selection-end="412" vertical-scroll-proportion="-10.111111">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/theme/frontend/pautina/style/default/css/im.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="21" column="1" selection-start="311" selection-end="311" vertical-scroll-proportion="0.7205882">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/module/feed/template/pautina/block/entry.html.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/module/feed/template/pautina/block/timeline.html.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/theme/frontend/pautina/template/template.html.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="93" column="55" selection-start="3164" selection-end="3164" vertical-scroll-proportion="-6.5185184">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/module/pautina/include/component/block/profile/image.class.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="11" column="1" selection-start="355" selection-end="355" vertical-scroll-proportion="-8.555555">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/theme/frontend/pautina/style/default/css/layout.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="1207" column="1" selection-start="19099" selection-end="19099" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/module/pautina/include/component/block/profile/usermenu.class.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+        <state line="515" column="29" selection-start="7950" selection-end="7950" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/module/pautina/template/default/block/profile/usermenu.html.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+        <state line="1" column="0" selection-start="32" selection-end="32" vertical-scroll-proportion="-0.83870965">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/module/feed/template/pautina/block/comment.html.php">
+    <entry file="file://$PROJECT_DIR$/theme/frontend/pautina/style/default/jscript/menu.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="30" column="45" selection-start="1386" selection-end="1386" vertical-scroll-proportion="-3.4074075">
-          <folding>
-            <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#3;n#div#0;n#div#2;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#a#0;n#div#1;n#div#0;n#div#0;n#div#3;n#div#0;n#div#2;n#!!top" expanded="true" />
-            <marker date="1351462782459" expanded="true" signature="3507:3725" placeholder="..." />
-            <marker date="1351462782459" expanded="true" signature="3543:3725" placeholder="..." />
-            <marker date="1351462782459" expanded="true" signature="4093:4115" placeholder="..." />
-            <marker date="1351462782459" expanded="true" signature="4184:4304" placeholder="..." />
-            <marker date="1351462782459" expanded="true" signature="5397:5874" placeholder="..." />
-            <marker date="1351462782459" expanded="true" signature="6769:6864" placeholder="..." />
-            <marker date="1351462782459" expanded="true" signature="6816:6864" placeholder="..." />
-            <marker date="1351462782459" expanded="true" signature="7230:7312" placeholder="..." />
-            <marker date="1351462782459" expanded="true" signature="7761:7974" placeholder="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/theme/frontend/pautina/style/default/css/comment.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="141" column="22" selection-start="1617" selection-end="1617" vertical-scroll-proportion="0.4534687">
+        <state line="0" column="0" selection-start="0" selection-end="6" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
