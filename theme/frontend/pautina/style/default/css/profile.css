@@ -48,8 +48,12 @@
     margin-right: 40px;
 }
 
-.isset_profile_logo_image {
+.isset_profile_logo_image .profile_image {
     margin: -156px 40px 0 25px;
+}
+
+#profile_header_image_title .profile_header {
+    margin-left: 220px;
 }
 
 #js_is_user_profile .profile_image img {
@@ -59,8 +63,13 @@
 
 #js_is_user_profile .profile_image .p_4
 {
-	position:absolute;
-	background:#333;
+    position: absolute;
+    background: rgba(75, 75, 75, 0.5);
+    bottom: 8px;
+    left: 5px;
+    width: 173px;
+    line-height: 30px;
+    padding-left: 20px;
 	display:none;
 }
 

@@ -293,9 +293,10 @@ div.comment_mini_content
 
 .feed_share_holder
 {
-	border:1px #D3DAE8 solid;
-	background:#F6F7F9;
-	padding:5px;
+	border:1px #d7d7d7 solid;
+	background:#F8F8F8;
+	padding:15px;
+    border-radius: 4px;
 }
 
 .timeline_holder .js_feed_comment_border
