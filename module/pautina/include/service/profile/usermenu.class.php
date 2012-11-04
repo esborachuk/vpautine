@@ -21,51 +21,31 @@ class Pautina_Service_Profile_Usermenu extends Phpfox_Service
                 'url' => $userLink . 'info',
                 'class' => 'info'
             ),
-            'blog' => array(
-                'label' => 'Блоги',
-                'url' => $userLink . 'blog',
-                'class' => 'blog'
-            ),
-            'event' => array(
-                'label' => 'События',
-                'url' => $userLink . 'event',
-                'class' => 'event'
-            ),
             'friend' => array(
                 'label' => 'Друзья',
                 'url' => $userLink . 'friend',
                 'class' => 'friend'
-            ),
-            'marketplace' => array(
-                'label' => 'Списки',
-                'url' => $userLink . 'marketplace',
-                'class' => 'marketplace'
-            ),
-            'music' => array(
-                'label' => 'Аудиозаписи',
-                'url' => $userLink . 'music',
-                'class' => 'music'
             ),
             'photo' => array(
                 'label' => 'Фото',
                 'url' => $userLink . 'photo',
                 'class' => 'photo'
             ),
-            'poll' => array(
-                'label' => 'Опросы',
-                'url' => $userLink . 'poll',
-                'class' => 'poll'
-            ),
-            'quizz' => array(
-                'label' => 'Викторины',
-                'url' => $userLink . 'quizz',
-                'class' => 'quizz'
-            ),
             'video' => array(
                 'label' => 'Видеозаписи',
                 'url' => $userLink . 'video',
                 'class' => 'video'
             ),
+            'blog' => array(
+                'label' => 'Блоги',
+                'url' => $userLink . 'blog',
+                'class' => 'blog'
+            ),
+            'music' => array(
+                'label' => 'Аудиозаписи',
+                'url' => $userLink . 'music',
+                'class' => 'music'
+            )
         );
 
         if ($currentUser == $userName) {
