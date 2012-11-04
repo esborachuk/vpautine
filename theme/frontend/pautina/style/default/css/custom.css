@@ -47,7 +47,7 @@ a:hover {
 }
 
 #main_core_body_holder, #main_core_body_holder_guest {
-    margin-top: 70px;
+    margin-top: 40px;
 }
 
 #header_menu_login .header_menu_login_input {
@@ -93,14 +93,30 @@ a:hover {
 }
 
 #header_menu {
-    background: #424242;
+    background: #8F8B8B;
     border-top: 1px solid #222;
+    opacity: 0.3;
+}
+#header_menu:hover ul li a{
+    color: #fff!important;
+}
+
+#header_menu:hover {
+    opacity: 1;
+    background: #424242;
+    -moz-transition: opacity 0.2s linear;
+    -webkit-transition: opacity 0.2s linear;
+    -o-transition: opacity 0.2s linear;
+    transition: opacity 0.2s linear;
 }
 
 #header_menu ul li a, #header_menu ul li a:hover {
     border-right: 1px solid #222;
-    color: #fff;
+    color: #000;
     display: block;
+}
+#header_menu ul li a:hover {
+    color: #fff;
 }
 
 #header_menu ul li a:hover {
@@ -233,6 +249,11 @@ a:hover {
     display: table-cell;
     vertical-align: middle;
     border-radius: 2px;
+}
+
+#videobox-block li p{
+    height: 30px;
+    overflow: hidden;
 }
 
 #imagebox-block li img {
@@ -650,4 +671,18 @@ ul.block_listing li .block_listing_image a img {
 
 .video_width_holder {
     margin: 0 auto;
+}
+
+.v-align {
+    height: 102px;
+    vertical-align: middle;
+    width: 102px;
+}
+
+#js_controller_music_view #content_load_data {
+    margin-left: 860px;
+}
+
+#js_block_border_friend_mutual-friend img{
+    border-radius: 4px;
 }
