@@ -9,6 +9,7 @@ class Pautina_Service_Profile_Usermenu extends Phpfox_Service
 
         $userId = Phpfox::getUserId();
         $userLink = Phpfox::getService('user')->getLink($userId);
+        $url = Phpfox::getLib('url');
 
         $menu = array(
             'wall' => array(
@@ -23,27 +24,27 @@ class Pautina_Service_Profile_Usermenu extends Phpfox_Service
             ),
             'friend' => array(
                 'label' => 'Друзья',
-                'url' => $userLink . 'friend',
+                'url' => $url->makeUrl('friend.view_my'),
                 'class' => 'friend'
             ),
             'photo' => array(
                 'label' => 'Фото',
-                'url' => $userLink . 'photo',
+                'url' => $url->makeUrl('photo.view_my'),
                 'class' => 'photo'
             ),
             'video' => array(
                 'label' => 'Видеозаписи',
-                'url' => $userLink . 'video',
+                'url' => $url->makeUrl('video.view_my'),
                 'class' => 'video'
             ),
             'blog' => array(
                 'label' => 'Блоги',
-                'url' => $userLink . 'blog',
+                'url' => $url->makeUrl('blog.view_my'),
                 'class' => 'blog'
             ),
             'music' => array(
                 'label' => 'Аудиозаписи',
-                'url' => $userLink . 'music',
+                'url' => $url->makeUrl('music.view_my'),
                 'class' => 'music'
             )
         );

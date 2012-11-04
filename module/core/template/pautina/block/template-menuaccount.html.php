@@ -39,20 +39,24 @@ defined('PHPFOX') or exit('NO DICE!');
     </li>
 </ul>
 {else}
+<?php
+$profileUrl = Phpfox::getParam('core.url_user');
+$profileUrl .= Phpfox::getUserBy('user_image');
+$profileUrl = str_replace("%s","_50_square",$profileUrl);
+$profileName = Phpfox::getUserBy('user_name');
+?>
 <ul>
+    <li>
+        <a href="<?php echo Phpfox::getLib('url')->makeUrl('profile', Phpfox::getUserBy('user_name')); ?>">
+            <span class="right-menu-profile">
+                <img width="30" src="<?php  echo $profileUrl; ?>" alt="" />
+            </span>
+        </a>
+    </li>
     {foreach from=$aRightMenus key=iKey item=aMenu}
     <li>
         <a href="{url link=$aMenu.url}" class="{if isset($aMenu.children) && count($aMenu.children) && is_array($aMenu.children)} has_drop_down no_ajax_link{/if} {if Phpfox::isUser() && $aMenu.url == 'user.setting'}menu-settings{/if}">
             {if Phpfox::isUser() && $aMenu.url == 'profile.my'}
-            <?php
-            $profileUrl = Phpfox::getParam('core.url_user');
-            $profileUrl .= Phpfox::getUserBy('user_image');
-            $profileUrl = str_replace("%s","_50_square",$profileUrl);
-            $profileName = Phpfox::getUserBy('user_name');
-            ?>
-            <span class="right-menu-profile">
-                            <img width="30" src="<?php  echo $profileUrl; ?>" alt="" />
-            </span>
                 {elseif Phpfox::isUser() && $aMenu.url == 'user.setting'}
 
             <span class="center-menu-profile profile-link"><div class="center-menu-profile-bg"></div></span>
