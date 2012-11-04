@@ -375,7 +375,7 @@ a:hover {
 ul.block_listing li .block_listing_image {
     float: none;
 }
-ul.block_listing li .block_listing_title {
+ul.block_listing li .block_listing_title, #js_friend_sort_holder .friend_user_name {
     background: url("../image/friend-like-bg.png") repeat-x scroll left top transparent;
     border-radius: 0 0 4px 4px;
     -moz-border-radius: 0 0 4px 4px;
@@ -386,7 +386,7 @@ ul.block_listing li .block_listing_title {
     text-align: center;
     width: 100%;
 }
-ul.block_listing li .block_listing_title a {
+ul.block_listing li .block_listing_title a, #js_friend_sort_holder .friend_user_name a {
     color: #fff;
 }
 ul.block_listing li .block_listing_title a:hover {
@@ -631,7 +631,7 @@ ul.block_listing li .block_listing_image a img {
 
 #js_controller_user_browse #site_content > div{
     float: left;
-    width: 310px;
+    width: 300px;
 }
 
 .js_box_close, #js_marketplace_click_image_viewer_close {
@@ -661,6 +661,10 @@ ul.block_listing li .block_listing_image a img {
     margin-bottom: 15px;
 }
 
+#js_controller_user_browse #content_load_data #site_content > div{
+    padding: 0 15px 15px 0;
+}
+
 #content_load_data .js_music_track .row_title_info{
     padding-top: 15px;
 }
@@ -684,5 +688,48 @@ ul.block_listing li .block_listing_image a img {
 }
 
 #js_block_border_friend_mutual-friend img{
+    -moz-border-radius: 4px;
+    -webkit-border-radius: 4px;
     border-radius: 4px;
+}
+
+.user_browse_info {
+    left: 150px;
+    position: absolute;
+}
+
+#main_content_holder {
+    padding-top: 30px;
+}
+
+#js_friend_sort_holder{
+    overflow: hidden;
+}
+
+#js_friend_sort_holder .friend_user_name{
+    bottom: 0;
+    margin: 0 auto;
+    position: absolute;
+    text-align: center;
+}
+
+#js_friend_sort_holder .friend_row_holder {
+    float: left;
+    height: 102px;
+    margin: 10px 13px;
+    padding: 0;
+    width: 102px;
+}
+
+#js_friend_sort_holder .friend_image {
+    -moz-border-radius: 4px;
+    -webkit-border-radius: 4px;
+    border-radius: 4px;
+    position: inherit;
+    text-align: center;
+}
+
+a.friend_action_delete, a.friend_action_delete:hover {
+    right: 10px;
+    top: 7px;
 }
