@@ -26,13 +26,10 @@ class Pautina_Component_Block_Profile_Musicbox extends Phpfox_Component
             return false;
         }
 
-        $allMusicLink = $userLink = Phpfox::getService('user')->getLink($aUser['user_id']) . 'music';
-
         $this->template()->assign(
             array(
                 'musics' => $musics,
                 'musicCount' => $musicCount,
-                'allMusicLink' => $allMusicLink,
                 'showAddLink'   => $showAddLink
             )
         );

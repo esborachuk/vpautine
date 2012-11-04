@@ -1,6 +1,6 @@
 <div class="menu_box">
     <div class="profilebox-title">
-        <a href="{$allBlogLink}">Блог</a>
+        <a href="{url link='blog.view_my'}">Блог</a>
         <?php if ($this->getVar('showAddLink')): ?>
         <span class="add-photo">
                 <a title="Добавить блог" href="{url link='blog.add'}">
@@ -9,7 +9,9 @@
         </span>
         <?php endif; ?>
     </div>
-        <a href="{$allBlogLink}" class="all-items">Посмотреть все статьи блога...<span>{$blogCount}&nbsp;</span></a>
+        <a href="{url link='blog.view_my'}" class="all-items">
+            Посмотреть все статьи блога...<span>{$blogCount}&nbsp;</span>
+        </a>
     <div id="blogbox-block">
         <ul id="blogbox">
             <?php foreach ($this->getVar('blogs') as $blog): ?>

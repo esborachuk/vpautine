@@ -26,13 +26,10 @@ class Pautina_Component_Block_Profile_Blogbox extends Phpfox_Component
 
         $blogs = $blogboxService->getBlogs($aUser['user_id']);
 
-        $allBlogLink = $userLink = Phpfox::getService('user')->getLink($aUser['user_id']) . 'blog';
-
         $this->template()->assign(
             array(
                 'blogs' => $blogs,
                 'blogCount' => $blogCount,
-                'allBlogLink' => $allBlogLink,
                 'showAddLink'   => $showAddLink
             )
         );
