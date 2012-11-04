@@ -1,4 +1,4 @@
-<a id="call-menu" href="#"></a>
+<a  id="call-menu" href="#"></a>
 <div id="user-menu">
     <ul>
         <?php foreach($this->getVar('menu') as $key => $item): ?>
