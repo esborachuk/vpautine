@@ -92,28 +92,40 @@ a:hover {
     top: 0;
 }
 
-#header_menu {
-    background: #8F8B8B;
+#header_menu, .header_menu_top:hover {
+    background: #424242;
     border-top: 1px solid #222;
-    opacity: 0.3;
+    opacity: 1;
+    -moz-transition: opacity 1.5s ease;
+    -o-transition: opacity 1.5s ease;
+    -webkit-transition: opacity 1.5s ease;
 }
+
+.header_menu_top{
+    opacity: 0.25!important;
+    background: #424242;
+    border-top: 1px solid #222;
+    -moz-transition: opacity 1.5s ease;
+    -o-transition: opacity 1.5s ease;
+    -webkit-transition: opacity 1.5s ease;
+}
+
+.header_menu_top:hover {
+    opacity: 1!important;
+    -moz-transition: opacity 1.5s ease;
+    -o-transition: opacity 1.5s ease;
+    -webkit-transition: opacity 1.5s ease;
+}
+
 #header_menu:hover ul li a{
     color: #fff!important;
 }
 
-#header_menu:hover {
-    opacity: 1;
-    background: #424242;
-    -moz-transition: opacity 0.2s linear;
-    -webkit-transition: opacity 0.2s linear;
-    -o-transition: opacity 0.2s linear;
-    transition: opacity 0.2s linear;
-}
-
 #header_menu ul li a, #header_menu ul li a:hover {
     border-right: 1px solid #222;
-    color: #000;
+    color: #fff;
     display: block;
+    font-size: 14px;
 }
 #header_menu ul li a:hover {
     color: #fff;
