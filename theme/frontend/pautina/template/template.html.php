@@ -21,6 +21,10 @@ defined('PHPFOX') or exit('NO DICE!');
 	<body>
 		{body}
 		{block location='9'}
+        {if !$bUseFullSite && (count($aBlocks3) || count($aAdBlocks3))}
+            {if Phpfox::isUser()}
+            {module name='pautina.profile.usermenu'}
+            {/if}
 		<div id="header" class="pautina">
             <div class="header-wrapper">
             <div class="header-content">
@@ -141,12 +145,7 @@ defined('PHPFOX') or exit('NO DICE!');
 											{block location='4'}
 										</div>
 
-										{if !$bUseFullSite && (count($aBlocks3) || count($aAdBlocks3))}
 										<div id="right">
-                                            {if Phpfox::isUser()}
-                                            {module name='pautina.profile.usermenu'}
-                                            {/if}
-
                                             {module name='pages.header'}
 											{block location='3'}
 										</div>
