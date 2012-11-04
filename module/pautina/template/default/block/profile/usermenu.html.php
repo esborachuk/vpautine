@@ -1,4 +1,4 @@
-<a id="call-menu" href="#"></a>
+<a id="call-menu" href="#" onclick="Menu.toggle(); return false;"></a>
 <div id="user-menu">
     <ul>
         <?php foreach($this->getVar('menu') as $key => $item): ?>
