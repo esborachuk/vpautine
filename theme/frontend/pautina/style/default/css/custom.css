@@ -216,6 +216,8 @@ a:hover {
     padding: 2px 5px 0;
     width: 35px;
     border-radius: 5px;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
 }
 
 #header_menu_holder ul li a, #header_menu_holder ul li a:hover {
@@ -252,6 +254,8 @@ a:hover {
     display: table-cell;
     vertical-align: middle;
     border-radius: 2px;
+    -moz-border-radius: 2px;
+    -webkit-border-radius: 2px;
 }
 
 #videobox-block li p{
@@ -361,6 +365,10 @@ a:hover {
 
 #section_menu ul li#js_add_friend_on_profile a {
     background: url(../image/pautina/profile-page/add-to-friend.png) no-repeat top center;
+}
+
+#section_menu ul li#js_add_friend_on_profile a:hover {
+    background: url("../image/pautina/profile-page/add-to-friend.png") no-repeat scroll center -68px transparent;
 }
 
 #sms-success-result, #email-success-result {
@@ -489,12 +497,16 @@ ul.block_listing li .block_listing_title a:hover {
     border-right: 1px solid #d7d7d7;
     color: #4c4c4c;
     border-radius: 0 0 4px 4px;
+    -moz-border-radius: 0 0 4px 4px;
+    -webkit-border-radius: 0 0 4px 4px;
 }
 
 
 #holder_notify ul li div.holder_notify_drop a.holder_notify_drop_link, #holder_notify ul li div.holder_notify_drop a.holder_notify_drop_link:hover, .js_temp_friend_search_form_holder ul li a.holder_notify_drop_link, .js_temp_friend_search_form_holder ul li a.holder_notify_drop_link:hover {
     background: none repeat scroll 0 0 #EFEFEF;
-    border-radius: 0 0 9px 9px;
+    border-radius: 0 0 4px 4px;
+    -moz-border-radius: 0 0 4px 4px;
+    -webkit-border-radius: 0 0 4px 4px;
 }
 
 #holder_notify ul li div.holder_notify_drop a.holder_notify_drop_link:hover, .js_temp_friend_search_form_holder ul li a.holder_notify_drop_link:hover {
@@ -513,12 +525,16 @@ ul.block_listing li .block_listing_title a:hover {
 }
 
 #header_menu_holder ul.active li a {
-    border-radius: 0 0 9px 9px;
+    border-radius: 0 0 4px 4px;
+    -moz-border-radius: 0 0 4px 4px;
+    -webkit-border-radius: 0 0 4px 4px;
 }
 
 ul.block_listing li .block_listing_image a img,
 #js_block_border_friend_mini .block_listing_inline a img {
     border-radius: 4px;
+    -moz-border-radius: 4px;
+    -webkit-border-radius: 4px;
 }
 
 .profilebox-title .add-photo, .total-friend {
@@ -693,7 +709,7 @@ ul.block_listing li .block_listing_image a img,
     margin-left: 860px;
 }
 
-#js_block_border_friend_mutual-friend img{
+#js_block_border_friend_mutual-friend img,  #site_content .user_browse_image img{
     -moz-border-radius: 4px;
     -webkit-border-radius: 4px;
     border-radius: 4px;
@@ -738,4 +754,8 @@ ul.block_listing li .block_listing_image a img,
 a.friend_action_delete, a.friend_action_delete:hover {
     right: 10px;
     top: 7px;
+}
+
+textarea {
+    font-family: "lucida grande",tahoma,verdana,arial,sans-serif;
 }
