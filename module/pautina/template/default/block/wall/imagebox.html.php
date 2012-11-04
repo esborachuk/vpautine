@@ -6,20 +6,26 @@
     <div id="imagebox-block">
         <ul id="imagebox">
             <?php foreach ($this->getVar('photos') as $photo): ?>
-                <li>
-                    <a href="<?php echo $photo['link']; ?>" rel="<?php echo $photo['photo_id']; ?>" class="thickbox photo_holder_image" title="<?php echo $photo['title'] ?>">
-                        <img src="<?php echo $photo['image_src_small'] ?>" alt="<?php echo $photo['title'] ?>">
-                        <div class="block-like" <?php if($photo['total_like'] <= 0 && $photo['total_comment'] <= 0):  ?>style="display: none!important;" <?php endif; ?>   >
-                            <?php if ($photo['total_like'] > 0): ?>
-                                <span class="like"><?php echo $photo['total_like']; ?></span>
-                            <?php endif; ?>
+            <li>
+                <table>
+                    <tr>
+                        <td class="v-align">
+                            <a href="<?php echo $photo['link']; ?>" rel="<?php echo $photo['photo_id']; ?>" class="thickbox photo_holder_image" title="<?php echo $photo['title'] ?>">
+                                <img src="<?php echo $photo['image_src_small'] ?>" alt="<?php echo $photo['title'] ?>">
+                                <div class="block-like" <?php if($photo['total_like'] <= 0 && $photo['total_comment'] <= 0):  ?>style="display: none!important;" <?php endif; ?>   >
+                                    <?php if ($photo['total_like'] > 0): ?>
+                                    <span class="like"><?php echo $photo['total_like']; ?></span>
+                                    <?php endif; ?>
 
-                            <?php if ($photo['total_comment'] > 0): ?>
-                                <span class="comments"><?php echo $photo['total_comment']; ?></span>
-                            <?php endif; ?>
-                        </div>
-                    </a>
-                </li>
+                                    <?php if ($photo['total_comment'] > 0): ?>
+                                    <span class="comments"><?php echo $photo['total_comment']; ?></span>
+                                    <?php endif; ?>
+                                </div>
+                            </a>
+                        </td>
+                    </tr>
+                </table>
+            </li>
             <?php endforeach; ?>
         </ul>
     </div>
