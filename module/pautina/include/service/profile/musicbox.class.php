@@ -30,5 +30,16 @@ class Pautina_Service_Profile_Musicbox extends Phpfox_Service
 
         return $this->_blogCount;
     }
+
+    public function getLastMusics($page = 1, $pageSize = 9)
+    {
+        $this->_page = $page;
+        $this->_pageSize = $pageSize;
+
+        $musicService = Phpfox::getService('music');
+        $musics = $musicService->getLatestSongs();
+
+        return $musics;
+    }
 }
 ?>

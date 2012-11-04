@@ -18,7 +18,7 @@ defined('PHPFOX') or exit('NO DICE!');
 			{if isset($aFeedCallback.module)}
 			<li><a href="#" style="background:url('{img theme='comments-black.png' return_url=true}') no-repeat center left;" rel="global_attachment_status" class="active"><div>{phrase var='feed.post'}<span class="activity_feed_link_form_ajax">{$aFeedCallback.ajax_request}</span></div><div class="drop"></div></a></li>
 			{elseif !isset($bFeedIsParentItem) && (!defined('PHPFOX_IS_USER_PROFILE') || (defined('PHPFOX_IS_USER_PROFILE') && isset($aUser.user_id) && $aUser.user_id == Phpfox::getUserId()))}
-			<li><a href="#" style="background:url('{img theme='misc/application_add.png' return_url=true}') no-repeat center left;" rel="global_attachment_status" class="active"><div>{phrase var='feed.status'}<span class="activity_feed_link_form_ajax">user.updateStatus</span></div><div class="drop"></div></a></li>
+			<li><a href="#" rel="global_attachment_status" class="active comment-feed-application"><div>{phrase var='feed.status'}<span class="activity_feed_link_form_ajax">user.updateStatus</span></div><div class="drop"></div></a></li>
 			{else}
 			<li><a href="#" style="background:url('{img theme='misc/comment_add.png' return_url=true}') no-repeat center left;" rel="global_attachment_status" class="active"><div>{phrase var='feed.post'}<span class="activity_feed_link_form_ajax">feed.addComment</span></div><div class="drop"></div></a></li>
 			{/if}
@@ -35,7 +35,7 @@ defined('PHPFOX') or exit('NO DICE!');
 			{if ($aFeedStatusLink.no_profile && !isset($bFeedIsParentItem) && (!defined('PHPFOX_IS_USER_PROFILE') || (defined('PHPFOX_IS_USER_PROFILE') && isset($aUser.user_id) && $aUser.user_id == Phpfox::getUserId()))) || !$aFeedStatusLink.no_profile}
 			
 			<li>
-				<a href="#" style="background-image:url('{img theme='feed/'$aFeedStatusLink.icon'' return_url=true}'); background-repeat:no-repeat; background-position:{if Phpfox::getService('profile')->timeline() && $phpfox.iteration.feedlinks >= 3}5px center{else}center left{/if};" rel="global_attachment_{$aFeedStatusLink.module_id}"{if $aFeedStatusLink.no_input} class="no_text_input"{/if}>
+				<a href="#" class="{$aFeedStatusLink.module_id}" rel="global_attachment_{$aFeedStatusLink.module_id}"{if $aFeedStatusLink.no_input} class="no_text_input"{/if}>
 					<div>
 						{$aFeedStatusLink.title|convert}
 						{if $aFeedStatusLink.is_frame}

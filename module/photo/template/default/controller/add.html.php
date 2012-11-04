@@ -11,6 +11,7 @@
 defined('PHPFOX') or exit('NO DICE!'); 
 
 ?>
+<a href=""></a>
 {if false && Phpfox::isMobile()}
 <div class="extra_info">
 	{phrase var='photo.photos_unfortunately_cannot_be_uploaded_via_mobile_devices_at_this_moment'}
