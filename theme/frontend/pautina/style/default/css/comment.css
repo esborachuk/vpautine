@@ -384,3 +384,26 @@ a.feed_share_link {
     font-size: 14px;
     line-height: 15px;
 }
+
+.activity_feed_form_attach .comment-feed-application {
+    background: url(../image/layout/application_add.png) no-repeat 0 6px;
+}
+
+.activity_feed_form_attach a.photo {
+    background: url(../image/layout/photo.png) no-repeat 0 6px;
+    background: url(../image/layout/photo.png) no-repeat 0 6px;
+}
+
+.activity_feed_form_attach a.link {
+    background: url(../image/layout/link.png) no-repeat 0 9px;
+}
+
+.activity_feed_form_attach a.blog, .activity_feed_form_attach a.blog:hover {
+    background: url(../image/blog-bg.png) no-repeat 0 5px;
+    padding-left: 27px;
+}
+
+.activity_feed_form_attach a.music, .activity_feed_form_attach a.music:hover {
+    background: url(../image/layout/music.png) no-repeat 0 6px;
+    padding-left: 18px;
+}

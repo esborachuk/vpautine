@@ -56,5 +56,32 @@ class Pautina_Service_Profile_Blogbox extends Phpfox_Service
 
         return $this->_blogCount;
     }
+
+    public function getLastBlogs($page = 1, $pageSize = 9)
+    {
+        $this->_page = $page;
+        $this->_pageSize = $pageSize;
+        $this->_count = 9;
+
+        $blogService = Phpfox::getService('blog');
+        $blogIds = $this->database()->select('blog_id')
+            ->from(Phpfox::getT('blog'))
+            ->limit($this->_page, $this->_pageSize, $this->_count)
+            ->order('time_stamp DESC')
+            ->execute('getRows');
+
+        $blogs = array();
+        foreach ($blogIds as $blog) {
+            $blogs[] = $blogService->getBlog($blog['blog_id']);
+        }
+        unset($blog);
+
+        foreach ($blogs as &$blog) {
+            $blog['url'] = Phpfox::permalink('blog', $blog['blog_id'], $blog['title']);
+        }
+        unset($blog);
+
+        return $blogs;
+    }
 }
 ?>

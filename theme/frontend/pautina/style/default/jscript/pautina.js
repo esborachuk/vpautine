@@ -26,3 +26,5 @@ jQuery(document).ready(function() {
     // check notifications and update button class
     var pautinaNotificationInterval = setInterval(PautinaNotification.check, 200);
 });
+
+
