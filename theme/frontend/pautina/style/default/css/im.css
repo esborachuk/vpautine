@@ -167,11 +167,12 @@ div.im_text:hover div.im_date
     left:auto;
 }
 
-div.im_text div.im_message{
+div.im_text div.im_message
+{
+    margin-left:32px;
     width:160px;
-    margin:0 5px 4px 30px;
-    padding:5px 30px 5px 3px;
 }
+
 
 .im_message_no_height
 {
@@ -190,11 +191,6 @@ div.im_text div.im_message{
 .im_message_owner
 {
     text-align:right;
-    -webkit-box-shadow: 1px 1px 1px rgba(50, 50, 50, 0.6);
-    -moz-box-shadow:    1px 1px 1px rgba(50, 50, 50, 0.6);
-    box-shadow:         1px 1px 1px rgba(50, 50, 50, 0.6);
-    margin:0 15px 0 5px !important;
-    width:170px !important;
     color:#686868;
 
 }
@@ -481,13 +477,13 @@ div#js_friend_input_search
 /*==My Menu==*/
 #call-menu{
     background: url("../image/module/my_menu.png") no-repeat scroll 0 0 #000000;
-    border: 3px solid #d7d7d7;
+    border: 3px solid #D7D7D7;
     display: inline-block;
     height: 105px;
     padding: 0 10px;
     position: fixed;
     right: -59px;
-    top: 123px;
+    top: 108px;
     width: 44px;
     z-index: 101;
 }
@@ -522,4 +518,8 @@ div#js_friend_input_search
 .v_middle.close_panel{
     float:right;
     margin:3px 0 0;
+}
+
+.im_text.im_text_actual_owner.extra_info{
+    background:#f4f4f4;
 }
