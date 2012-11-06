@@ -283,7 +283,7 @@ a:hover {
 
 .menu_box .profilebox-title, #left #js_block_border_friend_profile_small .title,
 #left #js_block_border_friend_mutual-friend .title,
-#left #js_block_border_friend_mini .title
+#left #js_block_border_friend_mini .title, #js_is_user_profile #content .block .title
 {
     margin-left: -5px;
     background: #4c4c4c;
@@ -365,7 +365,7 @@ a:hover {
     background: url(../image/pautina/profile-page/add-to-friend.png) no-repeat top center;
 }
 
-#section_menu ul li#js_add_friend_on_profile a:hover {
+#section_menu ul li#js_add_friend_on_profile a:active {
     background: url("../image/pautina/profile-page/add-to-friend.png") no-repeat scroll center -68px transparent;
 }
 
@@ -633,11 +633,11 @@ ul.block_listing li .block_listing_image a img,
     padding: 0 25px;
 }
 
-#section_menu ul li#liMail a:hover {
+#section_menu ul li#liMail a:active {
     background: url("../image/pautina/profile-page/mail.png") no-repeat scroll 50% -68px;
 }
 
-#section_menu ul li#liPoke a:hover {
+#section_menu ul li#liPoke a:active {
     background: url("../image/pautina/profile-page/poke.png") no-repeat scroll 50% -68px;
 }
 
@@ -756,4 +756,42 @@ a.friend_action_delete, a.friend_action_delete:hover {
 
 textarea {
     font-family: "lucida grande",tahoma,verdana,arial,sans-serif;
+}
+
+#js_is_user_profile #content > div{
+    padding: 0 20px;
+}
+
+#js_controller_user_profile #main_content{
+    width: 100%;
+}
+
+#js_controller_user_profile #content_load_data {
+    padding: 0 20px;
+}
+
+input, textarea {
+    color: #434343;
+}
+
+#js_controller_photo_index #section_menu a {display: none;}
+
+#js_user_browse_advanced_link_close {
+	position: absolute;
+	right: 10px;
+	padding-top: 0;
+}
+
+#js_controller_user_browse form .p_4 .extra_info{
+	float: right;
+	margin-top: -5px;
+}
+
+#header_menu ul li:hover, #header_menu ul li:hover a, #header_menu ul li:hover a:hover {
+	background: #333 url('../image/layout/header_menu_explore.png') repeat-x;
+	color: white;
+}
+
+.activity_feed_form {
+	padding-bottom: 15px!important;
 }

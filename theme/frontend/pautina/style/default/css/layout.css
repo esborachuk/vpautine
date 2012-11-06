@@ -537,10 +537,6 @@ select
 	padding-top:0px;	
 }
 
-.user_register_form
-{
-	margin-left:560px;
-}
 
 .user_register_title
 {
@@ -560,19 +556,7 @@ select
 	margin-bottom:10px;
 }
 
-input.button_register,
-#main_registration_form_holder input.button_register
-{
-	background:#6BBA70;
-	color:#fff;
-	font-weight:bold;
-	border:1px #508F54 solid;
-	border-bottom:1px #000 solid;
-	border-right:1px #000 solid;
-	cursor:pointer;
-	font-size:14px;
-	padding:5px 20px 5px 20px;
-}
+
 
 /**
  Default captcha
@@ -583,7 +567,7 @@ input.button_register,
 	background:#f9f9f9;
 	border:1px #dfdfdf solid;
 	*/
-	padding:5x 5px 10px 0px;
+	padding:5px 5px 10px 0px;
 	width:260px;
 }
 
@@ -2421,7 +2405,7 @@ a.feed_share_watch:hover
 .activity_feed_form_button
 {
 	position:relative;
-	padding:5px 0 0 0;
+	padding:5px 0 8px 0;
 	display:none;
 }
 
@@ -4528,6 +4512,35 @@ span.feed_icon_block img {
     color: #999;
     font-size: 10px;
     float: right;
+}
+
+/*register form*/
+.user_register_form {
+    border: 1px solid #D7D7D7 !important;
+    border-radius: 6px 6px 6px 6px !important;
+    padding: 10px;
+    margin:5px 0 0 560px;
+}
+
+.user_register_form .table_right input {
+    border: 1px solid #B2B2B2;
+    border-radius: 4px 4px 4px 4px;
+    font-size: 16px;
+    padding: 8px 0 8px 4px;
+    width: 80%;
+}
+
+.user_register_form div.table_clear
+{
+    margin-left:78px;
+}
+input.button_register,
+#main_registration_form_holder input.button_register
+{
+    font-weight:bold;
+    cursor:pointer;
+    font-size:14px;
+    padding:5px 20px 5px 20px;
 }
 
 #pautina_image_page {

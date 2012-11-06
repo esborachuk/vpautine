@@ -497,7 +497,7 @@ div#js_friend_input_search
     position: fixed !important;
     right: -12px;
     top: 107px;
-    width: 104px;
+    width: 85px;
     z-index: 100 !important;
 }
 
@@ -510,7 +510,6 @@ div#js_friend_input_search
 
 #user-menu ul li {
     font-size: 18px;
-    padding: 5px 0 10px 10px;
     border-bottom: 1px solid #FEFEFE;
     border-top: 1px solid #E0E0E0;
     width:180px;
@@ -522,4 +521,8 @@ div#js_friend_input_search
 
 .im_text.im_text_actual_owner.extra_info{
     background:#f4f4f4;
+}
+#user-menu a{
+    display: block;
+    padding: 5px 0 10px 10px;
 }
