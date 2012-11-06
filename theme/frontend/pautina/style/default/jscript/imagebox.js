@@ -1,41 +1,49 @@
 $(document).ready(function() {
-    Imagebox.init('#imagebox');
+    Imagebox.init();
 });
 
 Imagebox = {
     boxDetail: '#imagebox-detail',
+    link: 'a.imagebox',
 
-    init: function(block)
+    init: function()
     {
-        Imagebox.block = block;
-        $(block).find('a.imagebox').live('click', Imagebox.showImage);
-        $('#pautina-close').live('click', Imagebox.close);
+        $(Imagebox.link).live('click', Imagebox.showImage);
+    },
+
+    ajaxUrl: function(photoId)
+    {
+        return 'core[call]=pautina.imagebox' +
+            '&width=200' +
+            '&req2=' + photoId +
+            '&theater=true' +
+            '&no_remove_box=true';
     },
 
     showImage: function()
     {
-        $('#main_content_padding').prepend('<div id="imagebox-detail"><a id="pautina-close">Close</a><div class="pautina-info"></div></div>');
-
         var currentLink = $(this);
-        var data = 'core[call]=pautina.imagebox&width=580&req2=' + currentLink.data('id') + '$theader=true$no_remove_box=true';
+        var photoId = currentLink.data('photoid');
+        var userId = currentLink.data('userid');
 
-        $.ajax(
-        {
+        Imagebox.getImage(photoId, userId);
+
+        return false;
+    },
+
+    getImage: function(photoId)
+    {
+        var data = Imagebox.ajaxUrl(photoId);
+
+        $.ajax({
             type: 'GET',
             dataType: 'html',
             url: getParam('sJsAjax'),
             data: data,
             success: function(image)
             {
-                $('#imagebox-detail .pautina-info').html(image);
+                $(Imagebox.boxDetail).html(image);
             }
         });
-
-        return false;
-    },
-
-    close: function()
-    {
-        $('#imagebox-detail').remove();
     }
 };
