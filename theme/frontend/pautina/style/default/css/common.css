@@ -163,13 +163,6 @@ ul.extra_info_middot_normal li a:hover
 	margin-left:90px;
 }
 
-.user_register_form .table_right input
-{
-	font-size:16px;
-	padding:8px 0px 8px 4px;	
-	width:98%;
-	background:#fff;
-}
 .user_register_form .table_right input[type=checkbox], .user_register_form .table_right input[type=radio]
 {
 	width: inherit;
@@ -191,10 +184,6 @@ div.table_clear
 	padding:2px 0px 10px 0px;
 }
 
-.user_register_form div.table_clear
-{
-	margin-left:90px;
-}
 
 ul.table_clear_button
 {
@@ -3044,3 +3033,4 @@ div.row_title_image:hover a.moderate_link:hover
 	padding-bottom:6px;
 	border-bottom:1px #dfdfdf solid;
 }
+
