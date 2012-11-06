@@ -787,3 +787,11 @@ textarea {
 input, textarea {
     color: #434343;
 }
+
+#js_controller_photo_index #section_menu a {display: none;}
+
+#js_user_browse_advanced_link_close {
+	position: absolute;
+	right: 10px;
+	padding-top: 0;
+}
