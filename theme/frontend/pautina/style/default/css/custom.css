@@ -260,14 +260,10 @@ a:hover {
 }
 
 #imagebox-block li, #videobox-block li {
-    border: 1px solid #d7d7d7;
     text-align: center;
     background: #F8F8F8;
     display: table-cell;
     vertical-align: middle;
-    border-radius: 2px;
-    -moz-border-radius: 2px;
-    -webkit-border-radius: 2px;
 }
 
 #videobox-block li p{
@@ -305,9 +301,6 @@ a:hover {
     font-weight: normal;
     padding: 6px 0 8px 25px;
     color: #3FB6E2;
-    border-radius: 3px 0 0 3px;
-    -moz-border-radius: 3px 0 0 3px;
-    -webkit-border-radius: 3px 0 0 3px;
 }
 
 .menu_box .all-items, .p_bottom_5 .all-items{
@@ -403,9 +396,9 @@ ul.block_listing li .block_listing_image {
 }
 ul.block_listing li .block_listing_title, #js_friend_sort_holder .friend_user_name {
     background: url("../image/friend-like-bg.png") repeat-x scroll left top transparent;
-    border-radius: 0 0 4px 4px;
-    -moz-border-radius: 0 0 4px 4px;
-    -webkit-border-radius: 0 0 4px 4px;
+    border-radius: 0;
+    -moz-border-radius: 0;
+    -webkit-border-radius: 0;
     bottom: 10px;
     padding: 7px 0;
     position: absolute;
@@ -544,9 +537,9 @@ ul.block_listing li .block_listing_title a:hover {
 
 ul.block_listing li .block_listing_image a img,
 #js_block_border_friend_mini .block_listing_inline a img {
-    border-radius: 4px;
-    -moz-border-radius: 4px;
-    -webkit-border-radius: 4px;
+    border-radius: 0;
+    -moz-border-radius: 0;
+    -webkit-border-radius: 0;
 }
 
 .profilebox-title .add-photo, .total-friend {
@@ -722,9 +715,7 @@ ul.block_listing li .block_listing_image a img,
 }
 
 #js_block_border_friend_mutual-friend img,  #site_content .user_browse_image img{
-    -moz-border-radius: 4px;
-    -webkit-border-radius: 4px;
-    border-radius: 4px;
+
 }
 
 .user_browse_info {
@@ -756,9 +747,6 @@ ul.block_listing li .block_listing_image a img,
 }
 
 #js_friend_sort_holder .friend_image {
-    -moz-border-radius: 4px;
-    -webkit-border-radius: 4px;
-    border-radius: 4px;
     position: inherit;
     text-align: center;
 }
@@ -808,4 +796,9 @@ input, textarea {
 
 .activity_feed_form {
 	padding-bottom: 15px!important;
+}
+
+.holder_notify_drop .js_box_close {
+    right: 0;
+    top: -2px;
 }

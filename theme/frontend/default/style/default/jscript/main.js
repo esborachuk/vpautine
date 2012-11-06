@@ -132,7 +132,17 @@ $Behavior.globalThemeInit = function()
 		var $oChild = $oParent.find('.holder_notify_drop');
 		
 		$('#header_menu_holder ul li ul').removeClass('active');
-		$('#header_menu_holder ul li a').removeClass('active');		
+		$('#header_menu_holder ul li a').removeClass('active');
+
+        $hideDropdownMenu = function()
+        {
+            $('#holder_notify ul li .js_box_close a').click(function(event){
+                event.preventDefault();
+                $('#holder_notify ul li').find('.holder_notify_drop').hide();
+            });
+        };
+
+        $oChild.append('<div class="js_box_close" style="display: block;"><a onclick="$hideDropdownMenu; return false;" href="">x</a></div>');
 		
 		if ($oParent.hasClass('is_active'))
 		{
