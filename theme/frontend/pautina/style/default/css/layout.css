@@ -4542,3 +4542,34 @@ input.button_register,
     font-size:14px;
     padding:5px 20px 5px 20px;
 }
+
+#pautina_image_page {
+    width: 900px;
+}
+
+#imagebox-detail {
+    position: relative;
+    width: 400px;
+    float: right;
+}
+
+#pautina_image {
+    float: left;
+    width: 400px;
+}
+
+#imagebox-detail .photo_view_box_image {
+    overflow: inherit;
+}
+
+#imagebox-detail .photo_view_box_comment {
+    float: inherit;
+}
+
+#imagebox-detail #photo_view_tag_photo {
+    position: inherit;
+}
+
+#imagebox-detail #photo_view_theater_mode .photo_next_previous {
+    position: relative;
+}
