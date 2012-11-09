@@ -2,13 +2,16 @@ $(document).ready(function() {
     Imagebox.init();
 });
 
-Imagebox = {
-    boxDetail: '#imagebox-detail',
+var Imagebox = {
+    boxDetail: '#imagebox-detail .info',
     link: 'a.imagebox',
+    closeLink: 'a.closePautina',
+    preloader: 'preloader',
 
     init: function()
     {
         $(Imagebox.link).live('click', Imagebox.showImage);
+        $(Imagebox.closeLink).live('click', Imagebox.closeImageBox);
     },
 
     ajaxUrl: function(photoId)
@@ -24,9 +27,9 @@ Imagebox = {
     {
         var currentLink = $(this);
         var photoId = currentLink.data('photoid');
-        var userId = currentLink.data('userid');
+        //var userId = currentLink.data('userid');
 
-        Imagebox.getImage(photoId, userId);
+        Imagebox.getImage(photoId);
 
         return false;
     },
@@ -34,6 +37,7 @@ Imagebox = {
     getImage: function(photoId)
     {
         var data = Imagebox.ajaxUrl(photoId);
+        Imagebox.showPreloader();
 
         $.ajax({
             type: 'GET',
@@ -42,8 +46,31 @@ Imagebox = {
             data: data,
             success: function(image)
             {
-                $(Imagebox.boxDetail).html(image);
+                Imagebox.hidePreloader();
+                $(Imagebox.boxDetail).html(image)
+                                     .parent().show();
             }
         });
+    },
+
+    closeImageBox: function()
+    {
+        $(Imagebox.boxDetail).html('')
+                             .parent().hide();
+
+        return false;
+    },
+
+    showPreloader: function()
+    {
+        var windowHeight = $(document).height();
+
+        $('#main_core_body_holder').prepend('<div class="preloader"></div>');
+        $('.preloader').css({'height': windowHeight});
+    },
+
+    hidePreloader: function()
+    {
+        $('.preloader').hide();
     }
 };

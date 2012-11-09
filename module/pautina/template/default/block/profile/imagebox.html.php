@@ -1,4 +1,8 @@
 <div class="menu_box">
+    <div id="imagebox-detail" class="feed">
+        <a href="#" class="closePautina">close</a>
+        <div class="info"></div>
+    </div>
     <div class="profilebox-title">
         <a href="<?php echo $this->getVar('moduleUrl'); ?>">Фото</a>
         <?php if ($this->getVar('showAddLink')): ?>
@@ -17,7 +21,7 @@
                     <table>
                         <tr>
                             <td class="v-align">
-                                <a href="<?php echo $this->getVar('moduleUrl') . $photo['photo_id']; ?>" class="" title="<?php echo $photo['title'] ?>">
+                                <a data-photoid="<?php echo $photo['photo_id']; ?>" href="#" class="imagebox" title="<?php echo $photo['title'] ?>">
                                     <img src="<?php echo $photo['image_src_small'] ?>" alt="<?php echo $photo['title'] ?>">
                                     <div class="block-like" <?php if($photo['total_like'] <= 0 && $photo['total_comment'] <= 0):  ?>style="display: none!important;" <?php endif; ?>   >
                                         <?php if ($photo['total_like'] > 0): ?>
