@@ -175,7 +175,7 @@ a:hover {
 }
 
 #holder_notify ul li a.notification.active {
-    background-position: 8px -41px;
+    background-position: 10px -43px;
 }
 
 #holder_notify ul li a.message.active {
@@ -275,6 +275,7 @@ a:hover {
 #imagebox-block li img {
     position: relative;
     height: auto;
+	width: 100px;
 }
 
 #imagebox-block li a, #videobox-block li a{
@@ -467,12 +468,14 @@ ul.block_listing li .block_listing_title a:hover {
 }
 
 #blogbox .title {
-    background: url("../image/blog-bg.png") no-repeat 10px 5px;
-    display: inline-block;
-    width: 235px;
-    padding-left: 40px;
-    color: #494949;
-    font-size: 12px;
+	background: url("../image/blog-bg.png") no-repeat scroll 10px 5px transparent;
+	color: #494949;
+	display: inline-block;
+	font-size: 12px;
+	overflow: hidden;
+	padding-left: 40px;
+	white-space: nowrap;
+	width: 235px;
 }
 #blogbox .title:hover, #blogbox .data:hover {
     color: #44a5e2;
@@ -812,7 +815,7 @@ input, textarea {
 }
 
 #header_menu ul li:hover, #header_menu ul li:hover a, #header_menu ul li:hover a:hover {
-	background: #333 url('../image/layout/header_menu_explore.png') repeat-x;
+	background: #a7a7a7;
 	color: white;
 }
 
@@ -836,7 +839,7 @@ input, textarea {
 }
 
 .holder {
-	width: 902px;
+	width: 902px!important;
 }
 
 .activity_feed_content_image img {
@@ -853,4 +856,90 @@ input, textarea {
 
 .header_bar_search_holder {
 	width: 100px;
+}
+
+#musicbox li .title{
+	display: inline-block;
+	overflow: hidden;
+	white-space: nowrap;
+	width: 245px;
+	line-height: normal;
+}
+
+#js_controller_photo_view #main_content, #js_controller_photo_view #main_content .photo_view_comment {
+	width: auto;
+	border: 0;
+}
+
+#js_controller_photo_view #main_content {margin: 0;}
+
+#js_controller_photo_view #main_content #js_photo_view_image{
+	max-width: 850px;
+	max-height: 700px;
+}
+
+#js_controller_photo_view #main_content #js_photo_view_main_holder{
+	min-height: 100px;
+}
+
+.feed_comment_buttons_wrap {
+	position: relative;
+}
+
+.feed_comment_extra {
+	right: 20px;
+	top: 10px;
+}
+
+.photo_next_previous ul li a:hover{
+	color: #1267A3 !important;
+	background: none;
+}
+
+a.item_bar_action_clicked, a.item_bar_action_clicked:hover {
+	color: #1267A3 !important;
+}
+
+
+a.item_bar_action, a.item_bar_action:hover {
+	background: url("../image/layout/item_bar_action.png") no-repeat scroll 0 0 #FFFFFF;
+}
+
+a.item_bar_action_clicked:hover, a.item_bar_action_clicked {
+	background: url("../image/layout/item_bar_action.png") no-repeat scroll 0 -24px #FFFFFF;
+}
+
+.item_bar_action_holder ul li a, .item_bar_action_holder ul li a:hover {
+	background: none repeat scroll 0 0 #fff;
+	color: #4C4C4C;
+}
+
+.item_bar_action_holder ul {
+	border: 1px solid #D7D7D7;
+	border-radius: 0 0 4px 4px;
+	padding: 0;
+	background: url("../image/layout/action_drop.png") no-repeat scroll -20px 0 transparent;
+}
+
+#js_controller_photo_view  .js_feed_comment_process_form {
+	position: absolute;
+	right: 200px;
+	bottom: -32px;
+}
+
+#js_controller_photo_view  .comment_mini_content{
+	position: relative;
+}
+
+#js_controller_photo_size #main_content {
+	width: auto;
+	border: 0;
+}
+
+.photo_view_all_sizes ul li.is_active a, .photo_view_all_sizes ul li.is_active a:hover {
+	background: none repeat scroll 0 0 #4c4c4c;
+	color: #FFFFFF;
+}
+.photo_view_all_sizes ul li.is_active a:hover {
+	color: #859AF2 !important;
 }

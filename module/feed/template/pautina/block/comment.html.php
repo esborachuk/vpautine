@@ -19,7 +19,6 @@
         </div>
     </div><!-- // #js_feed_like_holder_{$aFeed.feed_id} -->
 
-	{plugin call='feed.template_block_comment_border'}
 	{plugin call='core.template_block_comment_border_new'}
 			{if !isset($aFeed.feed_mini)}
 			<div class="comment_mini_link_like">
@@ -111,7 +110,8 @@
 					<div class="feed_comment_buttons_wrap" style="display:block;">
 						<div class="js_feed_add_comment_button">
 							<input type="submit" value="{phrase var='feed.comment'}" class="button" />									
-						</div>								
+						</div>
+						{plugin call='feed.template_block_comment_border'}
 					</div>			
 					{if !PHPFOX_IS_AJAX && isset($sFeedType) &&  $sFeedType == 'view' && Phpfox::getUserParam('comment.wysiwyg_on_comments') && Phpfox::getParam('core.wysiwyg') == 'tiny_mce'}
 					<div><input type="hidden" name="val[is_in_view]" value="1" /></div>
