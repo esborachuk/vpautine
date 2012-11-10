@@ -12,6 +12,7 @@ div.im_holder
 {
     background:#f9f9f9;
     width:200px;
+    right:9px !important;
 
 }
 #js_footer_im_holder:hover, #js_footer_im_holder:active, #js_footer_im_holder:focus{
@@ -20,11 +21,10 @@ div.im_holder
 
 div.im_header
 {
-    background:#333 url('../image/layout/js_im_link.png') repeat-x;
+    /*background:#333 url('../image/layout/js_im_link.png') repeat-x;*/
     padding:0px 5px 0px 5px;
     line-height:22px;
     height:22px;
-    color:#fff;
     font-weight:bold;
     position:relative;
     cursor:pointer;
@@ -525,4 +525,33 @@ div#js_friend_input_search
 #user-menu a{
     display: block;
     padding: 5px 0 10px 10px;
+}
+.main_chat {
+    background: none repeat scroll 0 0 rgba(0, 0, 0, 0.58);
+    display: inline-block;
+    height: 400px;
+    padding: 18px 13px 3px 20px;
+    width: 220px;
+    border-radius:4px;
+}
+
+#im_footer_bar {
+    bottom: 0;
+    position: fixed;
+    right: 24px !important;
+    z-index: 1900;
+}
+#js_instant_messenger_link{
+    border:none !important;
+    width:225px !important;
+    position: relative;
+    color:#fff;
+}
+#js_im_status_online img{
+    display:none;
+}
+
+#im_footer_bar li #main_messenger_link a.seen,
+#im_footer_bar li #main_messenger_link a.seen:hover{
+    background-position:0 top !important;
 }
