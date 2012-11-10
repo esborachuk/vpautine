@@ -134,17 +134,7 @@ $Behavior.globalThemeInit = function()
 		$('#header_menu_holder ul li ul').removeClass('active');
 		$('#header_menu_holder ul li a').removeClass('active');
 
-        $hideDropdownMenu = function()
-        {
-            $('#holder_notify ul li .js_box_close a').click(function(event){
-                event.preventDefault();
-                $('#holder_notify ul li').find('.holder_notify_drop').hide();
-            });
-        };
-
-        $oChild.append('<div class="js_box_close" style="display: block;"><a onclick="$hideDropdownMenu; return false;" href="">x</a></div>');
-		
-		if ($oParent.hasClass('is_active'))
+        if ($oParent.hasClass('is_active'))
 		{
 			$oParent.removeClass('is_active');
 			$oChild.hide();
@@ -202,7 +192,13 @@ $Behavior.globalThemeInit = function()
 		return false;
 	});
 
-	// Hide the left sidebar
+        $('#holder_notify ul li .js_box_close a').click(function(event){
+            event.preventDefault();
+            $('#holder_notify ul li').find('.holder_notify_drop').hide();
+            $('#holder_notify ul li').removeClass('is_active');
+        });
+
+    // Hide the left sidebar
 	if (empty($('#left').html()))
 	{
 		$('#main_content').addClass('no_sidebar');

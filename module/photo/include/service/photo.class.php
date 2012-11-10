@@ -545,7 +545,7 @@ class Photo_Service_Photo extends Phpfox_Service
 		}
 		else
 		{
-			$sQuery = ' AND photo.group_id = 0 AND photo.type_id = 0 ';
+			$sQuery = ' AND photo.group_id = 0 ';
 		}
 		
 		if ($iAlbumId > 0)

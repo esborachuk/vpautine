@@ -159,7 +159,7 @@ class Phpfox_Component
 	protected function getParam($sVar, $mDef = null)
 	{
 		return (isset(self::$_aParams[$sVar]) ? self::$_aParams[$sVar] : $mDef);
-	}	
+	}
 	
 	/**
 	 * Clears a param that was set earlier.

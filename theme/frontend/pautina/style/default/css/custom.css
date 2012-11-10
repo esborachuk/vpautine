@@ -8,8 +8,9 @@ a:hover {
 }
 
 /* ---------------------------Image Box-----------------------*/
-#imagebox-block {
+#imagebox-block, #videobox-block, #blogbox-block, #musicbox-block {
     position: relative;
+	padding: 0 10px;
 }
 
 #imagebox-detail {
@@ -65,14 +66,14 @@ a:hover {
 }
 
 #header_right {
-    left: 430px;
+    left: 330px;
     position: absolute;
     top: 0;
     width: 550px;
 }
 
 #holder_notify {
-    left: 190px;
+    left: 170px;
     top: 0;
 }
 
@@ -174,7 +175,7 @@ a:hover {
 }
 
 #holder_notify ul li a.notification.active {
-    background-position: 8px -41px;
+    background-position: 10px -43px;
 }
 
 #holder_notify ul li a.message.active {
@@ -256,7 +257,7 @@ a:hover {
     float: left;
     width: 100px;
     height: 100px;
-    margin: 10px 15px;
+    margin: 5px;
 }
 
 #imagebox-block li, #videobox-block li {
@@ -274,6 +275,7 @@ a:hover {
 #imagebox-block li img {
     position: relative;
     height: auto;
+	width: 100px;
 }
 
 #imagebox-block li a, #videobox-block li a{
@@ -287,6 +289,7 @@ a:hover {
 }
 
 .menu_box {
+    position: relative;
     clear: both;
     margin-bottom: 20px;
 }
@@ -458,16 +461,22 @@ ul.block_listing li .block_listing_title a:hover {
 }
 
 #blogbox {
-    margin-right: 15px;
+    margin-right: 0;
+}
+
+#musicbox {
+	margin: 0 10px;
 }
 
 #blogbox .title {
-    background: url("../image/blog-bg.png") no-repeat 25px 5px;
-    display: inline-block;
-    width: 260px;
-    padding-left: 60px;
-    color: #494949;
-    font-size: 12px;
+	background: url("../image/blog-bg.png") no-repeat scroll 10px 5px transparent;
+	color: #494949;
+	display: inline-block;
+	font-size: 12px;
+	overflow: hidden;
+	padding-left: 40px;
+	white-space: nowrap;
+	width: 235px;
 }
 #blogbox .title:hover, #blogbox .data:hover {
     color: #44a5e2;
@@ -481,6 +490,7 @@ ul.block_listing li .block_listing_title a:hover {
 #blogbox .data {
     color: #999;
     font-size: 10px;
+	float: right;
 }
 
 #left {
@@ -489,6 +499,8 @@ ul.block_listing li .block_listing_title a:hover {
 
 #main_content {
     border-left: 1px solid #D7D7D7;
+	margin-left: 349px;
+	width: 550px;
 }
 
 .pages_view_sub_menu ul {
@@ -577,23 +589,23 @@ ul.block_listing li .block_listing_image a img,
 #js_controller_video_index #left, #js_controller_blog_index #left, #js_controller_friend_index #left,
 #js_controller_music_index #left, #js_controller_music_browse_album #left, #js_controller_user_browse #left,
 #js_controller_friend_accept #left, #js_controller_friend_pending #left{
-    width: 280px;
+    width: 260px;
 }
 
 #js_controller_photo_index #main_content, #js_controller_photo_albums #main_content, #js_controller_photo_rate #main_content,
 #js_controller_video_index #main_content,#js_controller_blog_index #main_content, #js_controller_friend_index #main_content,
 #js_controller_music_index #main_content, #js_controller_music_browse_album #main_content, #js_controller_user_browse #main_content,
 #js_controller_friend_accept #main_content, #js_controller_friend_pending #main_content{
-    margin-left: 280px;
-    width: 697px;
+    margin-left: 260px;
+    width: 639px;
 }
 
 #js_controller_photo_index #content, #js_controller_photo_albums #content, #js_controller_photo_rate #content,
 #js_controller_video_index #content, #js_controller_blog_index #site_content, #js_controller_friend_index #site_content,
 #js_controller_music_index #site_content, #js_controller_music_browse_album #site_content, #js_controller_user_browse #site_content,
 #js_controller_friend_accept #site_content, #js_controller_friend_pending #site_content{
-    width: 648px!important;
-    padding: 0 25px;
+    width: 619px!important;
+    padding: 0 10px;
 }
 
 #js_controller_photo_album #main_content {
@@ -658,7 +670,7 @@ ul.block_listing li .block_listing_image a img,
 
 #js_controller_user_browse #site_content > div{
     float: left;
-    width: 300px;
+    width: 308px;
 }
 
 .js_box_close, #js_marketplace_click_image_viewer_close {
@@ -670,6 +682,7 @@ ul.block_listing li .block_listing_image a img,
     right: 20px;
     top: 14px;
     border: 0;
+	z-index: 10;
 }
 
 .js_box_title {
@@ -678,9 +691,22 @@ ul.block_listing li .block_listing_image a img,
 
 .js_box {position: relative;}
 
-.js_box_close a, .js_box_close a:hover, #js_marketplace_click_image_viewer_close a, #js_marketplace_click_image_viewer_close a:hover {
-    border: 0;
-    line-height: 23px;
+.js_box_close a, .js_box_close a:hover, #js_marketplace_click_image_viewer_close a,
+#js_marketplace_click_image_viewer_close a:hover, #header_menu_holder ul li .js_box_close a, #header_menu_holder ul li .js_box_close a:hover{
+	border: 1px solid;
+	background: url("../image/layout/js_box_close.png") repeat-x scroll 0 0 transparent!important;
+	text-transform: uppercase;
+	line-height: 17px;
+	padding: 0 5px;
+}
+
+#header_menu_holder ul li .js_box_close a {
+	color: #868686;
+}
+
+#header_menu_holder ul li .js_box_close {
+	right: 0;
+	top: 0;
 }
 
 #content_load_data #site_content > div{
@@ -689,7 +715,7 @@ ul.block_listing li .block_listing_image a img,
 }
 
 #js_controller_user_browse #content_load_data #site_content > div{
-    padding: 0 15px 15px 0;
+    padding: 0;
 }
 
 #content_load_data .js_music_track .row_title_info{
@@ -741,7 +767,7 @@ ul.block_listing li .block_listing_image a img,
 #js_friend_sort_holder .friend_row_holder {
     float: left;
     height: 102px;
-    margin: 10px 13px;
+    margin: 8px;
     padding: 0;
     width: 102px;
 }
@@ -790,7 +816,7 @@ input, textarea {
 }
 
 #header_menu ul li:hover, #header_menu ul li:hover a, #header_menu ul li:hover a:hover {
-	background: #333 url('../image/layout/header_menu_explore.png') repeat-x;
+	background: #a7a7a7;
 	color: white;
 }
 
@@ -801,4 +827,120 @@ input, textarea {
 .holder_notify_drop .js_box_close {
     right: 0;
     top: -2px;
+}
+
+
+#holder_notify ul li div.holder_notify_drop .holder_notify_drop_title_link a,
+#holder_notify ul li div.holder_notify_drop .holder_notify_drop_title_link a:hover {
+	margin-right: 25px;
+}
+
+#left {
+	width: 350px;
+}
+
+.holder {
+	width: 902px!important;
+}
+
+.activity_feed_content_image img {
+	max-width: 440px;
+}
+
+.header_bar_search_input {
+	width: 100px;
+}
+
+.header_bar_search input {
+	width: 78px;
+}
+
+.header_bar_search_holder {
+	width: 100px;
+}
+
+#musicbox li .title{
+	display: inline-block;
+	overflow: hidden;
+	white-space: nowrap;
+	width: 245px;
+	line-height: normal;
+}
+
+#js_controller_photo_view #main_content, #js_controller_photo_view #main_content .photo_view_comment {
+	width: auto;
+	border: 0;
+}
+
+#js_controller_photo_view #main_content {margin: 0;}
+
+#js_controller_photo_view #main_content #js_photo_view_image{
+	max-width: 850px;
+	max-height: 700px;
+}
+
+#js_controller_photo_view #main_content #js_photo_view_main_holder{
+	min-height: 100px;
+}
+
+.feed_comment_buttons_wrap {
+	position: relative;
+}
+
+.feed_comment_extra {
+	right: 20px;
+	top: 10px;
+}
+
+.photo_next_previous ul li a:hover{
+	color: #1267A3 !important;
+	background: none;
+}
+
+a.item_bar_action_clicked, a.item_bar_action_clicked:hover {
+	color: #1267A3 !important;
+}
+
+
+a.item_bar_action, a.item_bar_action:hover {
+	background: url("../image/layout/item_bar_action.png") no-repeat scroll 0 0 #FFFFFF;
+}
+
+a.item_bar_action_clicked:hover, a.item_bar_action_clicked {
+	background: url("../image/layout/item_bar_action.png") no-repeat scroll 0 -24px #FFFFFF;
+}
+
+.item_bar_action_holder ul li a, .item_bar_action_holder ul li a:hover {
+	background: none repeat scroll 0 0 #fff;
+	color: #4C4C4C;
+}
+
+.item_bar_action_holder ul {
+	border: 1px solid #D7D7D7;
+	border-radius: 0 0 4px 4px;
+	padding: 0;
+	background: url("../image/layout/action_drop.png") no-repeat scroll -20px 0 transparent;
+}
+
+#js_controller_photo_view  .js_feed_comment_process_form {
+	position: absolute;
+	right: 200px;
+	bottom: -32px;
+}
+
+#js_controller_photo_view  .comment_mini_content{
+	position: relative;
+}
+
+#js_controller_photo_size #main_content {
+	width: auto;
+	border: 0;
+}
+
+.photo_view_all_sizes ul li.is_active a, .photo_view_all_sizes ul li.is_active a:hover {
+	background: none repeat scroll 0 0 #4c4c4c;
+	color: #FFFFFF;
+}
+.photo_view_all_sizes ul li.is_active a:hover {
+	color: #859AF2 !important;
 }

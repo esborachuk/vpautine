@@ -194,7 +194,7 @@ class Photo_Component_Controller_View extends Phpfox_Component
 				'report_module' => 'photo',
 				'report_phrase' => Phpfox::getPhrase('photo.report_this_photo')
 			)
-		);				
+		);
 				
 		$iUserId = $this->request()->get('userid') ? $this->request()->get('userid') : 0;
 		if ($iUserId > 0)

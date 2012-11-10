@@ -170,7 +170,7 @@ a.photo_box_photo_detail:hover
 
 .photo_view_box_holder
 {
-	background:#000; z-index:1000000;
+	z-index:1000000;
 }
 
 .photo_view_in_photo
@@ -195,7 +195,7 @@ a.photo_box_photo_detail:hover
 
 .photo_view_box_comment
 {
-	width:400px; float:right; background:#fff; position:relative;
+	width:400px; float:right; position:relative;
 }
 
 .photo_view_box_comment_padding
