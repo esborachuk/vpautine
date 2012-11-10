@@ -58,7 +58,7 @@ class Pautina_Service_Profile_Imagebox extends Phpfox_Service
         $destinationCrop = PHPFOX_DIR_FILE . 'pic/photo/' . $imageCrop;
 
         if (!file_exists($destinationCrop)) {
-            Phpfox::getLib('image')->createSquareThumbnail(
+            Phpfox::getLib('image')->createThumbnail(
                 $this->_photoPath . str_replace('%s', '', $photo['destination']),
                 $destinationCrop,
                 100,
