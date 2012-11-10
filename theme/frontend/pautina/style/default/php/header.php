@@ -12,7 +12,8 @@ $oTpl->setHeader('cache', array(
         'jquery.validate.min.js' => 'style_script',
         'email.js' => 'style_script',
         'imagebox.js' => 'style_script',
-        'menu.js'       => 'style_script'
+        'menu.js'       => 'style_script',
+        'den.css'  => 'style_css'
 	)
 );
 

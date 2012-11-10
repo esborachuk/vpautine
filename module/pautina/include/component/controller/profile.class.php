@@ -14,7 +14,7 @@ class Pautina_Component_Controller_Profile extends Phpfox_Component
             $photoRequest = $photoService->getPhoto($photoRequestId, $user['user_id']);
         }
 
-        if (!$photoRequest) {
+        if (!isset($photoRequest)) {
             $photoRequest = $photos[0];
         }
 

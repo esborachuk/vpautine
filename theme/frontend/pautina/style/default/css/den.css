@@ -1,0 +1,73 @@
+#pautina_image_page {
+    width: 900px;
+}
+
+#imagebox-detail {
+    position: relative;
+    width: 400px;
+    float: right;
+}
+
+#pautina_image {
+    float: left;
+    width: 400px;
+}
+
+#imagebox-detail .photo_view_box_image {
+    overflow: inherit;
+}
+
+#imagebox-detail .photo_view_box_comment {
+    float: inherit;
+}
+
+#imagebox-detail #photo_view_tag_photo {
+    position: inherit;
+}
+
+#imagebox-detail #photo_view_theater_mode .photo_next_previous {
+    position: relative;
+}
+
+#imagebox-detail.feed {
+    position: absolute;
+    right: -551px;
+    background: #F8F8F8;
+    padding: 20px;
+    border: 1px solid #D7D7D7;
+    z-index: 2;
+    width: 510px;
+    display: none;
+}
+
+.preloader {
+    width: 100%;
+    position: absolute;
+    z-index: 2;
+    background: url(../image/pautina/preloader.gif) center no-repeat;
+}
+
+.closePautina {
+    margin: 10px 0;
+    text-align: center;
+    display: block;
+}
+
+#imagebox-detail #photo_view_theater_mode .photo_next_previous ul li,
+#imagebox-detail #photo_view_theater_mode .photo_next_previous ul li a,
+#imagebox-detail #photo_view_theater_mode .photo_next_previous ul li a:hover
+{
+    bottom: inherit;
+}
+
+#imagebox-detail #photo_view_theater_mode .photo_next_previous ul li.next,
+#imagebox-detail #photo_view_theater_mode .photo_next_previous ul li.next a,
+#imagebox-detail #photo_view_theater_mode .photo_next_previous ul li.next a:hover {
+    right: 2px;
+}
+
+#imagebox-detail #photo_view_theater_mode .photo_next_previous ul li.previous,
+#imagebox-detail #photo_view_theater_mode .photo_next_previous ul li.previous a,
+#imagebox-detail #photo_view_theater_mode .photo_next_previous ul li.previous a:hover {
+    left: 2px;
+}

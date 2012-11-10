@@ -1,8 +1,12 @@
 <div class="menu_box">
-    <div class="profilebox-title">
-        <a href="{url link='photo'}">Фото</a>
+    <div id="imagebox-detail" class="feed">
+        <a href="#" class="closePautina">close</a>
+        <div class="info"></div>
     </div>
-    <a href="{url link='photo'}" class="all-items">Посмотреть все фото...<span></span></a>
+    <div class="profilebox-title">
+        <a href="<?php echo $this->getVar('moduleUrl'); ?>">Фото</a>
+    </div>
+    <a href="<?php echo $this->getVar('moduleUrl'); ?>" class="all-items">Посмотреть все фото...<span></span></a>
     <div id="imagebox-block">
         <ul id="imagebox">
             <?php foreach ($this->getVar('photos') as $photo): ?>
@@ -10,8 +14,8 @@
                 <table>
                     <tr>
                         <td class="v-align">
-                            <a href="<?php echo $photo['link']; ?>" rel="<?php echo $photo['photo_id']; ?>" class="thickbox photo_holder_image" title="<?php echo $photo['title'] ?>">
-                                <img src="<?php echo $photo['image_src_small'] ?>" alt="<?php echo $photo['title'] ?>">
+                            <a data-photoid="<?php echo $photo['photo_id']; ?>" href="#" class="imagebox" title="<?php echo $photo['title'] ?>">
+                                <img src="<?php echo $photo['100_square'] ?>" alt="<?php echo $photo['title'] ?>">
                                 <div class="block-like" <?php if($photo['total_like'] <= 0 && $photo['total_comment'] <= 0):  ?>style="display: none!important;" <?php endif; ?>   >
                                     <?php if ($photo['total_like'] > 0): ?>
                                     <span class="like"><?php echo $photo['total_like']; ?></span>

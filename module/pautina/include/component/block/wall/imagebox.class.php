@@ -10,7 +10,8 @@ class Pautina_Component_Block_Wall_Imagebox extends Phpfox_Component
 
         $this->template()->assign(
             array(
-                'photos'  => $photos
+                'photos'  => $photos,
+                'moduleUrl'     => Phpfox::getService('user')->getLink(Phpfox::getUserId()) . 'pautina/'
             )
         );
 
