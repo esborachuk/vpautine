@@ -692,7 +692,8 @@ ul.block_listing li .block_listing_image a img,
 .js_box {position: relative;}
 
 .js_box_close a, .js_box_close a:hover, #js_marketplace_click_image_viewer_close a,
-#js_marketplace_click_image_viewer_close a:hover, #header_menu_holder ul li .js_box_close a, #header_menu_holder ul li .js_box_close a:hover{
+#js_marketplace_click_image_viewer_close a:hover, #header_menu_holder ul li .js_box_close a,
+#header_menu_holder ul li .js_box_close a:hover, a.closePautina, a.closePautina:hover{
 	border: 1px solid;
 	background: url("../image/layout/js_box_close.png") repeat-x scroll 0 0 transparent!important;
 	text-transform: uppercase;
@@ -943,4 +944,60 @@ a.item_bar_action_clicked:hover, a.item_bar_action_clicked {
 }
 .photo_view_all_sizes ul li.is_active a:hover {
 	color: #859AF2 !important;
+}
+
+#js_is_user_profile #main_content{
+    width: 350px;
+}
+
+#js_is_user_profile #pautina_image {
+    float: none;
+    width: 350px;
+}
+
+#content_load_data #site_content #pautina_image_page {
+    padding: 0;
+}
+
+#js_is_user_profile #content #site_content {
+    padding: 0;
+}
+
+.photo_view_box_image {
+    min-height: 300px;
+}
+
+#photo_view_theater_mode .photo_next_previous ul li, #photo_view_theater_mode .photo_next_previous ul li a, #photo_view_theater_mode .photo_next_previous ul li a:hover {
+    height: 375px;
+    line-height: 375px;
+}
+
+#photo_view_tag_photo a {
+    color: #424242;
+}
+#photo_view_tag_photo a:hover {
+    background: none;
+    color: #1267A3 !important;
+}
+
+#photo_view_theater_mode .photo_next_previous ul li a:hover, #photo_view_theater_mode .photo_next_previous ul li.next a.is_hover_active {
+    background: url("../image/layout/photo_next_previous.png") repeat-y scroll 0 0 transparent;
+}
+
+#imagebox-detail #photo_view_theater_mode .photo_next_previous {
+    top: 0;
+}
+
+div.row_title_image:hover {
+    border: 1px solid #CCCCCC;
+    box-shadow: none;
+}
+
+div.row_title_image {
+    padding: 0;
+}
+
+#imagebox-detail .photo_view_box_comment {
+    float: right;
+    width: 450px;
 }
