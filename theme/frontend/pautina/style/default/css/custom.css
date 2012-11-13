@@ -964,12 +964,13 @@ a.item_bar_action_clicked:hover, a.item_bar_action_clicked {
 }
 
 .photo_view_box_image {
-    min-height: 300px;
+    min-height: 390px;
 }
 
 #photo_view_theater_mode .photo_next_previous ul li, #photo_view_theater_mode .photo_next_previous ul li a, #photo_view_theater_mode .photo_next_previous ul li a:hover {
     height: 375px;
     line-height: 375px;
+    width: 255px;
 }
 
 #photo_view_tag_photo a {
@@ -981,7 +982,7 @@ a.item_bar_action_clicked:hover, a.item_bar_action_clicked {
 }
 
 #photo_view_theater_mode .photo_next_previous ul li a:hover, #photo_view_theater_mode .photo_next_previous ul li.next a.is_hover_active {
-    background: url("../image/layout/photo_next_previous.png") repeat-y scroll 0 0 transparent;
+    background: url("../image/layout/photo_next_previous.png") repeat scroll 0 0 transparent;
 }
 
 #imagebox-detail #photo_view_theater_mode .photo_next_previous {
@@ -1000,4 +1001,13 @@ div.row_title_image {
 #imagebox-detail .photo_view_box_comment {
     float: right;
     width: 450px;
+    margin-top: 20px;
+}
+
+#photo_view_theater_mode .photo_next_previous ul li.previous {
+    background: url("../image/layout/photo_next_previous_icon_left.png") no-repeat scroll 15px 50% transparent;
+}
+
+#photo_view_theater_mode .photo_next_previous ul li.next {
+    background: url("../image/layout/photo_next_previous_icon.png") no-repeat scroll 220px 50% transparent;
 }
