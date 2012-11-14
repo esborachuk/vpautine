@@ -23,9 +23,7 @@ defined('PHPFOX') or exit('NO DICE!');
     </div>
 
     <div class="photo_view_box_image photo_holder_image">
-        <div id="photo_view_tag_photo">
-            <a href="#" id="js_tag_photo">{phrase var='photo.tag_this_photo'}</a>
-        </div>
+
         <div id="photo_view_ajax_loader">{img theme='ajax/loader.gif'}</div>
         {if $aPhotoStream.total > 1}
         <div class="photo_next_previous">
@@ -64,6 +62,9 @@ defined('PHPFOX') or exit('NO DICE!');
             </a>
             {/if}
         </div>
+    </div>
+    <div id="photo_view_tag_photo">
+        <a href="#" id="js_tag_photo">{phrase var='photo.tag_this_photo'}</a>
     </div>
     <div class="photo_view_box_comment">
         <div class="photo_view_box_comment_padding">

@@ -1,6 +1,6 @@
 <div class="menu_box">
     <div id="imagebox-detail" class="feed">
-        <a href="#" class="closePautina">close</a>
+        <a href="#" class="closePautina">x</a>
         <div class="info"></div>
     </div>
     <div class="profilebox-title">
