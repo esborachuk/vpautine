@@ -257,7 +257,7 @@ a:hover {
     float: left;
     width: 100px;
     height: 100px;
-    margin: 5px;
+    margin: 2px;
 }
 
 #imagebox-block li, #videobox-block li {
@@ -267,7 +267,7 @@ a:hover {
     vertical-align: middle;
 }
 
-#videobox-block li p{
+#videobox-block li p span{
     height: 30px;
     overflow: hidden;
 }
@@ -318,6 +318,11 @@ a:hover {
     float: right;
     color: #999;
     font-size: 10px;
+}
+
+.menu_box ul {
+    margin-bottom: 20px;
+    overflow: hidden;
 }
 
 .profile_header_inner h1 a {
@@ -421,7 +426,7 @@ ul.block_listing li .block_listing_title a:hover {
     display: none;
 }
 
-#imagebox li:hover .block-like {
+#imagebox li:hover .block-like, #videobox-block li span.title-block {
     background: url("../image/friend-like-bg.png") repeat-x left top;
     display: block !important;
     position: absolute;
@@ -429,7 +434,7 @@ ul.block_listing li .block_listing_title a:hover {
     width: 100%;
 }
 
-#imagebox span.like, #imagebox span.comments {
+#imagebox span.like, #imagebox span.comments, #videobox-block li span.title-block {
     color: #fff;
     margin-top: 7px;
 }
@@ -454,10 +459,15 @@ ul.block_listing li .block_listing_title a:hover {
 
 #videobox-block li {
     height: 112px;
+    position: relative;
 }
 
 #videobox img {
     width: 100px;
+}
+
+#videobox-block li span.title-block {
+    padding: 3px 5px;
 }
 
 #blogbox {
@@ -476,7 +486,7 @@ ul.block_listing li .block_listing_title a:hover {
 	overflow: hidden;
 	padding-left: 40px;
 	white-space: nowrap;
-	width: 235px;
+	width: 215px;
 }
 #blogbox .title:hover, #blogbox .data:hover {
     color: #44a5e2;
@@ -497,10 +507,14 @@ ul.block_listing li .block_listing_title a:hover {
     border-right: 0;
 }
 
+#left #js_block_border_friend_profile_small, #left #js_block_border_friend_mini{
+    padding: 0 10px;
+}
+
 #main_content {
     border-left: 1px solid #D7D7D7;
-	margin-left: 349px;
-	width: 550px;
+	margin-left: 333px;
+	width: 566px;
 }
 
 .pages_view_sub_menu ul {
@@ -837,7 +851,7 @@ input, textarea {
 }
 
 #left {
-	width: 350px;
+	width: 333px;
 }
 
 .holder {
@@ -864,7 +878,7 @@ input, textarea {
 	display: inline-block;
 	overflow: hidden;
 	white-space: nowrap;
-	width: 245px;
+	width: 230px;
 	line-height: normal;
 }
 
