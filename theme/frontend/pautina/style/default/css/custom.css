@@ -947,7 +947,7 @@ a.item_bar_action_clicked:hover, a.item_bar_action_clicked {
 }
 
 #js_is_user_profile #main_content{
-    width: 350px;
+
 }
 
 #js_is_user_profile #pautina_image {
@@ -964,13 +964,14 @@ a.item_bar_action_clicked:hover, a.item_bar_action_clicked {
 }
 
 .photo_view_box_image {
-    min-height: 390px;
+    min-height: 140px;
 }
 
 #photo_view_theater_mode .photo_next_previous ul li, #photo_view_theater_mode .photo_next_previous ul li a, #photo_view_theater_mode .photo_next_previous ul li a:hover {
-    height: 375px;
-    line-height: 375px;
+    min-height: 105px;
+    line-height: normal;
     width: 255px;
+    height: auto;
 }
 
 #photo_view_tag_photo a {
@@ -1010,4 +1011,30 @@ div.row_title_image {
 
 #photo_view_theater_mode .photo_next_previous ul li.next {
     background: url("../image/layout/photo_next_previous_icon.png") no-repeat scroll 220px 50% transparent;
+}
+
+.closePautina {
+    border-radius: 10px 10px 10px 10px;
+    color: #868686;
+    display: block;
+    font-weight: bold;
+    line-height: 25px;
+    margin: 5px;
+    padding: 0 8px;
+    position: absolute;
+    right: 0;
+    text-decoration: none;
+    top: 0;
+}
+
+#imagebox-detail #photo_view_tag_photo {
+    text-align: right;
+}
+
+#photo_view_theater_mode .photo_view_in_photo {
+    bottom: inherit;
+    left: inherit;
+    margin: 10px 0;
+    padding: 5px;
+    position: relative;
 }
