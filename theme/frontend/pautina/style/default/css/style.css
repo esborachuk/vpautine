@@ -1,0 +1,61 @@
+/*header*/
+body{
+background: url("../image/bg_dot.png") repeat scroll 0 0 transparent
+}
+#header{
+    background:none repeat scroll 0 0 rgba(0, 0, 0, 0.1)!important;
+    box-shadow: 3px 0 5px rgba(0, 0, 0, 0.18);
+}
+
+#header_menu, .header_menu_top:hover{
+    background:none repeat scroll 0 0 rgba(0, 0, 0, 0.18)!important;
+    border-top:none !important;
+}
+#header_menu_page_holder{
+/*
+    background: url("../image/bg_dot.png") repeat scroll 0 0 transparent;
+*/
+}
+#header_menu ul li a, #header_menu ul li a:hover{
+    color:#626262 !important;
+    display:block;
+    font-size: 14px;
+    margin-left: 17px;
+    border-right:none !important;
+}
+#header_menu ul li{
+    display: inline-block !important;
+    padding-right: 19px !important;
+}
+#header_menu:hover ul li a{
+    color:#444444 !important;
+}
+#header_menu li:hover{
+    border-bottom: 2px solid #3FB6E2 !important;
+}
+#header_menu ul{
+    padding:0 !important;
+    height:29px;
+}
+.menu_box .profilebox-title,
+#left #js_block_border_friend_profile_small .title,
+#left #js_block_border_friend_mutual-friend .title,
+#left #js_block_border_friend_mini .title,
+#js_is_user_profile #content .block .title{
+    background: url("../image/bg_dot.png") repeat scroll 0 0 transparent !important;
+    box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.37);
+    color: #3FB6E2;
+    font-size: 20px;
+    font-weight: normal;
+    margin-left: -5px;
+    padding: 6px 0 8px 25px;
+}
+#logo, #logo:hover{
+    text-indent: -9999px;
+    background:url("../image/layout/logo.png") no-repeat transparent 23% 27% ;
+}
+textarea{
+    -moz-box-shadow:    0 0 2px rgba(0, 0, 0, 0.26) inset;
+    -webkit-box-shadow: 0 0 2px rgba(0, 0, 0, 0.26) inset;
+    box-shadow:         0 0 2px rgba(0, 0, 0, 0.26) inset;
+}

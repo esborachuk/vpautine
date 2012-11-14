@@ -13,7 +13,8 @@ $oTpl->setHeader('cache', array(
         'email.js' => 'style_script',
         'imagebox.js' => 'style_script',
         'menu.js'       => 'style_script',
-        'den.css'  => 'style_css'
+        'den.css'  => 'style_css',
+        'style.css'  => 'style_css'
 	)
 );
 
