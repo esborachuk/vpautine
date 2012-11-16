@@ -4,7 +4,7 @@
         <div class="info"></div>
     </div>
     <div class="profilebox-title">
-        <a href="<?php echo $this->getVar('moduleUrl'); ?>">Фото</a>
+        <a href="<?php echo $this->getVar('moduleUrl'); ?>">Фото Сайта</a>
     </div>
     <a href="<?php echo $this->getVar('moduleUrl'); ?>" class="all-items">Посмотреть все фото...<span></span></a>
     <div id="imagebox-block">

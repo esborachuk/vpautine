@@ -1,6 +1,6 @@
 <div class="menu_box">
     <div class="profilebox-title">
-        <a href="{url link='blog'}">Блог</a>
+        <a href="{url link='blog'}">Блоги Сайта</a>
     </div>
         <a href="{url link='blog'}" class="all-items">
             Посмотреть все статьи блога...

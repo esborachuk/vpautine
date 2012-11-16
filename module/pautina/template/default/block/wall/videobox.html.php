@@ -1,6 +1,6 @@
 <div class="menu_box">
     <div class="profilebox-title">
-        <a href="{url link='video'}">Видео</a>
+        <a href="{url link='video'}">Видео Сайта</a>
     </div>
     <a href="{url link='video'}" class="all-items">
         Посмотреть все видео...

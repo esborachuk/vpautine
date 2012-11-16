@@ -1,6 +1,6 @@
 <div class="menu_box">
     <div class="profilebox-title">
-        <a href="{url link='music'}">Музыка</a>
+        <a href="{url link='music'}">Музыка Сайта</a>
     </div>
         <a href="{url link='music'}" class="all-items">
             Посмотреть все аудиозаписи...
