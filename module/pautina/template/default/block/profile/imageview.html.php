@@ -25,28 +25,6 @@ defined('PHPFOX') or exit('NO DICE!');
     <div class="photo_view_box_image photo_holder_image">
 
         <div id="photo_view_ajax_loader">{img theme='ajax/loader.gif'}</div>
-        {if $aPhotoStream.total > 1}
-        <div class="photo_next_previous">
-            <ul>
-                {if isset($aPhotoStream.previous.photo_id)}
-                <li class="previous">
-                    <a href="#" data-photoid="{$aPhotoStream.previous.photo_id}" data-userid="<?php echo Phpfox::getUserId(); ?>" class="imagebox">
-                        {phrase var='photo.previous'}
-                    </a>
-                </li>
-                {/if}
-
-                {if isset($aPhotoStream.next.photo_id)}
-                <li class="next">
-                    <a href="" data-photoid="{$aPhotoStream.next.photo_id}" data-userid="<?php echo Phpfox::getUserId(); ?>" class="imagebox">
-                        {phrase var='photo.next'}
-                    </a>
-                </li>
-                {/if}
-            </ul>
-            <div class="clear"></div>
-        </div>
-        {/if}
 
         <div class="photo_view_box_image_holder" style="position:absolute;">
             {if isset($aPhotoStream.next.photo_id)}
@@ -60,6 +38,28 @@ defined('PHPFOX') or exit('NO DICE!');
 
             {if isset($aPhotoStream.next.photo_id)}
             </a>
+            {/if}
+            {if $aPhotoStream.total > 1}
+            <div class="photo_next_previous">
+                <ul>
+                    {if isset($aPhotoStream.previous.photo_id)}
+                    <li class="previous">
+                        <a href="#" data-photoid="{$aPhotoStream.previous.photo_id}" data-userid="<?php echo Phpfox::getUserId(); ?>" class="imagebox">
+                            {phrase var='photo.previous'}
+                        </a>
+                    </li>
+                    {/if}
+
+                    {if isset($aPhotoStream.next.photo_id)}
+                    <li class="next">
+                        <a href="" data-photoid="{$aPhotoStream.next.photo_id}" data-userid="<?php echo Phpfox::getUserId(); ?>" class="imagebox">
+                            {phrase var='photo.next'}
+                        </a>
+                    </li>
+                    {/if}
+                </ul>
+                <div class="clear"></div>
+            </div>
             {/if}
         </div>
     </div>
