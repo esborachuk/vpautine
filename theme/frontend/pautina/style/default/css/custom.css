@@ -987,15 +987,16 @@ a.item_bar_action_clicked:hover, a.item_bar_action_clicked {
 }
 
 .photo_view_box_image {
-    min-height: 140px;
+    min-height: 120px;
+    margin-top: 20px;
 }
 
 #photo_view_theater_mode .photo_next_previous ul li, #photo_view_theater_mode .photo_next_previous ul li a,
 #photo_view_theater_mode .photo_next_previous ul li a:hover {
     min-height: 105px;
     line-height: normal;
-    width: 50px;
-    height: auto;
+    width: 30px;
+    height: 100%;
 }
 
 #photo_view_tag_photo a {
@@ -1013,6 +1014,7 @@ a.item_bar_action_clicked:hover, a.item_bar_action_clicked {
 #imagebox-detail #photo_view_theater_mode .photo_next_previous {
     top: 0;
     width: 100%;
+    height: 100%;
     position: absolute;
 }
 
@@ -1027,17 +1029,21 @@ div.row_title_image {
 
 #imagebox-detail .photo_view_box_comment {
     float: right;
-    width: 450px;
-    margin-top: 20px;
+    width: 470px;
+    margin-top: 0;
+}
+
+#imagebox-detail .photo_view_box_comment .photo_view_box_comment_padding{
+    padding: 10px 10px 0;
 }
 
 #photo_view_theater_mode .photo_next_previous ul li.previous {
-    background: url("../image/layout/photo_next_previous_icon_left.png") no-repeat scroll 15px 50% transparent;
+    background: url("../image/layout/photo_next_previous_icon_left.png") no-repeat scroll 0 50% transparent;
     float: left;
 }
 
 #photo_view_theater_mode .photo_next_previous ul li.next {
-    background: url("../image/layout/photo_next_previous_icon.png") no-repeat scroll 0 50% transparent;
+    background: url("../image/layout/photo_next_previous_icon.png") no-repeat scroll 7px 50% transparent;
     float: right;
 }
 
@@ -1091,4 +1097,25 @@ div.row_title_image {
     background: url("../image/pautina/close-button.png") no-repeat scroll 0 0 transparent;
     height: 20px;
     width: 21px;
+}
+
+.photo_view_box_comment_padding #js_photo_view_box_title .item_bar {
+    padding: 0;
+    position: absolute;
+    right: 10px;
+    top: 20px;
+}
+
+.photo_view_box_comment_padding #js_photo_view_box_title .item_bar_action_holder ul {
+    right: 0;
+    left: inherit;
+}
+
+.item_bar_action_holder ul li.item_delete a:hover {
+    background: #FFE2E2;
+}
+
+#imagebox-detail.feed {
+    padding: 10px 10px 0;
+    width: 530px;
 }
