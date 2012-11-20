@@ -1,5 +1,6 @@
 $(document).ready(function() {
     Imagebox.init();
+    //AllImages.init();
 });
 
 var Imagebox = {
@@ -72,5 +73,92 @@ var Imagebox = {
     hidePreloader: function()
     {
         $('.preloader').hide();
+    }
+};
+
+var AllImages = {
+    imagesBox: $('#insert_next_photo'),
+    page: 1,
+
+    init: function(pageCount)
+    {
+        this.pageCount = pageCount;
+        AllImages.isDownloading = false;
+        $(window).scroll(this.scrolling);
+    },
+
+    scrolling: function()
+    {
+        if (AllImages.canDownload() === true) {
+            AllImages.getPhotos();
+        }
+    },
+
+    canDownload: function()
+    {
+        if (AllImages.isDownloading === true) {
+            return false;
+        }
+
+        if (AllImages.page > AllImages.pageCount - 1) {
+            return false;
+        }
+
+        if (AllImages.isBottomOfPage() === false) {
+            return false;
+        }
+
+        return true;
+    },
+
+    isBottomOfPage: function()
+    {
+        var canDownload = false;
+        var windowHeight = $(window).height();
+        var documentHeight = $(document).height();
+        var scrollHeight = $(window).scrollTop();
+
+        if ( documentHeight - (windowHeight + scrollHeight) < 100 ) {
+            canDownload = true;
+        }
+
+        return canDownload;
+    },
+
+    getPhotos: function()
+    {
+        AllImages.isDownloading = true;
+        AllImages.showPreloader();
+        $.ajax(
+            {
+                type: 'GET',
+                dataType: 'html',
+                url: getParam('sJsAjax'),
+                data: AllImages.getUrl(),
+                success: function(images)
+                {
+                    AllImages.isDownloading = false;
+                    AllImages.hidePreloader();
+                    $('#insert_next_photo').append('<div class="newclass">' + images + '</div>');
+                }
+            });
+    },
+
+    getUrl: function()
+    {
+        AllImages.page++;
+        return 'core[call]=pautina.getMoreImages' +
+            '&page=' + AllImages.page +
+            '&userid=10';
+    },
+
+    showPreloader: function()
+    {
+
+    },
+
+    hidePreloader: function()
+    {
+
     }
 };
