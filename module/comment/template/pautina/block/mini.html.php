@@ -25,16 +25,25 @@ defined('PHPFOX') or exit('NO DICE!');
 		{else}
 			{img user=$aComment suffix='_50_square' max_width=32 max_height=32}
 		{/if}
+
+        <div class="like">
+            <ul class="comment_mini_action">
+                {module name='like.link' like_type_id='feed_mini' like_item_id=$aComment.comment_id like_is_liked=$aComment.is_liked like_is_custom=true}
+                <li class="js_like_link_holder"{if $aComment.total_like == 0} style="display:none;"{/if}>
+                </li>
+                <li class="js_like_link_holder js_like_link_total"{if $aComment.total_like == 0} style="display:none;"{/if}>
+                <a href="#" onclick="return $Core.box('like.browse', 400, 'type_id=feed_mini&amp;item_id={$aComment.comment_id}');">
+                    <span class="js_like_link_holder_info">
+                        {if $aComment.total_like == 1}{phrase var='comment.1_person'}{else}{phrase var='comment.total_people' total=$aComment.total_like|number_format}{/if}
+                    </span></a></li>
+            </ul>
+        </div>
+
 		</div>
 		<div class="comment_mini_content">
             <div class="comment_mini_content_head">
                 {$aComment|user:'':'':30}
                 <ul class="comment_mini_action">
-                    {module name='like.link' like_type_id='feed_mini' like_item_id=$aComment.comment_id like_is_liked=$aComment.is_liked like_is_custom=true}
-                    <li class="js_like_link_holder"{if $aComment.total_like == 0} style="display:none;"{/if}>
-                    <!--                    <span>&middot;</span>-->
-                    </li>
-                    <li class="js_like_link_holder js_like_link_total"{if $aComment.total_like == 0} style="display:none;"{/if}><a href="#" onclick="return $Core.box('like.browse', 400, 'type_id=feed_mini&amp;item_id={$aComment.comment_id}');"><span class="js_like_link_holder_info">{if $aComment.total_like == 1}{phrase var='comment.1_person'}{else}{phrase var='comment.total_people' total=$aComment.total_like|number_format}{/if}</span></a></li>
                     <li class="comment_mini_entry_time_stamp">{$aComment.post_convert_time}</li>
                     <!--					<li><span>&middot;</span></li>-->
                 </ul>

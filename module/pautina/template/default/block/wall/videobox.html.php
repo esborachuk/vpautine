@@ -1,6 +1,6 @@
 <div class="menu_box">
     <div class="profilebox-title">
-        <a href="{url link='video'}">Видео</a>
+        <a href="{url link='video'}">Видео Сайта</a>
     </div>
     <a href="{url link='video'}" class="all-items">
         Посмотреть все видео...
@@ -13,7 +13,7 @@
                     <img src="<?php echo $video['video_img'] ?>" alt="<?php echo $video['title'] ?>"  title="<?php echo $video['title'] ?>" />
                 </a>
                 <p>
-                    <?php echo $video['title'] ?>
+                    <span class="title-block"><?php echo $video['title'] ?></span>
                 </p>
             </li>
             <?php endforeach; ?>

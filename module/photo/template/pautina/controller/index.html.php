@@ -49,6 +49,7 @@ defined('PHPFOX') or exit('NO DICE!');
 		</form>
 		{else}
 		{template file='photo.block.photo-entry'}
+        <div id="insert_next_photo"></div>
 		{if Phpfox::getUserParam('photo.can_approve_photos') || Phpfox::getUserParam('photo.can_delete_other_photos')}
 		{moderation}
 		{/if}
@@ -60,3 +61,7 @@ defined('PHPFOX') or exit('NO DICE!');
 		{/if}	
 	</div>
 </div>
+
+<script type="text/javascript">
+    AllImages.init({$aPager.totalPages});
+</script>

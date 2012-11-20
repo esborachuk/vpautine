@@ -1,10 +1,10 @@
 <div class="menu_box">
     <div id="imagebox-detail" class="feed">
-        <a href="#" class="closePautina">x</a>
+        <a href="#" class="closePautina"></a>
         <div class="info"></div>
     </div>
     <div class="profilebox-title">
-        <a href="<?php echo $this->getVar('moduleUrl'); ?>">Фото</a>
+        <a href="<?php echo $this->getVar('moduleUrl'); ?>">Фото Сайта</a>
     </div>
     <a href="<?php echo $this->getVar('moduleUrl'); ?>" class="all-items">Посмотреть все фото...<span></span></a>
     <div id="imagebox-block">
