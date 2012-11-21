@@ -987,14 +987,14 @@ a.item_bar_action_clicked:hover, a.item_bar_action_clicked {
 }
 
 .photo_view_box_image {
-    min-height: 140px;
+	min-height: 110px;
 }
 
 #photo_view_theater_mode .photo_next_previous ul li, #photo_view_theater_mode .photo_next_previous ul li a,
 #photo_view_theater_mode .photo_next_previous ul li a:hover {
     min-height: 105px;
     line-height: normal;
-    width: 50px;
+    width: 40px;
     height: auto;
 }
 
@@ -1006,9 +1006,10 @@ a.item_bar_action_clicked:hover, a.item_bar_action_clicked {
     color: #1267A3 !important;
 }
 
-#photo_view_theater_mode .photo_next_previous ul li a:hover, #photo_view_theater_mode .photo_next_previous ul li.next a.is_hover_active {
-    background: url("../image/layout/photo_next_previous.png") repeat scroll 0 0 transparent;
-}
+/*#photo_view_theater_mode .photo_next_previous ul li a:hover,*/
+/*#photo_view_theater_mode .photo_next_previous ul li.next a.is_hover_active {*/
+    /*background: url("../image/layout/photo_next_previous.png") repeat scroll 0 0 transparent;*/
+/*}*/
 
 #imagebox-detail #photo_view_theater_mode .photo_next_previous {
     top: 0;
@@ -1027,17 +1028,17 @@ div.row_title_image {
 
 #imagebox-detail .photo_view_box_comment {
     float: right;
-    width: 450px;
-    margin-top: 20px;
+    width: 490px;
+    margin-top: 0;
 }
 
 #photo_view_theater_mode .photo_next_previous ul li.previous {
-    background: url("../image/layout/photo_next_previous_icon_left.png") no-repeat scroll 15px 50% transparent;
+    background: url("../image/layout/arrow_sprite.png") no-repeat scroll 0 50% transparent;
     float: left;
 }
 
 #photo_view_theater_mode .photo_next_previous ul li.next {
-    background: url("../image/layout/photo_next_previous_icon.png") no-repeat scroll 0 50% transparent;
+	background: url("../image/layout/arrow_sprite.png") no-repeat scroll -40px 50% transparent;
     float: right;
 }
 
@@ -1067,10 +1068,11 @@ div.row_title_image {
     position: relative;
 }
 
-.comment_mini_image .like {margin: 17px 0 0;}
+.comment_mini_image .like {margin: 0;}
 
 .comment_mini_entry_time_stamp {
-    float: right;
+    float: right!important;
+	margin-right: 20px!important;
 }
 
 .activity_feed_content_text {
@@ -1091,4 +1093,54 @@ div.row_title_image {
     background: url("../image/pautina/close-button.png") no-repeat scroll 0 0 transparent;
     height: 20px;
     width: 21px;
+}
+
+.js_feed_view_more_entry_holder {
+	padding: 15px 10px;
+}
+.activity_feed_content {
+	margin-left: 62px;
+}
+
+#js_photo_view_comment_holder .feed_comment_bottom {
+	margin-top: 0;
+}
+
+#js_photo_view_comment_holder .feed_comment_bottom ul {
+	margin-top: 0;
+	margin-bottom: 0;
+}
+
+#js_photo_view_comment_holder div.comment_mini_content_border {
+	margin-top: -30px;
+}
+
+#imagebox-detail.feed {
+	background: none repeat scroll 0 0 #FFFFFF;
+	padding: 0;
+	width: 550px;
+}
+
+#imagebox-detail .photo_view_box_image_holder {
+	margin-top: 30px;
+}
+
+div.comment_mini_text {
+	margin: 5px 0;
+}
+
+.photo_view_box_comment_padding {
+	padding: 0 10px;
+}
+
+#photo_view_tag_photo a, #photo_view_tag_photo a:hover {
+	padding: 0 10px;
+}
+
+.feed_comment_buttons_wrap {
+	margin-top: 10px;
+}
+
+div.comment_mini_text {
+	font-size: 11px;
 }
