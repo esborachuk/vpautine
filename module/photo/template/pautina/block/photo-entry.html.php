@@ -1,14 +1,14 @@
-<?php 
+<?php
 /**
  * [PHPFOX_HEADER]
- * 
+ *
  * @copyright		[PHPFOX_COPYRIGHT]
  * @author  		Raymond Benc
  * @package  		Module_Photo
  * @version 		$Id: photo-entry.html.php 4622 2012-09-12 07:18:24Z Miguel_Espinoza $
  */
- 
-defined('PHPFOX') or exit('NO DICE!'); 
+
+defined('PHPFOX') or exit('NO DICE!');
 
 ?>
 <div class="clear"></div>

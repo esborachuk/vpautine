@@ -61,4 +61,3 @@ defined('PHPFOX') or exit('NO DICE!');
 		{/if}	
 	</div>
 </div>
-{module name='pautina.profile.imagesinit' pageCount=$aPager.totalPages aUser=$aUser}
