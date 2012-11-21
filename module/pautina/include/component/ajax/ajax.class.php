@@ -57,18 +57,30 @@ class Pautina_Component_Ajax_Ajax extends Phpfox_Ajax
 
     public function getMoreImages()
     {
-         define('PHPFOX_IS_USER_PROFILE', true);
+        define('PHPFOX_IS_USER_PROFILE', true);
 
-        $aUser = Phpfox::getService('user')->getUser(Phpfox::getLib('request')->get('userid'));
         $page = Phpfox::getLib('request')->get('page');
-        $paramsString = explode(',', Phpfox::getLib('request')->getRequests());
+        $requestUrl = Phpfox::getLib('request')->get('requestUrl');
+        $aRequest = explode('/', $requestUrl);
+        $userId = strstr($aRequest[1], 'profile-');
+        $aUser = Phpfox::getService('user')->getUser($userId);
 
-        $request = array(
-            'page' => $page,
-            'do'   => '/' . $aUser['user_name'] . '/photo/page_' . $page . '/',
-            'req1'  => $aUser['user_name'],
-            'req2' => 'photo'
+        $request = array (
+            'page'  => $page,
+            'do'    => $requestUrl
         );
+
+        unset($aRequest[0]);
+        unset($aRequest[0]);
+        $i = 0;
+        foreach ($aRequest as $req) {
+            if ($req != '') {
+                $i++;
+                $key = 'req' . $i;
+                $request[$key] = $req;
+            }
+        }
+
         Phpfox::getLib('request')->set($request);
 
         $params = array(

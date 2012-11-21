@@ -6,11 +6,11 @@ class Pautina_Component_Block_Profile_Imagesinit extends Phpfox_Component
     public function process()
     {
         $pageCount = $this->getParam('pageCount');
-        $params =  Phpfox::getLib('url')->getParams();
-        $paramsString = implode(',', $params);
+        $request =  Phpfox::getLib('request')->getRequests();
+        $requestUrl = $request['do'];
         $this->template()->assign(array(
-            'paramsString' => $paramsString,
-            'pageCount' => $pageCount
+            'pageCount' => $pageCount,
+            'requestUrl' => $requestUrl
         ));
 
         return 'block';

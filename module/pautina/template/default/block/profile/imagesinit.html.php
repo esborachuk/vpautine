@@ -1,5 +1,5 @@
 hello
 {$pageCount}
 <script type="text/javascript">
-    AllImages.init('{$pageCount}', '{$paramsString}');
+    AllImages.init({$pageCount}, '{$requestUrl}');
 </script>
