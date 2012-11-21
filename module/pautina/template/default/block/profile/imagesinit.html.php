@@ -1,5 +1,5 @@
-hello
-{$pageCount}
+11111111
 <script type="text/javascript">
-    AllImages.init('{$pageCount}', '{$paramsString}');
+    AllImages.init({$pageCount}, '{$requestUrl}', {$userId});
 </script>
+22222222
