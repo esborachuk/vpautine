@@ -82,6 +82,7 @@ textarea{
     text-align: left;
     width: 31.5% !important;
     z-index: 1;
+    left:11px;
 }
 .photo_clip_holder_main{
     display: inline-block;
@@ -145,4 +146,12 @@ a.photo_clip_holder, a.photo_clip_holder:hover{
 }
 .upload-photo-button {
     box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.37);
+}
+.js_blog_parent *{
+    font-size:11px !important;
+}
+
+.newclass #js_actual_photo_content {
+    display: inline-block;
+    width: 100%;
 }
