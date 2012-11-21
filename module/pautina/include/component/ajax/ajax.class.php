@@ -62,24 +62,15 @@ class Pautina_Component_Ajax_Ajax extends Phpfox_Ajax
         $page = Phpfox::getLib('request')->get('page');
         $requestUrl = Phpfox::getLib('request')->get('requestUrl');
         $aRequest = explode('/', $requestUrl);
-        $userId = strstr($aRequest[1], 'profile-');
-        $aUser = Phpfox::getService('user')->getUser($userId);
+        // TODO remove get() !!
+        $aUser = Phpfox::getService('user')->get(Phpfox::getLib('request')->get('userId'));
 
         $request = array (
             'page'  => $page,
-            'do'    => $requestUrl
+            'do'    => $requestUrl,
+            'req1'  => $aRequest['1'],
+            'req2'  => $aRequest['3'],
         );
-
-        unset($aRequest[0]);
-        unset($aRequest[0]);
-        $i = 0;
-        foreach ($aRequest as $req) {
-            if ($req != '') {
-                $i++;
-                $key = 'req' . $i;
-                $request[$key] = $req;
-            }
-        }
 
         Phpfox::getLib('request')->set($request);
 

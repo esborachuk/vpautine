@@ -80,10 +80,11 @@ var AllImages = {
     imagesBox: $('#insert_next_photo'),
     page: 1,
 
-    init: function(pageCount, requestUrl)
+    init: function(pageCount, requestUrl, userId)
     {
         this.pageCount = pageCount;
         this.requestUrl = requestUrl;
+        this.userId = userId;
         AllImages.isDownloading = false;
         $(window).scroll(this.scrolling);
     },
@@ -150,7 +151,8 @@ var AllImages = {
         AllImages.page++;
         return 'core[call]=pautina.getMoreImages' +
             '&page=' + AllImages.page +
-            '&requestUrl=' + AllImages.requestUrl;
+            '&requestUrl=' + AllImages.requestUrl +
+            '&userId=' + AllImages.userId;
     },
 
     showPreloader: function()

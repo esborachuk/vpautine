@@ -149,8 +149,3 @@ defined('PHPFOX') or exit('NO DICE!');
 <div class="t_right">
 	{pager}
 </div>
-
-<?php
-$m = Phpfox::getLib('request')->getRequests();
-print_r($m);
-?>
