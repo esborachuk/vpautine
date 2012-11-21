@@ -61,6 +61,7 @@ class Pautina_Component_Ajax_Ajax extends Phpfox_Ajax
 
         $aUser = Phpfox::getService('user')->getUser(Phpfox::getLib('request')->get('userid'));
         $page = Phpfox::getLib('request')->get('page');
+        $paramsString = explode(',', Phpfox::getLib('request')->getRequests());
 
         $request = array(
             'page' => $page,

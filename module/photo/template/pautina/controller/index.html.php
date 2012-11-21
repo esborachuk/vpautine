@@ -61,7 +61,4 @@ defined('PHPFOX') or exit('NO DICE!');
 		{/if}	
 	</div>
 </div>
-
-<script type="text/javascript">
-    AllImages.init({$aPager.totalPages});
-</script>
+{module name='pautina.profile.imagesinit' pageCount=$aPager.totalPages}
