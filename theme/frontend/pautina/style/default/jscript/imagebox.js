@@ -133,7 +133,7 @@ var AllImages = {
         var documentHeight = $(document).height();
         var scrollHeight = $(window).scrollTop();
 
-        if ( documentHeight - (windowHeight + scrollHeight) < 100 ) {
+        if ( documentHeight - (windowHeight + scrollHeight) < 400 ) {
             canDownload = true;
         }
 
