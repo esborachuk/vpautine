@@ -106,7 +106,7 @@ defined('PHPFOX') or exit('NO DICE!');
 				</div>
 			{else}
 			{if ($aPhoto.mature == 0 || (($aPhoto.mature == 1 || $aPhoto.mature == 2) && Phpfox::getUserId() && Phpfox::getUserParam('photo.photo_mature_age_limit') <= Phpfox::getUserBy('age'))) || $aPhoto.user_id == Phpfox::getUserId()}
-			<a href="{$aPhoto.link}{if isset($iForceAlbumId)}albumid_{$iForceAlbumId}/{/if}{if isset($sPhotoCategory)}category_{$sPhotoCategory}/{/if}" title="{phrase var='photo.title_by_full_name' title=$aPhoto.title|clean full_name=$aPhoto.full_name|clean}" class="thickbox photo_holder_image" rel="{$aPhoto.photo_id}">
+			<a data-photoid="{$aPhoto.photo_id}" href="#" class="imagebox" title="{phrase var='photo.title_by_full_name' title=$aPhoto.title|clean full_name=$aPhoto.full_name|clean}">
                 {module name="pautina.photo.crop" aPhoto=$aPhoto}
 				{img server_id=$aPhoto.server_id path='photo.url_photo' file=$aPhoto.destination suffix='_100_square' max_width=100 max_height=100 title=$aPhoto.title class='js_mp_fix_width photo_holder'}
 			</a>
@@ -146,6 +146,3 @@ defined('PHPFOX') or exit('NO DICE!');
 {/if}
 {/foreach}
 <div class="clear"></div>
-<div class="t_right">
-	{pager}
-</div>

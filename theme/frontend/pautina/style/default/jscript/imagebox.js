@@ -48,10 +48,23 @@ var Imagebox = {
             success: function(image)
             {
                 Imagebox.hidePreloader();
+                Imagebox.createBlockForImage();
                 $(Imagebox.boxDetail).html(image)
                                      .parent().show();
             }
         });
+    },
+
+    createBlockForImage: function()
+    {
+        if ($('#imagebox-detail').length == 0) {
+            var block = '<div id="imagebox-detail" class="feed">' +
+                            '<a href="#" class="closePautina"></a>' +
+                            '<div class="info"></div>' +
+                        '</div>';
+
+            $('#content_holder').prepend(block);
+        }
     },
 
     closeImageBox: function()
