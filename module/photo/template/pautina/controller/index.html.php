@@ -23,14 +23,6 @@ defined('PHPFOX') or exit('NO DICE!');
 {/if}
 <div id="js_actual_photo_content">
 	<div id="js_album_outer_content">
-        <div class="upload-photo-button">
-            {if Phpfox::getUserBy('profile_page_id') <= 0}
-              {foreach from=$aSubMenus key=iKey name=submenu item=aSubMenu}
-                 <a href="{url link=$aSubMenu.url)}" class="ajax_link">{if substr($aSubMenu.url, -4) == '.add' || substr($aSubMenu.url, -7) == '.upload' || substr($aSubMenu.url, -8) == '.compose'}{img theme='layout/section_menu_add.png' class='v_middle'}{/if}{phrase var=$aSubMenu.module'.'$aSubMenu.var_name}</a>
-              {/foreach}
-            {/if}
-        </div>
-        <div class="clear"></div>
 		{if count($aPhotos)}
 		{if isset($bIsEditMode)}
 		<form method="post" action="#" onsubmit="$('#js_photo_multi_edit_image').show(); $('#js_photo_multi_edit_submit').hide(); $(this).ajaxCall('photo.massUpdate'{if $bIsMassEditUpload}, 'is_photo_upload=1'{/if}); return false;">
