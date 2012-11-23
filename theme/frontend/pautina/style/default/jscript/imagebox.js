@@ -1,6 +1,6 @@
 $(document).ready(function() {
     Imagebox.init();
-    //AllImages.init();
+
 });
 
 var Imagebox = {
@@ -51,6 +51,9 @@ var Imagebox = {
                 Imagebox.createBlockForImage();
                 $(Imagebox.boxDetail).html(image)
                                      .parent().show();
+                var oScrollbar = $('#scrollbar1');
+                oScrollbar.tinyscrollbar();
+                oScrollbar.tinyscrollbar_update();
             }
         });
     },
@@ -63,7 +66,7 @@ var Imagebox = {
                             '<div class="info"></div>' +
                         '</div>';
 
-            $('#content_holder').prepend(block);
+            $('#bom').prepend(block);
         }
     },
 

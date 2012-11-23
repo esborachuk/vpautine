@@ -79,13 +79,6 @@ defined('PHPFOX') or exit('NO DICE!');
 				{/if}
 				{plugin call='photo.template_default_block_photo_entry_tool'}
 
-
-			{if isset($sView) && $sView == 'featured'}
-			{else}
-			<div class="js_featured_photo row_featured_link"{if !$aPhoto.is_featured} style="display:none;"{/if}>
-				{phrase var='photo.featured'}
-			</div>
-			{/if}
 			<div class="js_sponsor_photo row_sponsored_link"{if !$aPhoto.is_sponsor} style="display:none;"{/if}>
 				{phrase var='photo.sponsored'}
 			</div>
