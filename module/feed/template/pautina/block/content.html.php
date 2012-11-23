@@ -120,7 +120,9 @@ defined('PHPFOX') or exit('NO DICE!');
 		{else}
             {if empty($aFeed.feed_info)}
                 {template file='feed.block.comment'}
-            {elseif $aFeed.feed_info != 'обновляет  информацию в профиле.' && $aFeed.feed_info != 'обновляет  фотографию в профиле.'}
+            {elseif $aFeed.feed_info != 'обновляет  информацию в профиле.' &&
+                    $aFeed.feed_info != 'обновляет  фотографию в профиле.' &&
+                    $aFeed.feed_info != 'теперь дружит с'}
                 {template file='feed.block.comment'}
             {/if}
 		{/if}
