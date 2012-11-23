@@ -1,6 +1,5 @@
 $(document).ready(function() {
     Imagebox.init();
-
 });
 
 var Imagebox = {
@@ -51,7 +50,7 @@ var Imagebox = {
                 Imagebox.createBlockForImage();
                 $(Imagebox.boxDetail).html(image)
                                      .parent().show();
-                var oScrollbar = $('#scrollbar1');
+                var oScrollbar = $('#scrollbar_wrapper').show();
                 oScrollbar.tinyscrollbar();
                 oScrollbar.tinyscrollbar_update();
             }
@@ -66,7 +65,7 @@ var Imagebox = {
                             '<div class="info"></div>' +
                         '</div>';
 
-            $('#bom').prepend(block);
+            $('#ajax_wrapper').prepend(block);
         }
     },
 
@@ -110,6 +109,19 @@ var AllImages = {
         if (AllImages.canDownload() === true) {
             AllImages.getPhotos();
         }
+
+        AllImages.updateViewDetailPosition();
+    },
+
+    updateViewDetailPosition: function()
+    {
+        var contentOffset = $('#content_holder').offset();
+        var contentTop = contentOffset.top;
+        if (contentTop - 100 <= AllImages.scrollHeight) {
+            $('#scrollbar_wrapper').addClass('fixed_position');
+        } else {
+            $('#scrollbar_wrapper').removeClass('fixed_position');
+        }
     },
 
     canDownload: function()
@@ -132,11 +144,11 @@ var AllImages = {
     isBottomOfPage: function()
     {
         var canDownload = false;
-        var windowHeight = $(window).height();
-        var documentHeight = $(document).height();
-        var scrollHeight = $(window).scrollTop();
+        AllImages.windowHeight = $(window).height();
+        AllImages.documentHeight = $(document).height();
+        AllImages.scrollHeight = $(window).scrollTop();
 
-        if ( documentHeight - (windowHeight + scrollHeight) < 400 ) {
+        if ( AllImages.documentHeight - (AllImages.windowHeight + AllImages.scrollHeight) < 400 ) {
             canDownload = true;
         }
 
