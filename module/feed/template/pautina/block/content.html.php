@@ -113,13 +113,18 @@ defined('PHPFOX') or exit('NO DICE!');
 				{/if}		
 				{/if}
 			</div>
-		</div><!-- // .activity_feed_content_text -->	
+		</div><!-- // .activity_feed_content_text -->
 
-		{if isset($aFeed.feed_view_comment)}
-			{module name='feed.comment'}
+        {if isset($aFeed.feed_view_comment)}
+            {module name='feed.comment'}
 		{else}
-			{template file='feed.block.comment'}		
+            {if empty($aFeed.feed_info)}
+                {template file='feed.block.comment'}
+            {elseif $aFeed.feed_info != 'обновляет  информацию в профиле.' && $aFeed.feed_info != 'обновляет  фотографию в профиле.'}
+                {template file='feed.block.comment'}
+            {/if}
 		{/if}
+
 		{if $aFeed.type_id != 'friend'}
 		{if isset($aFeed.more_feed_rows) && is_array($aFeed.more_feed_rows) && count($aFeed.more_feed_rows)}
 		{if $iTotalExtraFeedsToShow = count($aFeed.more_feed_rows)}{/if}
