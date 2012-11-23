@@ -994,16 +994,16 @@ a.item_bar_action_clicked:hover, a.item_bar_action_clicked {
 #photo_view_theater_mode .photo_next_previous ul li a:hover {
     min-height: 105px;
     line-height: normal;
-    width: 40px;
+    width: 15px;
     height: 100%;
 }
 
 #photo_view_theater_mode .photo_next_previous ul li.previous {
-    margin: 0 0 0 26px ;
+    margin: 0 0 0 5px ;
 }
 
 #photo_view_theater_mode .photo_next_previous ul li.next {
-    margin: 0 26px 0 0;
+    margin: 0 5px 0 0;
 }
 
 #photo_view_tag_photo a {
@@ -1042,13 +1042,20 @@ div.row_title_image {
 }
 
 #photo_view_theater_mode .photo_next_previous ul li.previous {
-    background: url("../image/layout/arrow_sprite.png") no-repeat scroll 0 50% transparent;
+    background: url("../image/pautina/nav_arrows.jpg") no-repeat scroll 0 50% transparent;
     float: left;
+	display: none;
+
 }
 
 #photo_view_theater_mode .photo_next_previous ul li.next {
-	background: url("../image/layout/arrow_sprite.png") no-repeat scroll -40px 50% transparent;
+	background: url("../image/pautina/nav_arrows.jpg") no-repeat scroll -15px 50% transparent;
     float: right;
+	display: none;
+}
+
+#photo_view_theater_mode:hover .photo_next_previous ul li.next,  #photo_view_theater_mode:hover .photo_next_previous ul li.previous{
+	display: block;
 }
 
 .closePautina {
@@ -1066,7 +1073,14 @@ div.row_title_image {
 }
 
 #imagebox-detail #photo_view_tag_photo {
-    text-align: right;
+	text-align: right;
+}
+
+#imagebox-detail #photo_view_tag_photo a {
+	border-top: 1px solid #CCCCCC;
+	width: 90%;
+	margin: 15px auto 0;
+	padding-top: 10px;
 }
 
 #photo_view_theater_mode .photo_view_in_photo {
@@ -1121,6 +1135,8 @@ div.row_title_image {
 
 #js_photo_view_comment_holder .feed_comment_bottom {
 	margin-top: 0;
+	float: right;
+	clear: both;
 }
 
 #js_photo_view_box_title .item_bar_action_holder {
@@ -1147,7 +1163,7 @@ div.row_title_image {
 }
 
 #js_photo_view_comment_holder div.comment_mini_content_border {
-	margin-top: -30px;
+	margin-top: 0;
 }
 
 #imagebox-detail.feed {
@@ -1188,4 +1204,12 @@ div.comment_mini_text {
 .comment_mini_action li.js_like_link_holder {
     margin-top: 2px;
     margin-left: -6px;
+}
+
+div.js_mini_feed_comment {
+	margin-bottom: 17px;
+}
+
+.feed_comment_bottom {
+	margin-top: 0;
 }
