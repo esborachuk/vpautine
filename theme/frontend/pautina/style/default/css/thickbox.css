@@ -205,7 +205,7 @@ a.photo_box_photo_detail:hover
 
 .photo_view_box_image
 {
-	cursor:pointer; text-align:center; position:relative; z-index:10000000; overflow:hidden;
+	cursor:pointer; text-align:center; position:relative; z-index:100; overflow:hidden;
 }
 
 #photo_view_ajax_loader

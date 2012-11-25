@@ -1,6 +1,6 @@
 <script type="text/javascript">
     AllImages.init({$pageCount}, '{$requestUrl}', {$userId});
-    Imagebox.getImage('<?php echo $this->_aVars['aPhotos'][0]['photo_id']; ?>, {$userId}');
+    Imagebox.getImage('<?php echo $this->_aVars['aPhotos'][0]['photo_id']; ?>', '{$userId}');
 </script>
 
 

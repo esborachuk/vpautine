@@ -28,7 +28,7 @@ defined('PHPFOX') or exit('NO DICE!');
 
         <div class="photo_view_box_image_holder" style="position:absolute;">
             {if isset($aPhotoStream.next.photo_id)}
-                <a href="" data-photoid="{$aPhotoStream.next.photo_id}" data-userid="<?php echo Phpfox::getUserId(); ?>" class="imagebox">
+                <a href="#" data-photoid="{$aPhotoStream.next.photo_id}" data-userid="{$userId}" class="imagebox detail_image_link">
             {/if}
             {if $aForms.user_id == Phpfox::getUserId()}
                 {img id='js_photo_view_image' server_id=$aForms.server_id path='photo.url_photo' file=$aForms.destination suffix='_500' max_width=500 max_height=500 title=$aForms.title time_stamp=true onmouseover="$('.photo_next_previous .next a').addClass('is_hover_active');" onmouseout="$('.photo_next_previous .next a').removeClass('is_hover_active');"}
@@ -44,7 +44,7 @@ defined('PHPFOX') or exit('NO DICE!');
                 <ul>
                     {if isset($aPhotoStream.previous.photo_id)}
                     <li class="previous">
-                        <a href="#" data-photoid="{$aPhotoStream.previous.photo_id}" data-userid="<?php echo Phpfox::getUserId(); ?>" class="imagebox">
+                        <a href="#" data-photoid="{$aPhotoStream.previous.photo_id}" data-userid="{$userId}" class="imagebox">
                             {phrase var='photo.previous'}
                         </a>
                     </li>
@@ -52,7 +52,7 @@ defined('PHPFOX') or exit('NO DICE!');
 
                     {if isset($aPhotoStream.next.photo_id)}
                     <li class="next">
-                        <a href="" data-photoid="{$aPhotoStream.next.photo_id}" data-userid="<?php echo Phpfox::getUserId(); ?>" class="imagebox">
+                        <a href="#" data-photoid="{$aPhotoStream.next.photo_id}" data-userid="{$userId}" class="imagebox">
                             {phrase var='photo.next'}
                         </a>
                     </li>
@@ -250,24 +250,24 @@ defined('PHPFOX') or exit('NO DICE!');
             {/if}
 
             {if isset($aPhotoStream.next.photo_id)}
-            <a href="{$aPhotoStream.next.link}{if $iForceAlbumId > 0}albumid_{$iForceAlbumId}{else}{if isset($feedUserId)}userid_{$feedUserId}/{/if}{/if}"{if $bIsTheater} class="thickbox photo_holder_image" rel="{$aPhotoStream.next.photo_id}"{/if}>
+                <a href="{$aPhotoStream.next.link}{if $iForceAlbumId > 0}albumid_{$iForceAlbumId}{else}{if isset($feedUserId)}userid_{$feedUserId}/{/if}{/if}"{if $bIsTheater} class="thickbox photo_holder_image" rel="{$aPhotoStream.next.photo_id}"{/if}>
             {/if}
             {if Phpfox::isMobile()}
-            {if $aForms.user_id == Phpfox::getUserId()}
-            {img id='js_photo_view_image' server_id=$aForms.server_id path='photo.url_photo' file=$aForms.destination suffix='_500' max_width=285 max_height=300 title=$aForms.title time_stamp=true onmouseover="$('.photo_next_previous .next a').addClass('is_hover_active');" onmouseout="$('.photo_next_previous .next a').removeClass('is_hover_active');"}
+                {if $aForms.user_id == Phpfox::getUserId()}
+                    {img id='js_photo_view_image' server_id=$aForms.server_id path='photo.url_photo' file=$aForms.destination suffix='_500' max_width=285 max_height=300 title=$aForms.title time_stamp=true onmouseover="$('.photo_next_previous .next a').addClass('is_hover_active');" onmouseout="$('.photo_next_previous .next a').removeClass('is_hover_active');"}
+                {else}
+                    {img id='js_photo_view_image' server_id=$aForms.server_id path='photo.url_photo' file=$aForms.destination suffix='_500' max_width=285 max_height=300 title=$aForms.title onmouseover="$('.photo_next_previous .next a').addClass('is_hover_active');" onmouseout="$('.photo_next_previous .next a').removeClass('is_hover_active');"}
+                {/if}
             {else}
-            {img id='js_photo_view_image' server_id=$aForms.server_id path='photo.url_photo' file=$aForms.destination suffix='_500' max_width=285 max_height=300 title=$aForms.title onmouseover="$('.photo_next_previous .next a').addClass('is_hover_active');" onmouseout="$('.photo_next_previous .next a').removeClass('is_hover_active');"}
-            {/if}
-            {else}
-            {if $aForms.user_id == Phpfox::getUserId()}
-            {img id='js_photo_view_image' server_id=$aForms.server_id path='photo.url_photo' file=$aForms.destination suffix='_500' max_width=500 max_height=500 title=$aForms.title time_stamp=true onmouseover="$('.photo_next_previous .next a').addClass('is_hover_active');" onmouseout="$('.photo_next_previous .next a').removeClass('is_hover_active');"}
-            {else}
-            {img id='js_photo_view_image' server_id=$aForms.server_id path='photo.url_photo' file=$aForms.destination suffix='_500' max_width=500 max_height=500 title=$aForms.title onmouseover="$('.photo_next_previous .next a').addClass('is_hover_active');" onmouseout="$('.photo_next_previous .next a').removeClass('is_hover_active');"}
-            {/if}
+                {if $aForms.user_id == Phpfox::getUserId()}
+                    {img id='js_photo_view_image' server_id=$aForms.server_id path='photo.url_photo' file=$aForms.destination suffix='_500' max_width=500 max_height=500 title=$aForms.title time_stamp=true onmouseover="$('.photo_next_previous .next a').addClass('is_hover_active');" onmouseout="$('.photo_next_previous .next a').removeClass('is_hover_active');"}
+                {else}
+                    {img id='js_photo_view_image' server_id=$aForms.server_id path='photo.url_photo' file=$aForms.destination suffix='_500' max_width=500 max_height=500 title=$aForms.title onmouseover="$('.photo_next_previous .next a').addClass('is_hover_active');" onmouseout="$('.photo_next_previous .next a').removeClass('is_hover_active');"}
+                {/if}
             {/if}
 
             {if isset($aPhotoStream.next.photo_id)}
-            </a>
+                </a>
             {/if}
 
         </div>
