@@ -1,6 +1,5 @@
 $(document).ready(function() {
     Imagebox.init();
-
 });
 
 var Imagebox = {
@@ -15,11 +14,17 @@ var Imagebox = {
         $(Imagebox.closeLink).live('click', Imagebox.closeImageBox);
     },
 
-    ajaxUrl: function(photoId)
+    ajaxUrl: function(photoId, userId)
     {
+        var userRequest = '';
+        if (userId) {
+            userRequest = '&userid=' + userId;
+        }
+
         return 'core[call]=pautina.imagebox' +
             '&width=200' +
             '&req2=' + photoId +
+            userRequest +
             '&theater=true' +
             '&no_remove_box=true';
     },
@@ -28,16 +33,16 @@ var Imagebox = {
     {
         var currentLink = $(this);
         var photoId = currentLink.data('photoid');
-        //var userId = currentLink.data('userid');
+        var userId = currentLink.data('userid');
 
-        Imagebox.getImage(photoId);
+        Imagebox.getImage(photoId, userId);
 
         return false;
     },
 
-    getImage: function(photoId)
+    getImage: function(photoId, userId)
     {
-        var data = Imagebox.ajaxUrl(photoId);
+        var data = Imagebox.ajaxUrl(photoId, userId);
         Imagebox.showPreloader();
 
         $.ajax({
@@ -51,7 +56,7 @@ var Imagebox = {
                 Imagebox.createBlockForImage();
                 $(Imagebox.boxDetail).html(image)
                                      .parent().show();
-                var oScrollbar = $('#scrollbar1');
+                var oScrollbar = $('#scrollbar_wrapper').show();
                 oScrollbar.tinyscrollbar();
                 oScrollbar.tinyscrollbar_update();
             }
@@ -66,7 +71,13 @@ var Imagebox = {
                             '<div class="info"></div>' +
                         '</div>';
 
-            $('#bom').prepend(block);
+            $('#ajax_wrapper').prepend(block);
+            var windowHeight = $(window).height();
+            var headerHeight = 80;
+            $('#scrollbar_wrapper').css({height: windowHeight - headerHeight});
+            $('#scrollbar_wrapper .viewport').css({height: windowHeight - headerHeight});
+
+
         }
     },
 
@@ -110,6 +121,36 @@ var AllImages = {
         if (AllImages.canDownload() === true) {
             AllImages.getPhotos();
         }
+
+        AllImages.updateViewDetailPosition();
+    },
+
+    updateViewDetailPosition: function()
+    {
+        var contentOffset = $('#content_holder').offset();
+        var contentTop = contentOffset.top;
+        var scrollHeight = $(window).scrollTop();
+        var photoBlockHeight = $('#scrollbar_wrapper').height();
+        var windowHeight = $(window).height();
+        var documentHeight = $(document).height();
+        var footerHeight = 80;
+        var headerHeight = 80;
+
+        if (contentTop - headerHeight <= scrollHeight) {
+            if (scrollHeight + windowHeight >= documentHeight - footerHeight) {
+                $('#scrollbar_wrapper')
+                    .removeClass('fixed_position')
+                    .css({bottom: 0, top: 'inherit'});
+            } else {
+                $('#scrollbar_wrapper')
+                    .addClass('fixed_position')
+                    .css({top: 100});
+            }
+        } else {
+            $('#scrollbar_wrapper')
+                .removeClass('fixed_position')
+                .css({top: 0});
+        }
     },
 
     canDownload: function()
@@ -132,11 +173,11 @@ var AllImages = {
     isBottomOfPage: function()
     {
         var canDownload = false;
-        var windowHeight = $(window).height();
-        var documentHeight = $(document).height();
-        var scrollHeight = $(window).scrollTop();
+        AllImages.windowHeight = $(window).height();
+        AllImages.documentHeight = $(document).height();
+        AllImages.scrollHeight = $(window).scrollTop();
 
-        if ( documentHeight - (windowHeight + scrollHeight) < 400 ) {
+        if ( AllImages.documentHeight - (AllImages.windowHeight + AllImages.scrollHeight) < 400 ) {
             canDownload = true;
         }
 
@@ -158,6 +199,7 @@ var AllImages = {
                     AllImages.isDownloading = false;
                     AllImages.hidePreloader();
                     $('#insert_next_photo').append('<div class="newclass">' + images + '</div>');
+                    AllImages.updateViewDetailPosition();
                 }
             });
     },
