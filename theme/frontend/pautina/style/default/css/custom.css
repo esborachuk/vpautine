@@ -464,17 +464,14 @@ ul.block_listing li .block_listing_title a:hover {
 	float: right;
 }
 
-#left {
-    border-right: 0;
-}
-
 #left #js_block_content_profile_friend, #left #js_block_border_friend_mini .content, #left #js_block_border_friend_mutual-friend .content{
     padding: 10px;
 }
 
 #main_content {
-	margin-left: 333px;
+	margin-left: 332px;
 	width: 566px;
+    border-left: 1px solid #d7d7d7;
 }
 
 .pages_view_sub_menu ul {
@@ -808,7 +805,7 @@ input, textarea {
 }
 
 #left {
-	width: 333px;
+	width: 332px;
 }
 
 .holder {
