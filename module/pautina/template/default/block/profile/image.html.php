@@ -31,7 +31,6 @@ defined('PHPFOX') or exit('NO DICE!');
 
 
 	{if Phpfox::getUserId() == $aUser.user_id}
-        <a href="{url link='user.photo'}">{phrase var='profile.change_picture'}</a>
 	  {else}
     <div class="buttons_user">
         {if Phpfox::isModule('mail') && Phpfox::getService('user.privacy')->hasAccess('' . $aUser.user_id . '', 'mail.send_message')}
