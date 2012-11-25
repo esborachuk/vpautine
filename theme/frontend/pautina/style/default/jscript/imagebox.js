@@ -56,11 +56,16 @@ var Imagebox = {
                 Imagebox.createBlockForImage();
                 $(Imagebox.boxDetail).html(image)
                                      .parent().show();
-                var oScrollbar = $('#scrollbar_wrapper').show();
-                oScrollbar.tinyscrollbar();
-                oScrollbar.tinyscrollbar_update();
+                $('#scrollbar_wrapper').show();
+                Imagebox.addScroll($('#scrollbar_wrapper'));
             }
         });
+    },
+
+    addScroll: function(oScrollbar)
+    {
+        oScrollbar.tinyscrollbar();
+        oScrollbar.tinyscrollbar_update();
     },
 
     createBlockForImage: function()
@@ -74,8 +79,13 @@ var Imagebox = {
             $('#ajax_wrapper').prepend(block);
             var windowHeight = $(window).height();
             var headerHeight = 80;
-            $('#scrollbar_wrapper').css({height: windowHeight - headerHeight});
-            $('#scrollbar_wrapper .viewport').css({height: windowHeight - headerHeight});
+            var photosGridBlockHeight = $('#js_actual_photo_content').height();
+            var ImageWrapperHeight = windowHeight - headerHeight;
+            if (photosGridBlockHeight < ImageWrapperHeight) {
+                $('#js_actual_photo_content').css('min-height', ImageWrapperHeight);
+            }
+            $('#scrollbar_wrapper').css({height: ImageWrapperHeight});
+            $('#scrollbar_wrapper .viewport').css({height: ImageWrapperHeight});
 
 
         }
@@ -83,22 +93,37 @@ var Imagebox = {
 
     closeImageBox: function()
     {
+        $('.preloader').remove();
         $(Imagebox.boxDetail).html('')
                              .parent().hide();
+        $('#feed_wrapper').animate({opacity: 1});
 
         return false;
     },
 
     showPreloader: function()
     {
-        var windowHeight = $(document).height();
+        if ($('.preloader').length > 0) {
+            blockHeight = $(Imagebox.boxDetail).height();
 
-        $('#main_core_body_holder').prepend('<div class="preloader"></div>');
-        $('.preloader').css({'height': windowHeight});
+            $(Imagebox.boxDetail).prepend('<div class="preloader_block"><div class="preloader_icon"></div></div>');
+            $('.preloader_block').css({'height': blockHeight}).fadeIn(400);
+            $('.preloader_icon').css({'height': blockHeight / 2});
+        } else {
+            var windowHeight = $(document).height();
+            var documentHeight = $(document).height();
+
+            $('#main_core_body_holder').prepend('<div class="preloader"><div class="preloader_icon"></div></div>');
+            $('.preloader').css({'height': documentHeight}).fadeIn(400);
+            $('.preloader_icon').css({'height': windowHeight / 2});
+        }
+
+        $('#feed_wrapper').animate({opacity: 0.3});
     },
 
     hidePreloader: function()
     {
+        $(Imagebox.boxDetail).removeClass('show_preloader');
         $('.preloader').hide();
     }
 };

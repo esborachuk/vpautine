@@ -18,7 +18,7 @@ defined('PHPFOX') or exit('NO DICE!');
 		<title>{title}</title>	
 		{header}
 	</head>
-	<body>
+	<body class="{$aRequests.req2}">
 		{body}
 		{block location='9'}
         {if Phpfox::isUser()}
@@ -90,7 +90,7 @@ defined('PHPFOX') or exit('NO DICE!');
 			{block location='11'}
 			<div id="main_content_holder">
 			{/if}
-				<div {holder_name}>		
+				<div {holder_name}>
 					<div {is_page_view} class="holder">
 
                         {if defined('PHPFOX_IS_USER_PROFILE')}

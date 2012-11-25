@@ -11,6 +11,7 @@
 defined('PHPFOX') or exit('NO DICE!'); 
 
 ?>
+<div id="feed_wrapper">
 {if Phpfox::getService('profile')->timeline()}
 <div class="main_timeline" style="background:url('{img theme='layout/timeline.png' return_url=true}') repeat-y 50%;">
 {/if}
@@ -169,3 +170,4 @@ defined('PHPFOX') or exit('NO DICE!');
 {if Phpfox::getService('profile')->timeline()}
 </div>
 {/if}
+</div>
