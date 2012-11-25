@@ -74,6 +74,7 @@ textarea{
     position: relative;
     width: 59%;
     z-index: 1;
+    margin-bottom: 0;
 }
 #content_load_data #site_content > div{
     padding:0;
@@ -147,9 +148,6 @@ a.photo_clip_holder, a.photo_clip_holder:hover{
 #content_load_data #site_content > div {
     margin-bottom: 15px;
     padding:0 0 20px 0 !important;
-}
-.upload-photo-button {
-    box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.37);
 }
 .js_blog_parent *{
     font-size:11px !important;
