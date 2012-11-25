@@ -417,12 +417,12 @@ $Behavior.globalThemeInit = function()
 		return false;
 	});
 	
-	$('.profile_image_holder').mouseover(function()
+	$('.profile_image').mouseover(function()
 	{
 		$(this).find('.p_4:first').show();
 	});
 	
-	$('.profile_image_holder').mouseout(function()
+	$('.profile_image').mouseout(function()
 	{
 		$(this).find('.p_4:first').hide();
 	});		
