@@ -225,6 +225,7 @@ a.photo_clip_holder, a.photo_clip_holder:hover{
     border-radius:4px;
     margin:0 0 9px;
     box-shadow:1px 1px 2px rgba(0, 0, 0, 0.22);
+    background: url("../image/bg_dot.png") repeat scroll 0 0 transparent !important;
 }
 
 .buttons_user ul {
@@ -238,14 +239,18 @@ a.photo_clip_holder, a.photo_clip_holder:hover{
     background:#f8f8f8;
 }
 .buttons_user a{
-  display: block;
-  background: url("../image/bg_dot.png") repeat scroll 0 0 transparent !important;
-  border-bottom:1px solid #bbb;
-  border-top: 1px solid #FBFBFB;
-  border-radius:5px 5px 0 0;
-  margin: 0 0 2px -14px;
-  padding: 6px 5px;
-
+    background: -moz-linear-gradient(center top , #FFFFFF 0%, #F6F6F6 47%, #EDEDED 100%) repeat scroll 0 0 transparent;
+    border: 1px solid #FFFFFF;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
+    color: #AAAAAA;
+    display:block;
+    font-size: 12px;
+    font-weight: 700;
+    line-height: 20px;
+    margin:2px 4px;
+    padding: 0 6px;
+    text-shadow: 1px 1px 1px #FFFFFF;
+    text-align:center;
 }
 #section_menu_drop{
     right:666px;
