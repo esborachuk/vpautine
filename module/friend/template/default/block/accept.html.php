@@ -5,7 +5,7 @@
  * @copyright		[PHPFOX_COPYRIGHT]
  * @author  		Raymond Benc
  * @package  		Module_Friend
- * @version 		$Id: accept.html.php 4471 2012-07-05 10:17:46Z Miguel_Espinoza $
+ * @version 		$Id: accept.html.php 4941 2012-10-23 12:43:23Z Miguel_Espinoza $
  */
  
 defined('PHPFOX') or exit('NO DICE!'); 
@@ -29,7 +29,7 @@ defined('PHPFOX') or exit('NO DICE!');
 	{if !isset($bIsFriendController)}
 	<li id="js_new_friend_request_{$aFriend.request_id}" class="holder_notify_drop_data with_padding{if $phpfox.iteration.friends == 1} first{/if} js_friend_request_{$aFriend.request_id}{if !$aFriend.is_seen} is_new{/if}">
 	{else}
-	<div class="row1 js_friend_request_{$aFriend.request_id}">
+	<div class="row1 js_friend_request_{$aFriend.request_id} moderation_row">
 	{/if}
 			<div class="drop_data_image">
 				{img user=$aFriend max_width='50' max_height='50' suffix='_50_square'}

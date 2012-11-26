@@ -51,7 +51,7 @@ class Input_Component_Controller_Admincp_Add extends Phpfox_Component
 			{
 				if (Phpfox::getService('input.process')->update(array_merge($aVals, array('field_id' => $iId))))
 				{
-					$this->url()->send('admincp.input.add', null, 'Field updated successfully');
+					$this->url()->send('admincp.input.add', array('id' => $iId), 'Field updated successfully');
 				}
 				else
 				{

@@ -11,7 +11,7 @@ defined('PHPFOX') or exit('NO DICE!');
  * @copyright		[PHPFOX_COPYRIGHT]
  * @author  		Raymond_Benc
  * @package 		Phpfox_Service
- * @version 		$Id: link.class.php 4569 2012-07-31 08:22:33Z Raymond_Benc $
+ * @version 		$Id: link.class.php 4909 2012-10-22 05:56:49Z Raymond_Benc $
  */
 class Link_Service_Link extends Phpfox_Service 
 {
@@ -96,8 +96,8 @@ class Link_Service_Link extends Phpfox_Service
 			{
 				$aReturn['link'] = $sUrl;
 				$aReturn['title'] = $aParseBuild['og:title'];
-				$aReturn['description'] = $aParseBuild['og:description'];
-				$aReturn['default_image'] = $aParseBuild['og:image'];
+				$aReturn['description'] = (isset($aParseBuild['og:description']) ? $aParseBuild['og:description'] : '');
+				$aReturn['default_image'] = (isset($aParseBuild['og:image']) ? $aParseBuild['og:image'] : '');
 				if (isset($aParseBuild['application/json+oembed']))
 				{
 					$oJson = json_decode(Phpfox::getLib('request')->send($aParseBuild['application/json+oembed'], array(), 'GET', $_SERVER['HTTP_USER_AGENT']));					if (isset($oJson->html))

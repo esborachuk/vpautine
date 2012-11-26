@@ -17,7 +17,7 @@ defined('PHPFOX') or exit('NO DICE!');
  * @copyright		[PHPFOX_COPYRIGHT]
  * @author			Raymond Benc
  * @package 		Phpfox
- * @version 		$Id: output.class.php 4782 2012-09-27 08:48:43Z Raymond_Benc $
+ * @version 		$Id: output.class.php 4967 2012-10-30 11:09:30Z Miguel_Espinoza $
  */
 class Phpfox_Parse_Output
 {
@@ -520,7 +520,7 @@ class Phpfox_Parse_Output
 				{
 					$iCount = 9999;
 				}
-       			$sNewString .= preg_replace('#([^\n\r ]{'. $iCount .'})#iu', '\\1 ' . ($bBreak ? '<br />' : ''), $aChar[0]);				
+       			$sNewString .= preg_replace('#([^\n\r(?!PHPFOX_) ]{'. $iCount .'})#iu', '\\1 ' . ($bBreak ? '<br />' : ''), $aChar[0]);
        		}
        	
        		if (!empty($aChar[1])) 

@@ -19,7 +19,7 @@ defined('PHPFOX') or exit('NO DICE!');
  * @copyright		[PHPFOX_COPYRIGHT]
  * @author			Raymond Benc
  * @package 		Phpfox
- * @version 		$Id: template.class.php 4901 2012-10-17 06:29:50Z Raymond_Benc $
+ * @version 		$Id: template.class.php 4983 2012-11-01 18:23:05Z Raymond_Benc $
  */
 class Phpfox_Template
 {	
@@ -1029,6 +1029,8 @@ class Phpfox_Template
 			$aThemeCache = $this->getThemeCache();
 			if (isset($aThemeCache['l_width']) && $aThemeCache['l_width'] > 0)
 			{
+				$sCustomCss .= '#left { width:' . (int) $aThemeCache['l_width'] . 'px; }';
+				$sCustomCss .= '#main_content { margin-left:' . (int) $aThemeCache['l_width'] . 'px; }';
 			}			
 			if (isset($aThemeCache['c_width']) && $aThemeCache['c_width'] > 0)
 			{
@@ -1051,11 +1053,18 @@ class Phpfox_Template
 		$sJs = '';
 		$iVersion = $this->getStaticVersion();
 		$oUrl = Phpfox::getLib('url');		
-		$oCache = Phpfox::getLib('cache', array(
-				'storage' => 'file',
-				'free' => true
-			)
-		);		
+		if (defined('PHPFOX_IS_HOSTED_SCRIPT'))
+		{
+			$oCache = Phpfox::getLib('cache');			
+		}
+		else
+		{
+			$oCache = Phpfox::getLib('cache', array(
+					'storage' => 'file',
+					'free' => true
+				)
+			);		
+		}
 		$aUrl = $oUrl->getParams();
 		if (Phpfox::getUserParam('core.can_design_dnd') && Phpfox::getService('theme')->isInDnDMode() && (!isset($aUrl['req2']) || $aUrl['req2'] != 'designer'))
 		{
@@ -1180,7 +1189,7 @@ class Phpfox_Template
 			
 			if (Phpfox::isModule('input') && false)
 			{
-				/*  */$this->setHeader('cache', array(		    		'browse.css' => 'style_css'		    		    			    	)		    );
+				$this->setHeader('cache', array('browse.css' => 'style_css'));
 			}
 			$sJs .= "\t\t\tvar oParams = {";
 			$iCnt = 0;
@@ -1220,7 +1229,6 @@ class Phpfox_Template
 					'emoticon.emoticons',
 					'attachment.attach_files',
 					'core.close',					
-//					'core.toggle_fullscreen',	
 					'core.language_packages',
 					'core.move_this_block',
 					'core.uploading',
@@ -1284,7 +1292,7 @@ class Phpfox_Template
 				$sJs = rtrim($sJs, ',');
 				$sJs .= "};\n";			
 			}		
-		
+
 		/*
 		if (count($this->_aEditor) && isset($this->_aEditor['active']) && $this->_aEditor['active'])
 		{
@@ -1328,7 +1336,7 @@ class Phpfox_Template
 				$sData .= "\t\t" . '<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/' . Phpfox::getParam('core.jquery_google_cdn_version') . '/jquery.min.js"></script>' . "\n";
 			}
 		}
-		
+
 		if (PHPFOX_IS_AJAX_PAGE)
 		{
 			$this->_aCacheHeaders = array();
@@ -1407,40 +1415,52 @@ class Phpfox_Template
 							case 'style_css':							
 								$bCustomStyle = false;
 								if (!defined('PHPFOX_INSTALLER') && !Phpfox::isAdminPanel())
-								{
+								{									
 									if (isset($aCacheStyles[null][$mKey]))
 									{
-										if ($bIsHttpsPage)
+										if (defined('PHPFOX_IS_HOSTED_SCRIPT'))
 										{
-											$sCssCustomCacheId = $oCache->set(PHPFOX_DIR_FILE . 'static' . PHPFOX_DS . $this->_aTheme['style_id'] . '_secure_' . $mKey);
+											$sCssCustomCacheId = $oCache->set($this->_aTheme['style_id'] . '_custom_css_file');
 										}
 										else
-										{
-											$sCssCustomCacheId = $oCache->set(PHPFOX_DIR_FILE . 'static' . PHPFOX_DS . $this->_aTheme['style_id'] . '_' . $mKey);
+										{	
+											if ($bIsHttpsPage)
+											{
+												$sCssCustomCacheId = $oCache->set(PHPFOX_DIR_FILE . 'static' . PHPFOX_DS . $this->_aTheme['style_id'] . '_secure_' . $mKey);
+											}
+											else
+											{
+												$sCssCustomCacheId = $oCache->set(PHPFOX_DIR_FILE . 'static' . PHPFOX_DS . $this->_aTheme['style_id'] . '_' . $mKey);												
+											}
 										}
-										
-										if (!($oCache->isCached($sCssCustomCacheId)))										
-										{									
+																				
+										if (!($aCss = (defined('PHPFOX_IS_HOSTED_SCRIPT') ? ($oCache->get($sCssCustomCacheId)) : ($oCache->isCached($sCssCustomCacheId)))))										
+										{		
 											$oDb = Phpfox::getLib('database');
-											$aCss = $oDb->select('tc.css_id, tc.css_data')
+											$aCss = $oDb->select('tc.css_id, tc.css_data, tc.css_data_original')
 												->from(Phpfox::getT('theme_css'), 'tc')
 												->where('style_id = ' . (int) $this->_aTheme['style_id'] . ' AND file_name = \'' . $oDb->escape($mKey) . '\'')		
 												->execute('getRow');
 												
 											if (isset($aCss['css_id']))
-											{											
-												// $aCss['css_data'] = str_replace('../image/layout/', $this->getStyle('image') . 'layout/', $aCss['css_data']);
-
-												$oCache->save($sCssCustomCacheId, Phpfox::getLib('file.minimize')->css($aCss['css_data']));												
+											{
+												$oCache->save($sCssCustomCacheId, (defined('PHPFOX_IS_HOSTED_SCRIPT') ? $aCss : Phpfox::getLib('file.minimize')->css($aCss['css_data'])));												
 												
 												$bCustomStyle = true;
 											}									
 										}
 										else 
 										{
-											if (file_exists(PHPFOX_DIR_FILE . 'static' . PHPFOX_DS . $this->_aTheme['style_id'] . '_' . $mKey))
+											if (defined('PHPFOX_IS_HOSTED_SCRIPT') && isset($aCss['css_id']))
 											{
 												$bCustomStyle = true;
+											}
+											else
+											{
+												if (file_exists(PHPFOX_DIR_FILE . 'static' . PHPFOX_DS . $this->_aTheme['style_id'] . '_' . $mKey))
+												{
+													$bCustomStyle = true;
+												}
 											}
 										}								
 									}
@@ -1467,7 +1487,14 @@ class Phpfox_Template
 										}
 										else 
 										{
-											$sData .= "\t\t" . '<link rel="stylesheet" type="text/css" href="' . $this->getStyle('css', $mKey) . $sQmark . 'v=' . $iVersion . '" />' . "\n";
+											if (defined('PHPFOX_IS_HOSTED_SCRIPT'))
+											{
+												$sData .= "\t\t" . '<link rel="stylesheet" type="text/css" href="' . str_replace(Phpfox::getParam('core.path'), Phpfox::getCdnPath(), $this->getStyle('css', $mKey)) . $sQmark . 'v=' . $iVersion . '" />' . "\n";
+											}
+											else
+											{
+												$sData .= "\t\t" . '<link rel="stylesheet" type="text/css" href="' . $this->getStyle('css', $mKey) . $sQmark . 'v=' . $iVersion . '" />' . "\n";
+											}
 										}
 									}
 								}
@@ -1485,14 +1512,21 @@ class Phpfox_Template
 										}
 										else 
 										{
-											if ($bIsHttpsPage)
+											if (defined('PHPFOX_IS_HOSTED_SCRIPT'))
 											{
-												$sData .= "\t\t" . '<link rel="stylesheet" type="text/css" href="' . Phpfox::getParam('core.url_file') . 'static/' . $this->_aTheme['style_id'] . '_secure_' . $mKey . '?v=' . $iVersion . '" />' . "\n";
+												$sData .= "\t\t" . '<link rel="stylesheet" type="text/css" href="' . Phpfox::getParam('core.rackspace_url') . 'file/static/' . $aCss['css_data_original'] . '" />' . "\n";
 											}
-											else 
+											else
 											{
-												$sData .= "\t\t" . '<link rel="stylesheet" type="text/css" href="' . Phpfox::getParam('core.url_file') . 'static/' . $this->_aTheme['style_id'] . '_' . $mKey . '?v=' . $iVersion . '" />' . "\n";
-											}											
+												if ($bIsHttpsPage)
+												{
+													$sData .= "\t\t" . '<link rel="stylesheet" type="text/css" href="' . Phpfox::getParam('core.url_file') . 'static/' . $this->_aTheme['style_id'] . '_secure_' . $mKey . '?v=' . $iVersion . '" />' . "\n";
+												}
+												else 
+												{
+													$sData .= "\t\t" . '<link rel="stylesheet" type="text/css" href="' . Phpfox::getParam('core.url_file') . 'static/' . $this->_aTheme['style_id'] . '_' . $mKey . '?v=' . $iVersion . '" />' . "\n";
+												}											
+											}
 										}									
 									}
 								}
@@ -1529,7 +1563,7 @@ class Phpfox_Template
 										$sJsCacheData .= $mKey . ',';
 									}
 									else 
-									{									
+									{							
 										$sData .= "\t\t" . '<script type="text/javascript" src="' . Phpfox::getParam('core.url_static_script') . $mKey . $sQmark . 'v=' . $iVersion . '"></script>' . "\n";
 									}
 								}
@@ -1553,8 +1587,15 @@ class Phpfox_Template
 													$sJsCacheData .= 'module/' . $aParts[1] . '/static/jscript/' . $mKey . ',';
 												}
 												else 
-												{																		
-													$sData .= "\t\t" . '<script type="text/javascript" src="' . Phpfox::getParam('core.path') . 'module/' . $aParts[1] . '/static/jscript/' . $mKey . $sQmark . 'v=' . $iVersion . '"></script>' . "\n";
+												{			
+													if (defined('PHPFOX_IS_HOSTED_SCRIPT'))
+													{
+														$sData .= "\t\t" . '<script type="text/javascript" src="' . Phpfox::getCdnPath() . 'module/' . $aParts[1] . '/static/jscript/' . $mKey . $sQmark . 'v=' . $iVersion . '"></script>' . "\n";
+													}	
+													else
+													{														
+														$sData .= "\t\t" . '<script type="text/javascript" src="' . Phpfox::getParam('core.path') . 'module/' . $aParts[1] . '/static/jscript/' . $mKey . $sQmark . 'v=' . $iVersion . '"></script>' . "\n";
+													}
 												}
 											}
 										}
@@ -1613,7 +1654,14 @@ class Phpfox_Template
 													}
 													else 
 													{
-														$sData .= "\t\t" . '<link rel="stylesheet" type="text/css" href="' . $this->getStyle('css', $mKey, $aParts[1]) . $sQmark . 'v=' . $iVersion . '" />' . "\n";											
+														if (defined('PHPFOX_IS_HOSTED_SCRIPT'))
+														{
+															$sData .= "\t\t" . '<link rel="stylesheet" type="text/css" href="' . str_replace(Phpfox::getParam('core.path'), Phpfox::getCdnPath(), $this->getStyle('css', $mKey, $aParts[1])) . $sQmark . 'v=' . $iVersion . '" />' . "\n";
+														}
+														else
+														{
+															$sData .= "\t\t" . '<link rel="stylesheet" type="text/css" href="' . $this->getStyle('css', $mKey, $aParts[1]) . $sQmark . 'v=' . $iVersion . '" />' . "\n";
+														}											
 													}
 												}
 											}

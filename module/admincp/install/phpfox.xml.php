@@ -794,7 +794,7 @@ Note: This includes updating the status, editing or deleting modules.</phrase>
 		<phrase module_id="admincp" version_id="3.3.0beta1" var_name="seo" added="1336993044">SEO</phrase>
 		<phrase module_id="admincp" version_id="3.3.0beta2" var_name="to_your_left_you_will_find_all_the_available" added="1340288196"><![CDATA[To your left you will find all the available controllers that have blocks associated with them. Once you click on a controller it will list all the blocks and from there you can drag/drop	to order the positioning of each block. You can also "Enable DnD Mode", which will allow you to visually browse the site and drag/drop blocks as well as add new blocks on the spot.]]></phrase>
 		<phrase module_id="admincp" version_id="3.3.0rc1" var_name="enable_dnd_mode" added="1341561848">Enable DnD Mode</phrase>
-		<phrase module_id="admincp" version_id="3.4.0beta1" var_name="admincp_priacy_control" added="1347438116">AdminCP Priacy Control</phrase>
+		<phrase module_id="admincp" version_id="3.4.0beta1" var_name="admincp_priacy_control" added="1347438116">AdminCP Privacy Control</phrase>
 		<phrase module_id="admincp" version_id="3.4.0beta1" var_name="add_new_privacy_rule" added="1347438128">Add New Privacy Rule</phrase>
 		<phrase module_id="admincp" version_id="3.4.0beta1" var_name="provide_full_path" added="1347438216">Provide the full path to the URL you wish to add this rule to. We will then convert it to work with our internal URL system.</phrase>
 		<phrase module_id="admincp" version_id="3.4.0beta1" var_name="user_groups" added="1347438225">User Groups</phrase>

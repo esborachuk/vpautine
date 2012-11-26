@@ -1965,7 +1965,15 @@ class CF_Object
      * @throws BadContentTypeException
      */
     function _guess_content_type($handle) {
-        if ($this->content_type)
+
+    	if (is_file((string)$handle) && substr($handle, -4) == '.css')
+    	{
+	    	$this->content_type = 'text/css';
+
+	    	return True;
+    	}
+    	
+    	if ($this->content_type)
             return;
             
         if (function_exists("finfo_open")) {
@@ -2337,7 +2345,7 @@ class CF_Object
         }
 
         $this->_guess_content_type($ct_data);
-
+        
         list($status, $reason, $etag) =
                 $this->container->cfs_http->put_object($this, $fp);
         #if ($status == 401 && $this->_re_auth()) {
@@ -2408,6 +2416,7 @@ class CF_Object
         }
 
         $this->_guess_content_type($filename);
+        // $this->content_type = 'text/css';
         
         $this->write($fp, $size, $verify);
         fclose($fp);

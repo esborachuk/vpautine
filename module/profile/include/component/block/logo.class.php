@@ -11,7 +11,7 @@ defined('PHPFOX') or exit('NO DICE!');
  * @copyright		[PHPFOX_COPYRIGHT]
  * @author  		Raymond Benc
  * @package  		Module_Profile
- * @version 		$Id: logo.class.php 4707 2012-09-21 07:41:18Z Raymond_Benc $
+ * @version 		$Id: logo.class.php 4963 2012-10-29 07:33:30Z Raymond_Benc $
  */
 class Profile_Component_Block_Logo extends Phpfox_Component
 {
@@ -61,16 +61,25 @@ class Profile_Component_Block_Logo extends Phpfox_Component
 			return false;
 		}
 		
-		if (!Phpfox::getService('user.privacy')->hasAccess($aUser['user_id'], 'profile.view_profile'))
+		if (!$bIsPages && !Phpfox::getService('user.privacy')->hasAccess($aUser['user_id'], 'profile.view_profile'))
 		{
 			return false;
 		}		
+		
+		$sPagesUrl = '';
+		if ($bIsPages)
+		{
+			$aPage = $this->getParam('aPage');
+			
+			$this->template()->assign('sPagesLink', $aPage['link']);
+		}
 		
 		$this->template()->assign(array(
 				'aCoverPhoto' => $aCoverPhoto,
 				'bRefreshPhoto' => ($this->request()->getInt('coverupdate') ? true : false),
 				'bNewCoverPhoto' => ($this->request()->getInt('newcoverphoto') ? true : false),
 				'sLogoPosition' => $aUser['cover_photo_top'],
+				'bIsPages' => $bIsPages
 			)
 		);
 	}

@@ -21,7 +21,7 @@ defined('PHPFOX') or exit('NO DICE!');
  * @copyright		[PHPFOX_COPYRIGHT]
  * @author			Raymond Benc
  * @package 		Phpfox
- * @version 		$Id: setting.class.php 4900 2012-10-16 16:49:33Z Raymond_Benc $
+ * @version 		$Id: setting.class.php 4951 2012-10-24 09:55:04Z Raymond_Benc $
  */
 class Phpfox_Setting
 {
@@ -335,8 +335,8 @@ class Phpfox_Setting
 		// Make sure we set the correct cookie domain in case the admin did not
 		if ($this->_aParams['core.url_rewrite'] == '3' && empty($this->_aParams['core.cookie_domain']))
 		{
-			$this->_aParams['core.cookie_domain'] = preg_replace("/(.*?)\.(.*?)$/i", ".$2", $_SERVER['HTTP_HOST']);			
-		}		
+			$this->_aParams['core.cookie_domain'] = preg_replace("/(.*?)\.(.*?)$/i", ".$2", $_SERVER['HTTP_HOST']);
+		}
 		
 		$this->_aParams['core.theme_session_prefix'] = '';	
 		$this->_aParams['core.load_jquery_from_google_cdn'] = false;
@@ -359,6 +359,18 @@ class Phpfox_Setting
 		if ($mVar == 'core.phpfox_is_hosted')
 		{
 			return $this->getParam('core.is_auto_hosted');
+		}
+		
+		if (defined('PHPFOX_IS_HOSTED_SCRIPT'))
+		{
+			if ($mVar == 'core.url_static_script')
+			{
+				return Phpfox::getCdnPath() . 'static/jscript/';
+			}
+			elseif ($mVar == 'core.setting_session_prefix')
+			{
+				return PHPFOX_IS_HOSTED_SCRIPT;	
+			}
 		}
 		
 		if (is_array($mVar))

@@ -5,7 +5,7 @@
  * @copyright		[PHPFOX_COPYRIGHT]
  * @author  		Raymond Benc
  * @package  		Module_User
- * @version 		$Id: setting.html.php 4592 2012-08-13 07:54:13Z Raymond_Benc $
+ * @version 		$Id: setting.html.php 4973 2012-10-31 06:03:06Z Raymond_Benc $
  */
 
 defined('PHPFOX') or exit('NO DICE!'); 
@@ -20,7 +20,7 @@ defined('PHPFOX') or exit('NO DICE!');
 		<div><input type="hidden" name="val[full_name]" id="full_name" value="{value type='input' id='full_name'}" size="30" /></div>
 		<div class="table">
 			<div class="table_left">
-				<label for="first_name">{required}First Name:</label>
+				<label for="first_name">{required}{phrase var='user.first_name'}:</label>
 			</div>
 			<div class="table_right">
 				<input type="text" name="val[first_name]" id="first_name" value="{value type='input' id='first_name'}" size="30" {if $iTotalFullNameChangesAllowed != 0 && $aForms.total_full_name_change >= $iTotalFullNameChangesAllowed}readonly="readonly"{/if} />
@@ -28,7 +28,7 @@ defined('PHPFOX') or exit('NO DICE!');
 		</div>		
 		<div class="table">
 			<div class="table_left">
-				<label for="last_name">{required}Last Name:</label>
+				<label for="last_name">{required}{phrase var='user.last_name'}:</label>				
 			</div>
 			<div class="table_right">
 				<input type="text" name="val[last_name]" id="last_name" value="{value type='input' id='last_name'}" size="30" {if $iTotalFullNameChangesAllowed != 0 && $aForms.total_full_name_change >= $iTotalFullNameChangesAllowed}readonly="readonly"{/if} />

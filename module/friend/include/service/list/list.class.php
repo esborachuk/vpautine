@@ -11,7 +11,7 @@ defined('PHPFOX') or exit('NO DICE!');
  * @copyright		[PHPFOX_COPYRIGHT]
  * @author  		Raymond Benc
  * @package  		Module_Friend
- * @version 		$Id: list.class.php 4709 2012-09-21 08:37:17Z Raymond_Benc $
+ * @version 		$Id: list.class.php 4962 2012-10-29 07:14:00Z Raymond_Benc $
  */
 class Friend_Service_List_List extends Phpfox_Service 
 {
@@ -78,9 +78,9 @@ class Friend_Service_List_List extends Phpfox_Service
 			return $aRows;
 		}
 		
-		$aRows = $this->database()->select('fl.list_id, fl.name, COUNT(f.friend_id) AS used')
+		$aRows = $this->database()->select('fl.list_id, fl.name, COUNT(fld.friend_user_id) AS used')
 			->from($this->_sTable, 'fl')	
-			->leftJoin(Phpfox::getT('friend'), 'f', 'f.list_id = fl.list_id AND f.user_id = fl.user_id')
+			->leftJoin(Phpfox::getT('friend_list_data'), 'fld', 'fld.list_id = fl.list_id')
 			->where('fl.user_id = ' . (int) Phpfox::getUserId())
 			->group('fl.list_id')
 			->order('fl.name ASC')

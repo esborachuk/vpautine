@@ -5,7 +5,7 @@
  * @copyright		[PHPFOX_COPYRIGHT]
  * @author  		Raymond Benc
  * @package  		Module_Friend
- * @version 		$Id: search.html.php 4593 2012-08-13 09:32:05Z Raymond_Benc $
+ * @version 		$Id: search.html.php 4923 2012-10-23 04:35:21Z Raymond_Benc $
  */
  
 defined('PHPFOX') or exit('NO DICE!'); 
@@ -171,11 +171,11 @@ defined('PHPFOX') or exit('NO DICE!');
 		<div class="label_flow" style="height:200px;">
 			{foreach from=$aFriends name=friend item=aFriend}
 			<div class="friend_search_holder go_left {if isset($aFriend.is_active)} friend_search_holder_active{/if}"{if !isset($aFriend.is_active)} onclick="if ($('#js_friends_checkbox_{$aFriend.user_id}').attr('checked') == 'checked') {l} $('#js_friends_checkbox_{$aFriend.user_id}').attr('checked', false); $(this).removeClass('friend_search_active'); {r} else {l} $('#js_friends_checkbox_{$aFriend.user_id}').attr('checked', 'checked'); $(this).addClass('friend_search_active'); {r} {if isset($aFriend.canMessageUser) && $aFriend.canMessageUser == false} {else} addFriendToSelectList($('#js_friends_checkbox_{$aFriend.user_id}'), '{$aFriend.user_id}', ($('#js_friends_checkbox_{$aFriend.user_id}').attr('checked') == 'checked' ? true : false));{/if}"{/if}>
-				<span><input type="checkbox" class="checkbox" name="friend[]" class="js_friends_checkbox" id="js_friends_checkbox_{$aFriend.user_id}" value="{$aFriend.user_id}" {if (isset($aFriend.canMessageUser) && $aFriend.canMessageUser == false) || isset($aFriend.is_active)}DISABLED {else} onclick="addFriendToSelectList(this, '{$aFriend.user_id}');"{/if} style="vertical-align:middle;" /></span>
+				<span style="display:none;"><input type="checkbox" class="checkbox" name="friend[]" class="js_friends_checkbox" id="js_friends_checkbox_{$aFriend.user_id}" value="{$aFriend.user_id}" {if (isset($aFriend.canMessageUser) && $aFriend.canMessageUser == false) || isset($aFriend.is_active)}DISABLED {else} onclick="addFriendToSelectList(this, '{$aFriend.user_id}');"{/if} style="vertical-align:middle;" /></span>
 
 				{img user=$aFriend suffix='_50_square' max_width=30 max_height=30 no_link=true style="vertical-align:middle;"}
 			
-				<span id="js_friend_{$aFriend.user_id}" style="padding-left:5px;">{$aFriend.full_name|clean}{if isset($aFriend.is_active)} <em>({$aFriend.is_active})</em>{/if}{if isset($aFriend.canMessageUser) && $aFriend.canMessageUser == false} {phrase var='friend.cannot_select_this_user'}{/if}</span>
+				<span id="js_friend_{$aFriend.user_id}" style="padding-left:5px;">{$aFriend.full_name|clean}{if isset($aFriend.is_active)} <em>({$aFriend.is_active})</em>{/if}{if isset($aFriend.canMessageUser) && $aFriend.canMessageUser == false} {phrase var='friend.cannot_select_this_user'}{/if}</span>				
 			</div>
 			{if is_int($phpfox.iteration.friend/3)}
 			<div class="clear"></div>

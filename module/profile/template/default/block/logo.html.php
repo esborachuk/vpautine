@@ -5,7 +5,7 @@
  * @copyright		[PHPFOX_COPYRIGHT]
  * @author  		Raymond Benc
  * @package  		Module_Profile
- * @version 		$Id: logo.html.php 4685 2012-09-20 07:06:54Z Raymond_Benc $
+ * @version 		$Id: logo.html.php 4914 2012-10-22 07:52:17Z Raymond_Benc $
  */
  
 defined('PHPFOX') or exit('NO DICE!'); 
@@ -61,7 +61,7 @@ defined('PHPFOX') or exit('NO DICE!');
 		<form method="post" action="#">
 			<ul class="table_clear_button">
 				<li id="js_cover_update_loader_upload" style="display:none;">{img theme='ajax/add.gif' class='v_middle'}</li>		
-				<li class="js_cover_update_li"><div><input type="button" class="button button_off" value="{phrase var='user.cancel_cover_photo'}" name="cancel" onclick="window.location.href='{url link='profile'}';" /></div></li>
+				<li class="js_cover_update_li"><div><input type="button" class="button button_off" value="{phrase var='user.cancel_cover_photo'}" name="cancel" onclick="window.location.href='{if $bIsPages}{$sPagesLink}{else}{url link='profile'}{/if}';" /></div></li>
 				<li class="js_cover_update_li"><div><input type="button" class="button" value="{phrase var='user.save_changes'}" name="save" onclick="$('.js_cover_update_li').hide(); $('#js_cover_update_loader_upload').show(); $.ajaxCall('{$sAjaxModule}.updateCoverPosition', 'position=' + sCoverPosition{if $sAjaxModule == 'pages'} + '&page_id={$aPage.page_id}'{/if}); return false;" /></div></li>
 			</ul>
 			<div class="clear"></div>

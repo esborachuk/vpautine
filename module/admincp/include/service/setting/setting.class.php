@@ -11,7 +11,7 @@ defined('PHPFOX') or exit('NO DICE!');
  * @copyright		[PHPFOX_COPYRIGHT]
  * @author  		Raymond Benc
  * @package  		Module_Admincp
- * @version 		$Id: setting.class.php 4854 2012-10-09 05:20:40Z Raymond_Benc $
+ * @version 		$Id: setting.class.php 4953 2012-10-24 10:05:25Z Raymond_Benc $
  */
 class Admincp_Service_Setting_Setting extends Phpfox_Service 
 {
@@ -176,6 +176,48 @@ class Admincp_Service_Setting_Setting extends Phpfox_Service
 				
 		$aTimezones = Phpfox::getService('core')->getTimeZones();
 		
+		if (defined('PHPFOX_IS_HOSTED_SCRIPT'))
+		{
+			$aNotAllowedToEdit = array(
+					'core.allow_cdn',
+					'core.amazon_access_key',
+					'core.amazon_secret_key',
+					'core.amazon_bucket',
+					'core.amazon_bucket_created',
+					'core.cdn_cname',
+					'core.cdn_amazon_https',
+					'core.cdn_service',
+					'core.enable_amazon_expire_urls',
+					'core.amazon_s3_expire_url_timeout',
+					'core.rackspace_username',
+					'core.rackspace_key',
+					'core.rackspace_container',
+					'core.rackspace_url',
+					'core.unzip_path',
+					'core.tar_path',
+					'core.zip_path',
+					'core.session_prefix',
+					'core.cookie_path',
+					'core.cookie_domain',
+					'core.admin_debug_mode',
+					'core.log_missing_images',
+					'core.cache_plugins',
+					'core.ftp_enabled',
+					'core.ftp_host',
+					'core.ftp_username',
+					'core.ftp_password',
+					'core.ftp_dir_path',
+					'log.active_session',
+					'core.build_format',
+					'core.log_site_activity',
+					'core.cache_js_css',
+					'core.enable_getid3_check',
+					'core.force_https_secure_pages',
+					'core.disable_hash_bang_support',
+					'core.site_wide_ajax_browsing'		
+				);
+		}
+		
 		$aCacheSetting = array();
 		foreach ($aRows as $iKey => $aRow)
 		{
@@ -185,6 +227,16 @@ class Admincp_Service_Setting_Setting extends Phpfox_Service
 				
 				continue;
 			}			
+			
+			if (defined('PHPFOX_IS_HOSTED_SCRIPT') && !defined('PHPFOX_SHOW_HIDDEN'))
+			{				
+				if (in_array($aRow['module_id'] . '.' . $aRow['var_name'], $aNotAllowedToEdit))
+				{
+					unset($aRows[$iKey]);
+					
+					continue;
+				}	
+			}
 			
 			$aCacheSetting[$aRow['var_name']] = true;
 			

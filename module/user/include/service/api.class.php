@@ -11,7 +11,7 @@ defined('PHPFOX') or exit('NO DICE!');
  * @copyright		[PHPFOX_COPYRIGHT]
  * @author  		Raymond_Benc
  * @package 		Phpfox_Service
- * @version 		$Id: api.class.php 2900 2011-08-26 09:18:42Z Raymond_Benc $
+ * @version 		$Id: api.class.php 4961 2012-10-29 07:11:34Z Raymond_Benc $
  */
 class User_Service_Api extends Phpfox_Service 
 {
@@ -60,6 +60,11 @@ class User_Service_Api extends Phpfox_Service
 		
 		$sImagePath = $aRow['user_image'];
 		
+		if ($this->_oApi->isAllowed('user.get_full_name'))
+		{
+			$aRow['full_name_link'] = '<a href="' . Phpfox::getLib('url')->makeUrl($aRow['user_name']) . '">' . $aRow['full_name'] . '</a>';
+		}
+		
 		$aRow['photo_50px'] = Phpfox::getLib('image.helper')->display(array(
 				'user' => $aRow,
 				'suffix' => '_50',
@@ -85,6 +90,34 @@ class User_Service_Api extends Phpfox_Service
 				'user' => $aRow,
 				'suffix' => '',
 				'return_url' => true
+			)
+		);		
+		
+		$aRow['photo_50px_link'] = Phpfox::getLib('image.helper')->display(array(
+				'user' => $aRow,
+				'suffix' => '_50',
+				'target' => '_parent'
+			)
+		);
+		
+		$aRow['photo_50px_square_link'] = Phpfox::getLib('image.helper')->display(array(
+				'user' => $aRow,
+				'suffix' => '_50_square',
+				'target' => '_parent'
+			)
+		);
+		
+		$aRow['photo_120px_link'] = Phpfox::getLib('image.helper')->display(array(
+				'user' => $aRow,
+				'suffix' => '_120',
+				'target' => '_parent'
+			)
+		);
+		
+		$aRow['photo_original_link'] = Phpfox::getLib('image.helper')->display(array(
+				'user' => $aRow,
+				'suffix' => '',
+				'target' => '_parent'
 			)
 		);		
 		
@@ -116,10 +149,12 @@ class User_Service_Api extends Phpfox_Service
 		{
 			$iPrivacy = 0;
 		}
-		return (bool)Phpfox::getService('user.process')->updateStatus(array(
-			'user_status' => $this->_oApi->get('user_status'),
-			'privacy' => $iPrivacy
-			));
+		
+		return (bool) Phpfox::getService('user.process')->updateStatus(array(
+				'user_status' => $this->_oApi->get('user_status'),
+				'privacy' => $iPrivacy
+			)
+		);
 	}
 	/**
 	 * If a call is made to an unknown method attempt to connect

@@ -11,7 +11,7 @@ defined('PHPFOX') or exit('NO DICE!');
  * @copyright		[PHPFOX_COPYRIGHT]
  * @author  		Raymond Benc
  * @package  		Module_Friend
- * @version 		$Id: callback.class.php 4350 2012-06-26 10:22:46Z Miguel_Espinoza $
+ * @version 		$Id: callback.class.php 4920 2012-10-22 11:01:42Z Miguel_Espinoza $
  */
 class Friend_Service_Callback extends Phpfox_Service 
 {
@@ -237,6 +237,14 @@ class Friend_Service_Callback extends Phpfox_Service
 	}
 
 	public function getNotificationFeedBirthday($aRow)
+	{
+		return array(
+			'message' => Phpfox::getPhrase('friend.user_link_wished_you_a_happy_birthday', array('user' => $aRow)),
+			'link' => Phpfox::getLib('url')->makeUrl('friend.mybirthday', array('id' => $aRow['item_id']))
+		);
+	}
+
+	public function getNotificationBirthday($aRow)
 	{
 		return array(
 			'message' => Phpfox::getPhrase('friend.user_link_wished_you_a_happy_birthday', array('user' => $aRow)),

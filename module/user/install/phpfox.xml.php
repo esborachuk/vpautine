@@ -1206,6 +1206,9 @@ Here is a key of what the values stand for...
 		<phrase module_id="user" version_id="3.4.0beta2" var_name="process_mailing_job" added="1349077491">Process Mailing Job</phrase>
 		<phrase module_id="user" version_id="3.4.0beta2" var_name="stop_mailing_job" added="1349077496">Stop Mailing Job</phrase>
 		<phrase module_id="user" version_id="3.4.0rc1" var_name="user_setting_can_purchase_with_points" added="1349939638">Can purchase with activity points?</phrase>
+		<phrase module_id="user" version_id="3.4.0" var_name="purchase_activity_points" added="1350916832">Purchase Activity Points</phrase>
+		<phrase module_id="user" version_id="3.4.0" var_name="first_name" added="1351663285">First Name</phrase>
+		<phrase module_id="user" version_id="3.4.0" var_name="last_name" added="1351663293">Last Name</phrase>
 	</phrases>
 	<user_group_settings>
 		<setting is_admin_setting="0" module_id="user" type="boolean" admin="1" user="0" guest="0" staff="0" module="user" ordering="0">can_add_user_group_setting</setting>

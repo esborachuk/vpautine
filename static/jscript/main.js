@@ -1582,13 +1582,35 @@ $Core.changeHistoryState = function(event){
 				{
 					bAjaxLinkIsClicked = false;
 				}	
-};
+}
 
-$(window).scroll(function(){
-    if ($(this).scrollTop() > 120) {
-        $('#header_menu').addClass('header_menu_top')
-            .animate({});
-    } else {
-        $('#header_menu').removeClass('header_menu_top');
-    }
-});
+$Behavior.addModerationListener = function()
+{	
+	$(window).on('moderation_ended', function(){
+		/* Search for moderation rows */
+		if ($('.moderation_row:visible').length < 1)
+		{
+			/* Check if we have a pager */
+			if ( $('a.pager_next_link').length > 0)
+			{
+				window.location.href = $('a.pager_next_link:first').attr('href');
+			}
+			else if ($('a.pager_previous_link').length > 0)
+			{
+				window.location.href = $('a.pager_previous_link:first').attr('href');
+			}
+			else
+			{
+				wndow.location.href=window.location.href;
+			}
+		}
+		else if ( $('.moderation_row:first').is(':animated') )
+		{
+			setTimeout('$(window).trigger("moderation_ended");', 1000);
+		}
+		else
+		{
+			/* console.log('Moderation_rows still exist and are not being animated');*/
+		}
+	});
+}

@@ -22,6 +22,6 @@ defined('PHPFOX') or exit('NO DICE!');
 					</div>
 					<div class="js_preview_content_holder" id="js_preview_link_attachment"></div>
 					<div id="js_global_attachment_link_cancel" class="p_4 t_right" style="display:none;">
-						<a href="#" onclick="$('#js_preview_link_attachment').html(''); $('#global_attachment_link_holder').show(); $('#js_global_attach_value').val('http://'); return false;">{phrase var='link.cancel'}</a>
+						<a href="#" onclick="$('#js_preview_link_attachment').html(''); $('#global_attachment_link_holder').show(); $('#activity_feed_submit').attr('disabled','disabled').addClass('button_not_active');$('#js_global_attach_value').val('http://'); return false;">{phrase var='link.cancel'}</a>
 					</div>
 				</div>	

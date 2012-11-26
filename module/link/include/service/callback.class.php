@@ -11,7 +11,7 @@ defined('PHPFOX') or exit('NO DICE!');
  * @copyright		[PHPFOX_COPYRIGHT]
  * @author  		Raymond_Benc
  * @package 		Phpfox_Service
- * @version 		$Id: callback.class.php 4746 2012-09-25 05:12:47Z Raymond_Benc $
+ * @version 		$Id: callback.class.php 4948 2012-10-24 07:47:54Z Miguel_Espinoza $
  */
 class Link_Service_Callback extends Phpfox_Service 
 {
@@ -63,6 +63,11 @@ class Link_Service_Callback extends Phpfox_Service
 		{
 			return false;
 		}		
+
+		if (empty($aRow['link']))
+		{
+			return false;
+		}
 		
 		if (substr($aRow['link'], 0, 7) != 'http://' && substr($aRow['link'], 0, 8) != 'https://')
 		{
@@ -70,14 +75,15 @@ class Link_Service_Callback extends Phpfox_Service
 		}
 		
 		$aParts = parse_url($aRow['link']);		
-		
+				
 		$sLink = Phpfox::getLib('url')->makeUrl($aRow['parent_user_name']);
 		
 		$aReturn = array( 
 		    'feed_title' => $aRow['title'],             
 		    'feed_status' => $aRow['status_info'], 
 		    'feed_link_comment' => Phpfox::getLib('url')->makeUrl($aItem['user_name'], array('link-id' => $aRow['link_id'])),
-		    'feed_link' => Phpfox::getLib('url')->makeUrl($aItem['user_name'], array('link-id' => $aRow['link_id'])), 
+		    'feed_link' => Phpfox::getLib('url')->makeUrl($aItem['user_name'], array('link-id' => $aRow['link_id'])),
+			'feed_link_actual' => $aRow['link'],
 		    'feed_content' => $aRow['description'], 
 		    'total_comment' => $aRow['total_comment'], 
 		    'feed_total_like' => $aRow['total_like'], 

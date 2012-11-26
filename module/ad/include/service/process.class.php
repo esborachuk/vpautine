@@ -12,7 +12,7 @@ defined('PHPFOX') or exit('NO DICE!');
  * @copyright		[PHPFOX_COPYRIGHT]
  * @author  		Raymond Benc
  * @package 		Module_Ad
- * @version 		$Id: process.class.php 4889 2012-10-12 05:31:32Z Raymond_Benc $
+ * @version 		$Id: process.class.php 4913 2012-10-22 07:24:53Z Raymond_Benc $
  */
 class Ad_Service_Process extends Phpfox_Service 
 {
@@ -727,7 +727,7 @@ class Ad_Service_Process extends Phpfox_Service
 		
 		$this->database()->update(Phpfox::getT('ad'), array(
 				'name' => $this->preParse()->clean($aVals['name']),
-				'country_iso' => $oParse->clean($aVals['country_iso_custom']),
+				'country_iso' => (isset($aVals['country_iso_custom']) ? $oParse->clean($aVals['country_iso_custom']) : null),
 				'gender' => (int)$aVals['gender'],
 				'age_from' => (int)$aVals['age_from'],
 				'age_to' => (int)$aVals['age_to'],

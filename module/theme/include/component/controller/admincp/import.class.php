@@ -11,7 +11,7 @@ defined('PHPFOX') or exit('NO DICE!');
  * @copyright		[PHPFOX_COPYRIGHT]
  * @author  		Raymond Benc
  * @package 		Phpfox_Component
- * @version 		$Id: import.class.php 4887 2012-10-11 11:38:15Z Raymond_Benc $
+ * @version 		$Id: import.class.php 4906 2012-10-22 04:52:14Z Raymond_Benc $
  */
 class Theme_Component_Controller_Admincp_Import extends Phpfox_Component
 {
@@ -23,7 +23,7 @@ class Theme_Component_Controller_Admincp_Import extends Phpfox_Component
 		$oArchiveImport = Phpfox::getLib('archive.import')->set(array('zip'));
 		$bOverwrite = ($this->request()->getInt('overwrite') ? true : false);
 		
-		if (($sThemeToInstall = $this->request()->get('install')) && Phpfox::getService('theme.process')->installThemeFromFolder($sThemeToInstall))
+		if (($sThemeToInstall = $this->request()->get('install')) && Phpfox::getService('theme.process')->installThemeFromFolder($sThemeToInstall, $this->request()->get('force')))
 		{
 			$this->url()->send('admincp.theme.import', null, Phpfox::getPhrase('theme.theme_successfully_imported'));
 		}
@@ -32,7 +32,7 @@ class Theme_Component_Controller_Admincp_Import extends Phpfox_Component
 		{
             if (preg_match('/^phpfox-theme-(.*?)\.zip$/i', $aFile['name'], $aMatches))
             {
-				if ($sDirectory = $oArchiveImport->process($aFile))
+				if (($sLocationId = $oArchiveImport->process($aFile)) !== false)
 				{
 					$sFolderName = $aMatches[1];
 					if (preg_match('/^(.*)-(.*?)$/i', $aMatches[1]))
@@ -45,7 +45,7 @@ class Theme_Component_Controller_Admincp_Import extends Phpfox_Component
 					{
 						$this->url()->send('admincp.theme.import', null, 'Theme successfully overwritten.');
 					}
-					$this->url()->send('admincp.theme.import', array('install' => $sFolderName));
+					$this->url()->send('admincp.theme.import', array('install' => $sFolderName, 'force' => $sLocationId));
 				}
             }
             else 
@@ -55,7 +55,7 @@ class Theme_Component_Controller_Admincp_Import extends Phpfox_Component
 		}
 		
 		$this->template()->setTitle(Phpfox::getPhrase('theme.import_themes'))
-		->setBreadcrumb(Phpfox::getPhrase('theme.themes'), $this->url()->makeUrl('admincp.theme'))
+			->setBreadcrumb(Phpfox::getPhrase('theme.themes'), $this->url()->makeUrl('admincp.theme'))
 			->setBreadcrumb(Phpfox::getPhrase('theme.import_themes'), null, true)
 			->assign(array(
 					'aNewThemes' => Phpfox::getService('theme')->getNewThemes()

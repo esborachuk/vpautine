@@ -11,7 +11,7 @@ defined('PHPFOX') or exit('NO DICE!');
  * @copyright		[PHPFOX_COPYRIGHT]
  * @author  		Raymond Benc
  * @package  		Module_Admincp
- * @version 		$Id: callback.class.php 4880 2012-10-10 11:52:22Z Raymond_Benc $
+ * @version 		$Id: callback.class.php 4940 2012-10-23 10:04:04Z Miguel_Espinoza $
  */
 class Admincp_Service_Callback extends Phpfox_Service
 {
@@ -99,6 +99,19 @@ class Admincp_Service_Callback extends Phpfox_Service
 				'component',
 				'location'
 			)					
+		);
+
+		$aList[] = array(
+			'name' => Phpfox::getPhrase('admincp.components'),
+			'key' => 'component_id',
+			'table' => 'component',
+			'search' => array(
+				'component',
+				'module_id',
+				'product_id',
+				'm_connection',
+				'is_block'
+			)
 		);
 		
 		$aList[] =	array(

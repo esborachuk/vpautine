@@ -11,7 +11,7 @@ defined('PHPFOX') or exit('NO DICE!');
  * @copyright		[PHPFOX_COPYRIGHT]
  * @author  		Raymond_Benc
  * @package 		Phpfox_Service
- * @version 		$Id: callback.class.php 4869 2012-10-09 11:25:46Z Raymond_Benc $
+ * @version 		$Id: callback.class.php 4906 2012-10-22 04:52:14Z Raymond_Benc $
  */
 class Pages_Service_Callback extends Phpfox_Service 
 {
@@ -68,6 +68,11 @@ class Pages_Service_Callback extends Phpfox_Service
 			->leftJoin(Phpfox::getT('pages_category'), 'pc', 'pc.category_id = p.category_id')
 			->where('p.page_id = ' . (int) $aItem['item_id'])
 			->execute('getSlaveRow');
+		
+		if (!isset($aRow['page_id']))
+		{
+			return false;
+		}
 		
 		if ($bIsChildItem)
 		{

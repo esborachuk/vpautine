@@ -5,7 +5,7 @@
  * @copyright		[PHPFOX_COPYRIGHT]
  * @author  		Raymond Benc
  * @package 		Phpfox
- * @version 		$Id: index.html.php 1565 2010-05-04 22:14:22Z Raymond_Benc $
+ * @version 		$Id: index.html.php 4938 2012-10-23 08:21:57Z Raymond_Benc $
  */
  
 defined('PHPFOX') or exit('NO DICE!'); 
@@ -94,7 +94,7 @@ defined('PHPFOX') or exit('NO DICE!');
 		<td>{$aAd.name|clean}</td>
 		<td>{$aAd.status}</td>
 		<td class="t_center">{if $aAd.is_custom == '2' || $aAd.is_custom == '1'}N/A{else}{$aAd.count_view}{/if}</td>
-		<td class="t_center">{if $aAd.is_custom == '2' || $aAd.is_custom == '1'}N/A{else}{$aAd.count_click}{/if}</td>
+		<td class="t_center">{if $aAd.is_custom == '2' || $aAd.is_custom == '1' || $aAd.type_id == '2'}N/A{else}{$aAd.count_click}{/if}</td>
 		<td class="t_center">
 			{if $aAd.is_custom == '2' || $aAd.is_custom == '1'}
 			{phrase var='ad.n_a'}

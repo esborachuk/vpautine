@@ -4,7 +4,7 @@
 		<div><input type="hidden" name="val[full_name]" id="full_name" value="stock" size="30" /></div>
 		<div class="table">
 			<div class="table_left">
-				<label for="first_name">{required}First Name:</label>
+				<label for="first_name">{required}{phrase var='user.first_name'}:</label>
 			</div>
 			<div class="table_right">
 				<input type="text" name="val[first_name]" id="first_name" value="{value type='input' id='first_name'}" size="30" />
@@ -12,7 +12,7 @@
 		</div>		
 		<div class="table">
 			<div class="table_left">
-				<label for="last_name">{required}Last Name:</label>
+				<label for="last_name">{required}{phrase var='user.last_name'}:</label>
 			</div>
 			<div class="table_right">
 				<input type="text" name="val[last_name]" id="last_name" value="{value type='input' id='last_name'}" size="30" />

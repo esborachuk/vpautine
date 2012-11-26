@@ -11,7 +11,7 @@ defined('PHPFOX') or exit('NO DICE!');
  * @copyright		[PHPFOX_COPYRIGHT]
  * @author  		Raymond Benc
  * @package 		Phpfox_Service
- * @version 		$Id: process.class.php 3952 2012-02-28 14:15:08Z Raymond_Benc $
+ * @version 		$Id: process.class.php 4980 2012-11-01 11:47:16Z Raymond_Benc $
  */
 class Theme_Service_Process extends Phpfox_Service 
 {
@@ -137,6 +137,7 @@ class Theme_Service_Process extends Phpfox_Service
 			$iId = $iEditId;
 		}
 		
+		/*
 		if (Phpfox::getParam('core.ftp_enabled'))
 		{			
 			if (!is_dir($sDir))
@@ -169,6 +170,7 @@ class Theme_Service_Process extends Phpfox_Service
 				Phpfox::getLib('ftp')->move(PHPFOX_DIR_CACHE . $sTempFile, $sDir . 'xml' . PHPFOX_DS . 'phpfox.xml.php');
 			}
 		}		
+		*/
 		
 		$this->cache()->remove();
 		
@@ -623,12 +625,15 @@ class Theme_Service_Process extends Phpfox_Service
 		return true;
 	}
 	
-	public function installThemeFromFolder($sTheme)
+	public function installThemeFromFolder($sTheme, $mForce = false)
 	{
-		$sDir = PHPFOX_DIR_THEME . 'frontend' . PHPFOX_DS . $sTheme . PHPFOX_DS;
-		if (!file_exists($sDir . 'phpfox.xml'))
+		if (!$mForce)
 		{
-			return Phpfox_Error::set('Not a valid theme to install.');
+			$sDir = PHPFOX_DIR_THEME . 'frontend' . PHPFOX_DS . $sTheme . PHPFOX_DS;
+			if (!file_exists($sDir . 'phpfox.xml'))
+			{
+				return Phpfox_Error::set('Not a valid theme to install.');
+			}
 		}
 		
 		$iInstalled = (int) $this->database()->select('COUNT(*)')
@@ -640,9 +645,9 @@ class Theme_Service_Process extends Phpfox_Service
 		{
 			return Phpfox_Error::set('This theme is already installed.');
 		}
-		
-		$aParams = Phpfox::getLib('xml.parser')->parse(file_get_contents($sDir . 'phpfox.xml'));
-		
+
+		$aParams = Phpfox::getLib('xml.parser')->parse(file_get_contents(($mForce ? PHPFOX_DIR_CACHE . $mForce . PHPFOX_DS . 'upload/theme/frontend/' . $sTheme . '/phpfox.xml' : $sDir . 'phpfox.xml')));
+
 		$aForm = array(
 			'name' => array(
 				'type' => 'string:required',
@@ -696,15 +701,23 @@ class Theme_Service_Process extends Phpfox_Service
 
 		$iId = $this->database()->insert(Phpfox::getT('theme'), $aParams);
 		
-		$sStyleDir = PHPFOX_DIR_THEME . 'frontend' . PHPFOX_DS . $aParams['folder'] . PHPFOX_DS . 'style' . PHPFOX_DS;
+		if ($mForce && Phpfox::getParam('core.phpfox_is_hosted'))
+		{
+			$sStyleDir = PHPFOX_DIR_CACHE . $mForce . PHPFOX_DS . 'upload' . PHPFOX_DS . 'theme' . PHPFOX_DS . 'frontend' . PHPFOX_DS . $aParams['folder'] . PHPFOX_DS . 'style' . PHPFOX_DS;
+		}
+		else
+		{
+			$sStyleDir = PHPFOX_DIR_THEME . 'frontend' . PHPFOX_DS . $aParams['folder'] . PHPFOX_DS . 'style' . PHPFOX_DS;
+		}
+
 		$hDir = opendir($sStyleDir);
 		while ($sFolder = readdir($hDir))
 		{
 			if ($sFolder == '.' || $sFolder == '..')
 			{
 				continue;
-			}
-			
+			}			
+		
 			if (!file_exists($sStyleDir . $sFolder . PHPFOX_DS . 'phpfox.xml'))
 			{
 				continue;
@@ -717,12 +730,123 @@ class Theme_Service_Process extends Phpfox_Service
 			
 			if (!$iInstalled)
 			{
-				Phpfox::getService('theme.style.process')->installStyleFromFolder($aParams['folder'], $sFolder);
+				Phpfox::getService('theme.style.process')->installStyleFromFolder($aParams['folder'], $sFolder, $mForce);
 			}
 		}
 		closedir($hDir);		
+		
+		if ($mForce && Phpfox::getParam('core.phpfox_is_hosted'))
+		{
+			$aFiles = Phpfox::getLib('file')->getAllFiles(PHPFOX_DIR_CACHE . $mForce . PHPFOX_DS);
 
+			$aCssContent = array();
+			foreach ($aFiles as $sFile)
+			{
+				if ($sFile == '.' || $sFile == '..' || empty($sFile))
+				{
+					continue;
+				}
+				if (substr($sFile, -4) == '.css')
+				{
+					preg_match('/(.*)\/style\/(.*)\/css\/(.*)/i', $sFile, $aMatches);
+					if (isset($aMatches[2]))
+					{
+						if (!isset($aCssContent[$aMatches[2]]))
+						{
+							$aCssContent[$aMatches[2]] = '';
+						}
+					
+						$aCssContent[$aMatches[2]] .= file_get_contents($sFile);
+					}
+				}
+				elseif (substr($sFile, -9) == '.html.php')
+				{										
+					$sTypeId = 'layout';
+					$sModuleId = null;
+					$aNameParts = explode('/', $sFile);
+					$sTemplateName = $aNameParts[(count($aNameParts) - 1)];
+					$sTemplateContent = file_get_contents($sFile);
+										
+					$this->database()->insert(Phpfox::getT('theme_template'), array(
+							'is_custom' => '1',
+							'folder' => $sTheme,
+							'type_id' => $sTypeId,
+							'product_id' => 'phpfox',
+							'module_id' => $sModuleId,
+							'name' => $sTemplateName,
+							'html_data' => $sTemplateContent,
+							'time_stamp' => PHPFOX_TIME
+						)
+					);
+				}
+			}
+						
+			if (!empty($sFile))
+			{
+				foreach ($aCssContent as $sStyleName => $sStyleContent)
+				{
+					$this->_sStyleDir = $sStyleDir . $sStyleName;
+					
+					$sStyleContent = preg_replace_callback('/url\((.*)\)/i', array($this, 'replaceCdnImages'), $sStyleContent);					
+					
+					$iStyleId = $this->database()->select('style_id')
+						->from(Phpfox::getT('theme_style'))
+						->where('folder = \'' . $this->database()->escape($sStyleName) . '\'')
+						->execute('getSlaveField');
+					
+					if ($iStyleId)
+					{
+						$sName = md5(PHPFOX_IS_HOSTED_SCRIPT . uniqid()) . '.css';
+						$sTempFile = PHPFOX_DIR_CACHE . $sName;							
+							
+						$hFile = fopen($sTempFile, 'w+');
+						fwrite($hFile, $sStyleContent);
+						fclose($hFile);
+							
+						Phpfox::getLib('cdn')->put($sTempFile, 'file/static/' . $sName);
+							
+						unlink($sTempFile);						
+						
+						$this->database()->delete(Phpfox::getT('theme_css'), 'style_id = ' . (int) $iStyleId);
+						$this->database()->insert(Phpfox::getT('theme_css'), array(
+								'module_id' => null,
+								'product_id' => null,
+								'style_id' => $iStyleId,
+								'file_name' => 'custom.css',
+								'css_data' => $sStyleContent,
+								'css_data_original' => $sName,
+								'full_name' => null,
+								'time_stamp' => PHPFOX_TIME	
+							)
+						);
+					}
+				}
+			}
+						
+			Phpfox::getLib('file')->delete_directory(PHPFOX_DIR_CACHE . $mForce . PHPFOX_DS);
+		}
+		
 		return $iId;
+	}
+	
+	public function replaceCdnImages($aMatches)
+	{
+		$sImage = trim(trim($aMatches[1], '"'), "'");
+		$sActualFile = rtrim($this->_sStyleDir, '/') . str_replace('..', '', $sImage);
+
+		if (file_exists($sActualFile))
+		{
+			$aParts = explode('upload/', $this->_sStyleDir);
+			$sUrl = Phpfox::getParam('core.rackspace_url') . $aParts[2];
+		}
+		else
+		{
+			$sUrl = Phpfox::getCdnPath() . 'theme/frontend/default/style/default';
+		}
+		
+		$sImage = str_replace('..', $sUrl, $sImage);
+		
+		return 'url(\'' . $sImage . '\')';
 	}
 	
 	public function resetBlock($sType)

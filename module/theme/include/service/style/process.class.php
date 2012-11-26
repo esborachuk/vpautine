@@ -11,7 +11,7 @@ defined('PHPFOX') or exit('NO DICE!');
  * @copyright		[PHPFOX_COPYRIGHT]
  * @author  		Raymond Benc
  * @package 		Phpfox_Service
- * @version 		$Id: process.class.php 3126 2011-09-19 12:33:04Z Raymond_Benc $
+ * @version 		$Id: process.class.php 4980 2012-11-01 11:47:16Z Raymond_Benc $
  */
 class Theme_Service_Style_Process extends Phpfox_Service 
 {
@@ -160,7 +160,7 @@ class Theme_Service_Style_Process extends Phpfox_Service
 			return Phpfox_Error::set(Phpfox::getPhrase('theme.unable_to_find_style'));
 		}
 		
-		$aCss = $this->database()->select('css_id, is_custom')
+		$aCss = $this->database()->select('css_id, is_custom, css_data_original')
 			->from(Phpfox::getT('theme_css'))
 			->where('module_id = \'' . $this->database()->escape($aVals['module_id']) . '\' AND style_id = ' . $aStyle['style_id'] . ' AND file_name = \'' . $this->database()->escape($aVals['file_name']) . '\'')
 			->execute('getRow');
@@ -196,6 +196,26 @@ class Theme_Service_Style_Process extends Phpfox_Service
 			$aVals['time_stamp'] = PHPFOX_TIME;
 		}		
 		
+		if (defined('PHPFOX_IS_HOSTED_SCRIPT'))
+		{
+			$sName = md5(PHPFOX_IS_HOSTED_SCRIPT . uniqid()) . '.css';
+			$sTempFile = PHPFOX_DIR_CACHE . $sName;			
+			
+			$aVals['css_data_original'] = $sName;
+			
+			$hFile = fopen($sTempFile, 'w+');
+			fwrite($hFile, $aVals['css_data']);
+			fclose($hFile);
+			
+			if (!empty($aCss['css_data_original']))
+			{
+				Phpfox::getLib('cdn')->remove('file/static/' . $aCss['css_data_original']);
+			}
+			Phpfox::getLib('cdn')->put($sTempFile, 'file/static/' . $sName);
+			
+			unlink($sTempFile);			
+		} 
+		
 		if (isset($aCss['css_id']) && $aCss['css_id'])
 		{		
 			$this->database()->update(Phpfox::getT('theme_css'), $aVals, 'css_id = ' . (int) $aCss['css_id']);
@@ -208,7 +228,11 @@ class Theme_Service_Style_Process extends Phpfox_Service
 		$this->database()->update(Phpfox::getT('setting'), array('value_actual' => ((int) Phpfox::getParam('core.css_edit_id') + 1)), 'var_name = \'css_edit_id\'');
 		
 		$this->cache()->remove('setting');
-		$this->cache()->removeStatic();
+		if (defined('PHPFOX_IS_HOSTED_SCRIPT'))
+		{
+			$this->cache()->remove($aStyle['style_id'] . '_custom_css_file');
+		}
+		$this->cache()->removeStatic();		
 		
 		return true;
 	}
@@ -350,7 +374,7 @@ class Theme_Service_Style_Process extends Phpfox_Service
              */
 			
 			$iId = $this->database()->insert(Phpfox::getT('theme_style'), $aVals);					
-	
+			/*
 			if (Phpfox::getParam('core.ftp_enabled'))
 			{
 				$sDir = PHPFOX_DIR_THEME . 'frontend' . PHPFOX_DS . $aTheme['folder'] . PHPFOX_DS . 'style' . PHPFOX_DS . $this->database()->escape($aVals['folder']) . PHPFOX_DS;	
@@ -361,6 +385,7 @@ class Theme_Service_Style_Process extends Phpfox_Service
 				 	Phpfox::getLib('ftp')->mkdir($sDir . $sFileDirectory . PHPFOX_DS);
 				}
 			}
+			*/
 		}
 		else 
 		{
@@ -675,9 +700,17 @@ class Theme_Service_Style_Process extends Phpfox_Service
 		return true;
 	}
 	
-	public function installStyleFromFolder($sTheme, $sStyle)
+	public function installStyleFromFolder($sTheme, $sStyle, $mForce = false)
 	{
-		$sDir = PHPFOX_DIR_THEME . 'frontend' . PHPFOX_DS . $sTheme . PHPFOX_DS . 'style' . PHPFOX_DS . $sStyle . PHPFOX_DS;
+		if ($mForce && Phpfox::getParam('core.phpfox_is_hosted'))
+		{
+			$sDir = PHPFOX_DIR_CACHE . $mForce . PHPFOX_DS . 'upload' . PHPFOX_DS . 'theme' . PHPFOX_DS . 'frontend' . PHPFOX_DS . $sTheme . PHPFOX_DS . 'style' . PHPFOX_DS . $sStyle . PHPFOX_DS;
+		}
+		else
+		{
+			$sDir = PHPFOX_DIR_THEME . 'frontend' . PHPFOX_DS . $sTheme . PHPFOX_DS . 'style' . PHPFOX_DS . $sStyle . PHPFOX_DS;
+		}
+
 		if (!file_exists($sDir . 'phpfox.xml'))
 		{
 			return Phpfox_Error::set('Not a valid theme to install.');

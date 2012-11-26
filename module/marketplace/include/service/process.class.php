@@ -11,7 +11,7 @@ defined('PHPFOX') or exit('NO DICE!');
  * @copyright		[PHPFOX_COPYRIGHT]
  * @author  		Raymond Benc
  * @package 		Phpfox_Service
- * @version 		$Id: process.class.php 4786 2012-09-27 10:40:14Z Miguel_Espinoza $
+ * @version 		$Id: process.class.php 4977 2012-10-31 14:12:43Z Miguel_Espinoza $
  */
 class Marketplace_Service_Process extends Phpfox_Service 
 {
@@ -459,6 +459,12 @@ class Marketplace_Service_Process extends Phpfox_Service
 		Phpfox::getService('user.activity')->update($aListing['user_id'], 'marketplace', '-');
 		
 		$this->cache()->remove('marketplace_sponsored');
+		Phpfox::massCallback('deleteItem', array(
+			'sModule' => 'marketplace',
+			'sTable' => Phpfox::getT('marketplace'),
+			'iItemId' => $iId
+		));
+
 		
 		(($sPlugin = Phpfox_Plugin::get('marketplace.service_process_delete__1')) ? eval($sPlugin) : false);
 		return true;
@@ -522,11 +528,17 @@ class Marketplace_Service_Process extends Phpfox_Service
 		foreach ($aSizes as $iSize)
 		{
 			$sImage = Phpfox::getParam('marketplace.dir_image') . sprintf($aListing['image_path'], (empty($iSize) ? '' : '_' ) . $iSize);
+			$sImageSquare = Phpfox::getParam('marketplace.dir_image') . sprintf($aListing['image_path'], (empty($iSize) ? '' : '_' ) . $iSize . '_square');
 			if (file_exists($sImage))
 			{
 				$iFileSizes += filesize($sImage);
 				
 				Phpfox::getLib('file')->unlink($sImage);
+				
+			}
+			if (file_exists($sImageSquare))
+			{
+				Phpfox::getLib('file')->unlink($sImageSquare);
 			}
 		}
 		

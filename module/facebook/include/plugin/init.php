@@ -79,6 +79,15 @@ if (Phpfox::getParam('facebook.enable_facebook_connect'))
 						if (is_array($aUserInfo))
 						{
 							$aVals['full_name'] = $aUserInfo['name'];
+
+							if (isset($aUserInfo['first_name']))
+							{
+								$aVals['first_name'] = $aUserInfo['first_name'];
+							}
+							if (isset($aUserInfo['last_name']))
+							{
+								$aVals['last_name'] = $aUserInfo['last_name'];
+							}
 							
 							if (empty($aVals['full_name']))
 							{

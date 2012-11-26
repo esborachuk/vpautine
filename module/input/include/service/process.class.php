@@ -37,7 +37,7 @@ class Input_Service_Process extends Phpfox_Service
 	 * @return type 
 	 */
 	public function add($aVals)
-	{			
+	{
 		Phpfox::getUserParam('custom.can_add_custom_fields', true);
 		$oInput = Phpfox::getLib('parse.input');
 		$oPhrase = Phpfox::getService('language.phrase.process');
@@ -78,9 +78,15 @@ class Input_Service_Process extends Phpfox_Service
 		else
 		{		
 			$iFieldId = $this->database()->insert(Phpfox::getT('input_field'), $aInsert);
-		}
+		} 
 		
 		$bEmptyName = true;
+		$aName = array(
+			'module' => 'input|input',
+			'var_name' => 'input_name_' . $iFieldId . '_' . rand(1,999),
+			'product_id' => $aAction['product_id'],
+			'text' => array()
+		);
 		foreach ($aVals['name'] as $sLangId => $sName)
 		{			
 			if (isset($aVals['field_id']) && is_array($sName))
@@ -103,14 +109,14 @@ class Input_Service_Process extends Phpfox_Service
 				}
 				$bEmptyName = false;
 				// Adding
-				$sNameVar = $oPhrase->add(array(
-					'module' => 'input|input',
-					'var_name' => 'input_name_' . $iFieldId . '_' . rand(1,999),
-					'product_id' => $aAction['product_id'],
-					'text' => array($sLangId => $sName)
-				));
-				$this->database()->update(Phpfox::getT('input_field'), array('phrase_var' => $sNameVar), 'field_id='.$iFieldId);
+				$aName['text'][$sLangId] = $sName;
 			}			
+		}
+
+		if (!empty($aName['text']))
+		{
+			$sNameVar = $oPhrase->add($aName);
+			$this->database()->update(Phpfox::getT('input_field'), array('phrase_var' => $sNameVar), 'field_id='.$iFieldId);
 		}
 		
 		if ($bEmptyName)
@@ -127,10 +133,10 @@ class Input_Service_Process extends Phpfox_Service
 			{
 				return Phpfox_Error::set('No options for a type that requires them.');
 			}
-			
+
+			$aAddedOptions = array();
 			foreach ($aVals['option'] as $sLangId => $aOptions)
-			{
-				
+			{				
 				if ($sLangId == 'edit')
 				{					
 					if (!is_array($aOptions))
@@ -170,21 +176,30 @@ class Input_Service_Process extends Phpfox_Service
 					}
 					continue;
 				}
+
 				foreach ($aOptions as $iOptionOrdering => $sOption)
 				{
-					$iOptionId = $this->database()->insert(Phpfox::getT('input_option'), array(
-						'field_id' => $iFieldId,
-						'phrase_var' => '',
-						'ordering' => $iOptionOrdering
-					));
-					$aPhrase = array('module' => 'input|input', 'text' => array(), 'var_name' => 'input_option_' . $iFieldId.'_'.$iOptionId, 'product_id' => $aAction['product_id']);
+					if (!isset($aAddedOptions[$iOptionOrdering]))
+					{						
+						$iOptionId = $this->database()->insert(Phpfox::getT('input_option'), array(
+							'field_id' => $iFieldId,
+							'phrase_var' => '',
+							'ordering' => $iOptionOrdering
+						));
+						$aAddedOptions[$iOptionOrdering] = $iOptionId;
+					}
+					else
+					{
+						$iOptionId = $aAddedOptions[$iOptionOrdering];
+					}					
+					
+					$aPhrase = array('module' => 'input|input', 'text' => array(), 'var_name' => 'input_option_' . $iFieldId.'_'.$iOptionOrdering, 'product_id' => $aAction['product_id']);
 					$aPhrase['text'][$sLangId] = $sOption;
 					$sPhraseVar = $oPhrase->add($aPhrase);
 					$this->database()->update(Phpfox::getT('input_option'), array('phrase_var' => $sPhraseVar), 'option_id = ' . $iOptionId);
 				}				
 			}			
 		}
-		
 		// Add the Conditions. Conditions are restrictions for which user can enter information like "must be in user group 2", or "must be gender 1"
 		if (isset($aVals['condition']) && is_array($aVals['condition']) && !empty($aVals['condition']))
 		{
@@ -369,7 +384,40 @@ class Input_Service_Process extends Phpfox_Service
 		$this->database()->delete(Phpfox::getT('input_value_option'),'field_id = ' . (int)$iId);
 		return true;
 	}
+
+	/*
+	 * This function deletes values added to an input, used when an item -like a marketplace listing- is deleted
+	 * @param $sModule string Which module did the item belong to? (it could be marketplace, blog, your-custom-module,...)
+	 * @param $sAction string Unique action to identify which input was this added, if this is left empty all the inputs associated with $sModule that match $iItemId will be deleted
+	 * @param $iItemId int internal identifier for the item, for example the column listing_id in the table phpfox_marketplace stores values for this field*/
+	public function deleteValues($aParams)
+	{
+		if (!isset($aParams['sModule']) || empty($aParams['sModule']) || !isset($aParams['iItemId']) || empty($aParams['iItemId']))
+		{
+			return Phpfox_Error::set('The array that deletes inputs is not well defined.');
+		}
+		$oParse = Phpfox::getLib('parse.input');
 		
+		// Get the field_id(s) to delete specific values
+		$this->database()->where('module_id = "' . $oParse->clean($aParams['sModule']) .'"');
+		if (isset($aParams['sAction']) && !empty($aParams['sAction']))
+		{
+			$this->database()->where(' AND action = "' . Phpfox::getLib('parse.input')->clean($aParams['sAction']) .'"');
+		}
+
+		$aInputId = $this->database()->select('field_id')->from(Phpfox::getT('input_field'))->execute('getSlaveRows');
+		$sWhere = '';
+		foreach ($aInputId as $aInput)
+		{
+			$sWhere .= '(field_id = '. $aInput['field_id'] . ' AND item_id = ' . (int)$aParams['iItemId'] . ') OR';
+		}
+		$sWhere = rtrim($sWhere, 'OR');
+
+		$this->database()->delete(Phpfox::getT('input_value_longtext'), $sWhere);
+		$this->database()->delete(Phpfox::getT('input_value_shorttext'), $sWhere);
+		$this->database()->delete(Phpfox::getT('input_value_option'), $sWhere);
+		
+	}
 }
 
 ?>

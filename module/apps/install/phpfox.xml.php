@@ -4,8 +4,8 @@
 		<product_id>phpfox</product_id>
 		<is_core>1</is_core>
 		<is_active>1</is_active>
-		<is_menu>1</is_menu>
-		<menu><![CDATA[a:1:{s:26:"apps.admin_menu_categories";a:1:{s:3:"url";a:2:{i:0;s:4:"apps";i:1;s:10:"categories";}}}]]></menu>
+		<is_menu>0</is_menu>
+		<menu />
 		<phrase_var_name>module_apps</phrase_var_name>
 		<writable><![CDATA[a:1:{i:0;s:13:"file/pic/app/";}]]></writable>
 	</data>
@@ -47,7 +47,6 @@
 	</components>
 	<phrases>
 		<phrase module_id="apps" version_id="3.0.0beta1" var_name="module_apps" added="1312898098">Apps</phrase>
-		<phrase module_id="apps" version_id="3.0.0beta1" var_name="admin_menu_categories" added="1313050167">Categories</phrase>
 		<phrase module_id="apps" version_id="3.0.0beta1" var_name="menu_apps_apps_fad58de7366495db4650cfefac2fcd61" added="1313566699">Apps</phrase>
 		<phrase module_id="apps" version_id="3.0.0beta1" var_name="menu_apps_add_an_app_9a6dd283c3de653fbca500f9721f634f" added="1313657007">Create an App</phrase>
 		<phrase module_id="apps" version_id="3.0.0beta1" var_name="user_setting_can_add_app" added="1314102373">Can add an app to the site?</phrase>
@@ -168,6 +167,10 @@ A value too small could slow down your site.</info>]]></phrase>
 		<phrase module_id="apps" version_id="3.0.0beta5" var_name="would_you_like_to_view_this_app_without_installing_it" added="1319465771">Would you like to view this App without installing it?</phrase>
 		<phrase module_id="apps" version_id="3.0.0beta5" var_name="yes" added="1319465778">Yes</phrase>
 		<phrase module_id="apps" version_id="3.1.0rc1" var_name="menu_core_apps_532c28d5412dd75bf975fb951c740a30" added="1332250396">Apps</phrase>
+		<phrase module_id="apps" version_id="3.4.0" var_name="admin_menu_categories" added="1351240790">Categories</phrase>
+		<phrase module_id="apps" version_id="3.4.0" var_name="admincp_menu_apps" added="1351240933">Apps</phrase>
+		<phrase module_id="apps" version_id="3.4.0" var_name="install_app" added="1351241071">Install App</phrase>
+		<phrase module_id="apps" version_id="3.4.0" var_name="export_apps" added="1351241088">Export Apps</phrase>
 	</phrases>
 	<user_group_settings>
 		<setting is_admin_setting="0" module_id="apps" type="boolean" admin="true" user="false" guest="false" staff="true" module="apps" ordering="0">can_add_app</setting>

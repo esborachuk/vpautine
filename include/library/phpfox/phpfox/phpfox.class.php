@@ -20,14 +20,14 @@ defined('PHPFOX') or exit('NO DICE!');
  * @copyright		[PHPFOX_COPYRIGHT]
  * @author			Raymond Benc
  * @package 		Phpfox
- * @version 		$Id: phpfox.class.php 4854 2012-10-09 05:20:40Z Raymond_Benc $
+ * @version 		$Id: phpfox.class.php 4985 2012-11-05 08:52:50Z Raymond_Benc $
  */
 final class Phpfox
 {	
 	/**
  	* Product Version : major.minor.maintenance [alphaX, betaX or rcX]
  	*/
-	const VERSION = '3.4.0rc1';
+	const VERSION = '3.4.0';
 	
 	/**
 	 * Product Code Name
@@ -45,7 +45,7 @@ final class Phpfox
 	 * Product build number.
 	 *
 	 */
-	const PRODUCT_BUILD = '1';
+	const PRODUCT_BUILD = '4';
 	
 	/**
 	 * phpFox API server.
@@ -1315,6 +1315,7 @@ final class Phpfox
 		if (!PHPFOX_IS_AJAX_PAGE && Phpfox::getParam('core.phpfox_is_hosted'))
 		{
 			$iTotalMembersOnline = Phpfox::getService('log.session')->getOnlineMembers();
+	
 			if ($iTotalMembersOnline > Phpfox::getParam('core.phpfox_max_users_online') && $iTotalMembersOnline > (int) Phpfox::getParam('core.phpfox_total_users_online_mark'))
 			{
 				$oDb = Phpfox::getLib('database');
@@ -1330,7 +1331,7 @@ final class Phpfox
 				
 				Phpfox::getLib('cache')->remove('setting');
 				
-				ob_clean();				
+				ob_clean();		
 			}
 		}		
 		
@@ -1497,6 +1498,16 @@ final class Phpfox
 	public static function permalink($sLink, $iId, $sTitle = null, $bRedirect = false, $sMessage = null, $aExtra = array())
 	{		
 		return Phpfox::getLib('url')->permalink($sLink, $iId, $sTitle, $bRedirect, $sMessage, $aExtra);
+	}
+	
+	/**
+	 * Get CDN path
+	 * 
+	 * @return string Returns CDN full URL
+	 */
+	public static function getCdnPath()
+	{
+		return 'http://localhost/phpfox/3x/dev/cdn/' . self::getVersion() . '/';
 	}
 }
 

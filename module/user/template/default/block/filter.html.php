@@ -76,8 +76,8 @@ defined('PHPFOX') or exit('NO DICE!');
 	
 	<div id="js_user_browse_advanced">
 		<div class="user_browse_content">
-
-
+		    
+		    
 	<div id="browse_custom_fields_popup_holder">
 	    {foreach from=$aCustomFields name=customfield item=aCustomField}
 	    <div class="go_left">
@@ -129,6 +129,7 @@ defined('PHPFOX') or exit('NO DICE!');
 	</div>	
 		
 	<div class="p_top_15">
+	    <a href="#" id="js_user_browse_advanced_link_close" onclick="$('#js_user_browse_advanced').hide(); return false;">{phrase var='user.close_advanced_filters'}</a>
 	    <input type="submit" value="{phrase var='user.browse_filter_submit'}" class="button" name="search[submit]" />
 	</div>	
 		    

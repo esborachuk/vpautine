@@ -11,7 +11,7 @@ defined('PHPFOX') or exit('NO DICE!');
  * @copyright		[PHPFOX_COPYRIGHT]
  * @author  		Raymond Benc
  * @package  		Module_Mail
- * @version 		$Id: compose.class.php 4631 2012-09-13 11:59:05Z Raymond_Benc $
+ * @version 		$Id: compose.class.php 4921 2012-10-22 13:47:30Z Miguel_Espinoza $
  */
 class Mail_Component_Controller_Compose extends Phpfox_Component
 {
@@ -50,8 +50,10 @@ class Mail_Component_Controller_Compose extends Phpfox_Component
 					$this->template()->assign(array(
 						'iPageId' => $this->getParam('page_id'),
 						'aPage' => $aPage,
-						'sMessageClaim' => 'Hello, I hereby claim the page "'. $aPage['title'] . '" (url: '. Phpfox::permalink('pages', $aPage['page_id'], $aPage['title']) .') as my own and request your attention to the matter. I am able to provide any documentation that you may require.'
-					));
+						'sMessageClaim' => Phpfox::getPhrase('mail.page_claim_message', array(
+							'title' => $aPage['title'],
+							'url' => Phpfox::permalink('pages', $aPage['page_id'], $aPage['title'])
+						))));
 				}
 			}
 			
@@ -237,6 +239,11 @@ class Mail_Component_Controller_Compose extends Phpfox_Component
 				'sForwardThreadId' => $iThreadId
 			)
 		);
+			
+		if (!Phpfox::getUserParam('mail.can_add_attachment_on_mail'))
+		{
+			$this->template()->assign('bNoAttachaFile', true);
+		}
 		
 		$this->setParam('attachment_share', array(		
 				'type' => 'mail',

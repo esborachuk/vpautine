@@ -11,7 +11,7 @@ defined('PHPFOX') or exit('NO DICE!');
  * @copyright		[PHPFOX_COPYRIGHT]
  * @author  		Raymond Benc
  * @package  		Module_Language
- * @version 		$Id: process.class.php 2655 2011-06-03 11:40:56Z Miguel_Espinoza $
+ * @version 		$Id: process.class.php 4961 2012-10-29 07:11:34Z Raymond_Benc $
  */
 class Language_Service_Process extends Phpfox_Service 
 {
@@ -272,9 +272,20 @@ class Language_Service_Process extends Phpfox_Service
 		return $sLanguageId;
 	}	
 	
-	public function installPackFromFolder($sPack)
+	public function installPackFromFolder($sPack, $sCustomDir = '')
 	{
-		$sDir = PHPFOX_DIR_INCLUDE . 'xml' . PHPFOX_DS . 'language' . PHPFOX_DS . $sPack . PHPFOX_DS;
+		if (!empty($sCustomDir))
+		{
+			if (!preg_match('/phpfox-language-([a-zA-Z0-9]+)\.zip/i', $_FILES['import']['name'], $aMatches))
+			{
+				return Phpfox_Error::set('This is not a valid language package.');
+			}
+			
+			$sPack = $aMatches[1];
+		}
+		
+		$sDir = (empty($sCustomDir) ? PHPFOX_DIR_INCLUDE : $sCustomDir . str_replace(PHPFOX_DIR, '', PHPFOX_DIR_INCLUDE)) . 'xml' . PHPFOX_DS . 'language' . PHPFOX_DS . $sPack . PHPFOX_DS;		
+
 		if (!is_dir($sDir))
 		{
 			return Phpfox_Error::set(Phpfox::getPhrase('language.not_a_valid_language_package_to_install'));

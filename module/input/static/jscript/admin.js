@@ -89,7 +89,8 @@ $Core.input =
 				 $(this).attr('id', $(this).attr('id') + '_' + iCount);
 			});
 		}
-			
+		 
+		$('#tbl_options tr').each(function(){ $(this).find('.td_delete:not(:first)').html(''); });
 		
 	},
 	
@@ -262,7 +263,7 @@ $Core.input =
 		}
 		
 		/* Remove the "delete" button from the first option*/
-		$('#tbl_options .td_delete:first').html('');
+		$('#tbl_options .td_delete:not(:first)').html('');
 	},
 	
 	/* Adds sorting capabilities, are we using this function?? */

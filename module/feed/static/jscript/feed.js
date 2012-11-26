@@ -204,7 +204,7 @@ $Behavior.activityFeedProcess = function()
 					if (!$('.timeline_main_menu').hasClass('timeline_main_menu_fixed')){
 						$('.timeline_main_menu').addClass('timeline_main_menu_fixed');
 						
-						if ($('.content').height() > 600){
+						if ($('#content').height() > 600){
 							$('#timeline_dates').addClass('timeline_dates_fixed');
 						}						
 					}					
@@ -630,10 +630,10 @@ $ActivityFeedCompleted.photo = function()
 	$('#global_attachment_photo_file_input').val('');
 }
 
-
+var sToReplace = '';
 
 function attachFunctionTagger(sSelector)
-{	
+{
 	$(sSelector).data('selector', sSelector).keyup(function(eventObject, sSelector){				
 				var sInput = $($(this).data('selector')).val();
 				
@@ -645,8 +645,7 @@ function attachFunctionTagger(sSelector)
 					$($(this).data('selector')).siblings('.chooseFriend').hide(function(){$(this).remove();});
 					return;
 				}
-				var sNameToFind = sInput.substring(iAtSymbol+1, iInputLength);
-				
+				var sNameToFind = sInput.substring(iAtSymbol+1, iInputLength);				
 				
 				/* loop through friends */
 				var aFoundFriends = [], sOut = '';
@@ -654,26 +653,26 @@ function attachFunctionTagger(sSelector)
 				{
 					if ($Cache.friends[i]['full_name'].toLowerCase().indexOf(sNameToFind.toLowerCase()) >= 0)
 					{
+						var sNewInput = sInput.substr(0, iAtSymbol).replace(/\'/g,'\\\'').replace(/\"/g,'&#34;');
+						sToReplace = sNewInput;
 						
-						var sNewInput = sInput.substr(0, iAtSymbol).replace(/\'/g,'\\\'').replace(/\"/g,'&#34;');						
-						aFoundFriends.push({user_id: $Cache.friends[i]['user_id'], full_name: $Cache.friends[i]['full_name'], user_image: $Cache.friends[i]['user_image']});											
-						
-						sOut += '<div class="tagFriendChooser" onclick="$(\''+ $(this).data('selector') +'\').val(\''+ sNewInput + '[x=' + $Cache.friends[i]['user_id'] + ']' + $Cache.friends[i]['full_name'] +'[/x]\').putCursorAtEnd();$(\''+$(this).data('selector')+'\').siblings(\'.chooseFriend\').remove();"><div class="tagFriendChooserImage"><img style="vertical-align:middle;width:25px; height:25px;" src="'+$Cache.friends[i]['user_image'] + '"> </div><span>' +(($Cache.friends[i]['full_name'].length > 25) ?($Cache.friends[i]['full_name'].substr(0,25) + '...') : $Cache.friends[i]['full_name']) + '</span></div>';
+						aFoundFriends.push({user_id: $Cache.friends[i]['user_id'], full_name: $Cache.friends[i]['full_name'], user_image: $Cache.friends[i]['user_image']});				
+
+						sOut += '<div class="tagFriendChooser" onclick="$(\''+ $(this).data('selector') +'\').val(sToReplace + \'[x=' + $Cache.friends[i]['user_id'] + ']' + $Cache.friends[i]['full_name'] +'[/x]\').putCursorAtEnd();$(\''+$(this).data('selector')+'\').siblings(\'.chooseFriend\').remove();"><div class="tagFriendChooserImage"><img style="vertical-align:middle;width:25px; height:25px;" src="'+$Cache.friends[i]['user_image'] + '"> </div><span>' + (($Cache.friends[i]['full_name'].length > 25) ?($Cache.friends[i]['full_name'].substr(0,25) + '...') : $Cache.friends[i]['full_name']) + '</span></div>';
 						/* just delete the fancy choose your friend and recreate it */
+						sOut = sOut.replace("\n", '').replace("\r", '');
+						
 					}
 				}
-				
 				$($(this).data('selector')).siblings('.chooseFriend').remove();
 				$($(this).data('selector')).after('<div class="chooseFriend" style="width: '+ $(this).parent().width()+'px;">'+sOut+'</div>');
 				
 			}).focus(function(){
 				if (typeof $Cache == 'undefined' || typeof $Cache.friends == 'undefined')
 				{
-					
 					$.ajaxCall('friend.buildCache','','GET');
 				}
-			});
-			
+			});			
 }
 
 
@@ -707,8 +706,7 @@ $Behavior.tagger = function()
 	for (var i in aSelectors)
 	{
 		var sSelector = aSelectors[i];
-		
-		
+				
 		/* Dont tag users in feeds in pages, events or profiles other than mine*/
 		if (sSelector == '#pageFeedTextarea' || sSelector == '#eventFeedTextarea'  || sSelector == '#profileFeedTextarea') 
 		{

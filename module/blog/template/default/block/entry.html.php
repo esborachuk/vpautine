@@ -5,13 +5,13 @@
  * @copyright		[PHPFOX_COPYRIGHT]
  * @author  		Raymond Benc
  * @package  		Module_Blog
- * @version 		$Id: entry.html.php 4568 2012-07-31 08:18:04Z Raymond_Benc $
+ * @version 		$Id: entry.html.php 4941 2012-10-23 12:43:23Z Miguel_Espinoza $
  */
  
 defined('PHPFOX') or exit('NO DICE!'); 
 
 ?>
-<div style="word-wrap:break-word;" id="js_blog_entry{$aItem.blog_id}"{if !isset($bBlogView)} class="js_blog_parent {if is_int($phpfox.iteration.blog/2)}row1{else}row2{/if}{if $phpfox.iteration.blog == 1 && !PHPFOX_IS_AJAX} row_first{/if}{if $aItem.is_approved != 1} {/if}"{/if}>	
+<div style="word-wrap:break-word;" id="js_blog_entry{$aItem.blog_id}"{if !isset($bBlogView)} class="moderation_row js_blog_parent {if is_int($phpfox.iteration.blog/2)}row1{else}row2{/if}{if $phpfox.iteration.blog == 1 && !PHPFOX_IS_AJAX} row_first{/if}{if $aItem.is_approved != 1} {/if}"{/if}>	
 	{if !isset($bBlogView)}
 	<div class="row_title">	
 		<div class="row_title_image">

@@ -69,7 +69,7 @@
 		<phrase module_id="facebook" version_id="3.3.0rc1" var_name="connecting_to_facebook_please_hold" added="1341397384">Connecting to Facebook. Please hold...</phrase>
 		<phrase module_id="facebook" version_id="3.4.0beta2" var_name="successfully_unlinked_your_facebook_account" added="1348746543">Successfully unlinked your Facebook account.</phrase>
 		<phrase module_id="facebook" version_id="3.4.0beta2" var_name="unlink_facebook_connect" added="1348746553">Unlink Facebook Connect</phrase>
-		<phrase module_id="facebook" version_id="3.4.0beta2" var_name="facebook_unlink_info" added="1348746578">You are about to unlink the account you with us and your Facebook account. In order to do this you will have to have a valid email and password with us. To complete the process please fill out the form below.</phrase>
+		<phrase module_id="facebook" version_id="3.4.0beta2" var_name="facebook_unlink_info" added="1348746578">You are about to unlink the account you have with us from your Facebook account. In order to do this, you will have to have a valid email and password with us. To complete the process please fill out the form below.</phrase>
 		<phrase module_id="facebook" version_id="3.4.0beta2" var_name="email" added="1348746583">Email</phrase>
 		<phrase module_id="facebook" version_id="3.4.0beta2" var_name="submit" added="1348746593">Submit</phrase>
 		<phrase module_id="facebook" version_id="3.4.0beta2" var_name="enter_a_password" added="1348746608">Enter a password.</phrase>

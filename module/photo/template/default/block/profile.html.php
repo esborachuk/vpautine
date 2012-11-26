@@ -1,14 +1,14 @@
-<?php
+<?php 
 /**
  * [PHPFOX_HEADER]
- *
+ * 
  * @copyright		[PHPFOX_COPYRIGHT]
  * @author  		Raymond Benc
  * @package 		Phpfox
  * @version 		$Id: profile.html.php 1298 2009-12-05 16:19:23Z Raymond_Benc $
  */
-
-defined('PHPFOX') or exit('NO DICE!');
+ 
+defined('PHPFOX') or exit('NO DICE!'); 
 
 ?>
 {if !count($aPhotos)}
@@ -31,7 +31,7 @@ defined('PHPFOX') or exit('NO DICE!');
 		{if !empty($aPhoto.album_name)}
 		<div class="extra_info">
 			in <a href="{url link=''$aUser.user_name'.photo.'$aPhoto.album_url''}">{$aPhoto.album_name|clean|shorten:45:'...'|split:20}</a>
-		</div>
+		</div>	
 		{/if}
 	</div>
 </div>
