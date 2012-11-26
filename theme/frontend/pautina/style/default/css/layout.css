@@ -1722,7 +1722,6 @@ a.item_bar_flag:hover
 	background:url('../image/layout/action_drop.png') no-repeat 97% 0%;
 	width:200px;
 	right:0px;
-	top:45px;
 	z-index:800;	
 	display:none;
  }
