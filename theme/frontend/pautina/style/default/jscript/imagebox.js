@@ -56,11 +56,16 @@ var Imagebox = {
                 Imagebox.createBlockForImage();
                 $(Imagebox.boxDetail).html(image)
                                      .parent().show();
-                var oScrollbar = $('#scrollbar_wrapper').show();
-                oScrollbar.tinyscrollbar();
-                oScrollbar.tinyscrollbar_update();
+                $('#scrollbar_wrapper').show();
+                Imagebox.addScroll($('#scrollbar_wrapper'));
             }
         });
+    },
+
+    addScroll: function(oScrollbar)
+    {
+        oScrollbar.tinyscrollbar();
+        oScrollbar.tinyscrollbar_update();
     },
 
     createBlockForImage: function()
@@ -74,8 +79,13 @@ var Imagebox = {
             $('#ajax_wrapper').prepend(block);
             var windowHeight = $(window).height();
             var headerHeight = 80;
-            $('#scrollbar_wrapper').css({height: windowHeight - headerHeight});
-            $('#scrollbar_wrapper .viewport').css({height: windowHeight - headerHeight});
+            var photosGridBlockHeight = $('#js_actual_photo_content').height();
+            var ImageWrapperHeight = windowHeight - headerHeight;
+            if (photosGridBlockHeight < ImageWrapperHeight) {
+                $('#js_actual_photo_content').css('min-height', ImageWrapperHeight);
+            }
+            $('#scrollbar_wrapper').css({height: ImageWrapperHeight});
+            $('#scrollbar_wrapper .viewport').css({height: ImageWrapperHeight});
 
 
         }

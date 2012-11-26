@@ -1189,7 +1189,11 @@ select
 
 #main_content_holder
 {
-	background:#fff url('../image/layout/main_content_holder.png') repeat-x;	
+	background:#f4f4f4;
+}
+
+#main_content_holder .holder {
+    background: #fff;
 }
 
 #content_holder

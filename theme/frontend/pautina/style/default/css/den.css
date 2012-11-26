@@ -100,14 +100,21 @@
     margin: 0;
     padding: 0;
     position: absolute;
-    left: 313px;
+    left: 333px;
     margin-top: -11px;
+    border: 1px solid #d7d7d7;
+    border-right: none;
+    padding: 0 !important;
+}
+
+#scrollbar_wrapper #imagebox-detail {
+    border: none;
 }
 
 #scrollbar_wrapper.fixed_position {
     position: fixed;
     left: inherit;
-    margin-left: 313px;
+    margin-left: 333px;
     top: 100px;
 }
 
@@ -127,7 +134,6 @@
     width: 15px;
 }
 #scrollbar_wrapper .track {
-    background: url(../image/scroll_bg.png) repeat-y 3px 0;
     height: 100%;
     width:8px;
     position: relative;
@@ -152,3 +158,10 @@
 #scrollbar_wrapper .disable{ display: none; }
 .noSelect { user-select: none; -o-user-select: none; -moz-user-select: none; -khtml-user-select: none; -webkit-user-select: none; }
 
+#js_is_user_profile {
+    background: #f4f4f4;
+}
+
+#js_is_user_profile > .holder {
+    background: #fff;
+}

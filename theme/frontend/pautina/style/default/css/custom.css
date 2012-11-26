@@ -593,7 +593,7 @@ ul.block_listing li .block_listing_image a img,
 .upload-photo-button a{
     display: block;
     font-size: 16px;
-    width: 100%;
+    width: 292px;
     height: auto;
     padding: 16px 0;
     background: none repeat scroll 0 0 #F7F7F7;
@@ -601,7 +601,7 @@ ul.block_listing li .block_listing_image a img,
     border-radius: 3px;
     -webkit-border-radius: 3px;
     -moz-border-radius: 3px;
-    margin-bottom: 25px;
+    margin-bottom: 15px;
     text-align: center;
 }
 
