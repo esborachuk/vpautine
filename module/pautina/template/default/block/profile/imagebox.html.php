@@ -1,5 +1,6 @@
 <div class="menu_box">
     <div id="imagebox-detail" class="feed">
+        <a href="#" class="go_back_link"><span>Назад...</span></a>
         <a href="#" class="closePautina"></a>
         <div class="info"></div>
     </div>

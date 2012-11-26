@@ -156,7 +156,7 @@ defined('PHPFOX') or exit('NO DICE!');
 
     $('.photo_view_box_image').height($('.js_box_image_holder_full').find('.js_box_content').height());
     $('#photo_view_theater_mode').find('.js_comment_feed_textarea:first').focus(function(){
-        $(this).height(50);
+        $(this).height(32);
         $('#js_ad_space_photo_theater').hide();
         $(this).addClass('no_resize_textarea');
         return true;
