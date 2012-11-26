@@ -7,6 +7,11 @@ class Pautina_Component_Block_Profile_Imageview extends Photo_Component_Controll
 {
     public function process()
     {
+        $userId = '';
+        $userId = Phpfox::getLib('request')->get('userid');
+        Phpfox::getLib('template')->assign(array(
+            'userId' => $userId
+        ));
         parent::process();
     }
 }

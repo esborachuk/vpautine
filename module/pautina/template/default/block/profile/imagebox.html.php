@@ -1,5 +1,6 @@
 <div class="menu_box">
     <div id="imagebox-detail" class="feed">
+        <a href="#" class="go_back_link"><span>Назад...</span></a>
         <a href="#" class="closePautina"></a>
         <div class="info"></div>
     </div>
@@ -21,7 +22,7 @@
                     <table>
                         <tr>
                             <td class="v-align">
-                                <a data-photoid="<?php echo $photo['photo_id']; ?>" href="#" class="imagebox" title="<?php echo $photo['title'] ?>">
+                                <a data-photoid="<?php echo $photo['photo_id']; ?>" data-userid="<?php echo $this->_aVars['aUser']['user_id']; ?>" href="#" class="imagebox" title="<?php echo $photo['title'] ?>">
                                     <img src="<?php echo $photo['100_square'] ?>" alt="<?php echo $photo['title'] ?>">
                                     <div class="block-like" <?php if($photo['total_like'] <= 0 && $photo['total_comment'] <= 0):  ?>style="display: none!important;" <?php endif; ?>   >
                                         <?php if ($photo['total_like'] > 0): ?>

@@ -27,4 +27,27 @@ jQuery(document).ready(function() {
     var pautinaNotificationInterval = setInterval(PautinaNotification.check, 200);
 });
 
+/*-------header_static_position--------*/
+$(window).scroll(function(){
+    if ($(this).scrollTop() > 120) {
+        $('#header_menu').addClass('header_menu_top')
+            .animate({});
+    } else {
+        $('#header_menu').removeClass('header_menu_top');
+    }
+});
+/*--------header_static_position--------*/
+
+
+/*-----back_button-----*/
+
+jQuery(document).ready(function() {
+    jQuery('.go_back_link').click(function(){
+        window.history.go(-1);
+    });
+});
+
+/*-----back_button-----*/
+
+
 

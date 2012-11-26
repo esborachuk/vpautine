@@ -18,7 +18,7 @@ defined('PHPFOX') or exit('NO DICE!');
         <span class="notify_title">{phrase var='mail.messages_notify'}</span>
     </a>
 	<div class="holder_notify_drop">
-		<div class="js_box_close" style="display: block;"><a href="#">x</a></div>
+		<div class="js_box_close" style="display: block;"><a href="#"></a></div>
 		<div class="holder_notify_drop_content">
 			<div class="holder_notify_drop_title">
 				{if Phpfox::isModule('friend')}

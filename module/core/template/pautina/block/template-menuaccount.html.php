@@ -66,7 +66,7 @@ $profileName = Phpfox::getUserBy('user_name');
         </a>
         {if isset($aMenu.children) && count($aMenu.children) && is_array($aMenu.children)}
         <ul>
-	        <div class="js_box_close" style="display: block;"><a href="#">x</a></div>
+	        <div class="js_box_close" style="display: block;"><a href="#"></a></div>
             {if Phpfox::isUser() && $aMenu.url == 'user.setting'}
             {if Phpfox::isModule('pages') && Phpfox::getUserParam('pages.can_add_new_pages')}
             <li><a href="#" onclick="$Core.box('pages.login', 400); return false;">{phrase var='core.login_as_page'}</a></li>

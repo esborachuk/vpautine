@@ -31,7 +31,8 @@ class Pautina_Component_Block_Profile_Imagebox extends Phpfox_Component
                 'photos'        => $photos,
                 'photoCount'    => $photoCount,
                 'showAddLink'   => $showAddLink,
-                'moduleUrl'     => Phpfox::getService('user')->getLink($aUser['user_id']) . 'pautina/'
+                'moduleUrl'     => Phpfox::getService('user')->getLink($aUser['user_id']) . 'photo/',
+                'aUser'         => $aUser
             )
         );
 

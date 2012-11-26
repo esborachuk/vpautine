@@ -1,7 +1,11 @@
 /*header*/
 body{
-background: url("../image/bg_dot.png") repeat scroll 0 0 transparent
+    background: url("../image/bg_dot.png") repeat scroll 0 0 transparent;
+
 }
+/*body *{
+    color:#0e5e55 !important;
+}*/
 #header{
     background:none repeat scroll 0 0 rgba(0, 0, 0, 0.1)!important;
     box-shadow: 3px 0 5px rgba(0, 0, 0, 0.18);
@@ -58,4 +62,183 @@ textarea{
     -moz-box-shadow:    0 0 2px rgba(0, 0, 0, 0.26) inset;
     -webkit-box-shadow: 0 0 2px rgba(0, 0, 0, 0.26) inset;
     box-shadow:         0 0 2px rgba(0, 0, 0, 0.26) inset;
+}
+
+/*Photo*/
+
+#js_actual_photo_content{
+    border-right: 1px solid #D7D7D7;
+    border-bottom: 1px solid #D7D7D7;
+    display: block;
+    padding: 0;
+    position: relative;
+    width: 59%;
+    z-index: 1;
+}
+#content_load_data #site_content > div{
+    padding:0;
+}
+.photo_row{
+    display: inline-block;
+    margin-bottom: 0;
+    padding-top: 0;
+    position: relative;
+    text-align: left;
+    width: 31.5% !important;
+    z-index: 1;
+    left:11px;
+}
+.photo_clip_holder_main{
+    display: inline-block;
+    height: 100px;
+    position: relative;
+    width: 102px;
+}
+
+div.video_moderate_link {
+    bottom: -3px;
+    left: 30px;
+    position: absolute;
+    z-index: 200;
+}
+.photo_clip_holder_border{
+    display:inline;
+}
+.photo_clip_holder_border{
+    border:none !important;
+}
+
+a.photo_clip_holder, a.photo_clip_holder:hover{
+    clip: rect(10px, 123px, 109px, 20px) !important;
+    display: inline-block;
+    height: 120px;
+    left: -8px !important;
+    overflow: hidden;
+    position: absolute;
+    text-decoration: none;
+    text-indent: -1000px;
+    top: -4px;
+    width: 120px;
+}
+
+.photo_row_info {
+    bottom: 0;
+    display: inline-block !important;
+    left: 54px;
+    padding-top: 2px;
+    position: absolute;
+    text-align: left;
+    z-index: 5;
+}
+
+.upload-photo-button a {
+    background: url("../image/bg_dot.png") repeat scroll 0 0 transparent !important;
+    border-radius: 3px 3px 3px 3px;
+    display: block;
+    font-size: 20px;
+    height: auto;
+    margin-bottom: 25px;
+    padding: 10px 0 !important;
+    text-align: center;
+    width: 100%;
+    box-shadow:2px 2px 2px rgba(0, 0, 0, 0.37);
+}
+
+#content_load_data #site_content > div {
+    margin-bottom: 15px;
+    padding:0 0 20px 0 !important;
+}
+.upload-photo-button {
+    box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.37);
+}
+.js_blog_parent *{
+    font-size:11px !important;
+}
+
+.newclass #js_actual_photo_content {
+    display: inline-block;
+    width: 100%;
+}
+
+/*buttons*/
+#section_menu ul li a,
+#section_menu ul li#liMail a,
+#section_menu ul li#liPoke a,
+#section_menu ul li#js_add_friend_on_profile a{
+    -moz-border-bottom-colors: none;
+    -moz-border-left-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-top-colors: none;
+    background: url("../image/layout/section_menu.png") repeat-x scroll center bottom #FFFFFF;
+    background-color: #E0E0E0;
+    background-image: linear-gradient(to bottom, #FAFAFA 0px, #DCDCDC 100%);
+    border-image: none;
+    border-radius: 4px;
+    border: 1px solid;
+    border-color:#CCCCCC #CCCCCC #AAAAAA ;
+    box-shadow: 0 0 1px #FFFFFF inset;
+    color: #696967;
+    display: block;
+    font-size: 11px !important;
+    font-weight: bold;
+    line-height: 22px;
+    margin-left: 5px;
+    padding: 0 8px;
+    text-decoration: none;
+}
+
+#section_menu ul li a, #section_menu ul li a:hover{
+  /*  top: -91px;
+    left: -186px;
+    position:absolute;*/
+}
+
+/*buttons profile*/
+
+
+#section_menu ul li.profile-section-menu a span {
+    background: none;
+    text-align: center;
+    padding: 0;
+    margin: 0;
+    width: 32px;
+    height: auto;
+    color: #7F7F7F;
+    font-weight: normal;
+    font-size: 10px;
+}
+
+#section_menu ul li.profile-section-menu a {
+    display: block;
+    margin: 0 20px;
+    padding: 0;
+    border: none;
+    font-weight: normal;
+    text-align: center;
+}
+
+#section_menu ul li#js_add_friend_on_profile a:active {
+}
+
+.buttons_user{
+    border:1px solid #979797;
+    width:100%;
+    height:100%;
+}
+#js_is_user_profile .profile_image .p_4{
+}
+
+.buttons_user a:hover{
+    background:#f8f8f8;
+}
+.buttons_user a{
+  display: block;
+  text-align:center;
+  background-color:#e8e8e8;
+  border-bottom:1px solid #bbb;
+  border-top: 1px solid #FBFBFB;
+  padding:3px 0;
+}
+#section_menu_drop{
+    right:666px;
 }

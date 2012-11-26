@@ -1583,12 +1583,3 @@ $Core.changeHistoryState = function(event){
 					bAjaxLinkIsClicked = false;
 				}	
 };
-
-$(window).scroll(function(){
-    if ($(this).scrollTop() > 120) {
-        $('#header_menu').addClass('header_menu_top')
-            .animate({});
-    } else {
-        $('#header_menu').removeClass('header_menu_top');
-    }
-});

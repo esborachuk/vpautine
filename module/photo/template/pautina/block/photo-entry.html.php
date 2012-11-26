@@ -1,14 +1,14 @@
-<?php 
+<?php
 /**
  * [PHPFOX_HEADER]
- * 
+ *
  * @copyright		[PHPFOX_COPYRIGHT]
  * @author  		Raymond Benc
  * @package  		Module_Photo
  * @version 		$Id: photo-entry.html.php 4622 2012-09-12 07:18:24Z Miguel_Espinoza $
  */
- 
-defined('PHPFOX') or exit('NO DICE!'); 
+
+defined('PHPFOX') or exit('NO DICE!');
 
 ?>
 <div class="clear"></div>
@@ -79,13 +79,6 @@ defined('PHPFOX') or exit('NO DICE!');
 				{/if}
 				{plugin call='photo.template_default_block_photo_entry_tool'}
 
-
-			{if isset($sView) && $sView == 'featured'}
-			{else}
-			<div class="js_featured_photo row_featured_link"{if !$aPhoto.is_featured} style="display:none;"{/if}>
-				{phrase var='photo.featured'}
-			</div>
-			{/if}
 			<div class="js_sponsor_photo row_sponsored_link"{if !$aPhoto.is_sponsor} style="display:none;"{/if}>
 				{phrase var='photo.sponsored'}
 			</div>
@@ -106,8 +99,9 @@ defined('PHPFOX') or exit('NO DICE!');
 				</div>
 			{else}
 			{if ($aPhoto.mature == 0 || (($aPhoto.mature == 1 || $aPhoto.mature == 2) && Phpfox::getUserId() && Phpfox::getUserParam('photo.photo_mature_age_limit') <= Phpfox::getUserBy('age'))) || $aPhoto.user_id == Phpfox::getUserId()}
-			<a href="{$aPhoto.link}{if isset($iForceAlbumId)}albumid_{$iForceAlbumId}/{/if}{if isset($sPhotoCategory)}category_{$sPhotoCategory}/{/if}" title="{phrase var='photo.title_by_full_name' title=$aPhoto.title|clean full_name=$aPhoto.full_name|clean}" class="thickbox photo_holder_image" rel="{$aPhoto.photo_id}">
-				{img server_id=$aPhoto.server_id path='photo.url_photo' file=$aPhoto.destination suffix='_150' max_width=120 max_height=120 title=$aPhoto.title class='js_mp_fix_width photo_holder'}
+			<a data-photoid="{$aPhoto.photo_id}" href="#" class="imagebox" title="{phrase var='photo.title_by_full_name' title=$aPhoto.title|clean full_name=$aPhoto.full_name|clean}">
+                {module name="pautina.photo.crop" aPhoto=$aPhoto}
+				{img server_id=$aPhoto.server_id path='photo.url_photo' file=$aPhoto.destination suffix='_100_square' max_width=100 max_height=100 title=$aPhoto.title class='js_mp_fix_width photo_holder'}
 			</a>
 			{else}
 			<a href="{$aPhoto.link}{if isset($iForceAlbumId)}albumid_{$iForceAlbumId}/{/if}"{if $aPhoto.mature == 1} onclick="tb_show('{phrase var='photo.warning' phpfox_squote=true}', $.ajaxBox('photo.warning', 'height=300&amp;width=350&amp;link={$aPhoto.link}')); return false;"{/if} class="no_ajax_link">{img theme='misc/no_access.png' alt=''}</a>
@@ -122,7 +116,6 @@ defined('PHPFOX') or exit('NO DICE!');
 		<div class="photo_row_info">
 			{if !isset($bIsInAlbumMode)}
 			<div class="extra_info_link">
-				{phrase var='photo.by_user_info' user_info=$aPhoto|user|shorten:30:'...'|split:20}
 				{if !empty($aPhoto.album_name)}
 				<div>{phrase var='photo.in'} <a href="{permalink module='photo.album' id=$aPhoto.album_id title=$aPhoto.album_name}" title="{$aPhoto.album_name|clean}">{if $aPhoto.album_profile_id > 0}{phrase var='photo.profile_pictures'}{else}{$aPhoto.album_name|clean|shorten:45:'...'|split:20}{/if}</a></div>
 				{/if}
@@ -146,6 +139,3 @@ defined('PHPFOX') or exit('NO DICE!');
 {/if}
 {/foreach}
 <div class="clear"></div>
-<div class="t_right">
-	{pager}
-</div>
