@@ -11,7 +11,7 @@ defined('PHPFOX') or exit('NO DICE!');
  * @copyright		[PHPFOX_COPYRIGHT]
  * @author  		Raymond Benc
  * @package  		Module_Feed
- * @version 		$Id: process.class.php 4886 2012-10-11 07:46:12Z Raymond_Benc $
+ * @version 		$Id: process.class.php 4954 2012-10-24 10:07:12Z Miguel_Espinoza $
  */
 class Feed_Service_Process extends Phpfox_Service 
 {	
@@ -259,7 +259,8 @@ class Feed_Service_Process extends Phpfox_Service
 				$this->database()->delete(Phpfox::getT($aCallback['table_prefix']  . 'feed'), 'feed_id = ' . (int) $iId);				
 			}
 			
-			$this->database()->delete(Phpfox::getT('feed'), 'feed_id = ' . $aFeed['feed_id'] . ' AND user_id = ' . $aFeed['user_id'] .' AND time_stamp = ' . $aFeed['time_stamp']);			
+			//$this->database()->delete(Phpfox::getT('feed'), 'feed_id = ' . $aFeed['feed_id'] . ' AND user_id = ' . $aFeed['user_id'] .' AND time_stamp = ' . $aFeed['time_stamp']);
+			$this->database()->delete(Phpfox::getT('feed'), 'user_id = ' . $aFeed['user_id'] .' AND time_stamp = ' . $aFeed['time_stamp']);			
 			
 			// Delete likes that belonged to this feed
 			$this->database()->delete(Phpfox::getT('like'), 'type_id = "'. $aFeed['type_id'] .'" AND item_id = ' . $aFeed['item_id']);

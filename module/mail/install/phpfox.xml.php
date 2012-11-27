@@ -397,6 +397,8 @@ To reply to this message, follow the link below:
 		<phrase module_id="mail" version_id="3.3.0beta2" var_name="this_message_was_sent_to_full_name" added="1341218986">This message was sent to {full_name}</phrase>
 		<phrase module_id="mail" version_id="3.3.0beta2" var_name="this_message_was_sent_from_you" added="1341219032">This message was sent from you</phrase>
 		<phrase module_id="mail" version_id="3.4.0rc1" var_name="legacy_inbox" added="1349866285">Legacy Inbox</phrase>
+		<phrase module_id="mail" version_id="3.4.0" var_name="page_claim_message" added="1350911604"><![CDATA[Hello, I hereby claim the page "{title}" (URL: {url}) as my own and request your attention to the matter. I am able to provide any documentation that you may require.]]></phrase>
+		<phrase module_id="mail" version_id="3.4.0" var_name="claiming_page_title" added="1350912704"><![CDATA[Claiming Page &#039;{title}&#039;]]></phrase>
 	</phrases>
 	<user_group_settings>
 		<setting is_admin_setting="0" module_id="mail" type="integer" admin="10" user="10" guest="0" staff="10" module="mail" ordering="0">total_folders</setting>

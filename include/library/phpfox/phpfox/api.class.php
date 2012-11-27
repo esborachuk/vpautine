@@ -12,7 +12,7 @@ defined('PHPFOX') or exit('NO DICE!');
  * @copyright		[PHPFOX_COPYRIGHT]
  * @author			Raymond Benc
  * @package 		Phpfox
- * @version 		$Id: api.class.php 2946 2011-09-01 05:57:02Z Raymond_Benc $
+ * @version 		$Id: api.class.php 4984 2012-11-02 05:43:44Z Raymond_Benc $
  */
 final class Phpfox_Api
 {	
@@ -39,7 +39,7 @@ final class Phpfox_Api
 
 		$this->_sError = ($mReturn['error'] == 'fatal' ? $mReturn['error_message'] : $mReturn['error']);	
 		
-		if ($mReturn['error'] == 'fatal')
+		if ($mReturn['error'] === 'fatal')
 		{
 			Phpfox_Error::set($mReturn['error_message']);
 		}

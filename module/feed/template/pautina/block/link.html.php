@@ -46,9 +46,9 @@
     && (isset($aFeed.comment_type_id) && $aFeed.can_post_comment)
     || (!isset($aFeed.comment_type_id) && isset($aFeed.total_comment))
     }
-    <li>
-        <a href="{$aFeed.feed_link}add-comment/" class="{if (isset($sFeedType) && $sFeedType == 'mini') || (!isset($aFeed.comment_type_id) && isset($aFeed.total_comment))}{else}js_feed_entry_add_comment no_ajax_link{/if}">{phrase var='feed.comment'}</a>
-    </li>
+<!--    <li>-->
+<!--        <a href="{$aFeed.feed_link}add-comment/" class="{if (isset($sFeedType) && $sFeedType == 'mini') || (!isset($aFeed.comment_type_id) && isset($aFeed.total_comment))}{else}js_feed_entry_add_comment no_ajax_link{/if}">{phrase var='feed.comment'}</a>-->
+<!--    </li>-->
     {if (Phpfox::isModule('share') && !isset($aFeed.no_share))}
     
     {/if}

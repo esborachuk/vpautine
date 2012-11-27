@@ -422,7 +422,7 @@ You most likely want to leave this setting blank as entering an invalid setting 
 
 If you are running a live site make sure this setting is disabled.
 
-Note the relative location of the log file is: /file/cache/missing-images.txt</info>]]></phrase>
+Note the relative location of the log file is: /file/log/phpfox_missing_images.log</info>]]></phrase>
 		<phrase module_id="core" version_id="2.0.0alpha1" var_name="setting_attachment_valid_images" added="1213872474"><![CDATA[<title>Create Thumbnails</title><info>Define what file extensions we should create thumbnails for when a user uploads an image attachment.</info>]]></phrase>
 		<phrase module_id="core" version_id="2.0.0alpha1" var_name="setting_attachment_max_thumbnail" added="1213872657"><![CDATA[<title>Thumbnail Width/Height</title><info>Define the width and height of the thumbnail that will be created after a user uploads an image. If the image uploaded is smaller then the specified width/height it will not create a thumbnail for the image.</info>]]></phrase>
 		<phrase module_id="core" version_id="2.0.0alpha1" var_name="setting_attachment_max_medium" added="1213872836"><![CDATA[<title>Medium Thumbnail Width/Height</title><info>Define the width and height of the medium thumbnail that will be created after a user uploads an image. If the image uploaded is smaller then the specified width/height it will not create a medium thumbnail for the image.
@@ -1561,5 +1561,8 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque id ipsum n
 				$this->database()->insert(Phpfox::getT('country_child'), array('country_iso' => $sIso, 'name' => $sChild));
 			}
 		}
+
+		/* Remove the attribute Unsigned from feed table*/
+		$this->database()->query("ALTER TABLE  `" . Phpfox::getParam(array('db','prefix')) . "feed` CHANGE  `feed_reference`  `feed_reference` INT( 10 ) NOT NULL DEFAULT  '0'");
 	]]></install>
 </module>

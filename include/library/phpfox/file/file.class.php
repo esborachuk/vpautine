@@ -25,7 +25,7 @@ defined('PHPFOX') or exit('NO DICE!');
  * @copyright		[PHPFOX_COPYRIGHT]
  * @author			Raymond Benc
  * @package 		Phpfox
- * @version 		$Id: file.class.php 4854 2012-10-09 05:20:40Z Raymond_Benc $
+ * @version 		$Id: file.class.php 4922 2012-10-22 14:33:52Z Miguel_Espinoza $
  */
 class Phpfox_File
 {
@@ -749,12 +749,12 @@ class Phpfox_File
     	$iUploadMaxFileSize = (ini_get('upload_max_filesize') * 1048576);
     	$iPostMaxSize = (ini_get('post_max_size') * 1048576);
     	
-    	if ($iUploadMaxFileSize < ($iMaxSize * 1048576))
+    	if ( $iUploadMaxFileSize > 0 && $iUploadMaxFileSize < ($iMaxSize * 1048576))
     	{
     		return ini_get('upload_max_filesize');
     	}
     	
-    	if ($iPostMaxSize < ($iMaxSize * 1048576))
+    	if ($iPostMaxSize > 0 && $iPostMaxSize < ($iMaxSize * 1048576))
     	{
     		return ini_get('post_max_size');
     	}

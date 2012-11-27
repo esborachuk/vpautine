@@ -11,7 +11,7 @@ defined('PHPFOX') or exit('NO DICE!');
  * @copyright		[PHPFOX_COPYRIGHT]
  * @author  		Raymond Benc
  * @package  		Module_Photo
- * @version 		$Id: callback.class.php 4781 2012-09-27 08:33:37Z Raymond_Benc $
+ * @version 		$Id: callback.class.php 4947 2012-10-24 06:02:30Z Raymond_Benc $
  */
 class Photo_Service_Callback extends Phpfox_Service 
 {
@@ -477,6 +477,10 @@ class Photo_Service_Callback extends Phpfox_Service
 		if ($aItem['album_id'])
 		{
 			$sLink .= 'albumid_' . $aItem['album_id'] . '/';
+		}
+		else
+		{
+			$sLink .= 'userid_' . $aItem['user_id'] . '/';
 		}
 		$sUser = '<a href="' . Phpfox::getLib('url')->makeUrl($aItem['user_name']) . '">' . $aItem['full_name'] . '</a>';
 		$sGender = Phpfox::getService('user')->gender($aItem['gender'], 1);

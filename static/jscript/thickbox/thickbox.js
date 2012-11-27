@@ -255,7 +255,7 @@ function tb_show(caption, url, thisObject, sForceMessage, bForceNoCilck)
 				sHtml += '<a href="#" onclick="$(\'.js_box_image_holder\').remove(); return false;"><img src="' + url + '" width="' + imageWidth + '" height="' + imageHeight + '" alt="" id="js_thickbox_core_image" /></a>';	
 			}
 			
-			sHtml += '</div></div></div>';
+			sHtml += '</div><div class="js_box_close"><a href="#" onclick="return js_box_remove(this);">' + oTranslations['core.close'] + '</a></div></div></div>';			
 			
 			$('body').prepend(sHtml);
 			
@@ -407,11 +407,11 @@ function tb_show(caption, url, thisObject, sForceMessage, bForceNoCilck)
 		if (bIsPhotoImage){
 			$('.js_box_image_holder').remove();
 			$('.js_box_image_holder').unbind('click');	
-			sHtml += '<div class="js_box_image_holder_full">';
-            sHtml += '<div class="js_box_close"><a href="#" onclick="return js_box_remove(this);">' + oTranslations['core.close'] + '</a><span class="js_box_history">' + params[getParam('sGlobalTokenName') + '[call]'] + '</span></div>';
-            sHtml += '<div class="js_box_image_holder_full_loader" style="position:absolute; top:50%; left:50%;"><img src="' + oJsImages['loading_animation'] + '" alt="" /></div>';
-            sHtml += '<div style="display:none;" id="' + $sCurrentId + '" class="js_box' + (oParams['bJsIsMobile'] ? ' mobile_js_box' : ' ') + (isset(params['no_remove_box']) ? ' js_box_no_remove' : '') + '" style="width:' + ajaxContentW + 'px;">';
-            sHtml += '<div class="js_box_content"></div>';
+			sHtml += '<div class="js_box_image_holder_full">';	
+			sHtml += '<div class="js_box_image_holder_full_loader" style="position:absolute; top:50%; left:50%;"><img src="' + oJsImages['loading_animation'] + '" alt="" /></div>';
+			sHtml += '<div style="display:none;" id="' + $sCurrentId + '" class="js_box' + (oParams['bJsIsMobile'] ? ' mobile_js_box' : ' ') + (isset(params['no_remove_box']) ? ' js_box_no_remove' : '') + '" style="width:' + ajaxContentW + 'px;">';
+			sHtml += '<div class="js_box_content"></div>';
+			sHtml += '<div class="js_box_close"><a href="#" onclick="return js_box_remove(this);">' + oTranslations['core.close'] + '</a><span class="js_box_history">' + params[getParam('sGlobalTokenName') + '[call]'] + '</span></div>';
 			sHtml += '</div>';
 			sHtml += '</div>';
 		}
@@ -430,12 +430,12 @@ function tb_show(caption, url, thisObject, sForceMessage, bForceNoCilck)
 			sHtml += '<div id="' + $sCurrentId + '" class="js_box' + (oParams['bJsIsMobile'] ? ' mobile_js_box' : ' ') + (isset(params['no_remove_box']) ? ' js_box_no_remove' : '') + '" style="width:' + ajaxContentW + 'px;">';
 			if (!bIsPhotoImage)
 			{
-				sHtml += '<div class="js_box_title">' + caption + '</div><div class="js_box_close"><a href="#" onclick="return js_box_remove(this);">X</a></div>';
+				sHtml += '<div class="js_box_title">' + caption + '</div>';
 			}
 			sHtml += '<div class="js_box_content"><span class="js_box_loader">' + oTranslations['core.loading'] + '...</span></div>';
 			// if (!bIsPhotoImage)
 			{
-				sHtml += '<div class="js_box_close"><span class="js_box_history">' + params[getParam('sGlobalTokenName') + '[call]'] + '</span></div>';
+				sHtml += '<div class="js_box_close"><a href="#" onclick="return js_box_remove(this);">' + oTranslations['core.close'] + '</a><span class="js_box_history">' + params[getParam('sGlobalTokenName') + '[call]'] + '</span></div>';
 			}
 			sHtml += '</div>';
 

@@ -321,6 +321,10 @@ The default is 1</info> ]]></phrase>
 		<phrase module_id="ad" version_id="3.4.0rc1" var_name="module_placement" added="1349933038">Module Placement</phrase>
 		<phrase module_id="ad" version_id="3.4.0rc1" var_name="disallow_controller" added="1349933216">Disallow Controller</phrase>
 		<phrase module_id="ad" version_id="3.4.0rc1" var_name="separate_each_controller_with_a_comma_eg_blog_index_video_view" added="1349933223">Separate each controller with a comma. (Eg. blog.index,video.view)</phrase>
+		<phrase module_id="ad" version_id="3.4.0" var_name="postal_code" added="1350910156">Postal Code</phrase>
+		<phrase module_id="ad" version_id="3.4.0" var_name="separate_multiple_postal_codes_by_a_comma" added="1350910172">Separate multiple postal codes by a comma.</phrase>
+		<phrase module_id="ad" version_id="3.4.0" var_name="city" added="1350910183">City</phrase>
+		<phrase module_id="ad" version_id="3.4.0" var_name="separate_multiple_cities_by_a_comma" added="1350910195">Separate multiple cities by a comma.</phrase>
 	</phrases>
 	<user_group_settings>
 		<setting is_admin_setting="0" module_id="ad" type="boolean" admin="true" user="true" guest="true" staff="true" module="ad" ordering="0">show_ads</setting>

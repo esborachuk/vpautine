@@ -11,7 +11,7 @@ defined('PHPFOX') or exit('NO DICE!');
  * @copyright		[PHPFOX_COPYRIGHT]
  * @author  		Raymond Benc
  * @package 		Phpfox_Service
- * @version 		$Id: gateway.class.php 4885 2012-10-11 07:43:34Z Raymond_Benc $
+ * @version 		$Id: gateway.class.php 4926 2012-10-23 05:09:31Z Raymond_Benc $
  */
 class Api_Service_Gateway_Gateway extends Phpfox_Service 
 {
@@ -106,8 +106,8 @@ class Api_Service_Gateway_Gateway extends Phpfox_Service
 				unset($aGateways[$iKey]);
 			}
 		}
-		
-		if (Phpfox::getParam('user.can_purchase_with_points') && Phpfox::getUserParam('user.can_purchase_with_points'))
+
+		if (!isset($aGatewayData['no_purchase_with_points']) && Phpfox::getParam('user.can_purchase_with_points') && Phpfox::getUserParam('user.can_purchase_with_points'))
 		{
 			$iTotalPoints = (int) $this->database()->select('activity_points')
 				->from(Phpfox::getT('user_activity'))
@@ -118,7 +118,7 @@ class Api_Service_Gateway_Gateway extends Phpfox_Service
 			$aSetting = Phpfox::getParam('user.points_conversion_rate');
 			if (isset($aSetting[$sCurreny]))
 			{
-				$iConversion = $aGatewayData['amount'] * $aSetting[$sCurreny];			
+				$iConversion = ($aGatewayData['amount'] / $aSetting[$sCurreny]);			
 				if ($iTotalPoints >= $iConversion)
 				{
 					$aPointsGateway = array(

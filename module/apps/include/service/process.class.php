@@ -28,8 +28,59 @@ class Apps_Service_Process extends Phpfox_Service
 		 * 				installing the app, every other is assumed allowed
 		 * `phpfox_app_access`
 		 *			Stores a token which is used to validate a user visiting an app
-		*/
+		*/	
+	}	
 	
+	public function import($sAppKey, $aFile)
+	{
+		if (empty($sAppKey))
+		{
+			return Phpfox_Error::set('Provide an app key.');
+		}
+		
+		$aXml = Phpfox::getLib('xml.parser')->parse($aFile['tmp_name']);
+		if (!isset($aXml['appsinfo']))
+		{
+			return false;
+		}
+		
+		$mReturn = (bool) Phpfox::getLib('request')->send($aXml['appsinfo']['url'], array('app_key' => $sAppKey, 'app_url' => Phpfox::getParam('core.path')));
+
+		if ($mReturn)
+		{
+			$aReturn = array();
+			$aExported = (isset($aXml['apps']['app']) ? $aXml['apps']['app'] : $aXml['apps']);
+
+			foreach ($aExported as $aApps)
+			{
+				if (isset($aApps['images']) && !empty($aApps['images']['data'][0]['value']))
+				{
+					foreach ($aApps['images']['data'] as $aImage)
+					{
+						$sImageNameOriginal = md5(Phpfox::getUserId() . $sAppKey) . '%s.' . $aImage['ext'];
+						$sImageName = md5(Phpfox::getUserId() . $sAppKey) . $aImage['size'] . '.' . $aImage['ext'];
+						$sBuildDir = Phpfox::getLib('file')->getBuiltDir(Phpfox::getParam('app.dir_image')) . $sImageName;
+						
+						Phpfox::getLib('file')->writeToCache($sImageName, base64_decode($aImage['value']));
+						
+						copy(PHPFOX_DIR_CACHE . $sImageName, $sBuildDir);
+						unlink(PHPFOX_DIR_CACHE . $sImageName);
+					}
+				}				
+
+				$mReturn = $this->addApp($aApps, true);		
+				if (isset($sImageNameOriginal))
+				{
+					$this->database()->update(Phpfox::getT('app'), array('image_path' => str_replace(Phpfox::getParam('app.dir_image'), '', Phpfox::getLib('file')->getBuiltDir(Phpfox::getParam('app.dir_image'))) . $sImageNameOriginal), 'app_id = ' . (int) $mReturn['app_id']);
+				}
+			}			
+		}
+		else
+		{
+			Phpfox_Error::set('Unable to find your site.');
+		}
+				
+		return $mReturn;
 	}
 	
 	/**
@@ -70,42 +121,51 @@ class Apps_Service_Process extends Phpfox_Service
 	 * for the app
 	 * @param type $aVals 
 	 */
-	public function addApp($aVals)
+	public function addApp($aVals, $bForce = false)
 	{
-		Phpfox::getUserParam('apps.can_add_app', true);
-		if (empty($aVals['name']))
+		if (!$bForce)
 		{
-			Phpfox_Error::set(Phpfox::getPhrase('apps.every_field_is_required'));
+			Phpfox::getUserParam('apps.can_add_app', true);
+			if (empty($aVals['name']))
+			{
+				Phpfox_Error::set(Phpfox::getPhrase('apps.every_field_is_required'));
+			}
 		}
 		$oParse = Phpfox::getLib('parse.input');
 		
 		if (Phpfox_Error::isPassed())
 		{
+			$sPublicKey = $this->generateKey(32);
+			$sPrivateKey = $this->generateKey(32);
+			
 			$aInsert = array(
-				'app_title' => $oParse->clean($aVals['name']),				
-				'public_key' => $this->generateKey(32),
-				'private_key' => $this->generateKey(32),				
+				'app_title' => $oParse->clean(($bForce ? $aVals['app_title'] : $aVals['name'])),
+				'app_description' => ($bForce ? $oParse->clean($aVals['app_description']) : null),
+				'public_key' => $sPublicKey,
+				'private_key' => $sPrivateKey,				
 				'user_id' => Phpfox::getUserId(),
-				'time_stamp' => PHPFOX_TIME,
-				'view_id' => Phpfox::getUserParam('apps.apps_require_moderation') ? '1' : '0'
+				'time_stamp' => ($bForce ? $aVals['time_stamp'] : PHPFOX_TIME),
+				'app_url' => ($bForce ? $oParse->clean($aVals['app_url']) : null),
+				'view_id' => ((!$bForce && Phpfox::getUserParam('apps.apps_require_moderation')) ? '1' : '0')
 			);
 			
 			// Insert in phpfox_app
 			$iId = $this->database()->insert(Phpfox::getT('app'), $aInsert);			
 			
-                        // Assign category
-                        $iCategory = $this->database()->insert(Phpfox::getT('app_category_data'), array(
-                            'category_id' => (int)$aVals['category'],
-                            'app_id' => $iId
-                            ));
-			define('PHPFOX_APP_CREATED', $iId);
+			// Assign category
+			if (!$bForce)
+			{
+				$iCategory = $this->database()->insert(Phpfox::getT('app_category_data'), array('category_id' => (int)$aVals['category'], 'app_id' => $iId));
+			}			
+			
+			// define('PHPFOX_APP_CREATED', $iId);
 			// Create the page
 			$iPage = Phpfox::getService('pages.process')->add(array(
 					'app_id' => $iId,
-					'title' => $aVals['name']
-				)
-			);
-			
+					'title' => ($bForce ? $aVals['app_title'] : $aVals['name'])
+				), true
+			);			
+						
 			return array('app_id' => $iId, 'app_title' => $aInsert['app_title']);
 		}
 		return false;

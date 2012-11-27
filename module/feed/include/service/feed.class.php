@@ -11,7 +11,7 @@ defined('PHPFOX') or exit('NO DICE!');
  * @copyright		[PHPFOX_COPYRIGHT]
  * @author  		Raymond Benc
  * @package  		Module_Feed
- * @version 		$Id: feed.class.php 4885 2012-10-11 07:43:34Z Raymond_Benc $
+ * @version 		$Id: feed.class.php 4927 2012-10-23 05:54:47Z Raymond_Benc $
  */
 class Feed_Service_Feed extends Phpfox_Service 
 {	
@@ -292,9 +292,13 @@ class Feed_Service_Feed extends Phpfox_Service
 						
 			$this->database()->select('feed.*')
 				->from($this->_sTable, 'feed')
-				// ->join(Phpfox::getT('friend'), 'f', 'f.user_id = feed.user_id AND f.friend_user_id = ' . Phpfox::getUserId())
-				->where(array_merge($aCond, array('AND feed.user_id = ' . (int) $iUserid . ' AND feed.parent_user_id = 0')))
+				->where(array_merge($aCond, array('AND type_id = \'feed_comment\' AND feed.user_id = ' . (int) $iUserid . '')))
 				->union();
+			
+			$this->database()->select('feed.*')
+			->from($this->_sTable, 'feed')
+			->where(array_merge($aCond, array('AND feed.user_id = ' . (int) $iUserid . ' AND feed.parent_user_id = 0')))
+			->union();			
 			
 			if (Phpfox::isUser())
 			{
@@ -304,54 +308,21 @@ class Feed_Service_Feed extends Phpfox_Service
 					->join(Phpfox::getT('friend_list_data'), 'fld', 'fld.list_id = p.friend_list_id AND fld.friend_user_id = ' . Phpfox::getUserId() . '')
 					->where('feed.privacy IN(4) AND feed.user_id = ' . (int) $iUserid . ' AND feed.feed_reference = 0')							
 					->union();					
-			}
-			
+			}			
 			
 			$this->database()->select('feed.*')
 				->from($this->_sTable, 'feed')
-				// ->join(Phpfox::getT('friend'), 'f', 'f.user_id = feed.user_id AND f.friend_user_id = ' . Phpfox::getUserId())
 				->where(array_merge($aCond, array('AND feed.parent_user_id = ' . (int) $iUserid)))
 				->union();
 			
 			$aRows = $this->database()->select('feed.*, apps.app_title,  ' . Phpfox::getUserField())
-				// ->from($this->_sTable, 'feed')
 				->unionFrom('feed')
 				->join(Phpfox::getT('user'), 'u', 'u.user_id = feed.user_id')
 				->leftJoin(Phpfox::getT('app'), 'apps', 'apps.app_id = feed.app_id')
-				// ->where($aCond)
 				->order('feed.time_stamp DESC')
 				->group('feed.feed_id')
 				->limit($iOffset, $iTotalFeeds)			
-				->execute('getSlaveRows');
-			/*
-			static $iIteration = 0;
-			$iIteration++;
-			if (Phpfox::getService('profile')->timeline())
-			{
-				$aUserObject = Phpfox::getService('user')->getUserObject($iUserid);
-				if (isset($aUserObject->user_id))
-				{
-					$iBirthYear = date('Y', $aUserObject->birthday_search);
-					if ($iBirthYear == $iTimelineYear || empty($aRows) && $iIteration >= 2)
-					{
-						$aRows[] = array(
-							'feed_id' => 'ub' . $aUserObject->user_id,
-							'type_id' => 'user_birth',
-							'item_id' => $aUserObject->user_id,
-							'time_stamp' => $aUserObject->birthday_search,
-							'privacy' => '0',
-							'privacy_comment' => '0',
-							'user_image' => $aUserObject->user_image,
-							'full_name' => $aUserObject->full_name,
-							'user_name' => $aUserObject->user_name,
-							'user_id' => $aUserObject->user_id,
-							'parent_feed_id' => '0'
-						);
-					}					
-				}
-			}
-			 * 
-			 */
+				->execute('getSlaveRows');		
 		}
 		else
 		{
@@ -926,12 +897,12 @@ class Feed_Service_Feed extends Phpfox_Service
 			{
 				return false;
 			}			
-			
+			/*
 			if (!empty($aRow['feed_reference']))
 			{
 				$aRow['item_id'] = $aRow['feed_reference'];
 			}
-			
+			*/
 			if (isset($this->_aViewMoreFeeds[$sKey]))
 			{
 				foreach ($this->_aViewMoreFeeds[$sKey] as $iSubKey => $aSubRow)

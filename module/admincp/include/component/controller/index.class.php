@@ -11,7 +11,7 @@ defined('PHPFOX') or exit('NO DICE!');
  * @copyright		[PHPFOX_COPYRIGHT]
  * @author  		Raymond Benc
  * @package  		Module_Admincp
- * @version 		$Id: index.class.php 4887 2012-10-11 11:38:15Z Raymond_Benc $
+ * @version 		$Id: index.class.php 4961 2012-10-29 07:11:34Z Raymond_Benc $
  */
 class Admincp_Component_Controller_Index extends Phpfox_Component 
 {
@@ -176,7 +176,6 @@ class Admincp_Component_Controller_Index extends Phpfox_Component
 					'admincp.phrase_manager' => 'admincp.language.phrase',
 					'admincp.add_phrase' => 'admincp.language.phrase.add',
 					'language.create_language_pack' => 'admincp.language.add',
-					// 'admincp.language_import_export' => 'admincp.language.file'
 					'language.import_language_pack' => 'admincp.language.import',
 					'language.email_phrases' => 'admincp.language.email'
 				),
@@ -197,7 +196,16 @@ class Admincp_Component_Controller_Index extends Phpfox_Component
 					'theme.admincp_create_css_file' => 'admincp.theme.style.css.add',
 					'theme.admincp_menu_import_themes' => 'admincp.theme.import',
 					'theme.admincp_menu_import_styles' => 'admincp.theme.style.import'
-				)				
+				),
+				'admincp.plugin' => array(
+					'admincp.manage_plugins' => 'admincp.plugin',
+					'admincp.create_new_plugin' => 'admincp.plugin.add'
+				),
+				'apps.admincp_menu_apps' => array(
+					'apps.categories' => 'admincp.apps.categories',
+					'apps.install_app' => 'admincp.apps.import',
+					'apps.export_apps' => 'admincp.apps.export'					
+				)
 			),
 			'admincp.settings' => array(
 				'admincp.system_settings_menu' => array(
@@ -319,7 +327,7 @@ class Admincp_Component_Controller_Index extends Phpfox_Component
 			unset($aMenus['admincp.extensions']['admincp.products']['admincp.create_new_product']);
 			unset($aMenus['admincp.extensions']['admincp.products']['admincp.import_export']);
 			unset($aMenus['admincp.extensions']['admincp.plugin']);
-			unset($aMenus['admincp.extensions']['admincp.language']['language.import_language_pack']);
+			// unset($aMenus['admincp.extensions']['admincp.language']['language.import_language_pack']);
 			unset($aMenus['admincp.extensions']['admincp.theme']['theme.create_a_new_template']);
 			unset($aMenus['admincp.extensions']['admincp.theme']['theme.admincp_create_css_file']);
 			// unset($aMenus['admincp.extensions']['admincp.theme']['theme.admincp_menu_import_themes']);

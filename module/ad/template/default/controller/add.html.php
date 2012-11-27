@@ -5,7 +5,7 @@
  * @copyright		[PHPFOX_COPYRIGHT]
  * @author  		Raymond_Benc
  * @package 		Phpfox
- * @version 		$Id: add.html.php 4739 2012-09-24 10:13:13Z Raymond_Benc $
+ * @version 		$Id: add.html.php 4913 2012-10-22 07:24:53Z Raymond_Benc $
  */
  
 defined('PHPFOX') or exit('NO DICE!'); 
@@ -117,6 +117,7 @@ defined('PHPFOX') or exit('NO DICE!');
 				{phrase var='ad.ad_placement'}:
 			</div>
 			<div class="table_right">
+				<div><input type="hidden" name="val[block_id]" value="" id="js_block_id" /></div>
 				<select name="val[location]" id="location" style="display:none;">	
 					{for $i = 1; $i <= 10; $i++}
 						<option value="{$i}"{value type='select' id='location' default=$i}>{phrase var='admincp.block' x=$i}</option>

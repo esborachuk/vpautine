@@ -78,6 +78,7 @@ Have a nice day</phrase>
 		<phrase module_id="contact" version_id="2.0.8" var_name="setting_auto_responder_message" added="1297761991"><![CDATA[<title>Auto Responder Message Phrase</title><info>This is the phrase that will be used when sending an auto response message.
 
 You can enter the language phrase here or write the text directly. The default phrase is contact.auto_responder_message</info>]]></phrase>
+		<phrase module_id="contact" version_id="3.4.0" var_name="no_admin_has_been_set_to_handle_this_type_of_issues" added="1350912355">No admin has been set to handle this type of issues</phrase>
 	</phrases>
 	<tables><![CDATA[a:1:{s:23:"phpfox_contact_category";a:3:{s:7:"COLUMNS";a:3:{s:11:"category_id";a:4:{i:0;s:7:"UINT:10";i:1;N;i:2;s:14:"auto_increment";i:3;s:2:"NO";}s:8:"ordering";a:4:{i:0;s:7:"UINT:10";i:1;s:1:"0";i:2;s:0:"";i:3;s:2:"NO";}s:5:"title";a:4:{i:0;s:9:"VCHAR:255";i:1;N;i:2;s:0:"";i:3;s:2:"NO";}}s:11:"PRIMARY_KEY";s:11:"category_id";s:4:"KEYS";a:1:{s:8:"ordering";a:2:{i:0;s:5:"INDEX";i:1;s:8:"ordering";}}}}]]></tables>
 	<install><![CDATA[

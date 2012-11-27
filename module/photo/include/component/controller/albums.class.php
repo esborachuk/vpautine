@@ -11,7 +11,7 @@ defined('PHPFOX') or exit('NO DICE!');
  * @copyright		[PHPFOX_COPYRIGHT]
  * @author  		Raymond_Benc
  * @package 		Phpfox_Component
- * @version 		$Id: albums.class.php 4562 2012-07-23 14:16:07Z Miguel_Espinoza $
+ * @version 		$Id: albums.class.php 4924 2012-10-23 04:49:01Z Raymond_Benc $
  */
 class Photo_Component_Controller_Albums extends Phpfox_Component
 {
@@ -86,11 +86,11 @@ class Photo_Component_Controller_Albums extends Phpfox_Component
 			{
 				Phpfox::isUser(true);
 				
-				$this->search()->setCondition('AND pa.user_id = ' . Phpfox::getUserId());
+				$this->search()->setCondition('AND pa.user_id = ' . Phpfox::getUserId() . ' AND pa.profile_id = 0');
 			}
 			else
 			{
-				$this->search()->setCondition('AND pa.view_id = 0 AND pa.privacy IN(%PRIVACY%) AND pa.total_photo > 0');
+				$this->search()->setCondition('AND pa.view_id = 0 AND pa.privacy IN(%PRIVACY%) AND pa.total_photo > 0 AND pa.profile_id = 0');
 			}
 		}	
 		

@@ -5,7 +5,7 @@
  * @copyright		[PHPFOX_COPYRIGHT]
  * @author  		Raymond Benc
  * @package  		Module_Mail
- * @version 		$Id: compose.html.php 4629 2012-09-13 08:51:22Z Miguel_Espinoza $
+ * @version 		$Id: compose.html.php 4921 2012-10-22 13:47:30Z Miguel_Espinoza $
  */
  
 defined('PHPFOX') or exit('NO DICE!'); 
@@ -82,7 +82,7 @@ defined('PHPFOX') or exit('NO DICE!');
 				<label for="subject">{phrase var='mail.subject'}:</label>			
 			</div>
 			<div class="table_right">
-				<input type="text" name="val[subject]" id="subject" value="{if isset($iPageId)}Claiming Page '{$aPage.title}'{else}{value type='input' id='subject'}{/if}" size="40" style="{if Phpfox::isMobile()}width:90%;{else}width:400px;{/if}" tabindex="1" />
+				<input type="text" name="val[subject]" id="subject" value="{if isset($iPageId)}{phrase var='mail.claiming_page_title' title=$aPage.title}{else}{value type='input' id='subject'}{/if}" size="40" style="{if Phpfox::isMobile()}width:90%;{else}width:400px;{/if}" tabindex="1" />
 			</div>
 			<div class="clear"></div>
 		</div>

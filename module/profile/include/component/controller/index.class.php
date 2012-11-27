@@ -11,7 +11,7 @@ defined('PHPFOX') or exit('NO DICE!');
  * @copyright		[PHPFOX_COPYRIGHT]
  * @author  		Raymond Benc
  * @package  		Module_Profile
- * @version 		$Id: index.class.php 4708 2012-09-21 08:36:43Z Miguel_Espinoza $
+ * @version 		$Id: index.class.php 4919 2012-10-22 08:42:42Z Raymond_Benc $
  */
 class Profile_Component_Controller_Index extends Phpfox_Component 
 {
@@ -314,7 +314,16 @@ class Profile_Component_Controller_Index extends Phpfox_Component
 			|| ($aRow['landing_page'] == 'info' && empty($sSection))
 			)
 		{
-			return Phpfox::getLib('module')->setController('profile.info');
+			if (!$this->request()->get('status-id')
+				&& !$this->request()->get('comment-id')
+				&& !$this->request()->get('link-id')
+				&& !$this->request()->get('plink-id')
+				&& !$this->request()->get('poke-id')
+				&& !$this->request()->get('feed')
+				)
+			{
+				return Phpfox::getLib('module')->setController('profile.info');
+			}
 		}		
 		
 		$sPageTitle = Phpfox::getService('profile')->getProfileTitle($aRow);		

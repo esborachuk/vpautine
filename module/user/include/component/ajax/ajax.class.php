@@ -11,7 +11,7 @@ defined('PHPFOX') or exit('NO DICE!');
  * @copyright		[PHPFOX_COPYRIGHT]
  * @author  		Raymond Benc
  * @package  		Module_User
- * @version 		$Id: ajax.class.php 4751 2012-09-25 07:16:33Z Raymond_Benc $
+ * @version 		$Id: ajax.class.php 4929 2012-10-23 06:42:40Z Miguel_Espinoza $
  */
 class User_Component_Ajax_Ajax extends Phpfox_Ajax
 {
@@ -24,7 +24,7 @@ class User_Component_Ajax_Ajax extends Phpfox_Ajax
 	
 	public function purchasePoints()
 	{
-		$this->setTitle('Purchase Activity Points');
+		$this->setTitle(Phpfox::getPhrase('user.purchase_activity_points'));
 		Phpfox::getBlock('user.purchasepoints');
 	}
 	

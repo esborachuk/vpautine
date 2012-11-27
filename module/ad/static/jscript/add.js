@@ -113,7 +113,7 @@ $Behavior.creatingAnAd = function()
 			return false;	
 		}
 		
-		$.ajaxCall('ad.getAdPrice', 'location=' + $('#location').val() + '&isCPM=' + $Core.Ad.isCPM + '&total=' + $('#total_view').val());
+		$.ajaxCall('ad.getAdPrice', 'block_id=' + $('#js_block_id').val() + '&location=' + $('#location').val() + '&isCPM=' + $Core.Ad.isCPM + '&total=' + $('#total_view').val());
 		
 		return true;
 	});
@@ -159,8 +159,9 @@ $Core.Ad =
 		pop up when creating an Ad */
 		
 		$('#location').val(location_id);
+		$('#js_block_id').val(block_id);
 		$Core.Ad.oPlan.default_cost = default_cost;
-		$Core.Ad.blockPlacementCallback(width, height, block_id, is_cpm);	
+		$Core.Ad.blockPlacementCallback(width, height, location_id, is_cpm);	
 		
 		if (is_cpm == 1)
 		{

@@ -34,7 +34,7 @@ class Video_Component_Controller_View extends Phpfox_Component
 		
 		if (!($aVideo = Phpfox::getService('video')->callback($aCallback)->getVideo($iVideo)))
 		{
-			return Phpfox_Error::display(Phpfox::getPhrase('video.the_video_you_are_looking_for_does_not_exist_or_has_been_removed'));
+			return Phpfox_Error::display(Phpfox::getPhrase('video.the_video_you_are_looking_for_does_not_exist_or_has_been_removed'), 404);
 		}	
 			
 		if (Phpfox::getUserId() == $aVideo['user_id'] && Phpfox::isModule('notification'))

@@ -5,7 +5,7 @@
  * @copyright		[PHPFOX_COPYRIGHT]
  * @author  		Raymond_Benc
  * @package 		Phpfox
- * @version 		$Id: admin.html.php 4589 2012-08-09 10:46:37Z Raymond_Benc $
+ * @version 		$Id: admin.html.php 4944 2012-10-24 05:24:29Z Raymond_Benc $
  */
  
 defined('PHPFOX') or exit('NO DICE!'); 
@@ -18,7 +18,7 @@ defined('PHPFOX') or exit('NO DICE!');
 				{img user=$aPageAdmin suffix='_50_square' max_width=50 max_height=50}
 			</div>
 			<div class="block_listing_title" style="padding-left:56px;">
-				{$aPageAdmin|user:'':'':'':12:true}
+				{$aPageAdmin|user:'':'':40}
 				{if $phpfox.iteration.pageadmins == 1}
 				<div class="extra_info">
 					{phrase var='pages.founder'}

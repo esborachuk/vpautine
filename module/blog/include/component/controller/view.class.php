@@ -11,7 +11,7 @@ defined('PHPFOX') or exit('NO DICE!');
  * @copyright		[PHPFOX_COPYRIGHT]
  * @author  		Raymond Benc
  * @package  		Module_Blog
- * @version 		$Id: view.class.php 3342 2011-10-21 12:59:32Z Raymond_Benc $
+ * @version 		$Id: view.class.php 4943 2012-10-23 13:37:12Z Miguel_Espinoza $
  */
 class Blog_Component_Controller_View extends Phpfox_Component 
 {
@@ -68,7 +68,7 @@ class Blog_Component_Controller_View extends Phpfox_Component
 		{
 			if ($aItem['is_approved'] != '1' && $aItem['user_id'] != Phpfox::getUserId())
 			{
-				return Phpfox_Error::display(Phpfox::getPhrase('blog.blog_not_found'));
+				return Phpfox_Error::display(Phpfox::getPhrase('blog.blog_not_found'), 404);
 			}
 		}
 		

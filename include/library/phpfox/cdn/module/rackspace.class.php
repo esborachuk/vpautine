@@ -84,10 +84,10 @@ class Phpfox_Cdn_Module_Rackspace extends Phpfox_Cdn_Abstract
 		
 		$object = $this->_oContainer->create_object($sName);
 
-		$object->load_from_filename($sName);
+		$object->load_from_filename($sFile);
 		
 		$this->_bIsUploaded = true;
-		$bDelete = false; // turn this into a setting
+		$bDelete = false;
 		if ($bDelete)
 		{
 			unlink($sFile);
@@ -116,8 +116,6 @@ class Phpfox_Cdn_Module_Rackspace extends Phpfox_Cdn_Abstract
 	{	
 		$sName = str_replace("\\", '/', str_replace(Phpfox::getParam('core.path'), '', $sPath));
 		
-		// $oPic = $this->_oContainer->create_object($sName);		
-		// return $oPic->public_uri();
 		return rtrim(Phpfox::getParam('core.rackspace_url'), '/') . '/' . $sName;
 	}
 }

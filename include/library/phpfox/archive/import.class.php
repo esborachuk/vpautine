@@ -13,7 +13,7 @@ defined('PHPFOX') or exit('NO DICE!');
  * @copyright		[PHPFOX_COPYRIGHT]
  * @author			Raymond Benc
  * @package 		Phpfox
- * @version 		$Id: import.class.php 4887 2012-10-11 11:38:15Z Raymond_Benc $
+ * @version 		$Id: import.class.php 4906 2012-10-22 04:52:14Z Raymond_Benc $
  */
 class Phpfox_Archive_Import
 {
@@ -86,7 +86,8 @@ class Phpfox_Archive_Import
 		
 		$sExt = 'zip';
 
-		$sLocation = PHPFOX_DIR_CACHE  . md5(PHPFOX_TIME . uniqid() . $aFile['name']) . PHPFOX_DS;
+		$sLocationId = md5(PHPFOX_TIME . uniqid() . $aFile['name']) . PHPFOX_DS;
+		$sLocation = PHPFOX_DIR_CACHE  . $sLocationId;
 		
 		mkdir($sLocation);
 		
@@ -99,7 +100,7 @@ class Phpfox_Archive_Import
 		{
 			$sNewFile = str_replace($sLocation, '', $sFile);
 			
-			if (!preg_match('/([a-zA-Z0-9-]\.(xml|css|html.php))/i', $sFile)
+			if (!preg_match('/([a-zA-Z0-9-]\.(xml|css|png|gif|jpg|jpeg|html.php))/i', $sFile)
 					|| !preg_match('/theme\/frontend\/' . $sThemeName . '\//i', $sFile)	
 				)
 			{
@@ -119,14 +120,18 @@ class Phpfox_Archive_Import
 			$sDirPath = implode(PHPFOX_DS, $aParts);
 			
 			$sDirPath = ltrim($sDirPath, 'upload/');
+			if (preg_match('/([a-zA-Z0-9-]\.(png|gif|jpg|jpeg))/i', $sFile))
+			{
+				Phpfox::getLib('cdn')->put($sFile, str_replace('upload/', '', $sNewFile));
+			}
 			
-			Phpfox::getLib('ftp')->mkdir(PHPFOX_DIR . $sDirPath, true);	
-			Phpfox::getLib('ftp')->put($sFile, PHPFOX_DIR . $sNewFile);			
+			// Phpfox::getLib('ftp')->mkdir(PHPFOX_DIR . $sDirPath, true);	
+			// Phpfox::getLib('ftp')->put($sFile, PHPFOX_DIR . $sNewFile);			
 		}
-		
-		Phpfox::getLib('file')->delete_directory($sLocation);
-		
-		return true;		
+				
+		// Phpfox::getLib('file')->delete_directory($sLocation);
+				
+		return $sLocationId;		
 	}
 }
 

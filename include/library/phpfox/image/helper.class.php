@@ -13,7 +13,7 @@ defined('PHPFOX') or exit('NO DICE!');
  * @copyright		[PHPFOX_COPYRIGHT]
  * @author			Raymond Benc
  * @package 		Phpfox
- * @version 		$Id: helper.class.php 4767 2012-09-26 05:41:30Z Raymond_Benc $
+ * @version 		$Id: helper.class.php 4961 2012-10-29 07:11:34Z Raymond_Benc $
  */
 class Phpfox_Image_Helper
 {	
@@ -612,7 +612,7 @@ class Phpfox_Image_Helper
 			$aParams['title'] = Phpfox::getLib('parse.output')->shorten($aParams['title'], 30, '...');
 		}
 		
-		$sImage .= (isset($sLink) ? '<a href="' . $sLink . ((isset($aParams['thickbox']) && isset($aParams['time_stamp'])) ? '?t=' . uniqid() : '') . '"' . (isset($aParams['title']) ? ' title="' . $aParams['title'] . '"' : '') . '' . (isset($aParams['thickbox']) ? ' class="thickbox"' : '') . '>' : '') . '<img src="' . $sSrc . (isset($aParams['time_stamp']) ? '?t=' . uniqid() : '') . '" alt="' . (isset($aParams['title']) ? $aParams['title'] : htmlspecialchars($sAlt)) . '" ';
+		$sImage .= (isset($sLink) ? '<a href="' . $sLink . ((isset($aParams['thickbox']) && isset($aParams['time_stamp'])) ? '?t=' . uniqid() : '') . '"' . (isset($aParams['title']) ? ' title="' . $aParams['title'] . '"' : '') . '' . (isset($aParams['thickbox']) ? ' class="thickbox"' : '') . '' . (isset($aParams['target']) ? ' target="' . $aParams['target'] . '"' : '') . '>' : '') . '<img src="' . $sSrc . (isset($aParams['time_stamp']) ? '?t=' . uniqid() : '') . '" alt="' . (isset($aParams['title']) ? $aParams['title'] : htmlspecialchars($sAlt)) . '" ';
 		
 		if (isset($aParams['js_hover_title']))
 		{
@@ -665,6 +665,7 @@ class Phpfox_Image_Helper
 			$aParams['theme'],
 			$aParams['default'],
 			$aParams['user_suffix'],
+			$aParams['target'],
 			$aParams['alt']
 		);		
 		

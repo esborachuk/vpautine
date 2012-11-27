@@ -5,7 +5,7 @@
  * @copyright		[PHPFOX_COPYRIGHT]
  * @author  		Raymond Benc
  * @package 		Phpfox
- * @version 		$Id: import.html.php 4887 2012-10-11 11:38:15Z Raymond_Benc $
+ * @version 		$Id: import.html.php 4961 2012-10-29 07:11:34Z Raymond_Benc $
  */
  
 defined('PHPFOX') or exit('NO DICE!'); 
@@ -54,7 +54,6 @@ defined('PHPFOX') or exit('NO DICE!');
 		<div class="table_header">
 			Import
 		</div>
-		{if Phpfox::getParam('core.ftp_enabled')}
 		<div class="table">	
 			<div class="table_left">
 				File:
@@ -78,17 +77,6 @@ defined('PHPFOX') or exit('NO DICE!');
 		</div>		
 		<div class="table_clear">
 			<input type="submit" value="Import" class="button" />
-		</div>
-		{else}
-		<div class="table">
-			<div class="message">
-				FTP support must be enabled in order to import themes.
-			</div>
-			<div class="extra_info">
-				Click <a href="{url link='admincp.setting.edit' group-id='ftp'}">here</a> to enable FTP support.
-			</div>
-		</div>
-		<div class="table_clear"></div>
-		{/if}	
+		</div>	
 	</form>
 	{/if}

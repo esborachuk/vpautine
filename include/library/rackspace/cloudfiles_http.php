@@ -846,8 +846,8 @@ class CF_Http
         } else {
             $hdrs[] = "Content-Type: " . $obj->content_type;
         }
-
-        $this->_init($conn_type);
+        
+         $this->_init($conn_type);
         curl_setopt($this->connections[$conn_type],
                 CURLOPT_INFILE, $fp);
         if (!$obj->content_length) {
@@ -860,7 +860,8 @@ class CF_Http
             #
             curl_setopt($this->connections[$conn_type],
                     CURLOPT_INFILESIZE, $obj->content_length);
-        }
+        }     
+        
         $return_code = $this->_send_request($conn_type,$url_path,$hdrs);
 
         if (!$return_code) {
@@ -1533,12 +1534,12 @@ class CF_Http
         curl_setopt($this->connections[$conn_type],
             CURLOPT_URL, $url_path);
 
-        if (!curl_exec($this->connections[$conn_type]) && curl_errno($this->connections[$conn_type]) !== 0) {
+        if (!($mReturn = curl_exec($this->connections[$conn_type])) && curl_errno($this->connections[$conn_type]) !== 0) {
             $this->error_str = "(curl error: "
                 . curl_errno($this->connections[$conn_type]) . ") ";
             $this->error_str .= curl_error($this->connections[$conn_type]);
             return False;
-        }
+        } 
         return curl_getinfo($this->connections[$conn_type], CURLINFO_HTTP_CODE);
     }
     

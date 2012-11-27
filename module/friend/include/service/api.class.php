@@ -11,7 +11,7 @@ defined('PHPFOX') or exit('NO DICE!');
  * @copyright		[PHPFOX_COPYRIGHT]
  * @author  		Raymond_Benc
  * @package 		Phpfox_Service
- * @version 		$Id: api.class.php 2900 2011-08-26 09:18:42Z Raymond_Benc $
+ * @version 		$Id: api.class.php 4961 2012-10-29 07:11:34Z Raymond_Benc $
  */
 class Friend_Service_Api extends Phpfox_Service 
 {
@@ -59,7 +59,11 @@ class Friend_Service_Api extends Phpfox_Service
 			if (!$this->_oApi->isAllowed('user.get_full_name', null, $aRow['user_id']))
 			{
 				unset($aRows[$iKey]['full_name']);	
-			}				
+			}		
+			else
+			{
+				$aRows[$iKey]['full_name_link'] = '<a href="' . Phpfox::getLib('url')->makeUrl($aRow['user_name']) . '" target="_parent">' . $aRows[$iKey]['full_name'] . '</a>';
+			}		
 
 			if (!$this->_oApi->isAllowed('user.get_email', null, $aRow['user_id']))
 			{
@@ -75,10 +79,24 @@ class Friend_Service_Api extends Phpfox_Service
 				)
 			);
 			
+			$aRows[$iKey]['photo_50px_link'] = Phpfox::getLib('image.helper')->display(array(
+					'user' => $aRow,
+					'suffix' => '_50',
+					'target' => '_parent'
+				)
+			);			
+			
 			$aRows[$iKey]['photo_50px_square'] = Phpfox::getLib('image.helper')->display(array(
 					'user' => $aRow,
 					'suffix' => '_50_square',
 					'return_url' => true
+				)
+			);		
+
+			$aRows[$iKey]['photo_50px_square_link'] = Phpfox::getLib('image.helper')->display(array(
+					'user' => $aRow,
+					'suffix' => '_50_square',
+					'target' => '_parent'
 				)
 			);			
 			
@@ -89,12 +107,26 @@ class Friend_Service_Api extends Phpfox_Service
 				)
 			);		
 			
+			$aRows[$iKey]['photo_120px_link'] = Phpfox::getLib('image.helper')->display(array(
+					'user' => $aRow,
+					'suffix' => '_120',
+					'target' => '_parent'
+				)
+			);			
+			
 			$aRows[$iKey]['photo_original'] = Phpfox::getLib('image.helper')->display(array(
 					'user' => $aRow,
 					'suffix' => '',
 					'return_url' => true
 				)
 			);	
+			
+			$aRows[$iKey]['photo_original_link'] = Phpfox::getLib('image.helper')->display(array(
+					'user' => $aRow,
+					'suffix' => '',
+					'target' => '_parent'
+				)
+			);			
 			
 			$aRows[$iKey]['gender'] = ($aRow['gender'] == '1' ? 'Male' : 'Female');
 			$aRows[$iKey]['profile_url'] = Phpfox::getLib('url')->makeUrl($aRow['user_name']);

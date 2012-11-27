@@ -13,7 +13,7 @@ define('PHPFOX_IS_EVENT_VIEW', true);
  * @copyright		[PHPFOX_COPYRIGHT]
  * @author  		Raymond Benc
  * @package 		Phpfox_Component
- * @version 		$Id: view.class.php 4503 2012-07-11 14:41:02Z Miguel_Espinoza $
+ * @version 		$Id: view.class.php 4943 2012-10-23 13:37:12Z Miguel_Espinoza $
  */
 class Event_Component_Controller_View extends Phpfox_Component
 {
@@ -51,7 +51,7 @@ class Event_Component_Controller_View extends Phpfox_Component
 		
 		if (!($aEvent = Phpfox::getService('event')->getEvent($sEvent)))
 		{
-			return Phpfox_Error::display(Phpfox::getPhrase('event.the_event_you_are_looking_for_does_not_exist_or_has_been_removed'));
+			return Phpfox_Error::display(Phpfox::getPhrase('event.the_event_you_are_looking_for_does_not_exist_or_has_been_removed'), 404);
 		}
 		
 		Phpfox::getService('core.redirect')->check($aEvent['title']);

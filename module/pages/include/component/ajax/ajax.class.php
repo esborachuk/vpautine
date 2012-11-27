@@ -11,10 +11,18 @@ defined('PHPFOX') or exit('NO DICE!');
  * @copyright		[PHPFOX_COPYRIGHT]
  * @author  		Raymond_Benc
  * @package 		Phpfox_Ajax
- * @version 		$Id: ajax.class.php 4637 2012-09-17 09:37:20Z Miguel_Espinoza $
+ * @version 		$Id: ajax.class.php 4915 2012-10-22 08:06:08Z Raymond_Benc $
  */
 class Pages_Component_Ajax_Ajax extends Phpfox_Ajax
 {
+	public function removeLogo()
+	{
+		if (($aPage = Phpfox::getService('pages.process')->removeLogo($this->get('page_id'))) !== false)
+		{
+			$this->call('window.location.href = \'' . $aPage['link'] . '\';');
+		}
+	}	
+	
 	public function deleteWidget()
 	{
 		if (Phpfox::getService('pages.process')->deleteWidget($this->get('widget_id')))
