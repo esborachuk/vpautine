@@ -38,13 +38,18 @@ $(window).scroll(function(){
 });
 /*--------header_static_position--------*/
 
-
 /*-----back_button-----*/
 
 jQuery(document).ready(function() {
-    jQuery('.go_back_link').click(function(){
+
+    var backLink = jQuery('.go_back_link');
+    backLink .show();
+    backLink .click(function(){
         window.history.go(-1);
     });
+
+        backLink .show();
+
 });
 
 /*-----back_button-----*/

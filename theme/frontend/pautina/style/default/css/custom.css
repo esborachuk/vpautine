@@ -1168,10 +1168,12 @@ div.js_mini_feed_comment {
 }
 
 .go_back_link {
-    display: block;
     position: absolute;
-    top: 5px;
-    left: 10px;
+    top: 100px;
+    left: 20px;
+    background: url("../image/pautina/back-button.png") no-repeat center center;
+    width: 40px;
+    height: 40px;
 }
 
 #main_content .go_back_link {
@@ -1182,4 +1184,8 @@ div.js_mini_feed_comment {
     font-size: 10px;
     font-weight: bold;
     margin-top: 2px;
+}
+
+.js_box .js_box_close {
+    margin: 9px 0 5px;
 }

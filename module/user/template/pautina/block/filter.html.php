@@ -76,7 +76,7 @@ defined('PHPFOX') or exit('NO DICE!');
 	
 	<div id="js_user_browse_advanced">
 		<div class="user_browse_content">
-		<div class="js_box_close" style="display: block;"><a href="#" id="js_user_browse_advanced_link_close" onclick="$('#js_user_browse_advanced').hide(); return false;">X</a></div>
+		<div class="js_box_close" style="display: block;"><a href="#" id="js_user_browse_advanced_link_close" onclick="$('#js_user_browse_advanced').hide(); return false;"></a></div>
 
 	<div id="browse_custom_fields_popup_holder">
 	    {foreach from=$aCustomFields name=customfield item=aCustomField}

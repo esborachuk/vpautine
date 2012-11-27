@@ -430,7 +430,7 @@ function tb_show(caption, url, thisObject, sForceMessage, bForceNoCilck)
 			sHtml += '<div id="' + $sCurrentId + '" class="js_box' + (oParams['bJsIsMobile'] ? ' mobile_js_box' : ' ') + (isset(params['no_remove_box']) ? ' js_box_no_remove' : '') + '" style="width:' + ajaxContentW + 'px;">';
 			if (!bIsPhotoImage)
 			{
-				sHtml += '<div class="js_box_title">' + caption + '</div><div class="js_box_close"><a href="#" onclick="return js_box_remove(this);">X</a></div>';
+				sHtml += '<div class="js_box_title">' + caption + '</div><div class="js_box_close"><a href="#" onclick="return js_box_remove(this);"></a></div>';
 			}
 			sHtml += '<div class="js_box_content"><span class="js_box_loader">' + oTranslations['core.loading'] + '...</span></div>';
 			// if (!bIsPhotoImage)

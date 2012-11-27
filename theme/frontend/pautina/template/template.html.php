@@ -18,13 +18,14 @@ defined('PHPFOX') or exit('NO DICE!');
 		<title>{title}</title>	
 		{header}
 	</head>
-	<body class="{$aRequests.req2}">
+	<body>
 		{body}
 		{block location='9'}
         {if Phpfox::isUser()}
             {module name='pautina.profile.usermenu'}
         {/if}
 		<div id="header" class="pautina">
+            <a href="#" class="go_back_link" title="Назад..." style="display: none;"></a>
             <div class="header-wrapper">
             <div class="header-content">
 			<div class="holder">
