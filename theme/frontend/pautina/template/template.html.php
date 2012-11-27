@@ -18,7 +18,7 @@ defined('PHPFOX') or exit('NO DICE!');
 		<title>{title}</title>	
 		{header}
 	</head>
-	<body class="{$aRequests.req2}">
+	<body>
 		{body}
 		{block location='9'}
         {if Phpfox::isUser()}
@@ -71,11 +71,11 @@ defined('PHPFOX') or exit('NO DICE!');
 			</div>
 
 			{if Phpfox::getParam('user.hide_main_menu') && !Phpfox::isUser()}
-			
+
 			{else}
-			<div id="header_menu_page_holder">	
+			<div id="header_menu_page_holder">
 				<div class="holder">
-					<div id="header_menu">				
+					<div id="header_menu">
 						{menu}
 						<div class="clear"></div>
 					</div>		
