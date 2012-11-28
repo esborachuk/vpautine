@@ -1722,7 +1722,6 @@ a.item_bar_flag:hover
 	background:url('../image/layout/action_drop.png') no-repeat 97% 0%;
 	width:200px;
 	right:0px;
-	top:45px;
 	z-index:800;	
 	display:none;
  }
@@ -1761,8 +1760,9 @@ a.item_bar_flag:hover
 */
 .sub_section_menu
 {
-	margin:0px 0px 15px 0px;
-	padding-bottom:10px;
+	margin:0;
+	border-bottom: 1px solid #d7d7d7;
+    overflow: hidden;
 }
 
 .sub_section_menu ul
@@ -1774,9 +1774,15 @@ a.item_bar_flag:hover
 
 .sub_section_menu ul li
 {
+    float: left;
 	display:block;
-	position:relative;	
-}	
+	position:relative;
+    border-right: 1px solid #d7d7d7;
+}
+
+#left .sub_section_menu ul li {
+    float: none;
+}
 
 .sub_section_menu ul li.menu_line
 {
@@ -1789,24 +1795,16 @@ a.item_bar_flag:hover
 .sub_section_menu ul li a:hover
 {
 	display:block;
-	line-height:22px;	
+	line-height:25px;
 	text-decoration:none;
 	color:#333;
-	padding:0px 0px 0px 4px;	
+	padding:0 15px;
 	background-repeat:no-repeat;
 }
 
 .sub_section_menu ul li a:hover
 {
 	background:#EFF9FF;
-}
-
-.sub_section_menu ul li.active a,
-.sub_section_menu ul li.active a:hover
-{
-	font-weight:bold;	
-	background:#333 url('../image/layout/sub_section_menu_active.png') repeat-x;
-	color:#fff;
 }
 
 .sub_section_menu ul li a span
@@ -1874,10 +1872,9 @@ a.item_bar_flag:hover
 #right .block,
 #left .block
 {
-	margin-bottom:15px;
+	margin-bottom:5px;
 }
 
-#left .block .title,
 #right .block .title
 {	
 	padding:0px 0px 0px 4px;
@@ -3002,7 +2999,7 @@ ul.block_listing li .block_listing_title a:hover
 
 .block_listing_inline
 {
-	margin:5px 0px 5px 0px;
+    margin: 5px 10px 0 10px;
 }
 
 .block_listing_inline ul

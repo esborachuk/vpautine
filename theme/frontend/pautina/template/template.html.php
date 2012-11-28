@@ -72,11 +72,11 @@ defined('PHPFOX') or exit('NO DICE!');
 			</div>
 
 			{if Phpfox::getParam('user.hide_main_menu') && !Phpfox::isUser()}
-			
+
 			{else}
-			<div id="header_menu_page_holder">	
+			<div id="header_menu_page_holder">
 				<div class="holder">
-					<div id="header_menu">				
+					<div id="header_menu">
 						{menu}
 						<div class="clear"></div>
 					</div>		
@@ -107,12 +107,12 @@ defined('PHPFOX') or exit('NO DICE!');
 
 							{if !$bUseFullSite && (count($aBlocks1) || count($aAdBlocks1)) || (isset($aFilterMenus) && is_array($aFilterMenus) && count($aFilterMenus))}					
 							<div id="left">
-								{menu_sub}
 								{block location='1'}
 							</div>
 							{/if}
 
 							<div id="main_content">
+                                {menu_sub}
 								{if !defined('PHPFOX_IS_USER_PROFILE') && !defined('PHPFOX_IS_PAGES_VIEW')}
 								{search}
 								{/if}

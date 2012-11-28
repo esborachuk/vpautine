@@ -24,7 +24,7 @@ class Pautina_Component_Block_Profile_Image extends Phpfox_Component
             'no_link' => true
         );
 
-        if (Phpfox::getService('profile')->timeline())
+        if (Phpfox::getService('profile')->timeline() || $this->getParam('image_size'))
         {
             $aUserInfo['suffix'] = '_120_square';
             unset($aUserInfo['max_width']);
@@ -46,5 +46,4 @@ class Pautina_Component_Block_Profile_Image extends Phpfox_Component
         }
     }
 }
-
 ?>
