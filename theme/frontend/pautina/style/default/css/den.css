@@ -165,3 +165,35 @@
 #js_is_user_profile > .holder {
     background: #fff;
 }
+
+#profile_small_header_block {
+    border: 1px solid #d7d7d7;
+    margin: 5px 0;
+    border-radius: 4px;
+    padding: 0 8px;
+}
+
+#profile_small_header_block .profile_image {
+    float: none;
+}
+
+#profile_small_header_block .profile_image_holder {
+    float: left;
+}
+
+#profile_small_header_block .buttons_user {
+    float: left;
+    width: 200px;
+    margin-top: 5px;
+}
+
+#profile_small_header_block h1 {
+    font-size: 16px;
+    line-height: 24px;
+    font-weight: bold;
+    padding-bottom: 5px;
+    margin-left: 5px;
+}
+#profile_small_header_block h1 a {
+    color: #28A6FF;
+}
