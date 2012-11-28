@@ -45,7 +45,8 @@ body{
 #left #js_block_border_friend_profile_small .title,
 #left #js_block_border_friend_mutual-friend .title,
 #left #js_block_border_friend_mini .title,
-#js_is_user_profile #content .block .title{
+#js_is_user_profile #content .block .title,
+#js_block_border_log_login .title {
     background: url("../image/bg_dot.png") repeat scroll 0 0 transparent !important;
     box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.37);
     color: #3FB6E2;

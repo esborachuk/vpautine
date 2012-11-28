@@ -1872,10 +1872,9 @@ a.item_bar_flag:hover
 #right .block,
 #left .block
 {
-	margin-bottom:15px;
+	margin-bottom:5px;
 }
 
-#left .block .title,
 #right .block .title
 {	
 	padding:0px 0px 0px 4px;
@@ -3000,7 +2999,7 @@ ul.block_listing li .block_listing_title a:hover
 
 .block_listing_inline
 {
-	margin:5px 0px 5px 0px;
+    margin: 5px 10px 0 10px;
 }
 
 .block_listing_inline ul
