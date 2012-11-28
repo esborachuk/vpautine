@@ -197,3 +197,16 @@
 #profile_small_header_block h1 a {
     color: #28A6FF;
 }
+
+#js_controller_photo_index #main_content, #js_controller_friend_index #main_content {
+    width: 100%;
+    margin-left: 0;
+}
+
+#js_controller_photo_index #js_actual_photo_content {
+    width: 333px;
+}
+
+#js_controller_photo_index #main_content_padding {
+    padding-top: 5px;
+}

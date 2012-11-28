@@ -559,22 +559,20 @@ ul.block_listing li .block_listing_image a img,
 #js_controller_photo_index #left, #js_controller_photo_albums #left, #js_controller_photo_rate #left,
 #js_controller_video_index #left, #js_controller_blog_index #left, #js_controller_friend_index #left,
 #js_controller_music_index #left, #js_controller_music_browse_album #left, #js_controller_user_browse #left,
-#js_controller_friend_accept #left, #js_controller_friend_pending #left{
+{
     width: 260px;
 }
 
-#js_controller_photo_index #main_content, #js_controller_photo_albums #main_content, #js_controller_photo_rate #main_content,
 #js_controller_video_index #main_content,#js_controller_blog_index #main_content, #js_controller_friend_index #main_content,
 #js_controller_music_index #main_content, #js_controller_music_browse_album #main_content, #js_controller_user_browse #main_content,
-#js_controller_friend_accept #main_content, #js_controller_friend_pending #main_content{
+{
     margin-left: 260px;
     width: 639px;
 }
 
-#js_controller_photo_index #content, #js_controller_photo_albums #content, #js_controller_photo_rate #content,
 #js_controller_video_index #content, #js_controller_blog_index #site_content, #js_controller_friend_index #site_content,
 #js_controller_music_index #site_content, #js_controller_music_browse_album #site_content, #js_controller_user_browse #site_content,
-#js_controller_friend_accept #site_content, #js_controller_friend_pending #site_content{
+{
     width: 619px!important;
     padding: 0 10px;
 }
