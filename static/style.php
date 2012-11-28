@@ -27,11 +27,6 @@ define('PHPFOX_DS', DIRECTORY_SEPARATOR);
  */
 define('PHPFOX_DIR', dirname(dirname(__FILE__)) . PHPFOX_DS);
 
-if (!isset($_GET['app_id']))
-{
-	exit('You need to pass your APP ID as "app_id=<YOUR_ID_HERE>".');
-}
-
 // Require phpFox Init
 require(PHPFOX_DIR . 'include' . PHPFOX_DS . 'init.inc.php');
 
@@ -56,7 +51,7 @@ if (isset($_SERVER['HTTP_ACCEPT_ENCODING']))
 
 $sThemePath =  str_replace(Phpfox::getParam('core.path'), '', $oTpl->getStyle('image'));
 
-$sCacheFile = PHPFOX_DIR_FILE . 'gzip' . PHPFOX_DS . md5('apps_' . $_GET['app_id'] . $sThemePath . $bSupportsGzip . (isset($_GET['v']) ? $_GET['v'] : '')) . '.php';
+$sCacheFile = PHPFOX_DIR_FILE . 'gzip' . PHPFOX_DS . md5('apps_' . Phpfox::getUserId() . $sThemePath . $bSupportsGzip . (isset($_GET['v']) ? $_GET['v'] : '')) . '.php';
 
 header('Content-Type: text/css');
 header("Vary: Accept-Encoding");  

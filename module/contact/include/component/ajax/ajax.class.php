@@ -11,7 +11,7 @@ defined('PHPFOX') or exit('NO DICE!');
  * @copyright		[PHPFOX_COPYRIGHT]
  * @author  		Miguel Espinoza
  * @package  		Module_Contact
- * @version 		$Id: ajax.class.php 4607 2012-08-27 07:23:45Z Miguel_Espinoza $
+ * @version 		$Id: ajax.class.php 4921 2012-10-22 13:47:30Z Miguel_Espinoza $
  */
 class Contact_Component_Ajax_Ajax extends Phpfox_Ajax
 {
@@ -28,7 +28,7 @@ class Contact_Component_Ajax_Ajax extends Phpfox_Ajax
 		$iUserId = Phpfox::getParam('pages.admin_in_charge_of_page_claims');
 		if (empty($iUserId))
 		{
-			return Phpfox_Error::display('No admin has been set to handle this type of issues');
+			return Phpfox_Error::display(Phpfox::getPhrase('contact.no_admin_has_been_set_to_handle_this_type_of_issues'));
 		}
 		
 		Phpfox::getComponent('mail.compose', array('claim_page' => true, 'page_id' => $this->get('page_id'), 'id' => $iUserId), 'controller');

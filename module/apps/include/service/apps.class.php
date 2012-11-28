@@ -23,13 +23,94 @@ class Apps_Service_Apps extends Phpfox_Service
 		$this->_sTable = Phpfox::getT('app');
 	}
 
+	public function export($aVals)
+	{
+		if (empty($aVals['title']))
+		{
+			Phpfox_Error::set('Provide a package name.');
+		}
+		
+		if (empty($aVals['url']))
+		{
+			Phpfox_Error::set('Provide a URL.');
+		}
+		
+		if (empty($aVals['apps']))
+		{
+			Phpfox_Error::set('Select apps to export.');
+		}
+		
+		if (Phpfox_Error::isPassed())
+		{
+			$aVals['title'] = strtolower($aVals['title']);
+			$aVals['title'] = preg_replace('/[^a-zA-Z0-9]+/', '', $aVals['title']);
+			$aVals['title'] = substr($aVals['title'], 0, 20);		
+			
+			define('PHPFOX_XML_SKIP_STAMP', true);
+		
+			$oXmlBuilder = Phpfox::getLib('xml.builder');
+			
+			$oXmlBuilder->addGroup('phpfoxapps');
+			$oXmlBuilder->addGroup('appsinfo');
+			$oXmlBuilder->addTag('url', $aVals['url']);
+			$oXmlBuilder->closeGroup();
+			
+			$oXmlBuilder->addGroup('apps');
+			$aApps = $this->getAllApps($aVals['apps']);
+			foreach ($aApps as $aApp)
+			{
+				$oXmlBuilder->addGroup('app');
+				$oXmlBuilder->addTag('app_title', $aApp['app_title']);
+				$oXmlBuilder->addTag('app_description', $aApp['app_description']);
+				$oXmlBuilder->addTag('app_url', $aApp['app_url']);
+				$oXmlBuilder->addTag('image_url', $aApp['image_url']);
+				$oXmlBuilder->addTag('time_stamp', $aApp['time_stamp']);
+				
+				if (!empty($aApp['image_path']))
+				{
+					$oXmlBuilder->addGroup('images');
+					$aSizes = array('', 50, 200, 'square');
+					foreach ($aSizes as $mSize)
+					{
+						$sImage = sprintf($aApp['image_path'], (empty($mSize) ? '' : '_' . $mSize));
+						$sContent = file_get_contents(PHPFOX_DIR . 'file' . PHPFOX_DS . 'pic' . PHPFOX_DS . 'app' . PHPFOX_DS . $sImage);
+						
+						$aExts = preg_split('/[\/\\.]/', $sImage);
+						$iCnt = count($aExts)-1;
+						$sExt = strtolower($aExts[$iCnt]);
+						
+						$oXmlBuilder->addTag('data', base64_encode($sContent), array('id' => md5($sContent), 'size' => (empty($mSize) ? '' : '_' . $mSize), 'ext' => $sExt));
+					}
+					$oXmlBuilder->closeGroup();
+				}
+				
+				$oXmlBuilder->closeGroup();
+			}
+			$oXmlBuilder->closeGroup();
+			$oXmlBuilder->closeGroup();
+			
+			$sNewHomeFolder = PHPFOX_DIR_CACHE . md5(uniqid() . Phpfox::getUserId());
+						
+			Phpfox::getLib('file')->write($sNewHomeFolder, $oXmlBuilder->output());
+	
+			Phpfox::getLib('file')->forceDownload($sNewHomeFolder, 'phpfox-' . $aVals['title'] . '.apps');
+		}
+		
+		return false;
+	}	
+	
 	/**
 	 * This function gets all the apps as an array, one of its sub-elements is an array
 	 * of permissions
 	 * @Todo cache apps
 	 */
-	public function getAllApps()
+	public function getAllApps($mIds = null)
 	{
+		if (is_array($mIds) && count($mIds))
+		{
+			$this->database()->where('app_id IN(' . implode(',', $mIds) . ')');
+		}
+		
 		$aApps = $this->database()->select('a.*')
 				->from($this->_sTable, 'a')
 				->execute('getSlaveRows');

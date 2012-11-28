@@ -218,6 +218,7 @@ class Egift_Service_Process extends Phpfox_Service
 		$mLoaded = null;
 		$oImage = Phpfox::getLib('image');
 		$bIsEdit = isset($aVals['egift_id']) && $aVals['egift_id'] > 0;
+		$aVals['category'] = (isset($aVals['category']) ? (int)$aVals['category'] : 0);
 		$aSQL = array('category_id' => (int) $aVals['category'],
 			'user_id' => Phpfox::getUserId(),
 			'time_stamp' => PHPFOX_TIME,

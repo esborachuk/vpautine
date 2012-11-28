@@ -793,6 +793,16 @@ class Input_Service_Callback extends Phpfox_Service
 		}
 	}
 
+	
+	public function deleteItem($aParams)
+	{
+		if (!isset($aParams['sModule']) || empty($aParams['sModule']) || !isset($aParams['iItemId']) || empty($aParams['iItemId']))
+		{
+			return false;
+		}
+		Phpfox::getService('input.process')->deleteValues($aParams);
+		
+	}
 	/**
 	 * If a call is made to an unknown method attempt to connect
 	 * it to a specific plug-in with the same name thus allowing 

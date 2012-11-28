@@ -11,7 +11,7 @@ defined('PHPFOX') or exit('NO DICE!');
  * @copyright		[PHPFOX_COPYRIGHT]
  * @author  		Raymond_Benc
  * @package 		Phpfox_Service
- * @version 		$Id: process.class.php 4786 2012-09-27 10:40:14Z Miguel_Espinoza $
+ * @version 		$Id: process.class.php 4961 2012-10-29 07:11:34Z Raymond_Benc $
  */
 class Pages_Service_Process extends Phpfox_Service 
 {
@@ -24,6 +24,26 @@ class Pages_Service_Process extends Phpfox_Service
 	{	
 		$this->_sTable = Phpfox::getT('pages');
 	}
+	
+	public function removeLogo($iPageId = null)
+	{
+		$aPage = Phpfox::getService('pages')->getPage($iPageId);
+		if (!isset($aPage['page_id']))
+		{
+			return false;
+		}
+		
+		$aPage['link'] = Phpfox::getService('pages')->getUrl($aPage['page_id'], $aPage['title'], $aPage['vanity_url']);
+		
+		if (!Phpfox::getService('pages')->isAdmin($aPage))
+		{
+			return false;
+		}
+	
+		$this->database()->update(Phpfox::getT('pages'), array('cover_photo_id' => '0', 'cover_photo_position' => null), 'page_id = ' . (int) $iPageId);
+	
+		return $aPage;
+	}	
 	
 	public function deleteWidget($iId)
 	{
@@ -258,6 +278,7 @@ class Pages_Service_Process extends Phpfox_Service
 		else
 		{
 			$this->database()->delete(Phpfox::getT('pages_type'), 'type_id = ' . (int) $iId);
+			$this->database()->delete(Phpfox::getT('pages_category'), 'type_id = ' . (int) $iId);
 		}
 		
 		$this->cache()->remove('pages', 'substr');
@@ -265,14 +286,15 @@ class Pages_Service_Process extends Phpfox_Service
 		return true;
 	}
 	
-	public function add($aVals)
+	public function add($aVals, $bIsApp = false)
 	{ 
 		$iViewId = (Phpfox::getUserParam('pages.approve_pages') ? '1' : '0');
 		if (empty($aVals['title']))
 		{
 			return Phpfox_Error::set(Phpfox::getPhrase('pages.page_name_cannot_be_empty'));
 		}
-		if (defined('PHPFOX_APP_CREATED'))
+		
+		if (defined('PHPFOX_APP_CREATED') || $bIsApp)
 		{
 			$iViewId = 0;
 		}
@@ -771,8 +793,7 @@ class Pages_Service_Process extends Phpfox_Service
 			}
 			$this->database()->delete(Phpfox::getT('pages'), 'page_id = ' . $aPage['page_id']);
 
-			
-			
+			Phpfox::getService('user.activity')->update(Phpfox::getUserId(), 'pages', '-');
 			
 			return true;
 		}

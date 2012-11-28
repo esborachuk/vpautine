@@ -5,16 +5,28 @@
  * @copyright		[PHPFOX_COPYRIGHT]
  * @author  		Raymond Benc
  * @package  		Module_Admincp
- * @version 		$Id: entry.html.php 1300 2009-12-07 00:39:10Z Raymond_Benc $
+ * @version 		$Id: entry.html.php 4939 2012-10-23 09:17:04Z Miguel_Espinoza $
  */
  
 defined('PHPFOX') or exit('NO DICE!'); 
 
 ?>
+<script type="text/javascript">
+	var sInProcess = '';
+	function checkInProcess(sModuleId)
+	{l}
+		if (sInProcess == '')
+		{l}
+			sInProcess = sModuleId;
+			return true;
+		{r}
+		return false;
+	{r}
+</script>
 <tr class="checkRow{if is_int($iKey/2)} tr{else}{/if}{if isset($aModule.is_not_installed)} is_checked{/if}">
 	<td class="t_center">
 	{if isset($aModule.is_not_installed)}
-		<a href="{url link='admincp.module' install=$aModule.module_id}" title="{phrase var='admincp.install_this_module'}">{img theme='misc/application_add.png'}</a>
+		<a onclick="return checkInProcess('{$aModule.module_id}');" href="{url link='admincp.module' install=$aModule.module_id}" title="{phrase var='admincp.install_this_module'}">{img theme='misc/application_add.png'}</a>
 	{else}
 		<a href="#" class="js_drop_down_link" title="{phrase var='admincp.manage'}">{img theme='misc/bullet_arrow_down.png' alt=''}</a>
 		<div class="link_menu">

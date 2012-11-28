@@ -13,7 +13,7 @@ defined('PHPFOX') or exit('NO DICE!');
  * @copyright		[PHPFOX_COPYRIGHT]
  * @author			Raymond Benc
  * @package 		Phpfox
- * @version 		$Id: validator.class.php 4604 2012-08-20 11:17:10Z Miguel_Espinoza $
+ * @version 		$Id: validator.class.php 4906 2012-10-22 04:52:14Z Raymond_Benc $
  */
 final class Phpfox_Validator
 {	
@@ -454,7 +454,7 @@ final class Phpfox_Validator
 				
 				if ($bFailed)
 				{
-					Phpfox_Error::set((isset($aParam['message']) ? $aParam['message'] : $sDebug) . ((PHPFOX_DEBUG && isset($aParam['message'])) ? ' DEBUG: ' . $sDebug : ''));
+					Phpfox_Error::set((isset($aParam['message']) ? $aParam['message'] : $sDebug . '(' . $sKey . ')') . ((PHPFOX_DEBUG && isset($aParam['message'])) ? ' DEBUG: ' . $sDebug : ''));
 				}				
 			}
 			

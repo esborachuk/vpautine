@@ -11,7 +11,7 @@ var bIsWaiting = false;
  * */
 var aLastUpdatePerRoom = {};
 
-/* This variable tells if the current user is online in the IM, if
+/* This variable tells if the current user is online in the IM, if 
  * the user is offline we avoid ajax calls 
  * */
 var bIsOnline = true;
@@ -65,13 +65,13 @@ function getUpdate()
 	/*var aOpenChatRooms = [];
 	$('.js_cache_im_room').each(function()
 	{		
-		/* Make sure that there is only one chat room open
+		/* Make sure that there is only one chat room open 
 		var iId = $(this).attr('id').replace('js_cache_im_room_','');
 		if($.inArray(iId, aOpenChatRooms) > (-1))
 		{
-			/* Extra check to make sure we only have one chat room open
+			/* Extra check to make sure we only have one chat room open 
 			 * for each chat room
-			/* $('#' + $(this).attr('id') + ':last').remove();
+			/* $('#' + $(this).attr('id') + ':last').remove();			
 		}
 		else
 		{
@@ -113,7 +113,7 @@ function showMessage($iParentId, $sRoomContent, bForceScroll)
 	var bExists = $('#js_messages_' + $iParentId).length > 0;
 	var bVisible = $('#js_messages_' + $iParentId).is(':visible');
 		
-	 /* console.log(' showMessage. bExists: ' + bExists + ' _  bVisible ' + ': ' + bVisible + ' iParentId: ' + $iParentId); */
+	 /* console.log(' showMessage. bExists: ' + bExists + ' _  bVisible ' + ': ' + bVisible + ' iParentId: ' + $iParentId); */ 
     if ( ((bExists == false) || (bVisible == false)) && (bForceScroll != true))
     {
 		$('#js_cache_im_room_' + $iParentId).addClass('focus').addClass('new').removeClass('seen');		
@@ -133,7 +133,7 @@ function addImLink(iParentId, sHtml)
 	if ($('#js_link_'+iParentId).length > 0)
 	{
 		/* is the messages window open? */
-		/*var bShowMessages = $('#js_messages_'+iParentId).is(':visible');	*/
+		/*var bShowMessages = $('#js_messages_'+iParentId).is(':visible');	*/	
 		var sLink = $(sHtml).find('#js_link_' + iParentId).html();
 		$('#js_link_'+iParentId).html(sLink);		
 		return;
@@ -177,7 +177,7 @@ function clickOnLink(iParentId)
 
 /**
  * This function was copied from the template im.block.chat and modified after
- */
+ */ 
 function minimizeChat(iRoom)
 {
 	$('#js_messages_'+iRoom).html(' ');
@@ -188,7 +188,7 @@ function minimizeChat(iRoom)
 }
 /**
  * This function was copied from the template im.block.chat and modified after
- */
+ */ 
 function closeChat(iRoom)
 {
 	/* this was part of im.link
@@ -239,7 +239,7 @@ function doScroll(iId, bForce, iRand)
 	return true;
 }
 
-/* This function aborts the ajax call for getUpdate IF the user
+/* This function aborts the ajax call for getUpdate IF the user 
  * is typing the name of a friend, this is needed so the ajax 
  * response wont recreate im.list */
 function stopForSearch()
@@ -255,7 +255,7 @@ function stopForSearch()
 /**
  * This function checks if there is enough room to go full height and changes the CSS accordingly
  * made as an independent function to be called from ajax responses
- */
+ */ 
 function goFullHeight()
 {
     /* if we have enough space then display the IM in "full mode"*/
@@ -291,7 +291,7 @@ function goFullHeight()
 
 $Behavior.initIm = function()
 {	
-	/* the first time getUpdate is called it will not call im.load
+	/* the first time getUpdate is called it will not call im.load 
 	 * and goFullHeight will not call im.load if the screen is big enough*/
 	if ($('body').width() <= iMinWidth && getCookie('js_im_open'))
 	{

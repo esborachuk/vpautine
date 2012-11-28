@@ -11,7 +11,7 @@ defined('PHPFOX') or exit('NO DICE!');
  * @copyright		[PHPFOX_COPYRIGHT]
  * @author  		Raymond Benc
  * @package 		Phpfox_Ajax
- * @version 		$Id: ajax.class.php 4786 2012-09-27 10:40:14Z Miguel_Espinoza $
+ * @version 		$Id: ajax.class.php 4913 2012-10-22 07:24:53Z Raymond_Benc $
  */
 class Ad_Component_Ajax_Ajax extends Phpfox_Ajax
 {
@@ -39,7 +39,7 @@ class Ad_Component_Ajax_Ajax extends Phpfox_Ajax
 	
 	public function getAdPrice()
 	{
-		if (($aPlan = Phpfox::getService('ad')->getPlan($this->get('location'), false)))
+		if (($aPlan = Phpfox::getService('ad')->getPlan($this->get('block_id'), false)))
 		{
 			
 			//$this->html('#js_ad_info_cost', '' . Phpfox::getService('core.currency')->getCurrency($aPlan['default_cost']) . ($this->get('isCPM') == true ? (' CPM (' . Phpfox::getPhrase('ad.total_ad_views', array('total' => '1000')) . ')' ) : (' /click')));

@@ -60,19 +60,17 @@ class Apps_Component_Controller_View extends Phpfox_Component
 		
 		$sKey = Phpfox::getService('apps')->getKey($aApp['app_id']);
 		
-		$sFrameUrl = '' . $aApp['app_url'] . '?key=' . $sKey;
+		$sFrameUrl = '' . $aApp['app_url'] . '?key=' . $sKey . '&site=' . urlencode(Phpfox::getParam('core.path'));
 		
 		$this->template()
 			->setEditor()
 			->assign(array(
 					'aApp' => $aApp,
 					'iUserId' => Phpfox::getUserId(),
-					// 'sToken' => $sToken,
 					'sFrameUrl' => $sFrameUrl					
 				)
 			)
 			->setHeader(array(
-				// '<script type="text/javascript">oParams["apps.keep_alive"] = ' . Phpfox::getParam('apps.token_keep_alive') . ';</script>',
 				'view.js' => 'module_apps'				
 			)
 		);			

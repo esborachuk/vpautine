@@ -11,7 +11,7 @@ defined('PHPFOX') or exit('NO DICE!');
  * @copyright		[PHPFOX_COPYRIGHT]
  * @author  		Raymond Benc
  * @package  		Module_Rss
- * @version 		$Id: rss.class.php 3917 2012-02-20 18:21:08Z Raymond_Benc $
+ * @version 		$Id: rss.class.php 4956 2012-10-25 07:08:52Z Miguel_Espinoza $
  */
 class Rss_Service_Rss extends Phpfox_Service 
 {	
@@ -160,7 +160,7 @@ class Rss_Service_Rss extends Phpfox_Service
 			foreach ($aFeeds as $aItem)
 			{
 				$oXmlBuilder->addGroup('item');
-				$oXmlBuilder->addTag('title', Phpfox::getLib('parse.output')->clean($aItem['full_name']) . ' ' . (!empty($aItem['feed_info']) ? $aItem['feed_info'] : (!empty($aItem['feed_content']) ? $aItem['feed_content'] : '')));
+				$oXmlBuilder->addTag('title', Phpfox::getLib('parse.output')->clean($aItem['full_name']) . ' ' . strip_tags(!empty($aItem['feed_info']) ? $aItem['feed_info'] : (!empty($aItem['feed_content']) ? $aItem['feed_content'] : '')));
 				$oXmlBuilder->addTag('link', $aItem['feed_link']);
 				$oXmlBuilder->addTag('description', (!empty($aItem['feed_content']) ? $aItem['feed_content'] : ''));
 				$oXmlBuilder->addTag('guid', $aItem['feed_link']);

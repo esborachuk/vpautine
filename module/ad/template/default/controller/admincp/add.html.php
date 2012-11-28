@@ -5,7 +5,7 @@
  * @copyright		[PHPFOX_COPYRIGHT]
  * @author  		Raymond Benc
  * @package 		Phpfox
- * @version 		$Id: add.html.php 4883 2012-10-11 05:28:17Z Raymond_Benc $
+ * @version 		$Id: add.html.php 4921 2012-10-22 13:47:30Z Miguel_Espinoza $
  */
  
 defined('PHPFOX') or exit('NO DICE!'); 
@@ -276,24 +276,24 @@ defined('PHPFOX') or exit('NO DICE!');
 		
 		<div class="table">
 			<div class="table_left">
-				Postal Code:
+				{phrase var='ad.postal_code'}:
 			</div>
 			<div class="table_right">
 				<input type="text" name="val[postal_code]" id='postal_code' value="{value type='input' id='postal_code'}">
 				<div class="extra_info">
-					Separate multiple postal codes by a comma.
+					{phrase var='ad.separate_multiple_postal_codes_by_a_comma'}
 				</div>
 			</div>
 		</div>
 		
 		<div class="table">
 			<div class="table_left">
-				City:
+				{phrase var='ad.city'}:
 			</div>
 			<div class="table_right">
 				<input type="text" name="val[city_location]" id='city_location' value="{value type='input' id='city_location'}">
 				<div class="extra_info">
-					Separate multiple cities by a comma.
+					{phrase var='ad.separate_multiple_cities_by_a_comma'}
 				</div>
 			</div>
 		</div>

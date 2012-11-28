@@ -53,11 +53,17 @@ class Mail_Component_Controller_Thread extends Phpfox_Component
 		Phpfox::getService('mail')->buildMenu();
 		
 		Phpfox::getService('mail.process')->threadIsRead($aThread['thread_id']);
-		
+
 		$iUserCnt = 0;
-		$sUsers = '';		
+		$sUsers = '';	
+		$bCanViewThread = false;	
 		foreach ($aThread['users'] as $aUser)
-		{			
+		{	
+			if ($aUser['user_id'] == Phpfox::getUserId())
+			{
+				$bCanViewThread = true;
+			}
+			
 			if ($aUser['user_id'] == Phpfox::getUserId())
 			{
 				continue;
@@ -79,10 +85,17 @@ class Mail_Component_Controller_Thread extends Phpfox_Component
 			$sUsers .= $aUser['full_name'];
 		}
 		
+		if (!$bCanViewThread)
+		{			
+			return Phpfox_Error::display('Unable to view this thread.');
+		}
+		else
+		{
+			$this->template()->setBreadcrumb(Phpfox::getPhrase('mail.mail'), $this->url()->makeUrl('mail'))->setBreadcrumb($sUsers, $this->url()->makeUrl('mail.thread', array('id' => $iThreadId)), true);
+		}
+		
 		$this->template()->setTitle($sUsers)
-			->setTitle(Phpfox::getPhrase('mail.mail'))
-			->setBreadcrumb(Phpfox::getPhrase('mail.mail'), $this->url()->makeUrl('mail'))
-			->setBreadcrumb($sUsers, $this->url()->makeUrl('mail.thread', array('id' => $iThreadId)), true)
+			->setTitle(Phpfox::getPhrase('mail.mail'))			
 			->setHeader('cache', array(
 					'mail.js' => 'module_mail',
 					'mail.css' => 'style_css',

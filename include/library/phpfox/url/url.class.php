@@ -12,7 +12,7 @@ defined('PHPFOX') or exit('NO DICE!');
  * @copyright		[PHPFOX_COPYRIGHT]
  * @author			Raymond Benc
  * @package 		Phpfox
- * @version 		$Id: url.class.php 4074 2012-03-28 14:02:40Z Raymond_Benc $
+ * @version 		$Id: url.class.php 4943 2012-10-23 13:37:12Z Miguel_Espinoza $
  */
 class Phpfox_Url
 {
@@ -100,6 +100,15 @@ class Phpfox_Url
        504 => "HTTP/1.1 504 Gateway Time-out"
    );
 
+	public function getHeaderCode($iCode)
+	{
+		if (isset($this->_aHeaders[$iCode]))
+		{
+			return $this->_aHeaders[$iCode];
+		}
+		return null;
+	}
+	
 	/**
 	 * Class constructor is used to build the current URL and all the custom rewrite rules.
 	 *

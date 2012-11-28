@@ -11,7 +11,7 @@ defined('PHPFOX') or exit('NO DICE!');
  * @copyright		[PHPFOX_COPYRIGHT]
  * @author			Raymond Benc
  * @package 		Phpfox
- * @version 		$Id: installer.class.php 4854 2012-10-09 05:20:40Z Raymond_Benc $
+ * @version 		$Id: installer.class.php 4910 2012-10-22 06:04:38Z Raymond_Benc $
  */
 class Phpfox_Installer
 {
@@ -99,7 +99,8 @@ class Phpfox_Installer
 		
 		'3.4.0beta1',
 		'3.4.0beta2',
-		'3.4.0rc1'
+		'3.4.0rc1',
+		'3.4.0'
 	);
 	
 	private $_sTempDir = '';

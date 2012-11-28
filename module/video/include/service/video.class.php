@@ -11,7 +11,7 @@ defined('PHPFOX') or exit('NO DICE!');
  * @copyright		[PHPFOX_COPYRIGHT]
  * @author  		Raymond Benc
  * @package  		Module_Video
- * @version 		$Id: video.class.php 4456 2012-07-03 07:39:33Z Raymond_Benc $
+ * @version 		$Id: video.class.php 4936 2012-10-23 07:38:22Z Miguel_Espinoza $
  */
 class Video_Service_Video extends Phpfox_Service
 {
@@ -432,9 +432,14 @@ class Video_Service_Video extends Phpfox_Service
 	{
 		if (!isset($aVals['ffmpeg_path']))
 		{
-			return Phpfox_Error::set('Must set the path to FFMPEG before enabling uploading of videos.');
+			return Phpfox_Error::set(Phpfox::getPhrase('video.must_set_the_path_to_ffmpeg_before_enabling_uploading_of_videos'));
 		}
 		$aOutput= '';
+		
+		if (!function_exists('exec'))
+		{
+			return Phpfox_Error::set(Phpfox::getPhrase('video.the_php_function_exec_is_disabled_and_needed_to_run_this_check_and_convert_uploaded_videos'));
+		}
 		exec($aVals['ffmpeg_path'] . ' 2>&1', $aOutput);
 	
 		$bPass = false;

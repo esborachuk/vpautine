@@ -26,7 +26,7 @@ defined('PHPFOX') or exit('NO DICE!');
  * @copyright		[PHPFOX_COPYRIGHT]
  * @author			Raymond Benc
  * @package 		Phpfox
- * @version 		$Id: error.class.php 4658 2012-09-18 07:26:45Z Raymond_Benc $
+ * @version 		$Id: error.class.php 4943 2012-10-23 13:37:12Z Miguel_Espinoza $
  */
 final class Phpfox_Error
 {
@@ -60,7 +60,7 @@ final class Phpfox_Error
 	 * @static 
 	 * @param string $sMsg Error message you want to display on the current page the user is on.
 	 */
-	public static function display($sMsg)
+	public static function display($sMsg, $iErrCode = null)
 	{
 		if (PHPFOX_IS_AJAX)
 		{
@@ -74,7 +74,11 @@ final class Phpfox_Error
 				)
 			);	
 		}
-		
+		if ($iErrCode !== null)
+		{
+			$oUrl = Phpfox::getLib('url');
+			header($oUrl->getHeaderCode($iErrCode));
+		}
 		return false;
 	}
 	

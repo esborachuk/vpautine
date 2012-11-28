@@ -13,7 +13,7 @@ defined('PHPFOX') or exit('NO DICE!');
  * @copyright		[PHPFOX_COPYRIGHT]
  * @author			Raymond Benc
  * @package 		Phpfox
- * @version 		$Id: module.class.php 4602 2012-08-18 18:48:02Z Raymond_Benc $
+ * @version 		$Id: module.class.php 4961 2012-10-29 07:11:34Z Raymond_Benc $
  */
 class Phpfox_Module
 {	
@@ -355,12 +355,12 @@ class Phpfox_Module
 		if (Phpfox::getParam('admincp.admin_cp') != 'admincp' && $oReq->get('req1') == Phpfox::getParam('admincp.admin_cp'))
 		{
 			$this->_sModule = 'admincp';			
-		}		
+		}	
 
-		if (Phpfox::isMobile())
+		if (Phpfox::isUser() && Phpfox::getParam('core.is_auto_hosted') && Phpfox::getService('log.session')->getOnlineMembers() > Phpfox::getParam('core.phpfox_max_users_online'))
 		{
-			// $this->_sController = $this->_sController . '-mobile';			
-			// $this->_sController = $this->_sController;
+			$this->_sModule = 'core';
+			$this->_sController = 'full';
 		}		
 		
 		(($sPlugin = Phpfox_Plugin::get('module_setcontroller_end')) ? eval($sPlugin) : false);
@@ -1378,11 +1378,8 @@ class Phpfox_Module
 					{
 						case 'im':
 						case 'music':
-						case 'marketplace':
-						case 'poll':
-						case 'quiz':	
 						case 'shoutbox':
-						case 'blog':
+						case 'rss':
 							Phpfox::getLib('database')->update(Phpfox::getT('module'), array('is_active' => '0'), 'module_id = \'' . $aRow['module_id'] . '\'');
 							continue 2;
 							break;

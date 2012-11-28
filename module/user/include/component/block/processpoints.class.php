@@ -11,7 +11,7 @@ defined('PHPFOX') or exit('NO DICE!');
  * @copyright		[PHPFOX_COPYRIGHT]
  * @author  		Raymond_Benc
  * @package 		Phpfox_Component
- * @version 		$Id: processpoints.class.php 4633 2012-09-17 07:17:32Z Raymond_Benc $
+ * @version 		$Id: processpoints.class.php 4907 2012-10-22 05:05:53Z Raymond_Benc $
  */
 class User_Component_Block_Processpoints extends Phpfox_Component
 {
@@ -33,7 +33,8 @@ class User_Component_Block_Processpoints extends Phpfox_Component
 				'recurring' => '',
 				'recurring_cost' => '',
 				'alternative_cost' => '',
-				'alternative_recurring_cost' => ''			
+				'alternative_recurring_cost' => '',
+				'no_purchase_with_points' => true
 			)
 		);		
 	}

@@ -11,7 +11,7 @@ defined('PHPFOX') or exit('NO DICE!');
  * @copyright		[PHPFOX_COPYRIGHT]
  * @author  		Raymond Benc
  * @package  		Module_User
- * @version 		$Id: browse.class.php 4876 2012-10-10 10:27:26Z Raymond_Benc $
+ * @version 		$Id: browse.class.php 4974 2012-10-31 07:30:42Z Raymond_Benc $
  */
 class User_Component_Controller_Browse extends Phpfox_Component
 {
@@ -433,7 +433,7 @@ class User_Component_Controller_Browse extends Phpfox_Component
 		{
 		    eval($sPlugin);
 		}		
-		
+
 		list($iCnt, $aUsers) = Phpfox::getService('user.browse')->conditions($oFilter->getConditions())
 		    ->callback($aCallback)
 		    ->sort($oFilter->getSort())

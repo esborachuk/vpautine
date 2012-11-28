@@ -5,7 +5,7 @@
  * @copyright		[PHPFOX_COPYRIGHT]
  * @author  		Raymond Benc
  * @package 		Phpfox
- * @version 		$Id: import.html.php 1189 2009-10-16 19:05:19Z Raymond_Benc $
+ * @version 		$Id: import.html.php 4961 2012-10-29 07:11:34Z Raymond_Benc $
  */
  
 defined('PHPFOX') or exit('NO DICE!'); 
@@ -16,6 +16,25 @@ defined('PHPFOX') or exit('NO DICE!');
 		{phrase var='language.importing_phrases_please_hold'}
 	</div>
 {else}
+	{if Phpfox::getParam('core.is_auto_hosted')}		
+	<form method="post" action="{url link='admincp.language.import'}" enctype="multipart/form-data">
+		<div class="table_header">
+			Import
+		</div>
+		<div class="table">	
+			<div class="table_left">
+				File:
+			</div>
+			<div class="table_right">
+				<input type="file" name="import" size="40" />
+			</div>
+			<div class="clear"></div>
+		</div>	
+		<div class="table_clear">
+			<input type="submit" value="Import" class="button" />
+		</div>	
+	</form>
+	{else}
 	<div class="table_header">
 		{phrase var='language.manual_install'}
 	</div>
@@ -45,4 +64,5 @@ defined('PHPFOX') or exit('NO DICE!');
 	{/if}
 	<div class="table_clear"></div>
 	<br />
+	{/if}
 {/if}

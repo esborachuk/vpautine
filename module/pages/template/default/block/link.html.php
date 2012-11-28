@@ -41,7 +41,7 @@
 					</a>
 				</li>
 				<li>
-					<a href="#" onclick="$('#cover_section_menu_drop').hide(); $.ajaxCall('user.removeLogo'); return false;">
+					<a href="#" onclick="$('#cover_section_menu_drop').hide(); $.ajaxCall('pages.removeLogo', 'page_id={$aPage.page_id}'); return false;">
 						{phrase var='user.remove'}
 					</a>
 				</li>

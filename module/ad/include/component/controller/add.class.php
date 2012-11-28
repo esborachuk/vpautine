@@ -11,7 +11,7 @@ defined('PHPFOX') or exit('NO DICE!');
  * @copyright		[PHPFOX_COPYRIGHT]
  * @author  		Raymond_Benc
  * @package 		Phpfox_Component
- * @version 		$Id: add.class.php 4607 2012-08-27 07:23:45Z Miguel_Espinoza $
+ * @version 		$Id: add.class.php 4913 2012-10-22 07:24:53Z Raymond_Benc $
  */
 class Ad_Component_Controller_Add extends Phpfox_Component
 {
@@ -81,13 +81,12 @@ class Ad_Component_Controller_Add extends Phpfox_Component
 			{
 				if (isset($aVals['location']))
 				{
-					$aPlan = Phpfox::getService('ad')->getPlan($aVals['location'], false);
-					
+					$aPlan = Phpfox::getService('ad')->getPlan($aVals['block_id'], false);
+
 					$aVals = array_merge($aPlan, $aVals);
 				}
 				if ($bIsEdit)
-				{
-					
+				{					
 					if (($iId = Phpfox::getService('ad.process')->updateCustom($aAd['ad_id'], $aVals)))
 					{
 						$this->url()->send('ad.manage', null, Phpfox::getPhrase('ad.ad_successfully_updated'));
@@ -126,7 +125,7 @@ class Ad_Component_Controller_Add extends Phpfox_Component
 		}
 		else 
 		{			
-			$aPlan = Phpfox::getService('ad')->getPlan($aAd['location'], false);
+			$aPlan = Phpfox::getService('ad')->getPlan($aAd['location'], true);
 
 			if (!isset($aPlan['plan_id']))
 			{

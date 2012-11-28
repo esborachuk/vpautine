@@ -17,7 +17,7 @@ defined('PHPFOX') or exit('NO DICE!');
  * @copyright		[PHPFOX_COPYRIGHT]
  * @author			Raymond Benc
  * @package 		Phpfox
- * @version 		$Id: ajax.class.php 4479 2012-07-06 07:50:02Z Raymond_Benc $
+ * @version 		$Id: ajax.class.php 4941 2012-10-23 12:43:23Z Miguel_Espinoza $
  */
 class Phpfox_Ajax
 {
@@ -94,7 +94,9 @@ class Phpfox_Ajax
 	 * @var array
 	 */
 	private $_aRequest = array();	
-	
+
+	/* Used to http://www.phpfox.com/tracker/view/11874/ */
+	public $bIsModeration = false;
 	/**
 	 * Class Constructor
 	 *
@@ -135,6 +137,14 @@ class Phpfox_Ajax
 		foreach ($this->_oReq->getRequests() as $sKey => $mValue)
 		{
 			self::$_aParams[$sKey] = $mValue;
+			if (isset($mValue['call']) && strpos($mValue['call'],'.') !== false)
+			{
+				$aParts = explode('.', $mValue['call']);
+				if (isset($aParts[1]) && $aParts[1] == 'moderation')
+				{
+					$this->bIsModeration = true;
+				}
+			}
 		}		
 		
 		if ($sModule == 'im' && ($sMethod == 'getRooms' || $sMethod == 'getMessages'))

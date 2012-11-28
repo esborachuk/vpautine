@@ -11,7 +11,7 @@ defined('PHPFOX') or exit('NO DICE!');
  * @copyright		[PHPFOX_COPYRIGHT]
  * @author  		Raymond Benc
  * @package  		Module_Mail
- * @version 		$Id: mail.class.php 4878 2012-10-10 10:52:28Z Raymond_Benc $
+ * @version 		$Id: mail.class.php 4966 2012-10-30 09:48:20Z Raymond_Benc $
  */
 class Mail_Service_Mail extends Phpfox_Service
 {
@@ -207,6 +207,11 @@ class Mail_Service_Mail extends Phpfox_Service
 				
 				foreach ($aRows as $iKey => $aRow)
 				{
+					if (Phpfox::getParam('mail.threaded_mail_conversation'))
+					{
+						$aRows[$iKey]['preview'] = strip_tags($aRow['preview']);
+					}
+					
 					$aRows[$iKey]['viewer_is_new'] = ($aRow['is_read'] ? false : true);
 					$aRows[$iKey]['users'] = $this->database()->select('th.is_read, ' . Phpfox::getUserField())
 						->from(Phpfox::getT('mail_thread_user'), 'th')
@@ -372,20 +377,18 @@ class Mail_Service_Mail extends Phpfox_Service
 
 	public function getPrev($iTime, $bIsSentbox = false, $bIsTrash = false)
 	{
-		//return array();
 		return $this->database()->select('m.mail_id')
 			->from($this->_sTable, 'm')
-			->where(($bIsSentbox ? 'm.owner_user_id = ' . Phpfox::getUserId() . ' AND m.time_updated > ' . (int) $iTime . '' : 'm.viewer_user_id = ' . Phpfox::getUserId() . ' AND m.viewer_type_id = ' . ($bIsTrash ? 1 : 0) . ' AND m.time_updated > ' . (int) $iTime . ''))
+			->where(($bIsSentbox ? 'm.owner_user_id = ' . Phpfox::getUserId() . ' AND m.time_updated > ' . (int) $iTime . ' AND m.owner_type_id = ' . ($bIsTrash ? 1 : 0) . '' : 'm.viewer_user_id = ' . Phpfox::getUserId() . ' AND m.viewer_type_id = ' . ($bIsTrash ? 1 : 0) . ' AND m.time_updated > ' . (int) $iTime . ''))
 			->order('m.time_updated ASC')
 			->execute('getSlaveField');
 	}
 
 	public function getNext($iTime, $bIsSentbox = false, $bIsTrash = false)
 	{
-		//return array();
 		return $this->database()->select('m.mail_id')
 			->from($this->_sTable, 'm')
-			->where(($bIsSentbox ? 'm.owner_user_id = ' . Phpfox::getUserId() . ' AND m.time_updated < ' . (int) $iTime . '' : 'm.viewer_user_id = ' . Phpfox::getUserId() . ' AND m.viewer_type_id = ' . ($bIsTrash ? 1 : 0) . ' AND m.time_updated < ' . (int) $iTime . ''))
+			->where(($bIsSentbox ? 'm.owner_user_id = ' . Phpfox::getUserId() . ' AND m.time_updated < ' . (int) $iTime . ' AND m.owner_type_id = ' . ($bIsTrash ? 1 : 0) . '' : 'm.viewer_user_id = ' . Phpfox::getUserId() . ' AND m.viewer_type_id = ' . ($bIsTrash ? 1 : 0) . ' AND m.time_updated < ' . (int) $iTime . ''))
 			->order('m.time_updated DESC')
 			->execute('getSlaveField');
 	}

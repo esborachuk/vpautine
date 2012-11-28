@@ -19,7 +19,7 @@ defined('PHPFOX') or exit('NO DICE!');
 		
 		{foreach from=$aInputs key=sAction item=aAction}
 			<div class="table_header">
-				Adding a {$sAction}
+				{phrase var='input.adding_a_saction' sAction=$sAction}
 			</div>
 			<table class="js_drag_drop" cellpadding="0" cellspacing="0">
 				{foreach from=$aAction item=aBlock}
@@ -46,7 +46,7 @@ defined('PHPFOX') or exit('NO DICE!');
 			</table>
 			{foreachelse}
 			<div class="extra_info">
-				No fields have been added.
+				{phrase var='input.no_fields_have_been_added'}
 			</div>
 		{/foreach}
 	</form>

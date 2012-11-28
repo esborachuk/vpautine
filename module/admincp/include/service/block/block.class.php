@@ -11,7 +11,7 @@ defined('PHPFOX') or exit('NO DICE!');
  * @copyright		[PHPFOX_COPYRIGHT]
  * @author  		Raymond Benc
  * @package  		Module_Admincp
- * @version 		$Id: block.class.php 3826 2011-12-16 12:30:19Z Raymond_Benc $
+ * @version 		$Id: block.class.php 4940 2012-10-23 10:04:04Z Miguel_Espinoza $
  */
 class Admincp_Service_Block_Block extends Phpfox_Service 
 {
@@ -84,9 +84,24 @@ class Admincp_Service_Block_Block extends Phpfox_Service
 				$aRows[] = $aRow;	
 			}
 		}
-			
+		$aTemp = $aRows;
 		foreach ($aRows as $iKey => $aRow) 
-		{			
+		{
+			$bSkip = false;
+			foreach ($aTemp as $iCheck => $aCheck)
+			{
+				if ($aCheck['block_id'] == $aRow['block_id'] && $iCheck != $iKey)
+				{
+					unset($aRows[$iKey]);
+					$bSkip = true;
+					break;
+				}
+			}
+			if ($bSkip)
+			{
+				continue;
+			}
+			
 			if (Phpfox::getLib('parse.format')->isSerialized($aRow['location']))
 			{
 				$aLocations = unserialize($aRow['location']);			

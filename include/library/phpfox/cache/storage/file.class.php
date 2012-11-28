@@ -14,7 +14,7 @@ defined('PHPFOX') or exit('NO DICE!');
  * @copyright		[PHPFOX_COPYRIGHT]
  * @author			Raymond Benc
  * @package 		Phpfox
- * @version 		$Id: file.class.php 3573 2011-11-25 10:58:55Z Raymond_Benc $
+ * @version 		$Id: file.class.php 4906 2012-10-22 04:52:14Z Raymond_Benc $
  */
 class Phpfox_Cache_Storage_File extends Phpfox_Cache_Abstract
 {
@@ -174,6 +174,11 @@ class Phpfox_Cache_Storage_File extends Phpfox_Cache_Abstract
 	 */
 	public function save($sId, $mContent)
 	{	
+		if (defined('PHPFOX_IS_HOSTED_SCRIPT'))
+		{		
+			return;	
+		}
+		
 		// We don't allow caching during an install or upgrade.
 		if (defined('PHPFOX_INSTALLER'))
 		{

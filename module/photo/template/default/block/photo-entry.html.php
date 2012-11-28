@@ -5,7 +5,7 @@
  * @copyright		[PHPFOX_COPYRIGHT]
  * @author  		Raymond Benc
  * @package  		Module_Photo
- * @version 		$Id: photo-entry.html.php 4622 2012-09-12 07:18:24Z Miguel_Espinoza $
+ * @version 		$Id: photo-entry.html.php 4968 2012-10-30 11:55:11Z Miguel_Espinoza $
  */
  
 defined('PHPFOX') or exit('NO DICE!'); 
@@ -46,17 +46,18 @@ defined('PHPFOX') or exit('NO DICE!');
 							</a>
 						</li>
 					{/if}
-					
-					{if Phpfox::getUserParam('photo.can_feature_photo') && !$aPhoto.is_sponsor}
-						<li id="js_photo_feature_{$aPhoto.photo_id}">
-						{if $aPhoto.is_featured}
-							<a href="#" title="{phrase var='photo.un_feature_this_photo'}" onclick="$.ajaxCall('photo.feature', 'photo_id={$aPhoto.photo_id}&amp;type=0', 'GET'); return false;">{phrase var='photo.un_feature'}</a>
-						{else}
-							<a href="#" title="{phrase var='photo.feature_this_photo'}" onclick="$.ajaxCall('photo.feature', 'photo_id={$aPhoto.photo_id}&amp;type=1', 'GET'); return false;">{phrase var='photo.feature'}</a>
-						{/if}
-						</li>
-					{/if}						
 
+					{if Phpfox::getParam('photo.display_profile_photo_within_gallery') == false && ((isset($aPhoto.is_profile_photo) && !$aPhoto.is_profile_photo) || !isset($aPhoto.is_profile_photo))}					
+						{if Phpfox::getUserParam('photo.can_feature_photo') && !$aPhoto.is_sponsor}
+							<li id="js_photo_feature_{$aPhoto.photo_id}">
+							{if $aPhoto.is_featured}
+								<a href="#" title="{phrase var='photo.un_feature_this_photo'}" onclick="$.ajaxCall('photo.feature', 'photo_id={$aPhoto.photo_id}&amp;type=0', 'GET'); return false;">{phrase var='photo.un_feature'}</a>
+							{else}						
+							<a href="#" title="{phrase var='photo.feature_this_photo'}" onclick="$.ajaxCall('photo.feature', 'photo_id={$aPhoto.photo_id}&amp;type=1', 'GET'); return false;">{phrase var='photo.feature'}</a>
+							{/if}
+							</li>
+						{/if}
+					{/if}
 				    {if $aPhoto.user_id == Phpfox::getUserId()}
 					<li>
 						<a href="#" title="Set this photo as your profile image." onclick="tb_show('', '', null, '{phrase var='photo.setting_this_photo_as_your_profile_picture_please_hold'}', true); $.ajaxCall('photo.makeProfilePicture', 'photo_id={$aPhoto.photo_id}', 'GET'); return false;">{phrase var='photo.make_profile_picture'}</a>

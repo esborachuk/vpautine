@@ -31,7 +31,8 @@
 	-moz-border-radius:4px;
 	-webkit-border-radius:4px;
   	border-radius:4px;
-	padding:14px;	
+	padding:14px;
+    margin-top: 10px;
 }
 
 .js_box_title
@@ -88,7 +89,7 @@
 	border:1px #BFBFBF solid;
 	-moz-border-radius:10px;
 	-webkit-border-radius:10px;
-  	border-radius:10px;		
+  	border-radius:10px;
 }
 
 .js_box_history,
@@ -161,7 +162,6 @@ a.photo_box_photo_detail:hover
 	height:30px;
 	padding:0px 0px 0px 30px;
 	text-decoration:none;
-	border-top:1px #dfdfdf solid;
 	color:#8F8F8F;	
 	background:#f9f9f9;
 	font-weight:bold;	
@@ -180,7 +180,12 @@ a.photo_box_photo_detail:hover
 
 #js_photo_box_view_bottom_ad
 {
-	position:absolute; bottom:0px; right:0px; z-index:1000; width:400px; margin:auto;
+    bottom: -2px;
+    margin: auto;
+    position: absolute;
+    right: 10px;
+    width: 400px;
+    z-index: 1000;
 }
 
 #js_photo_box_view_more
@@ -193,9 +198,11 @@ a.photo_box_photo_detail:hover
 	padding:8px; color:#fff;
 }
 
-.photo_view_box_comment
-{
-	width:400px; float:right; position:relative;
+.photo_view_box_comment {
+    float: none;
+    margin-left: 60px;
+    position: relative;
+    width: 600px;
 }
 
 .photo_view_box_comment_padding
@@ -233,4 +240,30 @@ a.photo_box_photo_detail:hover
 #photo_view_tag_photo a:hover
 {
 	background:#2F2F2F;
+}
+
+
+#js_photo_view_comment_holder .report_this_item {
+    height: 24px;
+    left: 410px;
+    position: relative;
+    top: -45px;
+    width: 150px;
+}
+
+#photo_view_theater_mode .photo_view_box_image .photo_next_previous ul li,
+#photo_view_theater_mode .photo_view_box_image .photo_next_previous ul li a,
+#photo_view_theater_mode .photo_view_box_image .photo_next_previous ul li a:hover {
+    height: 100%;
+    line-height: normal;
+    position: relative;
+}
+
+.photo_view_box_comment .feed_comment_delete_link {
+    right: 0;
+    top: -5px;
+}
+
+.photo_view_box_image {
+    height: 300px;
 }

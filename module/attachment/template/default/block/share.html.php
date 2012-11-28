@@ -5,7 +5,7 @@
  * @copyright		[PHPFOX_COPYRIGHT]
  * @author  		Raymond_Benc
  * @package 		Phpfox
- * @version 		$Id: share.html.php 3751 2011-12-12 06:34:02Z Raymond_Benc $
+ * @version 		$Id: share.html.php 4912 2012-10-22 06:51:44Z Raymond_Benc $
  */
  
 defined('PHPFOX') or exit('NO DICE!'); 
@@ -24,7 +24,9 @@ defined('PHPFOX') or exit('NO DICE!');
 			{if Phpfox::isModule('video') && Phpfox::getParam('video.allow_video_uploading')}
 			<li><a href="#" onclick="return $Core.shareInlineBox(this, '{$aAttachmentShare.id}', {if $aAttachmentShare.inline}true{else}false{/if}, 'attachment.add', 500, '&amp;category_id={$aAttachmentShare.type}&amp;attachment_custom=video');" class="js_hover_title">{img theme='feed/video.png' class='v_middle'}<span class="js_hover_info">{phrase var='attachment.insert_a_video'}</span></a></li>
 			{/if}
+			{if !isset($bNoAttachaFile)}
 			<li><a href="#" onclick="return $Core.shareInlineBox(this, '{$aAttachmentShare.id}', {if $aAttachmentShare.inline}true{else}false{/if}, 'attachment.add', 500, '&amp;category_id={$aAttachmentShare.type}');" class="js_hover_title">{img theme='misc/application_add.png' class='v_middle'}<span class="js_hover_info">{phrase var='attachment.attach_a_file'}</span></a></li>
+			{/if}
 			{if Phpfox::isModule('emoticon')}
 			<li><a href="#" onclick="return $Core.shareInlineBox(this, '{$aAttachmentShare.id}', {if $aAttachmentShare.inline}true{else}false{/if}, 'emoticon.preview', 400, '&amp;editor_id=' + Editor.getId());" class="js_hover_title">{img theme='editor/emoticon.png' class='v_middle'}<span class="js_hover_info">{phrase var='attachment.insert_emoticon'}</span></a></li>
 			{/if}

@@ -5,7 +5,7 @@
  * @copyright		[PHPFOX_COPYRIGHT]
  * @author			Raymond Benc
  * @package 		PhpFox
- * @version 		$Id: email.html.php 1284 2009-11-27 23:44:31Z Raymond_Benc $
+ * @version 		$Id: email.html.php 4928 2012-10-23 06:12:51Z Raymond_Benc $
  */
  
 defined('PHPFOX') or exit('NO DICE!'); 
@@ -13,8 +13,8 @@ defined('PHPFOX') or exit('NO DICE!');
 ?>
 {if $bHtml}	
 {if $bMessageHeader}
-	{if isset($sName)}
-	{phrase var='core.hello_name' name=$sName}
+	{if isset($sMessageHello)}
+	{$sMessageHello}
 	{else}
 	{phrase var='core.hello'}
 	{/if},
@@ -27,8 +27,8 @@ defined('PHPFOX') or exit('NO DICE!');
 	{$sEmailSig}	
 {else}	
 {if $bMessageHeader}
-	{if isset($sName)}
-	{phrase var='core.hello_name' name=$sName}
+	{if isset($sMessageHello)}
+	{$sMessageHello}
 	{else}
 	{phrase var='core.hello'}
 	{/if},

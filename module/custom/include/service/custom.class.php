@@ -11,7 +11,7 @@ defined('PHPFOX') or exit('NO DICE!');
  * @copyright		[PHPFOX_COPYRIGHT]
  * @author  		Raymond Benc
  * @package 		Phpfox_Service
- * @version 		$Id: custom.class.php 4730 2012-09-24 07:13:57Z Raymond_Benc $
+ * @version 		$Id: custom.class.php 4933 2012-10-23 07:20:12Z Miguel_Espinoza $
  */
 class Custom_Service_Custom extends Phpfox_Service
 {
@@ -405,11 +405,14 @@ class Custom_Service_Custom extends Phpfox_Service
 			$aItemData[$iItemId] = array();
 			if ($iUserGroupId !== null)
 			{
-				$sTable = Phpfox::getUserGroupParam($iUserGroupId, 'custom.custom_table_name');				
-				$aItemData[$iItemId] = $this->database()->select('*')
-					->from($sTable)
-					->where('user_id = ' . (int) $iItemId)
-					->execute('getSlaveRows');
+				$sTable = Phpfox::getUserGroupParam($iUserGroupId, 'custom.custom_table_name');
+				if (!empty($sTable))			
+				{
+					$aItemData[$iItemId] = $this->database()->select('*')
+						->from($sTable)
+						->where('user_id = ' . (int) $iItemId)
+						->execute('getSlaveRows');
+				}
 			}
 
 			$sTable = Phpfox::getT('user_custom');

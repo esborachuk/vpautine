@@ -11,7 +11,7 @@ defined('PHPFOX') or exit('NO DICE!');
  * @copyright		[PHPFOX_COPYRIGHT]
  * @author  		Raymond Benc
  * @package  		Module_Admincp
- * @version 		$Id: admincp.class.php 4854 2012-10-09 05:20:40Z Raymond_Benc $
+ * @version 		$Id: admincp.class.php 4944 2012-10-24 05:24:29Z Raymond_Benc $
  */
 class Admincp_Service_Admincp extends Phpfox_Service 
 {
@@ -185,7 +185,7 @@ class Admincp_Service_Admincp extends Phpfox_Service
 		$iCnt = 0;
 		
 		// Is the install dir. in place?
-		if (file_exists(PHPFOX_DIR . 'install' . PHPFOX_DS . 'index.php'))
+		if (!defined('PHPFOX_IS_HOSTED_SCRIPT') && file_exists(PHPFOX_DIR . 'install' . PHPFOX_DS . 'index.php'))
 		{
 			Phpfox_Error::set(Phpfox::getPhrase('admincp.install_dir_exists'));
 			$iCnt++;

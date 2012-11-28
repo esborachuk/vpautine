@@ -11,7 +11,7 @@ defined('PHPFOX') or exit('NO DICE!');
  * @copyright		[PHPFOX_COPYRIGHT]
  * @author  		Raymond Benc
  * @package  		Module_User
- * @version 		$Id: process.class.php 4892 2012-10-15 05:18:53Z Raymond_Benc $
+ * @version 		$Id: process.class.php 4961 2012-10-29 07:11:34Z Raymond_Benc $
  */
 class User_Service_Process extends Phpfox_Service 
 {	
@@ -60,10 +60,10 @@ class User_Service_Process extends Phpfox_Service
 		$aSetting = Phpfox::getParam('user.points_conversion_rate');
 		if (isset($aSetting[$sCurreny]))
 		{
-			$iConversion = $iTotal * $aSetting[$sCurreny];
+			$iConversion = $iTotal / $aSetting[$sCurreny];
 			if ($iTotalPoints >= $iConversion)
 			{
-				$iNewPoints = ($iTotalPoints - $iConversion);
+				$iNewPoints = ($iTotalPoints - $iConversion);				
 				
 				$bReturn = Phpfox::callback($sModule. '.paymentApiCallback', array(
 						'gateway' => 'activitypoints',
@@ -889,9 +889,8 @@ class User_Service_Process extends Phpfox_Service
 			Phpfox::getService('privacy.process')->add('user_status', $iStatusId, (isset($aVals['privacy_list']) ? $aVals['privacy_list'] : array()));
 		}		
 
-		Phpfox::getService('user.process')->notifyTagged($sStatus, $iStatusId, 'status');
-		
-		//Phpfox::getService('notification.process')->add('comment_' . $sModule, $iItemId, $aRow['user_id']);
+		Phpfox::getService('user.process')->notifyTagged($sStatus, $iStatusId, 'status');		
+
 		(($sPlugin = Phpfox_Plugin::get('user.service_process_add_updatestatus')) ? eval($sPlugin) : false);		
 		
 		return Phpfox::getService('feed.process')->add('user_status', $iStatusId, $aVals['privacy'], $aVals['privacy_comment'], 0, null, 0, (isset($aVals['parent_feed_id']) ? $aVals['parent_feed_id'] : 0), (isset($aVals['parent_module_id']) ? $aVals['parent_module_id'] : null));

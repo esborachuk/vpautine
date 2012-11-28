@@ -11,7 +11,7 @@ defined('PHPFOX') or exit('NO DICE!');
  * @copyright		[PHPFOX_COPYRIGHT]
  * @author  		Raymond Benc
  * @package 		Phpfox_Component
- * @version 		$Id: add.class.php 4605 2012-08-20 11:17:45Z Miguel_Espinoza $
+ * @version 		$Id: add.class.php 4921 2012-10-22 13:47:30Z Miguel_Espinoza $
  */
 class Marketplace_Component_Controller_Add extends Phpfox_Component
 {
@@ -67,7 +67,7 @@ class Marketplace_Component_Controller_Add extends Phpfox_Component
 			)
 		);
 		
-		// WIth this we implement support for Input validation here (which at this point only means required fields)
+		// With this we implement support for Input validation here (which at this point only means required fields)
 		if (Phpfox::isModule('input'))
 		{
 			$oValidator->setAction('marketplace.add-listing');
