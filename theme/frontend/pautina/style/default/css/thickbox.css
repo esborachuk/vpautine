@@ -162,7 +162,7 @@ a.photo_box_photo_detail:hover
 	height:30px;
 	padding:0px 0px 0px 30px;
 	text-decoration:none;
-	color:#8F8F8F;	
+	color:#424242;
 	background:#f9f9f9;
 	font-weight:bold;	
 	background:url('../image/layout/video_show_less.png') no-repeat 10px 8px;
@@ -178,19 +178,23 @@ a.photo_box_photo_detail:hover
 	position:absolute; bottom:-28px; left:5px; z-index:1000;
 }
 
-#js_photo_box_view_bottom_ad
-{
-    bottom: -2px;
-    margin: auto;
-    position: absolute;
-    right: 10px;
-    width: 400px;
-    z-index: 1000;
+#js_photo_box_view_bottom_ad{
+    margin: 0 15px 0 0;
+    position: relative;
+    float: right;
+    width: auto;
+    text-align: right;
 }
 
 #js_photo_box_view_more
 {
-	display:none; bottom:30px; background:#333; position:absolute; z-index:1000; width:400px;
+    background: none repeat scroll 0 0 #333333;
+    bottom: 30px;
+    display: none;
+    position: absolute;
+    right: 0;
+    width: 190px;
+    z-index: 1000;
 }
 
 .js_photo_box_view_more_padding
@@ -202,7 +206,7 @@ a.photo_box_photo_detail:hover
     float: none;
     margin-left: 60px;
     position: relative;
-    width: 600px;
+    width: 520px;
 }
 
 .photo_view_box_comment_padding
@@ -217,24 +221,27 @@ a.photo_box_photo_detail:hover
 
 #photo_view_ajax_loader
 {
-	display:none; position:absolute; top:10px; right:20px; z-index:2000;
+	display:none; position:absolute; z-index:2000; right: 47%;  top: 48%;
 }
 
 #photo_view_tag_photo
 {
-	position:absolute; text-align:left; left:0px; bottom:0px; 
+	position:relative;
+    text-align:left;
+    float: left;
+    margin: 0 0 0 50px;
 }
 
 #photo_view_tag_photo a,
 #photo_view_tag_photo a:hover
 {
-	text-decoration:none;
-	color:#fff;
-	padding:0px 5px 0px 5px;
-	line-height:25px;
-	height:25px;		
-	font-weight:bold;
-	display:block;
+    color: #FFFFFF;
+    display: block;
+    font-weight: bold;
+    height: 30px;
+    line-height: 30px;
+    padding: 0 5px;
+    text-decoration: none;
 }
 
 #photo_view_tag_photo a:hover
@@ -245,7 +252,7 @@ a.photo_box_photo_detail:hover
 
 #js_photo_view_comment_holder .report_this_item {
     height: 24px;
-    left: 410px;
+    left: 350px;
     position: relative;
     top: -45px;
     width: 150px;
@@ -266,4 +273,21 @@ a.photo_box_photo_detail:hover
 
 .photo_view_box_image {
     height: 300px;
+}
+
+.info_left {
+    float:left;
+    width: 50%;
+}
+
+.info_right {
+    float:right;
+}
+
+.info {
+    overflow: hidden;
+}
+
+.title-bg {
+    float: right;
 }

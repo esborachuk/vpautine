@@ -20,42 +20,33 @@ defined('PHPFOX') or exit('NO DICE!');
 {/if}
 {if $bIsTheater && !Phpfox::isMobile()}
 <div id="photo_view_theater_mode" class="photo_view_box_holder">
+
+    <div id="scrollbarY">
+        <div class="scrollbar"><div class="track"><div class="thumb"><div class="end"></div></div></div></div>
+        <div class="viewport">
+            <div class="overview">
 	<div class="photo_view_in_photo">
 		<b>{phrase var='photo.in_this_photo'}:</b> <span id="js_photo_in_this_photo"></span>		
 	</div>
 
-	<div id="js_photo_box_view_bottom_ad">
-		{module name='ad.display' block_id='photo_theater'}
+	<div class="photo_view_box_image photo_holder_image" {if isset($aPhotoStream.next.photo_id)}onclick="tb_show('', '{$aPhotoStream.next.link}{if $iForceAlbumId > 0}albumid_{$iForceAlbumId}{else}{if isset($feedUserId)}userid_{$feedUserId}/{/if}{/if}', this);" rel="{$aPhotoStream.next.photo_id}"{/if}>
+                {if $aPhotoStream.total > 1}
+                <div class="photo_next_previous">
+                    <ul>
+                        {if isset($aPhotoStream.previous.photo_id)}
+                        <li class="previous"><a href="{$aPhotoStream.previous.link}{if $iForceAlbumId > 0}albumid_{$iForceAlbumId}{else}{if isset($feedUserId)}userid_{$feedUserId}/{/if}{/if}"{if $bIsTheater} class="thickbox photo_holder_image" rel="{$aPhotoStream.previous.photo_id}"{/if}>{phrase var='photo.previous'}</a></li>
+                        {/if}
 
-		<a href="#" onclick="$('#js_photo_box_view_more').slideToggle(); return false;" class="photo_box_photo_detail">{phrase var='photo.photo_details'}</a>
-		<div id="js_photo_box_view_more">
-			<div class="js_photo_box_view_more_padding">
-				{module name='photo.detail' is_in_photo=true}
-			</div>
-		</div>
-	</div>
-
-	<div class="photo_view_box_image photo_holder_image" {if isset($aPhotoStream.next.photo_id)}onclick="tb_show('', '{$aPhotoStream.next.link}{if $iForceAlbumId > 0}albumid_{$iForceAlbumId}{else}{if isset($feedUserId)}userid_{$feedUserId}/{/if}{/if}', this);" rel="{$aPhotoStream.next.photo_id}"{/if}>		
-		 <div id="photo_view_tag_photo">
-			<a href="#" id="js_tag_photo">{phrase var='photo.tag_this_photo'}</a>
-		</div>
+                        {if isset($aPhotoStream.next.photo_id)}
+                        <li class="next"><a href="{$aPhotoStream.next.link}{if $iForceAlbumId > 0}albumid_{$iForceAlbumId}{else}{if isset($feedUserId)}userid_{$feedUserId}/{/if}{/if}"{if $bIsTheater} class="thickbox photo_holder_image" rel="{$aPhotoStream.next.photo_id}"{/if}>{phrase var='photo.next'}</a></li>
+                        {/if}
+                    </ul>
+                    <div class="clear"></div>
+                </div>
+                {/if}
 		<div id="photo_view_ajax_loader">{img theme='ajax/loader.gif'}</div>
-			{if $aPhotoStream.total > 1}
-			<div class="photo_next_previous">
-				<ul>
-				{if isset($aPhotoStream.previous.photo_id)}
-				<li class="previous"><a href="{$aPhotoStream.previous.link}{if $iForceAlbumId > 0}albumid_{$iForceAlbumId}{else}{if isset($feedUserId)}userid_{$feedUserId}/{/if}{/if}"{if $bIsTheater} class="thickbox photo_holder_image" rel="{$aPhotoStream.previous.photo_id}"{/if}>{phrase var='photo.previous'}</a></li>
-				{/if}
 
-				{if isset($aPhotoStream.next.photo_id)}
-				<li class="next"><a href="{$aPhotoStream.next.link}{if $iForceAlbumId > 0}albumid_{$iForceAlbumId}{else}{if isset($feedUserId)}userid_{$feedUserId}/{/if}{/if}"{if $bIsTheater} class="thickbox photo_holder_image" rel="{$aPhotoStream.next.photo_id}"{/if}>{phrase var='photo.next'}</a></li>
-				{/if}
-				</ul>
-				<div class="clear"></div>
-			</div>
-			{/if}
-
-			<div class="photo_view_box_image_holder" style="position:absolute;">
+                <div class="photo_view_box_image_holder" style="position:absolute;">
 				{if isset($aPhotoStream.next.photo_id)}
 				<a href="{$aPhotoStream.next.link}{if $iForceAlbumId > 0}albumid_{$iForceAlbumId}{else}{if isset($feedUserId)}userid_{$feedUserId}/{/if}{/if}"{if $bIsTheater} class="thickbox photo_holder_image" rel="{$aPhotoStream.next.photo_id}"{/if}>
 				{/if}
@@ -76,6 +67,22 @@ defined('PHPFOX') or exit('NO DICE!');
 				{/if}
 			</div>
 		</div>
+            <div class='title-bg'>
+                <div id="photo_view_tag_photo">
+                    <a href="#" id="js_tag_photo">{phrase var='photo.tag_this_photo'}</a>
+                </div>
+                <div id="js_photo_box_view_bottom_ad">
+                    {module name='ad.display' block_id='photo_theater'}
+
+                    <a href="#" onclick="$('#js_photo_box_view_more').slideToggle(); return false;" class="photo_box_photo_detail">{phrase var='photo.photo_details'}</a>
+                    <div id="js_photo_box_view_more">
+                        <div class="js_photo_box_view_more_padding">
+                            {module name='photo.detail' is_in_photo=true}
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="clear"></div>
 <div class="photo_view_box_comment">
     <div class="photo_view_box_comment_padding">
         <div id="js_photo_view_box_title">
@@ -131,6 +138,10 @@ defined('PHPFOX') or exit('NO DICE!');
 </div>
 </div>
 	<div class="clear"></div>
+        </div>
+    </div>
+</div>
+
 </div>
 
 <script type="text/javascript">
@@ -138,17 +149,18 @@ $Behavior.autoLoadPhoto = function(){l}
 
 	{literal}
 	// $('#main_core_body_holder').hide();
-	var blockWidth = 700;
+	var blockWidth = 580,
+        windowWidth = $(window).width();     // Width of  popup block
 	$('#photo_view_ajax_loader').hide();
 	$('.js_box_image_holder_full').find('.js_box').show();
 	$('.js_box_image_holder_full').find('.js_box').css({
         left: '50%',
-        'margin-left': (blockWidth / 2 - 55) + 'px', // 55 px - paddings  of main container
+        'margin-left': ((windowWidth - blockWidth) / 2 - 20) + 'px', // 20px - paddings of main container
         'width':blockWidth
     });
 
 	$('.js_box_image_holder_full').find('.js_box_content').height(getPageHeight() - 70);
-	$('.js_box_image_holder_full').css({'position': 'fixed', 'overflow': 'scroll'});
+	$('.js_box_image_holder_full').css({'position': 'fixed'});
 
 	var iCommentBoxMaxHeight = 300;
 
@@ -157,15 +169,15 @@ $Behavior.autoLoadPhoto = function(){l}
 		// iCommentBoxMaxHeight = iCommentBoxMaxHeight - 150;
 	}
 
-//	$('.js_box_image_holder_full').find('.js_feed_comment_view_more_holder:first').css({
-//		'max-height': iCommentBoxMaxHeight + 'px',
-//		overflow: 'auto'
-//	});
+	$('.js_box_image_holder_full').find('.js_feed_comment_view_more_holder:first').css({
+		'max-height': iCommentBoxMaxHeight + 'px',
+		overflow: 'auto'
+	});
 
-	$('.photo_view_box_comment').css('min-height', $('.js_box_image_holder_full').find('.js_box').height());
+//	$('.photo_view_box_comment').css('min-height', $('.js_box_image_holder_full').find('.js_box').height());
 	$('.js_box_image_holder_full').find('.js_box').css({
 		'top': 0,
-		'left': '16px'
+		'left': '0'
 	});
 
 	if ($('#js_photo_view_image').height() >= $('.js_box_image_holder_full').find('.js_box_content').height()){
@@ -185,7 +197,7 @@ $Behavior.autoLoadPhoto = function(){l}
 
 	$('.js_box_image_holder_full_loader').hide();
 
-	$('.photo_view_box_image').height($('.js_box_image_holder_full').find('.js_box_content').height());
+//	$('.photo_view_box_image').height($('.js_box_image_holder_full').find('.js_box_content').height());
 	$('#photo_view_theater_mode').find('.js_comment_feed_textarea:first').focus(function(){
 		$(this).height(50);
 		$('#js_ad_space_photo_theater').hide();
@@ -210,6 +222,9 @@ $Behavior.autoLoadPhoto = function(){l}
 	$Core.photo_tag.init({l}{$sPhotoJsContent}{r});
 	$Behavior.autoLoadPhoto = function(){l}{r}
 {r}
+
+//        $('#scrollbarY').tinyscrollbar({});
+
 </script>
 			
 {else}

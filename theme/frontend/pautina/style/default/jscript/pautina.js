@@ -43,12 +43,13 @@ $(window).scroll(function(){
 jQuery(document).ready(function() {
 
     var backLink = jQuery('.go_back_link');
-    backLink .show();
-    backLink .click(function(){
+
+    backLink .click(function(e){
+        e.preventDefault();
         window.history.go(-1);
     });
 
-        backLink .show();
+    backLink .show();
 
 });
 

@@ -930,10 +930,10 @@ a.item_bar_action_clicked:hover, a.item_bar_action_clicked {
 
 #photo_view_theater_mode .photo_next_previous ul li, #photo_view_theater_mode .photo_next_previous ul li a,
 #photo_view_theater_mode .photo_next_previous ul li a:hover {
-    min-height: 105px;
+    height: 100%;
+    min-height: 15px;
     line-height: normal;
     width: 15px;
-    height: 100%;
 }
 
 #photo_view_theater_mode .photo_next_previous ul li.previous {
@@ -1025,7 +1025,6 @@ div.row_title_image {
 #photo_view_theater_mode .photo_view_in_photo {
     bottom: inherit;
     left: inherit;
-    margin: 10px 0;
     padding: 5px;
     position: relative;
 }
@@ -1083,7 +1082,7 @@ div.row_title_image {
 #js_photo_view_box_title .item_bar_action_holder {
     position: absolute;
     right: 0;
-    top: -40px;
+    top: -50px;
 }
 
 #js_photo_view_box_title .item_bar {

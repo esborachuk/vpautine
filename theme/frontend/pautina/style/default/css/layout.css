@@ -2770,7 +2770,7 @@ a.activity_feed_content_view_more:hover
 .parent_item_feed .js_feed_comment_border,
 .item_view .js_feed_comment_border
 {
-	margin:12px 0px 10px 0px;
+	margin:0 0px 10px 0px;
 	border-top:1px #DFDFDF solid;
 }
 
@@ -3185,7 +3185,8 @@ ul.block_listing_hover li:hover
 
 #photo_view_theater_mode .photo_next_previous
 {
-	position:static;
+    top: 50%;
+    width: 100%;
 }
 
 #photo_view_theater_mode .photo_next_previous ul li.next
