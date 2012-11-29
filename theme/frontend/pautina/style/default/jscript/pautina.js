@@ -55,5 +55,36 @@ jQuery(document).ready(function() {
 
 /*-----back_button-----*/
 
+/*---------album-title-name----------*/
+jQuery(document).ready(function() {
+
+    var titleBlock= jQuery('.slide-block'),
+        photoImage = jQuery('.image-block'),
+        photoImage1 = jQuery('#imagebox li');
+
+    photoImage.hover(function(){
+        jQuery(this).find(titleBlock).stop(true, true).slideToggle("slow");
+    },
+    function(){
+        jQuery(this).find(titleBlock).stop(true, true).slideToggle("slow");
+    });
+
+    photoImage1.hover(function(){
+        jQuery(this).find(titleBlock).stop(true, true).slideToggle("slow");
+    },
+    function(){
+        jQuery(this).find(titleBlock).stop(true, true).slideToggle("slow");
+    });
+
+//    photoImage.mouseover.toggle(function(){
+//        jQuery(this).find(titleBlock).slideDown();
+//    }, function(){
+//        jQuery(this).find(titleBlock).slideUp();
+//    });
+
+
+});
+/*---------album-title-name----------*/
+
 
 

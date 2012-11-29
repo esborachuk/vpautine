@@ -377,18 +377,19 @@ ul.block_listing li .block_listing_title a:hover {
     color: #000;
 }
 
-#imagebox .block-like {
-    overflow: hidden;
-    height: 30px;
-    display: none;
-}
-
-#imagebox li:hover .block-like, #videobox-block li span.title-block {
+#imagebox li .slide-block, #videobox-block li span.title-block {
     background: url("../image/friend-like-bg.png") repeat-x left top;
-    display: block !important;
+    display: block;
     position: absolute;
     bottom: 0;
     width: 100%;
+}
+
+
+#imagebox li .slide-block{
+    overflow: hidden;
+    height: 30px;
+    display: none;
 }
 
 #imagebox span.like, #imagebox span.comments, #videobox-block li span.title-block {
@@ -582,7 +583,7 @@ ul.block_listing li .block_listing_image a img,
 #content_load_data h1 {
     padding: 0 25px;
 }
-.photo_row_holder { margin: 0 auto;}
+.photo_row_holder { margin: 0 auto; width: 100px;}
 .upload-photo-button a{
     display: block;
     font-size: 16px;
@@ -1186,4 +1187,22 @@ div.js_mini_feed_comment {
 
 .js_box .js_box_close {
     margin: 9px 0 5px;
+}
+
+
+.image-block .extra_info, .image-block .extra_info_link {
+    padding: 0;
+}
+
+.slide-block {
+    line-height: 18px;
+    padding: 0 3px;
+    background: url("../image/friend-like-bg.png") repeat left top;
+    max-height: 40px;
+    overflow: hidden;
+    color: #fff;
+}
+.slide-block a {
+    color: #fff;
+    font-size: 10px;
 }
