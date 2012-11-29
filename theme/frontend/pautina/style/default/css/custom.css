@@ -652,10 +652,13 @@ ul.block_listing li .block_listing_image a img,
 #header_menu_holder ul li .js_box_close a:hover, a.closePautina, a.closePautina:hover{
 	border: 0;
 	background: url("../image/layout/im_close.png") no-repeat scroll 1px 1px !important;
+    display: block;
     width: 10px;
     height: 10px;
     margin: 5px;
     padding: 4px;
+    z-index: 10000;
+
 }
 
 #header_menu_holder ul li .js_box_close a {
@@ -940,6 +943,10 @@ a.item_bar_action_clicked:hover, a.item_bar_action_clicked {
     margin: 0 0 0 5px ;
 }
 
+#photo_view_theater_mode .photo_next_previous ul {
+    height: 100%;
+}
+
 #photo_view_theater_mode .photo_next_previous ul li.next {
     margin: 0 5px 0 0;
 }
@@ -962,7 +969,6 @@ a.item_bar_action_clicked:hover, a.item_bar_action_clicked {
     position: absolute;
     top: 0;
     width: 100%;
-    position: absolute;
 }
 
 div.row_title_image:hover {

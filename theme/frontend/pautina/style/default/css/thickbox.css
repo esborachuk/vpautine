@@ -202,7 +202,7 @@ a.photo_box_photo_detail:hover
 	padding:8px; color:#fff;
 }
 
-.photo_view_box_comment {
+.popup-block .photo_view_box_comment {
     float: none;
     margin-left: 60px;
     position: relative;
@@ -224,7 +224,7 @@ a.photo_box_photo_detail:hover
 	display:none; position:absolute; z-index:2000; right: 47%;  top: 48%;
 }
 
-#photo_view_tag_photo
+.popup-block #photo_view_tag_photo
 {
 	position:relative;
     text-align:left;
@@ -250,7 +250,7 @@ a.photo_box_photo_detail:hover
 }
 
 
-#js_photo_view_comment_holder .report_this_item {
+.popup-block #js_photo_view_comment_holder  .report_this_item {
     height: 24px;
     left: 350px;
     position: relative;
@@ -258,12 +258,11 @@ a.photo_box_photo_detail:hover
     width: 150px;
 }
 
-#photo_view_theater_mode .photo_view_box_image .photo_next_previous ul li,
-#photo_view_theater_mode .photo_view_box_image .photo_next_previous ul li a,
-#photo_view_theater_mode .photo_view_box_image .photo_next_previous ul li a:hover {
+#photo_view_theater_mode.popup-block  .photo_view_box_image .photo_next_previous ul li,
+#photo_view_theater_mode.popup-block  .photo_view_box_image .photo_next_previous ul li a,
+#photo_view_theater_mode.popup-block  .photo_view_box_image .photo_next_previous ul li a:hover {
     height: 100%;
     line-height: normal;
-    position: relative;
 }
 
 .photo_view_box_comment .feed_comment_delete_link {
@@ -271,7 +270,7 @@ a.photo_box_photo_detail:hover
     top: -5px;
 }
 
-.photo_view_box_image {
+.popup-block .photo_view_box_image {
     height: 300px;
 }
 
@@ -290,4 +289,8 @@ a.photo_box_photo_detail:hover
 
 .title-bg {
     float: right;
+}
+
+.js_box .js_box_close, .js_box #js_marketplace_click_image_viewer_close {
+    top: 7px;
 }

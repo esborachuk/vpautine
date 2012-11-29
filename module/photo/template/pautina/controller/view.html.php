@@ -19,7 +19,7 @@ defined('PHPFOX') or exit('NO DICE!');
 </div>
 {/if}
 {if $bIsTheater && !Phpfox::isMobile()}
-<div id="photo_view_theater_mode" class="photo_view_box_holder">
+<div id="photo_view_theater_mode" class="photo_view_box_holder popup-block">
 
     <div id="scrollbarY">
         <div class="scrollbar"><div class="track"><div class="thumb"><div class="end"></div></div></div></div>
@@ -149,30 +149,31 @@ $Behavior.autoLoadPhoto = function(){l}
 
 	{literal}
 	// $('#main_core_body_holder').hide();
-	var blockWidth = 580,
+	var blockWidth = 590,
         windowWidth = $(window).width();     // Width of  popup block
 	$('#photo_view_ajax_loader').hide();
 	$('.js_box_image_holder_full').find('.js_box').show();
 	$('.js_box_image_holder_full').find('.js_box').css({
         left: '50%',
         'margin-left': ((windowWidth - blockWidth) / 2 - 20) + 'px', // 20px - paddings of main container
-        'width':blockWidth
+        'width':blockWidth,
+        'overflow-y': 'scroll'
     });
 
-	$('.js_box_image_holder_full').find('.js_box_content').height(getPageHeight() - 70);
+	$('.js_box_image_holder_full').find('.js_box_content').height(getPageHeight());
 	$('.js_box_image_holder_full').css({'position': 'fixed'});
 
-	var iCommentBoxMaxHeight = 300;
-
-	iCommentBoxMaxHeight = (($('.js_box_image_holder_full').find('.js_box_content').height() - ($('#js_photo_view_box_title').height() + $('#js_photo_box_view_bottom_ad').height())) - ($Core.exists('#js_ad_space_photo_theater')  ? 220 : 235));
-	if (!$Core.exists('#js_ad_space_photo_theater')){
-		// iCommentBoxMaxHeight = iCommentBoxMaxHeight - 150;
-	}
-
-	$('.js_box_image_holder_full').find('.js_feed_comment_view_more_holder:first').css({
-		'max-height': iCommentBoxMaxHeight + 'px',
-		overflow: 'auto'
-	});
+//	var iCommentBoxMaxHeight = 300;
+//
+//	iCommentBoxMaxHeight = (($('.js_box_image_holder_full').find('.js_box_content').height() - ($('#js_photo_view_box_title').height() + $('#js_photo_box_view_bottom_ad').height())) - ($Core.exists('#js_ad_space_photo_theater')  ? 220 : 235));
+//	if (!$Core.exists('#js_ad_space_photo_theater')){
+//		// iCommentBoxMaxHeight = iCommentBoxMaxHeight - 150;
+//	}
+//
+//	$('.js_box_image_holder_full').find('.js_feed_comment_view_more_holder:first').css({
+////		'max-height': iCommentBoxMaxHeight + 'px',
+//		overflow: 'auto'
+//	});
 
 //	$('.photo_view_box_comment').css('min-height', $('.js_box_image_holder_full').find('.js_box').height());
 	$('.js_box_image_holder_full').find('.js_box').css({
