@@ -196,4 +196,3 @@ defined('PHPFOX') or exit('NO DICE!');
     </div>
 </div>
 <div class="clear"></div>
-<?php endif; ?>
