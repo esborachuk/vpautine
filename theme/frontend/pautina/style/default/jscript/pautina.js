@@ -38,16 +38,53 @@ $(window).scroll(function(){
 });
 /*--------header_static_position--------*/
 
-
 /*-----back_button-----*/
 
 jQuery(document).ready(function() {
-    jQuery('.go_back_link').click(function(){
+
+    var backLink = jQuery('.go_back_link');
+
+    backLink .click(function(e){
+        e.preventDefault();
         window.history.go(-1);
     });
+
+    backLink .show();
+
 });
 
 /*-----back_button-----*/
+
+/*---------album-title-name----------*/
+jQuery(document).ready(function() {
+
+    var titleBlock= jQuery('.slide-block'),
+        photoImage = jQuery('.image-block'),
+        photoImage1 = jQuery('#imagebox li');
+
+    photoImage.hover(function(){
+        jQuery(this).find(titleBlock).stop(true, true).slideToggle("slow");
+    },
+    function(){
+        jQuery(this).find(titleBlock).stop(true, true).slideToggle("slow");
+    });
+
+    photoImage1.hover(function(){
+        jQuery(this).find(titleBlock).stop(true, true).slideToggle("slow");
+    },
+    function(){
+        jQuery(this).find(titleBlock).stop(true, true).slideToggle("slow");
+    });
+
+//    photoImage.mouseover.toggle(function(){
+//        jQuery(this).find(titleBlock).slideDown();
+//    }, function(){
+//        jQuery(this).find(titleBlock).slideUp();
+//    });
+
+
+});
+/*---------album-title-name----------*/
 
 
 

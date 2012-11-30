@@ -14,7 +14,7 @@ defined('PHPFOX') or exit('NO DICE!');
 <div class="clear"></div>
 {foreach from=$aPhotos item=aPhoto name=photos}
 <div class="{if $aPhoto.view_id == 1 && !isset($bIsInApproveMode)} row_moderate_image{/if} {if $aPhoto.is_sponsor} row_sponsored_image{/if}{if isset($sView) && $sView == 'featured'}{else}{if $aPhoto.is_featured} row_featured_image{/if}{/if} photo_row" id="js_photo_id_{$aPhoto.photo_id}">
-	<div class="js_outer_photo_div js_mp_fix_holder photo_row_holder">
+	<div class="js_outer_photo_div js_mp_fix_holder photo_row_holder image-block">
 
 		<div class="photo_row_height image_hover_holder">
 			{if Phpfox::getParam('photo.auto_crop_photo')}
@@ -117,7 +117,9 @@ defined('PHPFOX') or exit('NO DICE!');
 			{if !isset($bIsInAlbumMode)}
 			<div class="extra_info_link">
 				{if !empty($aPhoto.album_name)}
-				<div>{phrase var='photo.in'} <a href="{permalink module='photo.album' id=$aPhoto.album_id title=$aPhoto.album_name}" title="{$aPhoto.album_name|clean}">{if $aPhoto.album_profile_id > 0}{phrase var='photo.profile_pictures'}{else}{$aPhoto.album_name|clean|shorten:45:'...'|split:20}{/if}</a></div>
+				<div class="slide-block" style="display:none;">
+<!--                    {phrase var='photo.in'} -->
+                    <a href="{permalink module='photo.album' id=$aPhoto.album_id title=$aPhoto.album_name}" title="{$aPhoto.album_name|clean}">{if $aPhoto.album_profile_id > 0}{phrase var='photo.profile_pictures'}{else}{$aPhoto.album_name|clean|shorten:45:'...'|split:20}{/if}</a></div>
 				{/if}
 			</div>
 			{/if}

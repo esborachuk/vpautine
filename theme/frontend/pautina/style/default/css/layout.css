@@ -1760,8 +1760,9 @@ a.item_bar_flag:hover
 */
 .sub_section_menu
 {
-	margin:0px 0px 15px 0px;
-	padding-bottom:10px;
+	margin:0;
+	border-bottom: 1px solid #d7d7d7;
+    overflow: hidden;
 }
 
 .sub_section_menu ul
@@ -1773,9 +1774,15 @@ a.item_bar_flag:hover
 
 .sub_section_menu ul li
 {
+    float: left;
 	display:block;
-	position:relative;	
-}	
+	position:relative;
+    border-right: 1px solid #d7d7d7;
+}
+
+#left .sub_section_menu ul li {
+    float: none;
+}
 
 .sub_section_menu ul li.menu_line
 {
@@ -1788,24 +1795,16 @@ a.item_bar_flag:hover
 .sub_section_menu ul li a:hover
 {
 	display:block;
-	line-height:22px;	
+	line-height:25px;
 	text-decoration:none;
 	color:#333;
-	padding:0px 0px 0px 4px;	
+	padding:0 15px;
 	background-repeat:no-repeat;
 }
 
 .sub_section_menu ul li a:hover
 {
 	background:#EFF9FF;
-}
-
-.sub_section_menu ul li.active a,
-.sub_section_menu ul li.active a:hover
-{
-	font-weight:bold;	
-	background:#333 url('../image/layout/sub_section_menu_active.png') repeat-x;
-	color:#fff;
 }
 
 .sub_section_menu ul li a span
@@ -1873,10 +1872,9 @@ a.item_bar_flag:hover
 #right .block,
 #left .block
 {
-	margin-bottom:15px;
+	margin-bottom:5px;
 }
 
-#left .block .title,
 #right .block .title
 {	
 	padding:0px 0px 0px 4px;
@@ -2772,7 +2770,7 @@ a.activity_feed_content_view_more:hover
 .parent_item_feed .js_feed_comment_border,
 .item_view .js_feed_comment_border
 {
-	margin:12px 0px 10px 0px;
+	margin:0 0px 10px 0px;
 	border-top:1px #DFDFDF solid;
 }
 
@@ -3001,7 +2999,7 @@ ul.block_listing li .block_listing_title a:hover
 
 .block_listing_inline
 {
-	margin:5px 0px 5px 0px;
+    margin: 5px 10px 0 10px;
 }
 
 .block_listing_inline ul
@@ -3187,7 +3185,8 @@ ul.block_listing_hover li:hover
 
 #photo_view_theater_mode .photo_next_previous
 {
-	position:static;
+    top: 50%;
+    width: 100%;
 }
 
 #photo_view_theater_mode .photo_next_previous ul li.next

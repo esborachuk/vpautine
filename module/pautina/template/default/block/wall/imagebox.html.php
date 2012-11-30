@@ -18,11 +18,11 @@
                                 <img src="<?php echo $photo['100_square'] ?>" alt="<?php echo $photo['title'] ?>">
                                 <div class="block-like" <?php if($photo['total_like'] <= 0 && $photo['total_comment'] <= 0):  ?>style="display: none!important;" <?php endif; ?>   >
                                     <?php if ($photo['total_like'] > 0): ?>
-                                    <span class="like"><?php echo $photo['total_like']; ?></span>
+                                    <div class="slide-block"><span class="like"><?php echo $photo['total_like']; ?></span></div>
                                     <?php endif; ?>
 
                                     <?php if ($photo['total_comment'] > 0): ?>
-                                    <span class="comments"><?php echo $photo['total_comment']; ?></span>
+                                    <div class="slide-block"><span class="comments"><?php echo $photo['total_comment']; ?></span></div>
                                     <?php endif; ?>
                                 </div>
                             </a>
