@@ -12,9 +12,31 @@ defined('PHPFOX') or exit('NO DICE!');
 
 ?>
 <div id="profile_header_block" class="{if $aUser.cover_photo}isset_profile_logo_image{/if}">
-    <div id="profile_header_logo">
-        {module name='profile.logo'}
-    </div>
+    <div id="profile_header_logo">{module name='profile.logo'}
+
+       <div id="section_menu">
+           {if defined('PHPFOX_IS_USER_PROFILE_INDEX') || defined('PHPFOX_PROFILE_PRIVACY') || Phpfox::getLib('module')->getFullControllerName() == 'profile.info'}
+           <ul>
+               {if Phpfox::getUserId() == $aUser.user_id}
+               {if Phpfox::getUserParam('profile.can_change_cover_photo')}
+               <li><a id="change_cover_2" href="#" onclick="$('#cover_section_menu_drop').toggle(); return false;">{if empty($aUser.cover_photo)}{phrase var='user.add_a_cover'}{else}{phrase var='user.change_cover'}{/if}</a>
+                   <div id="cover_section_menu_drop">
+                       <ul>
+                           <li><a href="{url link='profile.photo'}">{phrase var='user.choose_from_photos'}</a></li>
+                           <li><a href="#" onclick="$('#cover_section_menu_drop').hide(); $Core.box('profile.logo', 500); return false;">{phrase var='user.upload_photo'}</a></li>
+                           {if !empty($aUser.cover_photo)}
+                           <li><a href="{url link='profile' coverupdate='1'}">{phrase var='user.reposition'}</a></li>
+                           <li><a href="#" onclick="$('#cover_section_menu_drop').hide(); $.ajaxCall('user.removeLogo'); return false;">{phrase var='user.remove'}</a></li>
+                           {/if}
+                       </ul>
+                   </div>
+               </li>
+               {/if}
+             {/if}
+            </ul>
+           {/if}
+       </div>
+   </div>
     <div id="profile_header_image_title">
         {module name='pautina.profile.image'}
 
@@ -27,13 +49,13 @@ defined('PHPFOX') or exit('NO DICE!');
 
                 <div class="profile_header_inner{if Phpfox::getService('profile')->timeline()} profile_header_timeline{/if}">
                     {if Phpfox::getUserBy('profile_page_id') <= 0}
-                    <div id="section_menu">
-                        {if defined('PHPFOX_IS_USER_PROFILE_INDEX') || defined('PHPFOX_PROFILE_PRIVACY') || Phpfox::getLib('module')->getFullControllerName() == 'profile.info'}
+                    <div id="section_menu_2">
+                      <!--  {if defined('PHPFOX_IS_USER_PROFILE_INDEX') || defined('PHPFOX_PROFILE_PRIVACY') || Phpfox::getLib('module')->getFullControllerName() == 'profile.info'}
                         <ul>
                             {if Phpfox::getUserId() == $aUser.user_id}
                             {if Phpfox::getUserParam('profile.can_change_cover_photo')}
-                            <li><a href="#" onclick="$('#cover_section_menu_drop').toggle(); return false;">{if empty($aUser.cover_photo)}{phrase var='user.add_a_cover'}{else}{phrase var='user.change_cover'}{/if}</a>
-                                <div id="cover_section_menu_drop">
+                            <li><a id="change_cover" href="#" onmouseout="Cover.animate();return false;" onmouseover="CoverOn.animate();return false;"  onclick="$('#cover_section_menu_drop').toggle(); return false;">{if empty($aUser.cover_photo)}{phrase var='user.add_a_cover'}{else}{phrase var='user.change_cover'}{/if}</a>
+                                <div id="cover_section_menu_drop_2">
                                     <ul>
                                         <li><a href="{url link='profile.photo'}">{phrase var='user.choose_from_photos'}</a></li>
                                         <li><a href="#" onclick="$('#cover_section_menu_drop').hide(); $Core.box('profile.logo', 500); return false;">{phrase var='user.upload_photo'}</a></li>
@@ -44,42 +66,42 @@ defined('PHPFOX') or exit('NO DICE!');
                                     </ul>
                                 </div>
                             </li>
-                            {/if}
+                            {/if}-->
 <!--                            <li><a href="{url link='user.profile'}">{phrase var='profile.edit_profile'}</a></li>-->
-                            {if Phpfox::getUserParam('profile.can_custom_design_own_profile')}
+                        <!--    {if Phpfox::getUserParam('profile.can_custom_design_own_profile')}
                             <li><a href="{url link='profile.designer'}" class="no_ajax_link">{phrase var='profile.design_profile'}</a></li>
                             {/if}
                             {else}
                                 {if Phpfox::isModule('mail') && Phpfox::getService('user.privacy')->hasAccess('' . $aUser.user_id . '', 'mail.send_message')}
                                     <li id="liMail" class="profile-section-menu"><a href="#" onclick="$Core.composeMessage({left_curly}user_id: {$aUser.user_id}{right_curly}); return false;">
                                         <span><!--{phrase var='profile.send_message'}--></span>
-                                    </a>
+                        <!--             </a>
                                     </li>
                                 {/if}
                                 {if Phpfox::isModule('friend') && (!$aUser.is_friend || $aUser.is_friend === 3)}
                                     <li id="js_add_friend_on_profile" class='profile-section-menu {if $aUser.is_friend === 3}  "js_profile_online_friend_request"{/if}'>
                                         <a href="#" onclick="return $Core.addAsFriend('{$aUser.user_id}');" title="{phrase var='profile.add_to_friends'}">
                                             <span><!--{if $aUser.is_friend === 3}{phrase var='profile.confirm_friend_request'}{else}{phrase var='profile.add_to_friends'}{/if}--></span>
+                        <!--              </a>
+                                 </li>
+                             {/if}
+                             {if $bCanPoke && Phpfox::getService('user.privacy')->hasAccess('' . $aUser.user_id . '', 'poke.can_send_poke')}
+                                 <li id="liPoke" class="profile-section-menu">
+                                     <a href="#" id="section_poke" onclick="$.ajaxCall('poke.doPoke', 'user_id=10', 'GET');tb_remove(); return false;">
+                                         <span><!--{phrase var='poke.poke' full_name=''}--></span>
                                         </a>
                                     </li>
-                                {/if}
-                                {if $bCanPoke && Phpfox::getService('user.privacy')->hasAccess('' . $aUser.user_id . '', 'poke.can_send_poke')}
-                                    <li id="liPoke" class="profile-section-menu">
-                                        <a href="#" id="section_poke" onclick="$.ajaxCall('poke.doPoke', 'user_id=10', 'GET');tb_remove(); return false;">
-                                            <span><!--{phrase var='poke.poke' full_name=''}--></span>
-                                        </a>
-                                    </li>
-                                {/if}
-                                {plugin call='profile.template_block_menu_more'}
-                                {if (Phpfox::getUserParam('user.can_block_other_members') && Phpfox::getUserGroupParam('' . $aUser.user_group_id . '', 'user.can_be_blocked_by_others'))
-                                    || (isset($aUser.is_online) && $aUser.is_online && Phpfox::isModule('im') && Phpfox::getParam('im.enable_im_in_footer_bar') && $aUser.is_friend == 1)
-                                    || (Phpfox::getUserParam('user.can_feature'))
-                                    || (isset($bPassMenuMore))
-                                }
-                                <li><a href="#" id="section_menu_more" class="js_hover_title"><span class="section_menu_more_image"></span><span class="js_hover_info">{phrase var='profile.more'}</span></a></li>
-                                {/if}
-                            {/if}
-                        </ul>
+                        <!--        {/if}
+                               {plugin call='profile.template_block_menu_more'}
+                               {if (Phpfox::getUserParam('user.can_block_other_members') && Phpfox::getUserGroupParam('' . $aUser.user_group_id . '', 'user.can_be_blocked_by_others'))
+                                   || (isset($aUser.is_online) && $aUser.is_online && Phpfox::isModule('im') && Phpfox::getParam('im.enable_im_in_footer_bar') && $aUser.is_friend == 1)
+                                   || (Phpfox::getUserParam('user.can_feature'))
+                                   || (isset($bPassMenuMore))
+                               }
+                               <li><a href="#" id="section_menu_more" class="js_hover_title"><span class="section_menu_more_image"></span><span class="js_hover_info">{phrase var='profile.more'}</span></a></li>
+                               {/if}
+                           {/if}
+                       </ul>-->
                         {elseif Phpfox::getLib('module')->getFullControllerName() == 'friend.profile'}
                         {if Phpfox::getUserId() == $aUser.user_id}
                         <ul>
@@ -174,3 +196,6 @@ defined('PHPFOX') or exit('NO DICE!');
     </div>
 </div>
 <div class="clear"></div>
+<script type="text/javascript">
+
+</script>
