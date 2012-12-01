@@ -1,3 +1,1 @@
-file/cache/*
-file/log/*
-.idea/*
+include/setting/server.sett.php
