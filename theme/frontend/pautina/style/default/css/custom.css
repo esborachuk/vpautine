@@ -382,7 +382,7 @@ ul.block_listing li .block_listing_title a:hover {
     display: block;
     position: absolute;
     bottom: 0;
-    width: 100%;
+    width: 94px;
 }
 
 
@@ -813,10 +813,6 @@ input, textarea {
 	max-width: 440px;
 }
 
-.header_bar_search_input {
-	width: 100px;
-}
-
 .header_bar_search input {
 	width: 78px;
 }
@@ -1202,7 +1198,36 @@ div.js_mini_feed_comment {
     overflow: hidden;
     color: #fff;
 }
-.slide-block a {
+.slide-block a, .extra_info {
     color: #fff;
     font-size: 10px;
+}
+
+#js_controller_photo_albums #main_content, #js_controller_photo_rate #main_content, #js_controller_photo_battle #main_content{
+    width: 100%;
+}
+
+#js_controller_photo_albums .slide-block{
+    padding: 0 10px;
+    text-align: center;
+}
+
+#js_controller_photo_albums .slide-block .extra_info{
+    text-align: left;
+}
+
+#js_controller_photo_albums .slide-block, #js_controller_photo_albums .slide-block a{
+    font-size: 12px;
+}
+
+#js_controller_photo_rate #content, #js_controller_photo_rate #right {
+    padding: 0 25px;
+}
+
+#js_controller_photo_rate #content{
+    width: 550px;
+}
+
+#js_controller_photo_battle #site_content {
+    padding: 0 25px;
 }

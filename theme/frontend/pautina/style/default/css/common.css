@@ -1682,7 +1682,7 @@ input.disabled:hover
 {
 	position:absolute; 
 	right:-1px; 
-	bottom:0px;
+	bottom:inherit;
 	margin-bottom:3px; 
 	z-index:200;
 	line-height:22px;
