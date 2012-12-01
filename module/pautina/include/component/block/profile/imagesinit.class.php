@@ -12,9 +12,14 @@ class Pautina_Component_Block_Profile_Imagesinit extends Phpfox_Component
         $requestUrl = $request['do'];
         $this->template()->assign(array(
             'pageCount'     => $pageCount,
-            'requestUrl'    => $requestUrl,
-            'userId'        => $aUser['user_id']
+            'requestUrl'    => $requestUrl
         ));
+
+        if ($aUser) {
+            $this->template()->assign(array(
+                'userId'        => $aUser['user_id']
+            ));
+        }
 
         return 'block';
     }

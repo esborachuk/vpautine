@@ -152,7 +152,7 @@ var AllImages = {
 
     updateViewDetailPosition: function()
     {
-        var contentOffset = $('#content_holder').offset();
+        var contentOffset = $('#main_content_padding').offset();
         var contentTop = contentOffset.top;
         var scrollHeight = $(window).scrollTop();
         var photoBlockHeight = $('#scrollbar_wrapper').height();

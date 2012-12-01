@@ -1,5 +1,9 @@
 <script type="text/javascript">
-    AllImages.init({$pageCount}, '{$requestUrl}', {$userId});
+    AllImages.init(
+            {$pageCount},
+            '{$requestUrl}'
+            <?php if (isset($this->_aVars['userId'])) echo ', ' .$this->_aVars['userId']; ?>
+    );
     Imagebox.getImage('<?php echo $this->_aVars['aPhotos'][0]['photo_id']; ?>', '{$userId}');
 </script>
 

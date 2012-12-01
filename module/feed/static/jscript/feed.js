@@ -91,7 +91,6 @@ $Core.addNewPollOption = function()
 	return false;
 }
 
-/*
 
 $(function()
 {
@@ -123,7 +122,6 @@ $(function()
 	});	
 });
 
-*/
 
 $Core.forceLoadOnFeed = function()
 {

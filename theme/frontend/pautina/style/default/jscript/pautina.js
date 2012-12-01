@@ -68,6 +68,13 @@ jQuery(document).ready(function() {
         jQuery(this).find(titleBlock).stop(true, true).slideToggle("slow");
     });
 
+/*    var escKeyCode = 39;
+    jQuery(document).keydown(function(e) {
+        if (e.keyCode == escKeyCode) {
+            $('textarea:focus').parents('.js_comment_feed_form').submit();
+        }
+    });*/
+
 });
 /*---------slide-title----------*/
 
