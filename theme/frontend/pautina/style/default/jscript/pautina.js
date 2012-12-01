@@ -73,7 +73,10 @@ jQuery(document).ready(function() {
         if (e.keyCode == escKeyCode) {
             $('textarea:focus').parents('.js_comment_feed_form').submit();
         }
-    });*/
+    });
+
+
+    */
 
 });
 /*---------slide-title----------*/
