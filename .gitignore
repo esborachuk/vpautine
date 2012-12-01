@@ -1,1 +1,3 @@
 include/setting/server.sett.php
+file/*
+.idea/*
