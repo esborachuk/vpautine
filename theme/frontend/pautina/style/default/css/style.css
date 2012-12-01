@@ -240,10 +240,17 @@ a.photo_clip_holder, a.photo_clip_holder:hover{
     background:#f8f8f8;
 }
 .buttons_user a{
-    background:none;
-    border: 1px solid #FFFFFF;
+    background: #ffffff; /* Old browsers */
+    background: -moz-linear-gradient(top, #ffffff 0%, #DFDFDF 47%, #ededed 100%); /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#ffffff), color-stop(47%,#f6f6f6), color-stop(100%,#ededed)); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(top, #ffffff 0%,#DFDFDF 47%,#ededed 100%); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(top, #ffffff 0%,#DFDFDF 47%,#ededed 100%); /* Opera 11.10+ */
+    background: -ms-linear-gradient(top, #ffffff 0%,#DFDFDF 47%,#ededed 100%); /* IE10+ */
+    background: linear-gradient(top, #ffffff 0%,#DFDFDF 47%,#ededed 100%); /* W3C */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#ededed',GradientType=0 ); /* IE6-9 */
+    border:1px solid #FFFFFF;
     box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
-    color: #AAAAAA;
+    color: #4C4C4C;
     display:block;
     font-size: 12px;
     font-weight: 700;
@@ -252,4 +259,16 @@ a.photo_clip_holder, a.photo_clip_holder:hover{
     padding: 0 6px;
     text-shadow: 1px 1px 1px #FFFFFF;
     text-align:center;
+}
+
+#section_menu {
+    display:none;
+    position:absolute;
+    left:700px;
+    z-index:1;
+    height:30px;
+}
+
+#profile_header_logo{
+    position:relative;
 }
