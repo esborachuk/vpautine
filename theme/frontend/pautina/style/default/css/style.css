@@ -261,7 +261,7 @@ a.photo_clip_holder, a.photo_clip_holder:hover{
     text-align:center;
 }
 
-#section_menu {
+#profile_header_logo #section_menu {
     display:none;
     position:absolute;
     left:700px;
@@ -271,4 +271,9 @@ a.photo_clip_holder, a.photo_clip_holder:hover{
 
 #profile_header_logo{
     position:relative;
+}
+
+/*Menu Box*/
+#blogbox span{
+    font-size:11px;
 }
