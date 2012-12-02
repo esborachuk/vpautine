@@ -10,11 +10,9 @@
     float: left;
     width: 400px;
 }
-
 #imagebox-detail .photo_view_box_image {
     overflow: inherit;
 }
-
 #imagebox-detail .photo_view_box_comment {
     float: inherit;
 }
