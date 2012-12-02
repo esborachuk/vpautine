@@ -209,13 +209,16 @@ div.comment_mini_content
 
 .js_feed_comment_process_form
 {
-	display:none;
-	z-index:700;
-	padding:4px 12px 4px 4px;
-	-moz-border-radius:6px;
-	-webkit-border-radius:6px;
-  	border-radius:6px;
-  	text-align:right;
+    border-radius: 6px;
+    -moz-border-radius: 6px;
+    -webkit-border-radius: 6px;
+    bottom: 3px;
+    display: none;
+    left: 150px;
+    padding: 4px 12px 4px 4px;
+    position: absolute;
+    text-align: right;
+    z-index: 700;
 }
 
 .js_comment_feed_textarea_focus

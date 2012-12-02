@@ -62,18 +62,18 @@ jQuery(document).ready(function() {
         photoImage = jQuery('.image-block, #imagebox li, .js_outer_photo_div');
 
     photoImage.hover(function(){
-        jQuery(this).find(titleBlock).stop(true, true).slideToggle("slow");
+        jQuery(this).find(titleBlock).stop(true, true).slideToggle("fast");
     },
     function(){
-        jQuery(this).find(titleBlock).stop(true, true).slideToggle("slow");
+        jQuery(this).find(titleBlock).stop(true, true).slideToggle("fast");
     });
 
-/*    var escKeyCode = 39;
-    jQuery(document).keydown(function(e) {
-        if (e.keyCode == escKeyCode) {
-            $('textarea:focus').parents('.js_comment_feed_form').submit();
-        }
-    });*/
+//
+//    jQuery(document).keydown(function(e) {
+//        if (e.ctrlKey && e.keyCode == 13) {
+//            $('textarea:focus').parents('.js_comment_feed_form').submit();
+//        }
+//    });
 
 });
 /*---------slide-title----------*/
