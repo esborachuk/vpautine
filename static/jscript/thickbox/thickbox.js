@@ -35,7 +35,9 @@ $Behavior.addDraggableToBoxes = function()
 		if (bReturn === true){
 			return true;
 		}
-    	
+
+        $('#main_core_body_holder').addClass('fixed-pos');
+
     	return false;
     });    
 }
@@ -74,8 +76,9 @@ function js_box_remove($oObj)
 	if (bIsPhotoImage){
 		bIsPhotoImage = false;
 	//	$Core.addUrlPager({'href': sLastOpenUrl.replace('/#!', '')}, true);
-	}	
-	
+	}
+
+    $('#main_core_body_holder').removeClass('fixed-pos');
 	return false;
 }
 
@@ -571,7 +574,7 @@ function tb_show(caption, url, thisObject, sForceMessage, bForceNoCilck)
 						
 						// var newHeight = $('body').height();
 
-						$('.js_box_image_holder_full').css({'top': '0px', 'height': (newHeight + 50) + 'px'});
+						$('.js_box_image_holder_full').css({'top': '0px', 'height': (newHeight) + 'px'});
 
 						var bCanCloseImageBox = true;		
 
@@ -592,7 +595,7 @@ function tb_show(caption, url, thisObject, sForceMessage, bForceNoCilck)
 								if (!bCanCloseImageBox)
 								{
 									bCanCloseImageBox = true;
-								}
+                                }
 								else
 								{
 									$('#main_core_body_holder').show();
@@ -608,8 +611,9 @@ function tb_show(caption, url, thisObject, sForceMessage, bForceNoCilck)
 									$(this).remove();
 									delete $aBoxHistory[params[getParam('sGlobalTokenName') + '[call]']];
 									// $Core.addUrlPager({'href': sLastOpenUrl.replace('/#!', '')}, true);
-								}
-							});		    		
+                                    $('#main_core_body_holder').removeClass('fixed-pos');
+                                }
+							});
 						}
 
 						$Behavior.onCloseThickbox();
@@ -675,7 +679,7 @@ function tb_remove()
    	}
    	
    	$('#global_attachment_list_inline').hide();
-   	
+
 	return false;
 }
 
@@ -746,9 +750,6 @@ function tb_position($oObj, bFull)
     {
     	$($oObj).css(
 	    {
-	        top: getPageScroll()[1],
-	        left: '50%',
-	        'margin-left': '-' + (($($oObj).width() / 2) + 12) + 'px',
 	        'z-index': (parseInt(Math.max.apply(Math, $aAllBoxIndex)) + 1)    
 	    }); 
     }
@@ -756,9 +757,6 @@ function tb_position($oObj, bFull)
     {
 		$($oObj).css(
 	    {
-	        top: getPageScroll()[1] + (getPageHeight() / 5),
-	        left: '50%',
-	        'margin-left': '-' + (($($oObj).width() / 2) + 12) + 'px',
 	        'z-index': (parseInt(Math.max.apply(Math, $aAllBoxIndex)) + 1)    
 	    });    
     }

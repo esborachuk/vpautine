@@ -55,31 +55,35 @@ jQuery(document).ready(function() {
 
 /*-----back_button-----*/
 
-/*---------slide-title---------*/
+
 jQuery(document).ready(function() {
+
+/*---------slide-title---------*/
 
     var titleBlock= jQuery('.slide-block'),
         photoImage = jQuery('.image-block, #imagebox li, .js_outer_photo_div');
 
     photoImage.hover(function(){
-        jQuery(this).find(titleBlock).stop(true, true).slideToggle("slow");
+        jQuery(this).find(titleBlock).stop(true, true).slideToggle("fast");
     },
     function(){
-        jQuery(this).find(titleBlock).stop(true, true).slideToggle("slow");
+        jQuery(this).find(titleBlock).stop(true, true).slideToggle("fast");
     });
 
-/*    var escKeyCode = 39;
+/*---------slide-title----------*/
+
+/*------------send-message-on-CTRL+ENTER--------------*/
+
     jQuery(document).keydown(function(e) {
-        if (e.keyCode == escKeyCode) {
+        if (e.ctrlKey && e.keyCode == 13) {
             $('textarea:focus').parents('.js_comment_feed_form').submit();
         }
     });
 
-
-    */
+/*------------send-message-on-CTRL+ENTER--------------*/
 
 });
-/*---------slide-title----------*/
+
 
 
 
