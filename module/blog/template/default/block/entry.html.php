@@ -15,7 +15,7 @@ defined('PHPFOX') or exit('NO DICE!');
 	{if !isset($bBlogView)}
 	<div class="row_title">	
 		<div class="row_title_image">
-			{img user=$aItem suffix='_50_square' max_width=50 max_height=50}
+			{img user=$aItem suffix='_50_square' max_width=20 max_height=20}
 			{if Phpfox::getUserParam('blog.can_approve_blogs')
 				|| (Phpfox::getUserParam('blog.edit_own_blog') && Phpfox::getUserId() == $aItem.user_id) || Phpfox::getUserParam('blog.edit_user_blog')
 				|| (Phpfox::getUserParam('blog.delete_own_blog') && Phpfox::getUserId() == $aItem.user_id) || Phpfox::getUserParam('blog.delete_user_blog')
@@ -66,11 +66,7 @@ defined('PHPFOX') or exit('NO DICE!');
 			{if isset($aItem.tag_list)}
 			{module name='tag.item' sType=$sTagType sTags=$aItem.tag_list iItemId=$aItem.blog_id iUserId=$aItem.user_id}
 			{/if}
-			
-			{if !isset($bBlogView)}
-			{module name='feed.comment' aFeed=$aItem.aFeed}
-			{/if}
-			
+
 			{plugin call='blog.template_block_entry_text_end'}			
 		</div>
 	

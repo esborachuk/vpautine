@@ -11,8 +11,8 @@
 defined('PHPFOX') or exit('NO DICE!'); 
 
 ?>
-<?php if (isset($this->_aVars['sReq3'])): ?>
-    <?php if ($this->_aVars['sReq3'] == 'photo'): ?>
+<?php if (isset($this->_aVars['sReq3']) || $this->_aVars['sTagType'] == 'blog_profile'): ?>
+    <?php if ($this->_aVars['sReq3'] == 'photo' || $this->_aVars['sTagType'] == 'blog_profile'): ?>
     <div id="profile_small_header_block">
         <div>
             <h1>
