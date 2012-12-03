@@ -112,7 +112,9 @@ defined('PHPFOX') or exit('NO DICE!');
 							{/if}
 
 							<div id="main_content">
-                                {menu_sub}
+                                {if isset($aFilterMenus) && is_array($aFilterMenus) && count($aFilterMenus)}
+                                    {menu_sub}
+                                {/if}
 								{if !defined('PHPFOX_IS_USER_PROFILE') && !defined('PHPFOX_IS_PAGES_VIEW')}
 								{search}
 								{/if}

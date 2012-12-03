@@ -11,6 +11,23 @@
 defined('PHPFOX') or exit('NO DICE!'); 
 
 ?>
+<?php if (isset($this->_aVars['sReq3'])): ?>
+    <?php if ($this->_aVars['sReq3'] == 'photo'): ?>
+    <div id="profile_small_header_block">
+        <div>
+            <h1>
+                <a href="{url link=$aUser.user_name}" title="{$aUser.full_name|clean}">{$aUser.full_name|clean|split:30|shorten:50:'...'}</a>
+                {foreach from=$aBreadCrumbs key=sLink item=sCrumb name=link}{if $phpfox.iteration.link == 1}
+                <span class="profile_breadcrumb">-</span>
+                <a href="{$sLink}">{$sCrumb}</a>{/if}{/foreach}
+            </h1>
+        </div>
+        {module name='pautina.profile.image' image_size=true}
+        <div class="clear"></div>
+    </div>
+    <div class="clear"></div>
+    <?php endif; ?>
+<?php else: ?>
 <div id="profile_header_block" class="{if $aUser.cover_photo}isset_profile_logo_image{/if}">
     <div id="profile_header_logo">{module name='profile.logo'}
 
@@ -196,3 +213,4 @@ defined('PHPFOX') or exit('NO DICE!');
     </div>
 </div>
 <div class="clear"></div>
+<?php endif; ?>
