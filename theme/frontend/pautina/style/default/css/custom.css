@@ -443,11 +443,11 @@ ul.block_listing li .block_listing_title a:hover {
 	background: url("../image/blog-bg.png") no-repeat scroll 10px 5px transparent;
 	color: #494949;
 	display: inline-block;
-	font-size: 12px;
+	font-size: 11px;
 	overflow: hidden;
 	padding-left: 40px;
 	white-space: nowrap;
-	width: 215px;
+	width: 55%;
 }
 #blogbox .title:hover, #blogbox .data:hover {
     color: #44a5e2;
@@ -825,7 +825,7 @@ input, textarea {
 	display: inline-block;
 	overflow: hidden;
 	white-space: nowrap;
-	width: 230px;
+	width: 62%;
 	line-height: normal;
 }
 
@@ -1202,7 +1202,6 @@ div.js_mini_feed_comment {
     color: #fff;
 }
 .slide-block a, .extra_info {
-    color: #fff;
     font-size: 10px;
 }
 

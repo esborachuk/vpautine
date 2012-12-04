@@ -1636,12 +1636,6 @@ a.item_bar_flag:hover
 /**
 	Action Menu
 */
-#section_menu
-{	
-	position:absolute;
-	right:0px;		
-	top:10px;	
-}
 
 #section_menu ul
 {
@@ -4503,7 +4497,7 @@ span.feed_icon_block img {
 }
 
 #musicbox a {
-    font-size: 12px;
+    font-size: 11px;
     line-height: 25px;
     color: #494949;
     padding-left: 20px;
