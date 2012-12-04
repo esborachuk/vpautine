@@ -340,7 +340,44 @@ a.photo_clip_holder, a.photo_clip_holder:hover{
 
 /*blog*/
 
-/*
 #js_controller_blog_index #left{
     width:20% !important;
-}*/
+}
+
+#js_controller_blog_index .sub_section_menu ul li,
+#js_controller_blog_index .sub_section_menu,
+#js_controller_blog_index #main_content{
+    border:none !important;
+}
+
+#js_controller_blog_index #main_content{
+    margin:0 0 0 181px;
+    width:80%;
+}
+
+#js_controller_blog_index .sub_section_menu ul li a:hover
+{
+    background: #c7d1ff;
+}
+#js_controller_blog_index{
+    margin:auto;
+    width:81%;
+}
+#js_controller_blog_index div.header_bar_menu{
+    background:none;
+}
+#js_controller_blog_index div.row_title_image{
+    float:left;
+}
+#js_controller_blog_index div.row_title_info{
+   margin-left:70px;
+}
+
+#js_controller_blog_index #section_menu {
+    position: absolute;
+    right: 25px;
+    top: 12px;
+}
+#js_controller_blog_index .content2{
+    width:72%;
+}
