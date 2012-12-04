@@ -24,13 +24,19 @@
                                 <a data-photoid="<?php echo $photo['photo_id']; ?>" data-userid="<?php echo $this->_aVars['aUser']['user_id']; ?>" href="#" class="imagebox" title="<?php echo $photo['title'] ?>">
                                     <img src="<?php echo $photo['100_square'] ?>" alt="<?php echo $photo['title'] ?>">
                                     <div class="block-like" <?php if($photo['total_like'] <= 0 && $photo['total_comment'] <= 0):  ?>style="display: none!important;" <?php endif; ?>   >
-                                        <?php if ($photo['total_like'] > 0): ?>
-                                           <div class="slide-block"> <span class="like"><?php echo $photo['total_like']; ?></span></div>
+
+                                        <?php if ($photo['total_like'] > 0 || $photo['total_comment'] > 0): ?>
+                                        <div class="slide-block">
+                                            <?php if ($photo['total_like'] > 0): ?>
+                                            <span class="like"><?php echo $photo['total_like']; ?></span>
+                                            <?php endif; ?>
+
+                                            <?php if ($photo['total_comment'] > 0): ?>
+                                            <span class="comments"><?php echo $photo['total_comment']; ?></span>
+                                            <?php endif; ?>
+                                        </div>
                                         <?php endif; ?>
 
-                                        <?php if ($photo['total_comment'] > 0): ?>
-                                           <div class="slide-block"> <span class="comments"><?php echo $photo['total_comment']; ?></span></div>
-                                        <?php endif; ?>
                                     </div>
                                 </a>
                             </td>

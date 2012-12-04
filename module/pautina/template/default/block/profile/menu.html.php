@@ -1,6 +1,5 @@
 <?php
 defined('PHPFOX') or exit('NO DICE!');
-
 ?>
 {if !Phpfox::getService('profile')->timeline()}
 <div class="sub_section_menu sub_section_menu_profile">

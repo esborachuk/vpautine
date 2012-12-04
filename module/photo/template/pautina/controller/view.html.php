@@ -149,56 +149,26 @@ $Behavior.autoLoadPhoto = function(){l}
 
 	{literal}
 	// $('#main_core_body_holder').hide();
-	var blockWidth = 590,
+	var blockWidth = 650,
         windowWidth = $(window).width();     // Width of  popup block
 	$('#photo_view_ajax_loader').hide();
 	$('.js_box_image_holder_full').find('.js_box').show();
 	$('.js_box_image_holder_full').find('.js_box').css({
-        left: '50%',
-        'margin-left': ((windowWidth - blockWidth) / 2 - 20) + 'px', // 20px - paddings of main container
-        'width':blockWidth,
-        'overflow-y': 'scroll'
+        'width':blockWidth
     });
 
-	$('.js_box_image_holder_full').find('.js_box_content').height(getPageHeight());
-	$('.js_box_image_holder_full').css({'position': 'fixed'});
+	$('.js_box_image_holder_full').css(
+            {'position': 'fixed',
+             'overflow-y': 'auto'
+            });
 
-//	var iCommentBoxMaxHeight = 300;
-//
-//	iCommentBoxMaxHeight = (($('.js_box_image_holder_full').find('.js_box_content').height() - ($('#js_photo_view_box_title').height() + $('#js_photo_box_view_bottom_ad').height())) - ($Core.exists('#js_ad_space_photo_theater')  ? 220 : 235));
-//	if (!$Core.exists('#js_ad_space_photo_theater')){
-//		// iCommentBoxMaxHeight = iCommentBoxMaxHeight - 150;
-//	}
-//
-//	$('.js_box_image_holder_full').find('.js_feed_comment_view_more_holder:first').css({
-////		'max-height': iCommentBoxMaxHeight + 'px',
-//		overflow: 'auto'
-//	});
-
-//	$('.photo_view_box_comment').css('min-height', $('.js_box_image_holder_full').find('.js_box').height());
 	$('.js_box_image_holder_full').find('.js_box').css({
 		'top': 0,
 		'left': '0'
 	});
 
-	if ($('#js_photo_view_image').height() >= $('.js_box_image_holder_full').find('.js_box_content').height()){
-		$('.photo_view_box_image_holder').css({top: 0});
-	}
-	else {
-		$('.photo_view_box_image_holder').css({
-			top: '50%',
-			'margin-top': '-' + ($('#js_photo_view_image').height() / 2) + 'px'
-		});
-	}
-
-	$('.photo_view_box_image_holder').css({
-		left: '50%',
-		'margin-left': '-' + ($('#js_photo_view_image').width() / 2) + 'px'
-	});
-
 	$('.js_box_image_holder_full_loader').hide();
 
-//	$('.photo_view_box_image').height($('.js_box_image_holder_full').find('.js_box_content').height());
 	$('#photo_view_theater_mode').find('.js_comment_feed_textarea:first').focus(function(){
 		$(this).height(50);
 		$('#js_ad_space_photo_theater').hide();
@@ -211,10 +181,7 @@ $Behavior.autoLoadPhoto = function(){l}
 		$('#js_photo_view_image_small').show();
 
 		$('.photo_view_box_image_holder').css({
-			left: '50%',
-			top: '50%',
-			'margin-left': '-' + ($('#js_photo_view_image_small').width() / 2) + 'px',
-			'margin-top': '-' + ($('#js_photo_view_image_small').height() / 2) + 'px'
+        'position':'inherit'
 		});
 	}
 
@@ -223,8 +190,6 @@ $Behavior.autoLoadPhoto = function(){l}
 	$Core.photo_tag.init({l}{$sPhotoJsContent}{r});
 	$Behavior.autoLoadPhoto = function(){l}{r}
 {r}
-
-//        $('#scrollbarY').tinyscrollbar({});
 
 </script>
 			

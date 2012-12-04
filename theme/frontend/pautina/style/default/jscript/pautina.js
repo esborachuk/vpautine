@@ -55,36 +55,35 @@ jQuery(document).ready(function() {
 
 /*-----back_button-----*/
 
-/*---------album-title-name----------*/
+
 jQuery(document).ready(function() {
 
+/*---------slide-title---------*/
+
     var titleBlock= jQuery('.slide-block'),
-        photoImage = jQuery('.image-block'),
-        photoImage1 = jQuery('#imagebox li');
+        photoImage = jQuery('.image-block, #imagebox li, .js_outer_photo_div');
 
     photoImage.hover(function(){
-        jQuery(this).find(titleBlock).stop(true, true).slideToggle("slow");
+        jQuery(this).find(titleBlock).stop(true, true).slideToggle("fast");
     },
     function(){
-        jQuery(this).find(titleBlock).stop(true, true).slideToggle("slow");
+        jQuery(this).find(titleBlock).stop(true, true).slideToggle("fast");
     });
 
-    photoImage1.hover(function(){
-        jQuery(this).find(titleBlock).stop(true, true).slideToggle("slow");
-    },
-    function(){
-        jQuery(this).find(titleBlock).stop(true, true).slideToggle("slow");
+/*---------slide-title----------*/
+
+/*------------send-message-on-CTRL+ENTER--------------*/
+
+    jQuery(document).keydown(function(e) {
+        if (e.ctrlKey && e.keyCode == 13) {
+            $('textarea:focus').parents('.js_comment_feed_form').submit();
+        }
     });
 
-//    photoImage.mouseover.toggle(function(){
-//        jQuery(this).find(titleBlock).slideDown();
-//    }, function(){
-//        jQuery(this).find(titleBlock).slideUp();
-//    });
-
+/*------------send-message-on-CTRL+ENTER--------------*/
 
 });
-/*---------album-title-name----------*/
+
 
 
 

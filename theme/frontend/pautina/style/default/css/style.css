@@ -98,8 +98,8 @@ textarea{
 }
 
 div.video_moderate_link {
-    bottom: -3px;
-    left: 30px;
+    bottom: inherit;
+    left: 0;
     position: absolute;
     z-index: 200;
 }
