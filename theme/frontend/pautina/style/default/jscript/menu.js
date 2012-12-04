@@ -22,7 +22,7 @@ $(document).ready(function() {
 });
 
 ChangeCover = {
-    coverLink: '#section_menu',
+    coverLink: '#profile_header_logo #section_menu',
     coverSection: '#profile_header_logo',
     init: function(){
       if( $(ChangeCover.coverSection).height() > 0){
@@ -30,7 +30,7 @@ ChangeCover = {
            var y =  $(ChangeCover.coverSection).height()/1.4;    //detect height of block with photo
            var x =  $(ChangeCover.coverSection).width();         //detect width
            $(ChangeCover.coverLink).css({'top': y});
-
+            console.log('andrew_script_run');
         $(ChangeCover.coverSection).mouseenter(function(){
             $(ChangeCover.coverLink).show();
         }).mouseleave(function() {

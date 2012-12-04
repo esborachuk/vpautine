@@ -36,11 +36,6 @@
 	top:0px;
 }
 
-#js_is_user_profile #section_menu
-{
-	top:20px;
-}
-
 #js_is_user_profile .profile_image
 {
 	position:relative;
@@ -102,10 +97,12 @@
 	padding:6px 0px 10px 10px;
 }
 
+/*
 #js_is_user_profile #section_menu
 {
 	bottom:5px;
 }
+*/
 
 #js_is_user_profile #content .block .title
 {	
