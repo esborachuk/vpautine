@@ -20,11 +20,6 @@ defined('PHPFOX') or exit('NO DICE!');
 {/if}
 {if $bIsTheater && !Phpfox::isMobile()}
 <div id="photo_view_theater_mode" class="photo_view_box_holder popup-block">
-
-    <div id="scrollbarY">
-        <div class="scrollbar"><div class="track"><div class="thumb"><div class="end"></div></div></div></div>
-        <div class="viewport">
-            <div class="overview">
 	<div class="photo_view_in_photo">
 		<b>{phrase var='photo.in_this_photo'}:</b> <span id="js_photo_in_this_photo"></span>		
 	</div>
@@ -138,9 +133,6 @@ defined('PHPFOX') or exit('NO DICE!');
 </div>
 </div>
 	<div class="clear"></div>
-        </div>
-    </div>
-</div>
 
 </div>
 

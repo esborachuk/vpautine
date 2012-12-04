@@ -37,6 +37,7 @@ $Behavior.addDraggableToBoxes = function()
 		}
 
         $('#main_core_body_holder').addClass('fixed-pos');
+        $('#main_content_holder, .header-wrapper').addClass('position-padding');
 
     	return false;
     });    
@@ -79,6 +80,7 @@ function js_box_remove($oObj)
 	}
 
     $('#main_core_body_holder').removeClass('fixed-pos');
+    $('#main_content_holder, .header-wrapper').removeClass('position-padding');
 	return false;
 }
 
@@ -612,6 +614,7 @@ function tb_show(caption, url, thisObject, sForceMessage, bForceNoCilck)
 									delete $aBoxHistory[params[getParam('sGlobalTokenName') + '[call]']];
 									// $Core.addUrlPager({'href': sLastOpenUrl.replace('/#!', '')}, true);
                                     $('#main_core_body_holder').removeClass('fixed-pos');
+                                    $('#main_content_holder, .header-wrapper').removeClass('position-padding');
                                 }
 							});
 						}

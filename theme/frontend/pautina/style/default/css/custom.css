@@ -1036,7 +1036,7 @@ div.row_title_image {
 
 .comment_mini_entry_time_stamp {
     float: right!important;
-	margin-right: 20px!important;
+	margin-right: 30px!important;
 }
 
 .activity_feed_content_text {
@@ -1237,3 +1237,9 @@ div.js_mini_feed_comment {
     position: fixed;
     width: 100%;
 }
+
+.photo_view_box_image_holder{
+    margin-top: 10px;
+}
+
+.position-padding {margin-right: 19px;}
