@@ -89,6 +89,15 @@ class Pautina_Component_Ajax_Ajax extends Phpfox_Ajax
         Phpfox::getLib('request')->set($request);
         Phpfox::getComponent('photo.index', $params, 'controller');
     }
+
+    public function blogbox()
+    {
+        $request = Phpfox::getLib('url')->parseUrl(Phpfox::getLib('request')->get('url'));
+        $request['do'] = '/' . implode('/', $request) . '/';
+        Phpfox::getLib('request')->set($request);
+
+        Phpfox::getComponent('blog.view', array(), 'controller');
+    }
 }
 
 ?>
