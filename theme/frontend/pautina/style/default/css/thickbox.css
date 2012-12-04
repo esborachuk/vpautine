@@ -31,7 +31,6 @@
 	-moz-border-radius:4px;
 	-webkit-border-radius:4px;
   	border-radius:4px;
-	padding:14px;
     margin: 10px auto 10px;
 }
 
@@ -252,9 +251,9 @@ a.photo_box_photo_detail:hover
 
 .popup-block #js_photo_view_comment_holder  .report_this_item {
     height: 24px;
-    left: 350px;
+    left: 250px;
     position: relative;
-    top: -45px;
+    top: -47px;
     width: 150px;
 }
 

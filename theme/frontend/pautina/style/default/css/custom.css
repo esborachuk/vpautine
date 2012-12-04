@@ -1067,7 +1067,7 @@ div.row_title_image {
     top: -5px;
 }
 
-.js_feed_view_more_entry_holder {
+.js_feed_view_more_entry_holder, #js_new_feed_update {
 	padding: 15px 10px;
 }
 .activity_feed_content {
@@ -1159,7 +1159,10 @@ div.js_mini_feed_comment {
 }
 
 .feed_comment_bottom {
-	margin-top: 0;
+    bottom: 24px;
+    float: right;
+    margin-top: 0;
+    position: relative;
 }
 
 .go_back_link {
