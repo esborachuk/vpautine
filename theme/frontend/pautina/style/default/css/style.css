@@ -381,3 +381,24 @@ a.photo_clip_holder, a.photo_clip_holder:hover{
 #js_controller_blog_index .content2{
     width:72%;
 }
+
+/*chat*/
+#im_footer_bar .js_im_link a{
+    margin:0 25px 0 0;
+}
+.js_messages{
+    left:0;
+}
+.im_delete_button{
+    right:32px !important;
+}
+
+.im_in_chat_menu_bar a, .im_in_chat_menu_bar a:hover {
+    border-top: 1px solid #000000;
+    color: #FFFFFF;
+    display: inline-block;
+    font-weight: normal;
+    padding: 5px;
+    text-decoration: none;
+    width: 95%;
+}
