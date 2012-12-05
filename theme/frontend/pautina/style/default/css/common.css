@@ -1863,19 +1863,6 @@ input.disabled:hover
 	width:200px;
 }
 
-.im_in_chat_menu_bar a,
-.im_in_chat_menu_bar a:hover
-{
-	display:block;
-	line-height:22px;
-	height:22px;
-	padding:0px 5px 0px 5px;
-	border-top:1px #000 solid;
-	text-decoration:none;
-	font-weight:normal;
-	color:#fff;
-}
-
 .im_in_chat_menu_bar a:hover
 {
 	background:#333;
