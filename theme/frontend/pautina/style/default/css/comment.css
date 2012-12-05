@@ -127,7 +127,7 @@ div.comment_mini
 
 div.comment_mini_end
 {
-	padding:8px 0 0 0;
+	padding: 0;
 }
 
 .comment_mini_link_image
@@ -186,6 +186,7 @@ div.comment_mini_image
 div.comment_mini_content
 {
 	margin-left:45px;
+    min-height: 50px;
 }
 
 .comment_feed

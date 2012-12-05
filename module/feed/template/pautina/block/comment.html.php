@@ -77,7 +77,7 @@
 		</div><!-- // #js_feed_comment_post_{$aFeed.feed_id} -->		
 		{/if}
 
-        <div class="feed_comment_bottom">{template file='feed.block.link'}</div>
+
 
 		{if isset($sFeedType) &&  $sFeedType == 'mini'}
 		
@@ -112,7 +112,7 @@
 							<input type="submit" value="{phrase var='feed.comment'}" class="button" />									
 						</div>
 						{plugin call='feed.template_block_comment_border'}
-					</div>			
+					</div>
 					{if !PHPFOX_IS_AJAX && isset($sFeedType) &&  $sFeedType == 'view' && Phpfox::getUserParam('comment.wysiwyg_on_comments') && Phpfox::getParam('core.wysiwyg') == 'tiny_mce'}
 					<div><input type="hidden" name="val[is_in_view]" value="1" /></div>
 					<script type="text/javascript">
@@ -127,7 +127,7 @@
 		</div>
 		{/if}		
 		{/if}
-		
+    <div class="feed_comment_bottom">{template file='feed.block.link'}</div>
 	</div><!-- // .comment_mini_content_border -->
 </div><!-- // .comment_mini_content_holder -->
 
