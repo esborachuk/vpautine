@@ -201,11 +201,28 @@
     color: #28A6FF;
 }
 
-#js_controller_photo_index #main_content, #js_controller_friend_index #main_content {
+#js_controller_photo_index #main_content, #js_controller_friend_index #main_content
+{
     width: 100%;
     margin-left: 0;
 }
 
 #js_controller_photo_index #js_actual_photo_content {
     width: 333px;
+}
+
+#get_blog_id {
+    float: right;
+    width: 500px;
+    margin-right: 20px;
+}
+
+#get_blog_id .item_view .js_feed_comment_border {
+    width: 465px !important;
+    margin-top: 10px;
+}
+
+#blog_wrapper {
+    float: left;
+    width: 300px;
 }
