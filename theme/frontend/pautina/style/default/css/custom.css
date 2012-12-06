@@ -901,10 +901,6 @@ a.item_bar_action_clicked:hover, a.item_bar_action_clicked {
 	color: #859AF2 !important;
 }
 
-#js_is_user_profile #main_content{
-    width: 100%;
-}
-
 #js_is_user_profile #pautina_image {
     float: none;
     width: 350px;
@@ -1192,9 +1188,11 @@ div.js_mini_feed_comment {
 }
 .slide-block a, .extra_info {
     font-size: 10px;
+    color: #fff;
 }
 
-#js_controller_photo_albums #main_content, #js_controller_photo_rate #main_content, #js_controller_photo_battle #main_content{
+#js_controller_photo_albums #main_content, #js_controller_photo_rate #main_content, #js_controller_photo_battle #main_content,
+#js_controller_blog_add #main_content, #js_controller_blog_view #main_content{
     width: 100%;
 }
 
@@ -1211,7 +1209,7 @@ div.js_mini_feed_comment {
     font-size: 12px;
 }
 
-#js_controller_photo_rate #content, #js_controller_photo_rate #right {
+#js_controller_photo_rate #content, #js_controller_photo_rate #right, #js_controller_blog_add #site_content {
     padding: 0 25px;
 }
 
@@ -1222,6 +1220,11 @@ div.js_mini_feed_comment {
 #js_controller_photo_battle #site_content {
     padding: 0 25px;
 }
+
+#js_controller_blog_view .blog_content {
+    padding: 0 0 15px 0;
+}
+
 .fixed-pos {
     position: fixed;
     width: 100%;
@@ -1243,8 +1246,26 @@ div.js_mini_feed_comment {
 
 #js_controller_blog_view #content{
     margin-left: 85px;
-    width: 540px;
+    width: 510px;
 }
 #js_controller_blog_view .js_feed_comment_border {
-    width: 100%!important;
+    width: inherit!important;
+}
+
+#js_controller_blog_view .item_info{
+    clear: both;
+    float: left;
+}
+
+#js_controller_blog_view .item_bar {
+    float: right;
+    padding: 0;
+}
+
+#js_controller_blog_view #right {
+    margin: 25px 25px 25px 0;
+}
+
+.item_bar_action_holder ul li.item_delete a:hover {
+    color: #FFF!important;
 }
