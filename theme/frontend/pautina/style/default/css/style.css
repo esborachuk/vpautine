@@ -407,3 +407,12 @@ a.photo_clip_holder, a.photo_clip_holder:hover{
     text-decoration: none;
     width: 95%;
 }
+#js_im_display_online{
+    margin:0 4px 4px;
+}
+
+/*music*/
+.sub_section_menu ul li a:hover{
+    background:#0e5e55 !important;
+    color:#fff !important;
+}
