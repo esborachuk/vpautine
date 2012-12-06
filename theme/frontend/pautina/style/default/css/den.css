@@ -226,3 +226,7 @@
     float: left;
     width: 300px;
 }
+
+#get_blog_id .item_tag_holder {
+    width: 500px;
+}
