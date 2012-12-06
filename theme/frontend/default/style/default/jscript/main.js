@@ -315,7 +315,7 @@ $Behavior.globalThemeInit = function()
 		return false;	
 	});		
 	
-	$('.item_bar_action').click(function()
+	$('.item_bar_action').live('click', function()
 	{
 		$(this).parent().find('ul:first').toggle();
 		$(this).blur();

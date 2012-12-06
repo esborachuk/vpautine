@@ -902,7 +902,7 @@ a.item_bar_action_clicked:hover, a.item_bar_action_clicked {
 }
 
 #js_is_user_profile #main_content{
-
+    width: 100%;
 }
 
 #js_is_user_profile #pautina_image {
