@@ -777,7 +777,8 @@ div.row_title_image
 }
 
 .js_blog_parent div.row_title_image {
-    position: relative;
+    right: 0;
+    left: inherit;
 }
 
 div.row_title_image:hover
