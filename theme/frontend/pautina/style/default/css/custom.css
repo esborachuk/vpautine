@@ -535,13 +535,13 @@ ul.block_listing li .block_listing_image a img,
 }
 
 #js_controller_video_view #main_content #main_content_padding {
-    padding: 15px 0 15px 85px;
+    padding: 15px 25px 15px 85px;
 }
 
 .feed_share_custom {padding: 0;}
 
 #js_video_outer_body .js_feed_comment_border {
-    width: 608px !important;
+    width: 758px !important;
 }
 
 .video_info_view {
@@ -632,21 +632,19 @@ ul.block_listing li .block_listing_image a img,
 
 .js_box_close, #js_marketplace_click_image_viewer_close {
     background: none repeat scroll 0 0 transparent;
+    border: 0 none;
     display: none;
     height: auto;
-    line-height: normal!important;
+    line-height: normal !important;
     position: absolute;
-    right: 20px;
+    right: 0;
     top: 14px;
-    border: 0;
-	z-index: 10000;
+    z-index: 10000;
 }
 
 .js_box_title {
     padding: 8px 0 8px 14px;
 }
-
-.js_box {position: relative;}
 
 .js_box_close a, .js_box_close a:hover, #js_marketplace_click_image_viewer_close a,
 #js_marketplace_click_image_viewer_close a:hover, #header_menu_holder ul li .js_box_close a,
@@ -1184,11 +1182,6 @@ div.js_mini_feed_comment {
     margin-top: 2px;
 }
 
-.js_box .js_box_close {
-    margin: 9px 0 5px;
-}
-
-
 .image-block .extra_info, .image-block .extra_info_link {
     padding: 0;
 }
@@ -1243,3 +1236,7 @@ div.js_mini_feed_comment {
 }
 
 .position-padding {margin-right: 19px;}
+
+#js_video_outer_body .item_bar, #js_video_outer_body .t_center, #js_video_outer_body .video_info_box{
+    margin-left: -65px;
+}

@@ -300,10 +300,15 @@ a.photo_clip_holder, a.photo_clip_holder:hover{
     float: left;
     width: auto;
 }
-#js_controller_photo_add #main_content{
+#js_controller_photo_add #main_content, #js_controller_music_upload #main_content, #js_controller_video_add #main_content{
     width:97%;
     padding:15px;
 }
+
+#js_controller_video_add #main_content #site_content {
+    width: 250px;
+}
+
 #js_photo_privacy_holder .table{
     margin:5px 25px;
 }
