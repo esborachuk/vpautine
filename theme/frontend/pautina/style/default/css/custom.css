@@ -554,20 +554,20 @@ ul.block_listing li .block_listing_image a img,
 
 #js_controller_photo_index #left, #js_controller_photo_albums #left, #js_controller_photo_rate #left,
 #js_controller_video_index #left, #js_controller_blog_index #left, #js_controller_friend_index #left,
-#js_controller_music_index #left, #js_controller_music_browse_album #left, #js_controller_user_browse #left,
+#js_controller_music_index #left, #js_controller_music_browse_album #left, #js_controller_user_browse #left
 {
     width: 260px;
 }
 
 #js_controller_video_index #main_content,#js_controller_blog_index #main_content, #js_controller_friend_index #main_content,
-#js_controller_music_index #main_content, #js_controller_music_browse_album #main_content, #js_controller_user_browse #main_content,
+#js_controller_music_index #main_content, #js_controller_music_browse_album #main_content, #js_controller_user_browse #main_content
 {
     margin-left: 260px;
     width: 639px;
 }
 
 #js_controller_video_index #content, #js_controller_blog_index #site_content, #js_controller_friend_index #site_content,
-#js_controller_music_index #site_content, #js_controller_music_browse_album #site_content, #js_controller_user_browse #site_content,
+#js_controller_music_index #site_content, #js_controller_music_browse_album #site_content, #js_controller_user_browse #site_content
 {
     width: 619px!important;
     padding: 0 10px;
@@ -1235,4 +1235,16 @@ div.js_mini_feed_comment {
 
 #js_video_outer_body .item_bar, #js_video_outer_body .t_center, #js_video_outer_body .video_info_box{
     margin-left: -65px;
+}
+
+#js_controller_blog_view #main_content{
+    width: 100%;
+}
+
+#js_controller_blog_view #content{
+    margin-left: 85px;
+    width: 540px;
+}
+#js_controller_blog_view .js_feed_comment_border {
+    width: 100%!important;
 }
