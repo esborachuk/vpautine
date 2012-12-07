@@ -6,22 +6,25 @@
 
     Blogbox.init = function(blogLink) {
         Blogbox.blogLink = blogLink;
-        blogLink.on('click', Blogbox.getBlog)
+        blogLink.live('click', Blogbox.getBlog)
     };
 
     Blogbox.getBlog = function() {
+        var clickedLink = $(this);
         $.ajax({
             type: 'GET',
             dataType: 'html',
             url: getParam('sJsAjax'),
             data: 'core[call]=pautina.blogbox' +
-                '&url=' + Blogbox.blogLink.data('url') +
-                '&userId=' + Blogbox.blogLink.data('userId'),
+                '&url=' + clickedLink.data('url') +
+                '&userId=' + clickedLink.data('userId'),
             success: function(blog)
             {
                 $('#get_blog_id').html(blog);
             }
         });
+
+        return false;
     };
 })(jQuery);
 

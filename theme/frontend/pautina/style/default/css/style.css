@@ -281,8 +281,6 @@ a.photo_clip_holder, a.photo_clip_holder:hover{
 
 #js_photo_privacy_holder{
     display:inline-block;
-    position: relative;
-    left: 161px;
 }
 
 .mass_uploader_table {
@@ -291,7 +289,7 @@ a.photo_clip_holder, a.photo_clip_holder:hover{
     display: inline-block;
     margin: 5px 0 0;
     padding: 10px 0 0;
-    width: 310px;
+    width: 100%;
 }
 #album_table.table{
     border-bottom: 1px solid #DFDFDF;
@@ -299,45 +297,39 @@ a.photo_clip_holder, a.photo_clip_holder:hover{
 
 #js_photo_privacy_holder {
     display: inline-block;
-    float: left;
     width: auto;
 }
-#js_controller_photo_add #main_content{
-    width:97%;
+#js_controller_photo_add #main_content, #js_controller_music_upload #main_content, #js_controller_video_add #main_content{
+    width: auto;
     padding:15px;
 }
+
+#js_controller_video_add #main_content #site_content {
+    width: 250px;
+}
+
 #js_photo_privacy_holder .table{
-    margin: 5px 160px 0 0;
-    float: left;
+    margin:5px 25px;
 }
 .swf_upload_text_holder{
     cursor:pointer;
     background:none repeat scroll 0 0 rgba(0, 0, 0, 0.1)!important;
-    width:103% !important;
-    margin:0;
+    width:auto;
+    margin:0 41px;
 }
 .swf_upload_text{
     width:105% !important;
 }
 .table.mass_uploader_table .extra_info{
     text-align:center;
-    display: inline-block;
-    padding-left: 24px;
+    padding: 15px 24px;
 }
 .table.mass_uploader_table{
     background: url("../image/bg_dot.png") repeat scroll 0 0 transparent;
-    bottom: 7px;
     display: inline-block;
-    float: right;
-    left: -110px;
     margin: 12px 0 0;
-    padding: 5px 40px 0 22px;
-    position: relative;
-    width: 65%;
 }
 .mass_uploader_link{
-    display: inline-block;
-    float: left;
     margin-top: 20px;
 }
 
@@ -362,7 +354,7 @@ a.photo_clip_holder, a.photo_clip_holder:hover{
 {
     background: #c7d1ff;
 }
-#js_controller_blog_index, #js_controller_music_index{
+#js_controller_blog_index{
     margin:auto;
     width:81%;
 }
@@ -381,10 +373,9 @@ a.photo_clip_holder, a.photo_clip_holder:hover{
     right: 25px;
     top: 12px;
 }
-#js_controller_blog_index .content2, #js_controller_music_index .content2{
-    width:72% !important;
+#js_controller_blog_index .content2{
+    width:72%;
 }
-
 
 /*chat*/
 #im_footer_bar .js_im_link a{
@@ -414,55 +405,4 @@ a.photo_clip_holder, a.photo_clip_holder:hover{
 .sub_section_menu ul li a:hover{
     background:#0e5e55 !important;
     color:#fff !important;
-}
-
-#js_controller_music_index #left{
-    width:20%;
-    border:none !important;
-}
-#js_controller_music_index .sub_section_menu{
-    width:103%;
-    border-bottom:none !important;
-}
-#js_controller_music_index .sub_section_menu ul li{
-    border:none !important;
-}
-#js_controller_music_index .header_filter_holder{
-    right:7px !important;
-
-}
-#js_controller_music_index div.header_bar_menu{
-    margin:0 0 0 8px !important;
-    width: 96%;
-}
-#js_controller_music_index #main_content{
-    width: 80% !important;
-    margin-left:186px;
-
-}
-.sub_section_menu ul li.active a {
-   /* background: none repeat scroll 0 0 #481148 !important; */
-    background:none repeat scroll 0 0 rgba(45, 138, 165, 0.63) !important;
-    color: #FFFFFF;
-    font-weight: bold;
-}
-.music_title_link
-{
-    margin-left:67px;
-    position:relative;
-}
-
-#js_controller_music_index #section_menu {
-    position: absolute;
-    right: 24px;
-    top: 10px;
-}
-/*video upload*/
-#js_controller_video_add #content {
-    left:26px;
-}
-#js_controller_video_add .table{
-    display: inline-block;
-    margin: 0 15px 0 0;
-    padding-bottom: 10px;
 }

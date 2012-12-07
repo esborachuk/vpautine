@@ -109,7 +109,7 @@
 					</div>
 					<div class="feed_comment_buttons_wrap" style="display:block;">
 						<div class="js_feed_add_comment_button">
-							<input type="submit" value="{phrase var='feed.comment'}" class="button" />									
+							<input type="submit" value="{phrase var='feed.comment'}" class="button" />
 						</div>
 						{plugin call='feed.template_block_comment_border'}
 					</div>

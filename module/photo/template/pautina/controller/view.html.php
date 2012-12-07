@@ -41,7 +41,7 @@ defined('PHPFOX') or exit('NO DICE!');
                 {/if}
 		<div id="photo_view_ajax_loader">{img theme='ajax/loader.gif'}</div>
 
-                <div class="photo_view_box_image_holder" style="position:absolute;">
+                <div class="photo_view_box_image_holder">
 				{if isset($aPhotoStream.next.photo_id)}
 				<a href="{$aPhotoStream.next.link}{if $iForceAlbumId > 0}albumid_{$iForceAlbumId}{else}{if isset($feedUserId)}userid_{$feedUserId}/{/if}{/if}"{if $bIsTheater} class="thickbox photo_holder_image" rel="{$aPhotoStream.next.photo_id}"{/if}>
 				{/if}
@@ -146,7 +146,8 @@ $Behavior.autoLoadPhoto = function(){l}
 	$('#photo_view_ajax_loader').hide();
 	$('.js_box_image_holder_full').find('.js_box').show();
 	$('.js_box_image_holder_full').find('.js_box').css({
-        'width':blockWidth
+        'width':blockWidth,
+        'position': 'relative'
     });
 
 	$('.js_box_image_holder_full').css(
@@ -155,8 +156,9 @@ $Behavior.autoLoadPhoto = function(){l}
             });
 
 	$('.js_box_image_holder_full').find('.js_box').css({
-		'top': 0,
-		'left': '0'
+        top:0,
+        left: '50%',
+        'margin-left': '-' + ((blockWidth / 2) + 12) + 'px'
 	});
 
 	$('.js_box_image_holder_full_loader').hide();

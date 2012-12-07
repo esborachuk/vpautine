@@ -11,7 +11,7 @@
 defined('PHPFOX') or exit('NO DICE!');
 
 ?>
-<div style="word-wrap:break-word;" id="js_blog_entry{$aItem.blog_id}"{if !isset($bBlogView)} class="moderation_row js_blog_parent {if is_int($phpfox.iteration.blog/2)}row1{else}row2{/if}{if $phpfox.iteration.blog == 1 && !PHPFOX_IS_AJAX} row_first{/if}{if $aItem.is_approved != 1} {/if}"{/if}>	
+<div class="clear" style="word-wrap:break-word;" id="js_blog_entry{$aItem.blog_id}"{if !isset($bBlogView)} class="moderation_row js_blog_parent {if is_int($phpfox.iteration.blog/2)}row1{else}row2{/if}{if $phpfox.iteration.blog == 1 && !PHPFOX_IS_AJAX} row_first{/if}{if $aItem.is_approved != 1} {/if}"{/if}>
 	{if !isset($bBlogView)}
 	<div class="row_title">
 		<div class="row_title_image">
@@ -38,7 +38,7 @@ defined('PHPFOX') or exit('NO DICE!');
 			{phrase var='blog.draft_info'}
 			{/if}
 			<span id="js_blog_edit_title{$aItem.blog_id}">
-				<a data-id="{$aItem.blog_id}" data-url="{$aItem.bookmark_url}" data-userId="{$aUser.user_id}" href="#" id="js_blog_edit_inner_title{$aItem.blog_id}" class="blogbox_link link ajax_link">{$aItem.title|clean|shorten:55:'...'|split:20}</a>
+                    <a data-id="{$aItem.blog_id}" data-url="{$aItem.bookmark_url}" data-userId="{$aUser.user_id}" href="#" id="js_blog_edit_inner_title{$aItem.blog_id}" class="blogbox_link link ajax_link">{$aItem.title|clean|shorten:55:'...'|split:20}</a>
 			</span>
 
 			<div class="extra_info">

@@ -2820,8 +2820,8 @@ a.activity_feed_content_view_more:hover
 .feed_delete_link
 {
 	position:absolute;
-	right:0px;
-	top:4px;
+    right: -10px;
+    top: 10px;
 	display:none;
 }
 
@@ -4441,6 +4441,7 @@ a.like_count_link {
 span.feed_entry_time_stamp {
     float: right;
     display: block;
+    margin-right: 15px;
 }
 
 span.feed_entry_time_stamp a {

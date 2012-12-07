@@ -435,7 +435,7 @@ function tb_show(caption, url, thisObject, sForceMessage, bForceNoCilck)
 			sHtml += '<div id="' + $sCurrentId + '" class="js_box' + (oParams['bJsIsMobile'] ? ' mobile_js_box' : ' ') + (isset(params['no_remove_box']) ? ' js_box_no_remove' : '') + '" style="width:' + ajaxContentW + 'px;">';
 			if (!bIsPhotoImage)
 			{
-				sHtml += '<div class="js_box_title">' + caption + '</div><div class="js_box_close"><a href="#" onclick="return js_box_remove(this);"></a></div>';
+				sHtml += '<div class="js_box_title">' + caption + '<div class="js_box_close"><a href="#" onclick="return js_box_remove(this);"></a></div></div>';
 			}
 			sHtml += '<div class="js_box_content"><span class="js_box_loader">' + oTranslations['core.loading'] + '...</span></div>';
 			// if (!bIsPhotoImage)
@@ -753,14 +753,20 @@ function tb_position($oObj, bFull)
     {
     	$($oObj).css(
 	    {
-	        'z-index': (parseInt(Math.max.apply(Math, $aAllBoxIndex)) + 1)    
+	        top: getPageScroll()[1],
+	        left: '50%',
+	        'margin-left': '-' + (($($oObj).width() / 2) + 12) + 'px',
+	        'z-index': (parseInt(Math.max.apply(Math, $aAllBoxIndex)) + 1)
 	    }); 
     }
     else
     {
 		$($oObj).css(
 	    {
-	        'z-index': (parseInt(Math.max.apply(Math, $aAllBoxIndex)) + 1)    
+	        top: getPageScroll()[1] + (getPageHeight() / 5),
+	        left: '50%',
+	        'margin-left': '-' + (($($oObj).width() / 2) + 12) + 'px',
+	        'z-index': (parseInt(Math.max.apply(Math, $aAllBoxIndex)) + 1)
 	    });    
     }
     

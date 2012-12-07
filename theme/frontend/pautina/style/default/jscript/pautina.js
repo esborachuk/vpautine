@@ -22,7 +22,7 @@ PautinaNotification = {
     }
 };
 
-jQuery(document).ready(function() {
+$(document).ready(function() {
     // check notifications and update button class
     var pautinaNotificationInterval = setInterval(PautinaNotification.check, 200);
 });
@@ -40,11 +40,11 @@ $(window).scroll(function(){
 
 /*-----back_button-----*/
 
-jQuery(document).ready(function() {
+$(document).ready(function() {
 
-    var backLink = jQuery('.go_back_link');
+    var backLink = $('.go_back_link');
 
-    backLink .click(function(e){
+    backLink .live('click', function(e){
         e.preventDefault();
         window.history.go(-1);
     });
@@ -56,18 +56,16 @@ jQuery(document).ready(function() {
 /*-----back_button-----*/
 
 
-jQuery(document).ready(function() {
+$(document).ready(function() {
 
 /*---------slide-title---------*/
 
-    var titleBlock= jQuery('.slide-block'),
-        photoImage = jQuery('.image-block, #imagebox li, .js_outer_photo_div');
 
-    photoImage.hover(function(){
-        jQuery(this).find(titleBlock).stop(true, true).slideToggle("fast");
+    $('.image-block, #imagebox li, .js_outer_photo_div').live('hover', function(){
+        $(this).find($('.slide-block')).stop(true, true).slideToggle("fast");
     },
     function(){
-        jQuery(this).find(titleBlock).stop(true, true).slideToggle("fast");
+        $(this).find($('.slide-block')).stop(true, true).slideToggle("fast");
     });
 
 /*---------slide-title----------*/

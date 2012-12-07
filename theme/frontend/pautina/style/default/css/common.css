@@ -303,7 +303,6 @@ ul.table_clear_button li.table_clear_ajax
 .button_warning
 {
 	cursor:pointer;
-	border:none;
 	font-size:12px;
 	margin:0px;
 	padding:4px 1px 4px 1px;
@@ -317,11 +316,10 @@ ul.table_clear_button li.table_clear_ajax
 
 .button_warning:hover, input.button_warning_hover
 {
-	margin:0px;
+	margin:0;
 	border:1px #B2B2B2 solid;
 	color: #fff;
 	background:#e7041e;
-	border:1px #EEEEEE solid;	
 }
 
 input.button,
@@ -779,7 +777,8 @@ div.row_title_image
 }
 
 .js_blog_parent div.row_title_image {
-    position: relative;
+    right: 0;
+    left: inherit;
 }
 
 div.row_title_image:hover
@@ -2740,8 +2739,8 @@ input.global_link_input_button
 	background:#F4F4F4;
 	clear:both;
 	width:300px;
-	height:30px;
-	line-height:30px;
+	height:50px;
+	line-height:50px;
 	text-align:center;
 	cursor:pointer;
 	border:1px #DFDFDF solid;
@@ -2765,8 +2764,8 @@ input.global_link_input_button
 	z-index:20;
 	position:absolute;
 	width:300px;
-	height:30px;
-	line-height:30px;
+	height:50px;
+	line-height:50px;
 	text-align:center;
 }
 

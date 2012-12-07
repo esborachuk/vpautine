@@ -18,7 +18,7 @@ defined('PHPFOX') or exit('NO DICE!');
 		<title>{title}</title>	
 		{header}
 	</head>
-	<body>
+	<body class="<?php if (isset($this->_aVars['sTagType'])) echo $this->_aVars['sTagType']; ?> <?php if (isset($this->_aVars['sFullControllerName'])) echo $this->_aVars['sFullControllerName']; ?>">
 		{body}
 		{block location='9'}
         {if Phpfox::isUser()}
