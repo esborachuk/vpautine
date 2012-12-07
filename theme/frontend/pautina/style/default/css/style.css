@@ -310,6 +310,7 @@ a.photo_clip_holder, a.photo_clip_holder:hover{
 
 #js_photo_privacy_holder .table{
     margin:5px 25px;
+    display:inline-block;
 }
 .swf_upload_text_holder{
     cursor:pointer;
