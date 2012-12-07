@@ -230,3 +230,8 @@
 #get_blog_id .item_tag_holder {
     width: 500px;
 }
+
+#blog_wrapper div.row_title_image {
+    left: inherit;
+    right: 0;;
+}
