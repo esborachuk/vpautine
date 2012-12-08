@@ -113,7 +113,11 @@ defined('PHPFOX') or exit('NO DICE!');
 
 							<div id="main_content">
                                 {if isset($aFilterMenus) && is_array($aFilterMenus) && count($aFilterMenus)}
-                                    {menu_sub}
+                                    <?php if(isset($this->_aVars['sFullControllerName'])): ?>
+                                        <?php if($this->_aVars['sFullControllerName'] != 'photo_index'): ?>
+                                            {menu_sub}
+                                        <?php endif; ?>
+                                    <?php endif; ?>
                                 {/if}
 								{if !defined('PHPFOX_IS_USER_PROFILE') && !defined('PHPFOX_IS_PAGES_VIEW')}
 								{search}
