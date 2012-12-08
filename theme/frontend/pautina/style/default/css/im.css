@@ -558,14 +558,9 @@ div#js_friend_input_search
 #im_footer_bar li #main_messenger_link a.seen:hover{
     background-position:0 top !important;
 }
-#js_im_display_online{
-    margin:0 0 4px;
-}
+
 
 #im_main_search_bar input, .im_text_form textarea{
     background:none !important;
 }
 
-.js_messages{
- left:-21px;
-}
