@@ -17,7 +17,7 @@ defined('PHPFOX') or exit('NO DICE!');
  * @copyright		[PHPFOX_COPYRIGHT]
  * @author			Raymond Benc
  * @package 		Phpfox
- * @version 		$Id: ajax.class.php 4941 2012-10-23 12:43:23Z Miguel_Espinoza $
+ * @version 		$Id: ajax.class.php 5011 2012-11-12 09:02:36Z Raymond_Benc $
  */
 class Phpfox_Ajax
 {
@@ -535,6 +535,21 @@ class Phpfox_Ajax
 	 */
 	public static function alert($sMessage, $sTitle = null, $iWidth = 300, $iHeight = 150, $bClose = false, $bReturn = false)
 	{
+		if (isset(self::$_aParams['ajax_post_photo_theater']))
+		{
+			$sNewMessage = "<div class=\"error_message\">" . str_replace("'", "\'", $sMessage) . "</div>";
+			if (!empty(self::$_aParams['val']['parent_id']))
+			{
+				echo "$('.js_feed_comment_parent_id').each(function(){ if ($(this).val() == " . self::$_aParams['val']['parent_id'] . "){ $(this).parents('form:first').find('.js_feed_add_comment_button:first').prepend('" . $sNewMessage . "'); }});";	
+			}
+			else
+			{
+				$iId = 'js_feed_comment_form_' . self::$_aParams['val']['is_via_feed'];
+				echo "$('.js_feed_add_comment_button .error_message').remove(); $('#" . $iId . "').find('.js_feed_add_comment_button:first').prepend('" . $sNewMessage . "');";
+			}
+			return;
+		}
+		
 		if (isset(self::$_aParams['tb']))
 		{
 			ob_clean();

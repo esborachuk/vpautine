@@ -5,7 +5,7 @@
  * @copyright		[PHPFOX_COPYRIGHT]
  * @author  		Raymond Benc
  * @package  		Module_Poll
- * @version 		$Id: entry.html.php 4719 2012-09-24 04:50:12Z Raymond_Benc $
+ * @version 		$Id: entry.html.php 5042 2012-11-26 08:19:29Z Raymond_Benc $
  */
  
 defined('PHPFOX') or exit('NO DICE!'); 
@@ -93,7 +93,7 @@ defined('PHPFOX') or exit('NO DICE!');
 		|| Phpfox::getUserParam('poll.can_view_user_poll_results_other_poll'))}	
 		{if isset($aPoll.user_voted_this_poll) && ($aPoll.user_voted_this_poll == false && Phpfox::getUserParam('poll.view_poll_results_before_vote')) ||
 			($aPoll.user_voted_this_poll == true && Phpfox::getUserParam('poll.view_poll_results_after_vote'))}
-			<div style="width:500px;">
+			<div style="max-width:500px;">
 				{if !isset($bIsCustomPoll)}			
 				<div id="votes"><a name="votes"></a></div>
 				<h3>{phrase var='poll.members_votes_total_votes' total_votes=$aPoll.total_votes}</h3>			

@@ -95,7 +95,7 @@ $Core.addNewPollOption = function()
 $(function()
 {
 
-	$('body').live('click', function()
+	$('body').click(function()
 	{		
 		$('.js_comment_feed_textarea').each(function()
 		{
@@ -167,12 +167,11 @@ $Core.handlePasteInFeed = function(oObj)
 	}
 }
 
-$Behavior.activityFeedProcess = function()
-	{				
+$Behavior.activityFeedProcess = function(){	
 		if (!$Core.exists('#js_feed_content')){
 			$iReloadIteration = 0;
 			return;
-		}
+		}	
 		
 		if ($Core.exists('.global_view_more')){
 			if ($Core.isInView('.global_view_more')){
@@ -184,7 +183,14 @@ $Behavior.activityFeedProcess = function()
 					$Core.forceLoadOnFeed();
 				}			
 			});							
-		}		
+		}	
+		
+		$('.like_count_link').each(function(){
+			var sHtml = $(this).parent().find('.like_count_link_holder:first').html();
+			if (empty(sHtml)){
+				$(this).parents('.activity_like_holder:first').hide();
+			}
+		});
 		
 		$sFormAjaxRequest = $('.activity_feed_form_attach li a.active').find('.activity_feed_link_form_ajax').html();
 		if (typeof Plugin_sFormAjaxRequest == 'function')
@@ -306,7 +312,7 @@ $Behavior.activityFeedProcess = function()
 			}
 			
 			return false;
-		});
+		});		
 		
 		$('.activity_feed_form_attach li a').live('click', function()
 		{			
@@ -426,7 +432,11 @@ $Behavior.activityFeedProcess = function()
 	}
 
 $Behavior.activityFeedLoader = function()
-{		
+{
+	if (empty($('.view_more_drop').html())){
+		$('.timeline_view_more').parent().hide();
+	}	
+	
 	/**
 	 * Click on adding a new comment link.
 	 */
@@ -489,8 +499,8 @@ $Behavior.activityFeedLoader = function()
 		return false;
 	});
 	
-	$('.js_comment_feed_form').submit(function(e)
-	{
+	$('.js_comment_feed_form').submit(function()
+	{		
 		if ($Core.exists('#js_captcha_load_for_check')){
 			$('#js_captcha_load_for_check').css({
 				top: getPageScroll()[1] + (getPageHeight() / 5),
@@ -510,9 +520,10 @@ $Behavior.activityFeedLoader = function()
 		}		
 		
 		$(this).parent().parent().find('.js_feed_comment_process_form:first').show(); 
-		$(this).ajaxCall('comment.add');
-
-		return false;
+		$(this).ajaxCall('comment.add'); 
+		$(this).find('.error_message').remove();
+			
+		return false;		
 	});
 	
 	$('.js_comment_feed_new_reply').live('click', function(){
@@ -532,6 +543,8 @@ $Behavior.activityFeedLoader = function()
 		
 		oParent.find('.js_comment_feed_textarea:first').focus();
 		$Core.commentFeedTextareaClick(oParent.find('.js_comment_feed_textarea:first'));
+		
+		$('.js_feed_add_comment_button .error_message').remove();
 		
 		$Core.loadInit();
 		/*$Behavior.activityFeedLoader();*/

@@ -11,7 +11,7 @@ defined('PHPFOX') or exit('NO DICE!');
  * @copyright		[PHPFOX_COPYRIGHT]
  * @author  		Raymond_Benc
  * @package 		Phpfox_Service
- * @version 		$Id: callback.class.php 4906 2012-10-22 04:52:14Z Raymond_Benc $
+ * @version 		$Id: callback.class.php 5052 2012-11-28 12:52:44Z Raymond_Benc $
  */
 class Pages_Service_Callback extends Phpfox_Service 
 {
@@ -402,6 +402,7 @@ class Pages_Service_Callback extends Phpfox_Service
 			'feed_title' => '',
 			'feed_info' => Phpfox::getPhrase('pages.liked_the_page_link_title_title', array('link' => $sLink, 'link_title' => Phpfox::getLib('parse.output')->clean($aRow['title']), 'title' => Phpfox::getLib('parse.output')->clean(Phpfox::getLib('parse.output')->shorten($aRow['title'], 50, '...')))),
 			'feed_link' => $sLink,
+			'no_target_blank' => true,			
 			//'feed_total_like' => $aRow['total_like'],
 			//'feed_is_liked' => $aRow['is_liked'],
 			'feed_icon' => Phpfox::getLib('image.helper')->display(array('theme' => 'misc/comment.png', 'return_url' => true)),

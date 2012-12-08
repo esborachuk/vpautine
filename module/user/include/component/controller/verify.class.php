@@ -55,11 +55,11 @@ class User_Component_Controller_Verify extends Phpfox_Component
 			//send to the log in and say there was an error
 			Phpfox_Error::set(Phpfox::getPhrase('user.invalid_verification_link'));
 			$iTime = Phpfox::getParam('user.verify_email_timeout');
-			if ($sTime < 60)
+			if ($iTime < 60)
 			{
 				$sTime = Phpfox::getPhrase('user.time_minutes', array('time' => $iTime));
 			}
-			elseif ($sTime < (60 * 60 * 24)) // one day
+			elseif ($iTime < (60 * 60 * 24)) // one day
 			{			
 				$sTime = ($sTime == 60 ? Phpfox::getPhrase('user.time_hour', array('time' => round($sTime / 60))) : Phpfox::getPhrase('user.time_hours', array('time' => round($sTime / 60))));
 			}

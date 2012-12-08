@@ -1687,7 +1687,7 @@ input.disabled:hover
 
 #content a.drop_down_link	
 {
-	background-image:url(../image/layout/bullet_arrow_down.gif);
+	background-image:url('../image/layout/bullet_arrow_down.gif');
 	background-repeat:no-repeat;
 	background-position:center right;
 	padding-right:12px;	

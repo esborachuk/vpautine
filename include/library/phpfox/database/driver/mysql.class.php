@@ -22,7 +22,7 @@ class Phpfox_Database_Driver_Mysql extends Phpfox_Database_Dba
 	 */
 	public $sSlaveServer;
 	
-	/**
+	    /**
 	 * Resource for the MySQL master server
 	 *
 	 * @var resource

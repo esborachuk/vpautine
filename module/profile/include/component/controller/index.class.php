@@ -11,7 +11,7 @@ defined('PHPFOX') or exit('NO DICE!');
  * @copyright		[PHPFOX_COPYRIGHT]
  * @author  		Raymond Benc
  * @package  		Module_Profile
- * @version 		$Id: index.class.php 4919 2012-10-22 08:42:42Z Raymond_Benc $
+ * @version 		$Id: index.class.php 5056 2012-11-30 10:39:19Z Raymond_Benc $
  */
 class Profile_Component_Controller_Index extends Phpfox_Component 
 {
@@ -340,16 +340,24 @@ class Profile_Component_Controller_Index extends Phpfox_Component
 		
 		define('PHPFOX_CURRENT_USER_PROFILE', $aRow['user_id']);
 		
-		$this->template()->setTitle($sPageTitle)
-			->setMeta('description', Phpfox::getPhrase('profile.full_name_is_on_site_title', array(
+		$sDescription = Phpfox::getPhrase('profile.full_name_is_on_site_title', array(
 						'full_name' => $aRow['full_name'],
 						'location' => $aRow['location'] . (empty($aRow['location_child']) ? '' : ', ' . $aRow['location_child']),
 						'site_title' => Phpfox::getParam('core.site_title'),
 						'meta_description_profile' => Phpfox::getParam('core.meta_description_profile'),
 						'total_friend' => $aRow['total_friend']
 					)
-				)		
-			)
+				);
+		
+		if (($iLinkId = $this->request()->get('link-id')) && ($aLinkShare = Phpfox::getService('link')->getLinkById($iLinkId)) && isset($aLinkShare['link_id']))
+		{
+			$sPageTitle = $aLinkShare['title'];
+			$sDescription = $aLinkShare['description'];
+			$this->template()->setMeta('og:image', $aLinkShare['image']);			
+		}
+		
+		$this->template()->setTitle($sPageTitle)
+			->setMeta('description', $sDescription)
 			->setEditor(array(
 					'load' => 'simple',
 					'wysiwyg' => ((Phpfox::isModule('comment') && Phpfox::getParam('comment.wysiwyg_comments')) && Phpfox::getUserParam('comment.wysiwyg_on_comments'))

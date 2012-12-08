@@ -11,7 +11,7 @@ defined('PHPFOX') or exit('NO DICE!');
  * @copyright		[PHPFOX_COPYRIGHT]
  * @author  		Raymond_Benc
  * @package 		Phpfox_Component
- * @version 		$Id: add.class.php 4901 2012-10-17 06:29:50Z Raymond_Benc $
+ * @version 		$Id: add.class.php 5015 2012-11-12 13:00:16Z Raymond_Benc $
  */
 class Video_Component_Controller_Add extends Phpfox_Component
 {
@@ -171,6 +171,16 @@ class Video_Component_Controller_Add extends Phpfox_Component
 			$aMenus[$this->url()->makeUrl('video.add')] = Phpfox::getPhrase('video.file_upload');
 		}
 		$aMenus[$this->url()->makeUrl('video.add.url')] = Phpfox::getPhrase('video.paste_url');
+		
+		if (!empty($sModule))
+		{
+			foreach ($aMenus as $sUrl => $sPhrase)
+			{
+				unset($aMenus[$sUrl]);
+				
+				$aMenus[$sUrl . 'module_' . $sModule . '/item_' . $iItem . '/'] = $sPhrase;
+			}
+		}
 		
 		$bIsVideoUploading = false;
 		if (Phpfox::getParam('video.allow_video_uploading') && $this->request()->get('req3') != 'url')

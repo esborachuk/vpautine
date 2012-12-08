@@ -11,7 +11,7 @@ defined('PHPFOX') or exit('NO DICE!');
  * @copyright		[PHPFOX_COPYRIGHT]
  * @author  		Raymond Benc
  * @package  		Module_Video
- * @version 		$Id: video.class.php 4936 2012-10-23 07:38:22Z Miguel_Espinoza $
+ * @version 		$Id: video.class.php 5005 2012-11-09 06:27:27Z Raymond_Benc $
  */
 class Video_Service_Video extends Phpfox_Service
 {
@@ -248,34 +248,41 @@ class Video_Service_Video extends Phpfox_Service
 			$aVideo['embed_code'] = $aEmbedVideo['embed_code'];			
 			if (preg_match('/youtube/i', $aEmbedVideo['video_url']) || preg_match('/youtu\.be/i', $aEmbedVideo['video_url']))
 			{
-				preg_match('/value="http:\/\/(.*?)"/i', $aVideo['embed_code'], $aMatches);
-				if (isset($aMatches[1]))
+				if (preg_match('/<iframe(.*)><\/iframe>/i', $aVideo['embed_code']))
 				{
-					$sTempUrl = trim($aMatches[1]);
-					$aUrlFind = array(
-						'&amp;fs=1',
-						'&amp;fs=0',
-						'&fs=1',
-						'&fs=0',
-
-						'&amp;rel=1',
-						'&amp;rel=0',
-						'&rel=1',
-						'&rel=0',
-
-						'&amp;autoplay=1',
-						'&amp;autoplay=0',
-						'&autoplay=1',
-						'&autoplay=0'						
-					);
-					$sNewTempUrl = str_replace($aUrlFind, '', $sTempUrl) . (Phpfox::getParam('video.embed_auto_play') ? '&amp;autoplay=1' : '') . (Phpfox::getParam('video.full_screen_with_youtube') ? '&amp;fs=1' : '') . (Phpfox::getParam('video.disable_youtube_related_videos') ? '&amp;rel=0' : '');
-					$aVideo['embed_code'] = str_replace($sTempUrl, $sNewTempUrl, $aVideo['embed_code']);
+					
 				}
-				elseif (preg_match('/src="http:\/\/(.*?)"/i', $aVideo['embed_code'], $aMatches))
+				else
 				{
-					$sTempUrl = trim($aMatches[1]);
-					$sNewTempUrl = $sTempUrl . '&wmode=transparent' . (Phpfox::getParam('video.disable_youtube_related_videos') ? '&rel=0' : '') . (Phpfox::getParam('video.embed_auto_play') ? '&autoplay=1' : '') . (Phpfox::getParam('video.full_screen_with_youtube') ? '&fs=1' : '');
-					$aVideo['embed_code'] = str_replace($sTempUrl, $sNewTempUrl, $aVideo['embed_code']);
+					preg_match('/value="http:\/\/(.*?)"/i', $aVideo['embed_code'], $aMatches);
+					if (isset($aMatches[1]))
+					{
+						$sTempUrl = trim($aMatches[1]);
+						$aUrlFind = array(
+							'&amp;fs=1',
+							'&amp;fs=0',
+							'&fs=1',
+							'&fs=0',
+	
+							'&amp;rel=1',
+							'&amp;rel=0',
+							'&rel=1',
+							'&rel=0',
+	
+							'&amp;autoplay=1',
+							'&amp;autoplay=0',
+							'&autoplay=1',
+							'&autoplay=0'						
+						);
+						$sNewTempUrl = str_replace($aUrlFind, '', $sTempUrl) . (Phpfox::getParam('video.embed_auto_play') ? '&amp;autoplay=1' : '') . (Phpfox::getParam('video.full_screen_with_youtube') ? '&amp;fs=1' : '') . (Phpfox::getParam('video.disable_youtube_related_videos') ? '&amp;rel=0' : '');
+						$aVideo['embed_code'] = str_replace($sTempUrl, $sNewTempUrl, $aVideo['embed_code']);
+					}
+					elseif (preg_match('/src="http:\/\/(.*?)"/i', $aVideo['embed_code'], $aMatches))
+					{
+						$sTempUrl = trim($aMatches[1]);
+						$sNewTempUrl = $sTempUrl . '&wmode=transparent' . (Phpfox::getParam('video.disable_youtube_related_videos') ? '&rel=0' : '') . (Phpfox::getParam('video.embed_auto_play') ? '&autoplay=1' : '') . (Phpfox::getParam('video.full_screen_with_youtube') ? '&fs=1' : '');
+						$aVideo['embed_code'] = str_replace($sTempUrl, $sNewTempUrl, $aVideo['embed_code']);
+					}
 				}
 			}
 			

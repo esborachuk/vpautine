@@ -25,6 +25,11 @@ class Forum_Component_Block_Jump extends Phpfox_Component
 			return false;
 		}
 		
+		if (Phpfox::isModule('pages') && $this->request()->get('module') == 'pages')
+		{
+			return false;
+		}
+		
 		$this->template()->assign(array(
 				'sJumpTool' => Phpfox::getService('forum')->active($this->getParam('iActiveForumId', null))->getJumpTool()
 			)

@@ -5,7 +5,7 @@
  * @copyright		[PHPFOX_COPYRIGHT]
  * @author  		Raymond Benc
  * @package  		Module_Attachment
- * @version 		$Id: upload.html.php 4444 2012-07-02 10:23:15Z Miguel_Espinoza $
+ * @version 		$Id: upload.html.php 5043 2012-11-26 08:30:14Z Raymond_Benc $
  */
  
 defined('PHPFOX') or exit('NO DICE!'); 
@@ -18,7 +18,9 @@ defined('PHPFOX') or exit('NO DICE!');
 	<div class="global_attachment_sub_menu">
 		<ul>
 			<li><a href="#" class="active" onclick="$(this).parents('.global_attachment_sub_menu:first').find('a').removeClass('active'); $(this).addClass('active'); $(this).parents('.js_upload_attachment_parent_holder:first').find('.js_upload_form_holder_global_temp').hide(); $(this).parents('.js_upload_attachment_parent_holder:first').find('.js_upload_form_holder_global').show(); return false;">{phrase var='attachment.upload_a_photo'}</a></li>
+			{if Phpfox::isModule('photo')}
 			<li><a href="#" onclick="$(this).parents('.global_attachment_sub_menu:first').find('a').removeClass('active'); $(this).parents('.global_attachment_sub_menu:first .js_global_attachment_loader:first').show();  $(this).addClass('active'); $.ajaxCall('photo.getForAttachment', 'obj-id={$sAttachmentObjId}&amp;input={$sAttachmentInput}&amp;category={$sCategoryId}&amp;div-id=' + $(this).parents('.js_upload_attachment_parent_holder:first').find('.js_default_upload_form:first').attr('id') + '&amp;attachment-inline={if $bIsAttachmentInline}1{else}0{/if}', 'GET'); return false;">{phrase var='attachment.import_a_photo'}</a></li>
+			{/if}
 			<li class="js_global_attachment_loader" style="display:none;">{img theme='ajax/add.gif' class='v_middle'}</li>
 		</ul>
 		<div class="clear"></div>

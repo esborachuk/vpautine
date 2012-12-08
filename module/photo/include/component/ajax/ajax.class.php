@@ -11,7 +11,7 @@ defined('PHPFOX') or exit('NO DICE!');
  * @copyright		[PHPFOX_COPYRIGHT]
  * @author  		Raymond Benc
  * @package  		Module_Photo
- * @version 		$Id: ajax.class.php 4780 2012-09-27 08:11:52Z Raymond_Benc $
+ * @version 		$Id: ajax.class.php 5053 2012-11-29 12:32:11Z Raymond_Benc $
  */
 class Photo_Component_Ajax_Ajax extends Phpfox_Ajax
 {
@@ -196,9 +196,17 @@ class Photo_Component_Ajax_Ajax extends Phpfox_Ajax
 		$aPostVals = $this->get('val');		
 		$aVals = $aPostVals[$this->get('photo_id')];		
 		$aVals['set_album_cover'] = (isset($aPostVals['set_album_cover']) ? $aPostVals['set_album_cover'] : null);
-		$aVals['privacy'] = (isset($aVals['privacy']) ? $aVals['privacy'] : 0);
-		$aVals['privacy_comment'] = (isset($aVals['privacy_comment']) ? $aVals['privacy_comment'] : 0);
-	
+		if (!isset($aVals['privacy']) && isset($aPostVals['privacy']))
+		{
+			$aVals['privacy'] = $aPostVals['privacy'];
+			$aVals['privacy_comment'] = $aPostVals['privacy_comment'];	
+		}
+		else 
+		{
+			$aVals['privacy'] = (isset($aVals['privacy']) ? $aVals['privacy'] : 0);
+			$aVals['privacy_comment'] = (isset($aVals['privacy_comment']) ? $aVals['privacy_comment'] : 0);
+		}
+			
 		if (($iUserId = Phpfox::getService('user.auth')->hasAccess('photo', 'photo_id', $aVals['photo_id'], 'photo.can_edit_own_photo', 'photo.can_edit_other_photo')) && Phpfox::getService('photo.process')->update($iUserId, $aVals['photo_id'], $aVals))
 		{
 		    $oParseInput = Phpfox::getLib('parse.input');
@@ -678,7 +686,6 @@ class Photo_Component_Ajax_Ajax extends Phpfox_Ajax
 				$sExtra .= '&parent_user_id=' . $this->get('parent_user_id');
 			}
 			
-			$sExtra = '';
 			if ($this->get('start_year') && $this->get('start_month') && $this->get('start_day'))
 			{
 				$sExtra .= '&start_year= ' . $this->get('start_year') . '&start_month= ' . $this->get('start_month') . '&start_day= ' . $this->get('start_day') . '';

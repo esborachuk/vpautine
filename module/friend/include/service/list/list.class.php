@@ -11,7 +11,7 @@ defined('PHPFOX') or exit('NO DICE!');
  * @copyright		[PHPFOX_COPYRIGHT]
  * @author  		Raymond Benc
  * @package  		Module_Friend
- * @version 		$Id: list.class.php 4962 2012-10-29 07:14:00Z Raymond_Benc $
+ * @version 		$Id: list.class.php 5051 2012-11-28 12:40:24Z Raymond_Benc $
  */
 class Friend_Service_List_List extends Phpfox_Service 
 {
@@ -108,7 +108,7 @@ class Friend_Service_List_List extends Phpfox_Service
 			$sIn .= $aList['list_id'] .',';
 		}
 		$sIn = rtrim($sIn, ',') .')';
-		$Users = $this->database()->select('friend_user_id')
+		$aUsers = $this->database()->select('friend_user_id')
 			->from(Phpfox::getT('friend_list_data'))
 			->group('friend_user_id')
 			->where('list_id IN ' . $sIn)

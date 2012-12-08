@@ -11,7 +11,7 @@ defined('PHPFOX') or exit('NO DICE!');
  * @copyright		[PHPFOX_COPYRIGHT]
  * @author  		Raymond_Benc
  * @package 		Phpfox_Module
- * @version 		$Id: phpfox.class.php 4631 2012-09-13 11:59:05Z Raymond_Benc $
+ * @version 		$Id: phpfox.class.php 5004 2012-11-08 09:36:00Z Raymond_Benc $
  */
 class Module_Pages
 {
@@ -41,6 +41,10 @@ class Module_Pages
 		'pages_widget',
 		'pages_widget_text'
 	);
+	
+	public static $aInstallWritable = array(
+			'file/pic/pages/'
+	);	
 }
 
 ?>

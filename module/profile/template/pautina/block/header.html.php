@@ -92,6 +92,13 @@ defined('PHPFOX') or exit('NO DICE!');
                             <li {if !$aUser.is_featured} style="display:none;" {/if} class="user_unfeature_member"><a href="#" title="{phrase var='profile.un_feature_this_member'}" onclick="$(this).parent().hide(); $(this).parents('#profile_nav_list:first').find('.user_feature_member:first').show(); $.ajaxCall('user.feature', 'user_id={$aUser.user_id}&amp;feature=0&amp;type=1'); return false;">{phrase var='profile.unfeature'}</a></li>
                             <li {if $aUser.is_featured} style="display:none;" {/if} class="user_feature_member"><a href="#" title="{phrase var='profile.feature_this_member'}" onclick="$(this).parent().hide(); $(this).parents('#profile_nav_list:first').find('.user_unfeature_member:first').show(); $.ajaxCall('user.feature', 'user_id={$aUser.user_id}&amp;feature=1&amp;type=1'); return false;">{phrase var='profile.feature'}</a></li>
                             {/if}
+						{if Phpfox::getUserParam('core.can_gift_points')}
+						<li>
+							<a href="#?call=core.showGiftPoints&amp;height=120&amp;width=400&amp;user_id={$aUser.user_id}" class="inlinePopup js_gift_points" title="{phrase var='core.gift_points'}">
+								{phrase var='core.gift_points'}
+							</a>
+						</li>
+						{/if}
                             {plugin call='profile.template_block_menu'}
                         </ul>
                     </div>
@@ -160,3 +167,4 @@ defined('PHPFOX') or exit('NO DICE!');
 </div>
 <div class="clear"></div>
 <?php endif; ?>
+{block location='12'}

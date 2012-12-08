@@ -35,10 +35,7 @@ $Behavior.addDraggableToBoxes = function()
 		if (bReturn === true){
 			return true;
 		}
-
-        $('#main_core_body_holder').addClass('fixed-pos');
-        $('#main_content_holder, .header-wrapper').addClass('position-padding');
-
+    	
     	return false;
     });    
 }
@@ -77,10 +74,8 @@ function js_box_remove($oObj)
 	if (bIsPhotoImage){
 		bIsPhotoImage = false;
 	//	$Core.addUrlPager({'href': sLastOpenUrl.replace('/#!', '')}, true);
-	}
-
-    $('#main_core_body_holder').removeClass('fixed-pos');
-    $('#main_content_holder, .header-wrapper').removeClass('position-padding');
+	}	
+	
 	return false;
 }
 
@@ -260,7 +255,7 @@ function tb_show(caption, url, thisObject, sForceMessage, bForceNoCilck)
 				sHtml += '<a href="#" onclick="$(\'.js_box_image_holder\').remove(); return false;"><img src="' + url + '" width="' + imageWidth + '" height="' + imageHeight + '" alt="" id="js_thickbox_core_image" /></a>';	
 			}
 			
-			sHtml += '</div><div class="js_box_close"><a href="#" onclick="return js_box_remove(this);"></a></div></div></div>';
+			sHtml += '</div><div class="js_box_close"><a href="#" onclick="return js_box_remove(this);">' + oTranslations['core.close'] + '</a></div></div></div>';			
 			
 			$('body').prepend(sHtml);
 			
@@ -416,7 +411,7 @@ function tb_show(caption, url, thisObject, sForceMessage, bForceNoCilck)
 			sHtml += '<div class="js_box_image_holder_full_loader" style="position:absolute; top:50%; left:50%;"><img src="' + oJsImages['loading_animation'] + '" alt="" /></div>';
 			sHtml += '<div style="display:none;" id="' + $sCurrentId + '" class="js_box' + (oParams['bJsIsMobile'] ? ' mobile_js_box' : ' ') + (isset(params['no_remove_box']) ? ' js_box_no_remove' : '') + '" style="width:' + ajaxContentW + 'px;">';
 			sHtml += '<div class="js_box_content"></div>';
-			sHtml += '<div class="js_box_close"><a href="#" onclick="return js_box_remove(this);"></a><span class="js_box_history">' + params[getParam('sGlobalTokenName') + '[call]'] + '</span></div>';
+			sHtml += '<div class="js_box_close"><a href="#" onclick="return js_box_remove(this);">' + oTranslations['core.close'] + '</a><span class="js_box_history">' + params[getParam('sGlobalTokenName') + '[call]'] + '</span></div>';
 			sHtml += '</div>';
 			sHtml += '</div>';
 		}
@@ -435,12 +430,12 @@ function tb_show(caption, url, thisObject, sForceMessage, bForceNoCilck)
 			sHtml += '<div id="' + $sCurrentId + '" class="js_box' + (oParams['bJsIsMobile'] ? ' mobile_js_box' : ' ') + (isset(params['no_remove_box']) ? ' js_box_no_remove' : '') + '" style="width:' + ajaxContentW + 'px;">';
 			if (!bIsPhotoImage)
 			{
-				sHtml += '<div class="js_box_title">' + caption + '<div class="js_box_close"><a href="#" onclick="return js_box_remove(this);"></a></div></div>';
+				sHtml += '<div class="js_box_title">' + caption + '</div>';
 			}
 			sHtml += '<div class="js_box_content"><span class="js_box_loader">' + oTranslations['core.loading'] + '...</span></div>';
 			// if (!bIsPhotoImage)
 			{
-				sHtml += '<div class="js_box_close"><a href="#" onclick="return js_box_remove(this);"></a><span class="js_box_history">' + params[getParam('sGlobalTokenName') + '[call]'] + '</span></div>';
+				sHtml += '<div class="js_box_close"><a href="#" onclick="return js_box_remove(this);">' + oTranslations['core.close'] + '</a><span class="js_box_history">' + params[getParam('sGlobalTokenName') + '[call]'] + '</span></div>';
 			}
 			sHtml += '</div>';
 
@@ -576,7 +571,7 @@ function tb_show(caption, url, thisObject, sForceMessage, bForceNoCilck)
 						
 						// var newHeight = $('body').height();
 
-						$('.js_box_image_holder_full').css({'top': '0px', 'height': (newHeight) + 'px'});
+						$('.js_box_image_holder_full').css({'top': '0px', 'height': (newHeight + 50) + 'px'});
 
 						var bCanCloseImageBox = true;		
 
@@ -597,7 +592,7 @@ function tb_show(caption, url, thisObject, sForceMessage, bForceNoCilck)
 								if (!bCanCloseImageBox)
 								{
 									bCanCloseImageBox = true;
-                                }
+								}
 								else
 								{
 									$('#main_core_body_holder').show();
@@ -613,10 +608,8 @@ function tb_show(caption, url, thisObject, sForceMessage, bForceNoCilck)
 									$(this).remove();
 									delete $aBoxHistory[params[getParam('sGlobalTokenName') + '[call]']];
 									// $Core.addUrlPager({'href': sLastOpenUrl.replace('/#!', '')}, true);
-                                    $('#main_core_body_holder').removeClass('fixed-pos');
-                                    $('#main_content_holder, .header-wrapper').removeClass('position-padding');
-                                }
-							});
+								}
+							});		    		
 						}
 
 						$Behavior.onCloseThickbox();
@@ -682,7 +675,7 @@ function tb_remove()
    	}
    	
    	$('#global_attachment_list_inline').hide();
-
+   	
 	return false;
 }
 
@@ -756,7 +749,7 @@ function tb_position($oObj, bFull)
 	        top: getPageScroll()[1],
 	        left: '50%',
 	        'margin-left': '-' + (($($oObj).width() / 2) + 12) + 'px',
-	        'z-index': (parseInt(Math.max.apply(Math, $aAllBoxIndex)) + 1)
+	        'z-index': (parseInt(Math.max.apply(Math, $aAllBoxIndex)) + 1)    
 	    }); 
     }
     else
@@ -766,7 +759,7 @@ function tb_position($oObj, bFull)
 	        top: getPageScroll()[1] + (getPageHeight() / 5),
 	        left: '50%',
 	        'margin-left': '-' + (($($oObj).width() / 2) + 12) + 'px',
-	        'z-index': (parseInt(Math.max.apply(Math, $aAllBoxIndex)) + 1)
+	        'z-index': (parseInt(Math.max.apply(Math, $aAllBoxIndex)) + 1)    
 	    });    
     }
     

@@ -20,11 +20,12 @@ defined('PHPFOX') or exit('NO DICE!');
 				{if Phpfox::isModule('report')}
 				<li><a href="#?call=report.add&amp;height=210&amp;width=400&amp;type=mail&amp;id={$aThread.thread_id}" class="inlinePopup" title="{phrase var='mail.report_this_message'}">{phrase var='mail.report'}</a></li>
 				{/if}			
-				{if isset($aThread.user_is_archive) && $aThread.user_is_archive}
-				<li class="item_delete"><a href="{url link='mail' action='unarchive' id=$aThread.thread_id}" onclick="return confirm('{phrase var='mail.are_you_sure' phpfox_squote=true}')">{phrase var='mail.unarchive'}</a></li>
+				{if isset($aThread.user_is_archive) && $aThread.user_is_archive}				
+				<li class="item_delete"><a href="{url link='mail' action='unarchive' id=$aThread.thread_id}" onclick="return confirm('{phrase var='mail.are_you_sure' phpfox_squote=true}')">{phrase var='mail.unarchive'}</a></li>				
 				{else}
 				<li class="item_delete"><a href="{url link='mail' action='archive' id=$aThread.thread_id}" onclick="return confirm('{phrase var='mail.are_you_sure' phpfox_squote=true}')">{phrase var='mail.archive'}</a></li>
 				{/if}
+				<li class="item_delete"><a href="{url link='mail' action='forcedelete' id=$aThread.thread_id}" onclick="return confirm('{phrase var='mail.are_you_sure' phpfox_squote=true}')">Delete Conversation</a></li>
 			</ul>				
 		</div>		
 	</div>	
