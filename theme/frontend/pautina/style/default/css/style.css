@@ -337,18 +337,22 @@ a.photo_clip_holder, a.photo_clip_holder:hover{
 /*blog*/
 
 #js_controller_blog_index #left{
-    width:20% !important;
+    width:170px !important;
+}
+
+#js_controller_blog_index #main_content {
+    width: auto;
+    margin:0 0 0 170px;
+}
+
+#js_controller_blog_index #site_content {
+    width: auto;
 }
 
 #js_controller_blog_index .sub_section_menu ul li,
 #js_controller_blog_index .sub_section_menu,
 #js_controller_blog_index #main_content{
     border:none !important;
-}
-
-#js_controller_blog_index #main_content{
-    margin:0 0 0 181px;
-    width:80%;
 }
 
 #js_controller_blog_index .sub_section_menu ul li a:hover
@@ -366,7 +370,11 @@ a.photo_clip_holder, a.photo_clip_holder:hover{
     float:left;
 }
 #js_controller_blog_index div.row_title_info{
-   margin-left:70px;
+   margin-left:10px;
+}
+
+body.blog #blog_wrapper {
+    width: 300px;
 }
 
 #js_controller_blog_index #section_menu {
@@ -375,7 +383,7 @@ a.photo_clip_holder, a.photo_clip_holder:hover{
     top: 12px;
 }
 #js_controller_blog_index .content2{
-    width:72%;
+    width:728px;
 }
 
 /*chat*/

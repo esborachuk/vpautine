@@ -20,10 +20,6 @@ class Pautina_Component_Block_Profile_Imagebox extends Phpfox_Component
         $imageboxService = Phpfox::getService('pautina.profile.imagebox');
         $photoCount = $imageboxService->getPhotoCount($aUser['user_id']);
 
-        if ($photoCount == 0) {
-            return false;
-        }
-
         $photos = $imageboxService->getPhotos($aUser['user_id']);
 
         $this->template()->assign(
