@@ -271,7 +271,7 @@ class Photo_Component_Controller_Index extends Phpfox_Component
 				}
 				elseif ($bIsUserProfile)
 				{
-					$this->search()->setCondition('AND photo.view_id ' . ($aUser['user_id'] == Phpfox::getUserId() ? 'IN(0,2)' : '= 0') . ' AND photo.group_id = 0 AND photo.type_id = 0 AND photo.privacy IN(' . (Phpfox::getParam('core.section_privacy_item_browsing') ? '%PRIVACY%' : Phpfox::getService('core')->getForBrowse($aUser)) . ') AND photo.user_id = ' . (int) $aUser['user_id']);
+					$this->search()->setCondition('AND photo.view_id ' . ($aUser['user_id'] == Phpfox::getUserId() ? 'IN(0,2)' : '= 0') . ' AND photo.group_id = 0 AND photo.privacy IN(' . (Phpfox::getParam('core.section_privacy_item_browsing') ? '%PRIVACY%' : Phpfox::getService('core')->getForBrowse($aUser)) . ') AND photo.user_id = ' . (int) $aUser['user_id']);
 				}
 				else
 				{					
@@ -281,7 +281,7 @@ class Photo_Component_Controller_Index extends Phpfox_Component
 					}
 					else
 					{					
-						$this->search()->setCondition('AND photo.view_id = 0 AND photo.group_id = 0 AND photo.type_id = 0 AND photo.privacy IN(%PRIVACY%)');
+						$this->search()->setCondition('AND photo.view_id = 0 AND photo.group_id = 0 AND photo.privacy IN(%PRIVACY%)');
 					}
 				}
 				break;	

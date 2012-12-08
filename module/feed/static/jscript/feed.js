@@ -91,7 +91,6 @@ $Core.addNewPollOption = function()
 	return false;
 }
 
-/*
 
 $(function()
 {
@@ -123,7 +122,6 @@ $(function()
 	});	
 });
 
-*/
 
 $Core.forceLoadOnFeed = function()
 {
@@ -316,7 +314,7 @@ $Behavior.activityFeedProcess = function(){
 			return false;
 		});		
 		
-		$('.activity_feed_form_attach li a').click(function()
+		$('.activity_feed_form_attach li a').live('click', function()
 		{			
 			$sCurrentForm = $(this).attr('rel');
 			
@@ -442,7 +440,7 @@ $Behavior.activityFeedLoader = function()
 	/**
 	 * Click on adding a new comment link.
 	 */
-	$('.js_feed_entry_add_comment').click(function()
+	$('.js_feed_entry_add_comment').live('click', function()
 	{			
 		$('.js_comment_feed_textarea').each(function()
 		{
@@ -483,7 +481,7 @@ $Behavior.activityFeedLoader = function()
 	/**
 	 * Comment textarea on focus.
 	 */
-	$('.js_comment_feed_textarea').click(function()
+	$('.js_comment_feed_textarea').live('click', function()
 	{
 		$Core.commentFeedTextareaClick(this);
 	});		
@@ -528,7 +526,7 @@ $Behavior.activityFeedLoader = function()
 		return false;		
 	});
 	
-	$('.js_comment_feed_new_reply').click(function(){
+	$('.js_comment_feed_new_reply').live('click', function(){
 		
 		var oParent = $(this).parents('.js_mini_feed_comment:first').find('.js_comment_form_holder:first');
 		if ((Editor.sEditor == 'tiny_mce' || Editor.sEditor == 'tinymce') && isset(tinyMCE) && isset(tinyMCE.activeEditor)){
@@ -554,7 +552,7 @@ $Behavior.activityFeedLoader = function()
 		return false;
 	});
 	
-	$('.comment_mini').hover(function(){
+	$('.comment_mini').live('hover', function(){
 		
 		$('.feed_comment_delete_link').hide();
 		$(this).find('.feed_comment_delete_link:first').show();
@@ -593,7 +591,7 @@ $Core.commentFeedTextareaClick = function($oObj)
 						
 $Behavior.activityFeedAttachLink = function()
 {	
-	$('#js_global_attach_link').click(function()
+	$('#js_global_attach_link').live('click', function()
 	{	
 		$Core.activityFeedProcess(true);
 		

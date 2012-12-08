@@ -26,7 +26,7 @@ class Log_Service_Log extends Phpfox_Service
 	public function getRecentLoggedInUsers()
 	{
 		$iFriendsOnly = (int) Phpfox::getComponentSetting(Phpfox::getUserId(), 'log.user_login_display_limit', 0);
-		$iLimit = 10;
+		$iLimit = 9;
 		if ($iFriendsOnly === 1)
 		{
 			$aUsers = $this->database()->select(Phpfox::getUserField())
