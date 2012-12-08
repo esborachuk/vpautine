@@ -4,9 +4,9 @@
         <div class="info"></div>
     </div>
     <div class="profilebox-title">
-        <a href="<?php echo $this->getVar('moduleUrl'); ?>">Фото Сайта</a>
+        <a href="{url link='photo'}">Фото Сайта</a>
     </div>
-    <a href="<?php echo $this->getVar('moduleUrl'); ?>" class="all-items">Посмотреть все фото...<span></span></a>
+    <a href="{url link='photo'}" class="all-items">Посмотреть все фото...<span></span></a>
     <div id="imagebox-block">
         <ul id="imagebox">
             <?php foreach ($this->getVar('photos') as $photo): ?>

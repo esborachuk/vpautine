@@ -1,6 +1,6 @@
 <div class="menu_box">
     <div class="profilebox-title">
-        <a href="{url link='video.view_my'}">Видео</a>
+        <a href="<?php echo $this->getVar('moduleUrl'); ?>">Видео</a>
         <?php if ($this->getVar('showAddLink')): ?>
         <span class="add-photo">
                 <a title="Добавить видео" href="{url link='video.add'}">
@@ -9,7 +9,7 @@
         </span>
         <?php endif; ?>
     </div>
-    <a href="{url link='video.view_my'}" class="all-items">
+    <a href="<?php echo $this->getVar('moduleUrl'); ?>" class="all-items">
         Посмотреть все видео...
         <span>{$videoCount}&nbsp; видео</span>
     </a>

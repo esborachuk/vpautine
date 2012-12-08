@@ -222,6 +222,15 @@
     margin-top: 10px;
 }
 
+body.blog #get_blog_id {
+    width: 340px;
+}
+
+body.blog #get_blog_id .item_view .js_feed_comment_border {
+    width: 310px !important;
+    margin-top: 10px;
+}
+
 #blog_wrapper {
     float: left;
     width: 360px;
@@ -248,4 +257,8 @@
     padding-bottom: 7px;
     border-bottom: 1px solid #d7d7d7;
     margin-top: 7px;
+}
+
+.photo_index .upload-photo-button {
+    padding: 0 20px;
 }

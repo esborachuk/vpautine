@@ -1,6 +1,6 @@
 <div class="menu_box">
     <div class="profilebox-title">
-        <a href="{url link='music.view_my'}">Музыка</a>
+        <a href="<?php echo $this->getVar('moduleUrl'); ?>">Музыка</a>
         <?php if ($this->getVar('showAddLink')): ?>
         <span class="add-photo">
                 <a title="Добавить музыку" href="{url link='music.add'}">
@@ -9,7 +9,7 @@
         </span>
         <?php endif; ?>
     </div>
-        <a href="{url link='music.view_my'}" class="all-items">
+        <a href="<?php echo $this->getVar('moduleUrl'); ?>" class="all-items">
             Посмотреть все аудиозаписи...<span>{$musicCount}&nbsp;</span>
         </a>
     <div id="musicbox-block">

@@ -17,6 +17,12 @@ defined('PHPFOX') or exit('NO DICE!');
         {phrase var='blog.no_blogs_found'}
     </div>
     {else}
+    <script type="text/javascript">
+        $(document).ready(function()
+        {l}
+        $.fn.Blogbox.getBlog('<?php echo $this->_aVars['aItems'][0]['bookmark_url'] ?>', '{$aUser.user_id}');
+        {r});
+    </script>
     {foreach from=$aItems name=blog item=aItem}
         {template file='blog.block.entry'}
     {/foreach}
