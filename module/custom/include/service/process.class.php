@@ -11,7 +11,7 @@ defined('PHPFOX') or exit('NO DICE!');
  * @copyright		[PHPFOX_COPYRIGHT]
  * @author  		Raymond Benc
  * @package 		Phpfox_Service
- * @version 		$Id: process.class.php 4882 2012-10-11 04:57:29Z Raymond_Benc $
+ * @version 		$Id: process.class.php 5064 2012-12-04 06:51:24Z Raymond_Benc $
  */
 class Custom_Service_Process extends Phpfox_Service 
 {	
@@ -698,7 +698,8 @@ class Custom_Service_Process extends Phpfox_Service
 				
 				$aExisting = $this->database()->select('user_id as userCustomValue')
 						->from(Phpfox::getT($sValueTable))
-						->execute('getSlaveField');
+						->where('user_id = ' . (int)$iItemId)
+						->execute('getSlaveField');				
 				if (isset($aExisting['userCustomValue']) && !empty($aExisting['user_customValue']))
 				{
 					$this->database()->update(Phpfox::getT($sValueTable), array(

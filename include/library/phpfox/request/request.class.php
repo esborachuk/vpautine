@@ -102,7 +102,7 @@ class Phpfox_Request
     	}
     	
     	(($sPlugin = Phpfox_Plugin::get('request_get')) ? eval($sPlugin) : false);
-    	$b = (isset($this->_aArgs[$sName]) ? ((empty($this->_aArgs[$sName]) && isset($this->_aName[$sName])) ? true : $this->_aArgs[$sName]) : $mDef);
+    	
     	return (isset($this->_aArgs[$sName]) ? ((empty($this->_aArgs[$sName]) && isset($this->_aName[$sName])) ? true : $this->_aArgs[$sName]) : $mDef);
     }
     

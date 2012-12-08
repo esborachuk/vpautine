@@ -5,7 +5,7 @@
  * @copyright		[PHPFOX_COPYRIGHT]
  * @author  		Raymond Benc
  * @package  		Module_User
- * @version 		$Id: register.html.php 4875 2012-10-10 08:35:21Z Raymond_Benc $
+ * @version 		$Id: register.html.php 5064 2012-12-04 06:51:24Z Raymond_Benc $
  */
 
 defined('PHPFOX') or exit('NO DICE!');
@@ -87,7 +87,7 @@ $Behavior.termsAndPrivacy = function()
 							{phrase var='user.email'}:
 						</div>
 						<div class="table_right">
-							<input type="text" name="val[invite_email]" value="{if !empty($sUserEmailCookie)}{$sUserEmailCookie|clean}{/if}" />
+							<input type="text" name="val[invite_email]" value="" />
 						</div>
 					</div>
 					<div class="table_clear">

@@ -11,7 +11,7 @@ defined('PHPFOX') or exit('NO DICE!');
  * @copyright		[PHPFOX_COPYRIGHT]
  * @author  		Raymond Benc
  * @package  		Module_Comment
- * @version 		$Id: ajax.class.php 4776 2012-09-27 06:59:23Z Raymond_Benc $
+ * @version 		$Id: ajax.class.php 5011 2012-11-12 09:02:36Z Raymond_Benc $
  */
 class Comment_Component_Ajax_Ajax extends Phpfox_Ajax
 {
@@ -188,8 +188,7 @@ class Comment_Component_Ajax_Ajax extends Phpfox_Ajax
 								$this->call('$(\'#js_feed_comment_form_textarea_' . $aVals['is_via_feed'] .'\').val($(\'.js_comment_feed_value\').html()).addClass(\'js_comment_feed_textarea_focus\').removeAttr(\'style\');');					
 							}	
 							
-							$this->call('$(\'#js_feed_comment_form_textarea_' . $aVals['is_via_feed'] .'\').parent().find(\'.js_feed_comment_process_form:first\').hide();');
-							$this->call('if (typeof($.scrollTo) == \'function\'){$.scrollTo(\'#' . $sId . '\', 800);}');
+							$this->call('$(\'#js_feed_comment_form_textarea_' . $aVals['is_via_feed'] .'\').parent().find(\'.js_feed_comment_process_form:first\').hide();');							
 						}
 					}					
 					else
@@ -355,7 +354,10 @@ class Comment_Component_Ajax_Ajax extends Phpfox_Ajax
 		if (Phpfox::getService('comment.process')->deleteInline($this->get('comment_id'), $this->get('type_id')))
 		{
 			$this->slideUp('#js_comment_' . $this->get('comment_id'));
-			$this->alert(Phpfox::getPhrase('comment.comment_successfully_deleted'));
+			if (!$this->get('photo_theater'))
+			{
+				$this->alert(Phpfox::getPhrase('comment.comment_successfully_deleted'));
+			}
 			/*
 			if ($this->get('type_id') == 'feed')
 			{

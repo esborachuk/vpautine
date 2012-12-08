@@ -11,7 +11,7 @@ defined('PHPFOX') or exit('NO DICE!');
  * @copyright		[PHPFOX_COPYRIGHT]
  * @author  		Raymond Benc
  * @package  		Module_User
- * @version 		$Id: process.class.php 4961 2012-10-29 07:11:34Z Raymond_Benc $
+ * @version 		$Id: process.class.php 5073 2012-12-06 10:23:21Z Raymond_Benc $
  */
 class User_Service_Process extends Phpfox_Service 
 {	
@@ -506,6 +506,11 @@ class User_Service_Process extends Phpfox_Service
 				$sPhrase = Phpfox::getParam('user.display_or_full_name') == 'full_name' ? Phpfox::getPhrase('user.please_shorten_full_name', $aChange) : Phpfox::getPhrase('user.please_shorten_display_name', $aChange);
 				return Phpfox_Error::set($sPhrase);
 			}
+		}
+		
+		if (!$bIsAccount && (empty($aVals['day']) || empty($aVals['month']) || empty($aVals['year'])))
+		{
+			return Phpfox_Error::set('Please enter your date of birth.');	
 		}
 
 		if (isset($aVals['relation']) && Phpfox::getUserParam('custom.can_have_relationship') 
@@ -1061,6 +1066,7 @@ class User_Service_Process extends Phpfox_Service
 		{
 			$sSignature = $aVals['signature'];
 		}
+		$aOrg = $aVals;
 		$aForms = array(
 			'full_name' => array(
 				'message' => Phpfox::getPhrase('user.fill_in_a_display_name'),
@@ -1088,7 +1094,7 @@ class User_Service_Process extends Phpfox_Service
 			'time_zone' => 'string',
 			'status' => 'string',
 			'total_spam' => 'int',
-			'language_id' => 'string'
+			'language_id' => 'string'			
 		);
 		
 		$aUserFieldsForms = array(
@@ -1104,7 +1110,7 @@ class User_Service_Process extends Phpfox_Service
 		);
 
 		if (!empty($aVals['day']) && !empty($aVals['month']) && !empty($aVals['year']))
-		{
+		{			
 			$aVals['birthday'] = Phpfox::getService('user')->buildAge($aVals['day'],$aVals['month'],$aVals['year']);
 			$aVals['birthday_search'] = Phpfox::getLib('date')->mktime(0, 0, 0, $aVals['month'], $aVals['day'], $aVals['year']);
 		}
@@ -1159,10 +1165,10 @@ class User_Service_Process extends Phpfox_Service
 
 		$this->database()->update($this->_sTable, $aVals, 'user_id = ' . (int) $iUserid);
 		$this->database()->update(Phpfox::getT('user_field'), $aUserFields, 'user_id = ' . (int) $iUserid);
-
-		if (!empty($aVals['day']) && !empty($aVals['month']))
+		
+		if (!empty($aOrg['day']) && !empty($aOrg['month']))
 		{
-			$this->database()->update(Phpfox::getT('user_field'), array('birthday_range' => '\''.Phpfox::getService('user')->buildAge($aVals['day'], $aVals['month']) .'\''), 'user_id = ' . (int) $iUserid, false);
+			$this->database()->update(Phpfox::getT('user_field'), array('birthday_range' => '\''.Phpfox::getService('user')->buildAge($aOrg['day'], $aOrg['month']) .'\''), 'user_id = ' . (int) $iUserid, false);
 		}
 				
 		if (count($aActivity))

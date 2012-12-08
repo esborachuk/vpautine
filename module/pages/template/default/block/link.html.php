@@ -15,14 +15,14 @@
 {/if}
 
 <li>
-	<a href="#" onclick="$('#cover_section_menu_drop').toggle(); event.cancelBubble = true; if (event.stopPropagation) event.stopPropagation();return false;">
+	<a href="#" onclick="$(this).parent().find('.cover_section_menu_drop:first').toggle(); event.cancelBubble = true; if (event.stopPropagation) event.stopPropagation();return false;">
 		{if empty($aPage.cover_photo_id)}
 			{phrase var='user.add_a_cover'}
 		{else}
 			{phrase var='user.change_cover'}
 		{/if}
 	</a>
-	<div id="cover_section_menu_drop" style="display: none;">
+	<div class="cover_section_menu_drop" style="display: none;">
 		<ul style="display:block">
 			<li>
 				<a href="{url link='pages.'$aPage.page_id}photo">
@@ -30,7 +30,7 @@
 				</a>
 			</li>
 			<li>
-				<a href="#" onclick="$('#cover_section_menu_drop').hide(); $Core.box('profile.logo', 500, 'page_id={$aPage.page_id}'); return false;">
+				<a href="#" onclick="$(this).parent().find('.cover_section_menu_drop:first').hide(); $Core.box('profile.logo', 500, 'page_id={$aPage.page_id}'); return false;">
 					{phrase var='user.upload_photo'}
 				</a>
 			</li>
@@ -41,7 +41,7 @@
 					</a>
 				</li>
 				<li>
-					<a href="#" onclick="$('#cover_section_menu_drop').hide(); $.ajaxCall('pages.removeLogo', 'page_id={$aPage.page_id}'); return false;">
+					<a href="#" onclick="$(this).parent().find('.cover_section_menu_drop:first').hide(); $.ajaxCall('pages.removeLogo', 'page_id={$aPage.page_id}'); return false;">
 						{phrase var='user.remove'}
 					</a>
 				</li>

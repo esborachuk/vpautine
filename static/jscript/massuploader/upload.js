@@ -276,8 +276,8 @@ var aFunction = function()
 		// Button Settings
 		button_image_url : oParams['sJsHome'] + "static/jscript/massuploader/buttonBackground.php",
 		button_placeholder_id : $oSWF_settings.div_holder().toString(),
-		button_width: 870,
-		button_height: 50,
+		button_width: 300,
+		button_height: 30,
 		button_window_mode: 'transparent',
 
 		// Flash Settings

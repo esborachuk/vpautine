@@ -5,14 +5,12 @@
  * @copyright		[PHPFOX_COPYRIGHT]
  * @author  		Raymond Benc
  * @package  		Module_Profile
- * @version 		$Id: header.html.php 4874 2012-10-10 08:26:35Z Raymond_Benc $
+ * @version 		$Id: header.html.php 5041 2012-11-26 07:58:53Z Raymond_Benc $
  */
 
 defined('PHPFOX') or exit('NO DICE!');
 
 ?>
-
-{if Phpfox::getService('user.privacy')->hasAccess('' . $aUser.user_id . '', 'profile.view_profile')}
 	<div{if Phpfox::getService('profile')->timeline()} class="profile_timeline_header_holder"{/if}>
 		<div class="profile_header{if Phpfox::getService('profile')->timeline()} profile_timeline_header{/if}{if empty($aUser.cover_photo)} no_cover_photo{/if}">
 
@@ -166,7 +164,4 @@ defined('PHPFOX') or exit('NO DICE!');
 		</div>
 		{/if}
 	</div>
-
-{/if}
-
 {block location='12'}

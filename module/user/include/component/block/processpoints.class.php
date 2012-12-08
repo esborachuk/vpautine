@@ -11,7 +11,7 @@ defined('PHPFOX') or exit('NO DICE!');
  * @copyright		[PHPFOX_COPYRIGHT]
  * @author  		Raymond_Benc
  * @package 		Phpfox_Component
- * @version 		$Id: processpoints.class.php 4907 2012-10-22 05:05:53Z Raymond_Benc $
+ * @version 		$Id: processpoints.class.php 5017 2012-11-13 05:33:15Z Raymond_Benc $
  */
 class User_Component_Block_Processpoints extends Phpfox_Component
 {
@@ -28,7 +28,7 @@ class User_Component_Block_Processpoints extends Phpfox_Component
 				'item_number' => 'user|' . $iPurchaseId,
 				'currency_code' => Phpfox::getService('core.currency')->getDefault(),
 				'amount' => $aPurchase[1],
-				'item_name' => $aPurchase[1] . ' activity points.',
+				'item_name' => $aPurchase[0] . ' ' . Phpfox::getPhrase('user.activity_points'),
 				'return' => $this->url()->makeUrl('user.completepoints'),			
 				'recurring' => '',
 				'recurring_cost' => '',

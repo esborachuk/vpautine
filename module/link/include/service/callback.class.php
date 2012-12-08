@@ -11,7 +11,7 @@ defined('PHPFOX') or exit('NO DICE!');
  * @copyright		[PHPFOX_COPYRIGHT]
  * @author  		Raymond_Benc
  * @package 		Phpfox_Service
- * @version 		$Id: callback.class.php 4948 2012-10-24 07:47:54Z Miguel_Espinoza $
+ * @version 		$Id: callback.class.php 5014 2012-11-12 11:59:35Z Raymond_Benc $
  */
 class Link_Service_Callback extends Phpfox_Service 
 {
@@ -101,9 +101,9 @@ class Link_Service_Callback extends Phpfox_Service
 		
 		if (Phpfox::getParam('core.warn_on_external_links'))
 		{
-			if (!preg_match('/' . preg_quote(Phpfox::getParam('core.host')) . '/i', $aReturn['feed_link']))
+			if (!preg_match('/' . preg_quote(Phpfox::getParam('core.host')) . '/i', $aRow['link']))
 			{
-				$aReturn['feed_link'] = Phpfox::getLib('url')->makeUrl('core.redirect', array('url' => Phpfox::getLib('url')->encode($aReturn['feed_link'])));
+				$aReturn['feed_link_actual'] = Phpfox::getLib('url')->makeUrl('core.redirect', array('url' => Phpfox::getLib('url')->encode($aRow['link'])));
 				$aReturn['feed_title_extra_link'] = Phpfox::getLib('url')->makeUrl('core.redirect', array('url' => Phpfox::getLib('url')->encode($aReturn['feed_title_extra_link'])));
 			}						
 		}

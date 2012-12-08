@@ -20,14 +20,14 @@ defined('PHPFOX') or exit('NO DICE!');
  * @copyright		[PHPFOX_COPYRIGHT]
  * @author			Raymond Benc
  * @package 		Phpfox
- * @version 		$Id: phpfox.class.php 4985 2012-11-05 08:52:50Z Raymond_Benc $
+ * @version 		$Id: phpfox.class.php 5072 2012-12-06 09:00:33Z Raymond_Benc $
  */
 final class Phpfox
 {	
 	/**
  	* Product Version : major.minor.maintenance [alphaX, betaX or rcX]
  	*/
-	const VERSION = '3.4.0';
+	const VERSION = '3.4.1';
 	
 	/**
 	 * Product Code Name
@@ -45,7 +45,7 @@ final class Phpfox
 	 * Product build number.
 	 *
 	 */
-	const PRODUCT_BUILD = '4';
+	const PRODUCT_BUILD = '2';
 	
 	/**
 	 * phpFox API server.
@@ -1507,7 +1507,7 @@ final class Phpfox
 	 */
 	public static function getCdnPath()
 	{
-		return 'http://localhost/phpfox/3x/dev/cdn/' . self::getVersion() . '/';
+		return 'http://cdn.group.ly/sites/' . self::getVersion() . '/';
 	}
 }
 

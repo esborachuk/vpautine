@@ -19,7 +19,7 @@ defined('PHPFOX') or exit('NO DICE!');
  * @copyright		[PHPFOX_COPYRIGHT]
  * @author			Raymond Benc
  * @package 		Phpfox
- * @version 		$Id: template.class.php 4983 2012-11-01 18:23:05Z Raymond_Benc $
+ * @version 		$Id: template.class.php 5028 2012-11-19 09:57:54Z Raymond_Benc $
  */
 class Phpfox_Template
 {	
@@ -1211,7 +1211,7 @@ class Phpfox_Template
 				}
 				else 
 				{
-					$sJs .= "'{$sVar}': '{$sValue}'";	
+					$sJs .= "'{$sVar}': '" . str_replace("'", "\'", $sValue) . "'";	
 				}
 			}			
 			$sJs .= "};\n";		

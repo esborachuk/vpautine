@@ -11,7 +11,7 @@ defined('PHPFOX') or exit('NO DICE!');
  * @copyright		[PHPFOX_COPYRIGHT]
  * @author  		Raymond Benc
  * @package  		Module_User
- * @version 		$Id: browse.class.php 4862 2012-10-09 08:00:23Z Raymond_Benc $
+ * @version 		$Id: browse.class.php 5030 2012-11-19 11:44:53Z Raymond_Benc $
  */
 class User_Service_Browse extends Phpfox_Service
 {
@@ -352,6 +352,9 @@ class User_Service_Browse extends Phpfox_Service
 			{
 				$this->database()->select('friend.friend_id AS is_friend, ')
 					->leftJoin(Phpfox::getT('friend'), 'friend', 'friend.user_id = u.user_id AND friend.friend_user_id = ' . Phpfox::getUserId());
+				
+				$this->database()->select('frequest.request_id AS is_friend_request, ')
+					->leftJoin(Phpfox::getT('friend_request'), 'frequest', 'frequest.user_id = u.user_id AND frequest.friend_user_id = ' . Phpfox::getUserId());				
 			}		
 
 			if ($this->_sIp !== null)

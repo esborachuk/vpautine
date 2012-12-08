@@ -5,7 +5,7 @@
  * @copyright		[PHPFOX_COPYRIGHT]
  * @author  		Raymond_Benc
  * @package 		Phpfox
- * @version 		$Id: template-menuaccount.html.php 4888 2012-10-12 05:07:11Z Raymond_Benc $
+ * @version 		$Id: template-menuaccount.html.php 5028 2012-11-19 09:57:54Z Raymond_Benc $
  */
  
 defined('PHPFOX') or exit('NO DICE!'); 
@@ -44,8 +44,7 @@ defined('PHPFOX') or exit('NO DICE!');
 											{if isset($aMenu.children) && count($aMenu.children) && is_array($aMenu.children)}
 											<ul>
 												{if Phpfox::isUser() && $aMenu.url == 'user.setting'}
-												<li class="header_menu_user_link">
-													
+												<li class="header_menu_user_link">													
 													<div id="header_menu_user_image">
 														{img user=$aGlobalUser suffix='_50_square' max_width=50 max_height=50}
 													</div>
@@ -60,7 +59,7 @@ defined('PHPFOX') or exit('NO DICE!');
 												{foreach from=$aMenu.children item=aChild name=child_menu}
 												<li{if $phpfox.iteration.child_menu == 1} class="first"{/if}><a {if $aChild.url == 'pages.login'}id="js_login_as_page"{/if} href="{url link=$aChild.url}"{if $aChild.url == 'profile.designer' || $aChild.url == 'pages.login'} class="no_ajax_link"{/if}>{phrase var=$aChild.module'.'$aChild.var_name}</a></li>
 												{/foreach}
-												{if Phpfox::getUserBy('fb_user_id')}
+												{if Phpfox::getUserBy('fb_user_id') && Phpfox::isUser() && $aMenu.url == 'user.setting'}
 													<li><a href="{url link='facebook.unlink'}">{phrase var='facebook.unlink_facebook_account'}</a>
 												{/if}												
 											</ul>

@@ -11,7 +11,7 @@ defined('PHPFOX') or exit('NO DICE!');
  * @copyright		[PHPFOX_COPYRIGHT]
  * @author  		Raymond Benc
  * @package  		Module_Forum
- * @version 		$Id: callback.class.php 4705 2012-09-20 14:25:01Z Miguel_Espinoza $
+ * @version 		$Id: callback.class.php 5054 2012-11-29 12:58:53Z Raymond_Benc $
  */
 class Forum_Service_Callback extends Phpfox_Service 
 {
@@ -213,7 +213,7 @@ class Forum_Service_Callback extends Phpfox_Service
 		    ->join(Phpfox::getT('forum_thread'),'ft','ft.forum_id = f.forum_id')
 		    ->join(Phpfox::getT('forum_post'),'fp', 'fp.thread_id = ft.thread_id')
 		    ->join(Phpfox::getT('forum_post_text'),'fpt','fpt.post_id = fp.post_id')
-		    ->where('fp.post_id = ' . (int)$iId)
+		    ->where('fp.thread_id = ' . (int)$iId)
 		    ->execute('getSlaveRow');
 	    
 	    if (empty($aThread))

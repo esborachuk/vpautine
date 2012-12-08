@@ -17,7 +17,7 @@ defined('PHPFOX') or exit('NO DICE!');
  * @copyright		[PHPFOX_COPYRIGHT]
  * @author			Raymond Benc
  * @package 		Phpfox
- * @version 		$Id: output.class.php 4967 2012-10-30 11:09:30Z Miguel_Espinoza $
+ * @version 		$Id: output.class.php 5050 2012-11-28 09:47:44Z Raymond_Benc $
  */
 class Phpfox_Parse_Output
 {
@@ -180,7 +180,10 @@ class Phpfox_Parse_Output
 			}
 			else
 			{
-				$sOut = '<a href="' . Phpfox::getLib('url')->makeUrl($aUser['user_name']) .'">' . $aUser['full_name'] .'</a>';
+				if (isset($aUser['user_name']))
+				{
+					$sOut = '<a href="' . Phpfox::getLib('url')->makeUrl($aUser['user_name']) .'">' . $aUser['full_name'] .'</a>';
+				}
 			}
 			
 			$aCache[$iUser] = $sOut;
@@ -454,12 +457,24 @@ class Phpfox_Parse_Output
 				
 				if ($bHide === true)
 				{
-					$sNewString = '<span class="js_view_more_parent"><span class="js_view_more_part">' . $sNewString . '...<div class="item_view_more"><a href="#" onclick="$(this).parents(\'.js_view_more_parent:first\').find(\'.js_view_more_part\').hide(); $(this).parents(\'.js_view_more_parent:first\').find(\'.js_view_more_full\').show(); return false;">' . $sSuffix . '</a></div></span>';
-			    	$sNewString .= '<span class="js_view_more_full" style="display:none;">';
-			    	$sNewString .= $html;
-			    	$sNewString .= '<div class="item_view_more"><a href="#" onclick="$(this).parents(\'.js_view_more_parent:first\').find(\'.js_view_more_full\').hide(); $(this).parents(\'.js_view_more_parent:first\').find(\'.js_view_more_part\').show(); return false;">' . Phpfox::getPhrase('core.view_less'). '</a></div>';
-			    	$sNewString .= '</span>';
-			    	$sNewString .= '</span>';		    
+					if (defined('PHPFOX_IS_THEATER_MODE'))
+					{
+						$sNewString = '<span class="js_view_more_parent"><span class="js_view_more_part">' . $sNewString . '...<div class="item_view_more"><a href="#" onclick="$(this).parents(\'.js_view_more_parent:first\').find(\'.js_view_more_part\').hide(); $(this).parents(\'.js_view_more_parent:first\').find(\'.js_view_more_full\').show(); return false;">' . $sSuffix . '</a></div></span>';
+				    	$sNewString .= '<span class="js_view_more_full" style="display:none; position:absolute; z-index:10000; background:#fff; border:1px #dfdfdf solid;">';
+				    	$sNewString .= '<div style="max-height:200px; overflow:auto; padding:5px;">' . $html . '</div>';
+				    	$sNewString .= '<div class="item_view_more" style="padding:10px; text-align:center;"><a href="#" onclick="$(this).parents(\'.js_view_more_parent:first\').find(\'.js_view_more_full\').hide(); $(this).parents(\'.js_view_more_parent:first\').find(\'.js_view_more_part\').show(); return false;">' . Phpfox::getPhrase('core.view_less'). '</a></div>';
+				    	$sNewString .= '</span>';
+				    	$sNewString .= '</span>';
+					}
+					else
+					{
+						$sNewString = '<span class="js_view_more_parent"><span class="js_view_more_part">' . $sNewString . '...<div class="item_view_more"><a href="#" onclick="$(this).parents(\'.js_view_more_parent:first\').find(\'.js_view_more_part\').hide(); $(this).parents(\'.js_view_more_parent:first\').find(\'.js_view_more_full\').show(); return false;">' . $sSuffix . '</a></div></span>';
+				    	$sNewString .= '<span class="js_view_more_full" style="display:none;">';
+				    	$sNewString .= $html;
+				    	$sNewString .= '<div class="item_view_more"><a href="#" onclick="$(this).parents(\'.js_view_more_parent:first\').find(\'.js_view_more_full\').hide(); $(this).parents(\'.js_view_more_parent:first\').find(\'.js_view_more_part\').show(); return false;">' . Phpfox::getPhrase('core.view_less'). '</a></div>';
+				    	$sNewString .= '</span>';
+				    	$sNewString .= '</span>';		    
+					}
 				}
 				else 
 				{

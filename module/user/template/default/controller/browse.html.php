@@ -5,7 +5,7 @@
  * @copyright		[PHPFOX_COPYRIGHT]
  * @author  		Raymond Benc
  * @package  		Module_User
- * @version 		$Id: browse.html.php 4756 2012-09-25 08:01:54Z Miguel_Espinoza $
+ * @version 		$Id: browse.html.php 5045 2012-11-26 09:10:27Z Raymond_Benc $
  * {* *}
  */
 
@@ -285,15 +285,14 @@ defined('PHPFOX') or exit('NO DICE!');
 				{if Phpfox::getUserGroupParam('' . $aUser.user_group_id . '', 'user.can_edit_dob')}
 				{if !empty($aUser.birthday) && $aUser.dob_setting != '3'}
 				{if $aUser.dob_setting == '4'}
-					{$aUser.month} {$aUser.day} <br />
-				{else}
-				{$aUser.birthday|age}
+					{$aUser.month} {$aUser.day}, {$aUser.year} <br />
+				{else}			
 				{if $aUser.dob_setting == '1'}
-					({$aUser.month} {$aUser.day})
+					{$aUser.month} {$aUser.day}
 				{elseif $aUser.dob_setting == '2'}
-
+					{$aUser.birthday|age}
 				{else}
-					({$aUser.month} {$aUser.day}, {$aUser.year})
+					{$aUser.month} {$aUser.day}, {$aUser.year}
 				{/if}
 				<br />
 				{/if}
@@ -317,10 +316,14 @@ defined('PHPFOX') or exit('NO DICE!');
 				{/if}</a>
 			</div>
 			{/if}
+				{if Phpfox::isUser() && Phpfox::isModule('friend') && !$aUser.is_friend && $aUser.is_friend_request}
+				<span class="extra_info">{phrase var='profile.pending_friend_request'}</span>
+				{else}
 				{if Phpfox::isUser() && Phpfox::isModule('friend') && !$aUser.is_friend && Phpfox::getUserId() != $aUser.user_id && (!isset($aUser.user_is_blocked) )}
 					<div class="user_browse_add_friend">
 						{img theme='misc/friend_added.png' class='v_middle'} <a href="#" onclick="return $Core.addAsFriend('{$aUser.user_id}');">{phrase var='user.add_friend'}</a>
 					</div>
+				{/if}
 				{/if}
 			{/if}				
 		</div>		
@@ -344,10 +347,16 @@ defined('PHPFOX') or exit('NO DICE!');
 				{/if}</a>
 			</div>
 			{/if}
+			{if Phpfox::isUser() && Phpfox::isModule('friend') && !$aUser.is_friend && $aUser.is_friend_request}
+			<div class="user_browse_add_friend">
+				<span class="extra_info">{phrase var='profile.pending_friend_request'}</span>
+			</div>
+			{else}
 			{if Phpfox::isUser() && Phpfox::isModule('friend') && !$aUser.is_friend && Phpfox::getUserId() != $aUser.user_id}
 			<div class="user_browse_add_friend">
 				{img theme='misc/friend_added.png' class='v_middle'} <a href="#" onclick="return $Core.addAsFriend('{$aUser.user_id}');">{phrase var='user.add_friend'}</a>
 			</div>
+			{/if}
 			{/if}
 			{/if}
 		</div>

@@ -4,10 +4,12 @@
 ## @copyright		[PHPFOX_COPYRIGHT]
 ## @author  		Raymond Benc
 ## @package 		PhpFox
-## @version 		$Id: htaccess.txt 4580 2012-07-31 15:19:24Z Raymond_Benc $
+## @version 		$Id: htaccess.txt 5050 2012-11-28 09:47:44Z Raymond_Benc $
 ######################################
 
 # Options -Indexes
+# Options -Multiviews
+
 # Header unset Pragma
 # FileETag None
 # Header unset ETag

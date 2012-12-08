@@ -96,6 +96,9 @@
 					<div><input type="hidden" name="val[item_id]" value="{$aFeed.item_id}" /></div>
 					<div><input type="hidden" name="val[parent_id]" value="0" class="js_feed_comment_parent_id" /></div>
 					<div><input type="hidden" name="val[is_via_feed]" value="{$aFeed.feed_id}" /></div>
+					{if defined('PHPFOX_IS_THEATER_MODE')}
+					<div><input type="hidden" name="ajax_post_photo_theater" value="1" /></div>	
+					{/if}
 					{if Phpfox::isUser()}
 					<div class="comment_mini_image"{if isset($sFeedType) &&  $sFeedType == 'view'} {else}style="display:none;"{/if}>
 					{img user=$aGlobalUser suffix='_50_square' max_width='32' max_height='32'}

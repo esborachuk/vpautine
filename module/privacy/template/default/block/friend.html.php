@@ -5,7 +5,7 @@
  * @copyright		[PHPFOX_COPYRIGHT]
  * @author  		Raymond_Benc
  * @package 		Phpfox
- * @version 		$Id: friend.html.php 4237 2012-06-08 11:11:58Z Raymond_Benc $
+ * @version 		$Id: friend.html.php 5051 2012-11-28 12:40:24Z Raymond_Benc $
  */
  
 defined('PHPFOX') or exit('NO DICE!'); 
@@ -44,7 +44,7 @@ defined('PHPFOX') or exit('NO DICE!');
 		var sPrivacyArray = '{$sPrivacyArray}';		
 		{if !empty($sCustomPrivacyId)}
 		sCustomPrivacyId = '#{$sCustomPrivacyId}';
-		{/if}
+		{/if}			
 	{literal}
 	
 	$(sCustomPrivacyId + ' .privacy_list_array').each(function()
@@ -60,7 +60,7 @@ defined('PHPFOX') or exit('NO DICE!');
 		$('#js_temp_privacy_error_message').hide();
 		var $iCnt = 0;
 		$('.js_custom_list_option option').each(function()
-		{
+		{			
 			if (this.selected)
 			{
 				$iCnt++;
@@ -74,10 +74,8 @@ defined('PHPFOX') or exit('NO DICE!');
 		else
 		{
 			$(sCustomPrivacyId).html('');
-			$($oObj).find('.js_custom_list_option option').each(function()	
-			{
-				if (this.selected)
-				{
+			$($oObj).find('.js_custom_list_option option').each(function(){				
+				if (this.selected){
 					$(sCustomPrivacyId).append('<div><input type="hidden" name="val' + (empty(sPrivacyArray) ? '' : '[' + sPrivacyArray + ']') + '[privacy_list][]" value="' + this.value + '" class="privacy_list_array" /></div>');
 				}
 			});
@@ -111,6 +109,9 @@ defined('PHPFOX') or exit('NO DICE!');
 			<div style="margin-top:10px;">
 				<form method="post" action="#" onsubmit="return false;">
 					<div><input type="hidden" name="list_id" value="" id="js_custom_friend_list_id" /></div>
+					{if !empty($sCustomPrivacyId)}
+					<div><input type="hidden" name="custom-id" value="{$sCustomPrivacyId}" /></div>
+					{/if}
 					<div class="go_left" style="margin-right:5px;">
 						<div id="js_custom_search_friend"></div>
 					</div>

@@ -13,7 +13,7 @@ defined('PHPFOX') or exit('NO DICE!');
  * @copyright		[PHPFOX_COPYRIGHT]
  * @author			Raymond Benc
  * @package 		Phpfox
- * @version 		$Id: validator.class.php 4906 2012-10-22 04:52:14Z Raymond_Benc $
+ * @version 		$Id: validator.class.php 5067 2012-12-05 08:55:19Z Raymond_Benc $
  */
 final class Phpfox_Validator
 {	
@@ -570,14 +570,11 @@ final class Phpfox_Validator
 	 	$sStr .= "\t" . '$(\'#' . $this->_sName . '_msg\').hide(\'\');' . "\n";
 	 	$sStr .= "\t" . '$(\'#' . $this->_sName . '_msg\').html(\'\');' . "\n";
 	 	$sStr .= "\t" . "var bIsValid = true;\n";	 	
-		$sStr  .= "\tvar bReturn = false;\n";
+		$sStr .= "\tvar bReturn = false;\n";
+		$sStr .= "\t".'$(".error_message").each(function(){$(this).remove();});';
 		
 		foreach ($this->aFields as $sFieldKey => $aFieldValue)
 		{
-			if (is_string($aFieldValue))
-			{
-				$sStr .= "\t".'$(".error_message").each(function(){if ($(this).text() == "'.$aFieldValue.'"){bReturn=true;$(this).hide("slow",function(){$(this).show();})}});';
-			}
 			$sStr .= $this->_checkRoutine($aFieldValue, $sFieldKey, 'js');
 		}
 		

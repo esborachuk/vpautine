@@ -11,7 +11,7 @@ defined('PHPFOX') or exit('NO DICE!');
  * @copyright		[PHPFOX_COPYRIGHT]
  * @author  		Raymond_Benc
  * @package 		Phpfox_Service
- * @version 		$Id: process.class.php 4961 2012-10-29 07:11:34Z Raymond_Benc $
+ * @version 		$Id: process.class.php 5040 2012-11-26 07:33:17Z Raymond_Benc $
  */
 class Pages_Service_Process extends Phpfox_Service 
 {
@@ -66,7 +66,10 @@ class Pages_Service_Process extends Phpfox_Service
 		
 		if (!Phpfox::getService('pages')->isAdmin($aPage))
 		{
-			return Phpfox_Error::set(Phpfox::getPhrase('pages.unable_to_delete_this_widget'));
+			if (!Phpfox::isAdmin())
+			{
+				return Phpfox_Error::set(Phpfox::getPhrase('pages.unable_to_delete_this_widget'));
+			}
 		}
 		
 		$this->database()->delete(Phpfox::getT('pages_widget'), 'widget_id = ' . (int) $iId);

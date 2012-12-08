@@ -29,7 +29,7 @@ $.fn.message = function(sMessage, sType)
 			break;
 	}
 
-	this.html('<div class="' + sClass + '">' + sMessage + '</\div>');
+	this.html(this.html() + '<div class="' + sClass + '">' + sMessage + '</\div>');
 	
 	return this;
 }
