@@ -6,25 +6,46 @@
 
     Blogbox.init = function(blogLink) {
         Blogbox.blogLink = blogLink;
-        blogLink.live('click', Blogbox.getBlog)
+        blogLink.on('click', Blogbox.showBlog)
     };
 
-    Blogbox.getBlog = function() {
-        var clickedLink = $(this);
+    Blogbox.showBlog = function() {
+        var clickedLink = $(this),
+            url = clickedLink.data('url'),
+            userId = clickedLink.data('userId');
+
+        Blogbox.getBlog(url, userId);
+    };
+
+    Blogbox.getBlog = function(url, userId) {
+        Preloader.showPreloader();
+        var data = Blogbox.getData(url, userId);
         $.ajax({
             type: 'GET',
             dataType: 'html',
             url: getParam('sJsAjax'),
-            data: 'core[call]=pautina.blogbox' +
-                '&url=' + clickedLink.data('url') +
-                '&userId=' + clickedLink.data('userId'),
+            data: data,
             success: function(blog)
             {
+                Preloader.hidePreloader();
                 $('#get_blog_id').html(blog);
             }
         });
 
         return false;
+    };
+
+    Blogbox.getData = function(url, userId) {
+        var userRequest = '';
+        if (userId) {
+            userRequest = '&userId=' + userId
+        }
+
+        var url = 'core[call]=pautina.blogbox' +
+                '&url=' + url +
+                userRequest;
+
+        return url;
     };
 })(jQuery);
 

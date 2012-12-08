@@ -5,6 +5,23 @@ $(function() {
     });
 });
 
+$(document).ready(function() {
+    Preloader = {
+        showPreloader: function() {
+            var windowHeight = $(document).height();
+            var documentHeight = $(document).height();
+
+            $('#main_core_body_holder').prepend('<div class="preloader"><div class="preloader_icon"></div></div>');
+            $('.preloader').css({'height': documentHeight}).fadeIn(400);
+            $('.preloader_icon').css({'height': windowHeight / 2});
+        },
+
+        hidePreloader: function() {
+            $('.preloader').remove();
+        }
+    }
+});
+
 PautinaNotification = {
     update: function() {
         setTimeout(PautinaNotification.check, 200);

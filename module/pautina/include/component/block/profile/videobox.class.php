@@ -20,17 +20,14 @@ class Pautina_Component_Block_Profile_Videobox extends Phpfox_Component
         $videoboxService = Phpfox::getService('pautina.profile.videobox');
         $videoCount = $videoboxService->getVideoCount($aUser['user_id']);
 
-        if ($videoCount == 0) {
-            return false;
-        }
-
         $videos = $videoboxService->getVideos($aUser['user_id']);
 
         $this->template()->assign(
             array(
                 'videos' => $videos,
                 'videoCount' => $videoCount,
-                'showAddLink'   => $showAddLink
+                'showAddLink'   => $showAddLink,
+                'moduleUrl'     => Phpfox::getService('user')->getLink($aUser['user_id']) . 'video/'
             )
         );
 
