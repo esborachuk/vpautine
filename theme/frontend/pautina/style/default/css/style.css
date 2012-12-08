@@ -436,3 +436,11 @@ body.blog #blog_wrapper {
 #js_controller_music_index #content_load_data #site_content > div {
     padding:0 !important;
 }
+#js_controller_music_index div.row_title_image{
+    border:none !important;
+}
+.music_title_link{
+    margin-left: 19px;
+    position: relative;
+    top: -5px;
+}
