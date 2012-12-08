@@ -213,25 +213,39 @@
 
 #get_blog_id {
     float: right;
-    width: 500px;
+    width: 440px;
     margin-right: 20px;
 }
 
 #get_blog_id .item_view .js_feed_comment_border {
-    width: 465px !important;
+    width: 410px !important;
     margin-top: 10px;
 }
 
 #blog_wrapper {
     float: left;
-    width: 300px;
+    width: 360px;
 }
 
 #get_blog_id .item_tag_holder {
-    width: 500px;
+    width: 440px;
 }
 
 #blog_wrapper div.row_title_image {
     left: inherit;
     right: 0;;
+}
+
+.blog_profile #main_content {
+    border-left: none;
+}
+
+.blog_profile #blog_wrapper {
+    margin-left: 10px;
+}
+
+.blog_mini_block {
+    padding-bottom: 7px;
+    border-bottom: 1px solid #d7d7d7;
+    margin-top: 7px;
 }

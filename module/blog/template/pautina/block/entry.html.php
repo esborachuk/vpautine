@@ -11,7 +11,7 @@
 defined('PHPFOX') or exit('NO DICE!');
 
 ?>
-<div class="clear" style="word-wrap:break-word;" id="js_blog_entry{$aItem.blog_id}"{if !isset($bBlogView)} class="moderation_row js_blog_parent {if is_int($phpfox.iteration.blog/2)}row1{else}row2{/if}{if $phpfox.iteration.blog == 1 && !PHPFOX_IS_AJAX} row_first{/if}{if $aItem.is_approved != 1} {/if}"{/if}>
+<div class="clear blog_mini_block" style="word-wrap:break-word;" id="js_blog_entry{$aItem.blog_id}"{if !isset($bBlogView)} class="moderation_row js_blog_parent {if is_int($phpfox.iteration.blog/2)}row1{else}row2{/if}{if $phpfox.iteration.blog == 1 && !PHPFOX_IS_AJAX} row_first{/if}{if $aItem.is_approved != 1} {/if}"{/if}>
 	{if !isset($bBlogView)}
 	<div class="row_title">
 		<div class="row_title_image">
@@ -40,7 +40,7 @@ defined('PHPFOX') or exit('NO DICE!');
 			<span id="js_blog_edit_title{$aItem.blog_id}">
                     <a data-id="{$aItem.blog_id}" data-url="{$aItem.bookmark_url}" data-userId="{$aUser.user_id}" href="#" id="js_blog_edit_inner_title{$aItem.blog_id}" class="blogbox_link link ajax_link">{$aItem.title|clean|shorten:55:'...'|split:20}</a>
 			</span>
-
+<div><?php echo Phpfox::getLib('date')->convertTime($this->_aVars['aItem']['time_stamp']); ?></div>
 			<div class="extra_info">
 				{phrase var='blog.by_full_name' full_name=$aItem|user:'':'':50}
 				{plugin call='blog.template_block_entry_date_end'}
