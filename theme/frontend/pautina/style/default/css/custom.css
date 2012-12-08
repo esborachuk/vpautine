@@ -678,10 +678,6 @@ ul.block_listing li .block_listing_image a img,
     padding: 0;
 }
 
-#content_load_data .js_music_track .row_title_info{
-    padding-top: 15px;
-}
-
 #content_load_data .js_music_track {
     border-bottom: 1px solid #D7D7D7;
 }
