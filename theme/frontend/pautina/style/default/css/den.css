@@ -458,3 +458,29 @@ div.js_album_parent {
 .music_view-album .item_bar_action_holder {
     margin-left: 20px;
 }
+
+.my_photo_link {
+    position: absolute;
+    right: 0;
+    margin: -40px 20px 0 0;
+}
+
+.photo_index #main_content {
+    width: 100%;
+    border-left: none;
+}
+
+.photo_add #main_content {
+    border-left: none;
+}
+
+.music_album #main_content, .music_upload #main_content, .video_add #main_content {
+    width: 100%;
+    border-left: none;
+    padding: 15px;
+}
+
+#js_song_privacy_holder .table {
+    float: left;
+    margin-right: 20px;
+}
