@@ -463,3 +463,8 @@ body.blog #blog_wrapper {
 #js_controller_music_index .content4 {
     width:622px;
 }
+
+.block_listing_image > a {
+    position: relative;
+    z-index: 2;
+}
