@@ -60,22 +60,9 @@ defined('PHPFOX') or exit('NO DICE!');
         </div>
         <div class="music_title_link">
             <a href="#" onclick="$.ajaxCall('music.playInFeed', 'id={$aSong.song_id}', 'GET'); return false;"  class="link" title="{$aSong.title|clean}" {if defined('PHPFOX_IS_POPUP')} onclick="window.opener.location.href=this.href; return false;"{/if}>{$aSong.title|clean|shorten:50:'...'|split:40}</a>
-            {if !empty($aSong.album_name)}
-            <div class="extra_info">
-                <a href="{permalink module='music.album' id=$aSong.album_id title=$aSong.album_name}" title="{$aSong.album_name|clean}">{$aSong.album_name|clean|shorten:55:'...'|split:40}</a>
-            </div>
-            {/if}
         </div>
         <div class="clear"></div>
     </div>
-
-    {if isset($aUser) && $aUser.user_id != $aSong.user_id || !defined('PHPFOX_IS_USER_PROFILE')}
-    <div class="extra_info">
-        <ul class="extra_info_middot"><li>{$aSong.time_stamp|convert_time} {phrase var='music.by_lowercase'} {$aSong|user:'':'':50}</li>{if $aSong.total_play > 1}<li><span>&middot;</span></li><li>{phrase var='music.total_plays' total=$aSong.total_play}</li>{/if}</ul>
-    </div>
-    {/if}
-
-
 </div>
 </div>
 </div>
