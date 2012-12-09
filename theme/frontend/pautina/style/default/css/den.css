@@ -454,3 +454,7 @@ div.js_album_parent {
 .music_view-album .item_info {
     margin-left: 20px;
 }
+
+.music_view-album .item_bar_action_holder {
+    margin-left: 20px;
+}
