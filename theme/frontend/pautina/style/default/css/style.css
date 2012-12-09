@@ -457,8 +457,9 @@ body.blog #blog_wrapper {
 
 #js_controller_music_index #right{
     margin: 0 15px 0 0;
-    position: absolute;
-    right: -12px;
-    top: 129px;
     width: 260px;
+}
+
+#js_controller_music_index .content4 {
+    width:622px;
 }
