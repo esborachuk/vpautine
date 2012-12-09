@@ -332,3 +332,12 @@ a.video_user_bar_pager_more:hover
 .video_index #js_controller_video_index #js_video_outer_body {
     padding: 0 15px!important;
 }
+
+#js_controller_video_index a.row_sub_link {
+    display: block;
+    font-size: 10px;
+    font-weight: bold;
+    height: 30px;
+    overflow: hidden;
+    width: 100%;
+}

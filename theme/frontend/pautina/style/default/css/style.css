@@ -425,7 +425,8 @@ body.blog #blog_wrapper {
     height: 13px;
     width: 12px;
 }
-#js_controller_music_index div.row_title_info{
+#js_controller_music_index div.row_title_info,
+#js_controller_music_browse_album #main_content{
    min-height:0 !important;
    margin-left:0 !important;
 }
@@ -438,8 +439,26 @@ body.blog #blog_wrapper {
 .music_title_link{
     margin-left: 19px;
     position: relative;
-    top: -5px;
+    top: -1px;
 }
 #js_controller_music_index #main_content{
     width:auto;
+}
+#js_controller_music_index div.row_title_info a.link {
+    font-size:11px;
+}
+#js_controller_music_index .block_listing_title {
+    background:none;
+    bottom:4px;
+}
+#js_controller_music_index .block_listing_title a{
+    color:#28A6FF;
+}
+
+#js_controller_music_index #right{
+    margin: 0 15px 0 0;
+    position: absolute;
+    right: -12px;
+    top: 129px;
+    width: 260px;
 }
