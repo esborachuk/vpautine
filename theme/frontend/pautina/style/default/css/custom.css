@@ -250,7 +250,7 @@ a:hover {
     height: 70px;
 }
 
-#imagebox-block li, #videobox-block li, ul.block_listing li,
+#imagebox-block li, #videobox-block li,
 #js_block_border_friend_mini li
 {
     float: left;
