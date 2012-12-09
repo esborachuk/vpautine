@@ -423,3 +423,34 @@ div.js_album_parent {
 .js_album_parent .extra_info {
     color: #fff;
 }
+
+.js_music_store_album_holder span.extra_info {
+    float: right;
+}
+
+.js_music_store_album_holder .block_listing_image a {
+    color: #333;
+    background: url("../image/layout/music.png") no-repeat scroll 0 0 transparent;
+    padding-left: 20px;
+}
+
+#js_block_border_music_track {
+    padding: 0 20px;
+}
+
+#js_block_border_music_track.block > .title {
+    display: none;
+}
+
+#js_block_border_music_album-info {
+    padding: 0 10px;
+}
+
+.music_view-album .js_feed_comment_border {
+    margin-left: 80px;
+    width: 435px !important;
+}
+
+.music_view-album .item_info {
+    margin-left: 20px;
+}
