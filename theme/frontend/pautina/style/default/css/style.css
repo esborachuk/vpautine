@@ -464,7 +464,7 @@ body.blog #blog_wrapper {
     width:622px;
 }
 
-.block_listing_image > a {
+#js_controller_music_index .block_listing_image > a {
     position: relative;
     z-index: 2;
 }
