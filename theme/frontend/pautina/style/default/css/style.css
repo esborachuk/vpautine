@@ -440,3 +440,6 @@ body.blog #blog_wrapper {
     position: relative;
     top: -5px;
 }
+#js_controller_music_index #main_content{
+    width:auto;
+}
