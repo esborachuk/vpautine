@@ -17,7 +17,7 @@
         <ul id="videobox">
             <?php foreach ($this->getVar('videos') as $video): ?>
             <li>
-                <a href="<?php echo $video['url'] ?>" class="" title="<?php echo $video['title'] ?>">
+                <a href="<?php echo $video['url'] ?>" class="play_link" onclick="$Core.box('video.play', 700, 'id=<?php echo $video['video_id'] ?>&popup=true', 'GET'); return false;" title="<?php echo $video['title'] ?>">
                     <img src="<?php echo $video['video_img'] ?>" alt="<?php echo $video['title'] ?>"  title="<?php echo $video['title'] ?>" />
                 </a>
                 <p>
