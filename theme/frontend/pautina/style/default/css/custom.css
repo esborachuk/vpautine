@@ -567,7 +567,7 @@ ul.block_listing li .block_listing_image a img,
 }
 
 #js_controller_friend_index #site_content,
-#js_controller_music_index #site_content, #js_controller_user_browse #site_content
+#js_controller_user_browse #site_content
 {
     width: 619px!important;
     padding: 0 10px;

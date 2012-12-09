@@ -468,3 +468,11 @@ body.blog #blog_wrapper {
     position: relative;
     z-index: 2;
 }
+
+#js_controller_music_index .duration{
+    float:right;
+}
+#js_controller_music_index #site_content{
+    width:561px;
+    padding: 0 10px;
+}
