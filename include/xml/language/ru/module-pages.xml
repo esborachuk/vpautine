@@ -188,7 +188,7 @@
 	<phrase module_id="pages" version_id="3.0.0beta5" var_name="content" added="1319114526">Контент</phrase>
 	<phrase module_id="pages" version_id="3.0.0beta5" var_name="successfully_moderated_user_s" added="1319183922">Пользователи успешно проверены.</phrase>
 	<phrase module_id="pages" version_id="3.0.0beta5" var_name="events" added="1319187962">События</phrase>
-	<phrase module_id="pages" version_id="3.0.0beta5" var_name="music" added="1319187976">Аудиозаписи</phrase>
+	<phrase module_id="pages" version_id="3.0.0beta5" var_name="music" added="1319187976">Музыка</phrase>
 	<phrase module_id="pages" version_id="3.0.0beta5" var_name="photos" added="1319187984">Фотографии</phrase>
 	<phrase module_id="pages" version_id="3.0.0beta5" var_name="discussions" added="1319187992">Обсуждения</phrase>
 	<phrase module_id="pages" version_id="3.0.0rc1" var_name="logged_in_as_a_page" added="1320237087">Вы вошли в систему как страница. Чтобы создать новую регистрацию страницы, войдите назад как Ваш родительский счет ({full_name}).</phrase>

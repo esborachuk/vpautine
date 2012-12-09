@@ -40,11 +40,6 @@ defined('PHPFOX') or exit('NO DICE!');
 			<span id="js_blog_edit_title{$aItem.blog_id}">
                     <a data-id="{$aItem.blog_id}" data-url="{$aItem.bookmark_url}" data-userId="{$aUser.user_id}" href="#" id="js_blog_edit_inner_title{$aItem.blog_id}" class="blogbox_link link ajax_link">{$aItem.title|clean|shorten:55:'...'|split:20}</a>
 			</span>
-<div><?php echo Phpfox::getLib('date')->convertTime($this->_aVars['aItem']['time_stamp']); ?></div>
-			<div class="extra_info">
-				{phrase var='blog.by_full_name' full_name=$aItem|user:'':'':50}
-				{plugin call='blog.template_block_entry_date_end'}
-			</div>
 
 	{/if}
 		<div class="blog_content">
@@ -69,7 +64,15 @@ defined('PHPFOX') or exit('NO DICE!');
 
 			{plugin call='blog.template_block_entry_text_end'}
 		</div>
-
+        <div class="clear"></div>
+        <div class="blog_top_info">
+            <span class="blog_date"><?php echo Phpfox::getLib('date')->convertTime($this->_aVars['aItem']['time_stamp']); ?></span>
+            <div class="extra_info">
+                {phrase var='blog.by_full_name' full_name=$aItem|user:'':'':50}
+                {plugin call='blog.template_block_entry_date_end'}
+            </div>
+        </div>
+        <div class="clear"></div>
 	{plugin call='blog.template_block_entry_end'}
 	{if !isset($bBlogView)}
 		</div>

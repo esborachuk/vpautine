@@ -154,7 +154,7 @@
 	<phrase module_id="friend" version_id="2.0.0rc4" var_name="add_to_friends" added="1256252043">Добавить в друзья</phrase>
 	<phrase module_id="friend" version_id="2.0.0rc4" var_name="friend_suggestions" added="1256304055">Предложения дружбы</phrase>
 	<phrase module_id="friend" version_id="2.0.0rc4" var_name="mutual_friends_will_be_listed_here" added="1256308926">Взаимные друзья указаны здесь.</phrase>
-	<phrase module_id="friend" version_id="2.0.0rc4" var_name="videos" added="1256373148">Видеозаписи</phrase>
+	<phrase module_id="friend" version_id="2.0.0rc4" var_name="videos" added="1256373148">Видео</phrase>
 	<phrase module_id="friend" version_id="2.0.0rc4" var_name="that_s_you" added="1256630526">Это ты!</phrase>
 	<phrase module_id="friend" version_id="2.0.0rc4" var_name="the_following_users_are_already_a_member_of_our_community" added="1256630550">Следующие пользователи уже есть в нашем сообществе</phrase>
 	<phrase module_id="friend" version_id="2.0.0rc4" var_name="requests" added="1256648176">Заявки на дружбу, ожидающие Вашего подтверждения</phrase>

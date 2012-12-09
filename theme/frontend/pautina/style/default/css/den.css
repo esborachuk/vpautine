@@ -213,27 +213,127 @@
 
 #get_blog_id {
     float: right;
-    width: 440px;
+    width: 490px;
     margin-right: 20px;
 }
 
+.blog_profile #get_blog_id {
+    margin-top: -65px;
+}
+
 #get_blog_id .item_view .js_feed_comment_border {
-    width: 410px !important;
+    width: 390px !important;
     margin-top: 10px;
+    margin-left: 60px;
 }
 
 body.blog #get_blog_id {
-    width: 340px;
+    width: 490px;
 }
 
 body.blog #get_blog_id .item_view .js_feed_comment_border {
-    width: 310px !important;
+    width: 400px !important;
     margin-top: 10px;
+    margin-left: 60px;
+}
+
+.item_view .blog_top_info {
+    margin-top: 15px;
+}
+
+.blog_top_info .blog_date {
+    float: left;
+    font-size: 10px;
+    color: gray;
+}
+
+.blog_top_info div.extra_info {
+    float: right;
+    margin: 0;
+    padding: 0;
+}
+
+#js_controller_blog_index #content_load_data h1 {
+    font-size: 14px;
+    margin: 0;
+    border-bottom: 1px solid #D7D7D7;
+    padding: 0 10px;
+    line-height: 30px;
+    background: #F7F7F7;
+    font-weight: bold;
+}
+
+.blog_index #main_content_padding {
+    padding: 0;
+}
+
+.blog_title h3 {
+    border: none;
+    font-size: 18px;
+    margin: 10px 0;
+    padding: 0;
+}
+
+#blog_wrapper a.row_edit_bar_action, #blog_wrapper a.row_edit_bar_action:hover {
+    background-position: -5px 0;
+}
+
+#js_block_border_blog_categories .sub_section_menu ul li a,
+#js_block_border_blog_categories .sub_section_menu ul li a:hover {
+    padding-left: 10px;
+}
+
+#js_block_border_blog_categories {
+    padding: 0;
+}
+
+#js_block_border_blog_categories .title {
+    font-weight: bold;
+    padding-left: 10px;
+    line-height: 24px;
+    border-bottom: 1px solid #d7d7d7;
+}
+
+#js_block_border_blog_categories .block .content {
+    padding: 0;
+}
+
+div.row_title_info a.blogbox_link {
+    display: block;
+    margin-right: 35px;
+    font-size: 12px;
+}
+
+#blog_wrapper div.row_title_image {
+    width: 30px;
+}
+
+.blog_content .extra_info {
+    color: #333;
+    line-height: 14px;
+}
+
+.blog_index #content_holder {
+    background: url(../image/blog_index_bg.png) repeat-y left;
+}
+
+.blog_profile #content_holder {
+    background: url(../image/blog_profile_bg.png) repeat-y left;
+}
+
+.blog_index #breadcrumb_content {
+    background: #fff;
+}
+
+#js_controller_blog_index #main_content .sub_section_menu {
+    border-bottom: 1px solid #d7d7d7;
+    display: block;
+    background: #f7f7f7;
 }
 
 #blog_wrapper {
     float: left;
-    width: 360px;
+    width: 375px;
 }
 
 #get_blog_id .item_tag_holder {
@@ -249,14 +349,33 @@ body.blog #get_blog_id .item_view .js_feed_comment_border {
     border-left: none;
 }
 
-.blog_profile #blog_wrapper {
-    margin-left: 10px;
-}
-
 .blog_mini_block {
-    padding-bottom: 7px;
+    padding: 0 7px;
     border-bottom: 1px solid #d7d7d7;
     margin-top: 7px;
+}
+
+#get_blog_id .blog_mini_block {
+    border: none;
+}
+
+.blog_index .upload-button {
+    padding: 10px 10px 0 10px;
+    background: #fff;
+    border-bottom: 1px solid #d7d7d7;
+}
+
+.blog_index .upload-button a {
+    width: 725px;
+}
+
+.blog_profile .upload-button {
+    background: none;
+    width: 335px;
+}
+
+.blog_profile .upload-button a {
+    width: 330px;
 }
 
 .photo_index .upload-photo-button {

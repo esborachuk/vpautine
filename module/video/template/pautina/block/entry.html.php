@@ -80,7 +80,7 @@ defined('PHPFOX') or exit('NO DICE!');
 					{if Phpfox::getUserParam('video.can_approve_videos') || Phpfox::getUserParam('video.can_delete_other_video')}
 					<div class="video_moderate_link"><a href="#{$aVideo.video_id}" class="moderate_link" rel="video">{phrase var='video.moderate'}</a></div>
 					{/if}
-					<a href="{$aVideo.link}" class="js_video_title_{$aVideo.video_id}">
+					<a href="{$aVideo.link}" class="js_video_title_{$aVideo.video_id} play_link" onclick="$Core.box('video.play', 700, 'id={$aVideo.video_id}&popup=true', 'GET'); return false;">
 						{if file_exists(sprintf($aVideo.image_path, '_12090'))}
 							{img server_id=$aVideo.image_server_id path='video.url_image' file=$aVideo.image_path suffix='_12090' max_width=120 max_height=90 class='js_mp_fix_width video_image_border' title=$aVideo.title}
 						{else}

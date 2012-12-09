@@ -79,7 +79,7 @@ class Music_Component_Ajax_Ajax extends Phpfox_Ajax
 		}
 		// $this->call('$Core.player.load({id: \'' . $sDivId . '\', auto: true, type: \'music\', play: \'' . $sSongPath . '\'});');		
 		// Fixes http://www.phpfox.com/tracker/view/7262/
-		$this->call('var iWait = 250;if (typeof $Core.player == "undefined"){iWait = 2000;}setTimeout(function(){$Core.player.load({id: \'' . $sDivId . '\', auto: true, type: \'music\', play: \'' . $sSongPath . '\'});$("#'. $sDivId .'").css({height: "50px", width: "100%"});}, iWait);');		
+		$this->call('var iWait = 250;if (typeof $Core.player == "undefined"){iWait = 2000;}setTimeout(function(){$Core.player.load({id: \'' . $sDivId . '\', auto: true, type: \'music\', play: \'' . $sSongPath . '\'});$("#'. $sDivId .'").css({height: "32px", width: "100%"});}, iWait);');
 	}
 	
 	public function updateGenre()
