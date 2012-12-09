@@ -299,7 +299,7 @@ a:hover {
 {
     margin-left: -5px;
     background: #4c4c4c;
-    font-size: 20px;
+    font-size: 18px;
     font-weight: normal;
     padding: 6px 0 8px 25px;
     color: #3FB6E2;
@@ -559,14 +559,14 @@ ul.block_listing li .block_listing_image a img,
     width: 260px;
 }
 
-#js_controller_blog_index #main_content, #js_controller_friend_index #main_content,
+#js_controller_friend_index #main_content,
 #js_controller_music_browse_album #main_content, #js_controller_user_browse #main_content
 {
     margin-left: 260px;
     width: 639px;
 }
 
-#js_controller_blog_index #site_content, #js_controller_friend_index #site_content,
+#js_controller_friend_index #site_content,
 #js_controller_music_index #site_content, #js_controller_music_browse_album #site_content, #js_controller_user_browse #site_content
 {
     width: 619px!important;
@@ -584,7 +584,7 @@ ul.block_listing li .block_listing_image a img,
     padding: 0 25px;
 }
 .photo_row_holder { margin: 0 auto; width: 100px;}
-.upload-photo-button a{
+.upload-photo-button a, .upload-button a {
     display: block;
     font-size: 16px;
     width: 292px;
@@ -599,7 +599,7 @@ ul.block_listing li .block_listing_image a img,
     text-align: center;
 }
 
-.upload-photo-button .v_middle {
+.upload-photo-button .v_middle, .upload-button .v_middle {
     padding-right: 10px;
 }
 

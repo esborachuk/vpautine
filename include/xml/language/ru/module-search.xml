@@ -12,11 +12,11 @@
 	<phrase module_id="search" version_id="3.0.0" var_name="all_results" added="1323335939">Все результаты</phrase>
 	<phrase module_id="search" version_id="3.0.0" var_name="poll" added="1323336059">Опрос</phrase>
 	<phrase module_id="search" version_id="3.0.0" var_name="members" added="1323336072">Пользователи</phrase>
-	<phrase module_id="search" version_id="3.0.0" var_name="videos" added="1323336086">Видеозаписи</phrase>
+	<phrase module_id="search" version_id="3.0.0" var_name="videos" added="1323336086">Видео</phrase>
 	<phrase module_id="search" version_id="3.0.0" var_name="video" added="1323336092">Видеозапись</phrase>
 	<phrase module_id="search" version_id="3.0.0" var_name="listings" added="1323336105">Объявления</phrase>
 	<phrase module_id="search" version_id="3.0.0" var_name="marketplace_listing" added="1323336112">Объявление</phrase>
-	<phrase module_id="search" version_id="3.0.0" var_name="songs" added="1323336131">Аудиозаписи</phrase>
+	<phrase module_id="search" version_id="3.0.0" var_name="songs" added="1323336131">Музыка</phrase>
 	<phrase module_id="search" version_id="3.0.0" var_name="song" added="1323336136">Аудиозапись</phrase>
 	<phrase module_id="search" version_id="3.0.0" var_name="photos" added="1323336144">Фотографии</phrase>
 	<phrase module_id="search" version_id="3.0.0" var_name="photo" added="1323336151">Фотография</phrase>

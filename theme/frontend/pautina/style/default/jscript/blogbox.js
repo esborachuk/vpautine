@@ -15,6 +15,8 @@
             userId = clickedLink.data('userId');
 
         Blogbox.getBlog(url, userId);
+
+        return false;
     };
 
     Blogbox.getBlog = function(url, userId) {
@@ -31,8 +33,6 @@
                 $('#get_blog_id').html(blog);
             }
         });
-
-        return false;
     };
 
     Blogbox.getData = function(url, userId) {

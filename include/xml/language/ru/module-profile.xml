@@ -106,11 +106,11 @@
 	<phrase module_id="profile" version_id="3.0.0beta5" var_name="blogs" added="1319116123">Блоги</phrase>
 	<phrase module_id="profile" version_id="3.0.0beta5" var_name="polls" added="1319116135">Опросы</phrase>
 	<phrase module_id="profile" version_id="3.0.0beta5" var_name="friends" added="1319116148">Друзья</phrase>
-	<phrase module_id="profile" version_id="3.0.0beta5" var_name="videos" added="1319116160">Видеозаписи</phrase>
+	<phrase module_id="profile" version_id="3.0.0beta5" var_name="videos" added="1319116160">Видео</phrase>
 	<phrase module_id="profile" version_id="3.0.0beta5" var_name="events" added="1319116169">События</phrase>
 	<phrase module_id="profile" version_id="3.0.0beta5" var_name="guestbook" added="1319116179">Гостевая книга</phrase>
 	<phrase module_id="profile" version_id="3.0.0beta5" var_name="listings" added="1319116189">Списки</phrase>
-	<phrase module_id="profile" version_id="3.0.0beta5" var_name="music" added="1319116201">Аудиозаписи</phrase>
+	<phrase module_id="profile" version_id="3.0.0beta5" var_name="music" added="1319116201">Музыка</phrase>
 	<phrase module_id="profile" version_id="3.0.0beta5" var_name="albums" added="1319116213">Альбомы</phrase>
 	<phrase module_id="profile" version_id="3.0.0beta5" var_name="photos" added="1319116219">Фото</phrase>
 	<phrase module_id="profile" version_id="3.0.0beta5" var_name="quizzes" added="1319116230">Тесты</phrase>

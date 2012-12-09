@@ -663,7 +663,7 @@
 	<phrase module_id="user" version_id="3.0.0beta5" var_name="blogs" added="1319466527">Блоги</phrase>
 	<phrase module_id="user" version_id="3.0.0beta5" var_name="polls" added="1319466537">Опросы</phrase>
 	<phrase module_id="user" version_id="3.0.0beta5" var_name="photos" added="1319466559">Фото</phrase>
-	<phrase module_id="user" version_id="3.0.0beta5" var_name="songs" added="1319466570">Аудиозаписи</phrase>
+	<phrase module_id="user" version_id="3.0.0beta5" var_name="songs" added="1319466570">Музыка</phrase>
 	<phrase module_id="user" version_id="3.0.0beta5" var_name="quizzes" added="1319466580">Викторины</phrase>
 	<phrase module_id="user" version_id="3.0.0beta5" var_name="full_name_liked_your_status_update_content" added="1319468529">{full_name} нравится ваше обновление статуса.</phrase>
 	<phrase module_id="user" version_id="3.0.0beta5" var_name="full_name_liked_your_status_update_message" added="1319468654"><![CDATA[{full_name} нравится ваше обновление статуса "<a href="{link}">{content}</a>" Для просмотра этого обновления, перейдите по ссылке ниже: <a href="{link}">{link}</a>]]></phrase>
