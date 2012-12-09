@@ -251,7 +251,7 @@ a:hover {
 }
 
 #imagebox-block li, #videobox-block li,
-#js_block_border_friend_mini li
+#js_block_border_friend_mini li,  .profile_index ul.block_listing li
 {
     float: left;
     width: 100px;
@@ -1278,4 +1278,23 @@ div.js_mini_feed_comment {
 
 #js_controller_blog_add .no_sidebar #main_content_padding{
     padding: 0 20px;
+}
+
+.blog_view .item_bar {
+    float: right;
+    padding: 4px 0;
+    margin-top: -8px ;
+}
+
+.blog_view .item_info {
+    float: left;
+}
+
+.blog_view #content_load_data h1{
+    display: none;
+}
+
+.blog_view .item_view .blog_top_info {
+    margin: 15px 0;
+    overflow: hidden;
 }
