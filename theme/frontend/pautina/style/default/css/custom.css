@@ -559,7 +559,7 @@ ul.block_listing li .block_listing_image a img,
     width: 260px;
 }
 
-#js_controller_blog_index #main_content, #js_controller_friend_index #main_content,
+#js_controller_friend_index #main_content,
 #js_controller_user_browse #main_content
 {
     margin-left: 260px;
