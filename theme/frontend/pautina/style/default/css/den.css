@@ -473,3 +473,14 @@ div.js_album_parent {
 .photo_add #main_content {
     border-left: none;
 }
+
+.music_album #main_content, .music_upload #main_content, .video_add #main_content {
+    width: 100%;
+    border-left: none;
+    padding: 15px;
+}
+
+#js_song_privacy_holder .table {
+    float: left;
+    margin-right: 20px;
+}
