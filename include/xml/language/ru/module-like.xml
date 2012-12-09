@@ -9,7 +9,7 @@
 	<phrase module_id="like" version_id="3.0.0beta5" var_name="like_this" added="1319121169"><![CDATA[нравится это.]]></phrase>
 	<phrase module_id="like" version_id="3.0.0beta5" var_name="likes_this" added="1319121177"><![CDATA[нравится это.]]></phrase>
 	<phrase module_id="like" version_id="3.0.0beta5" var_name="1_person" added="1319121390">1</phrase>
-	<phrase module_id="like" version_id="3.0.0beta5" var_name="total_people" added="1319121408"><![CDATA[{total} людям]]></phrase>
+	<phrase module_id="like" version_id="3.0.0beta5" var_name="total_people" added="1319121408"><![CDATA[{total}]]></phrase>
 	<phrase module_id="like" version_id="3.0.0beta5" var_name="members" added="1319122349"><![CDATA[Пользователи]]></phrase>
 	<phrase module_id="like" version_id="3.0.0beta5" var_name="people_who_like_this" added="1319122357"><![CDATA[Люди, которым это нравится]]></phrase>
 	<phrase module_id="like" version_id="3.0.0" var_name="nobody_likes_this" added="1323438376">Никто не заинтересовался.</phrase>

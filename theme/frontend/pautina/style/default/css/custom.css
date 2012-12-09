@@ -584,7 +584,7 @@ ul.block_listing li .block_listing_image a img,
     padding: 0 25px;
 }
 .photo_row_holder { margin: 0 auto; width: 100px;}
-.upload-photo-button a{
+.upload-photo-button a,  .video_index #section_menu a, .video_index #section_menu a:hover{
     display: block;
     font-size: 16px;
     width: 292px;
@@ -598,6 +598,8 @@ ul.block_listing li .block_listing_image a img,
     margin-bottom: 15px;
     text-align: center;
 }
+
+.video_index #section_menu a, .video_index #section_menu a:hover { width: 887px;}
 
 .upload-photo-button .v_middle {
     padding-right: 10px;
@@ -1184,6 +1186,8 @@ div.js_mini_feed_comment {
 }
 .slide-block a, .extra_info {
     font-size: 10px;
+    color: #fff;
+
 }
 
 #js_controller_photo_albums #main_content, #js_controller_photo_rate #main_content, #js_controller_photo_battle #main_content{
@@ -1268,4 +1272,12 @@ div.js_mini_feed_comment {
 
 .video_index #section_menu{
     padding: 10px 0;
+}
+
+#js_controller_blog_add #main_content {
+    width: 100%;
+}
+
+#js_controller_blog_add .no_sidebar #main_content_padding{
+    padding: 0 20px;
 }
