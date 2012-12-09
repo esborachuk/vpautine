@@ -447,3 +447,18 @@ body.blog #blog_wrapper {
 #js_controller_music_index div.row_title_info a.link {
     font-size:11px;
 }
+#js_controller_music_index .block_listing_title {
+    background:none;
+    bottom:4px;
+}
+#js_controller_music_index .block_listing_title a{
+    color:#28A6FF;
+}
+
+#js_controller_music_index #right{
+    margin: 0 15px 0 0;
+    position: absolute;
+    right: -12px;
+    top: 129px;
+    width: 260px;
+}
