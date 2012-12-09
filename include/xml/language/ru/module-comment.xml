@@ -111,8 +111,8 @@
 	<phrase module_id="comment" version_id="3.0.0Beta1" var_name="setting_total_comments_in_activity_feed" added="1295000248"><![CDATA[<title>Total Comments in Activity Feed</title><info>Define how many comments should be displayed within each activity feed.</info>]]></phrase>
 	<phrase module_id="comment" version_id="3.0.0Beta1" var_name="setting_total_amount_of_comments_to_load" added="1295000484"><![CDATA[<title>Total Amount of Comments To Load</title><info>When a user clicks to view more comments on a feed or item this setting controls how many comments to load via AJAX on the page they are on. If this number is surpassed they are then directed to the parent item where it will display all the comments and comes built in with a pager.</info>]]></phrase>
 	<phrase module_id="comment" version_id="3.0.0beta5" var_name="delete_this_comment" added="1319121256">Удалить этот комментарий</phrase>
-	<phrase module_id="comment" version_id="3.0.0beta5" var_name="1_person" added="1319121314">1 человек</phrase>
-	<phrase module_id="comment" version_id="3.0.0beta5" var_name="total_people" added="1319121332">{total} людей</phrase>
+	<phrase module_id="comment" version_id="3.0.0beta5" var_name="1_person" added="1319121314">1</phrase>
+	<phrase module_id="comment" version_id="3.0.0beta5" var_name="total_people" added="1319121332">{total}</phrase>
 	<phrase module_id="comment" version_id="3.0.0" var_name="viewing_comment" added="1322467136">Просмотр комментариев</phrase>
 	<phrase module_id="comment" version_id="3.0.0" var_name="setting_thread_comment_total_display" added="1322566739"><![CDATA[<title>Всего вложенных комментариев</title><info>Определите, сколько вложенных комментариев доступно для просмотра.
 
