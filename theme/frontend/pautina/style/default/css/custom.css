@@ -1298,3 +1298,42 @@ div.js_mini_feed_comment {
     margin: 15px 0;
     overflow: hidden;
 }
+
+.notification_index #main_content {
+    width: 100%;
+}
+
+.notification_index #main_content .notification-messages {
+    width: 100%;
+}
+
+.notification_index #main_content .notification_holder {
+    padding: 0 25px;
+}
+
+.notification_index .not-information {
+    overflow: hidden;
+}
+
+.notification_index .not-information .not-user-image {
+    width: 10%;
+    text-align: center;
+    vertical-align: middle;
+}
+
+.notification_index .not-information .not-message {
+    width: 75%;
+    vertical-align: middle;
+}
+
+.notification_index .not-information .not-posted-time{
+    text-align: right;
+    vertical-align: middle;
+    width: 10%;
+}
+
+.notification_index .not-information .not-del-button{
+    width: 15%;
+    text-align: right;
+    vertical-align: middle;
+}
