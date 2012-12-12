@@ -11,7 +11,7 @@
             Phone number:
         </div>
         <div class="table_right">
-            38<input type="text" name="sms[phone]" id="sms-phone" />
+            38<input type="text" name="sms[phone]" id="sms-phone" {if isset($phoneNumber)}value="{$phoneNumber}"{/if} />
         </div>
         <div class="clear"></div>
 

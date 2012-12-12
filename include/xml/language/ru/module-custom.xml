@@ -184,4 +184,5 @@
 	<phrase module_id="custom" version_id="3.1.0beta1" var_name="full_name_wants_to_list_you_both_as_phrase_var_name" added="1331647215"><![CDATA[{full_name} хочет добавить вас "{phrase_var_name}"
 Все ваши запросы доступны по ссылке ниже:
 <a href="{link}">{link}</a>]]></phrase>
+    <phrase module_id="custom" version_id="3.1.0beta1" var_name="custom_phone_number" added="1331647154">Мобильный номер</phrase>
 </phrases>

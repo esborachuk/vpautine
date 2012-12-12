@@ -5,7 +5,23 @@ class Sms_Component_Block_Sms extends Phpfox_Component
 {
     public function process()
     {
+        $aUser = array();
+        if (($iUserId = $this->request()->get('id')) || ($iUserId = $this->getParam('id')))
+        {
+            $aUser = Phpfox::getService('user')->getUser($iUserId, Phpfox::getUserField());
+            if (isset($aUser['user_id']))
+            {
+                $userFields = Phpfox::getService('custom')->getForDisplay('user_main', $iUserId);
+                if (isset($userFields['cf_phone_number'])) {
+                    $phoneNumber = $userFields['cf_phone_number']['value'];
 
+                    $this->template()->assign(
+                        array(
+                            'phoneNumber'  => $phoneNumber
+                        ));
+                }
+            }
+        }
     }
 
     public function sendSms()
