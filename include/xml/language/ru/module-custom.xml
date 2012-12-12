@@ -184,4 +184,31 @@
 	<phrase module_id="custom" version_id="3.1.0beta1" var_name="full_name_wants_to_list_you_both_as_phrase_var_name" added="1331647215"><![CDATA[{full_name} хочет добавить вас "{phrase_var_name}"
 Все ваши запросы доступны по ссылке ниже:
 <a href="{link}">{link}</a>]]></phrase>
+
+    <phrase module_id="custom" version_id="3.1.0beta1" var_name="custom_5098326a89c11" added="1331647156">Улица</phrase>
+    <phrase module_id="custom" version_id="3.1.0beta1" var_name="custom_509846db6d8ae" added="1331647175">Отношение к курению</phrase>
+    <phrase module_id="custom" version_id="3.1.0beta1" var_name="custom_5098472f44b18" added="1331647655">Отношение к алкоголю</phrase>
+    <phrase module_id="custom" version_id="3.1.0beta1" var_name="custom_50984775a841e" added="1331647454">Отношение к наркотикам</phrase>
+    <phrase module_id="custom" version_id="3.1.0beta1" var_name="custom_509848fdc53a3" added="1331635454">Хобби</phrase>
+    <phrase module_id="custom" version_id="3.1.0beta1" var_name="custom_509849107c32b" added="1331456954">Отдых</phrase>
+    <phrase module_id="custom" version_id="3.1.0beta1" var_name="custom_5098fdf606bf5" added="1331635440">Цель пребывания на сайте</phrase>
+    <phrase module_id="custom" version_id="3.1.0beta1" var_name="custom_50997b8ac3afa" added="1331634340">Телефон</phrase>
+    <phrase module_id="custom" version_id="3.1.0beta1" var_name="custom_50983a3ab052b" added="1331636850">Статус</phrase>
+    <phrase module_id="custom" version_id="3.1.0beta1" var_name="custom_50983ab910b4a" added="1331636650">Дети</phrase>
+    <phrase module_id="custom" version_id="3.1.0beta1" var_name="custom_509836a4e817f" added="1331636560">Тип внешности</phrase>
+    <phrase module_id="custom" version_id="3.1.0beta1" var_name="custom_50983fcb7fcdb" added="1331634586">Длинна волос</phrase>
+    <phrase module_id="custom" version_id="3.1.0beta1" var_name="custom_5098401def992" added="1331634596">Цвет волос</phrase>
+    <phrase module_id="custom" version_id="3.1.0beta1" var_name="custom_50984118f1524" added="1331634999">Цвет глаз</phrase>
+    <phrase module_id="custom" version_id="3.1.0beta1" var_name="custom_509841a889be7" added="1331634859">Размер бюста</phrase>
+    <phrase module_id="custom" version_id="3.1.0beta1" var_name="custom_509843c04bd5b" added="1331638856">Телосложение</phrase>
+    <phrase module_id="custom" version_id="3.1.0beta1" var_name="custom_5098441a58863" added="1331634256">Татуировки</phrase>
+    <phrase module_id="custom" version_id="3.1.0beta1" var_name="custom_5098444a7efb2" added="1331639874">Пирсинг</phrase>
+    <phrase module_id="custom" version_id="3.1.0beta1" var_name="custom_5098ff058ecfc" added="1331634145">Рост</phrase>
+    <phrase module_id="custom" version_id="3.1.0beta1" var_name="custom_1" added="1331636655">Вес</phrase>
+    <phrase module_id="custom" version_id="3.1.0beta1" var_name="custom_5098485437783" added="1331631478">Занятость</phrase>
+    <phrase module_id="custom" version_id="3.1.0beta1" var_name="custom_509848ae38154" added="1331638523">Доход</phrase>
+    <phrase module_id="custom" version_id="3.1.0beta1" var_name="custom_509848e4d0d8c" added="1331638854">Место жительства</phrase>
+    <phrase module_id="custom" version_id="3.1.0beta1" var_name="custom_50b523023a83b" added="1331636247">Телефон</phrase>
+    <phrase module_id="custom" version_id="3.1.0beta1" var_name="custom_e_mail" added="1331636998">E-Mail</phrase>
+    <phrase module_id="custom" version_id="3.1.0beta1" var_name="custom_skype" added="1331635684">Skype</phrase>
 </phrases>

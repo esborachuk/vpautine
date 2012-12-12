@@ -537,4 +537,7 @@
 	<phrase module_id="core" version_id="3.3.0beta1" var_name="setting_rackspace_url" added="1339349782"><![CDATA[<title>URL Rackspace контейнера</title><info>Укажите Rackspace Контейнер URL.</info>]]></phrase>
 	<phrase module_id="core" version_id="3.3.0beta2" var_name="mobile_search" added="1340276312">Поиск...</phrase>
 	<phrase module_id="core" version_id="3.3.0rc1" var_name="error" added="1341560923">Ошибка</phrase>
+
+
+    <phrase module_id="core" version_id="3.1.0beta1" var_name="custom_group_5098304d39a7a" added="1331634554">Общая информация</phrase>
 </phrases>
