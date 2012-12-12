@@ -7,7 +7,11 @@ Sms = {
     smsController: 'sms.smsProcess',
 
     init: function() {
-        $(Sms.messageTabsBlock).tabs();
+        $("#tabs").tabs({
+            load: function() {
+                $('#messages_block').show();
+            }
+        });
 
         $(Sms.smsForm).validate({
             rules: {
