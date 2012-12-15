@@ -78,7 +78,7 @@ $(document).ready(function() {
 /*---------slide-title---------*/
 
 
-    $('.image-block, #imagebox li, .js_outer_photo_div, .js_video_parent, .js_album_parent, #js_controller_friend_index').live('hover', function(){
+    $('.image-block, #imagebox li, .js_outer_photo_div, .js_video_parent, .js_album_parent, #js_controller_friend_index #main_content_padding').live('hover', function(){
         $(this).find($('.slide-block')).stop(true, true).slideToggle("fast");
     },
     function(){
