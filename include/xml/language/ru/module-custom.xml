@@ -185,8 +185,8 @@
 Все ваши запросы доступны по ссылке ниже:
 <a href="{link}">{link}</a>]]></phrase>
 
-    <phrase module_id="custom" version_id="3.1.0beta1" var_name="custom_5098326a89c11" added="1331647156">Улица</phrase>
-    <phrase module_id="custom" version_id="3.1.0beta1" var_name="custom_509846db6d8ae" added="1331647175">Отношение к курению</phrase>
+    <phrase module_id="custom" version_id="3.1.0beta1" var_name="custom_street_field" added="1331647156">Улица</phrase>
+    <phrase module_id="custom" version_id="3.1.0beta1" var_name="custom_smoke_habbit" added="1331647175">Отношение к курению</phrase>
     <phrase module_id="custom" version_id="3.1.0beta1" var_name="custom_5098472f44b18" added="1331647655">Отношение к алкоголю</phrase>
     <phrase module_id="custom" version_id="3.1.0beta1" var_name="custom_50984775a841e" added="1331647454">Отношение к наркотикам</phrase>
     <phrase module_id="custom" version_id="3.1.0beta1" var_name="custom_509848fdc53a3" added="1331635454">Хобби</phrase>
@@ -211,4 +211,39 @@
     <phrase module_id="custom" version_id="3.1.0beta1" var_name="custom_50b523023a83b" added="1331636247">Телефон</phrase>
     <phrase module_id="custom" version_id="3.1.0beta1" var_name="custom_e_mail" added="1331636998">E-Mail</phrase>
     <phrase module_id="custom" version_id="3.1.0beta1" var_name="custom_skype" added="1331635684">Skype</phrase>
+
+
+
+    <phrase module_id="custom" version_id="3.1.0beta1" var_name="cf_option_32_1" added="1331637884">Негативное</phrase>
+    <phrase module_id="custom" version_id="3.1.0beta1" var_name="cf_option_32_2" added="1331636384">Нейтральное</phrase>
+    <phrase module_id="custom" version_id="3.1.0beta1" var_name="cf_option_32_3" added="1331636391">Позитивное</phrase>
+
+    <phrase module_id="custom" version_id="3.1.0beta1" var_name="cf_option_33_1" added="1331649884">Негативное</phrase>
+    <phrase module_id="custom" version_id="3.1.0beta1" var_name="cf_option_33_2" added="1331673384">Нейтральное</phrase>
+    <phrase module_id="custom" version_id="3.1.0beta1" var_name="cf_option_33_3" added="1337936384">Позитивное</phrase>
+
+    <phrase module_id="custom" version_id="3.1.0beta1" var_name="cf_option_34_1" added="1331641184">Негативное</phrase>
+    <phrase module_id="custom" version_id="3.1.0beta1" var_name="cf_option_34_2" added="1331413384">Нейтральное</phrase>
+    <phrase module_id="custom" version_id="3.1.0beta1" var_name="cf_option_34_3" added="1334236384">Позитивное</phrase>
+
+    <phrase module_id="custom" version_id="3.1.0beta1" var_name="cf_option_40_1" added="1334239954">Найти старых друзей</phrase>
+    <phrase module_id="custom" version_id="3.1.0beta1" var_name="cf_option_40_2" added="1334245954">Обзавестись новыми друзьями</phrase>
+    <phrase module_id="custom" version_id="3.1.0beta1" var_name="cf_option_40_3" added="1334785954">Найти вторую половинку</phrase>
+    <phrase module_id="custom" version_id="3.1.0beta1" var_name="cf_option_40_4" added="1334711954">Найти партнера для секса</phrase>
+    <phrase module_id="custom" version_id="3.1.0beta1" var_name="cf_option_40_5" added="1334718254">В коммерческих целях</phrase>
+
+    <phrase module_id="custom" version_id="3.1.0beta1" var_name="cf_option_18_1" added="1334712254">Европейская</phrase>
+    <phrase module_id="custom" version_id="3.1.0beta1" var_name="cf_option_18_2" added="1334718124">Арабская</phrase>
+    <phrase module_id="custom" version_id="3.1.0beta1" var_name="cf_option_18_3" added="1334718454">Азиатская</phrase>
+    <phrase module_id="custom" version_id="3.1.0beta1" var_name="cf_option_18_4" added="1334764254">Африканская</phrase>
+
+    <phrase module_id="custom" version_id="3.1.0beta1" var_name="cf_option_23_1" added="1334764254">Короткие</phrase>
+    <phrase module_id="custom" version_id="3.1.0beta1" var_name="cf_option_23_2" added="1334765254">Средние</phrase>
+    <phrase module_id="custom" version_id="3.1.0beta1" var_name="cf_option_23_3" added="1334766444">Длинные</phrase>
+
+    <phrase module_id="custom" version_id="3.1.0beta1" var_name="cf_option_25_1" added="1334766444">Карие</phrase>
+    <phrase module_id="custom" version_id="3.1.0beta1" var_name="cf_option_25_2" added="1334766444">Серые</phrase>
+    <phrase module_id="custom" version_id="3.1.0beta1" var_name="cf_option_25_3" added="1334766444">Голубые</phrase>
+    <phrase module_id="custom" version_id="3.1.0beta1" var_name="cf_option_25_4" added="1334766444">Зеленые</phrase>
+
 </phrases>
