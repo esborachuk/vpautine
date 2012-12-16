@@ -50,8 +50,8 @@ defined('PHPFOX') or exit('NO DICE!');
 			<div class="friend_image" id="js_image_div_{$aFriend.friend_id}">	
 				{img id='sJsUserImage_'$aFriend.friend_id'' user=$aFriend suffix='_100_square' max_width=100 max_height=100}
 			</div>
-			<div class="friend_user_name">
-				{$aFriend|user:'':'':50} 
+			<div class="friend_user_name slide-block">
+				{$aFriend|user:'':'':50}
 			</div>
 			<div class="friend_action">
 				<div class="js_friend_sort_handler js_friend_edit_order"></div>
