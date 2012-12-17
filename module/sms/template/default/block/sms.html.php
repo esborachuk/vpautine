@@ -8,21 +8,34 @@
     <div class="table">
         <div id="sms-error"></div>
         <div class="table_left">
-            Phone number:
+            Номер телефона:
         </div>
-        <div class="table_right">
-            38<input type="text" name="sms[phone]" id="sms-phone" {if isset($phoneNumber)}value="{$phoneNumber}"{/if} />
+        <div class="sms_number_block table_right">
+            <select name="sms[county]">
+                <option value="38">Украина</option>
+                <option value="7">Россия</option>
+            </select>
+            <select name="sms[operator]">
+                <?php $aOperators = $this->_aVars['aOperators']; ?>
+                <?php foreach ($aOperators as $operator): ?>
+                    <option value="<?php echo $operator['value'] ?>" <?php if ($operator['active']) echo "selected='selected'" ?>>
+                        <?php echo $operator['label'] ?> <?php echo $operator['value'] ?>
+                    </option>
+                <?php endforeach; ?>
+            </select>
+            <input placeholder="1234567" type="text" name="sms[phone]" id="sms-phone" {if isset($phoneNumber)}value="{$phoneNumber}"{/if} />
         </div>
         <div class="clear"></div>
-
-        <label for="sms[message]" class="table_left">
-            Message:
-        </label>
-        <div class="table_right">
-            <textarea name="sms[message]" id="sms-message" rows="8" cols="50"></textarea>
+        <div class="sms_block_message">
+            <label for="sms[message]" class="table_left">
+                Сообщение:
+            </label>
+            <div class="table_right">
+                <textarea name="sms[message]" id="sms-message" rows="5" cols="50"></textarea>
+            </div>
         </div>
         <div id="sms-button">
-            <button type="submit" class="button">Отправить Sms</button>
+            <input type="submit" class="button" value="Отправить Sms" onclick="Sms.send(); return false;" />
         </div>
         <div class="clear"></div>
     </div>

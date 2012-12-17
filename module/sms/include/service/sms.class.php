@@ -83,6 +83,10 @@ class Sms_Service_Sms extends Phpfox_Service
         if ($this->getSmsBalance() > self::SMS_PRICE * $smsCount) {
             $response = $this->_sendSms();
         }
+
+        if ($response['name'] == 'Complete') {
+            $this->updateUserSmsCount();
+        }
     }
 
     public function getSmsBalance()
@@ -122,13 +126,14 @@ class Sms_Service_Sms extends Phpfox_Service
 
     public function _sendSms()
     {
+        $number = $this->smsInfo['county'] . $this->smsInfo['operator'] . $this->smsInfo['phone'];
         $sXML = '<?xml version="1.0" encoding="UTF-8"?>
                     <request>
                         ' . $this->_getXmlAuth() . '
                         <message>
                             <from>Pautina.me</from>
                             <text>' . $this->smsInfo['message'] . '</text>
-                            <recipient>38' . $this->smsInfo['phone'] . '</recipient>
+                            <recipient>' . $number . '</recipient>
                         </message>
                     </request>';
         $smsServerAnswer = $this->getSmsCurl($sXML);
@@ -197,8 +202,6 @@ class Sms_Service_Sms extends Phpfox_Service
         if ($smsTodaySend['count'] >= self::SMS_COUNT_USER_CAN_SEND_TODAY) {
             return false;
         } else {
-            $this->updateUserSmsCount();
-
             return true;
         }
     }
@@ -226,7 +229,8 @@ class Sms_Service_Sms extends Phpfox_Service
             $this->database()->update(Phpfox::getT('sms_count'),
                                         array(
                                             'date'  => $this->date,
-                                            'count' => $smsTodaySend['count'] + 1
+                                            'count' => $smsTodaySend['count']
+                                                        + $this->getSmsCount($this->smsInfo['message'])
                                         ),
                                         'user_id = ' . Phpfox::getUserId());
         } else {
@@ -234,10 +238,8 @@ class Sms_Service_Sms extends Phpfox_Service
                                         array(
                                             'user_id' => Phpfox::getUserId(),
                                             'date' => $this->date,
-                                            'count' => 1
+                                            'count' => $this->getSmsCount($this->smsInfo['message'])
                                         ));
-
-
         }
     }
 }

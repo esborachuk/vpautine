@@ -8,7 +8,7 @@
     <div class="table">
         <div id="email-error"></div>
         <div class="table_left">
-            Subject:
+            Тема:
         </div>
         <div class="table_right">
             <input type="text" name="email[title]" id="email-title" />
@@ -16,13 +16,13 @@
         <div class="clear"></div>
 
         <label for="email[message]" class="table_left">
-            Message:
+            Письмо:
         </label>
         <div class="table_right">
             <textarea name="email[message]" id="email-message" rows="8" cols="50"></textarea>
         </div>
         <div id="email-button">
-            <button type="submit" class="button">Отправить Email</button>
+            <input type="submit" class="button" value="Отправить Email" onclick="Email.send(); return false;" />
         </div>
         <div class="clear"></div>
     </div>
