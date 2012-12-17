@@ -116,6 +116,7 @@ div.im_text
     color:#333;
     padding-top:8px;
     border-top:1px #EFEFEF solid;
+    min-height:15px;
 }
 
 div.im_text_not_owner
@@ -161,7 +162,7 @@ div.im_text:hover div.im_date
 {
     position:absolute;
     left:0px;
-    top:6px;
+    top:-1px;
 }
 
 .im_chat_image_owner
@@ -411,7 +412,7 @@ div#js_im_content
 textarea#js_im_text
 {
     margin:auto;
-    height:25px;
+    height:40px;
     width:230px;
     padding:2px 0px 2px 0px;
     border:0px;
@@ -424,6 +425,7 @@ textarea#js_im_text
 {
     position:relative;
     text-align:right;
+    top:-15px;
 }
 
 .im_text_form_img
