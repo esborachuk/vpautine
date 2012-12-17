@@ -11,10 +11,10 @@ div.im_holder
 #js_footer_im_holder
 {
     background:#F9F9F9;
-    border-radius: 4px 4px 4px 4px;
+    border-radius: 4px 4px 0 0;
     right: 22px !important;
     width: 200px;
-    border-width:8px;
+    border-width:8px 8px 0;
     border-style:solid;
     border-color:rgba(0, 0, 0, 0.52);
 
@@ -116,6 +116,7 @@ div.im_text
     color:#333;
     padding-top:8px;
     border-top:1px #EFEFEF solid;
+    min-height:15px;
 }
 
 div.im_text_not_owner
@@ -161,7 +162,7 @@ div.im_text:hover div.im_date
 {
     position:absolute;
     left:0px;
-    top:6px;
+    top:-1px;
 }
 
 .im_chat_image_owner
@@ -403,7 +404,7 @@ ul.im_extra_room li a.new
 
 div#js_im_content
 {
-    height:348px;
+    height:334px;
     overflow:auto;
     cursor: auto;
 }
@@ -411,7 +412,7 @@ div#js_im_content
 textarea#js_im_text
 {
     margin:auto;
-    height:25px;
+    height:40px;
     width:230px;
     padding:2px 0px 2px 0px;
     border:0px;
@@ -424,6 +425,7 @@ textarea#js_im_text
 {
     position:relative;
     text-align:right;
+    top:-1px;
 }
 
 .im_text_form_img
@@ -525,7 +527,7 @@ div#js_friend_input_search
 }
 
 .im_text.im_text_actual_owner.extra_info{
-    background:#f4f4f4;
+    background:#E8E8E8;
 }
 #user-menu a{
     display: block;
@@ -540,11 +542,11 @@ div#js_friend_input_search
 }
 #js_instant_messenger_link{
     border:none !important;
-    width:214px !important;
+    width:216px !important;
     position: relative;
     color:#fff;
     height: 17px;
-    left: -12px;
+    left: -14px;
     padding: 3px 0 0;
     top:0;
     background:none repeat scroll 0 0 rgba(0, 0, 0, 0.30) !important;
@@ -564,3 +566,6 @@ div#js_friend_input_search
     background:none !important;
 }
 
+#js_im_content div.error_message{
+    margin:11px 0;
+}
