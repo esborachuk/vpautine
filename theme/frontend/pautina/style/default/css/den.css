@@ -484,3 +484,12 @@ div.js_album_parent {
     float: left;
     margin-right: 20px;
 }
+
+/* sms */
+.sms_block_message {
+    margin: 10px 0;
+}
+
+.sms_number_block input {
+    margin-left: 5px;
+}
