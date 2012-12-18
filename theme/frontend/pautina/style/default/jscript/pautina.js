@@ -98,7 +98,3 @@ $(document).ready(function() {
 /*------------send-message-on-CTRL+ENTER--------------*/
 
 });
-
-
-
-

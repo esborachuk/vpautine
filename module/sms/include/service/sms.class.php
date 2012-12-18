@@ -126,7 +126,7 @@ class Sms_Service_Sms extends Phpfox_Service
 
     public function _sendSms()
     {
-        $number = $this->smsInfo['county'] . $this->smsInfo['operator'] . $this->smsInfo['phone'];
+        $number = $this->smsInfo['county'] . $this->smsInfo['phone'];
         $sXML = '<?xml version="1.0" encoding="UTF-8"?>
                     <request>
                         ' . $this->_getXmlAuth() . '

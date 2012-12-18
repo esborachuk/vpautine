@@ -15,15 +15,7 @@
                 <option value="38">Украина</option>
                 <option value="7">Россия</option>
             </select>
-            <select name="sms[operator]">
-                <?php $aOperators = $this->_aVars['aOperators']; ?>
-                <?php foreach ($aOperators as $operator): ?>
-                    <option value="<?php echo $operator['value'] ?>" <?php if ($operator['active']) echo "selected='selected'" ?>>
-                        <?php echo $operator['label'] ?> <?php echo $operator['value'] ?>
-                    </option>
-                <?php endforeach; ?>
-            </select>
-            <input placeholder="1234567" type="text" name="sms[phone]" id="sms-phone" {if isset($phoneNumber)}value="{$phoneNumber}"{/if} />
+            <input placeholder="0991234567" type="text" name="sms[phone]" id="sms-phone" {if isset($phoneNumber)}value="{$phoneNumber}"{/if} />
         </div>
         <div class="clear"></div>
         <div class="sms_block_message">
