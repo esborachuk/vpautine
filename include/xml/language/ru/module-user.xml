@@ -752,6 +752,6 @@
 
     <phrase module_id="user" version_id="3.1.0beta1" var_name="custom_group_509838a3e0752" added="1331634021">Семейное положение</phrase>
     <phrase module_id="user" version_id="3.1.0beta1" var_name="custom_group_50983b11a7af8" added="1331635581">Внешность</phrase>
-    <phrase module_id="user" version_id="3.1.0beta1" var_name="custom_social_status" added="1331635512">Социальное положение</phrase>
+    <phrase module_id="user" version_id="3.1.0beta1" var_name="custom_group_509847b48f8be" added="1331635512">Социальное положение</phrase>
     <phrase module_id="user" version_id="3.1.0beta1" var_name="custom_group_50b521d98b7ae" added="1331635885">Контакты</phrase>
 </phrases>
