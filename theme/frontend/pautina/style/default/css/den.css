@@ -493,3 +493,36 @@ div.js_album_parent {
 .sms_number_block input {
     margin-left: 5px;
 }
+
+/* Tabs */
+.tabs-wrapper {
+    display: none;
+}
+
+#tabs .navigate {
+    overflow: hidden;
+    border-bottom: 1px solid #d7d7d7;
+    margin-bottom: 10px;
+}
+
+#tabs .navigate li {
+    float: left;
+    margin-right: 1px;
+}
+
+#tabs .navigate li a {
+    padding: 0 10px;
+    font-weight: bold;
+    line-height: 24px;
+    border: 1px solid #d7d7d7;
+    border-bottom: none;
+    border-radius: 4px 4px 0 0;
+    display: block;
+    color: #333;
+    background: url("../image/layout/input.png") repeat-x scroll 0 0 #F4F4F4;
+}
+
+#tabs .navigate li a.active {
+    color: #28A6FF;
+    background: #fff;
+}

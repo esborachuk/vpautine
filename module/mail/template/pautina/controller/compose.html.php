@@ -15,12 +15,12 @@ defined('PHPFOX') or exit('NO DICE!');
 
 <div id="js_ajax_compose_error_message"></div>
 <div id="tabs">
-    <ul>
-        <li><a href="#message_tab">Сообщения</a></li>
-        <li><a href="#sms_tab">Sms</a></li>
-        <li><a href="#email_tab">Email</a></li>
+    <ul class="navigate">
+        <li><a href="#" data-link="#message_tab" class="active">Сообщения</a></li>
+        <li><a href="#" data-link="#sms_tab">Sms</a></li>
+        <li><a href="#" data-link="#email_tab">Email</a></li>
     </ul>
-    <div id="message_tab">
+    <div id="message_tab" class="tabs-wrapper">
         <div id="messages_block">
             {if PHPFOX_IS_AJAX}
                 <form method="post" action="{url link='mail.compose'}" id="js_form_mail" onsubmit="{plugin call='mail.template_controller_compose_ajax_onsubmit'} $Core.processForm('#js_mail_compose_submit'); $(this).ajaxCall('mail.composeProcess'); return false;">
@@ -134,22 +134,17 @@ defined('PHPFOX') or exit('NO DICE!');
             </form>
         </div>
     </div>
-    <div id="sms_tab">
+    <div id="sms_tab" class="tabs-wrapper">
         {module name='sms.sms'}
     </div>
-    <div id="email_tab">
+    <div id="email_tab" class="tabs-wrapper">
         {module name='email.email'}
     </div>
 </div>
 <script type="text/javascript">
-/*    $(document).ready(function() {l}
-        $("#tabs").tabs(
-        {l}
-            enable: true
-        {r}
-        );
-        $('#messages_block').show();
-    {r});*/
+    $(document).ready(function() {l}
+        $('#tabs').Tab();
+    {r});
 </script>
 
 {if isset($sMessageClaim)}
