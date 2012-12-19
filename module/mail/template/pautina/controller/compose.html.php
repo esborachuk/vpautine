@@ -143,6 +143,8 @@ defined('PHPFOX') or exit('NO DICE!');
 </div>
 <script type="text/javascript">
     $(document).ready(function() {l}
+        Sms.init();
+        Email.init();
         $('#tabs').Tab();
     {r});
 </script>

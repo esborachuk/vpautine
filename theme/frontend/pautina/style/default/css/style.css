@@ -426,7 +426,9 @@ body.blog #blog_wrapper {
     width: 12px;
 }
 #js_controller_music_index div.row_title_info,
-#js_controller_music_browse_album #main_content{
+#js_controller_music_browse_album #main_content,
+.music_index #js_is_user_profile div.row_title_info
+{
    min-height:0 !important;
    margin-left:0 !important;
 }
@@ -441,17 +443,17 @@ body.blog #blog_wrapper {
     position: relative;
     top: -1px;
 }
-#js_controller_music_index #main_content{
+#js_controller_music_index #main_content, .music_index #js_is_user_profile #main_content {
     width:auto;
 }
-#js_controller_music_index div.row_title_info a.link {
+#js_controller_music_index div.row_title_info a.link, .music_index #js_is_user_profile div.row_title_info a.link{
     font-size:11px;
 }
-#js_controller_music_index .block_listing_title {
+#js_controller_music_index .block_listing_title, .music_index #js_is_user_profile .block_listing_title {
     background:none;
     bottom:4px;
 }
-#js_controller_music_index .block_listing_title a{
+#js_controller_music_index .block_listing_title a, .music_index #js_is_user_profile .block_listing_title a {
     color:#28A6FF;
 }
 
@@ -464,20 +466,20 @@ body.blog #blog_wrapper {
     width:622px;
 }
 
-#js_controller_music_index .block_listing_image > a {
+#js_controller_music_index .block_listing_image > a, .music_index #js_is_user_profile .block_listing_image > a {
     position: relative;
     z-index: 2;
 }
 
-#js_controller_music_index .duration{
+#js_controller_music_index .duration, .music_index #js_is_user_profile .duration{
     float:right;
 }
-#js_controller_music_index #site_content{
+#js_controller_music_index #site_content, .music_index #js_is_user_profile #site_content{
     width:561px;
-    padding: 0 10px;
+    padding: 0 10px !important;
 }
 /*friend page*/
-#js_controller_friend_index #main_content{
+#js_controller_friend_index #main_content, .music_index #js_is_user_profile #main_content{
     border-left:none;
 }
 

@@ -11,8 +11,8 @@
 defined('PHPFOX') or exit('NO DICE!'); 
 
 ?>
-<?php if (isset($this->_aVars['sReq3']) || $this->_aVars['sTagType'] == 'blog_profile'): ?>
-    <?php if ($this->_aVars['sReq3'] == 'photo' || $this->_aVars['sTagType'] == 'blog_profile'): ?>
+<?php if (isset($this->_aVars['sReq3']) || $this->_aVars['sTagType'] == 'blog_profile' || $this->_aVars['sFullControllerName'] == 'music_index' || $this->_aVars['sFullControllerName'] == 'video_index'): ?>
+    <?php if ($this->_aVars['sReq3'] == 'photo' || $this->_aVars['sTagType'] == 'blog_profile' || $this->_aVars['sFullControllerName'] == 'music_index' || $this->_aVars['sFullControllerName'] == 'video_index'): ?>
     <div id="profile_small_header_block">
         <div>
             <h1>
