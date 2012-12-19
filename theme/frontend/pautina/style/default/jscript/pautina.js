@@ -1,10 +1,3 @@
-$(function() {
-    $(document).bind('ajaxStop', function() {
-        Sms.init();
-        Email.init();
-    });
-});
-
 $(document).ready(function() {
     Preloader = {
         showPreloader: function() {
@@ -55,8 +48,8 @@ $(window).scroll(function(){
 });
 /*--------header_static_position--------*/
 
-/*-----back_button-----*/
 
+/*-----back_button-----*/
 $(document).ready(function() {
 
     var backLink = $('.go_back_link');
@@ -69,36 +62,28 @@ $(document).ready(function() {
     backLink .show();
 
 });
-
 /*-----back_button-----*/
 
 
 $(document).ready(function() {
-
 /*---------slide-title---------*/
-
-
     $('.image-block, #imagebox li, .js_outer_photo_div, .js_video_parent, .js_album_parent, #js_controller_friend_index #main_content_padding').live('hover', function(){
         $(this).find($('.slide-block')).stop(true, true).slideToggle("fast");
     },
     function(){
         $(this).find($('.slide-block')).stop(true, true).slideToggle("fast");
     });
-
 /*---------slide-title----------*/
 
-/*------------send-message-on-CTRL+ENTER--------------*/
 
+/*------------send-message-on-CTRL+ENTER--------------*/
     jQuery(document).keydown(function(e) {
         if (e.ctrlKey && e.keyCode == 13) {
             $('textarea:focus').parents('.js_comment_feed_form').submit();
         }
     });
-
 /*------------send-message-on-CTRL+ENTER--------------*/
 
+/* set placeholder attr for the phone field in registration form */
+    $('#js_registration_holder .js_custom_group_10 input').attr('placeholder', '0991234567');
 });
-
-
-
-
