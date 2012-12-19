@@ -232,4 +232,8 @@
 	<phrase module_id="mail" version_id="3.3.0beta2" var_name="custom_folders" added="1340816002">Пользовательские папки</phrase>
 	<phrase module_id="mail" version_id="3.3.0beta2" var_name="this_message_was_sent_to_full_name" added="1341218986">Это сообщение было отправлено {full_name}</phrase>
 	<phrase module_id="mail" version_id="3.3.0beta2" var_name="this_message_was_sent_from_you" added="1341219032">Это сообщение было отправлено от вас</phrase>
+
+    <phrase module_id="mail" version_id="3.3.0custom" var_name="sms_tab_title" added="1341216662">SMS</phrase>
+    <phrase module_id="mail" version_id="3.3.0custom" var_name="message_tab_title" added="1341114662">Сообщение</phrase>
+    <phrase module_id="mail" version_id="3.3.0custom" var_name="email_tab_title" added="1341217852">E-Mail</phrase>
 </phrases>
