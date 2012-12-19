@@ -456,13 +456,13 @@ select
 #header_menu_login .header_menu_login_sub
 {
 	padding-top:4px;
-	color:#BFBFBF;
+	color:#333;
 }
 
 #header_menu_login .header_menu_login_sub a,
 #header_menu_login .header_menu_login_sub a:hover
 {
-	color:#BFBFBF;
+	color:#333;
 }
 
 #header_menu_login .header_menu_login_sub input
@@ -490,6 +490,7 @@ select
 {
 	position:relative;
 	font-size:12px;
+    margin-top: 30px;
 }
 
 #header_user_register a,
@@ -4516,7 +4517,7 @@ span.feed_icon_block img {
     border: 1px solid #D7D7D7 !important;
     border-radius: 6px 6px 6px 6px !important;
     padding: 10px;
-    margin:5px 0 0 560px;
+    margin:5px 0 0 480px;
 }
 
 .user_register_form .table_right input {

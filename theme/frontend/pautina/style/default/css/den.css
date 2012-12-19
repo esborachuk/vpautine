@@ -526,3 +526,46 @@ div.js_album_parent {
     color: #28A6FF;
     background: #fff;
 }
+
+#js_controller_mail_index #main_content, #js_controller_user_register #main_content, #js_controller_user_login #main_content {
+    width: 100%;
+    border-left: none;
+}
+
+#js_controller_mail_index #main_content_padding, #js_controller_user_login #main_content {
+    padding: 10px;
+}
+
+#js_controller_mail_thread #main_content {
+    border-left: none;
+    padding: 0 10px;
+}
+
+div#js_controller_user_login div#js_login_form_msg {
+    padding: 0 !important;
+    margin: 0 !important;
+}
+
+#js_controller_mail_thread div.row_title_info {
+    margin-left: 60px;
+}
+
+#js_controller_mail_thread .mail_thread_holder {
+    border-bottom: 1px solid #d7d7d7;
+    padding-bottom: 20px;
+}
+
+#js_controller_mail_thread #section_menu {
+    margin: 10px 0;
+}
+
+div#main_registration_form {
+    width: 100%;
+    padding: 0;
+    margin: 0;
+}
+
+.user_register_intro img {
+    width: 500px;
+    height: auto;
+}

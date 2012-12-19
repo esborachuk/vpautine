@@ -3,7 +3,8 @@ defined('PHPFOX') or exit('NO DICE!');
 
 class Sms_Component_Block_Sms extends Phpfox_Component
 {
-    const PHONE_TABLE = 'cf_50b523023a83b';
+    const PHONE_TABLE = 'cf_phone';
+    const PHONE_TABLE_TYPE = 'user_panel';
 
     public function process()
     {
@@ -13,7 +14,7 @@ class Sms_Component_Block_Sms extends Phpfox_Component
             $aUser = Phpfox::getService('user')->getUser($iUserId, Phpfox::getUserField());
             if (isset($aUser['user_id']))
             {
-                $userFields = Phpfox::getService('custom')->getForDisplay('user_main', $iUserId);
+                $userFields = Phpfox::getService('custom')->getForDisplay(self::PHONE_TABLE_TYPE, $iUserId);
                 if (isset($userFields[self::PHONE_TABLE])) {
                     $phoneNumber = $userFields[self::PHONE_TABLE]['value'];
 
