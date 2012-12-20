@@ -38,8 +38,8 @@ $_CONF['db']['slave_servers'] = array();
 $_CONF['balancer']['enabled'] = false;
 $_CONF['balancer']['servers'] = array();
 
-/*$_CONF['core.host'] = 'pautina.me';*/
-$_CONF['core.host'] = 'localhost';
+$_CONF['core.host'] = 'pautina.me';
+/*$_CONF['core.host'] = 'localhost';*/
 
 $_CONF['core.folder'] = '/';
 
