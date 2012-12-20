@@ -16,13 +16,14 @@ defined('PHPFOX') or exit('NO DICE!');
  * 
  * @example mysql
  */
+
 $_CONF['db']['driver'] = 'mysql';
-$_CONF['db']['host'] = 'dkezlya.mysql.ukraine.com.ua';
+$_CONF['db']['host'] = 'pautina.me';
 $_CONF['db']['user'] = 'dkezlya_pautina';
-$_CONF['db']['pass'] = 'vsklhp6f';
+$_CONF['db']['pass'] = 'azsxdcfv';
 $_CONF['db']['name'] = 'dkezlya_pautina';
 $_CONF['db']['prefix'] = 'phpfox_';
-$_CONF['db']['port'] = '';
+$_CONF['db']['port'] = '3306';
 
 /*$_CONF['db']['driver'] = 'mysql';
 $_CONF['db']['host'] = 'localhost';
