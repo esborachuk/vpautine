@@ -19,9 +19,9 @@ defined('PHPFOX') or exit('NO DICE!');
 
 $_CONF['db']['driver'] = 'mysql';
 $_CONF['db']['host'] = 'localhost';
-$_CONF['db']['user'] = 'dkezlya_pautina';
+$_CONF['db']['user'] = 'dkezlya_pautinad';
 $_CONF['db']['pass'] = 'A,SG%H-cMG*K';
-$_CONF['db']['name'] = 'dkezlya_pautina';
+$_CONF['db']['name'] = 'dkezlya_pautina_dev';
 $_CONF['db']['prefix'] = 'phpfox_';
 $_CONF['db']['port'] = '';
 
