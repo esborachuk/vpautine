@@ -10,7 +10,7 @@
 
 defined('PHPFOX') or exit('NO DICE!');
 
-@ini_set('memory_limit', '64M');
+@ini_set('memory_limit', '256M');
 @set_time_limit(0);
 
 if (!function_exists('memory_get_usage'))
