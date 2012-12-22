@@ -569,3 +569,11 @@ div#main_registration_form {
     width: 500px;
     height: auto;
 }
+
+.profile-detail-link {
+    margin-top: 10px;
+}
+
+.profile-detail-link a {
+    font-weight: bold;
+}
