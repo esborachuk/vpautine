@@ -117,4 +117,5 @@
 	<phrase module_id="profile" version_id="3.1.0rc1" var_name="menu_profile_profile_532c28d5412dd75bf975fb951c740a30" added="1332257954">Профиль</phrase>
 	<phrase module_id="profile" version_id="3.2.0beta1" var_name="user_setting_can_change_cover_photo" added="1334061288">Может изменять обложку профиля?</phrase>
 	<phrase module_id="profile" version_id="3.3.0beta1" var_name="cover_photo" added="1339153611">Фотография на обложке</phrase>
+    <phrase module_id="profile" version_id="3.3.0beta1" var_name="show_detail_info" added="5339153611">Показать полную информацию</phrase>
 </phrases>

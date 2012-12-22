@@ -140,6 +140,7 @@ defined('PHPFOX') or exit('NO DICE!');
                         <span class="user-relationships">{if Phpfox::getParam('user.enable_relationship_status') && $sRelationship != ''}{$sRelationship} {/if}</span>
                     </div>
                 </div>
+                <div class="profile-detail-link"><a href="{url link=$aUser.user_name}info">{phrase var='profile.show_detail_info'}</a></div>
             </div>
             {if Phpfox::getService('profile')->timeline()}
             <div class="timeline_main_menu">

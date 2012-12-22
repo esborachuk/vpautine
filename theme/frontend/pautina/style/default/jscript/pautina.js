@@ -15,7 +15,7 @@ $(document).ready(function() {
     }
 });
 
-PautinaNotification = {
+/*PautinaNotification = {
     update: function() {
         setTimeout(PautinaNotification.check, 200);
     },
@@ -30,12 +30,12 @@ PautinaNotification = {
             notifyBlockShow.next().removeClass('active');
         }
     }
-};
+};*/
 
-$(document).ready(function() {
+/*$(document).ready(function() {
     // check notifications and update button class
     var pautinaNotificationInterval = setInterval(PautinaNotification.check, 200);
-});
+});*/
 
 /*-------header_static_position--------*/
 $(window).scroll(function(){
