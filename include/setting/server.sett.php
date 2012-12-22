@@ -19,9 +19,9 @@ defined('PHPFOX') or exit('NO DICE!');
 
 $_CONF['db']['driver'] = 'mysql';
 $_CONF['db']['host'] = 'localhost';
-$_CONF['db']['user'] = 'dkezlya_pautinas';
+$_CONF['db']['user'] = 'dkezlya_pautinad';
 $_CONF['db']['pass'] = 'A,SG%H-cMG*K';
-$_CONF['db']['name'] = 'dkezlya_pautina_stage';
+$_CONF['db']['name'] = 'dkezlya_pautina_dev';
 $_CONF['db']['prefix'] = 'phpfox_';
 $_CONF['db']['port'] = '';
 
@@ -39,7 +39,7 @@ $_CONF['db']['slave_servers'] = array();
 $_CONF['balancer']['enabled'] = false;
 $_CONF['balancer']['servers'] = array();
 
-$_CONF['core.host'] = 'phpfoxdev.pautina.me';
+$_CONF['core.host'] = 'development.pautina.me';
 //$_CONF['core.host'] = 'localhost';
 
 $_CONF['core.folder'] = '/';
