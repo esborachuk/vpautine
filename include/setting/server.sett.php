@@ -1,7 +1,7 @@
 <?php
 /**
  * [PHPFOX_HEADER]
- * 
+ *
  * @copyright		[PHPFOX_COPYRIGHT]
  * @author			natio
  * @package 		PhpFox
@@ -13,7 +13,7 @@ defined('PHPFOX') or exit('NO DICE!');
 /**
  * Database Driver
  * Support: mysql, mysqli, mssql, postgres or sqlite
- * 
+ *
  * @example mysql
  */
 $_CONF['db']['driver'] = 'mysql';
