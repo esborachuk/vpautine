@@ -5,7 +5,7 @@ class Sms_Service_Sms extends Phpfox_Service
     const SMS_SERVICE_URL = 'http://letsads.com/api';
     const SMS_LOGIN = '380937649408';
     const SMS_PASS = 'azsxdcfv';
-    const SMS_COUNT_USER_CAN_SEND_TODAY = 30;
+    const SMS_COUNT_USER_CAN_SEND_TODAY = 50;
 
     private $date;
     private $smsInfo;
