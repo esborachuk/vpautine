@@ -1263,7 +1263,7 @@ class Photo_Service_Callback extends Phpfox_Service
 		}		
 		elseif ($iId == 'photo-thumbnail')
 		{
-			@ini_set('memory_limit', '100M');
+			@ini_set('memory_limit', '256M');
 			
 			$iCnt = $this->database()->select('COUNT(*)')
 				->from(Phpfox::getT('photo'))

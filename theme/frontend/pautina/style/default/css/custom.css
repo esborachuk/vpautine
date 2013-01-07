@@ -283,10 +283,6 @@ a:hover {
 
 #imagebox-block li a:hover, #videobox-block li a:hover {text-decoration: none;}
 
-.profile_info span{
-    display: block;
-}
-
 .menu_box {
     position: relative;
     clear: both;
@@ -1242,8 +1238,9 @@ div.js_mini_feed_comment {
     width: 100%!important;
 }
 
-.video_index #js_controller_video_index #main_content{
+.video_index #js_controller_video_index #main_content, .video_index #main_content {
     width: 100%;
+    border-left: none;
 }
 
 .video_index #js_controller_video_index div.header_bar_menu {

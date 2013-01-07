@@ -16,9 +16,9 @@ defined('PHPFOX') or exit('NO DICE!');
 <div id="js_ajax_compose_error_message"></div>
 <div id="tabs">
     <ul class="navigate">
-        <li><a href="#" data-link="#message_tab" class="active">Сообщения</a></li>
-        <li><a href="#" data-link="#sms_tab">Sms</a></li>
-        <li><a href="#" data-link="#email_tab">Email</a></li>
+        <li><a href="#" data-link="#message_tab" class="active">{phrase var='mail.message_tab_title'}</a></li>
+        <li><a href="#" data-link="#sms_tab">{phrase var='mail.sms_tab_title'}</a></li>
+        <li><a href="#" data-link="#email_tab">{phrase var='mail.email_tab_title'}</a></li>
     </ul>
     <div id="message_tab" class="tabs-wrapper">
         <div id="messages_block">
