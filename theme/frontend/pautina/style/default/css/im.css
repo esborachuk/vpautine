@@ -112,11 +112,13 @@ div#js_im_text
 
 div.im_text
 {
-    position:relative;
-    color:#333;
-    padding-top:8px;
-    border-top:1px #EFEFEF solid;
-    min-height:15px;
+    border-top: 1px solid #D3D3D3;
+    clear: both;
+    color: #333333;
+    margin: 5px;
+    min-height: 15px;
+    padding-top: 8px;
+    position: relative;
 }
 
 div.im_text_not_owner
@@ -158,13 +160,6 @@ div.im_text:hover div.im_date
     display:block;
 }
 
-.im_chat_image
-{
-    position:absolute;
-    left:0px;
-    top:-1px;
-}
-
 .im_chat_image_owner
 {
     right:0px;
@@ -173,8 +168,11 @@ div.im_text:hover div.im_date
 
 div.im_text div.im_message
 {
-    margin-left:32px;
-    width:160px;
+    font-family: verdana;
+    font-size: 11px;
+    margin-left: 32px;
+    width: 160px;
+    word-wrap: break-word;
 }
 
 
@@ -194,8 +192,9 @@ div.im_text div.im_message
 .close:hover{background-color:#4f4f4f;}
 .im_message_owner
 {
-    text-align:right;
+    text-align:left;
     color:#686868;
+    word-wrap:break-word;
 
 }
 
