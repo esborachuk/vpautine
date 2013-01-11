@@ -499,3 +499,8 @@ body.blog #blog_wrapper {
 #js_controller_friend_pending #main_content{
     width:100%;
 }
+ /*chat*/
+
+.im_chat_image{
+    float:left;
+}
