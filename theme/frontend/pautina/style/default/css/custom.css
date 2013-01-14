@@ -1333,3 +1333,33 @@ div.js_mini_feed_comment {
     text-align: right;
     vertical-align: middle;
 }
+
+#holder_notify ul.table_clear_button li {
+    float:none;
+    margin-bottom: 4px;
+    margin-right: 0;
+    clear: both;
+    text-align: right;
+    width: 24px;
+    position: relative;
+    height: 24px;
+}
+
+#holder_notify ul.table_clear_button li input.button {
+    font-size: 14px;
+    width: 24px;
+    text-align: center;
+    padding: 2px 4px;
+    border: #28A6FF;
+}
+
+#holder_notify ul.table_clear_button .title-button {
+    display: block;
+    position: absolute;
+    right: 50px;
+    width: 70px;
+    border: 1px solid #000;
+    background: #fff;
+    margin: 5px 0;
+    opacity: 0;
+}
