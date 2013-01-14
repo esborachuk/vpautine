@@ -354,7 +354,8 @@ a:hover {
 ul.block_listing li .block_listing_image {
     float: none;
 }
-ul.block_listing li .block_listing_title, #js_friend_sort_holder .friend_user_name {
+ul.block_listing li .block_listing_title, #js_friend_sort_holder .friend_user_name,
+.profile_friend_name {
     background: url("../image/friend-like-bg.png") repeat scroll left top transparent;
     border-radius: 0;
     -moz-border-radius: 0;
@@ -365,11 +366,12 @@ ul.block_listing li .block_listing_title, #js_friend_sort_holder .friend_user_na
     text-align: center;
     width: 100%;
 }
-ul.block_listing li .block_listing_title a, #js_friend_sort_holder .friend_user_name a {
+ul.block_listing li .block_listing_title a, #js_friend_sort_holder .friend_user_name a,
+div.profile_friend_name a {
     color: #fff;
     font-size: 10px;
 }
-ul.block_listing li .block_listing_title a:hover {
+ul.block_listing li .block_listing_title a:hover, .profile_friend_name a:hover {
     color: #000;
 }
 

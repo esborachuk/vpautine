@@ -26,7 +26,7 @@ class Friend_Component_Controller_Profile extends Phpfox_Component
 			$this->setParam('aUser', $aUser);
 		}		
 		
-		$iPageSize = 12;
+		$iPageSize = 40;
 		$iPage = $this->request()->getInt('page');
 		$aUser = $this->getParam('aUser');
 		$bMutual = (($this->request()->get('req3') == 'mutual') ? true : false);

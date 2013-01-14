@@ -201,10 +201,16 @@
     color: #28A6FF;
 }
 
-#js_controller_photo_index #main_content, #js_controller_friend_index #main_content
+#js_controller_photo_index #main_content, #js_controller_friend_index #main_content,
+.friend_profile  #main_content
 {
-    width: 100%;
+    width: auto;
     margin-left: 0;
+}
+
+.friend_profile  #main_content {
+    border-left: none;
+    padding: 10px 20px;
 }
 
 #js_controller_photo_index #js_actual_photo_content {
@@ -576,4 +582,21 @@ div#main_registration_form {
 
 .profile-detail-link a {
     font-weight: bold;
+}
+
+/* Friends page */
+body.friend_profile div#main_content #content div.profile_friend_block.go_left {
+    margin: 0 7px 4px 0 !important;
+    padding: 0 !important;
+    position: relative;
+}
+div.profile_friend_name {
+    bottom: 3px;
+    background: url("../image/friend-like-bg.png") repeat scroll left bottom transparent;
+    display: none;
+    padding: 7px 0;
+    width: 100px;
+}
+div.profile_friend_name a {
+    font-weight: normal;
 }
