@@ -605,3 +605,86 @@ div.profile_friend_name {
 div.profile_friend_name a {
     font-weight: normal;
 }
+
+#js_is_user_profile #content #feed_wrapper {
+    padding: 0;
+}
+
+/*==My Menu==*/
+#user-menu {
+    position: fixed;
+    margin-left: -496px;
+    margin-top: 32px;
+    left: 50%;
+    background: #fff;
+    border-radius: 3px;
+    padding: 5px 0 0 8px;
+    z-index: 2;
+    box-shadow: 0px 0px 8px rgba(0,0,0,0.1);
+}
+
+#user-menu a {
+    background: url(../image/pautina/user_image_icons.png) no-repeat;
+    display: block;
+    line-height: 24px;
+    font-size: 11px;
+    color: #4c4c4c;
+    height: 20px;
+    width: 18px;
+}
+
+#user-menu a span {
+    display: none;
+    margin: -5px 0 0 18px;
+    padding: 0 0 0 10px;
+    background: #fff;
+    width: 100px;
+    line-height: 30px;
+    color: #28a6ff;
+    border-radius: 0 3px 3px 0;
+    box-shadow: 2px 0px 8px rgba(0,0,0,0.1);
+}
+
+#user-menu a:hover span {
+    display: block;
+}
+
+#user-menu li.friend a {
+    background-position: 0 5px;
+}
+
+#user-menu li.photo a {
+    background-position: 0 -27px;
+}
+
+#user-menu li.video a {
+    background-position: 0 -60px;
+}
+
+#user-menu li.blog a {
+    background-position: 0 -94px;
+}
+
+#user-menu li.music a {
+    background-position: 0 -127px
+}
+
+#user-menu li.friend a:hover {
+    background-position: 0 -161px;
+}
+
+#user-menu li.photo a:hover {
+    background-position: 0 -193px;
+}
+
+#user-menu li.video a:hover {
+    background-position: 0 -226px;
+}
+
+#user-menu li.blog a:hover {
+    background-position: 0 -260px;
+}
+
+#user-menu li.music a:hover {
+    background-position: 0 -293px
+}

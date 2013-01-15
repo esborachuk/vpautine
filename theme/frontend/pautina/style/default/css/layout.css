@@ -4489,9 +4489,12 @@ span.feed_icon_block img {
 
 .activity_feed_image img, .block_listing_image img {
     border-radius: 3px;
+}
+
+.activity_feed_image img {
+    box-shadow: 0px 0px 8px rgba(0,0,0,0.1);
     padding: 3px;
     border: 1px solid #D7D7D7;
-    box-shadow: 0px 0px 8px rgba(0,0,0,0.1);
 }
 
 .activity_like_holder img {

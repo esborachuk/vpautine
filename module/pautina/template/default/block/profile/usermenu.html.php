@@ -1,4 +1,3 @@
-<a id="call-menu" href="#" onmouseout="MenuOut.animate(); return false;" onmouseover="MenuOver.animate(); return false;" onclick="Menu.toggle(); return false;"></a>
 <div id="user-menu">
     <ul>
         <?php foreach($this->getVar('menu') as $key => $item): ?>

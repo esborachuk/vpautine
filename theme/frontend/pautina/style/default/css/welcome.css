@@ -4,6 +4,7 @@ div#welcome
 	border-bottom:1px #DFDFDF solid;	
 	position:relative;
 	min-height:50px;
+    box-shadow: 0px 0px 8px rgba(0,0,0,0.1);
 }
 
 div#welcome .welcome_profile_image
