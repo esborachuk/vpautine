@@ -295,16 +295,16 @@ a:hover {
 {
     margin-left: -5px;
     background: #4c4c4c;
-    font-size: 18px;
-    font-weight: normal;
-    padding: 6px 0 8px 25px;
+    font-size: 14px;
+    font-weight: bold;
+    padding: 10px 0 10px 20px;
     color: #3FB6E2;
 }
 
 .menu_box .all-items, .p_bottom_5 .all-items{
-    padding: 15px 25px;
+    padding: 15px 25px 10px 25px;
     color: #3FB6E2;
-    font-size: 12px;
+    font-size: 11px;
     display: block;
     font-weight: bold;
 }
@@ -466,6 +466,7 @@ ul.block_listing li .block_listing_title a:hover, .profile_friend_name a:hover {
 	margin-left: 332px;
 	width: 566px;
     border-left: 1px solid #d7d7d7;
+    box-shadow: 0px 0px 8px rgba(0,0,0,0.2);
 }
 
 .pages_view_sub_menu ul {
@@ -731,6 +732,7 @@ a.friend_action_delete, a.friend_action_delete:hover {
 
 textarea {
     font-family: "lucida grande",tahoma,verdana,arial,sans-serif;
+    box-shadow: inset 0px 0px 8px rgba(0,0,0,0.1);
 }
 
 #js_is_user_profile #content > div{
@@ -1052,11 +1054,14 @@ div.row_title_image {
     top: -5px;
 }
 
-.js_feed_view_more_entry_holder, #js_new_feed_update {
-	padding: 15px 10px;
+.js_feed_view_more_entry_holder {
+    padding: 0 10px 15px 10px;
+}
+#js_new_feed_update {
+    padding: 5px;
 }
 .activity_feed_content {
-	margin-left: 62px;
+	margin-left: 70px;
 }
 
 #js_photo_view_comment_holder .feed_comment_bottom {

@@ -48,12 +48,12 @@ body{
 #js_is_user_profile #content .block .title,
 #js_block_border_log_login .title {
     background: url("../image/bg_dot.png") repeat scroll 0 0 transparent !important;
-    box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.37);
+    box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.3);
     color: #3FB6E2;
-    font-size: 18px;
-    font-weight: normal;
+    font-size: 14px;
+    font-weight: bold;
     margin-left: -5px;
-    padding: 6px 0 8px 25px;
+    padding: 10px 0 10px 25px;
 }
 #logo, #logo:hover{
     text-indent: -9999px;

@@ -177,6 +177,11 @@
     float: none;
 }
 
+#profile_small_header_block .profile_image_holder {
+    float: left;
+    margin-right: 20px;
+}
+
 #js_is_user_profile #profile_small_header_block .profile_image .p_4 {
     padding-left: 0;
     width: 116px;
