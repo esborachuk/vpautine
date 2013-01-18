@@ -11,8 +11,8 @@
 defined('PHPFOX') or exit('NO DICE!'); 
 
 ?>
-<?php if (isset($this->_aVars['sReq3']) || $this->_aVars['sTagType'] == 'blog_profile' || $this->_aVars['sFullControllerName'] == 'music_index' || $this->_aVars['sFullControllerName'] == 'video_index'): ?>
-    <?php if ($this->_aVars['sReq3'] == 'photo' || $this->_aVars['sTagType'] == 'blog_profile' || $this->_aVars['sFullControllerName'] == 'music_index' || $this->_aVars['sFullControllerName'] == 'video_index'): ?>
+<?php $headerService = Phpfox::getService('pautina.header.header'); ?>
+<?php if ($headerService->showMiniHeader($this->_aVars['sFullControllerName'])): ?>
     <div id="profile_small_header_block">
         <div>
             <h1>
@@ -26,7 +26,6 @@ defined('PHPFOX') or exit('NO DICE!');
         <div class="clear"></div>
     </div>
     <div class="clear"></div>
-    <?php endif; ?>
 <?php else: ?>
 <div id="profile_header_block" class="{if $aUser.cover_photo}isset_profile_logo_image{/if}">
     <div id="profile_header_logo">{module name='profile.logo'}

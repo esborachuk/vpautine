@@ -479,47 +479,6 @@ div#js_friend_input_search
     background-color: yellow;
 }
 
-
-/*==My Menu==*/
-#call-menu{
-    background: url("../image/module/my_menu.png") no-repeat scroll 0 0 #000000;
-    border: 3px solid #D7D7D7;
-    display: inline-block;
-    height: 105px;
-    padding: 0 10px;
-    position: fixed;
-    right: -59px;
-    top: 108px;
-    width: 44px;
-    z-index: 101;
-}
-
-#user-menu{
-    background-color: #F8F8F8;
-    border: 2px solid #ECECEC;
-    border-radius: 6px 0 0 6px;
-    display: none;
-    padding: 0 90px 0 10px;
-    position: fixed !important;
-    right: -12px;
-    top: 107px;
-    width: 85px;
-    z-index: 100 !important;
-}
-
-#user-menu ul li:first-child {
-    border-top:none;
-}
-#user-menu ul li:last-child {
-    border-bottom:none;
-}
-
-#user-menu ul li {
-    font-size: 18px;
-    border-bottom: 1px solid #FEFEFE;
-    border-top: 1px solid #E0E0E0;
-    width:180px;
-}
 .v_middle.close_panel{
     float:right;
     margin:3px 0 0;

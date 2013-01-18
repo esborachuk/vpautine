@@ -12,38 +12,28 @@ class Pautina_Service_Profile_Usermenu extends Phpfox_Service
         $url = Phpfox::getLib('url');
 
         $menu = array(
-            'wall' => array(
-                'label' => 'Стена',
-                'url' => $userLink . '',
-                'class' => 'wall'
-            ),
-            'info' => array(
-                'label' => 'Информация',
-                'url' => $userLink . 'info',
-                'class' => 'info'
-            ),
             'friend' => array(
-                'label' => 'Друзья',
+                'label' => 'Мои Друзья',
                 'url' => $url->makeUrl('friend.view_my'),
                 'class' => 'friend'
             ),
             'photo' => array(
-                'label' => 'Фото',
+                'label' => 'Мои Фото',
                 'url' => $url->makeUrl('photo.view_my'),
                 'class' => 'photo'
             ),
             'video' => array(
-                'label' => 'Видеозаписи',
+                'label' => 'Мое Видео',
                 'url' => $url->makeUrl('video.view_my'),
                 'class' => 'video'
             ),
             'blog' => array(
-                'label' => 'Блоги',
+                'label' => 'Мой Блог',
                 'url' => $url->makeUrl('blog.view_my'),
                 'class' => 'blog'
             ),
             'music' => array(
-                'label' => 'Аудиозаписи',
+                'label' => 'Моя Музыка',
                 'url' => $url->makeUrl('music.view_my'),
                 'class' => 'music'
             )

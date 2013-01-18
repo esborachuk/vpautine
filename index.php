@@ -8,6 +8,7 @@
  * @version 		$Id: index.php 3829 2011-12-19 09:33:03Z Raymond_Benc $ 
  */
 
+
 // Make sure we are running PHP5.
 if (version_compare(phpversion(), '5', '<') === true)
 {

@@ -295,16 +295,16 @@ a:hover {
 {
     margin-left: -5px;
     background: #4c4c4c;
-    font-size: 18px;
-    font-weight: normal;
-    padding: 6px 0 8px 25px;
+    font-size: 14px;
+    font-weight: bold;
+    padding: 10px 0 10px 20px;
     color: #3FB6E2;
 }
 
 .menu_box .all-items, .p_bottom_5 .all-items{
-    padding: 15px 25px;
+    padding: 15px 25px 10px 25px;
     color: #3FB6E2;
-    font-size: 12px;
+    font-size: 11px;
     display: block;
     font-weight: bold;
 }
@@ -354,7 +354,8 @@ a:hover {
 ul.block_listing li .block_listing_image {
     float: none;
 }
-ul.block_listing li .block_listing_title, #js_friend_sort_holder .friend_user_name {
+ul.block_listing li .block_listing_title, #js_friend_sort_holder .friend_user_name,
+.profile_friend_name {
     background: url("../image/friend-like-bg.png") repeat scroll left top transparent;
     border-radius: 0;
     -moz-border-radius: 0;
@@ -365,11 +366,12 @@ ul.block_listing li .block_listing_title, #js_friend_sort_holder .friend_user_na
     text-align: center;
     width: 100%;
 }
-ul.block_listing li .block_listing_title a, #js_friend_sort_holder .friend_user_name a {
+ul.block_listing li .block_listing_title a, #js_friend_sort_holder .friend_user_name a,
+div.profile_friend_name a {
     color: #fff;
     font-size: 10px;
 }
-ul.block_listing li .block_listing_title a:hover {
+ul.block_listing li .block_listing_title a:hover, .profile_friend_name a:hover {
     color: #000;
 }
 
@@ -464,6 +466,7 @@ ul.block_listing li .block_listing_title a:hover {
 	margin-left: 332px;
 	width: 566px;
     border-left: 1px solid #d7d7d7;
+    box-shadow: 0px 4px 8px rgba(0,0,0,0.1);
 }
 
 .pages_view_sub_menu ul {
@@ -522,7 +525,7 @@ ul.block_listing li .block_listing_image a img,
     float: right;
     margin-right: 15px;
     font-size: 12px;
-    margin-top: 5px;
+    margin-top: 2px;
 }
 
 #js_controller_video_view #main_content{
@@ -729,6 +732,7 @@ a.friend_action_delete, a.friend_action_delete:hover {
 
 textarea {
     font-family: "lucida grande",tahoma,verdana,arial,sans-serif;
+    box-shadow: inset 0px 0px 8px rgba(0,0,0,0.1);
 }
 
 #js_is_user_profile #content > div{
@@ -1050,11 +1054,14 @@ div.row_title_image {
     top: -5px;
 }
 
-.js_feed_view_more_entry_holder, #js_new_feed_update {
-	padding: 15px 10px;
+.js_feed_view_more_entry_holder {
+    padding: 0 10px 15px 10px;
+}
+#js_new_feed_update {
+    padding: 5px;
 }
 .activity_feed_content {
-	margin-left: 62px;
+	margin-left: 70px;
 }
 
 #js_photo_view_comment_holder .feed_comment_bottom {
@@ -1332,4 +1339,34 @@ div.js_mini_feed_comment {
     width: 15%;
     text-align: right;
     vertical-align: middle;
+}
+
+#holder_notify ul.table_clear_button li {
+    float:none;
+    margin-bottom: 4px;
+    margin-right: 0;
+    clear: both;
+    text-align: right;
+    width: 24px;
+    position: relative;
+    height: 24px;
+}
+
+#holder_notify ul.table_clear_button li input.button {
+    font-size: 14px;
+    width: 24px;
+    text-align: center;
+    padding: 2px 4px;
+    border: #28A6FF;
+}
+
+#holder_notify ul.table_clear_button .title-button {
+    display: block;
+    position: absolute;
+    right: 50px;
+    width: 70px;
+    border: 1px solid #000;
+    background: #fff;
+    margin: 5px 0;
+    opacity: 0;
 }
