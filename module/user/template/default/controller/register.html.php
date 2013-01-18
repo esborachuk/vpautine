@@ -18,15 +18,15 @@ $Behavior.termsAndPrivacy = function()
 	$('#js_terms_of_use').click(function()
 	{
 		{/literal}
-		tb_show('{phrase var='user.terms_of_use' phpfox_squote=true phpfox_squote=true phpfox_squote=true phpfox_squote=true phpfox_squote=true phpfox_squote=true}', $.ajaxBox('page.view', 'height=410&width=600&title=terms')); 
+		tb_show('{phrase var='user.terms_of_use' phpfox_squote=true phpfox_squote=true phpfox_squote=true phpfox_squote=true phpfox_squote=true phpfox_squote=true}', $.ajaxBox('page.view', 'height=410&width=600&title=terms'));
 		{literal}
 		return false;
 	});
-	
+
 	$('#js_privacy_policy').click(function()
 	{
 		{/literal}
-		tb_show('{phrase var='user.privacy_policy' phpfox_squote=true phpfox_squote=true phpfox_squote=true phpfox_squote=true phpfox_squote=true phpfox_squote=true}', $.ajaxBox('page.view', 'height=410&width=600&title=policy')); 
+		tb_show('{phrase var='user.privacy_policy' phpfox_squote=true phpfox_squote=true phpfox_squote=true phpfox_squote=true phpfox_squote=true phpfox_squote=true}', $.ajaxBox('page.view', 'height=410&width=600&title=policy'));
 		{literal}
 		return false;
 	});
@@ -49,7 +49,7 @@ $Behavior.termsAndPrivacy = function()
 			<div class="header_login_block">
 				<fb:login-button scope="publish_stream,email,user_birthday" v="2"></fb:login-button>
 			</div>
-			{/if}	
+			{/if}
 			{if Phpfox::isModule('janrain') && Phpfox::getParam('janrain.enable_janrain_login')}
 			<div class="header_login_block">
 				<a class="rpxnow" onclick="return false;" href="{$sJanrainUrl}">{img theme='layout/janrain-icons.png'}</a>
@@ -61,7 +61,7 @@ $Behavior.termsAndPrivacy = function()
 {if Phpfox::getLib('module')->getFullControllerName() != 'user.register'}
 <div class="user_register_holder">
 	<div class="holder">
-		<div class="user_register_intro">		
+		<div class="user_register_intro">
 			{module name='user.welcome'}
 		</div>
 		<div class="user_register_form">
@@ -77,7 +77,7 @@ $Behavior.termsAndPrivacy = function()
 {/if}
 		{if Phpfox::isModule('invite') && Phpfox::getService('invite')->isInviteOnly()}
 		<div class="main_break">
-			<div class="extra_info">				
+			<div class="extra_info">
 				{phrase var='user.ssitetitle_is_an_invite_only_community_enter_your_email_below_if_you_have_received_an_invitation' sSiteTitle=$sSiteTitle}
 			</div>
 			<div class="main_break">
@@ -101,14 +101,14 @@ $Behavior.termsAndPrivacy = function()
 		{$sCreateJs}
 		{/if}
 		<div id="js_registration_process" class="t_center" style="display:none;">
-			<div class="p_top_8">				
+			<div class="p_top_8">
 				{img theme='ajax/add.gif' alt=''}
 			</div>
 		</div>
 		<div id="js_signup_error_message" style="width:350px;"></div>
 		{if Phpfox::getParam('user.allow_user_registration')}
-			<div class="main_break" id="js_registration_holder">	
-				<form method="post" action="{url link='user.register'}" id="js_form" enctype="multipart/form-data">	
+			<div class="main_break" id="js_registration_holder">
+				<form method="post" action="{url link='user.register'}" id="js_form" enctype="multipart/form-data">
 				{token}
 
 					<div id="js_signup_block">
@@ -118,26 +118,26 @@ $Behavior.termsAndPrivacy = function()
 							{template file='user.block.register.step2'}
 						</div>
 						{else}
-							{template file='user.block.register.step1'}			
+							{template file='user.block.register.step1'}
 						{/if}
-					</div>		
-			
+					</div>
+
 					{if Phpfox::isModule('captcha') && Phpfox::getParam('user.captcha_on_signup')}
 					<div id="js_register_capthca_image"{if Phpfox::getParam('user.multi_step_registration_form') && !isset($bIsPosted)} style="display:none;"{/if}>
 						{module name='captcha.form'}
 					</div>
-					{/if}			
-					
+					{/if}
+
 					{if Phpfox::getParam('user.new_user_terms_confirmation')}
 					<div id="js_register_accept">
-						<div class="table">			
+						<div class="table">
 							<div class="table_clear">
-								<input type="checkbox" name="val[agree]" id="agree" value="1" class="checkbox v_middle" {value type='checkbox' id='agree' default='1'}/> {required}{phrase var='user.i_have_read_and_agree_to_the_a_href_id_js_terms_of_use_terms_of_use_a_and_a_href_id_js_privacy_policy_privacy_policy_a'}					
-							</div>			
-						</div>	
-					</div>					
+								<input type="checkbox" name="val[agree]" id="agree" value="1" class="checkbox v_middle" {value type='checkbox' id='agree' default='1'}/> {required}{phrase var='user.i_have_read_and_agree_to_the_a_href_id_js_terms_of_use_terms_of_use_a_and_a_href_id_js_privacy_policy_privacy_policy_a'}
+							</div>
+						</div>
+					</div>
 					{/if}
-					
+
 					<div class="table_clear">
 					{if isset($bIsPosted) || !Phpfox::getParam('user.multi_step_registration_form')}
 						<input type="submit" value="{phrase var='user.sign_up'}" class="button_register" id="js_registration_submit" />

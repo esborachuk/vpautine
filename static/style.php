@@ -1,7 +1,7 @@
 <?php
 /**
  * [PHPFOX_HEADER]
- * 
+ *
  * @copyright		[PHPFOX_COPYRIGHT]
  * @author			Raymond Benc
  * @package 		Phpfox
@@ -42,7 +42,7 @@ if (isset($_SERVER['HTTP_ACCEPT_ENCODING']))
 {
 	$aEncodings = explode(',', strtolower(preg_replace("/\s+/", "", $_SERVER['HTTP_ACCEPT_ENCODING'])));
 
-	if ((in_array('gzip', $aEncodings) || in_array('x-gzip', $aEncodings) || isset($_SERVER['---------------'])) && function_exists('ob_gzhandler') && !ini_get('zlib.output_compression') && !headers_sent()) 
+	if ((in_array('gzip', $aEncodings) || in_array('x-gzip', $aEncodings) || isset($_SERVER['---------------'])) && function_exists('ob_gzhandler') && !ini_get('zlib.output_compression') && !headers_sent())
 	{
 		$sEnc = in_array('x-gzip', $aEncodings) ? "x-gzip" : "gzip";
 		$bSupportsGzip = true;
@@ -54,8 +54,8 @@ $sThemePath =  str_replace(Phpfox::getParam('core.path'), '', $oTpl->getStyle('i
 $sCacheFile = PHPFOX_DIR_FILE . 'gzip' . PHPFOX_DS . md5('apps_' . Phpfox::getUserId() . $sThemePath . $bSupportsGzip . (isset($_GET['v']) ? $_GET['v'] : '')) . '.php';
 
 header('Content-Type: text/css');
-header("Vary: Accept-Encoding");  
-header("Expires: " . gmdate("D, d M Y H:i:s", time() + $expiresOffset) . " GMT");	
+header("Vary: Accept-Encoding");
+header("Expires: " . gmdate("D, d M Y H:i:s", time() + $expiresOffset) . " GMT");
 
 if (file_exists($sCacheFile))
 {
@@ -63,46 +63,46 @@ if (file_exists($sCacheFile))
 	{
 		$sGzipContent = file_get_contents($sCacheFile);
 	}
-	else 
+	else
 	{
 		$sContent = file_get_contents($sCacheFile);
 	}
 }
-else 
-{	
+else
+{
 	$sContent = file_get_contents(str_replace(Phpfox::getParam('core.path'), PHPFOX_DIR, $oTpl->getStyle('css', 'layout.css')));
 	$sContent .= file_get_contents(str_replace(Phpfox::getParam('core.path'), PHPFOX_DIR, $oTpl->getStyle('css', 'common.css')));
 	$sContent .= file_get_contents(str_replace(Phpfox::getParam('core.path'), PHPFOX_DIR, $oTpl->getStyle('css', 'custom.css')));
-	
+
 	$sContent = preg_replace('!/\*[^*]*\*+([^/][^*]*\*+)*/!', '', $sContent);
 	$sContent = str_replace(array("\r\n", "\r", "\n", "\t", '  ', '    ', '    '), '', $sContent);
-	// $sContent = preg_replace('/\.\.\/image\//i', '../' . $sThemePath, $sContent);	
-	
+	// $sContent = preg_replace('/\.\.\/image\//i', '../' . $sThemePath, $sContent);
+
 	$sContent = Phpfox::getLib('file.minimize')->css($sContent);
-	
+
 	if ($bSupportsGzip)
 	{
 		if (function_exists('gzencode'))
-		{			
-			$sGzipContent = gzencode($sContent, 9, FORCE_GZIP);	
+		{
+			$sGzipContent = gzencode($sContent, 9, FORCE_GZIP);
 		}
 		else
 		{
 			if (function_exists('gzcompress') && function_exists('crc32'))
-			{		
+			{
 				$size = strlen($sContent);
 				$crc = crc32($sContent);
 				$sGzipContent = "\x1f\x8b\x08\x00\x00\x00\x00\x00\x00\xff";
 				$sGzipContent .= substr(gzcompress($sContent, 9), 2, -4);
 				$sGzipContent .= pack('V', $crc);
-				$sGzipContent .= pack('V', $size);		
+				$sGzipContent .= pack('V', $size);
 			}
-		}			
+		}
 	}
 
 	$hFile = fopen($sCacheFile, 'w');
 	fwrite($hFile, (isset($sGzipContent) ? $sGzipContent : $sContent));
-	fclose($hFile);	
+	fclose($hFile);
 }
 
 if (isset($sGzipContent))

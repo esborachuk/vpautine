@@ -105,7 +105,7 @@ defined('PHPFOX') or exit('NO DICE!');
 							{block location='12'}
 							{/if}
 
-							{if !$bUseFullSite && (count($aBlocks1) || count($aAdBlocks1)) || (isset($aFilterMenus) && is_array($aFilterMenus) && count($aFilterMenus))}					
+							{if !$bUseFullSite && (count($aBlocks1) || count($aAdBlocks1)) || (isset($aFilterMenus) && is_array($aFilterMenus) && count($aFilterMenus))}
 							<div id="left">
 								{block location='1'}
 							</div>

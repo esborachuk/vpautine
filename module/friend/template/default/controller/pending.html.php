@@ -18,7 +18,7 @@ defined('PHPFOX') or exit('NO DICE!');
 				{img user=$aFriend suffix='_50_square' max_width=50 max_height=50}
 			</div>
 			<div class="friend_user_name">
-				{$aFriend|user} 
+				{$aFriend|user}
 			</div>
 			<div class="friend_action">
 				<div class="js_friend_sort_handler js_friend_edit_order"></div>
