@@ -11,7 +11,7 @@ defined('PHPFOX') or exit('NO DICE!');
  * @copyright		[PHPFOX_COPYRIGHT]
  * @author  		Raymond Benc
  * @package  		Module_Event
- * @version 		$Id: callback.class.php 4621 2012-09-12 05:34:34Z Raymond_Benc $
+ * @version 		$Id: callback.class.php 5016 2012-11-12 15:18:29Z Miguel_Espinoza $
  */
 class Event_Service_Callback extends Phpfox_Service 
 {
@@ -1208,6 +1208,23 @@ class Event_Service_Callback extends Phpfox_Service
 			'link' => Phpfox::getLib('url')->permalink('event', $aRow['event_id'], $aRow['title']) .'comment_' . $aNotification['item_id'],
 			'message' => $sPhrase,
 			'icon' => Phpfox::getLib('template')->getStyle('image', 'activity.png', 'blog')
+		);
+	}
+	
+	public function getActions()
+	{
+		return array(
+			'dislike' => array(
+				'enabled' => true,
+				'action_type_id' => 2, // 2 = dislike
+				'phrase' => 'Dislike',
+				'phrase_in_past_tense' => 'disliked',
+				'item_type_id' => 'event', // used to differentiate between photo albums and photos for example.
+				'table' => 'event',
+				'item_phrase' => Phpfox::getPhrase('event.item_phrase'),
+				'column_update' => 'total_dislike',
+				'column_find' => 'event_id'				
+				)
 		);
 	}
 	

@@ -5,7 +5,7 @@
  * @copyright		[PHPFOX_COPYRIGHT]
  * @author			Raymond Benc
  * @package 		Phpfox
- * @version 		$Id: template.html.php 4872 2012-10-10 06:36:53Z Raymond_Benc $
+ * @version 		$Id: template.html.php 5121 2013-01-11 12:23:05Z Miguel_Espinoza $
  */
  
 defined('PHPFOX') or exit('NO DICE!'); 
@@ -109,12 +109,12 @@ defined('PHPFOX') or exit('NO DICE!');
 								{/if}
 								<div id="main_content_padding">
 
-									{if defined('PHPFOX_IS_USER_PROFILE')}
-									{module name='profile.header'}							
+									{if defined('PHPFOX_IS_USER_PROFILE') || !defined('PHPFOX_IS_PAGES_VIEW') || (isset($aPage) && isset($aPage.use_timeline) && $aPage.use_timeline)}
+									    {module name='profile.header'}
 									{/if}
 									{if defined('PHPFOX_IS_PAGES_VIEW')}
-									{block location='12'}
-									{module name='pages.header'}							
+									    {block location='12'}
+									    {module name='pages.header'}
 									{/if}							
 
 									<div id="content_load_data">

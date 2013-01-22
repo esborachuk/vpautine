@@ -91,7 +91,6 @@ $Core.addNewPollOption = function()
 	return false;
 }
 
-
 $(function()
 {
 
@@ -121,7 +120,6 @@ $(function()
 		});		
 	});	
 });
-
 
 $Core.forceLoadOnFeed = function()
 {
@@ -655,11 +653,13 @@ function attachFunctionTagger(sSelector)
 				{
 					$($(this).data('selector')).siblings('.chooseFriend').hide(function(){$(this).remove();});
 					return;
-				}
+				}			
+				
 				var sNameToFind = sInput.substring(iAtSymbol+1, iInputLength);				
 				
 				/* loop through friends */
 				var aFoundFriends = [], sOut = '';
+				
 				for (var i in $Cache.friends)
 				{
 					if ($Cache.friends[i]['full_name'].toLowerCase().indexOf(sNameToFind.toLowerCase()) >= 0)
@@ -669,14 +669,16 @@ function attachFunctionTagger(sSelector)
 						
 						aFoundFriends.push({user_id: $Cache.friends[i]['user_id'], full_name: $Cache.friends[i]['full_name'], user_image: $Cache.friends[i]['user_image']});				
 
-						sOut += '<div class="tagFriendChooser" onclick="$(\''+ $(this).data('selector') +'\').val(sToReplace + \'[x=' + $Cache.friends[i]['user_id'] + ']' + $Cache.friends[i]['full_name'] +'[/x]\').putCursorAtEnd();$(\''+$(this).data('selector')+'\').siblings(\'.chooseFriend\').remove();"><div class="tagFriendChooserImage"><img style="vertical-align:middle;width:25px; height:25px;" src="'+$Cache.friends[i]['user_image'] + '"> </div><span>' + (($Cache.friends[i]['full_name'].length > 25) ?($Cache.friends[i]['full_name'].substr(0,25) + '...') : $Cache.friends[i]['full_name']) + '</span></div>';
+						sOut += '<div class="tagFriendChooser" onclick="$(\''+ $(this).data('selector') +'\').val(sToReplace + \'\' + (getParam(\'bEnableMicroblogSite\') ? \'@' + $Cache.friends[i]['user_name'] + '\' : \'[x=' + $Cache.friends[i]['user_id'] + ']' + $Cache.friends[i]['full_name'] +'[/x]\') + \' \').putCursorAtEnd();$(\''+$(this).data('selector')+'\').siblings(\'.chooseFriend\').remove();"><div class="tagFriendChooserImage"><img style="vertical-align:middle;width:25px; height:25px;" src="'+$Cache.friends[i]['user_image'] + '"> </div><span>' + (($Cache.friends[i]['full_name'].length > 25) ?($Cache.friends[i]['full_name'].substr(0,25) + '...') : $Cache.friends[i]['full_name']) + '</span></div>';
 						/* just delete the fancy choose your friend and recreate it */
 						sOut = sOut.replace("\n", '').replace("\r", '');
 						
 					}
 				}
 				$($(this).data('selector')).siblings('.chooseFriend').remove();
-				$($(this).data('selector')).after('<div class="chooseFriend" style="width: '+ $(this).parent().width()+'px;">'+sOut+'</div>');
+				if (!empty(sOut)){
+					$($(this).data('selector')).after('<div class="chooseFriend" style="width: '+ $(this).parent().width()+'px;">'+sOut+'</div>');
+				}
 				
 			}).focus(function(){
 				if (typeof $Cache == 'undefined' || typeof $Cache.friends == 'undefined')

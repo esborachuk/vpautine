@@ -5,14 +5,19 @@
  * @copyright		[PHPFOX_COPYRIGHT]
  * @author  		Raymond_Benc
  * @package 		Phpfox
- * @version 		$Id: template-menu.html.php 4108 2012-04-18 09:31:33Z Miguel_Espinoza $
+ * @version 		$Id: template-menu.html.php 5144 2013-01-15 14:36:28Z Miguel_Espinoza $
  */
  
 defined('PHPFOX') or exit('NO DICE!'); 
 
 ?>
+{plugin call='core.template_block_template_menu_1'}
 						{if Phpfox::getUserBy('profile_page_id') <= 0}
-						<ul>		
+						<ul>	
+							{plugin call='theme_template_core_menu_list'}	
+							{if isset($bForceLogoOnMenu)}
+							<li>{logo}</li>
+							{/if}
 							{foreach from=$aMenus key=iKey item=aMenu name=menu}
 								<li {if ($aMenu.url == 'apps' && count($aInstalledApps)) || (isset($aMenu.children) && count($aMenu.children))}class="explore{if ($aMenu.url == 'apps' && count($aInstalledApps))} explore_apps{/if}"{/if}><a {if !isset($aMenu.no_link) || $aMenu.no_link != true}href="{url link=$aMenu.url}" {else} href="#" onclick="return false;" {/if} class="{if isset($aMenu.external) && $aMenu.external == true}no_ajax_link {/if}ajax_link">
 									{phrase var=$aMenu.module'.'$aMenu.var_name}{if isset($aMenu.suffix)}{$aMenu.suffix}{/if}</a>	

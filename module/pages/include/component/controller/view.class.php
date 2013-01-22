@@ -115,7 +115,24 @@ class Pages_Component_Controller_View extends Phpfox_Component
 		
 		(($sPlugin = Phpfox_Plugin::get('pages.component_controller_view_assign')) ? eval($sPlugin) : false);
 		
-		$this->template()->assign(array(
+		if (isset($aPage['use_timeline']) && $aPage['use_timeline'])
+		{
+			$aPageMenus = Phpfox::getService('pages')->getMenu($aPage);
+			if (!defined('PAGE_TIME_LINE'))
+			{
+				define('PAGE_TIME_LINE', true);
+			}
+			$aPage['user_name'] = $aPage['title'];
+			$this->template()->setFullSite()
+				->assign(array(
+				    'aUser' => $aPage,
+				    'aProfileLinks' => $aPageMenus))
+				->setHeader(array(
+					'<script type="text/javascript">oParams["keepContent4"] = false;</script>'
+					));
+		}
+		$this->template()			
+			->assign(array(
 					'aPage' => $aPage,
 					'sCurrentModule' => $sCurrentModule,
 					'bCanViewPage' => $bCanViewPage,
@@ -263,7 +280,7 @@ class Pages_Component_Controller_View extends Phpfox_Component
 						->assign('sCustomDesignId', $aPage['page_id']
 					);				
 			}				
-		}	
+		}
 	}
 	
 	/**

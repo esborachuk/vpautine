@@ -11,7 +11,7 @@ defined('PHPFOX') or exit('NO DICE!');
  * @copyright		[PHPFOX_COPYRIGHT]
  * @author  		Raymond Benc
  * @package  		Module_Mail
- * @version 		$Id: mail.class.php 4966 2012-10-30 09:48:20Z Raymond_Benc $
+ * @version 		$Id: mail.class.php 5148 2013-01-16 10:11:28Z Miguel_Espinoza $
  */
 class Mail_Service_Mail extends Phpfox_Service
 {

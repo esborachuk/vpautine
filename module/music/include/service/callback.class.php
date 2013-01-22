@@ -11,7 +11,7 @@ defined('PHPFOX') or exit('NO DICE!');
  * @copyright		[PHPFOX_COPYRIGHT]
  * @author  		Raymond Benc
  * @package  		Module_Music
- * @version 		$Id: callback.class.php 4621 2012-09-12 05:34:34Z Raymond_Benc $
+ * @version 		$Id: callback.class.php 5016 2012-11-12 15:18:29Z Miguel_Espinoza $
  */
 class Music_Service_Callback extends Phpfox_Service 
 {
@@ -1526,6 +1526,35 @@ Phpfox::getPhrase('music.full_name_commented_on_other_full_name_s_album_a_href_l
 			'link' => Phpfox::getLib('url')->permalink('music.album', $aRow['album_id'], $aRow['name']) . 'comment_' .$aNotification['item_id'],
 			'message' => $sPhrase,
 			'icon' => Phpfox::getLib('template')->getStyle('image', 'activity.png', 'blog')
+		);
+	}
+	
+	public function getActions()
+	{
+		return array(
+			'dislike' => array(
+				'enabled' => true,
+				'action_type_id' => 2, // 2 = dislike
+				'phrase' => 'Dislike',
+				'item_type_id' => 'music-song', // used to differentiate between photo albums and photos for example.
+				'phrase_in_past_tense' => 'disliked',
+				'table' => 'music_song',
+				'item_phrase' => Phpfox::getPhrase('music.item_phrase_song'),
+				'column_update' => 'total_dislike',
+				'column_find' => 'song_id',
+				'where_to_show' => array('music')
+				),
+			'dislike-on-main-page' => array(
+				'enabled' => true,
+				'action_type_id' => 2, // 2 = dislike
+				'phrase' => 'Dislike',
+				'item_type_id' => 'music-album', // used to differentiate between photo albums and photos for example. This checks the url
+				'phrase_in_past_tense' => 'disliked',
+				'table' => 'music_album',
+				'item_phrase' => Phpfox::getPhrase('music.item_phrase_album'),
+				'column_update' => 'total_dislike',
+				'column_find' => 'album_id'				
+				)
 		);
 	}
 	

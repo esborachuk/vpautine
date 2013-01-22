@@ -11,7 +11,7 @@ defined('PHPFOX') or exit('NO DICE!');
  * @copyright		[PHPFOX_COPYRIGHT]
  * @author  		Raymond Benc
  * @package  		Module_User
- * @version 		$Id: browse.class.php 4974 2012-10-31 07:30:42Z Raymond_Benc $
+ * @version 		$Id: browse.class.php 5027 2012-11-15 15:08:37Z Miguel_Espinoza $
  */
 class User_Component_Controller_Browse extends Phpfox_Component
 {
@@ -247,6 +247,10 @@ class User_Component_Controller_Browse extends Phpfox_Component
 		    )
 		);
 
+		if (!Phpfox::getUserParam('user.can_search_by_zip'))
+		{
+			unset ($aFilters['zip']);
+		}
 		if ($sPlugin = Phpfox_Plugin::get('user.component_controller_browse_filter'))
 		{
 		    eval($sPlugin);

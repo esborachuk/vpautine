@@ -13,7 +13,7 @@ defined('PHPFOX') or exit('NO DICE!');
  * @copyright		[PHPFOX_COPYRIGHT]
  * @author			Raymond Benc
  * @package 		Phpfox
- * @version 		$Id: validator.class.php 5067 2012-12-05 08:55:19Z Raymond_Benc $
+ * @version 		$Id: validator.class.php 5074 2012-12-06 10:37:26Z Raymond_Benc $
  */
 final class Phpfox_Validator
 {	

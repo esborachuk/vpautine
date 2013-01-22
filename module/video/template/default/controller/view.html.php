@@ -64,15 +64,19 @@ defined('PHPFOX') or exit('NO DICE!');
 	
 		<div class="t_center">
 		{if !empty($aVideo.vidly_url_id)}
-		{if $aVideo.in_process == 0}
-		<iframe frameborder="0" width="640" height="390" name="vidly-frame" src="http://s.vid.ly/embeded.html?link={$aVideo.vidly_url_id}&amp;width=640&amp;height=390&autoplay=false"></iframe>
-		{/if}
-		{else}			
-		{if $aVideo.is_stream}
-			{$aVideo.embed_code}
-		{else}
-		<div id="js_video_player" style="width:640px; height:390px; margin:auto;{if $aVideo.in_process > 0} display:none;{/if}"></div>		
-		{/if}
+			{if $aVideo.in_process == 0}
+				<iframe frameborder="0" width="640" height="390" name="vidly-frame" src="http://s.vid.ly/embeded.html?link={$aVideo.vidly_url_id}&amp;width=640&amp;height=390&autoplay=false"></iframe>
+			{/if}
+		{else}		
+			{if isset($aVideo.video_url)}
+				<iframe width="560" height="315" src="http://www.youtube.com/embed/{$aVideo.video_url}" frameborder="0" allowfullscreen></iframe>
+			{else}
+				{if $aVideo.is_stream}
+					{$aVideo.embed_code}
+				{else}
+				<div id="js_video_player" style="width:640px; height:390px; margin:auto;{if $aVideo.in_process > 0} display:none;{/if}"></div>		
+				{/if}
+			{/if}
 		{/if}
 		</div>
 		

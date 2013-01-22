@@ -11,7 +11,7 @@ defined('PHPFOX') or exit('NO DICE!');
  * @copyright		[PHPFOX_COPYRIGHT]
  * @author  		Raymond Benc
  * @package  		Module_Event
- * @version 		$Id: event.class.php 3826 2011-12-16 12:30:19Z Raymond_Benc $
+ * @version 		$Id: event.class.php 5016 2012-11-12 15:18:29Z Miguel_Espinoza $
  */
 class Event_Service_Event extends Phpfox_Service 
 {
@@ -448,6 +448,29 @@ class Event_Service_Event extends Phpfox_Service
 		}		
 		
 		return $aRows;
+	}
+	
+	public function getInfoForAction($aItem)
+	{
+		if (is_numeric($aItem))
+		{
+			$aItem = array('item_id' => $aItem);
+		}
+		$aRow = $this->database()->select('e.event_id, e.title, e.user_id, u.gender, u.full_name')	
+			->from(Phpfox::getT('event'), 'e')
+			->join(Phpfox::getT('user'), 'u', 'u.user_id = e.user_id')
+			->where('e.event_id = ' . (int) $aItem['item_id'])
+			->execute('getSlaveRow');
+			
+		if (empty($aRow))
+		{
+			d($aRow);
+			d($aItem);
+			d(__FILE__ . ':' . __LINE__);
+		}
+		
+		$aRow['link'] = Phpfox::getLib('url')->permalink('event', $aRow['event_id'], $aRow['title']);
+		return $aRow;
 	}
 	
 	/**

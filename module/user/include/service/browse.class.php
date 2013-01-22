@@ -11,7 +11,7 @@ defined('PHPFOX') or exit('NO DICE!');
  * @copyright		[PHPFOX_COPYRIGHT]
  * @author  		Raymond Benc
  * @package  		Module_User
- * @version 		$Id: browse.class.php 5030 2012-11-19 11:44:53Z Raymond_Benc $
+ * @version 		$Id: browse.class.php 5077 2012-12-13 09:05:45Z Raymond_Benc $
  */
 class User_Service_Browse extends Phpfox_Service
 {
@@ -139,8 +139,13 @@ class User_Service_Browse extends Phpfox_Service
 	
 	public function get()
 	{
-		$aUsers = array();		
-
+		$aUsers = array();
+		if (!defined('PHPFOX_IS_ADMIN_SEARCH'))
+		{
+			// user groups that should be hidden
+			$aHiddenFromBrowse = Phpfox::getService('user.group.setting')->getUserGroupsBySetting('user.hide_from_browse');
+		}
+		
 		if ($sPlugin = Phpfox_Plugin::get('user.service_browse_get__start')){return eval($sPlugin);}
 		
 		if (($sPlugin = Phpfox_Plugin::get('user.service_browse_get__start_no_return')))
@@ -279,7 +284,17 @@ class User_Service_Browse extends Phpfox_Service
 			{
 				$this->database()->join(Phpfox::getT('user_ip'), 'uip', 'uip.user_id = u.user_id AND uip.ip_address = \'' . $this->database()->escape($this->_sIp) . '\'');
 			}
-		
+
+			if (!defined('PHPFOX_IS_ADMIN_SEARCH') && isset($aHiddenFromBrowse) && is_array($aHiddenFromBrowse) && !empty($aHiddenFromBrowse))
+			{
+				// skip users in these user groups that are invisible
+				foreach ($aHiddenFromBrowse as $iGroupId => $aGroup)
+				{
+					$this->_aConditions[] = 'AND (u.user_group_id != ' . $iGroupId . ' OR u.is_invisible != 1)';
+				}
+			}
+			
+			
 			$iCnt = $this->database()->from($this->_sTable, 'u')
 				->join(Phpfox::getT('user_field'), 'ufield', 'ufield.user_id = u.user_id')
 				->where($this->_aConditions)
@@ -334,11 +349,11 @@ class User_Service_Browse extends Phpfox_Service
 			}
 
 			// Users cannot send Friend Requests if they have been blocked by the target user
-			if (!defined('PHPFOX_IS_ADMIN_SEARCH') && Phpfox::getParam('friend.allow_blocked_user_to_friend_request') == false)
+			if (!defined('PHPFOX_IS_ADMIN_SEARCH') && Phpfox::isModule('friend') && Phpfox::getParam('friend.allow_blocked_user_to_friend_request') == false)
 			{
 				$this->database()->select('ub.block_id as user_is_blocked, ')
 					->leftjoin(Phpfox::getT('user_blocked'), 'ub', 'ub.user_id = u.user_id AND block_user_id = ' . Phpfox::getUserId());
-			}		 
+			}
 			
 			// display the Unfeature/Feature option when landing on the Search page.
 			if ($this->_mFeatured === true && !$this->_bIsOnline)

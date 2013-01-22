@@ -202,7 +202,10 @@ $Behavior.globalThemeInit = function()
 		}
 		else
 		{
-			$('#content').addClass('content4');
+			if (typeof oParams['keepContent4'] == 'undefined' || oParams['keepContent4'] == true)
+			{
+				$('#content').addClass('content4');
+			}
 			$('#content').removeClass('content2');
 			$('#content').removeClass('content3');
 		}

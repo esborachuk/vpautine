@@ -576,7 +576,7 @@ function tb_show(caption, url, thisObject, sForceMessage, bForceNoCilck)
 						
 						// var newHeight = $('body').height();
 
-						$('.js_box_image_holder_full').css({'top': '0px', 'height': (newHeight) + 'px'});
+						$('.js_box_image_holder_full').css({'top': '0px', 'height': (newHeight + 50) + 'px'});
 
 						var bCanCloseImageBox = true;		
 
@@ -597,7 +597,7 @@ function tb_show(caption, url, thisObject, sForceMessage, bForceNoCilck)
 								if (!bCanCloseImageBox)
 								{
 									bCanCloseImageBox = true;
-                                }
+								}
 								else
 								{
 									$('#main_core_body_holder').show();
@@ -682,7 +682,7 @@ function tb_remove()
    	}
    	
    	$('#global_attachment_list_inline').hide();
-
+   	
 	return false;
 }
 
@@ -756,7 +756,7 @@ function tb_position($oObj, bFull)
 	        top: getPageScroll()[1],
 	        left: '50%',
 	        'margin-left': '-' + (($($oObj).width() / 2) + 12) + 'px',
-	        'z-index': (parseInt(Math.max.apply(Math, $aAllBoxIndex)) + 1)
+	        'z-index': (parseInt(Math.max.apply(Math, $aAllBoxIndex)) + 1)    
 	    }); 
     }
     else
@@ -766,7 +766,7 @@ function tb_position($oObj, bFull)
 	        top: getPageScroll()[1] + (getPageHeight() / 5),
 	        left: '50%',
 	        'margin-left': '-' + (($($oObj).width() / 2) + 12) + 'px',
-	        'z-index': (parseInt(Math.max.apply(Math, $aAllBoxIndex)) + 1)
+	        'z-index': (parseInt(Math.max.apply(Math, $aAllBoxIndex)) + 1)    
 	    });    
     }
     

@@ -11,7 +11,7 @@ defined('PHPFOX') or exit('NO DICE!');
  * @copyright		[PHPFOX_COPYRIGHT]
  * @author  		Raymond Benc
  * @package  		Module_Photo
- * @version 		$Id: ajax.class.php 5053 2012-11-29 12:32:11Z Raymond_Benc $
+ * @version 		$Id: ajax.class.php 5109 2013-01-10 09:49:02Z Miguel_Espinoza $
  */
 class Photo_Component_Ajax_Ajax extends Phpfox_Ajax
 {
@@ -95,9 +95,11 @@ class Photo_Component_Ajax_Ajax extends Phpfox_Ajax
      */
     public function browse()
     {
+		if (!defined('PHPFOX_IS_AJAX_CONTROLLER')) define('PHPFOX_IS_AJAX_CONTROLLER', true);
 		Phpfox::getLib('module')->getComponent('photo.index', $this->getAll(), 'controller');
-	
-		$this->call('$(\'#site_content\').html(\'' . $this->getContent() . '\'); $.scrollTo(\'#site_content\', 340); $Behavior.hoverAction(); $Behavior.imageHoverHolder();');
+		$this->call('$(".pager_container, .moderation_holder").remove();');
+		$this->call('$(\'#js_ajax_browse_content\').append(\'' . $this->getContent() . '\'); ');
+		$this->call('$Core.loadInit();');
     }
 
     /**
@@ -550,8 +552,12 @@ class Photo_Component_Ajax_Ajax extends Phpfox_Ajax
 						// Add the new file size to the total file size variable
 						$iFileSizes += filesize(Phpfox::getParam('photo.dir_photo') . sprintf($sFileName, '_' . $iSize));
 				    }
-		
-				    if (Phpfox::getParam('photo.enabled_watermark_on_photos'))
+
+				    if (Phpfox::getParam('photo.delete_original_after_resize'))
+				    {
+						Phpfox::getLib('file')->unlink(Phpfox::getParam('photo.dir_photo') . sprintf($sFileName, ''));
+					}
+				    else if (Phpfox::getParam('photo.enabled_watermark_on_photos'))
 				    {
 						$oImage->addMark(Phpfox::getParam('photo.dir_photo') . sprintf($sFileName, ''));
 				    }

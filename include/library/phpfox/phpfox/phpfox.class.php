@@ -20,14 +20,14 @@ defined('PHPFOX') or exit('NO DICE!');
  * @copyright		[PHPFOX_COPYRIGHT]
  * @author			Raymond Benc
  * @package 		Phpfox
- * @version 		$Id: phpfox.class.php 5072 2012-12-06 09:00:33Z Raymond_Benc $
+ * @version 		$Id: phpfox.class.php 5148 2013-01-16 10:11:28Z Miguel_Espinoza $
  */
 final class Phpfox
 {	
 	/**
  	* Product Version : major.minor.maintenance [alphaX, betaX or rcX]
  	*/
-	const VERSION = '3.4.1';
+	const VERSION = '3.5.0beta1';
 	
 	/**
 	 * Product Code Name
@@ -519,6 +519,7 @@ final class Phpfox
 	 */
 	public static function isMobile()
 	{
+		if ($sPlugin = Phpfox_Plugin::get('library_phpfox_ismobile')){eval($sPlugin);if (isset($bReturnFromPlugin)) return $bReturnFromPlugin;}
 		return Phpfox::getLib('request')->isMobile();
 	}
 	
@@ -1279,6 +1280,24 @@ final class Phpfox
 		
 		list($aBreadCrumbs, $aBreadCrumbTitle) = $oTpl->getBreadCrumb();
 
+		/* Delayed unlink, we now delete all the images */
+		if (Phpfox::getParam('core.keep_files_in_server') == false)
+		{
+			$oSess = Phpfox::getLib('session');
+			$aFiles = $oSess->get('deleteFiles');
+			if (is_array($aFiles))
+			{
+				foreach ($aFiles as $sFile)
+				{
+					if (file_exists($sFile))
+					{
+						unlink($sFile);
+					}
+				}
+			}
+			$oSess->remove('deleteFiles');
+		}
+		
 		$oTpl->assign(array(
 				'aErrors' => (Phpfox_Error::getDisplay() ? Phpfox_Error::get() : array()),
 				'sPublicMessage' => Phpfox::getMessage(),

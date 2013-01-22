@@ -11,7 +11,7 @@ defined('PHPFOX') or exit('NO DICE!');
  * @copyright		[PHPFOX_COPYRIGHT]
  * @author  		Raymond Benc
  * @package  		Module_Photo
- * @version 		$Id: view.class.php 4879 2012-10-10 11:35:03Z Raymond_Benc $
+ * @version 		$Id: view.class.php 5126 2013-01-14 10:01:49Z Miguel_Espinoza $
  */
 class Photo_Component_Controller_View extends Phpfox_Component
 {
@@ -246,7 +246,8 @@ class Photo_Component_Controller_View extends Phpfox_Component
 						'switch_menu.js' => 'static_script',
 						'view.css' => 'module_photo',
 						'feed.js' => 'module_feed',
-						'edit.css' => 'module_photo'
+						'edit.css' => 'module_photo',
+						'index.js' => 'module_photo'
 					)
 				)
 				->setEditor(array(

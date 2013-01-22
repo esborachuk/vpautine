@@ -11,7 +11,7 @@ defined('PHPFOX') or exit('NO DICE!');
  * @copyright		[PHPFOX_COPYRIGHT]
  * @author  		Raymond Benc
  * @package  		Module_Friend
- * @version 		$Id: friend.class.php 4709 2012-09-21 08:37:17Z Raymond_Benc $
+ * @version 		$Id: friend.class.php 5077 2012-12-13 09:05:45Z Raymond_Benc $
  */
 class Friend_Service_Friend extends Phpfox_Service
 {
@@ -160,13 +160,18 @@ class Friend_Service_Friend extends Phpfox_Service
 		}
 		else
 		{
-			$aRows = $this->database()->select('f.*, ' . Phpfox::getUserField())
-				->from($this->_sTable, 'f')
-				->join(Phpfox::getT('user'), 'u', 'u.user_id = f.friend_user_id')
-				->where(($mAllowCustom ? '' : 'f.is_page = 0 AND') . ' f.user_id = ' . Phpfox::getUserId())
-				->limit(Phpfox::getParam('friend.friend_cache_limit'))
-				->order('u.last_activity DESC')
-				->execute('getSlaveRows');
+			(($sPlugin = Phpfox_Plugin::get('friend.service_getfromcachequery')) ? eval($sPlugin) : false);
+			
+			if (!isset($bForceQuery))
+			{
+				$aRows = $this->database()->select('f.*, ' . Phpfox::getUserField())
+					->from($this->_sTable, 'f')
+					->join(Phpfox::getT('user'), 'u', 'u.user_id = f.friend_user_id')
+					->where(($mAllowCustom ? '' : 'f.is_page = 0 AND') . ' f.user_id = ' . Phpfox::getUserId())
+					->limit(Phpfox::getParam('friend.friend_cache_limit'))
+					->order('u.last_activity DESC')
+					->execute('getSlaveRows');
+			}
 		}	
 
 		foreach ($aRows as $iKey => $aRow)

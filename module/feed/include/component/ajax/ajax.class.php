@@ -11,7 +11,7 @@ defined('PHPFOX') or exit('NO DICE!');
  * @copyright		[PHPFOX_COPYRIGHT]
  * @author  		Raymond Benc
  * @package 		Phpfox_Ajax
- * @version 		$Id: ajax.class.php 4664 2012-09-18 11:45:39Z Raymond_Benc $
+ * @version 		$Id: ajax.class.php 5076 2012-12-12 15:57:18Z Miguel_Espinoza $
  */
 class Feed_Component_Ajax_Ajax extends Phpfox_Ajax
 {
@@ -338,6 +338,35 @@ class Feed_Component_Ajax_Ajax extends Phpfox_Ajax
 		$this->slideDown('#' . $sIds);		
 		$this->call('$Core.loadInit();');        
     }
+    
+    /* Loads Pages and results from Google Places Autocomplete given a latitude and longitude
+     * This function populates $Core.Feed.aPlaces with new items by passing parameters in jSon format */
+     
+    public function loadEstablishments()
+    {
+		$aPages = array();
+		if (Phpfox::isModule('pages'))
+		{
+			$aPages = Phpfox::getService('pages')->getPagesByLocation( $this->get('latitude'), $this->get('longitude') );
+		}
+		
+		if (count($aPages))
+		{
+			foreach ($aPages as $iKey => $aPage)
+			{
+				$aPages[$iKey]['geometry'] = array('latitude' => $aPage['location_latitude'], 'longitude' => $aPage['location_longitude']);
+				$aPages[$iKey]['name'] = $aPage['title'];
+				unset($aPages[$iKey]['location_latitude']);
+				unset($aPages[$iKey]['location_longitude']);	
+			}
+		}
+		
+		if (!empty($aPages))
+		{
+			$jPages = json_encode($aPages);
+			$this->call('$Core.Feed.storePlaces(\'' . $jPages .'\');');
+		}		
+	}
 }
 
 ?>

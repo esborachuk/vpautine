@@ -1,20 +1,395 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="BuildServerSettings">
+    <option name="LOGIN" value="" />
+    <option name="SERVER_URL" value="http://buildserver" />
+    <option name="PASSWORD" />
+    <option name="REMEMBER_ME" value="true" />
+    <option name="USE_IDEA_PROXY_SETTINGS" value="true" />
+    <option name="INSPECTIONS_BUILD_TYPE_IDS" />
+    <option name="DUPLICATES_BUILD_TYPE_IDS" />
+    <option name="COVERAGE_SETTINGS" />
+    <option name="ARTIFACTS_BUILD_TYPE_IDS" />
+    <option name="PERFORM_COMMIT_IF_SUCCESSFUL" value="true" />
+    <option name="PERFORM_COMMIT_IF_NO_NEW_FAILED_TESTS" value="false" />
+    <option name="REQUEST_CONFIRMATON" value="false" />
+    <option name="PRE_TESTED_COMMIT" value="true" />
+    <option name="PROJECT_STATUS_DIALOG_SPLITTER_DIVIDER_LOCATION" value="500" />
+    <option name="CHANGES_STATUS_DIALOG_SPLITTER_DIVIDER_LOCATION" value="500" />
+    <option name="FILTER_BY_STATUS" value="false" />
+    <option name="SHOW_CLOSE_PROMPT" value="true" />
+    <option name="TOOL_WINDOW_SELECTED_CONTENT_INDEX" value="0" />
+    <option name="FILTER_BY_CURRENT_PROJECT" value="true" />
+  </component>
   <component name="ChangeListManager">
-    <list default="true" id="eb437bb7-dd57-4164-8cb5-1b7f76f2a42e" name="Default" comment="change width for music content">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/module/profile/template/pautina/block/info.html.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/theme/frontend/pautina/style/default/jscript/profile.js" />
+    <list default="true" id="eb437bb7-dd57-4164-8cb5-1b7f76f2a42e" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/theme/adminpanel/default/style/default/image/layout/softNoticePositive.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/theme/frontend/default/style/default/image/layout/dislike.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/theme/frontend/default/style/default/image/layout/dislike_small.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/theme/frontend/default/style/default/image/layout/feed_map.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/theme/frontend/default/style/default/image/misc/photo_gradient.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auth.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/install/include/installer.class.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/install/include/version/2.0.0.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/install/include/version/2.0.0rc1.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/install/include/version/2.0.0rc10.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/install/include/version/2.0.0rc11.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/install/include/version/2.0.0rc12.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/install/include/version/2.0.0rc2.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/install/include/version/2.0.0rc3.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/install/include/version/2.0.0rc4.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/install/include/version/2.0.0rc5.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/install/include/version/2.0.0rc6.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/install/include/version/2.0.0rc7.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/install/include/version/2.0.0rc8.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/install/include/version/2.0.0rc9.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/install/include/version/2.0.1.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/install/include/version/2.0.2.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/install/include/version/2.0.3.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/install/include/version/2.0.4.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/install/include/version/2.0.5.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/install/include/version/2.0.5dev1.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/install/include/version/2.0.5dev2.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/install/include/version/2.0.6.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/install/include/version/2.0.7.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/install/include/version/2.1.0.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/install/include/version/2.1.0beta1.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/install/include/version/2.1.0beta2.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/install/include/version/2.1.0rc1.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/install/include/version/3.0.0.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/install/include/version/3.0.0beta1.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/install/include/version/3.0.0beta2.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/install/include/version/3.0.0beta3.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/install/include/version/3.0.0beta4.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/install/include/version/3.0.0beta5.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/install/include/version/3.0.0rc1.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/install/include/version/3.0.0rc2.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/install/include/version/3.0.0rc3.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/install/include/version/3.0.1.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/install/include/version/3.0.2.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/install/include/version/3.1.0.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/install/include/version/3.1.0beta1.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/install/include/version/3.1.0rc1.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/install/include/version/3.2.0.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/install/include/version/3.2.0beta1.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/install/include/version/3.2.0rc1.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/install/include/version/3.3.0.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/install/include/version/3.3.0beta1.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/install/include/version/3.3.0beta2.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/install/include/version/3.3.0rc1.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/install/include/version/3.4.0.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/install/include/version/3.4.0beta1.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/install/include/version/3.4.0beta2.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/install/include/version/3.4.0rc1.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/install/include/version/3.4.1.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/install/include/version/3.5.0beta1.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/install/include/version/index.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/install/index.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/install/index.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/module/admincp/install/version/3.5.0beta1.xml.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/module/api/install/version/3.5.0beta1.xml.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/module/apps/install/version/3.5.0beta1.xml.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/module/blog/include/service/api.class.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/module/blog/install/version/3.5.0beta1.xml.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/module/comment/include/service/api.class.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/module/comment/install/version/3.5.0beta1.xml.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/module/core/include/service/api.class.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/module/core/install/version/3.5.0beta1.xml.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/module/custom/install/version/3.5.0beta1.xml.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/module/event/include/service/api.class.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/module/event/install/version/3.5.0beta1.xml.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/module/facebook/install/version/3.5.0beta1.xml.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/module/feed/include/service/api.class.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/module/feed/install/version/3.5.0beta1.xml.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/module/feed/static/css/default/places.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/module/feed/static/jscript/places.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/module/feed/template/default/block/checkin.html.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/module/forum/include/service/api.class.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/module/forum/install/version/3.5.0beta1.xml.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/module/friend/include/component/block/remove.class.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/module/friend/install/version/3.5.0beta1.xml.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/module/friend/template/default/block/remove.html.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/module/like/include/component/block/displayactions.class.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/module/like/include/service/api.class.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/module/like/install/version/3.5.0beta1.xml.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/module/like/static/jscript/like.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/module/like/template/default/block/displayactions.html.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/module/link/include/service/api.class.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/module/link/install/version/3.5.0beta1.xml.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/module/marketplace/include/service/api.class.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/module/marketplace/install/version/3.5.0beta1.xml.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/module/music/install/version/3.5.0beta1.xml.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/module/pages/include/service/api.class.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/module/pages/install/version/3.5.0beta1.xml.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/module/pages/static/jscript/places.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/module/pages/template/default/block/joinpage.html.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/module/photo/install/version/3.5.0beta1.xml.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/module/photo/static/css/default/default/albums.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/module/photo/static/css/default/default/index.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/module/photo/static/css/default/default/profile.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/module/photo/static/jscript/index.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/module/photo/template/default/block/hoverinfo.html.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/module/photo/template/default/block/specialmenu.html.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/module/poll/install/version/3.5.0beta1.xml.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/module/privacy/install/version/3.5.0beta1.xml.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/module/profile/include/service/api.class.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/module/profile/install/version/3.5.0beta1.xml.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/module/quiz/install/version/3.5.0beta1.xml.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/module/report/install/version/3.5.0beta1.xml.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/module/shoutbox/install/version/3.5.0beta1.xml.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/module/user/include/component/block/showspamquestion.class.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/module/user/include/component/controller/admincp/spam.class.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/module/user/install/version/3.5.0beta1.xml.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/module/user/static/css/default/default/admin.spam.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/module/user/static/jscript/admin.spam.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/module/user/template/default/block/showspamquestion.html.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/module/user/template/default/controller/admincp/spam.html.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/module/video/include/service/api.class.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/module/video/install/version/3.5.0beta1.xml.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/jscript/api.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/theme/frontend/microblog/phpfox.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/theme/frontend/microblog/style/microblog/css/custom.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/theme/frontend/microblog/style/microblog/jscript/custom.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/theme/frontend/microblog/style/microblog/php/header.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/theme/frontend/microblog/style/microblog/phpfox.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/theme/frontend/microblog/template/template.html.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/favicon.ico" afterPath="$PROJECT_DIR$/favicon.ico" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/include/setting/server.sett.php" afterPath="$PROJECT_DIR$/include/setting/server.sett.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/theme/frontend/pautina/style/default/image/pautina/user_image_icons.png" afterPath="$PROJECT_DIR$/theme/frontend/pautina/style/default/image/pautina/user_image_icons.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/htaccess.txt" afterPath="$PROJECT_DIR$/htaccess.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/include/init.inc.php" afterPath="$PROJECT_DIR$/include/init.inc.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/include/library/foxporter/module/ning/foxporter.class.php" afterPath="$PROJECT_DIR$/include/library/foxporter/module/ning/foxporter.class.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/include/library/phpfox/ajax/ajax.class.php" afterPath="$PROJECT_DIR$/include/library/phpfox/ajax/ajax.class.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/include/library/phpfox/cdn/module/phpfox.class.php" afterPath="$PROJECT_DIR$/include/library/phpfox/cdn/module/phpfox.class.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/include/library/phpfox/cdn/module/rackspace.class.php" afterPath="$PROJECT_DIR$/include/library/phpfox/cdn/module/rackspace.class.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/include/library/phpfox/cdn/module/s3.class.php" afterPath="$PROJECT_DIR$/include/library/phpfox/cdn/module/s3.class.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/include/library/phpfox/database/dba.class.php" afterPath="$PROJECT_DIR$/include/library/phpfox/database/dba.class.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/include/library/phpfox/database/driver/mysql.class.php" afterPath="$PROJECT_DIR$/include/library/phpfox/database/driver/mysql.class.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/include/library/phpfox/database/export.class.php" afterPath="$PROJECT_DIR$/include/library/phpfox/database/export.class.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/include/library/phpfox/database/support.class.php" afterPath="$PROJECT_DIR$/include/library/phpfox/database/support.class.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/include/library/phpfox/date/date.class.php" afterPath="$PROJECT_DIR$/include/library/phpfox/date/date.class.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/include/library/phpfox/file/file.class.php" afterPath="$PROJECT_DIR$/include/library/phpfox/file/file.class.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/include/library/phpfox/module/module.class.php" afterPath="$PROJECT_DIR$/include/library/phpfox/module/module.class.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/include/library/phpfox/parse/css.class.php" afterPath="$PROJECT_DIR$/include/library/phpfox/parse/css.class.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/include/library/phpfox/parse/input.class.php" afterPath="$PROJECT_DIR$/include/library/phpfox/parse/input.class.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/include/library/phpfox/parse/output.class.php" afterPath="$PROJECT_DIR$/include/library/phpfox/parse/output.class.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/include/library/phpfox/phpfox/api.class.php" afterPath="$PROJECT_DIR$/include/library/phpfox/phpfox/api.class.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/include/library/phpfox/phpfox/phpfox.class.php" afterPath="$PROJECT_DIR$/include/library/phpfox/phpfox/phpfox.class.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/include/library/phpfox/request/request.class.php" afterPath="$PROJECT_DIR$/include/library/phpfox/request/request.class.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/include/library/phpfox/template/template.class.php" afterPath="$PROJECT_DIR$/include/library/phpfox/template/template.class.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/include/library/phpfox/validator/validator.class.php" afterPath="$PROJECT_DIR$/include/library/phpfox/validator/validator.class.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/include/setting/common.sett.php" afterPath="$PROJECT_DIR$/include/setting/common.sett.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/index.php" afterPath="$PROJECT_DIR$/index.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/module/ad/static/jscript/add.js" afterPath="$PROJECT_DIR$/module/ad/static/jscript/add.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/module/ad/static/jscript/sponsor.js" afterPath="$PROJECT_DIR$/module/ad/static/jscript/sponsor.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/module/ad/template/default/controller/add.html.php" afterPath="$PROJECT_DIR$/module/ad/template/default/controller/add.html.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/module/admincp/include/component/controller/product/file.class.php" afterPath="$PROJECT_DIR$/module/admincp/include/component/controller/product/file.class.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/module/admincp/include/component/controller/product/index.class.php" afterPath="$PROJECT_DIR$/module/admincp/include/component/controller/product/index.class.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/module/admincp/include/service/module/process.class.php" afterPath="$PROJECT_DIR$/module/admincp/include/service/module/process.class.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/module/admincp/include/service/product/process.class.php" afterPath="$PROJECT_DIR$/module/admincp/include/service/product/process.class.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/module/admincp/install/phpfox.xml.php" afterPath="$PROJECT_DIR$/module/admincp/install/phpfox.xml.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/module/api/include/service/api.class.php" afterPath="$PROJECT_DIR$/module/api/include/service/api.class.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/module/api/install/phpfox.xml.php" afterPath="$PROJECT_DIR$/module/api/install/phpfox.xml.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/module/apps/include/component/ajax/ajax.class.php" afterPath="$PROJECT_DIR$/module/apps/include/component/ajax/ajax.class.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/module/apps/include/component/controller/install.class.php" afterPath="$PROJECT_DIR$/module/apps/include/component/controller/install.class.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/module/apps/include/component/controller/view.class.php" afterPath="$PROJECT_DIR$/module/apps/include/component/controller/view.class.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/module/apps/include/service/apps.class.php" afterPath="$PROJECT_DIR$/module/apps/include/service/apps.class.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/module/apps/include/service/process.class.php" afterPath="$PROJECT_DIR$/module/apps/include/service/process.class.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/module/apps/install/phpfox.xml.php" afterPath="$PROJECT_DIR$/module/apps/install/phpfox.xml.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/module/apps/template/default/block/categories.html.php" afterPath="$PROJECT_DIR$/module/apps/template/default/block/categories.html.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/module/apps/template/default/controller/add.html.php" afterPath="$PROJECT_DIR$/module/apps/template/default/controller/add.html.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/module/attachment/template/default/block/upload.html.php" afterPath="$PROJECT_DIR$/module/attachment/template/default/block/upload.html.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/module/blog/include/component/controller/add.class.php" afterPath="$PROJECT_DIR$/module/blog/include/component/controller/add.class.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/module/blog/include/component/controller/index.class.php" afterPath="$PROJECT_DIR$/module/blog/include/component/controller/index.class.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/module/blog/include/component/controller/view.class.php" afterPath="$PROJECT_DIR$/module/blog/include/component/controller/view.class.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/module/blog/include/service/blog.class.php" afterPath="$PROJECT_DIR$/module/blog/include/service/blog.class.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/module/blog/include/service/callback.class.php" afterPath="$PROJECT_DIR$/module/blog/include/service/callback.class.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/module/blog/include/service/process.class.php" afterPath="$PROJECT_DIR$/module/blog/include/service/process.class.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/module/blog/install/phpfox.xml.php" afterPath="$PROJECT_DIR$/module/blog/install/phpfox.xml.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/module/blog/template/default/controller/add.html.php" afterPath="$PROJECT_DIR$/module/blog/template/default/controller/add.html.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/module/comment/include/component/ajax/ajax.class.php" afterPath="$PROJECT_DIR$/module/comment/include/component/ajax/ajax.class.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/module/comment/include/service/callback.class.php" afterPath="$PROJECT_DIR$/module/comment/include/service/callback.class.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/module/comment/install/phpfox.xml.php" afterPath="$PROJECT_DIR$/module/comment/install/phpfox.xml.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/module/comment/template/default/block/mini.html.php" afterPath="$PROJECT_DIR$/module/comment/template/default/block/mini.html.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/module/core/include/component/ajax/ajax.class.php" afterPath="$PROJECT_DIR$/module/core/include/component/ajax/ajax.class.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/module/core/include/service/core.class.php" afterPath="$PROJECT_DIR$/module/core/include/service/core.class.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/module/core/install/phpfox.xml.php" afterPath="$PROJECT_DIR$/module/core/install/phpfox.xml.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/module/core/template/default/block/footer.html.php" afterPath="$PROJECT_DIR$/module/core/template/default/block/footer.html.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/module/core/template/default/block/template-menu.html.php" afterPath="$PROJECT_DIR$/module/core/template/default/block/template-menu.html.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/module/core/template/default/block/template-menuaccount.html.php" afterPath="$PROJECT_DIR$/module/core/template/default/block/template-menuaccount.html.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/module/custom/include/service/custom.class.php" afterPath="$PROJECT_DIR$/module/custom/include/service/custom.class.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/module/custom/include/service/process.class.php" afterPath="$PROJECT_DIR$/module/custom/include/service/process.class.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/module/custom/install/phpfox.xml.php" afterPath="$PROJECT_DIR$/module/custom/install/phpfox.xml.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/module/event/include/service/callback.class.php" afterPath="$PROJECT_DIR$/module/event/include/service/callback.class.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/module/event/include/service/event.class.php" afterPath="$PROJECT_DIR$/module/event/include/service/event.class.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/module/event/install/phpfox.xml.php" afterPath="$PROJECT_DIR$/module/event/install/phpfox.xml.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/module/facebook/install/phpfox.xml.php" afterPath="$PROJECT_DIR$/module/facebook/install/phpfox.xml.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/module/feed/include/component/ajax/ajax.class.php" afterPath="$PROJECT_DIR$/module/feed/include/component/ajax/ajax.class.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/module/feed/include/component/block/display.class.php" afterPath="$PROJECT_DIR$/module/feed/include/component/block/display.class.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/module/feed/include/component/block/time.class.php" afterPath="$PROJECT_DIR$/module/feed/include/component/block/time.class.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/module/feed/include/service/callback.class.php" afterPath="$PROJECT_DIR$/module/feed/include/service/callback.class.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/module/feed/include/service/feed.class.php" afterPath="$PROJECT_DIR$/module/feed/include/service/feed.class.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/module/feed/install/phpfox.xml.php" afterPath="$PROJECT_DIR$/module/feed/install/phpfox.xml.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/module/feed/static/jscript/feed.js" afterPath="$PROJECT_DIR$/module/feed/static/jscript/feed.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/module/feed/template/default/block/comment.html.php" afterPath="$PROJECT_DIR$/module/feed/template/default/block/comment.html.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/module/feed/template/default/block/content.html.php" afterPath="$PROJECT_DIR$/module/feed/template/default/block/content.html.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/module/feed/template/default/block/display.html.php" afterPath="$PROJECT_DIR$/module/feed/template/default/block/display.html.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/module/feed/template/default/block/form.html.php" afterPath="$PROJECT_DIR$/module/feed/template/default/block/form.html.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/module/feed/template/default/block/link.html.php" afterPath="$PROJECT_DIR$/module/feed/template/default/block/link.html.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/module/feed/template/default/block/time.html.php" afterPath="$PROJECT_DIR$/module/feed/template/default/block/time.html.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/module/forum/include/component/controller/forum.class.php" afterPath="$PROJECT_DIR$/module/forum/include/component/controller/forum.class.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/module/forum/include/service/callback.class.php" afterPath="$PROJECT_DIR$/module/forum/include/service/callback.class.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/module/forum/include/service/forum.class.php" afterPath="$PROJECT_DIR$/module/forum/include/service/forum.class.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/module/forum/include/service/post/process.class.php" afterPath="$PROJECT_DIR$/module/forum/include/service/post/process.class.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/module/forum/install/phpfox.xml.php" afterPath="$PROJECT_DIR$/module/forum/install/phpfox.xml.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/module/forum/template/default/block/timezone.html.php" afterPath="$PROJECT_DIR$/module/forum/template/default/block/timezone.html.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/module/friend/include/component/ajax/ajax.class.php" afterPath="$PROJECT_DIR$/module/friend/include/component/ajax/ajax.class.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/module/friend/include/component/block/mini.class.php" afterPath="$PROJECT_DIR$/module/friend/include/component/block/mini.class.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/module/friend/include/component/block/timeline.class.php" afterPath="$PROJECT_DIR$/module/friend/include/component/block/timeline.class.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/module/friend/include/service/api.class.php" afterPath="$PROJECT_DIR$/module/friend/include/service/api.class.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/module/friend/include/service/friend.class.php" afterPath="$PROJECT_DIR$/module/friend/include/service/friend.class.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/module/friend/include/service/list/list.class.php" afterPath="$PROJECT_DIR$/module/friend/include/service/list/list.class.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/module/friend/include/service/process.class.php" afterPath="$PROJECT_DIR$/module/friend/include/service/process.class.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/module/friend/install/phpfox.xml.php" afterPath="$PROJECT_DIR$/module/friend/install/phpfox.xml.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/module/friend/template/default/controller/index.html.php" afterPath="$PROJECT_DIR$/module/friend/template/default/controller/index.html.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/module/friend/template/default/controller/pending.html.php" afterPath="$PROJECT_DIR$/module/friend/template/default/controller/pending.html.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/module/friend/template/pautina/block/accept.html.php" afterPath="$PROJECT_DIR$/module/friend/template/pautina/block/accept.html.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/module/language/include/service/phrase/process.class.php" afterPath="$PROJECT_DIR$/module/language/include/service/phrase/process.class.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/module/like/include/component/ajax/ajax.class.php" afterPath="$PROJECT_DIR$/module/like/include/component/ajax/ajax.class.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/module/like/include/component/block/link.class.php" afterPath="$PROJECT_DIR$/module/like/include/component/block/link.class.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/module/like/include/phpfox.class.php" afterPath="$PROJECT_DIR$/module/like/include/phpfox.class.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/module/like/include/service/callback.class.php" afterPath="$PROJECT_DIR$/module/like/include/service/callback.class.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/module/like/include/service/like.class.php" afterPath="$PROJECT_DIR$/module/like/include/service/like.class.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/module/like/include/service/process.class.php" afterPath="$PROJECT_DIR$/module/like/include/service/process.class.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/module/like/install/phpfox.xml.php" afterPath="$PROJECT_DIR$/module/like/install/phpfox.xml.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/module/like/template/default/block/display.html.php" afterPath="$PROJECT_DIR$/module/like/template/default/block/display.html.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/module/like/template/default/block/link.html.php" afterPath="$PROJECT_DIR$/module/like/template/default/block/link.html.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/module/link/include/service/callback.class.php" afterPath="$PROJECT_DIR$/module/link/include/service/callback.class.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/module/link/include/service/link.class.php" afterPath="$PROJECT_DIR$/module/link/include/service/link.class.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/module/link/install/phpfox.xml.php" afterPath="$PROJECT_DIR$/module/link/install/phpfox.xml.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/module/mail/include/component/controller/index.class.php" afterPath="$PROJECT_DIR$/module/mail/include/component/controller/index.class.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/module/mail/include/service/api.class.php" afterPath="$PROJECT_DIR$/module/mail/include/service/api.class.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/module/mail/include/service/mail.class.php" afterPath="$PROJECT_DIR$/module/mail/include/service/mail.class.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/module/mail/include/service/process.class.php" afterPath="$PROJECT_DIR$/module/mail/include/service/process.class.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/module/marketplace/include/component/controller/index.class.php" afterPath="$PROJECT_DIR$/module/marketplace/include/component/controller/index.class.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/module/marketplace/include/service/browse.class.php" afterPath="$PROJECT_DIR$/module/marketplace/include/service/browse.class.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/module/marketplace/include/service/callback.class.php" afterPath="$PROJECT_DIR$/module/marketplace/include/service/callback.class.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/module/marketplace/include/service/marketplace.class.php" afterPath="$PROJECT_DIR$/module/marketplace/include/service/marketplace.class.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/module/marketplace/include/service/process.class.php" afterPath="$PROJECT_DIR$/module/marketplace/include/service/process.class.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/module/marketplace/install/phpfox.xml.php" afterPath="$PROJECT_DIR$/module/marketplace/install/phpfox.xml.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/module/marketplace/template/default/controller/index.html.php" afterPath="$PROJECT_DIR$/module/marketplace/template/default/controller/index.html.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/module/marketplace/template/default/controller/view.html.php" afterPath="$PROJECT_DIR$/module/marketplace/template/default/controller/view.html.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/module/music/include/service/callback.class.php" afterPath="$PROJECT_DIR$/module/music/include/service/callback.class.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/module/music/include/service/music.class.php" afterPath="$PROJECT_DIR$/module/music/include/service/music.class.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/module/music/include/service/process.class.php" afterPath="$PROJECT_DIR$/module/music/include/service/process.class.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/module/music/install/phpfox.xml.php" afterPath="$PROJECT_DIR$/module/music/install/phpfox.xml.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/module/notification/include/service/api.class.php" afterPath="$PROJECT_DIR$/module/notification/include/service/api.class.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/module/pages/include/component/ajax/ajax.class.php" afterPath="$PROJECT_DIR$/module/pages/include/component/ajax/ajax.class.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/module/pages/include/component/block/header.class.php" afterPath="$PROJECT_DIR$/module/pages/include/component/block/header.class.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/module/pages/include/component/controller/add.class.php" afterPath="$PROJECT_DIR$/module/pages/include/component/controller/add.class.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/module/pages/include/component/controller/view.class.php" afterPath="$PROJECT_DIR$/module/pages/include/component/controller/view.class.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/module/pages/include/phpfox.class.php" afterPath="$PROJECT_DIR$/module/pages/include/phpfox.class.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/module/pages/include/service/callback.class.php" afterPath="$PROJECT_DIR$/module/pages/include/service/callback.class.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/module/pages/include/service/category/category.class.php" afterPath="$PROJECT_DIR$/module/pages/include/service/category/category.class.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/module/pages/include/service/pages.class.php" afterPath="$PROJECT_DIR$/module/pages/include/service/pages.class.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/module/pages/include/service/process.class.php" afterPath="$PROJECT_DIR$/module/pages/include/service/process.class.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/module/pages/install/phpfox.xml.php" afterPath="$PROJECT_DIR$/module/pages/install/phpfox.xml.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/module/pages/static/css/default/default/index.css" afterPath="$PROJECT_DIR$/module/pages/static/css/default/default/index.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/module/pages/static/jscript/pages.js" afterPath="$PROJECT_DIR$/module/pages/static/jscript/pages.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/module/pages/template/default/block/header.html.php" afterPath="$PROJECT_DIR$/module/pages/template/default/block/header.html.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/module/pages/template/default/block/photo.html.php" afterPath="$PROJECT_DIR$/module/pages/template/default/block/photo.html.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/module/pages/template/default/controller/add.html.php" afterPath="$PROJECT_DIR$/module/pages/template/default/controller/add.html.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/module/pages/template/default/controller/view.html.php" afterPath="$PROJECT_DIR$/module/pages/template/default/controller/view.html.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/module/pautina/include/service/header/header.class.php" afterPath="$PROJECT_DIR$/module/pautina/include/service/header/header.class.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/module/photo/include/component/ajax/ajax.class.php" afterPath="$PROJECT_DIR$/module/photo/include/component/ajax/ajax.class.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/module/photo/include/component/controller/album.class.php" afterPath="$PROJECT_DIR$/module/photo/include/component/controller/album.class.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/module/photo/include/component/controller/albums.class.php" afterPath="$PROJECT_DIR$/module/photo/include/component/controller/albums.class.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/module/photo/include/component/controller/index.class.php" afterPath="$PROJECT_DIR$/module/photo/include/component/controller/index.class.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/module/photo/include/component/controller/profile.class.php" afterPath="$PROJECT_DIR$/module/photo/include/component/controller/profile.class.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/module/photo/include/component/controller/size.class.php" afterPath="$PROJECT_DIR$/module/photo/include/component/controller/size.class.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/module/photo/include/component/controller/view.class.php" afterPath="$PROJECT_DIR$/module/photo/include/component/controller/view.class.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/module/photo/include/service/api.class.php" afterPath="$PROJECT_DIR$/module/photo/include/service/api.class.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/module/photo/include/service/browse.class.php" afterPath="$PROJECT_DIR$/module/photo/include/service/browse.class.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/module/photo/include/service/callback.class.php" afterPath="$PROJECT_DIR$/module/photo/include/service/callback.class.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/module/photo/include/service/photo.class.php" afterPath="$PROJECT_DIR$/module/photo/include/service/photo.class.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/module/photo/install/phpfox.xml.php" afterPath="$PROJECT_DIR$/module/photo/install/phpfox.xml.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/module/photo/static/css/default/default/browse.css" afterPath="$PROJECT_DIR$/module/photo/static/css/default/default/browse.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/module/photo/static/css/default/default/view.css" afterPath="$PROJECT_DIR$/module/photo/static/css/default/default/view.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/module/photo/static/jscript/photo.js" afterPath="$PROJECT_DIR$/module/photo/static/jscript/photo.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/module/photo/template/default/block/album-entry.html.php" afterPath="$PROJECT_DIR$/module/photo/template/default/block/album-entry.html.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/module/photo/template/default/block/photo-entry.html.php" afterPath="$PROJECT_DIR$/module/photo/template/default/block/photo-entry.html.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/module/photo/template/default/block/share.html.php" afterPath="$PROJECT_DIR$/module/photo/template/default/block/share.html.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/module/photo/template/default/controller/albums.html.php" afterPath="$PROJECT_DIR$/module/photo/template/default/controller/albums.html.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/module/photo/template/default/controller/index.html.php" afterPath="$PROJECT_DIR$/module/photo/template/default/controller/index.html.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/module/photo/template/default/controller/view.html.php" afterPath="$PROJECT_DIR$/module/photo/template/default/controller/view.html.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/module/poll/include/component/controller/index.class.php" afterPath="$PROJECT_DIR$/module/poll/include/component/controller/index.class.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/module/poll/include/service/callback.class.php" afterPath="$PROJECT_DIR$/module/poll/include/service/callback.class.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/module/poll/include/service/poll.class.php" afterPath="$PROJECT_DIR$/module/poll/include/service/poll.class.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/module/poll/install/phpfox.xml.php" afterPath="$PROJECT_DIR$/module/poll/install/phpfox.xml.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/module/poll/template/default/block/entry.html.php" afterPath="$PROJECT_DIR$/module/poll/template/default/block/entry.html.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/module/privacy/include/component/block/form.class.php" afterPath="$PROJECT_DIR$/module/privacy/include/component/block/form.class.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/module/privacy/include/service/privacy.class.php" afterPath="$PROJECT_DIR$/module/privacy/include/service/privacy.class.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/module/privacy/install/phpfox.xml.php" afterPath="$PROJECT_DIR$/module/privacy/install/phpfox.xml.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/module/privacy/template/default/block/friend.html.php" afterPath="$PROJECT_DIR$/module/privacy/template/default/block/friend.html.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/module/profile/include/component/block/header.class.php" afterPath="$PROJECT_DIR$/module/profile/include/component/block/header.class.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/module/profile/include/component/block/menu.class.php" afterPath="$PROJECT_DIR$/module/profile/include/component/block/menu.class.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/module/profile/include/component/block/pic.class.php" afterPath="$PROJECT_DIR$/module/profile/include/component/block/pic.class.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/module/profile/include/component/controller/index.class.php" afterPath="$PROJECT_DIR$/module/profile/include/component/controller/index.class.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/module/profile/include/service/profile.class.php" afterPath="$PROJECT_DIR$/module/profile/include/service/profile.class.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/module/profile/install/phpfox.xml.php" afterPath="$PROJECT_DIR$/module/profile/install/phpfox.xml.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/module/profile/template/default/block/header.html.php" afterPath="$PROJECT_DIR$/module/profile/template/default/block/header.html.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/module/profile/template/default/block/info.html.php" afterPath="$PROJECT_DIR$/module/profile/template/default/block/info.html.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/module/profile/template/default/block/pic.html.php" afterPath="$PROJECT_DIR$/module/profile/template/default/block/pic.html.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/module/profile/template/default/controller/private.html.php" afterPath="$PROJECT_DIR$/module/profile/template/default/controller/private.html.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/module/profile/template/pautina/block/info.html.php" afterPath="$PROJECT_DIR$/module/profile/template/pautina/block/info.html.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/module/quiz/include/service/callback.class.php" afterPath="$PROJECT_DIR$/module/quiz/include/service/callback.class.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/module/quiz/include/service/quiz.class.php" afterPath="$PROJECT_DIR$/module/quiz/include/service/quiz.class.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/module/quiz/install/phpfox.xml.php" afterPath="$PROJECT_DIR$/module/quiz/install/phpfox.xml.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/module/report/include/component/block/profile.class.php" afterPath="$PROJECT_DIR$/module/report/include/component/block/profile.class.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/module/report/install/phpfox.xml.php" afterPath="$PROJECT_DIR$/module/report/install/phpfox.xml.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/module/report/template/default/block/profile.html.php" afterPath="$PROJECT_DIR$/module/report/template/default/block/profile.html.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/module/share/include/component/block/link.class.php" afterPath="$PROJECT_DIR$/module/share/include/component/block/link.class.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/module/share/include/component/controller/connect.class.php" afterPath="$PROJECT_DIR$/module/share/include/component/controller/connect.class.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/module/shoutbox/install/phpfox.xml.php" afterPath="$PROJECT_DIR$/module/shoutbox/install/phpfox.xml.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/module/theme/include/service/process.class.php" afterPath="$PROJECT_DIR$/module/theme/include/service/process.class.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/module/theme/include/service/style/process.class.php" afterPath="$PROJECT_DIR$/module/theme/include/service/style/process.class.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/module/user/include/component/ajax/ajax.class.php" afterPath="$PROJECT_DIR$/module/user/include/component/ajax/ajax.class.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/module/user/include/component/block/birth.class.php" afterPath="$PROJECT_DIR$/module/user/include/component/block/birth.class.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/module/user/include/component/block/processpoints.class.php" afterPath="$PROJECT_DIR$/module/user/include/component/block/processpoints.class.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/module/user/include/component/controller/browse.class.php" afterPath="$PROJECT_DIR$/module/user/include/component/controller/browse.class.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/module/user/include/component/controller/register.class.php" afterPath="$PROJECT_DIR$/module/user/include/component/controller/register.class.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/module/user/include/phpfox.class.php" afterPath="$PROJECT_DIR$/module/user/include/phpfox.class.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/module/user/include/service/api.class.php" afterPath="$PROJECT_DIR$/module/user/include/service/api.class.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/module/user/include/service/auth.class.php" afterPath="$PROJECT_DIR$/module/user/include/service/auth.class.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/module/user/include/service/browse.class.php" afterPath="$PROJECT_DIR$/module/user/include/service/browse.class.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/module/user/include/service/callback.class.php" afterPath="$PROJECT_DIR$/module/user/include/service/callback.class.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/module/user/include/service/group/setting/setting.class.php" afterPath="$PROJECT_DIR$/module/user/include/service/group/setting/setting.class.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/module/user/include/service/process.class.php" afterPath="$PROJECT_DIR$/module/user/include/service/process.class.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/module/user/include/service/user.class.php" afterPath="$PROJECT_DIR$/module/user/include/service/user.class.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/module/user/install/phpfox.xml.php" afterPath="$PROJECT_DIR$/module/user/install/phpfox.xml.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/module/user/template/default/block/filter.html.php" afterPath="$PROJECT_DIR$/module/user/template/default/block/filter.html.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/module/user/template/default/block/register/step2.html.php" afterPath="$PROJECT_DIR$/module/user/template/default/block/register/step2.html.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/module/user/template/default/controller/browse.html.php" afterPath="$PROJECT_DIR$/module/user/template/default/controller/browse.html.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/module/user/template/default/controller/register.html.php" afterPath="$PROJECT_DIR$/module/user/template/default/controller/register.html.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/module/video/include/component/controller/add.class.php" afterPath="$PROJECT_DIR$/module/video/include/component/controller/add.class.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/module/video/include/component/controller/profile.class.php" afterPath="$PROJECT_DIR$/module/video/include/component/controller/profile.class.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/module/video/include/component/controller/view.class.php" afterPath="$PROJECT_DIR$/module/video/include/component/controller/view.class.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/module/video/include/service/callback.class.php" afterPath="$PROJECT_DIR$/module/video/include/service/callback.class.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/module/video/include/service/video.class.php" afterPath="$PROJECT_DIR$/module/video/include/service/video.class.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/module/video/install/phpfox.xml.php" afterPath="$PROJECT_DIR$/module/video/install/phpfox.xml.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/module/video/static/css/default/default/video.css" afterPath="$PROJECT_DIR$/module/video/static/css/default/default/video.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/module/video/template/default/controller/view.html.php" afterPath="$PROJECT_DIR$/module/video/template/default/controller/view.html.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/static/image.php" afterPath="$PROJECT_DIR$/static/image.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/static/jscript/main.js" afterPath="$PROJECT_DIR$/static/jscript/main.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/static/jscript/thickbox/thickbox.js" afterPath="$PROJECT_DIR$/static/jscript/thickbox/thickbox.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/static/style.php" afterPath="$PROJECT_DIR$/static/style.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/theme/frontend/pautina/style/default/css/im.css" afterPath="$PROJECT_DIR$/theme/frontend/pautina/style/default/css/im.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/theme/frontend/pautina/style/default/css/style.css" afterPath="$PROJECT_DIR$/theme/frontend/pautina/style/default/css/style.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/theme/frontend/pautina/template/template.html.php" afterPath="$PROJECT_DIR$/theme/frontend/pautina/template/template.html.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/theme/adminpanel/default/style/default/css/common.css" afterPath="$PROJECT_DIR$/theme/adminpanel/default/style/default/css/common.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/theme/frontend/default/style/default/css/comment.css" afterPath="$PROJECT_DIR$/theme/frontend/default/style/default/css/comment.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/theme/frontend/default/style/default/css/layout.css" afterPath="$PROJECT_DIR$/theme/frontend/default/style/default/css/layout.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/theme/frontend/default/style/default/jscript/main.js" afterPath="$PROJECT_DIR$/theme/frontend/default/style/default/jscript/main.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/theme/frontend/default/template/error.html.php" afterPath="$PROJECT_DIR$/theme/frontend/default/template/error.html.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/theme/frontend/default/template/template.html.php" afterPath="$PROJECT_DIR$/theme/frontend/default/template/template.html.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/theme/frontend/pautina/style/default/jscript/profile.info.js" afterPath="$PROJECT_DIR$/theme/frontend/pautina/style/default/jscript/profile.info.js" />
     </list>
     <list id="d6f7b0f8-ad1d-47bf-b933-6048fc65bab3" name="Failed commit: Default" comment="merge results" />
     <ignored path="localhost.iws" />
@@ -43,88 +418,95 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="style.css" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/theme/frontend/pautina/style/default/css/style.css">
+      <file leaf-file-name="index.class.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/module/photo/include/component/controller/index.class.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="501" column="9" selection-start="11797" selection-end="11797" vertical-scroll-proportion="0.0">
+            <state line="257" column="99" selection-start="8167" selection-end="8167" vertical-scroll-proportion="-2.4444444">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="im.css" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/theme/frontend/pautina/style/default/css/im.css">
+      <file leaf-file-name="photo.class.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/module/photo/include/service/photo.class.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="120" column="23" selection-start="1790" selection-end="1790" vertical-scroll-proportion="0.66986567">
+            <state line="540" column="21" selection-start="18032" selection-end="18032" vertical-scroll-proportion="-6.3333335">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ajax.class.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/module/im/include/component/ajax/ajax.class.php">
+      <file leaf-file-name="log.class.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/module/log/include/service/log.class.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="65" column="38" selection-start="2011" selection-end="2021" vertical-scroll-proportion="-10.935484">
+            <state line="11" column="32" selection-start="146" selection-end="146" vertical-scroll-proportion="-7.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="im.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/module/im/static/jscript/im.js">
+      <file leaf-file-name="main.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/theme/frontend/default/style/default/jscript/main.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="512" column="17" selection-start="14095" selection-end="14095" vertical-scroll-proportion="0.0">
+            <state line="312" column="90" selection-start="7871" selection-end="7871" vertical-scroll-proportion="0.0">
               <folding>
-                <marker date="1354983872169" expanded="false" signature="8082:8121" placeholder="..." />
-                <marker date="1354983872169" expanded="false" signature="14804:14854" placeholder="..." />
-                <marker date="1354983872169" expanded="false" signature="15354:15366" placeholder="..." />
-                <marker date="1354983872169" expanded="false" signature="18274:18329" placeholder="..." />
-                <marker date="1354983872169" expanded="false" signature="18407:18420" placeholder="..." />
+                <marker date="1358875135131" expanded="false" signature="5715:5728" placeholder="..." />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="chat.html.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/module/im/template/default/block/chat.html.php">
+      <file leaf-file-name="feed.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/module/feed/static/jscript/feed.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="39" column="92" selection-start="2164" selection-end="2164" vertical-scroll-proportion="0.0">
+            <state line="583" column="12" selection-start="17263" selection-end="17263" vertical-scroll-proportion="0.0">
+              <folding>
+                <marker date="1358875244816" expanded="true" signature="4142:4157" placeholder="..." />
+                <marker date="1358875244816" expanded="true" signature="9656:9669" placeholder="..." />
+                <marker date="1358875244816" expanded="true" signature="20283:20329" placeholder="..." />
+                <marker date="1358875244816" expanded="true" signature="20854:20861" placeholder="..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="profile.class.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/module/friend/include/component/controller/profile.class.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="14" column="3" selection-start="264" selection-end="264" vertical-scroll-proportion="-9.333333">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="list.html.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/module/im/template/default/block/list.html.php">
+      <file leaf-file-name="upload.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/static/jscript/massuploader/upload.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="94" column="39" selection-start="2632" selection-end="2632" vertical-scroll-proportion="0.0">
-              <folding />
+            <state line="266" column="50" selection-start="7868" selection-end="7868" vertical-scroll-proportion="0.0">
+              <folding>
+                <marker date="1358875301225" expanded="false" signature="2503:2517" placeholder="..." />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="server.sett.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/include/setting/server.sett.php">
+      <file leaf-file-name="thickbox.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/static/jscript/thickbox/thickbox.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="20" column="41" selection-start="446" selection-end="446" vertical-scroll-proportion="-9.225806">
-              <folding />
+            <state line="608" column="37" selection-start="18117" selection-end="18117" vertical-scroll-proportion="0.0">
+              <folding>
+                <marker date="1358875364080" expanded="false" signature="7252:7259" placeholder="..." />
+                <marker date="1358875364080" expanded="false" signature="11863:11900" placeholder="..." />
+                <marker date="1358875364080" expanded="false" signature="11995:12008" placeholder="..." />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="profile.info.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/theme/frontend/pautina/style/default/jscript/profile.info.js">
+      <file leaf-file-name="ajax.class.php" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/module/music/include/component/ajax/ajax.class.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="41" column="11" selection-start="1122" selection-end="1122" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ajax.class.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/module/pautina/include/component/ajax/ajax.class.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="96" column="52" selection-start="3053" selection-end="3053" vertical-scroll-proportion="0.0">
+            <state line="80" column="26" selection-start="2168" selection-end="2168" vertical-scroll-proportion="0.6484716">
               <folding />
             </state>
           </provider>
@@ -146,22 +528,22 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/include/xml/language/ru/module-music.xml" />
-        <option value="$PROJECT_DIR$/module/music/template/pautina/block/entry.html.php" />
-        <option value="$PROJECT_DIR$/module/friend/template/default/controller/index.html.php" />
-        <option value="$PROJECT_DIR$/module/friend/template/default/controller/pending.html.php" />
-        <option value="$PROJECT_DIR$/module/friend/template/pautina/controller/index.html.php" />
-        <option value="$PROJECT_DIR$/theme/frontend/pautina/style/default/css/custom.css" />
-        <option value="$PROJECT_DIR$/module/profile/template/default/block/info.html.php" />
-        <option value="$PROJECT_DIR$/module/profile/template/pautina/block/header.html.php" />
-        <option value="$PROJECT_DIR$/theme/frontend/pautina/style/default/jscript/pautina.js" />
-        <option value="$PROJECT_DIR$/theme/frontend/pautina/style/default/jscript/profile.js" />
         <option value="$PROJECT_DIR$/theme/frontend/pautina/style/default/jscript/blogbox.js" />
         <option value="$PROJECT_DIR$/theme/frontend/pautina/style/default/jscript/profile.info.js" />
         <option value="$PROJECT_DIR$/module/im/include/component/ajax/ajax.class.php" />
-        <option value="$PROJECT_DIR$/include/setting/server.sett.php" />
         <option value="$PROJECT_DIR$/theme/frontend/pautina/style/default/css/style.css" />
         <option value="$PROJECT_DIR$/theme/frontend/pautina/style/default/css/im.css" />
+        <option value="$PROJECT_DIR$/theme/frontend/pautina/template/template.html.php" />
+        <option value="$PROJECT_DIR$/include/setting/server.sett.php" />
+        <option value="$PROJECT_DIR$/module/photo/include/component/controller/index.class.php" />
+        <option value="$PROJECT_DIR$/module/photo/include/service/photo.class.php" />
+        <option value="$PROJECT_DIR$/module/log/include/service/log.class.php" />
+        <option value="$PROJECT_DIR$/theme/frontend/default/style/default/jscript/main.js" />
+        <option value="$PROJECT_DIR$/module/feed/static/jscript/feed.js" />
+        <option value="$PROJECT_DIR$/module/friend/include/component/controller/profile.class.php" />
+        <option value="$PROJECT_DIR$/static/jscript/massuploader/upload.js" />
+        <option value="$PROJECT_DIR$/static/jscript/thickbox/thickbox.js" />
+        <option value="$PROJECT_DIR$/module/music/include/component/ajax/ajax.class.php" />
       </list>
     </option>
   </component>
@@ -172,10 +554,9 @@
   </component>
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
   <component name="ProjectFrameBounds">
-    <option name="x" value="-8" />
-    <option name="y" value="-8" />
-    <option name="width" value="1382" />
-    <option name="height" value="744" />
+    <option name="x" value="-4" />
+    <option name="width" value="1928" />
+    <option name="height" value="1169" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
     <OptionsSetting value="true" id="Add" />
@@ -217,261 +598,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="pautina" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
               <option name="myItemId" value="localhost" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="pautina" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="theme" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="localhost" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="pautina" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="theme" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="frontend" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="localhost" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="pautina" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="theme" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="frontend" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="pautina" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="localhost" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="pautina" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="theme" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="frontend" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="pautina" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="style" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="localhost" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="pautina" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="theme" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="frontend" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="pautina" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="style" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="default" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="localhost" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="pautina" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="theme" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="frontend" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="pautina" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="style" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="default" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="jscript" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="localhost" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="pautina" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="module" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="localhost" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="pautina" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="module" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="im" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="localhost" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="pautina" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="module" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="im" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="include" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="localhost" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="pautina" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="module" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="im" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="include" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="component" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="localhost" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="pautina" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="module" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="im" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="include" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="component" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ajax" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -523,12 +650,14 @@
   </component>
   <component name="PublishConfig" serverName="dkezlya.ftp.ukraine.com.ua " serverId="f7d0a142-2b07-4961-be01-ff311965a679">
     <servers>
-      <server id="f7d0a142-2b07-4961-be01-ff311965a679">
-        <serverdata>
-          <mappings>
-            <mapping deploy="/" local="$PROJECT_DIR$" web="/" />
-          </mappings>
-        </serverdata>
+      <server id="b3640d33-ff37-4859-9246-bda7bf1e0351">
+        <serverdata />
+      </server>
+      <server id="d764cf2e-a554-481e-9655-6ee9c9ac72c0">
+        <serverdata />
+      </server>
+      <server id="f30aad48-b841-4e7a-979b-caf763b836ec">
+        <serverdata />
       </server>
     </servers>
   </component>
@@ -927,16 +1056,17 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
-    <editor active="false" />
+    <frame x="-4" y="0" width="1928" height="1169" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.7979452" sideWeight="0.4969697" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Changes" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.48677766" sideWeight="0.4969697" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32983795" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32954547" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24621212" sideWeight="0.3219178" order="1" side_tool="true" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24617818" sideWeight="0.33202744" order="1" side_tool="true" content_ui="tabs" />
       <window_info id="Remote Host" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32954547" sideWeight="0.17979452" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24621212" sideWeight="0.6660959" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24866596" sideWeight="0.51322234" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4348485" sideWeight="0.6712329" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="TeamCity" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.37328768" sideWeight="0.49772727" order="1" side_tool="true" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -988,7 +1118,7 @@
     <option name="SHOW_VCS_ERROR_NOTIFICATIONS" value="true" />
     <option name="FORCE_NON_EMPTY_COMMENT" value="false" />
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="false" />
-    <option name="LAST_COMMIT_MESSAGE" value="added new favicon" />
+    <option name="LAST_COMMIT_MESSAGE" value="update to 3.5Beta1" />
     <option name="MAKE_NEW_CHANGELIST_ACTIVE" value="false" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_FILES_UP_TO_DATE_BEFORE_COMMIT" value="false" />
@@ -1001,7 +1131,6 @@
     <option name="UPDATE_GROUP_BY_CHANGELIST" value="false" />
     <option name="SHOW_FILE_HISTORY_AS_TREE" value="false" />
     <option name="FILE_HISTORY_SPLITTER_PROPORTION" value="0.6" />
-    <MESSAGE value="remove width for music block" />
     <MESSAGE value="added design for music. remove avatar and like" />
     <MESSAGE value="added distance for play button" />
     <MESSAGE value="remove border bottom for music track" />
@@ -1026,6 +1155,7 @@
     <MESSAGE value="added design for chat - text block" />
     <MESSAGE value="added change in text block" />
     <MESSAGE value="added new favicon" />
+    <MESSAGE value="update to 3.5Beta1" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1036,112 +1166,129 @@
           <option name="timeStamp" value="12" />
         </line-breakpoint>
       </breakpoints>
-      <option name="time" value="18" />
+      <option name="time" value="19" />
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/module/im/include/component/block/user.class.php">
+    <entry file="file://$PROJECT_DIR$/file/css/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-2.9044368" />
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/module/im/include/component/block/messenger.class.php">
+    <entry file="file://$PROJECT_DIR$/auth.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-2.7542663" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/module/im/include/component/block/message.class.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-4.481229" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/module/im/include/component/block/list.class.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-3.7303755" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/module/im/include/component/block/chat.class.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-3.880546" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/module/pautina/include/component/ajax/ajax.class.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="96" column="52" selection-start="3053" selection-end="3053" vertical-scroll-proportion="0.0">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/module/im/template/default/block/chat.html.php">
+    <entry file="file://$PROJECT_DIR$/install/include/version/3.5.0beta1.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="39" column="92" selection-start="2164" selection-end="2164" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/module/im/template/default/block/list.html.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="94" column="39" selection-start="2632" selection-end="2632" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/.gitignore">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="2" column="7" selection-start="46" selection-end="46" vertical-scroll-proportion="0.08163265" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/theme/frontend/pautina/style/default/jscript/profile.info.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="41" column="11" selection-start="1122" selection-end="1122" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/theme/frontend/pautina/style/default/jscript/profile.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="7" column="24" selection-start="158" selection-end="158" vertical-scroll-proportion="0.0">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/include/setting/server.sett.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="20" column="41" selection-start="446" selection-end="446" vertical-scroll-proportion="-9.225806">
+        <state line="46" column="17" selection-start="1208" selection-end="1208" vertical-scroll-proportion="0.21694215">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/module/im/static/jscript/im.js">
+    <entry file="file://$PROJECT_DIR$/module/video/include/component/controller/add.class.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="512" column="17" selection-start="14095" selection-end="14095" vertical-scroll-proportion="0.0">
+        <state line="238" column="2" selection-start="8721" selection-end="8721" vertical-scroll-proportion="0.86806285">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/module/friend/template/pautina/block/accept.html.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/module/photo/include/component/controller/index.class.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="257" column="99" selection-start="8167" selection-end="8167" vertical-scroll-proportion="-2.4444444">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/module/photo/include/service/photo.class.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="540" column="21" selection-start="18032" selection-end="18032" vertical-scroll-proportion="-6.3333335">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/module/log/include/service/log.class.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="11" column="32" selection-start="146" selection-end="146" vertical-scroll-proportion="-7.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/theme/frontend/default/style/default/jscript/main.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="312" column="90" selection-start="7871" selection-end="7871" vertical-scroll-proportion="0.0">
           <folding>
-            <marker date="1354983872169" expanded="false" signature="8082:8121" placeholder="..." />
-            <marker date="1354983872169" expanded="false" signature="14804:14854" placeholder="..." />
-            <marker date="1354983872169" expanded="false" signature="15354:15366" placeholder="..." />
-            <marker date="1354983872169" expanded="false" signature="18274:18329" placeholder="..." />
-            <marker date="1354983872169" expanded="false" signature="18407:18420" placeholder="..." />
+            <marker date="1358875135131" expanded="false" signature="5715:5728" placeholder="..." />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/module/im/include/component/ajax/ajax.class.php">
+    <entry file="file://$PROJECT_DIR$/module/feed/static/jscript/feed.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="65" column="38" selection-start="2011" selection-end="2021" vertical-scroll-proportion="-10.935484">
+        <state line="583" column="12" selection-start="17263" selection-end="17263" vertical-scroll-proportion="0.0">
+          <folding>
+            <marker date="1358875244816" expanded="true" signature="4142:4157" placeholder="..." />
+            <marker date="1358875244816" expanded="true" signature="9656:9669" placeholder="..." />
+            <marker date="1358875244816" expanded="true" signature="20283:20329" placeholder="..." />
+            <marker date="1358875244816" expanded="true" signature="20854:20861" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/module/friend/include/component/controller/profile.class.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="14" column="3" selection-start="264" selection-end="264" vertical-scroll-proportion="-9.333333">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/theme/frontend/pautina/style/default/css/style.css">
+    <entry file="file://$PROJECT_DIR$/static/jscript/massuploader/upload.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="501" column="9" selection-start="11797" selection-end="11797" vertical-scroll-proportion="0.0">
+        <state line="266" column="50" selection-start="7868" selection-end="7868" vertical-scroll-proportion="0.0">
+          <folding>
+            <marker date="1358875301225" expanded="false" signature="2503:2517" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/jscript/thickbox/thickbox.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="608" column="37" selection-start="18117" selection-end="18117" vertical-scroll-proportion="0.0">
+          <folding>
+            <marker date="1358875364080" expanded="false" signature="7252:7259" placeholder="..." />
+            <marker date="1358875364080" expanded="false" signature="11863:11900" placeholder="..." />
+            <marker date="1358875364080" expanded="false" signature="11995:12008" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/theme/frontend/pautina/style/default/css/im.css">
+    <entry file="file://$PROJECT_DIR$/module/music/include/component/ajax/ajax.class.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="120" column="23" selection-start="1790" selection-end="1790" vertical-scroll-proportion="0.66986567">
+        <state line="80" column="26" selection-start="2168" selection-end="2168" vertical-scroll-proportion="0.6484716">
           <folding />
         </state>
       </provider>

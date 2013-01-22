@@ -14,7 +14,7 @@ Phpfox::getLibClass('phpfox.database.interface');
  * @copyright		[PHPFOX_COPYRIGHT]
  * @author			Raymond Benc
  * @package 		Phpfox
- * @version 		$Id: dba.class.php 4550 2012-07-23 08:28:41Z Miguel_Espinoza $
+ * @version 		$Id: dba.class.php 5148 2013-01-16 10:11:28Z Miguel_Espinoza $
  */
 abstract class Phpfox_Database_Dba implements Phpfox_Database_Interface
 {
@@ -769,7 +769,7 @@ abstract class Phpfox_Database_Dba implements Phpfox_Database_Interface
 		}
 		foreach ($aDrops as $sDrop)
 		{
-			$this->query("DROP TABLE {$sDrop}");		
+			$this->query("DROP TABLE IF EXISTS {$sDrop}");		
 		}			
 	}
 	

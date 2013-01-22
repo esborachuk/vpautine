@@ -170,6 +170,8 @@ Site Name</setting>
 		<setting group="cdn_content_delivery_network" module_id="core" is_hidden="0" type="string" var_name="rackspace_key" phrase_var_name="setting_rackspace_key" ordering="12" version_id="3.3.0beta1" />
 		<setting group="cdn_content_delivery_network" module_id="core" is_hidden="0" type="string" var_name="rackspace_container" phrase_var_name="setting_rackspace_container" ordering="13" version_id="3.3.0beta1" />
 		<setting group="cdn_content_delivery_network" module_id="core" is_hidden="0" type="string" var_name="rackspace_url" phrase_var_name="setting_rackspace_url" ordering="14" version_id="3.3.0beta1" />
+		<setting group="cdn_content_delivery_network" module_id="core" is_hidden="0" type="boolean" var_name="keep_files_in_server" phrase_var_name="setting_keep_files_in_server" ordering="15" version_id="3.5.0beta1">0</setting>
+		<setting group="" module_id="core" is_hidden="0" type="string" var_name="google_api_key" phrase_var_name="setting_google_api_key" ordering="1" version_id="3.5.0beta1" />
 		<setting group="formatting" module_id="core" is_hidden="1" type="boolean" var_name="enabled_edit_area" phrase_var_name="setting_enabled_edit_area" ordering="5" version_id="2.0.7">0</setting>
 		<setting group="server_settings" module_id="core" is_hidden="1" type="boolean" var_name="load_jquery_from_google_cdn" phrase_var_name="setting_load_jquery_from_google_cdn" ordering="11" version_id="2.1.0Beta1">0</setting>
 		<setting group="server_settings" module_id="core" is_hidden="1" type="string" var_name="jquery_google_cdn_version" phrase_var_name="setting_jquery_google_cdn_version" ordering="12" version_id="2.1.0Beta1">1.4.4</setting>
@@ -391,6 +393,16 @@ Site Name</setting>
 		<hook module_id="core" hook_type="service" module="core" call_name="core.service_redirect_process__call" added="1319729453" version_id="3.0.0rc1" />
 		<hook module_id="core" hook_type="template" module="core" call_name="core.template_block_comment_border_new" added="1319729453" version_id="3.0.0rc1" />
 		<hook module_id="core" hook_type="controller" module="core" call_name="core.component_controller_admincp_stat_clean" added="1335951260" version_id="3.2.0" />
+		<hook module_id="core" hook_type="library" module="core" call_name="library_template_getstyle_1" added="1358258443" version_id="3.5.0beta1" />
+		<hook module_id="core" hook_type="library" module="core" call_name="library_template_getlayoutfile_1" added="1358258443" version_id="3.5.0beta1" />
+		<hook module_id="core" hook_type="library" module="core" call_name="template_template_getmenu_1" added="1358258443" version_id="3.5.0beta1" />
+		<hook module_id="core" hook_type="library" module="core" call_name="library_module_getmoduleblocks_1" added="1358258443" version_id="3.5.0beta1" />
+		<hook module_id="core" hook_type="library" module="core" call_name="library_phpfox_file_file_upload_1" added="1358258443" version_id="3.5.0beta1" />
+		<hook module_id="core" hook_type="library" module="core" call_name="library_phpfox_file_file_upload_2" added="1358258443" version_id="3.5.0beta1" />
+		<hook module_id="core" hook_type="library" module="core" call_name="library_phpfox_file_file_upload_3" added="1358258443" version_id="3.5.0beta1" />
+		<hook module_id="core" hook_type="library" module="core" call_name="library_phpfox_ismobile" added="1358258443" version_id="3.5.0beta1" />
+		<hook module_id="core" hook_type="component" module="core" call_name="core.template_block_template_menu_1" added="1358258443" version_id="3.5.0beta1" />
+		<hook module_id="core" hook_type="controller" module="core" call_name="core.component_controller_full_clean" added="1358258443" version_id="3.5.0beta1" />
 	</hooks>
 	<components>
 		<component module_id="core" component="index-member" m_connection="core.index-member" module="core" is_controller="1" is_block="0" is_active="1" />
@@ -1209,6 +1221,10 @@ If you disable it extra checks will be added to try to preserve the original nam
 		<phrase module_id="core" version_id="3.4.0rc1" var_name="gift_points" added="1349857455">Gift Points</phrase>
 		<phrase module_id="core" version_id="3.4.0rc1" var_name="how_many_points_do_you_want_to_gift_away" added="1349857462">How many points do you want to gift away?</phrase>
 		<phrase module_id="core" version_id="3.4.0rc1" var_name="unfortunately_you_do_not_have_enough_points_to_gift_away" added="1349857479">Unfortunately you do not have enough points to gift away, but you can earn more points by being more active in the site.</phrase>
+		<phrase module_id="core" version_id="3.5.0beta1" var_name="setting_keep_files_in_server" added="1353415860"><![CDATA[<title>Keep Files In Server</title><info>After a file has been uploaded to the CDN, should we delete the original file in this server?</info>]]></phrase>
+		<phrase module_id="core" version_id="3.5.0beta1" var_name="setting_google_api_key" added="1353588797"><![CDATA[<title>Google API Key</title><info>Google offers many services that require an API key (like the Places service), enter your Google API key here.
+
+More information on how to get an API key can be found <a href="https://developers.google.com/maps/documentation/javascript/tutorial#api_key">here</a>.</info>]]></phrase>
 	</phrases>
 	<pages>
 		<page module_id="core" is_phrase="1" has_bookmark="0" parse_php="1" add_view="0" full_size="1" title="core.about" title_url="about" added="1231338597">

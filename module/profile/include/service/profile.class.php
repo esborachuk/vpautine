@@ -11,7 +11,7 @@ defined('PHPFOX') or exit('NO DICE!');
  * @copyright		[PHPFOX_COPYRIGHT]
  * @author  		Raymond Benc
  * @package 		Phpfox_Service
- * @version 		$Id: profile.class.php 4771 2012-09-26 10:06:58Z Raymond_Benc $
+ * @version 		$Id: profile.class.php 5138 2013-01-15 09:10:05Z Miguel_Espinoza $
  */
 class Profile_Service_Profile extends Phpfox_Service 
 {
@@ -78,6 +78,13 @@ class Profile_Service_Profile extends Phpfox_Service
 			return false;
 		}
 		
+		if (defined('PAGE_TIME_LINE') && PAGE_TIME_LINE)
+		{
+			return true;
+		}
+		
+		$iUserId = Phpfox::getLib('request')->get('profile_user_id');
+		
 		if (Phpfox::isModule('feed') && !Phpfox::getParam('feed.force_timeline'))
 		{
 			if (Phpfox::getParam('feed.timeline_optional') && PHPFOX_IS_AJAX && Phpfox::getLib('request')->get('profile_user_id') > 0)
@@ -99,6 +106,7 @@ class Profile_Service_Profile extends Phpfox_Service
 			}		
 			
 			$aCore = Phpfox::getLib('request')->get('core');
+			
 			if (PHPFOX_IS_AJAX && Phpfox::getParam('feed.timeline_optional') && isset($aCore['profile_user_id']) && $aCore['profile_user_id'] > 0)
 			{
 				Phpfox::getService('user')->get($aCore['profile_user_id']);
@@ -186,7 +194,7 @@ class Profile_Service_Profile extends Phpfox_Service
 				$aMenus[$iKey]['is_selected'] = true;
 			}
 			
-			if ($aMenu['url'] == 'profile.photo' && Phpfox::getLib('request')->get('req2') == 'photo' && Phpfox::getLib('request')->get('req3') == 'albums')
+			if ($aMenu['url'] == 'profile.photo' && Phpfox::getLib('request')->get('req2') == 'photo' && (Phpfox::getLib('request')->get('req3') == 'albums' || Phpfox::getLib('request')->get('req3') == 'photos'))
 			{
 				$aMenus[$iKey]['is_selected'] = true;
 			}

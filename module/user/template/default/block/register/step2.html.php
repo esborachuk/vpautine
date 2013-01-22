@@ -77,6 +77,9 @@
 		</div>				
 		{/if}
 	</div>
+	
+	{module name='user.showspamquestion'}
+	
 	{if Phpfox::getParam('user.force_user_to_upload_on_sign_up')}
 		<div class="separate"></div>
 		<div class="table">
@@ -90,4 +93,6 @@
 				</div>
 			</div>			
 		</div>
-		{/if}
+	{/if}
+	
+	

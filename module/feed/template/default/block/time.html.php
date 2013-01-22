@@ -29,3 +29,12 @@ defined('PHPFOX') or exit('NO DICE!');
 	</ul>
 </div>
 {module name='report.profile'}
+{if Phpfox::getUserParam('friend.link_to_remove_friend_on_profile') && isset($aUser.is_friend) && $aUser.is_friend}
+	<ul>
+		<li>
+			<a href="#" onclick="if (confirm('{phrase var='core.are_you_sure'}'))$.ajaxCall('friend.delete', 'friend_user_id={$aUser.user_id}&reload=1'); return false;">
+				{phrase var='friend.remove_friend'}
+			</a>
+		</li>
+	</ul>
+{/if}

@@ -13,7 +13,7 @@ defined('PHPFOX') or exit('NO DICE!');
  * @copyright		[PHPFOX_COPYRIGHT]
  * @author			Raymond Benc
  * @package 		Phpfox
- * @version 		$Id: request.class.php 4576 2012-07-31 10:32:27Z Raymond_Benc $
+ * @version 		$Id: request.class.php 5147 2013-01-16 09:43:00Z Raymond_Benc $
  */
 class Phpfox_Request
 {	
@@ -314,6 +314,10 @@ class Phpfox_Request
     		
     		if ($this->_bIsMobile === true && !PHPFOX_IS_AJAX)
     		{
+    			if ($this->get('req1') == 'apps' && $this->get('req2') == 'install')
+    			{
+    				Phpfox::getLib('url')->send('mobile.apps.install.' . $this->get('req3'));
+    			}
     			Phpfox::getLib('url')->send('mobile');
     		}
     	}

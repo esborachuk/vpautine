@@ -11,7 +11,7 @@ defined('PHPFOX') or exit('NO DICE!');
  * @copyright		[PHPFOX_COPYRIGHT]
  * @author  		Raymond Benc
  * @package  		Module_Feed
- * @version 		$Id: display.class.php 4621 2012-09-12 05:34:34Z Raymond_Benc $
+ * @version 		$Id: display.class.php 5135 2013-01-15 07:34:36Z Miguel_Espinoza $
  */
 class Feed_Component_Block_Display extends Phpfox_Component 
 {
@@ -20,9 +20,42 @@ class Feed_Component_Block_Display extends Phpfox_Component
 	 */
 	public function process()
 	{			
+		     
+		if (defined('PHPFOX_IS_PAGES_VIEW') && $this->request()->get('req3') == 'info')
+		{
+		    return false;
+		}
 		$iUserId = $this->getParam('user_id');
+		$aPage = $this->getParam('aPage');
+		$bForceFormOnly = $this->getParam('bForceFormOnly');
+		if (isset($aPage['page_user_id']))
+		{
+			$bHasPerm = Phpfox::getService('pages')->hasPerm($aPage['page_id'], 'pages.view_browse_updates');
+			if ($bHasPerm == false)
+			{
+				return false;
+			}
+			$iUserId = $aPage['page_user_id'];
+			
+			/* Get all blocks for location 2 and 3 */
+			
+			$oBlock = Phpfox::getLib('module');
+			$aBlocks = $oBlock->getModuleBlocks(1, true);
+			$aBlocks = array_merge($aBlocks, $oBlock->getModuleBlocks(3, true));
+			foreach ($aBlocks as $iKey => $sBlock)
+			{
+				switch($sBlock)
+				{
+					case 'pages.photo':
+					case 'pages.menu':
+						unset($aBlocks[$iKey]);
+				}
+				
+			}
+			$this->template()->assign(array('aLoadBlocks' => $aBlocks));
+		}
 		$bIsCustomFeedView = false;
-		$sCustomViewType = null;		
+		$sCustomViewType = null;
 		
 		if (PHPFOX_IS_AJAX && ($iUserId = $this->request()->get('profile_user_id')))
 		{
@@ -115,7 +148,7 @@ class Feed_Component_Block_Display extends Phpfox_Component
 			$aFeedCallback['item_id'] = ((int)$this->request()->get('amp;callback_item_id')) > 0 ? $this->request()->get('amp;callback_item_id') : $this->request()->get('callback_item_id');
 		}
 		$aRows = Phpfox::getService('feed')->callback($aFeedCallback)->get(($bIsProfile > 0 ? $iUserId : null), ($this->request()->get('feed') ? $this->request()->get('feed') : null), $iFeedPage);
-		//d($aRows);
+		
 		if (empty($aRows))
 		{
 			$iFeedPage++;
@@ -130,7 +163,7 @@ class Feed_Component_Block_Display extends Phpfox_Component
 			&& isset($aRows[0]))
 		{
 			$aRows[0]['feed_view_comment'] = true;
-			$this->setParam('aFeed', array_merge(array('feed_display' => 'view', 'total_like' => $aRows[0]['feed_total_like']), $aRows[0]));	
+			$this->setParam('aFeed', array_merge(array('feed_display' => 'view', 'total_like' => $aRows[0]['feed_total_like']), $aRows[0]));                        
 		}	
 		
 		(($sPlugin = Phpfox_Plugin::get('feed.component_block_display_process')) ? eval($sPlugin) : false);		
@@ -145,17 +178,29 @@ class Feed_Component_Block_Display extends Phpfox_Component
 		$iUserid = ($bIsProfile > 0 ? $iUserId : null);
 		$iTotalFeeds = (int) Phpfox::getComponentSetting(($iUserid === null ? Phpfox::getUserId() : $iUserid), 'feed.feed_display_limit_' . ($iUserid !== null ? 'profile' : 'dashboard'), Phpfox::getParam('feed.feed_display_limit'));
 
-		/*
-		if (!Phpfox::isMobile())
+		/*	
+		if (isset($sActivityFeedHeader))
 		{
 			$this->template()->assign(array(
-					'sHeader' => Phpfox::getPhrase('feed.activity_feed')
+					'sHeader' => $sActivityFeedHeader
 				)
 			);
 		}
-		*/		
+		*/
 		
+		$aUserLocation = Phpfox::getUserBy('location_latlng');
+		if (!empty($aUserLocation))
+		{
+			$this->template()->assign(array('aVisitorLocation' => json_decode($aUserLocation, true)));
+		}
+		$bLoadCheckIn = false;
+		if (!defined('PHPFOX_IS_PAGES_VIEW') && Phpfox::getParam('feed.enable_check_in') && (Phpfox::getParam('core.ip_infodb_api_key') || Phpfox::getParam('core.google_api_key') ) )
+		{
+			$bLoadCheckIn = true;
+		}
+
 		$this->template()->assign(array(				
+				'bHideEnterComment' => true,
 				'aFeeds' => $aRows,
 				'iFeedNextPage' => ($iFeedPage + 1),
 				'iFeedCurrentPage' => $iFeedPage,
@@ -167,7 +212,9 @@ class Feed_Component_Block_Display extends Phpfox_Component
 				'bIsCustomFeedView' => $bIsCustomFeedView,
 				'sTimelineYear' => $this->request()->get('year'),
 				'sTimelineMonth' => $this->request()->get('month'),
-				'iFeedUserSortOrder' => Phpfox::getUserBy('feed_sort')
+				'iFeedUserSortOrder' => Phpfox::getUserBy('feed_sort'),
+				'bLoadCheckIn' => $bLoadCheckIn,
+				'bForceFormOnly' => $bForceFormOnly
 			)
 		);	
 		

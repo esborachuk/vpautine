@@ -11,7 +11,7 @@ defined('PHPFOX') or exit('NO DICE!');
  * @copyright		[PHPFOX_COPYRIGHT]
  * @author  		Raymond Benc
  * @package  		Module_Admincp
- * @version 		$Id: process.class.php 2634 2011-05-31 17:24:19Z Miguel_Espinoza $
+ * @version 		$Id: process.class.php 5143 2013-01-15 14:16:21Z Miguel_Espinoza $
  */
 class Admincp_Service_Product_Process extends Phpfox_Service 
 {
@@ -58,11 +58,13 @@ class Admincp_Service_Product_Process extends Phpfox_Service
 	
 	public function update($sProduct, $aVals)
 	{
+		if ($sPlugin = Phpfox_Plugin::get('admincp.service_product_process_update')){eval($sPlugin);if (isset($mReturnFromPlugin)){return $mReturnFromPlugin;}}
 		return $this->add($aVals, true);
 	}
 	
 	public function delete($sProduct)
 	{
+		if ($sPlugin = Phpfox_Plugin::get('admincp.service_product_process_delete')){eval($sPlugin);if (isset($mReturnFromPlugin)){return $mReturnFromPlugin;}}
 		$aProduct = $this->database()->select('*')
 			->from($this->_sTable)
 			->where('product_id = \'' . $this->database()->escape($sProduct) . '\'')

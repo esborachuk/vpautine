@@ -5,7 +5,7 @@
  * @copyright		[PHPFOX_COPYRIGHT]
  * @author  		Raymond Benc
  * @package  		Module_Blog
- * @version 		$Id: add.html.php 3630 2011-12-01 07:32:45Z Raymond_Benc $
+ * @version 		$Id: add.html.php 5036 2012-11-21 12:45:11Z Miguel_Espinoza $
  */
  
 defined('PHPFOX') or exit('NO DICE!'); 
@@ -28,6 +28,10 @@ defined('PHPFOX') or exit('NO DICE!');
 <div class="main_break">
 	{$sCreateJs}
 	<form method="post" action="{url link='blog.add'}" id="core_js_blog_form" onsubmit="{$sGetJsForm}" enctype="multipart/form-data">
+		{if isset($iItem) && isset($sModule)}
+			<div><input type="hidden" name="val[module_id]" value="{$sModule|htmlspecialchars}"></div>
+			<div><input type="hidden" name="val[item_id]" value="{$iItem|htmlspecialchars}</div>
+		{/if}
 		<div id="js_custom_privacy_input_holder">
 		{if $bIsEdit}
 			{module name='privacy.build' privacy_item_id=$aForms.blog_id privacy_module_id='blog'}

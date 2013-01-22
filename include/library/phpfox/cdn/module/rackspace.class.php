@@ -87,10 +87,20 @@ class Phpfox_Cdn_Module_Rackspace extends Phpfox_Cdn_Abstract
 		$object->load_from_filename($sFile);
 		
 		$this->_bIsUploaded = true;
-		$bDelete = false;
-		if ($bDelete)
+		
+		if (Phpfox::getParam('core.keep_files_in_server') == false)
 		{
-			unlink($sFile);
+			$oSess = Phpfox::getLib('session');
+			$aFiles = $oSess->get('deleteFiles');
+			if (is_array($aFiles))
+			{
+				$aFiles[] = $sFile;
+			}
+			else
+			{
+				$aFiles = array($sFile);
+			}
+			$oSess->set('deleteFiles',$aFiles);
 		}
 		
 		return true;

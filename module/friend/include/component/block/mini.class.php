@@ -11,7 +11,7 @@ defined('PHPFOX') or exit('NO DICE!');
  * @copyright		[PHPFOX_COPYRIGHT]
  * @author  		Raymond Benc
  * @package  		Module_Friend
- * @version 		$Id: mini.class.php 3248 2011-10-07 12:29:57Z Miguel_Espinoza $
+ * @version 		$Id: mini.class.php 5080 2012-12-17 06:29:07Z Raymond_Benc $
  */
 class Friend_Component_Block_Mini extends Phpfox_Component 
 {
@@ -20,6 +20,13 @@ class Friend_Component_Block_Mini extends Phpfox_Component
 	 */
 	public function process()
 	{
+		(($sPlugin = Phpfox_Plugin::get('friend.component_block_mini_process')) ? eval($sPlugin) : false);
+		
+		if (isset($bHideThisBlock))
+		{
+			return false;
+		}
+		
 		if (Phpfox::getUserBy('profile_page_id'))
 		{
 			return false;

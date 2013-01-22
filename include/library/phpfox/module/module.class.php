@@ -13,7 +13,7 @@ defined('PHPFOX') or exit('NO DICE!');
  * @copyright		[PHPFOX_COPYRIGHT]
  * @author			Raymond Benc
  * @package 		Phpfox
- * @version 		$Id: module.class.php 4961 2012-10-29 07:11:34Z Raymond_Benc $
+ * @version 		$Id: module.class.php 5148 2013-01-16 10:11:28Z Miguel_Espinoza $
  */
 class Phpfox_Module
 {	
@@ -466,7 +466,7 @@ class Phpfox_Module
 		static $aBlocks = array();	
 		static $bIsOrdered = false;
 		
-		if (Phpfox::getService('profile')->timeline() && $iId == '1')
+		if (Phpfox::getService('profile')->timeline() && $iId == '1' && !defined('PAGE_TIME_LINE'))
 		{
 			$aBlocks[$iId] = array();
 			
@@ -580,6 +580,7 @@ class Phpfox_Module
 				else 
 				{				
 					$aBlocks[$iId][] = $sKey;
+					if ($sPlugin = Phpfox_Plugin::get('library_module_getmoduleblocks_1')){eval($sPlugin);if (isset($bReturnFromPlugin)) return $bReturnFromPlugin;}
 				}			
 			}	
 		}		

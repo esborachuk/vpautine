@@ -17,7 +17,7 @@ defined('PHPFOX') or exit('NO DICE!');
  * @copyright		[PHPFOX_COPYRIGHT]
  * @author			Raymond Benc
  * @package 		Phpfox
- * @version 		$Id: output.class.php 5050 2012-11-28 09:47:44Z Raymond_Benc $
+ * @version 		$Id: output.class.php 5074 2012-12-06 10:37:26Z Raymond_Benc $
  */
 class Phpfox_Parse_Output
 {

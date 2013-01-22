@@ -83,6 +83,18 @@ defined('PHPFOX') or exit('NO DICE!');
 				<textarea cols="40" rows="6" name="val[description]">{value type='textarea' id='app_description'}</textarea>
 			</div>
 		</div>		
+		
+		<div class="table">
+			<div class="table_left">
+				Will your App be on this site?
+			</div>
+			<div class="table_right">				
+				<div class="item_is_active_holder">		
+					<span class="js_item_active item_is_active"><input type="radio" name="val[is_ext]" value="0" class="v_middle"{value type='radio' id='is_ext' default='0' selected='true'}/> Yes</span>
+					<span class="js_item_active item_is_not_active"><input type="radio" name="val[is_ext]" value="1" class="v_middle"{value type='radio' id='is_ext' default='1'}/> No</span>
+				</div>	
+			</div>
+		</div>			
 
 	</div>
 
@@ -103,7 +115,7 @@ defined('PHPFOX') or exit('NO DICE!');
 	<div id="js_apps_block_url" class="js_apps_block page_section_menu_holder">
 		<div class="table">
 			<div class="table_left">
-				{phrase var='apps.call_home_url'}:
+				Frame URL:
 			</div>
 			<div class="table_right">
 				<input type="text" name="val[app_url]" value="{value type='input' id='app_url'}" size="80" />
@@ -112,6 +124,18 @@ defined('PHPFOX') or exit('NO DICE!');
 				</div>	
 			</div>
 		</div>
+		
+		<div class="table">
+			<div class="table_left">
+				Return URL:
+			</div>
+			<div class="table_right">
+				<input type="text" name="val[return_url]" value="{value type='input' id='return_url'}" size="80" />
+				<div class="extra_info">
+					If your App is not on this site you need to provite a return URL for authentication.
+				</div>	
+			</div>
+		</div>		
 	</div>
 	
 	<div class="table_clear">

@@ -11,7 +11,7 @@ defined('PHPFOX') or exit('NO DICE!');
  * @copyright		[PHPFOX_COPYRIGHT]
  * @author  		Raymond Benc
  * @package  		Module_Poll
- * @version 		$Id: poll.class.php 3304 2011-10-17 11:51:55Z Miguel_Espinoza $
+ * @version 		$Id: poll.class.php 5016 2012-11-12 15:18:29Z Miguel_Espinoza $
  */
 class Poll_Service_Poll extends Phpfox_Service 
 {
@@ -530,6 +530,28 @@ class Poll_Service_Poll extends Phpfox_Service
 			->execute('getSlaveField');
 	}	
 
+	public function getInfoForAction($aItem)
+	{
+		if (is_numeric($aItem))
+		{
+			$aItem = array('item_id' => $aItem);
+		}
+		$aRow = $this->database()->select('p.poll_id, p.question as title, p.user_id, u.gender, u.full_name')	
+			->from(Phpfox::getT('poll'), 'p')
+			->join(Phpfox::getT('user'), 'u', 'u.user_id = p.user_id')
+			->where('p.poll_id = ' . (int) $aItem['item_id'])
+			->execute('getSlaveRow');
+			
+		if (empty($aRow))
+		{
+			d($aRow);
+			d($aItem);
+		}
+		
+		$aRow['link'] = Phpfox::getLib('url')->permalink('poll', $aRow['poll_id'], $aRow['title']);
+		return $aRow;
+	}
+	
 	/**
 	 * If a call is made to an unknown method attempt to connect
 	 * it to a specific plug-in with the same name thus allowing

@@ -5,7 +5,7 @@
  * @copyright		[PHPFOX_COPYRIGHT]
  * @author  		Raymond Benc
  * @package  		Module_Feed
- * @version 		$Id: content.html.php 4909 2012-10-22 05:56:49Z Raymond_Benc $
+ * @version 		$Id: content.html.php 5140 2013-01-15 10:28:59Z Miguel_Espinoza $
  */
  
 defined('PHPFOX') or exit('NO DICE!'); 
@@ -34,7 +34,11 @@ defined('PHPFOX') or exit('NO DICE!');
 
 			{if isset($aFeed.feed_status) && (!empty($aFeed.feed_status) || $aFeed.feed_status == '0')}
 			<div class="activity_feed_content_status">
-				{$aFeed.feed_status|feed_strip|shorten:200:'feed.view_more':true|split:55}				
+				{$aFeed.feed_status|feed_strip|shorten:200:'feed.view_more':true|split:55}	
+				{if Phpfox::getParam('feed.enable_check_in') && Phpfox::getParam('core.google_api_key') != '' && isset($aFeed.location_name)} 
+					<span class="js_location_name_hover" {if isset($aFeed.location_latlng) && isset($aFeed.location_latlng.latitude)}onmouseover="$Core.Feed.showHoverMap('{$aFeed.location_latlng.latitude}','{$aFeed.location_latlng.longitude}', this);"{/if}> - <a href="http://maps.google.com/maps?daddr={$aFeed.location_latlng.latitude},{$aFeed.location_latlng.longitude}">at {$aFeed.location_name}</a>
+					</span> 
+				{/if}
 			</div>
 			{/if}
 			

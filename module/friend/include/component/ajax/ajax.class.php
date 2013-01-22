@@ -11,7 +11,7 @@ defined('PHPFOX') or exit('NO DICE!');
  * @copyright		[PHPFOX_COPYRIGHT]
  * @author  		Raymond Benc
  * @package  		Module_Friend
- * @version 		$Id: ajax.class.php 4767 2012-09-26 05:41:30Z Raymond_Benc $
+ * @version 		$Id: ajax.class.php 4988 2012-11-05 10:57:40Z Miguel_Espinoza $
  */
 class Friend_Component_Ajax_Ajax extends Phpfox_Ajax
 {
@@ -375,12 +375,19 @@ class Friend_Component_Ajax_Ajax extends Phpfox_Ajax
 	}
 	
 	public function delete()
-	{		
-		if (Phpfox::getService('friend.process')->delete($this->get('id')))
-		{			
+	{
+		$bDeleted = $this->get('id') ? Phpfox::getService('friend.process')->delete($this->get('id')) : Phpfox::getService('friend.process')->delete($this->get('friend_user_id'), false);
+		
+		if ($bDeleted)
+		{
+			if ($this->get('reload'))
+			{				
+				$this->call('window.location.href=window.location.href');
+				return;
+			}
 			$this->call('$("#js_friend_' . $this->get('id') . '").remove();');
 			$this->alert(Phpfox::getPhrase('friend.friend_successfully_removed'), Phpfox::getPhrase('friend.remove_friend'), 300, 150, true);
-		}	
+		}
 	}
 	
 	public function search()

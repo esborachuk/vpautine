@@ -5,19 +5,25 @@
  * @copyright		[PHPFOX_COPYRIGHT]
  * @author  		Raymond Benc
  * @package  		Module_Photo
- * @version 		$Id: photo-entry.html.php 4968 2012-10-30 11:55:11Z Miguel_Espinoza $
+ * @version 		$Id: photo-entry.html.php 5129 2013-01-14 12:38:16Z Raymond_Benc $
  */
  
 defined('PHPFOX') or exit('NO DICE!'); 
 
 ?>
+{if Phpfox::getParam('photo.show_info_on_mouseover')}
+	<div class="photos_container_row">
+    {/if}
 {foreach from=$aPhotos item=aPhoto name=photos}
-<div class="{if $aPhoto.view_id == 1 && !isset($bIsInApproveMode)} row_moderate_image{/if} {if $aPhoto.is_sponsor} row_sponsored_image{/if}{if isset($sView) && $sView == 'featured'}{else}{if $aPhoto.is_featured} row_featured_image{/if}{/if} photo_row" id="js_photo_id_{$aPhoto.photo_id}">
-	<div class="js_outer_photo_div js_mp_fix_holder photo_row_holder">
+
+    
+
+<div class="{if $aPhoto.view_id == 1 && !isset($bIsInApproveMode)} row_moderate_image{/if} {if $aPhoto.is_sponsor} row_sponsored_image{/if}{if isset($sView) && $sView == 'featured'}{else}{if $aPhoto.is_featured} row_featured_image{/if}{/if} photo_row {if !Phpfox::getParam('photo.show_info_on_mouseover')}photo_row_small{else}photo_row_dynamic_view{/if}{if isset($iPhotosPerRow)} photos_per_page_{$iPhotosPerRow}{/if}" id="js_photo_id_{$aPhoto.photo_id}">
+	<div class="js_outer_photo_div js_mp_fix_holder photo_row_holder"{if !Phpfox::getParam('photo.show_info_on_mouseover')} style="display: inline-block;"{/if}>
 	
-		<div class="photo_row_height image_hover_holder">
-			{if Phpfox::getParam('photo.auto_crop_photo')}
-			<div class="photo_clip_holder_main">
+		<div class="photo_row_height image_hover_holder {if Phpfox::getParam('photo.show_info_on_mouseover')}photo_row_height_dynamic_view{/if}">
+			{if Phpfox::getParam('photo.auto_crop_photo') && !Phpfox::getParam('photo.show_info_on_mouseover')}
+			<div class="photo_clip_holder_main{if Phpfox::getParam('photo.show_info_on_mouseover')}_big{/if}">
 			{/if}
 				{if ($aPhoto.view_id == 1 && Phpfox::getUserParam('photo.can_approve_photos')) || ($aPhoto.user_id == Phpfox::getUserId() && (Phpfox::getUserParam('photo.can_edit_own_photo_album') || Phpfox::getUserParam('photo.can_edit_own_photo') || Phpfox::getUserParam('photo.can_delete_own_photo'))) || (Phpfox::getUserParam('photo.can_edit_other_photo_albums') || Phpfox::getUserParam('photo.can_edit_other_photo') || Phpfox::getUserParam('photo.can_delete_other_photos'))
 				|| (defined('PHPFOX_IS_PAGES_VIEW') && Phpfox::getService('pages')->isAdmin('' . $aPage.page_id . ''))
@@ -82,51 +88,82 @@ defined('PHPFOX') or exit('NO DICE!');
 				
 			{if isset($sView) && $sView == 'featured'}
 			{else}
-			<div class="js_featured_photo row_featured_link"{if !$aPhoto.is_featured} style="display:none;"{/if}>
-				{phrase var='photo.featured'}
-			</div>					
+			    <div class="js_featured_photo row_featured_link"{if !$aPhoto.is_featured} style="display:none;"{/if}>
+				    {phrase var='photo.featured'}
+			    </div>					
 			{/if}	
-			<div class="js_sponsor_photo row_sponsored_link"{if !$aPhoto.is_sponsor} style="display:none;"{/if}>
-				{phrase var='photo.sponsored'}
-			</div>
+			    <div class="js_sponsor_photo row_sponsored_link"{if !$aPhoto.is_sponsor} style="display:none;"{/if}>
+				    {phrase var='photo.sponsored'}
+			    </div>
 			{if isset($sView) && $sView == 'pending'}
 			{else}
-			<div class="js_pending_photo row_pending_link"{if $aPhoto.view_id != '1'} style="display:none;"{/if}>
-				{phrase var='photo.pending'}
-			</div>
+			    <div class="js_pending_photo row_pending_link"{if $aPhoto.view_id != '1'} style="display:none;"{/if}>
+				    {phrase var='photo.pending'}
+			    </div>
 			{/if}
 			
 			{if Phpfox::getUserParam('photo.can_approve_photos') || Phpfox::getUserParam('photo.can_delete_other_photos')}
 			<div class="video_moderate_link"><a href="#{$aPhoto.photo_id}" class="moderate_link" rel="photo">{phrase var='photo.moderate'}</a></div>				
 			{/if}
 			
-			{if Phpfox::getParam('photo.auto_crop_photo')}
-				<div class="photo_clip_holder_border">
-					<a href="{$aPhoto.link}{if isset($iForceAlbumId)}albumid_{$iForceAlbumId}/{/if}" style="background:url('{img server_id=$aPhoto.server_id path='photo.url_photo' file=$aPhoto.destination suffix='_240' max_width=240 max_height=240 return_url=true}') no-repeat;" class="thickbox photo_holder_image photo_clip_holder" rel="{$aPhoto.photo_id}" title="{phrase var='photo.title_by_full_name' title=$aPhoto.title|clean full_name=$aPhoto.full_name|clean}">{$aPhoto.title|clean|shorten:45:'...'|split:20}</a>
-				</div>			
+			{if Phpfox::getParam('photo.auto_crop_photo') && !Phpfox::getParam('photo.show_info_on_mouseover')}
+				<div class="photo_clip_holder_border{if Phpfox::getParam('photo.show_info_on_mouseover')}_big{/if}">
+					<a href="{$aPhoto.link}{if isset($iForceAlbumId)}albumid_{$iForceAlbumId}/{/if}"
+					   class="thickbox photo_holder_image photo_clip_holder{if Phpfox::getParam('photo.show_info_on_mouseover')}_big{/if}" 
+					   rel="{$aPhoto.photo_id}" 
+					   title="{phrase var='photo.title_by_full_name' title=$aPhoto.title|clean full_name=$aPhoto.full_name|clean}">
+					    
+					    {img server_id=$aPhoto.server_id path='photo.url_photo' file=$aPhoto.destination suffix='_240' max_width=240 max_height=240 title=$aPhoto.title}
+					    
+					</a>
+				</div>	
+			    {if Phpfox::getParam('photo.show_info_on_mouseover')}
+				{template file='photo.block.hoverinfo'}
+			    {/if}
 			{else}
-			{if ($aPhoto.mature == 0 || (($aPhoto.mature == 1 || $aPhoto.mature == 2) && Phpfox::getUserId() && Phpfox::getUserParam('photo.photo_mature_age_limit') <= Phpfox::getUserBy('age'))) || $aPhoto.user_id == Phpfox::getUserId()}
-			<a href="{$aPhoto.link}{if isset($iForceAlbumId)}albumid_{$iForceAlbumId}/{/if}{if isset($sPhotoCategory)}category_{$sPhotoCategory}/{/if}" title="{phrase var='photo.title_by_full_name' title=$aPhoto.title|clean full_name=$aPhoto.full_name|clean}" class="thickbox photo_holder_image" rel="{$aPhoto.photo_id}">
-				{img server_id=$aPhoto.server_id path='photo.url_photo' file=$aPhoto.destination suffix='_150' max_width=120 max_height=120 title=$aPhoto.title class='js_mp_fix_width photo_holder'}
-			</a>
-			{else}
-			<a href="{$aPhoto.link}{if isset($iForceAlbumId)}albumid_{$iForceAlbumId}/{/if}"{if $aPhoto.mature == 1} onclick="tb_show('{phrase var='photo.warning' phpfox_squote=true}', $.ajaxBox('photo.warning', 'height=300&amp;width=350&amp;link={$aPhoto.link}')); return false;"{/if} class="no_ajax_link">{img theme='misc/no_access.png' alt=''}</a>
-			{/if}
+                            {if ($aPhoto.mature == 0 || (($aPhoto.mature == 1 || $aPhoto.mature == 2) && Phpfox::getUserId() && Phpfox::getUserParam('photo.photo_mature_age_limit') <= Phpfox::getUserBy('age'))) || $aPhoto.user_id == Phpfox::getUserId()}
+                            
+                                {if Phpfox::getParam('photo.show_info_on_mouseover')} 
+				    <a 
+					style="background-image:url('{img server_id=$aPhoto.server_id path='photo.url_photo' file=$aPhoto.destination suffix='_240' return_url=true}')"
+					href="{$aPhoto.link}{if isset($iForceAlbumId)}albumid_{$iForceAlbumId}/{/if}{if isset($sPhotoCategory)}category_{$sPhotoCategory}/{/if}" 
+					title="{phrase var='photo.title_by_full_name' title=$aPhoto.title|clean full_name=$aPhoto.full_name|clean}" 
+					class="thickbox photo_holder_image photo_set_cover photo_clip_holder{if Phpfox::getParam('photo.show_info_on_mouseover')}_big{/if}" 
+					rel="{$aPhoto.photo_id}">{$aPhoto.title}</a>
+				   
+				{else}
+				    <a 
+					href="{$aPhoto.link}{if isset($iForceAlbumId)}albumid_{$iForceAlbumId}/{/if}{if isset($sPhotoCategory)}category_{$sPhotoCategory}/{/if}" 
+					title="{phrase var='photo.title_by_full_name' title=$aPhoto.title|clean full_name=$aPhoto.full_name|clean}" 
+					class="thickbox photo_holder_image photo_set_cover_small" 
+					rel="{$aPhoto.photo_id}">
+					{img server_id=$aPhoto.server_id path='photo.url_photo' file=$aPhoto.destination suffix='_150' max_height='150' max_width='150' title=$aPhoto.title}
+				    </a>
+				{/if}
+                            
+			    {if Phpfox::getParam('photo.show_info_on_mouseover')}
+				{template file='photo.block.hoverinfo'}
+			    {/if}
+                            {else}
+                                <a href="{$aPhoto.link}{if isset($iForceAlbumId)}albumid_{$iForceAlbumId}/{/if}"{if $aPhoto.mature == 1} onclick="tb_show('{phrase var='photo.warning' phpfox_squote=true}', $.ajaxBox('photo.warning', 'height=300&amp;width=350&amp;link={$aPhoto.link}')); return false;"{/if} class="no_ajax_link">{img theme='misc/no_access.png' alt=''}</a>
+                            {/if}
 			{/if}
 			
-			{if Phpfox::getParam('photo.auto_crop_photo')}
+			
+			
+			{if Phpfox::getParam('photo.auto_crop_photo') && !Phpfox::getParam('photo.show_info_on_mouseover')}
 			</div>
 			{/if}
 		</div>
 		
 		<div class="photo_row_info">			
-			{if !isset($bIsInAlbumMode)}
-			<div class="extra_info_link">
-				{phrase var='photo.by_user_info' user_info=$aPhoto|user|shorten:30:'...'|split:20}
-				{if !empty($aPhoto.album_name)}
-				<div>{phrase var='photo.in'} <a href="{permalink module='photo.album' id=$aPhoto.album_id title=$aPhoto.album_name}" title="{$aPhoto.album_name|clean}">{if $aPhoto.album_profile_id > 0}{phrase var='photo.profile_pictures'}{else}{$aPhoto.album_name|clean|shorten:45:'...'|split:20}{/if}</a></div>
-				{/if}
-			</div>
+			{if !isset($bIsInAlbumMode) && !Phpfox::getParam('photo.show_info_on_mouseover')}
+			    <div class="extra_info_link">
+				    {phrase var='photo.by_user_info' user_info=$aPhoto|user|shorten:30:'...'|split:20}
+				    {if !empty($aPhoto.album_name)}
+				    <div>{phrase var='photo.in'} <a href="{permalink module='photo.album' id=$aPhoto.album_id title=$aPhoto.album_name}" title="{$aPhoto.album_name|clean}">{if $aPhoto.album_profile_id > 0}{phrase var='photo.profile_pictures'}{else}{$aPhoto.album_name|clean|shorten:45:'...'|split:20}{/if}</a></div>
+				    {/if}
+			    </div>
 			{/if}
 			{if isset($sView) && $sView == 'top-rated'}
 			<div class="p_2">
@@ -139,13 +176,24 @@ defined('PHPFOX') or exit('NO DICE!');
 			{/if}
 			{plugin call='photo.template_default_block_photo_entry_info'}
 		</div>			
-	</div>
+	</div>    
 </div>
-{if is_int($phpfox.iteration.photos/3) || Phpfox::isMobile()}
-<div class="clear"></div>
-{/if}
+
+    {if (!Phpfox::getParam('photo.show_info_on_mouseover') && is_int($phpfox.iteration.photos/$iPhotosPerRow)) || Phpfox::isMobile()}
+	<div class="clear"></div>
+    {/if}
+    
+    {if Phpfox::getParam('photo.show_info_on_mouseover') && (is_int($phpfox.iteration.photos/$iPhotosPerRow))}
+	</div><div class="photos_container_row">
+    {/if}
+	    
 {/foreach}
+
+{if !is_int($phpfox.iteration.photos/4)}
+	</div>
+    {/if}
 <div class="clear"></div>
-<div class="t_right">
+<div id="js_ajax_browse_content"></div>
+<div class="t_right pager_container">
 	{pager}
 </div>

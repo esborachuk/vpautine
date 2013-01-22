@@ -11,7 +11,7 @@ defined('PHPFOX') or exit('NO DICE!');
  * @copyright		[PHPFOX_COPYRIGHT]
  * @author  		Raymond_Benc
  * @package 		Phpfox_Component
- * @version 		$Id: form.class.php 4854 2012-10-09 05:20:40Z Raymond_Benc $
+ * @version 		$Id: form.class.php 5077 2012-12-13 09:05:45Z Raymond_Benc $
  */
 class Privacy_Component_Block_Form extends Phpfox_Component
 {
@@ -55,6 +55,8 @@ class Privacy_Component_Block_Form extends Phpfox_Component
 				'onclick' => '$Core.box(\'privacy.getFriends\', \'\', \'no_page_click=true' . ($mCustomPrivacyId === null ? '' : '&amp;custom-id=' . $mCustomPrivacyId) . '&amp;privacy-array=' . $this->getParam('privacy_array', '') . '\');'
 			);
 		}
+		
+		(($sPlugin = Phpfox_Plugin::get('privacy.component_block_form_process')) ? eval($sPlugin) : '');
 		
 		$aVals = (array) $this->template()->getVar('aForms');
 		if (($aPostVals = $this->request()->getArray('val')))

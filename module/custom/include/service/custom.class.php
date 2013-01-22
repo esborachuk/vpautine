@@ -11,7 +11,7 @@ defined('PHPFOX') or exit('NO DICE!');
  * @copyright		[PHPFOX_COPYRIGHT]
  * @author  		Raymond Benc
  * @package 		Phpfox_Service
- * @version 		$Id: custom.class.php 4933 2012-10-23 07:20:12Z Miguel_Espinoza $
+ * @version 		$Id: custom.class.php 5143 2013-01-15 14:16:21Z Miguel_Espinoza $
  */
 class Custom_Service_Custom extends Phpfox_Service
 {
@@ -28,6 +28,14 @@ class Custom_Service_Custom extends Phpfox_Service
 	public function getAlias()
 	{
 		return $this->_sAlias;
+	}
+	
+	public function getUserCustomValue($iUserId, $sFieldName)
+	{
+		return $this->database()->select($sFieldName)
+			->from(Phpfox::getT('user_custom_value'))
+			->where('user_id = ' . (int) $iUserId)
+			->execute('getSlaveField');
 	}
 
 	/**
@@ -675,6 +683,7 @@ class Custom_Service_Custom extends Phpfox_Service
 		$iGroup = 0;
 		$sTable = 'user_custom_multiple_value';
 
+		if ($sPlugin = Phpfox_Plugin::get('custom.service_custom_getforedit_1')){eval($sPlugin);if (isset($mReturnFromPlugin)){return $mReturnFromPlugin;}}
 		$sTypes = '';
 		foreach ($aTypes as $sType)
 		{

@@ -24,6 +24,7 @@ class Video_Component_Controller_View extends Phpfox_Component
 		
 		$aCallback = $this->getParam('aCallback', false);
 		
+		if ($sPlugin = Phpfox_Plugin::get('video.component_controller_view_1')){eval($sPlugin);if (isset($mReturnFromPlugin)){return $mReturnFromPlugin;}}
 		$iVideo = $this->request()->getInt(($aCallback !== false ? $aCallback['request'] : 'req2'));
 		
 		if (Phpfox::isUser() && Phpfox::isModule('notification'))
@@ -32,6 +33,7 @@ class Video_Component_Controller_View extends Phpfox_Component
 			Phpfox::getService('notification.process')->delete('video_like', $this->request()->getInt('req2'), Phpfox::getUserId());
 		}		
 		
+		if ($sPlugin = Phpfox_Plugin::get('video.component_controller_view_2')){eval($sPlugin);if (isset($mReturnFromPlugin)){return $mReturnFromPlugin;}}
 		if (!($aVideo = Phpfox::getService('video')->callback($aCallback)->getVideo($iVideo)))
 		{
 			return Phpfox_Error::display(Phpfox::getPhrase('video.the_video_you_are_looking_for_does_not_exist_or_has_been_removed'), 404);
@@ -42,6 +44,7 @@ class Video_Component_Controller_View extends Phpfox_Component
 			Phpfox::getService('notification.process')->delete('video_approved', $this->request()->getInt('req2'), Phpfox::getUserId());
 		}		
 		
+		if ($sPlugin = Phpfox_Plugin::get('video.component_controller_view_3')){eval($sPlugin);if (isset($mReturnFromPlugin)){return $mReturnFromPlugin;}}
 		if (Phpfox::isModule('track') && !$aVideo['video_is_viewed'])
 		{
 			Phpfox::getService('track.process')->add('video', $aVideo['video_id']);

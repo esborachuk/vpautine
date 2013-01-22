@@ -11,7 +11,7 @@ defined('PHPFOX') or exit('NO DICE!');
  * @copyright		[PHPFOX_COPYRIGHT]
  * @author  		Raymond Benc
  * @package 		Phpfox_Service
- * @version 		$Id: callback.class.php 4669 2012-09-19 07:31:27Z Miguel_Espinoza $
+ * @version 		$Id: callback.class.php 5016 2012-11-12 15:18:29Z Miguel_Espinoza $
  */
 class Marketplace_Service_Callback extends Phpfox_Service 
 {
@@ -966,6 +966,24 @@ Phpfox::getPhrase('marketplace.full_name_commented_on_other_full_name',array('fu
 			)
 		);
 	}
+	
+	public function getActions()
+	{
+		return array(
+			'dislike' => array(
+				'enabled' => true,
+				'action_type_id' => 2, // 2 = dislike
+				'phrase' => 'Dislike',
+				'item_type_id' => 'marketplace', // used to differentiate between photo albums and photos for example.
+				'phrase_in_past_tense' => 'disliked',
+				'table' => 'marketplace',
+				'item_phrase' => Phpfox::getPhrase('marketplace.item_phrase'),
+				'column_update' => 'total_dislike',
+				'column_find' => 'listing_id'				
+				)
+		);
+	}
+	
 	/**
 	 * If a call is made to an unknown method attempt to connect
 	 * it to a specific plug-in with the same name thus allowing 

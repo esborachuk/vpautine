@@ -11,7 +11,7 @@ defined('PHPFOX') or exit('NO DICE!');
  * @copyright		[PHPFOX_COPYRIGHT]
  * @author  		Raymond Benc
  * @package  		Module_Photo
- * @version 		$Id: photo.class.php 4897 2012-10-15 14:55:21Z Miguel_Espinoza $
+ * @version 		$Id: photo.class.php 5083 2012-12-20 11:00:06Z Miguel_Espinoza $
  */
 class Photo_Service_Photo extends Phpfox_Service 
 {
@@ -585,7 +585,12 @@ class Photo_Service_Photo extends Phpfox_Service
 				// 3 - "Only me" privacy
 				$sQuery .= ' (photo.privacy = 3 AND photo.user_id = ' . Phpfox::getUserId() . ') '; 				
 				
-				list($iCnt, $aFriends) = Phpfox::getService('friend')->get(array('AND friend.user_id = ' . (int) Phpfox::getUserId()), '', '', false);
+				$iCnt = 0;
+				$aFriends = array();
+				if (Phpfox::isModule('friend'))
+				{
+					list($iCnt, $aFriends) = Phpfox::getService('friend')->get(array('AND friend.user_id = ' . (int) Phpfox::getUserId()), '', '', false);
+				}
 				if ($iCnt > 0)
 				{
 					// 1 - Friends
@@ -705,20 +710,31 @@ class Photo_Service_Photo extends Phpfox_Service
 		$aFilterMenu = array();
 		if (!defined('PHPFOX_IS_USER_PROFILE'))
 		{
+			if (Phpfox::getParam('photo.in_main_photo_section_show') == 'albums' && Phpfox::getUserParam('photo.can_view_photo_albums'))
+			{
+			    $aFilterMenu[Phpfox::getPhrase('photo.all_albums')] = '';
+			    $aFilterMenu[Phpfox::getPhrase('photo.my_albums')] = 'photo.albums.view_myalbums';
+			    $aFilterMenu[] = true;
+			}
+			
 			if (Phpfox::getParam('core.friends_only_community') ||  !Phpfox::isModule('friend'))
 			{				
-				$aFilterMenu = array(
-					Phpfox::getPhrase('photo.all_photos') => '',
-					Phpfox::getPhrase('photo.my_photos') => 'my'							
-				);			
+				$aFilterMenu[Phpfox::getPhrase('photo.all_photos')] = 'photos';
+				$aFilterMenu[Phpfox::getPhrase('photo.my_photos')] = 'my';			
 			}
 			else 
 			{
-				$aFilterMenu = array(
-					Phpfox::getPhrase('photo.all_photos') => '',
-					Phpfox::getPhrase('photo.my_photos') => 'my',
-					Phpfox::getPhrase('photo.friends_photos') => 'friend'				
-				);					
+				if (Phpfox::getParam('photo.in_main_photo_section_show') == 'albums')
+				{
+				    $aFilterMenu[Phpfox::getPhrase('photo.all_photos')] = 'photo.view_photos';
+				}
+				else
+				{
+				    $aFilterMenu[Phpfox::getPhrase('photo.all_photos')] = '';
+				}
+				
+				$aFilterMenu[Phpfox::getPhrase('photo.my_photos')] = 'my';
+				$aFilterMenu[Phpfox::getPhrase('photo.friends_photos')] = 'friend';
 			}				
 			
 			list($iTotalFeatured, $aFeatured) = Phpfox::getService('photo')->getFeatured();
@@ -737,7 +753,7 @@ class Photo_Service_Photo extends Phpfox_Service
 				}
 			}
 			
-			if (Phpfox::getUserParam('photo.can_view_photo_albums'))
+			if (Phpfox::getParam('photo.in_main_photo_section_show') != 'albums' &&Phpfox::getUserParam('photo.can_view_photo_albums'))
 			{
 				$aFilterMenu[] = true;
 				$aFilterMenu[Phpfox::getPhrase('photo.all_albums')] = 'photo.albums';
@@ -761,6 +777,29 @@ class Photo_Service_Photo extends Phpfox_Service
 		}		
 		
 		Phpfox::getLib('template')->buildSectionMenu('photo', $aFilterMenu);			
+	}
+	
+	public function getInfoForAction($aItem)
+	{
+		if (is_numeric($aItem))
+		{
+			$aItem = array('item_id' => $aItem);
+		}
+		$aRow = $this->database()->select('p.photo_id, p.title, p.user_id, u.gender, u.full_name')	
+			//->from(Phpfox::getT('action'), 'a')
+			->from(Phpfox::getT('photo'), 'p')
+			->join(Phpfox::getT('user'), 'u', 'u.user_id = p.user_id')
+			->where('p.photo_id = ' . (int) $aItem['item_id'])
+			->execute('getSlaveRow');
+			
+		if (empty($aRow))
+		{
+			d($aRow);
+			d($aItem);
+		}
+		
+		$aRow['link'] = Phpfox::getLib('url')->permalink('photo', $aRow['photo_id'], $aRow['title']);
+		return $aRow;
 	}
 	
 	/**

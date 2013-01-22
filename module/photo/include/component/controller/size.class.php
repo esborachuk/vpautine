@@ -11,7 +11,7 @@ defined('PHPFOX') or exit('NO DICE!');
  * @copyright		[PHPFOX_COPYRIGHT]
  * @author  		Raymond Benc
  * @package  		Module_Photo
- * @version 		$Id: size.class.php 4580 2012-07-31 15:19:24Z Raymond_Benc $
+ * @version 		$Id: size.class.php 5076 2012-12-12 15:57:18Z Miguel_Espinoza $
  */
 class Photo_Component_Controller_Size extends Phpfox_Component
 {
@@ -67,18 +67,19 @@ class Photo_Component_Controller_Size extends Phpfox_Component
 				$aCache[$iWidth][$iHeight] = true;
 			}
 		}
-		
+		unset($iHeight);
+		unset($iWidth);
 		// Get the width and height of the original image
 		if (preg_match("/\{file\/pic\/(.*)\/(.*)\.jpg\}/i", $aPhoto['destination'], $aMatches))
 		{
 			list($iWidth, $iHeight) = getimagesize(PHPFOX_DIR . str_replace(array('{', '}'), '', $aMatches[0]));
 		}
-		else 
+		else if (file_exists(Phpfox::getParam('photo.dir_photo') . sprintf($aPhoto['original_destination'], '')))
 		{
 			list($iWidth, $iHeight) = getimagesize(Phpfox::getParam('photo.dir_photo') . sprintf($aPhoto['original_destination'], ''));
 		}
 				
-		if (!isset($aCache[$iWidth][$iHeight]))
+		if (isset($iWidth) && isset($iHeight) && !isset($aCache[$iWidth][$iHeight]))
 		{
 			// Add the original image details to the size array
 			$aSizes[] = array(
@@ -87,7 +88,6 @@ class Photo_Component_Controller_Size extends Phpfox_Component
 				'actual' => 'full'
 			);		
 		}		
-		
 		// If no matches were found lets display the full image
 		if ($bIsSet === false)
 		{

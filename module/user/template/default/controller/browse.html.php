@@ -5,7 +5,7 @@
  * @copyright		[PHPFOX_COPYRIGHT]
  * @author  		Raymond Benc
  * @package  		Module_User
- * @version 		$Id: browse.html.php 5045 2012-11-26 09:10:27Z Raymond_Benc $
+ * @version 		$Id: browse.html.php 5074 2012-12-06 10:37:26Z Raymond_Benc $
  * {* *}
  */
 

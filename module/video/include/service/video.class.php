@@ -11,7 +11,7 @@ defined('PHPFOX') or exit('NO DICE!');
  * @copyright		[PHPFOX_COPYRIGHT]
  * @author  		Raymond Benc
  * @package  		Module_Video
- * @version 		$Id: video.class.php 5005 2012-11-09 06:27:27Z Raymond_Benc $
+ * @version 		$Id: video.class.php 5076 2012-12-12 15:57:18Z Miguel_Espinoza $
  */
 class Video_Service_Video extends Phpfox_Service
 {
@@ -245,7 +245,22 @@ class Video_Service_Video extends Phpfox_Service
 				$this->database()->update(Phpfox::getT('video_embed'), array('embed_code' => $aEmbedVideo['embed_code']), 'video_id = ' . $aVideo['video_id']);
 			}
 
-			$aVideo['embed_code'] = $aEmbedVideo['embed_code'];			
+			$aVideo['embed_code'] = $aEmbedVideo['embed_code'];	
+			if (Phpfox::getParam('video.use_youtube_iframe') && isset($aEmbedVideo['video_url']) && !empty($aEmbedVideo['video_url']))
+			{
+				$sUrl = parse_url($aEmbedVideo['video_url'], PHP_URL_QUERY);
+				$aUrlParts = explode('&', $sUrl);
+				foreach ($aUrlParts as $sPart)
+				{
+					if (strpos($sPart, 'v=') !== false)
+					{
+						$aVideo['video_url'] = str_replace('v=', '', $sPart);
+						break;
+					}
+				}
+			}
+			
+			
 			if (preg_match('/youtube/i', $aEmbedVideo['video_url']) || preg_match('/youtu\.be/i', $aEmbedVideo['video_url']))
 			{
 				if (preg_match('/<iframe(.*)><\/iframe>/i', $aVideo['embed_code']))
@@ -678,6 +693,22 @@ class Video_Service_Video extends Phpfox_Service
 		return $aRows;
 	}
 
+	public function getInfoForAction($aItem)
+	{
+		if (is_numeric($aItem))
+		{
+			$aItem = array('item_id' => $aItem);
+		}
+		$aRow = $this->database()->select('v.video_id, v.title, v.user_id, u.gender, u.full_name')	
+			->from(Phpfox::getT('video'), 'v')
+			->join(Phpfox::getT('user'), 'u', 'u.user_id = v.user_id')
+			->where('v.video_id = ' . (int) $aItem['item_id'])
+			->execute('getSlaveRow');
+						
+		$aRow['link'] = Phpfox::getLib('url')->permalink('video', $aRow['video_id'], $aRow['title']);
+		return $aRow;
+	}
+	
 	/**
 	 * If a call is made to an unknown method attempt to connect
 	 * it to a specific plug-in with the same name thus allowing
