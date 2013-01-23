@@ -355,7 +355,7 @@ ul.block_listing li .block_listing_image {
     float: none;
 }
 ul.block_listing li .block_listing_title, #js_friend_sort_holder .friend_user_name,
-.profile_friend_name {
+.profile_friend_name, #js_controller_friend_pending .friend_user_name {
     background: url("../image/friend-like-bg.png") repeat scroll left top transparent;
     border-radius: 0;
     -moz-border-radius: 0;
@@ -564,10 +564,14 @@ ul.block_listing li .block_listing_image a img,
     width: 639px;
 }
 
-#js_controller_friend_index #site_content,
 #js_controller_user_browse #site_content
 {
     width: 619px!important;
+    padding: 0 10px;
+}
+
+#js_controller_friend_index #site_content {
+    /*overflow: hidden;*/
     padding: 0 10px;
 }
 
@@ -705,14 +709,14 @@ ul.block_listing li .block_listing_image a img,
     overflow: hidden;
 }
 
-#js_friend_sort_holder .friend_user_name{
+#js_friend_sort_holder .friend_user_name,  #js_controller_friend_pending .friend_user_name{
     bottom: 0;
     margin: 0 auto;
     position: absolute;
     text-align: center;
 }
 
-#js_friend_sort_holder .friend_row_holder {
+#js_friend_sort_holder .friend_row_holder, .friend_pending .friend_row_holder  {
     float: left;
     height: 102px;
     margin: 8px;
@@ -1356,8 +1360,9 @@ div.js_mini_feed_comment {
     font-size: 14px;
     width: 24px;
     text-align: center;
-    padding: 2px 4px;
-    border: #28A6FF;
+    padding: 1px 4px;
+    border: 1px solid rgb(176, 213, 240);
+    line-height: 19px;
 }
 
 #holder_notify ul.table_clear_button .title-button {
@@ -1369,4 +1374,57 @@ div.js_mini_feed_comment {
     background: #fff;
     margin: 5px 0;
     opacity: 0;
+}
+
+a.friend_action_edit_list, a.friend_action_edit_list:hover {
+    background: url("../image/layout/friend_action_edit_list_arrows.png") no-repeat scroll 1px 2px transparent;
+    background-color: #fff;
+    height: 15px;
+    line-height: 15px;
+    margin-right: 0;
+    position: relative;
+    width: 15px;
+    z-index: 11;
+}
+
+.friend_action_holder {
+    width: 100px;
+}
+
+.js_friend_sort_handler {
+    border: 0;
+}
+
+.friend_action_edit_list_holder {
+    left: 10px;
+    top: 10px;
+}
+
+.friend_accept .moderation_row{
+    width: 24%;
+    margin: 0 0 0 20px;
+}
+
+.friend_accept .js_drop_data_button{
+    width: 25px;
+}
+
+.friend_accept .js_drop_data_button li input{
+    width: 24px;
+    height: 24px;
+    line-height: 18px;
+    padding: 0;
+}
+
+.friend_accept .js_drop_data_button li {
+    margin-bottom: 5px;
+}
+
+#js_controller_friend_pending #main_content_padding .friend_row_holder {
+    padding: 0!important;
+}
+
+#js_controller_friend_pending #main_content_padding .friend_row_holder a{
+   color: #fff;
+    font-size: 10px;
 }
