@@ -25,7 +25,6 @@ defined('PHPFOX') or exit('NO DICE!');
             {module name='pautina.profile.usermenu'}
         {/if}
 		<div id="header" class="pautina">
-            <a href="#" class="go_back_link" title="Назад..." style="display: none;"></a>
             <div class="header-wrapper">
             <div class="header-content">
 			<div class="holder">

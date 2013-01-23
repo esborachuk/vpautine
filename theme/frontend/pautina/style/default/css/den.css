@@ -614,7 +614,7 @@ div.profile_friend_name a {
 #user-menu {
     position: fixed;
     margin-left: -496px;
-    margin-top: 32px;
+    top: 70px;
     left: 50%;
     background: #fff;
     border-radius: 3px;
@@ -623,7 +623,26 @@ div.profile_friend_name a {
     box-shadow: 0px 0px 8px rgba(0,0,0,0.1);
 }
 
-#user-menu a {
+.user-menu-link-wrapper {
+    display: none;
+    position: absolute;
+    background: #fff;
+    top: -2px;
+    left: 26px;;
+    border-radius: 0 3px 3px 0;
+    box-shadow: 2px 0px 8px rgba(0,0,0,0.1);
+}
+
+#user-menu li {
+    position: relative;
+}
+
+#user-menu a.sub {
+    padding: 0;
+    margin: 0;
+}
+
+#user-menu li a.first {
     background: url(../image/pautina/user_image_icons.png) no-repeat;
     display: block;
     line-height: 24px;
@@ -634,57 +653,77 @@ div.profile_friend_name a {
 }
 
 #user-menu a span {
-    display: none;
-    margin: -5px 0 0 18px;
+    margin: 0;
     padding: 0 0 0 10px;
-    background: #fff;
-    width: 100px;
-    line-height: 30px;
+    display: block;
+    width: 110px;
+    line-height: 27px;
     color: #28a6ff;
-    border-radius: 0 3px 3px 0;
-    box-shadow: 2px 0px 8px rgba(0,0,0,0.1);
 }
 
-#user-menu a:hover span {
+#user-menu a.small {
+    float: right;
+    text-indent: -9999px;
+    background: url("../image/pautina/add.png") no-repeat 5px 5px;
+    width: 20px;
+    height: 20px;
+    margin: -22px 6px 0 0;
+}
+
+#user-menu a.small:hover {
+    background-position: 5px -15px;
+    background-color: rgba(40, 166, 255, 0.1);
+    border-radius: 2px;
+}
+
+#user-menu li:hover .user-menu-link-wrapper {
     display: block;
 }
 
-#user-menu li.friend a {
+#user-menu li.friend a.first {
     background-position: 0 5px;
 }
 
-#user-menu li.photo a {
+#user-menu li.photo a.first {
     background-position: 0 -27px;
 }
 
-#user-menu li.video a {
+#user-menu li.video a.first {
     background-position: 0 -60px;
 }
 
-#user-menu li.blog a {
+#user-menu li.blog a.first {
     background-position: 0 -94px;
 }
 
-#user-menu li.music a {
+#user-menu li.music a.first {
     background-position: 0 -127px
 }
 
-#user-menu li.friend a:hover {
+#user-menu li.news a.first {
+    background-position: 0 5px;
+}
+
+#user-menu li.friend:hover a.first, #user-menu li.friend.active a.first {
     background-position: 0 -161px;
 }
 
-#user-menu li.photo a:hover {
+#user-menu li.photo:hover a.first, #user-menu li.photo.active a.first {
     background-position: 0 -193px;
 }
 
-#user-menu li.video a:hover {
+#user-menu li.video:hover a.first, #user-menu li.video.active a.first {
     background-position: 0 -226px;
 }
 
-#user-menu li.blog a:hover {
+#user-menu li.blog:hover a.first, #user-menu li.blog.active a.first {
     background-position: 0 -260px;
 }
 
-#user-menu li.music a:hover {
+#user-menu li.music:hover a.first, #user-menu li.music.active a.first {
     background-position: 0 -293px
+}
+
+#user-menu li.news:hover a.first, #user-menu li.friend.active a.first {
+    background-position: 0 -161px;
 }

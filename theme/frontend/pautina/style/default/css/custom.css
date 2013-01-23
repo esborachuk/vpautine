@@ -1160,12 +1160,12 @@ div.js_mini_feed_comment {
 }
 
 .go_back_link {
-    position: absolute;
-    top: 100px;
-    left: 20px;
-    background: url("../image/pautina/back-button.png") no-repeat center center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: rgba(0,0,0, 0.1);
     width: 40px;
-    height: 40px;
+    height: 100%;
 }
 
 #main_content .go_back_link {
