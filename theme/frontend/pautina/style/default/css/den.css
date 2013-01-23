@@ -614,7 +614,7 @@ div.profile_friend_name a {
 #user-menu {
     position: fixed;
     margin-left: -496px;
-    margin-top: 32px;
+    top: 70px;
     left: 50%;
     background: #fff;
     border-radius: 3px;
@@ -700,6 +700,10 @@ div.profile_friend_name a {
     background-position: 0 -127px
 }
 
+#user-menu li.news a.first {
+    background-position: 0 5px;
+}
+
 #user-menu li.friend:hover a.first, #user-menu li.friend.active a.first {
     background-position: 0 -161px;
 }
@@ -718,4 +722,8 @@ div.profile_friend_name a {
 
 #user-menu li.music:hover a.first, #user-menu li.music.active a.first {
     background-position: 0 -293px
+}
+
+#user-menu li.news:hover a.first, #user-menu li.friend.active a.first {
+    background-position: 0 -161px;
 }
