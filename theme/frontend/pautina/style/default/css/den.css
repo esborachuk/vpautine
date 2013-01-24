@@ -630,7 +630,7 @@ div.profile_friend_name a {
     top: -2px;
     left: 26px;;
     border-radius: 0 3px 3px 0;
-    box-shadow: 2px 0px 8px rgba(0,0,0,0.1);
+    box-shadow: 4px 0px 12px rgba(0,0,0,0.3);
 }
 
 #user-menu li {
