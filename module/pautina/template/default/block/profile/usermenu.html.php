@@ -1,5 +1,6 @@
 <div id="user-menu">
     <ul>
+        <li class="user">{$sUserProfileImage}</li>
         <?php foreach($this->getVar('menu') as $key => $item): ?>
         <li class="<?php echo $item['class'] ?>">
             <a href="<?php echo $item['url'] ?>" class="first"></a>

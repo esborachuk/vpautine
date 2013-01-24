@@ -11,7 +11,21 @@ class Pautina_Component_Block_Profile_Usermenu extends Phpfox_Component
 {
     public function process() {
         $menu = Phpfox::getService('pautina.profile.usermenu')->getMenu();
-        $this->template()->assign('menu', $menu);
+        $sUserProfileImage = Phpfox::getLib('image.helper')->display(array_merge(
+                array('user' => Phpfox::getService('user')->getUserFields(true)),
+                array(
+                    'path' => 'core.url_user',
+                    'file' => Phpfox::getUserBy('user_image'),
+                    'suffix' => '_20_square',
+                    'max_width' => 20,
+                    'max_height' => 20
+                )
+            )
+        );
+        $this->template()->assign(array(
+            'menu' => $menu,
+            'sUserProfileImage' => $sUserProfileImage
+        ));
     }
 }
 
