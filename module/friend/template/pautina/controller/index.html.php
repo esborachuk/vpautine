@@ -58,7 +58,9 @@ defined('PHPFOX') or exit('NO DICE!');
 				<div class="friend_action_holder">
 					<div class="friend_action_edit_list_holder">
 						<div class="js_friend_action_edit_list"{if !count($aFriend.lists)} style="display:none;"{/if}>
-							<a href="#" class="friend_action_edit_list">{phrase var='friend.edit_lists'}</a>
+							<a href="#" title="{phrase var='friend.edit_lists'}" class="friend_action_edit_list">
+<!--                                {phrase var='friend.edit_lists'}-->
+                            </a>
 							<ul class="friend_action_drop_down">
 							{foreach from=$aFriend.lists name=lists item=aList}
 								<li><a href="#" rel="{$aList.list_id}|{$aFriend.friend_user_id}"{if $aList.is_active} class="active"{/if}><span></span>{$aList.name|clean}</a></li>

@@ -9,16 +9,16 @@ class Pautina_Service_Profile_Usermenu extends Phpfox_Service
         $url = Phpfox::getLib('url');
 
         $menu = array(
+            'home' => array(
+                'label' => 'Новости',
+                'url' => $url->makeUrl(''),
+                'class' => 'news'
+            ),
             'friend' => array(
                 'label' => 'Мои Друзья',
                 'url' => $url->makeUrl('friend'),
                 'class' => 'friend',
                 'submenu' => array(
-                    array(
-                        'label' => 'Все новости',
-                        'url' => $url->makeUrl(),
-                        'class' => 'friend-home'
-                    ),
                     array(
                         'label' => 'Люди',
                         'url' => $url->makeUrl('user.browse'),
