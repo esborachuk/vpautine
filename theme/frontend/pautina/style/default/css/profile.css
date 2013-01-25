@@ -40,11 +40,19 @@
 {
 	position:relative;
     float: left;
-    margin-right: 40px;
+    margin: 0 30px 0 25px;
 }
 
-.isset_profile_logo_image .profile_image {
-    margin: -156px 40px 0 25px;
+.profile_header_inner_text {
+    padding: 10px;
+    margin-right: 30px;
+    border-radius: 4px;
+    color: #fff;
+    background: rgba(0,0,0,0.2);
+}
+
+.profile_header_inner_text  .profile_info span {
+    color: #fff;
 }
 
 #profile_header_image_title .profile_header {
@@ -178,7 +186,13 @@
 
 .cover_photo_link
 {
-	position:relative; height:315px; display:block; overflow:hidden;	
+	position:relative; height:315px; display:block; overflow:hidden;
+    margin-bottom: -135px;
+    display: block;
+}
+
+#profile_header_image_title {
+    padding-top: 10px;
 }
 
 #section_menu ul li #cover_section_menu_drop
