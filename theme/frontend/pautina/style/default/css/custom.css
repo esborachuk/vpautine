@@ -1259,7 +1259,8 @@ div.js_mini_feed_comment {
     padding: 10px;
 }
 
-.video_index #js_controller_video_index .slide-block {
+.video_index #js_controller_video_index .slide-block,
+.video_index #js_is_user_profile .slide-block {
     bottom: 0;
     position: absolute;
     width: 96%;
@@ -1267,7 +1268,8 @@ div.js_mini_feed_comment {
     line-height: normal;
 }
 
-.video_index #js_controller_video_index .slide-block a{
+.video_index #js_controller_video_index .slide-block a,
+.video_index #js_is_user_profile .slide-block a{
     color: #fff;
 }
 
