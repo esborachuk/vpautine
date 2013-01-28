@@ -504,3 +504,15 @@ body.blog #blog_wrapper {
 .im_chat_image{
     float:left;
 }
+
+/*text-area comment*/
+
+.feed_comment_bottom{
+    margin-top: 0;
+    position: absolute;
+    right: 0;
+    top: -27px;
+}
+div.comment_mini_content_border{
+    position: relative;
+}

@@ -27,7 +27,7 @@ defined('PHPFOX') or exit('NO DICE!');
     </div>
     <div class="clear"></div>
 <?php else: ?>
-<div id="profile_header_block" class="{if $aUser.cover_photo}isset_profile_logo_image{/if}">
+<div id="profile_header_block">
     <div id="profile_header_logo">{module name='profile.logo'}
        <div id="section_menu">
            {if defined('PHPFOX_IS_USER_PROFILE_INDEX') || defined('PHPFOX_PROFILE_PRIVACY') || Phpfox::getLib('module')->getFullControllerName() == 'profile.info'}
@@ -62,7 +62,7 @@ defined('PHPFOX') or exit('NO DICE!');
                 {module name='profile.pic'}
                 {/if}
 
-                <div class="profile_header_inner{if Phpfox::getService('profile')->timeline()} profile_header_timeline{/if}">
+                <div class="profile_header_inner_text profile_header_inner{if Phpfox::getService('profile')->timeline()} profile_header_timeline{/if}">
                     {if Phpfox::getUserBy('profile_page_id') <= 0}
                     <div id="section_menu_2">
                         {elseif Phpfox::getLib('module')->getFullControllerName() == 'friend.profile'}

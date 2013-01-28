@@ -16,7 +16,7 @@ div.im_holder
     width: 200px;
     border-width:8px 8px 0;
     border-style:solid;
-    border-color:rgba(0, 0, 0, 0.52);
+    border-color:rgba(0, 0, 0, 0.31);
 
 }
 #js_footer_im_holder:hover, #js_footer_im_holder:active, #js_footer_im_holder:focus{

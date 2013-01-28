@@ -87,7 +87,7 @@ class Pautina_Service_Profile_Usermenu extends Phpfox_Service
                 'submenu' => array(
                     array(
                         'label' => 'Добавить Музыку',
-                        'url' => $url->makeUrl('music.add'),
+                        'url' => $url->makeUrl('music.upload'),
                         'class' => 'music-add',
                         'size' => 'small'
                     ),

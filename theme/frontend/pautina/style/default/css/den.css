@@ -631,7 +631,7 @@ div.profile_friend_name a {
     top: -2px;
     left: 26px;;
     border-radius: 0 3px 3px 0;
-    box-shadow: 2px 0px 8px rgba(0,0,0,0.1);
+    box-shadow: 4px 0 12px rgba(0,0,0,0.3);
 }
 
 #user-menu li {
@@ -702,7 +702,7 @@ div.profile_friend_name a {
 }
 
 #user-menu li.news a.first {
-    background-position: 0 5px;
+    background-position: 0 -329px;
 }
 
 #user-menu li.friend:hover a.first, #user-menu li.friend.active a.first {
@@ -726,5 +726,31 @@ div.profile_friend_name a {
 }
 
 #user-menu li.news:hover a.first, #user-menu li.friend.active a.first {
-    background-position: 0 -161px;
+    background-position: 0 -366px;
+}
+
+#user-menu .user a {
+    padding: 4px 0 2px 5px;
+    margin: 0 3px 6px -5px;
+}
+
+#user-menu .user a:hover {
+    background-color: rgba(40, 166, 255, 0.2);
+    border-radius: 2px;
+}
+
+#user-menu .user a img {
+    border-radius: 2px;
+}
+
+#js_controller_user_browse #site_content #js_view_more_users {
+    width: 100%;
+    margin-top: -20px;
+}
+
+#js_view_more_users div.row1, #js_view_more_users div.row2 {
+    padding-top: 12px;
+    float: left;
+    height: 110px;
+    width: 308px;
 }
