@@ -32,7 +32,7 @@
 	<phrase module_id="user" version_id="2.0.0alpha1" var_name="menu_register" added="1217033146">Регистрация</phrase>
 	<phrase module_id="user" version_id="2.0.0alpha1" var_name="user_name" added="1218458106">Имя пользователя</phrase>
 	<phrase module_id="user" version_id="2.0.0alpha1" var_name="email" added="1218458120">E-mail</phrase>
-	<phrase module_id="user" version_id="2.0.0alpha1" var_name="login" added="1218458136">Логин ID</phrase>
+	<phrase module_id="user" version_id="2.0.0alpha1" var_name="login" added="1218458136">Ваш E-mail</phrase>
 	<phrase module_id="user" version_id="2.0.0alpha1" var_name="password" added="1218458188">Пароль</phrase>
 	<phrase module_id="user" version_id="2.0.0alpha1" var_name="remember" added="1218459828">Запомнить меня</phrase>
 	<phrase module_id="user" version_id="2.0.0alpha1" var_name="login_button" added="1218459855">Войти</phrase>
@@ -48,7 +48,7 @@
 	<phrase module_id="user" version_id="2.0.0alpha1" var_name="login_title" added="1218464970">Войти</phrase>
 	<phrase module_id="user" version_id="2.0.0alpha1" var_name="invalid_user_name" added="1218465012">Неверное имя пользователя.</phrase>
 	<phrase module_id="user" version_id="2.0.0alpha1" var_name="invalid_email" added="1218465021">Неверная электронная почта.</phrase>
-	<phrase module_id="user" version_id="2.0.0alpha1" var_name="invalid_login_id" added="1218465032">Неверный логин ID.</phrase>
+	<phrase module_id="user" version_id="2.0.0alpha1" var_name="invalid_login_id" added="1218465032">Неверный логин/e-mail.</phrase>
 	<phrase module_id="user" version_id="2.0.0alpha1" var_name="invalid_password" added="1218465047">Неверный пароль.</phrase>
 	<phrase module_id="user" version_id="2.0.0alpha1" var_name="you_need_logged_that" added="1218724550">Вам необходимо войти в свой аккаунт.</phrase>
 	<phrase module_id="user" version_id="2.0.0alpha1" var_name="sign_and_start_using_site" added="1219836880">Зарегистрируйтесь и используйте {site}!</phrase>
@@ -205,13 +205,13 @@
 	<phrase module_id="user" version_id="2.0.0rc4" var_name="select_day_of_birth" added="1255347399">Выберите день рождения.</phrase>
 	<phrase module_id="user" version_id="2.0.0rc4" var_name="select_year_of_birth" added="1255347406">Выберите год рождения.</phrase>
 	<phrase module_id="user" version_id="2.0.0rc4" var_name="zip_postal_code_is_invalid" added="1255347414">Почтовый индекс введен неверно.</phrase>
-	<phrase module_id="user" version_id="2.0.0rc4" var_name="provide_your_full_name" added="1255347423">Укажите Ваше полное имя.</phrase>
+	<phrase module_id="user" version_id="2.0.0rc4" var_name="provide_your_full_name" added="1255347423">Укажите Ваше Имя и Фамилию.</phrase>
 	<phrase module_id="user" version_id="2.0.0rc4" var_name="provide_a_user_name" added="1255347430">Выберите имя пользователя.</phrase>
 	<phrase module_id="user" version_id="2.0.0rc4" var_name="account_settings_updated" added="1255347439">Настройки аккаунта обновлены.</phrase>
 	<phrase module_id="user" version_id="2.0.0rc4" var_name="account_settings_updated_your_new_mail_address_requires_verification_and_an_email_has_been_sent_until_then_your_email_remains_the_same" added="1255347448">Настройки аккаунта обновлены. Ваш новый почтовый адрес требует проверки и сообщение для проверки было отправлено. До сих пор адрес вашей электронной почты остается тем же.</phrase>
 	<phrase module_id="user" version_id="2.0.0rc4" var_name="email_updated_you_need_to_verify_your_new_email_address_before_logging_in" added="1255347456">E-mail обновлен. Вы должны подтвердить ваш e-mail перед тем, как войти.</phrase>
 	<phrase module_id="user" version_id="2.0.0rc4" var_name="account_settings" added="1255347468">Мои данные</phrase>
-	<phrase module_id="user" version_id="2.0.0rc4" var_name="full_name" added="1255347477">Полное имя</phrase>
+	<phrase module_id="user" version_id="2.0.0rc4" var_name="full_name" added="1255347477">Имя и Фамилия</phrase>
 	<phrase module_id="user" version_id="2.0.0rc4" var_name="your_email_has_been_verified_please_log_in_with_the_information_you_provided_during_sign_up" added="1255347489">Ваш e-mail подтвержден, пожалуйста, войдите.</phrase>
 	<phrase module_id="user" version_id="2.0.0rc4" var_name="invalid_verification_link" added="1255347519">Неверная ссылка.</phrase>
 	<phrase module_id="user" version_id="2.0.0rc4" var_name="not_able_to_block_yourself" added="1255347588">Невозможно заблокировать себя.</phrase>
@@ -318,7 +318,7 @@
 	<phrase module_id="user" version_id="2.0.0rc4" var_name="browse_for" added="1255350679">Искать</phrase>
 	<phrase module_id="user" version_id="2.0.0rc4" var_name="between_ages" added="1255350686">Возраст</phrase>
 	<phrase module_id="user" version_id="2.0.0rc4" var_name="located_within" added="1255350702">Страна</phrase>
-	<phrase module_id="user" version_id="2.0.0rc4" var_name="keywords" added="1255350723">Ключевые слова</phrase>
+	<phrase module_id="user" version_id="2.0.0rc4" var_name="keywords" added="1255350723">Имя/Фамилия</phrase>
 	<phrase module_id="user" version_id="2.0.0rc4" var_name="within" added="1255350730">в</phrase>
 	<phrase module_id="user" version_id="2.0.0rc4" var_name="any" added="1255350747">Любые</phrase>
 	<phrase module_id="user" version_id="2.0.0rc4" var_name="display_results_by" added="1255350759">Отображать результаты по</phrase>
@@ -538,7 +538,7 @@
 	<phrase module_id="user" version_id="2.0.5" var_name="preferred_currency" added="1271673716">Основная валюта</phrase>
 	<phrase module_id="user" version_id="2.0.5" var_name="show_prices_and_make_purchases_in_this_currency" added="1271673733">Показывать цены и совершать покупки в этой валюте.</phrase>
 	<phrase module_id="user" version_id="2.0.5" var_name="payment_methods" added="1272279403">Способы оплаты</phrase>
-	<phrase module_id="user" version_id="2.0.5" var_name="setting_display_or_full_name" added="1272872994"><![CDATA[<title>Отображение полного имени</title><info>При регистрации пользователя на сайте он(а) может ввести свое полное имя или отображаемое имя. </info>]]></phrase>
+	<phrase module_id="user" version_id="2.0.5" var_name="setting_display_or_full_name" added="1272872994"><![CDATA[<title>Отображение полного имени</title><info>При регистрации пользователя на сайте он(а) может ввести свое Имя и Фамилию или отображаемое имя. </info>]]></phrase>
 	<phrase module_id="user" version_id="2.0.5" var_name="pending_email_verification" added="1273224031">Ожидается подтверждение электронной почты</phrase>
 	<phrase module_id="user" version_id="2.0.5dev1" var_name="setting_disable_username_on_sign_up" added="1274282432"><![CDATA[<title>Отключить Имя пользователя при регистрации</title><info>Если отключить, то не покажет соответствующую форму ввода при регистрации. Имя пользователя используется для создания уникальных URL пользователей (например, http://www.site.com/username). Если отключено, то будет использоваться ID пользователей для создания уникальных URL. Позже в настройках групп пользователей Вы можете разрешить пользователям редактировать своё имя пользователя.</info>]]></phrase>
 	<phrase module_id="user" version_id="2.0.5dev1" var_name="email_verification" added="1274636277">Проверка адреса электронной почты</phrase>
