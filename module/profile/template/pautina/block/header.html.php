@@ -59,7 +59,7 @@ defined('PHPFOX') or exit('NO DICE!');
             <div class="profile_header{if Phpfox::getService('profile')->timeline()} profile_timeline_header{/if}{if empty($aUser.cover_photo)} no_cover_photo{/if}">
 
                 {if Phpfox::getService('profile')->timeline()}
-                {module name='profile.pic'}
+                {module name='pautina.profile.image'}
                 {/if}
 
                 <div class="profile_header_inner_text profile_header_inner{if Phpfox::getService('profile')->timeline()} profile_header_timeline{/if}">
