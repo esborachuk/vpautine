@@ -30,10 +30,7 @@
 {
 	font-size:12px; 
 	color:#75B079;
-	font-weight:bold; 
-	position:absolute;
-	right:0px;
-	top:0px;
+	font-weight:bold;
 }
 
 #js_is_user_profile .profile_image
@@ -48,7 +45,7 @@
     margin-right: 30px;
     border-radius: 4px;
     color: #fff;
-    background: rgba(0,0,0,0.2);
+    background: rgba(0,0,0,0.7);
 }
 
 .profile_header_inner_text  .profile_info span {
@@ -61,7 +58,6 @@
 
 #js_is_user_profile .profile_image img {
     border: 5px solid #fff;
-    border-radius: 3px;
 }
 
 #js_is_user_profile .profile_image .p_4
@@ -187,12 +183,15 @@
 .cover_photo_link
 {
 	position:relative; height:315px; display:block; overflow:hidden;
-    margin-bottom: -135px;
     display: block;
 }
 
+#js_is_user_profile .isset_logo .profile_image {
+    margin-top: -140px;
+}
+
 #profile_header_image_title {
-    padding-top: 10px;
+    padding-top: 5px;
 }
 
 #section_menu ul li #cover_section_menu_drop

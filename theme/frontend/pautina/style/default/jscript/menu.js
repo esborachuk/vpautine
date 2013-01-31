@@ -3,21 +3,9 @@ $(document).ready(function() {
 });
 
 ChangeCover = {
-    coverLink: '#profile_header_logo #section_menu',
-    coverSection: '#profile_header_logo',
-    init: function(){
-      if( $(ChangeCover.coverSection).height() > 0){
-          // $(ChangeCover.coverLink).hide();
-           var y =  $(ChangeCover.coverSection).height()/1.4;    //detect height of block with photo
-           var x =  $(ChangeCover.coverSection).width();         //detect width
-           $(ChangeCover.coverLink).css({'top': y});
-            console.log('andrew_script_run');
-        $(ChangeCover.coverSection).mouseenter(function(){
-            $(ChangeCover.coverLink).show();
-        }).mouseleave(function() {
-                $(ChangeCover.coverLink).hide();
-            }) }else{
-          $(ChangeCover.coverLink).show();
-      }
+    init: function() {
+        if ($('#profile_logo_image').length > 0) {
+            $('#profile_header_block').addClass('isset_logo');
+        }
     }
 };
