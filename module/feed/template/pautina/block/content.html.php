@@ -82,7 +82,11 @@ defined('PHPFOX') or exit('NO DICE!');
 					{if isset($aFeed.feed_title_sub)}
 					<span class="user_profile_link_span" id="js_user_name_link_{$aFeed.feed_title_sub|clean}">
 					{/if}
-					<a href="{$aFeed.feed_link}" class="activity_feed_content_link_title"{if isset($aFeed.feed_title_extra_link)} target="_blank"{/if}>{$aFeed.feed_title|clean|split:30}</a>
+                    {if isset($aFeed.comment_type_id) && $aFeed.comment_type_id == 'music_song'}
+                        <a href="{$aFeed.feed_link}"{if !isset($aFeed.no_target_blank)} target="_blank"{/if} class="{if isset($aFeed.custom_css)} {$aFeed.custom_css} {/if}{if !empty($aFeed.feed_image_onclick)}{if !isset($aFeed.feed_image_onclick_no_image)}play_link {/if} no_ajax_link{/if}"{if !empty($aFeed.feed_image_onclick)} onclick="{$aFeed.feed_image_onclick}"{/if}{if !empty($aFeed.custom_rel)} rel="{$aFeed.custom_rel}"{/if}{if isset($aFeed.custom_js)} {$aFeed.custom_js} {/if}>{if !empty($aFeed.feed_image_onclick)}{if !isset($aFeed.feed_image_onclick_no_image)}<span class="play_link_img">{phrase var='feed.play'}</span>{/if}{/if}{$aFeed.feed_title|clean|split:30}</a>
+                    {else}
+                        <a href="{$aFeed.feed_link}" class="activity_feed_content_link_title"{if isset($aFeed.feed_title_extra_link)} target="_blank"{/if}>{$aFeed.feed_title|clean|split:30}</a>
+                    {/if}
 					{if isset($aFeed.feed_title_sub)}
 					</span>
 					{/if}
