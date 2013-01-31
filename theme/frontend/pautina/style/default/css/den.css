@@ -754,3 +754,23 @@ div.profile_friend_name a {
     height: 110px;
     width: 308px;
 }
+
+.block_left {
+    float: left;
+}
+
+.block_right {
+    float: right;
+}
+
+.send_email_form .block {
+    width: 50%;
+}
+
+.send_email_form .block_wrapper {
+    margin-bottom: 10px;
+}
+
+.send_email_form .block_wrapper input {
+    width: 80%;
+}
