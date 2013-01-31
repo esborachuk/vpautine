@@ -12,11 +12,13 @@ defined('PHPFOX') or exit('NO DICE!');
 
 ?>
 {if count($aLoggedInUsers)}
-<div class="block_listing_inline">
+<div class="block_listing_inline last_users_block">
 	<ul>
 {foreach from=$aLoggedInUsers name=loggedusers item=aLoggedInUser}
-	<li>
-		{img user=$aLoggedInUser suffix='_100_square' max_width=100 max_height=100 class='js_hover_title'}
+	<li class="slide_wrapper">
+		{img user=$aLoggedInUser suffix='_100_square' max_width=100 max_height=100}
+        <div class="slide-block" style="display: none">{$aLoggedInUser.full_name|shorten:40}</div>
+
 	</li>
 {/foreach}
 	</ul>

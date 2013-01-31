@@ -38,7 +38,7 @@ defined('PHPFOX') or exit('NO DICE!');
 			{phrase var='blog.draft_info'}
 			{/if}
 			<span id="js_blog_edit_title{$aItem.blog_id}">
-                    <a data-id="{$aItem.blog_id}" data-url="{$aItem.bookmark_url}" data-userId="{$aUser.user_id}" href="#" id="js_blog_edit_inner_title{$aItem.blog_id}" class="blogbox_link link ajax_link">{$aItem.title|clean|shorten:55:'...'|split:20}</a>
+                <a data-id="{$aItem.blog_id}" data-url="{$aItem.bookmark_url}" {if isset($aUser)}data-userId="{$aUser.user_id}"{/if} href="#" id="js_blog_edit_inner_title{$aItem.blog_id}" class="blogbox_link link ajax_link">{$aItem.title|clean|shorten:55:'...'|split:20}</a>
 			</span>
 
 	{/if}

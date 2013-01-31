@@ -74,6 +74,7 @@ $(document).ready(function() {
         '.js_album_parent, ' +
         '#js_controller_friend_index #main_content_padding .friend_row_holder, ' +
         '#js_controller_friend_pending #main_content_padding .friend_row_holder, ' +
+        '.slide_wrapper, ' +
         '.profile_friend_block').live('hover', function(){
         $(this).find($('.slide-block')).stop(true, true).slideToggle("fast");
     },

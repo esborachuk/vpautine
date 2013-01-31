@@ -774,3 +774,23 @@ div.profile_friend_name a {
 .send_email_form .block_wrapper input {
     width: 80%;
 }
+
+.last_users_block .slide-block {
+    bottom: 3px;
+    font-size: 10px;
+    line-height: 14px;
+    text-align: center;
+}
+
+.slide-block {
+    height: 30px;
+    background: url("../image/friend-like-bg.png") repeat-x left top;
+    display: block;
+    position: absolute;
+    bottom: 0;
+    width: 94px;
+}
+
+.slide_wrapper {
+    position: relative;
+}
