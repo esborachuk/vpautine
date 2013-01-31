@@ -24,8 +24,13 @@ class Email_Component_Ajax_Ajax extends Phpfox_Ajax
 
     public function validateFields($fields)
     {
-        if ((!isset($fields['message']) || $fields['message'] == '')) {
+        if ((!isset($fields['message']) || $fields['message'] == ''
+            || !isset($fields['email']) || $fields['email'] == '')) {
             $error = 'fields are empty';
+        }
+
+        if (!Phpfox::getLib('validator')->verify('email', $fields['email'])) {
+            $error = 'email incorrect';
         }
 
         if (isset($error)) {
