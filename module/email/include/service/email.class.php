@@ -24,8 +24,7 @@ class Email_Service_Email extends Phpfox_Service
     public function _send()
     {
         $userService = Phpfox::getService('user');
-        $sendToUser = $userService->getUser($this->emailInfo['user-id']);
-        $sendToEmail = $sendToUser['email'];
+        $sendToEmail = $this->emailInfo['email'];
         $sendFromUser = $userService->getUser(Phpfox::getUserId());
         $sendFromUserLink = 'Отправлено пользователем <a href="' . $userService->getLink($sendFromUser['user_id']) . '">' . $sendFromUser['full_name'] . '</a>';
 

@@ -26,7 +26,7 @@
 			</div>
 			{/if}
 
-<div class="comment_mini_content_holder"{if isset($sFeedType) &&  $sFeedType == 'view' && $aFeed.can_post_comment}{else}{if isset($aFeed.likes) || (isset($aFeed.total_comment) && $aFeed.total_comment > 0)}{else}{if ((isset($aFeed.comments) && !count($aFeed.comments)) || !isset($aFeed.comments))} style="display:none;"{/if}{/if}{/if}>	
+    <div class="comment_mini_content_holder">
 	<div class="comment_mini_content_border">
 		{if Phpfox::isModule('comment') && Phpfox::getParam('feed.allow_comments_on_feeds')}
 		<div id="js_feed_comment_post_{$aFeed.feed_id}" class="js_feed_comment_view_more_holder">

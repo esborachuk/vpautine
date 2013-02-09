@@ -15,7 +15,7 @@
 	<phrase module_id="contact" version_id="2.0.0rc2" var_name="fill_in_some_text_for_your_message" added="1253022992">Введите текст вашего сообщения.</phrase>
 	<phrase module_id="contact" version_id="2.0.0rc2" var_name="you_need_to_choose_a_category" added="1253023004">Вам нужно выбрать категорию.</phrase>
 	<phrase module_id="contact" version_id="2.0.0rc2" var_name="provide_a_subject" added="1253023017">Укажите тему.</phrase>
-	<phrase module_id="contact" version_id="2.0.0rc2" var_name="provide_your_full_name" added="1253023027">Укажите ваше полное имя.</phrase>
+	<phrase module_id="contact" version_id="2.0.0rc2" var_name="provide_your_full_name" added="1253023027">Укажите ваше Имя и Фамилию.</phrase>
 	<phrase module_id="contact" version_id="2.0.0rc2" var_name="provide_a_valid_email" added="1253023050">Укажите корректный e-mail.</phrase>
 	<phrase module_id="contact" version_id="2.0.0rc2" var_name="your_message_was_successfully_sent" added="1253023065">Ваше сообщение успешно отослано.</phrase>
 	<phrase module_id="contact" version_id="2.0.0rc2" var_name="contact_us" added="1253082677">Контактировать с Нами</phrase>
@@ -25,7 +25,7 @@
 	<phrase module_id="contact" version_id="2.0.0rc2" var_name="manage_categories" added="1253082798">Управление Категориями</phrase>
 	<phrase module_id="contact" version_id="2.0.0rc2" var_name="order" added="1253082808">Порядок</phrase>
 	<phrase module_id="contact" version_id="2.0.0rc2" var_name="select" added="1253082841">Выбрать</phrase>
-	<phrase module_id="contact" version_id="2.0.0rc2" var_name="full_name" added="1253082855">Полное Имя</phrase>
+	<phrase module_id="contact" version_id="2.0.0rc2" var_name="full_name" added="1253082855">Имя и Фамилия</phrase>
 	<phrase module_id="contact" version_id="2.0.0rc2" var_name="subject" added="1253082865">Тема</phrase>
 	<phrase module_id="contact" version_id="2.0.0rc2" var_name="email" added="1253082875">E-mail</phrase>
 	<phrase module_id="contact" version_id="2.0.0rc2" var_name="website" added="1253082883">Веб-сайт</phrase>

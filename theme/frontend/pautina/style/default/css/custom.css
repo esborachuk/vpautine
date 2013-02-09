@@ -1430,3 +1430,11 @@ a.friend_action_edit_list, a.friend_action_edit_list:hover {
    color: #fff;
     font-size: 10px;
 }
+
+input #sms-phone {
+    color: #B1B1B7;
+}
+
+input #sms-phone:focus {
+    color: #000;
+}

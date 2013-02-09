@@ -261,12 +261,36 @@ a.photo_clip_holder, a.photo_clip_holder:hover{
     text-align:center;
 }
 
+.isset_logo #profile_header_logo #section_menu {
+    position: absolute;
+}
+
 #profile_header_logo #section_menu {
-    display:none;
-    position:absolute;
-    left:700px;
-    z-index:1;
-    height:30px;
+    top: 0;
+    position: relative;
+    width: 100%;
+    z-index: 1;
+}
+
+#profile_header_logo #section_menu ul li {
+    float: none;
+}
+
+#profile_header_logo #section_menu ul li a,
+#profile_header_logo #section_menu ul li a:hover
+{
+    display:block;
+    border: none;
+    margin: 0;
+    line-height:40px;
+    background: rgba(0, 0, 0, 0.2);
+    text-decoration:none;
+    padding:0 8px 0 8px;
+    color:#fff;
+    font-weight:bold;
+    text-align: center;
+    border-radius: 0;
+    box-shadow: none;
 }
 
 #profile_header_logo{

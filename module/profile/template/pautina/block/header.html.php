@@ -28,7 +28,7 @@ defined('PHPFOX') or exit('NO DICE!');
     <div class="clear"></div>
 <?php else: ?>
 <div id="profile_header_block">
-    <div id="profile_header_logo">{module name='profile.logo'}
+    <div id="profile_header_logo">
        <div id="section_menu">
            {if defined('PHPFOX_IS_USER_PROFILE_INDEX') || defined('PHPFOX_PROFILE_PRIVACY') || Phpfox::getLib('module')->getFullControllerName() == 'profile.info'}
            <ul>
@@ -51,6 +51,7 @@ defined('PHPFOX') or exit('NO DICE!');
             </ul>
            {/if}
        </div>
+        {module name='profile.logo'}
    </div>
     <div id="profile_header_image_title">
         {module name='pautina.profile.image'}
@@ -59,7 +60,7 @@ defined('PHPFOX') or exit('NO DICE!');
             <div class="profile_header{if Phpfox::getService('profile')->timeline()} profile_timeline_header{/if}{if empty($aUser.cover_photo)} no_cover_photo{/if}">
 
                 {if Phpfox::getService('profile')->timeline()}
-                {module name='profile.pic'}
+                {module name='pautina.profile.image'}
                 {/if}
 
                 <div class="profile_header_inner_text profile_header_inner{if Phpfox::getService('profile')->timeline()} profile_header_timeline{/if}">
