@@ -516,3 +516,7 @@ body.blog #blog_wrapper {
 div.comment_mini_content_border{
     position: relative;
 }
+
+.profile_image_holder{
+    position: relative;
+}
