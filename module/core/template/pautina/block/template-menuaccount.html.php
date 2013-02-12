@@ -47,7 +47,7 @@ $profileName = Phpfox::getUserBy('user_name');
 ?>
 <ul>
     <li>
-        <a href="<?php echo Phpfox::getLib('url')->makeUrl('profile', Phpfox::getUserBy('user_name')); ?>">
+        <a class="right-menu-profile" href="<?php echo Phpfox::getLib('url')->makeUrl('profile', Phpfox::getUserBy('user_name')); ?>">
             <span class="right-menu-profile">
                 <img width="30" src="<?php  echo $profileUrl; ?>" alt="" />
             </span>
