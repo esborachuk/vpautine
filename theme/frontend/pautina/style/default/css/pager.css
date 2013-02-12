@@ -67,7 +67,7 @@
 .pager_view_more_link a,
 .pager_view_more_link a:hover
 {
-	position:absolute;
+	position:relative;
     bottom:0;
     width:200px;
     height:27px;

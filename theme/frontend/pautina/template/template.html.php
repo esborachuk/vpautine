@@ -69,19 +69,6 @@ defined('PHPFOX') or exit('NO DICE!');
 				</div>
 			</div>
 			</div>
-
-			{if Phpfox::getParam('user.hide_main_menu') && !Phpfox::isUser()}
-
-			{else}
-			<div id="header_menu_page_holder">
-				<div class="holder">
-					<div id="header_menu">
-						{menu}
-						<div class="clear"></div>
-					</div>		
-				</div>			
-			</div>	
-			{/if}					
 		</div>
 		</div>
 

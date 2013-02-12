@@ -31,6 +31,7 @@
             {
                 Preloader.hidePreloader();
                 $('#get_blog_id').html(blog);
+                $Core.loadInit();
             }
         });
     };
@@ -41,11 +42,11 @@
             userRequest = '&userId=' + userId
         }
 
-        var url = 'core[call]=pautina.blogbox' +
+        var urlString = 'core[call]=pautina.blogbox' +
                 '&url=' + url +
                 userRequest;
 
-        return url;
+        return urlString;
     };
 })(jQuery);
 

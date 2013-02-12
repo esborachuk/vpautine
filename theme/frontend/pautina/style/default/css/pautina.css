@@ -615,7 +615,7 @@ div.profile_friend_name a {
 #user-menu {
     position: fixed;
     margin-left: -496px;
-    top: 70px;
+    top: 50px;
     left: 50%;
     background: #fff;
     border-radius: 3px;

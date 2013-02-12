@@ -20,7 +20,7 @@ defined('PHPFOX') or exit('NO DICE!');
 			{elseif !isset($bFeedIsParentItem) && (!defined('PHPFOX_IS_USER_PROFILE') || (defined('PHPFOX_IS_USER_PROFILE') && isset($aUser.user_id) && $aUser.user_id == Phpfox::getUserId()))}
 			<li><a href="#" rel="global_attachment_status" class="active comment-feed-application"><div>{phrase var='feed.status'}<span class="activity_feed_link_form_ajax">user.updateStatus</span></div><div class="drop"></div></a></li>
 			{else}
-			<li><a href="#" style="background:url('{img theme='misc/comment_add.png' return_url=true}') no-repeat center left;" rel="global_attachment_status" class="active"><div>{phrase var='feed.post'}<span class="activity_feed_link_form_ajax">feed.addComment</span></div><div class="drop"></div></a></li>
+			<li><a href="#" rel="global_attachment_status" class="active comment-feed-application"><div>{phrase var='feed.post'}<span class="activity_feed_link_form_ajax">feed.addComment</span></div><div class="drop"></div></a></li>
 			{/if}
 			
 			{foreach from=$aFeedStatusLinks item=aFeedStatusLink name=feedlinks}

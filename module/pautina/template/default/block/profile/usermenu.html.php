@@ -6,9 +6,12 @@
             <a href="<?php echo $item['url'] ?>" class="first"></a>
             <?php if (isset($item['submenu'])): ?>
                 <span class="user-menu-link-wrapper">
-                    <a href="<?php echo $item['url'] ?>" class="sub">
-                        <span><?php echo $item['label'] ?></span>
-                    </a>
+                    <?php if (!isset($item['hide'])): ?>
+                        <a href="<?php echo $item['url'] ?>" class="sub">
+                            <span><?php echo $item['label'] ?></span>
+                        </a>
+                    <?php endif; ?>
+
                     <?php foreach($item['submenu'] as $submenu): ?>
                         <a href="<?php echo $submenu['url'] ?>" class="sub <?php echo $submenu['class'] ?> <?php if (isset($submenu['size'])) echo $submenu['size'] ?>">
                             <span><?php echo $submenu['label'] ?></span>

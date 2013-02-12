@@ -12,7 +12,15 @@ class Pautina_Service_Profile_Usermenu extends Phpfox_Service
             'home' => array(
                 'label' => 'Новости',
                 'url' => $url->makeUrl(''),
-                'class' => 'news'
+                'class' => 'news',
+                'hide' => true,
+                'submenu' => array(
+                    array(
+                        'label' => 'Новости',
+                        'url' => $url->makeUrl(''),
+                        'class' => 'news'
+                    )
+                )
             ),
             'friend' => array(
                 'label' => 'Мои Друзья',

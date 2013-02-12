@@ -1624,9 +1624,8 @@ a.item_bar_flag:hover
 .item_content img.parsed_image
 {
 	border:1px #ccc solid;
-  	-moz-box-shadow:6px 6px 6px #CFCFCF;
-  	-webkit-box-shadow:6px 6px 6px #CFCFCF;
-  	box-shadow:6px 6px 6px #CFCFCF;	
+    margin: 5px 0;
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
 }
 
 .item_view_more

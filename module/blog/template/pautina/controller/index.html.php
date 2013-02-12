@@ -20,7 +20,7 @@ defined('PHPFOX') or exit('NO DICE!');
     <script type="text/javascript">
         $(document).ready(function()
         {l}
-        $.fn.Blogbox.getBlog('<?php echo $this->_aVars['aItems'][0]['bookmark_url'] ?>', '{$aUser.user_id}');
+        $.fn.Blogbox.getBlog('<?php echo $this->_aVars['aItems'][0]['bookmark_url'] ?>'<?php if (isset($this->_aVars['aUser'])): ?>, '{$aUser.user_id}'<?php endif; ?>);
         {r});
     </script>
     {foreach from=$aItems name=blog item=aItem}

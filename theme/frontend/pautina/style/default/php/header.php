@@ -16,7 +16,7 @@ $oTpl->setHeader('cache', array(
         'tab.js'                        => 'style_script',
         'menu.js'                       => 'style_script',
         'jquery.tinyscrollbar.min.js'   => 'style_script',
-        'den.css'                       => 'style_css',
+        'pautina.css'                       => 'style_css',
         'style.css'                     => 'style_css'
 	)
 );
