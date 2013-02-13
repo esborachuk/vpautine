@@ -6,7 +6,9 @@
 
     Blogbox.init = function(blogLink) {
         Blogbox.blogLink = blogLink;
-        blogLink.on('click', Blogbox.showBlog)
+        $Behavior.onClickBlogbox = function() {
+            blogLink.click(Blogbox.showBlog);
+        };
     };
 
     Blogbox.showBlog = function() {

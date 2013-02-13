@@ -411,3 +411,8 @@ a.feed_share_link {
     background: url(../image/layout/music.png) no-repeat 0 6px;
     padding-left: 18px;
 }
+
+.activity_feed_form_attach a.video, .activity_feed_form_attach a.video:hover {
+    background: url(../image/pautina/user_image_icons.png) no-repeat 0 -226px;
+    padding-left: 18px;
+}
