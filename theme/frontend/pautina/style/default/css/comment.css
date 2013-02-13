@@ -413,6 +413,6 @@ a.feed_share_link {
 }
 
 .activity_feed_form_attach a.video, .activity_feed_form_attach a.video:hover {
-    background: url(../image/pautina/user_image_icons.png) no-repeat 0 -226px;
-    padding-left: 18px;
+    background: url(../image/pautina/user_image_icons.png) no-repeat 1px -61px;
+    padding-left: 26px;
 }
