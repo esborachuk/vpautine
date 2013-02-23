@@ -1,5 +1,5 @@
 <?php
-class Registration_Component_Block_Reg extends Phpfox_Component
+class Registration_Component_Block_Register extends Phpfox_Component
 {
     /**
      * Class process method wnich is used to execute this component.

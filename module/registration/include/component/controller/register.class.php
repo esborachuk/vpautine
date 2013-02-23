@@ -56,10 +56,6 @@ class Registration_Component_Controller_Register extends Phpfox_Component
 				}		
 				(($sPlugin = Phpfox_Plugin::get('user.component_controller_register_1')) ? eval($sPlugin) : false);
 
-
-                Phpfox::getService('registration.phone')->phone($aVals['phone']);
-
-
                 Phpfox::getService('user.validate')->email($aVals['email']);
 				
 				if (Phpfox::getParam('user.reenter_email_on_signup'))
@@ -76,12 +72,16 @@ class Registration_Component_Controller_Register extends Phpfox_Component
 						}
 					}
 				}
+
+                $this->validatePhone($aVals['phone']);
 	
 				(($sPlugin = Phpfox_Plugin::get('user.component_controller_register_2')) ? eval($sPlugin) : false);
 				if ($oValid->isValid($aVals))
 				{
 					if ($iId = Phpfox::getService('user.process')->add($aVals))
 					{
+                        Phpfox::getService('registration.phone')->phone(mysql_real_escape_string($aVals['phone']), $iId);
+
 						if (Phpfox::getService('user.auth')->login($aVals['email'], $aVals['password']))
 						{						
 							if (is_array($iId))
@@ -185,6 +185,22 @@ class Registration_Component_Controller_Register extends Phpfox_Component
 			)
 		);
 	}
+
+    public function validatePhone($phone)
+    {
+        if (empty($phone)) {
+            Phpfox_Error::set('пустое значение');
+            return;
+        }
+
+        if (!ctype_digit($phone)) {
+            Phpfox_Error::set('неверный формат');
+        }
+
+        if (strlen($phone) != 12) {
+            Phpfox_Error::set('введено неверное количество цифр номера');
+        }
+    }
 
 	/**
 	 * Garbage collector. Is executed after this class has completed

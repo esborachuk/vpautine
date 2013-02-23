@@ -4,32 +4,38 @@ defined('PHPFOX') or exit('NO DICE!');
 
 class Registration_Service_Phone extends Phpfox_Service
 {
+    private $smsCode;
+    private $smsHash;
+    public $userId;
+
     public function __construct()
     {
-        $this->_sTable = Phpfox::getT('registration');
+        $this->_sTable = Phpfox::getT('registrion');
         $this->date = date('Ymd', PHPFOX_TIME);
         $this->_oSession = Phpfox::getService('log.session');
     }
 
-    public function phone($phone)
+    public function phone($phone, $userId)at
     {
+        $this->userId = $userId;
+
         $smsService = Phpfox::getService('sms.sms');
-        if (!$this->isOnRegistration()) {
-            $this->savePhone($phone);
-        }
+        $this->savePhone($phone);
+        $smsReport = $smsService->sendRegistrationCode($phone, $this->smsCode);
     }
 
     public function savePhone($phone)
     {
-        $this->code = $this->generateRandomCode();
+        $this->smsCode = $this->generateRandomCode();
+        $this->smsHash = md5(md5($this->smsCode) . $this->userId);
 
         $this->database()->insert($this->_sTable, array(
-            'id_hash' => $this->getDateHash($this->code),
-            'sms_hash' => md5($this->code),
-            'phone' => $phone
+            'user_id' => $this->userId,
+            'sms_hash' => $this->smsHash,
+            'phone' => md5($phone)
         ));
 
-        $this->saveHashToCookie();
+        $this->saveUserIdToCookie();
     }
 
     public function generateRandomCode()
@@ -42,37 +48,18 @@ class Registration_Service_Phone extends Phpfox_Service
         return $result;
     }
 
-    private function getHash($sCode, $sSalt)
+    public function saveUserIdToCookie()
     {
-        return md5(md5($sCode) . $sSalt);
-    }
-
-    public function getDateHash($code) {
-        return md5($code . $this->date);
-    }
-
-    public function getSessionId()
-    {
-        return $this->_oSession->getSessionId();
-    }
-
-    public function saveHashToCookie()
-    {
-        return Phpfox::setCookie('hash', $this->getDateHash($this->code));
+        return Phpfox::setCookie('reg_user_id', $this->userId);
     }
 
     public function isOnRegistration()
     {
-        $cookieHash = Phpfox::getCookie('hash');
-
-        if ($cookieHash) {
-            $aRows = $this->database()->select('*')
-                ->from($this->_sTable)
-                ->where('id_hash =  \'' . $cookieHash . '\'')
-                ->execute('getRows');
+        if (!Phpfox::getCookie('reg_user_id')) {
+            return false;
         }
 
-        return false;
+        return true;
     }
 }
 
