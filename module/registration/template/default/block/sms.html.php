@@ -3,7 +3,7 @@
     <input type="hidden" name="val[userId]" id="val[userId]" value="{$userId}">
     <div class="table">
         <div class="table_left">
-            Code
+	        <label>{phrase var='registration.sms_code'}</label>
         </div>
         <div class="table_right">
             <input type="text" id="val[smsCode]" name="val[smsCode]" />
