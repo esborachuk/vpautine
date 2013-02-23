@@ -1,5 +1,6 @@
-<form method="post" id="sms_registration" action="{url link='registration.sms'}">
+<form method="post" id="sms_registration" action="{url link='registration.pending'}">
     {token}
+    <input type="hidden" name="val[userId]" id="val[userId]" value="{$userId}">
     <div class="table">
         <div class="table_left">
             Code
