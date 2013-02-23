@@ -15,11 +15,8 @@ $oTpl->setHeader('cache', array(
         'blogbox.js'                    => 'style_script',
         'tab.js'                        => 'style_script',
         'menu.js'                       => 'style_script',
-        'bootstrap.min.js'                       => 'style_script',
         'jquery.tinyscrollbar.min.js'   => 'style_script',
-        'pautina.css'                   => 'style_css',
-        'bootstrap/css/bootstrap-responsive.min.css'  => 'style_css',
-        'bootstrap/css/bootstrap.min.css'  => 'style_css',
+        'pautina.css'                       => 'style_css',
         'style.css'                     => 'style_css'
 	)
 );
