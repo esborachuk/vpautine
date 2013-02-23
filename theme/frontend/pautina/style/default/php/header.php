@@ -18,8 +18,8 @@ $oTpl->setHeader('cache', array(
         'bootstrap.min.js'                       => 'style_script',
         'jquery.tinyscrollbar.min.js'   => 'style_script',
         'pautina.css'                   => 'style_css',
-        'bootstrap-responsive.min.css'  => 'style_css',
-        'bootstrap.min.css'  => 'style_css',
+        'bootstrap/css/bootstrap-responsive.min.css'  => 'style_css',
+        'bootstrap/css/bootstrap.min.css'  => 'style_css',
         'style.css'                     => 'style_css'
 	)
 );
