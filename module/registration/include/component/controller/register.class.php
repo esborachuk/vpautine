@@ -189,16 +189,16 @@ class Registration_Component_Controller_Register extends Phpfox_Component
     public function validatePhone($phone)
     {
         if (empty($phone)) {
-            Phpfox_Error::set('пустое значение');
+            Phpfox_Error::set(Phpfox::getPhrase('registration.empty_number'));
             return;
         }
 
         if (!ctype_digit($phone)) {
-            Phpfox_Error::set('неверный формат');
+            Phpfox_Error::set(Phpfox::getPhrase('registration.invalid_number_format'));
         }
 
         if (strlen($phone) != 12) {
-            Phpfox_Error::set('введено неверное количество цифр номера');
+            Phpfox_Error::set(Phpfox::getPhrase('registration.invalid_char_number'));
         }
     }
 
