@@ -13,10 +13,13 @@ $oTpl->setHeader('cache', array(
         'email.js'                      => 'style_script',
         'imagebox.js'                   => 'style_script',
         'blogbox.js'                    => 'style_script',
+        'bootstrap.min.js'              => 'style_script',
         'tab.js'                        => 'style_script',
         'menu.js'                       => 'style_script',
         'jquery.tinyscrollbar.min.js'   => 'style_script',
         'pautina.css'                       => 'style_css',
+        'bootstrap-responsive.min'      => 'style_css',
+        'bootstrap.min'                  => 'style_css',
         'style.css'                     => 'style_css'
 	)
 );
