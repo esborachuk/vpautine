@@ -2,7 +2,7 @@
     {token}
     <div class="table">
         <div class="table_left">
-	        <span>{phrase var='registration.sms_code'}</span>
+	        <label>{phrase var='registration.sms_code'}</label>
         </div>
         <div class="table_right">
             <input type="text" id="val[smsCode]" name="val[smsCode]" />
