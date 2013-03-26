@@ -604,7 +604,7 @@ class User_Service_Auth extends Phpfox_Service
 			{
                 $params = '';
                 if ($userId) {
-                    $params = array('userId' => $userId);
+                    $params = array('id' => $userId);
                 }
 				Phpfox::getLib('url')->send('registration.pending', $params);
 			}

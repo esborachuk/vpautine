@@ -29,31 +29,22 @@ class Registration_Component_Controller_Pending extends Phpfox_Component
 	 */
 	public function process()
 	{
-        $isUserApproved = false;
+        $url = $this->url()->getFullUrl();
 
         if ($aVals = $this->request()->getArray('val')) {
             if ($aVals['submit'] == 'submit' && isset($aVals['smsCode'])) {
                 if ($this->getHash(mysql_real_escape_string($aVals['smsCode']), $aVals['userId']) == $this->getHashFromDb($aVals['userId'])) {
-                    $this->removeUserIdFromCookie();
                     $this->enableUser($aVals['userId']);
-
-                    $isUserApproved = true;
                 } else {
                     Phpfox_Error::set('неверное значение кода');
                 }
             }
         }
 
-		$this->template()->assign(array('iStatus' => Phpfox::getUserBy('status_id')));
-		if (Phpfox::isUser())
-		{
-			$this->url()->send($this->url()->makeUrl(''));
-		}
-
-        if ($aVals['userId']) {
-            $params = array('userId' => $aVals['userId']);
-            $this->url()->send('registration.pending', $params);
-        }
+		$this->template()->assign(array(
+            'iStatus'   => Phpfox::getUserBy('status_id'),
+            'url'       => $url
+        ));
 	}
 
     public function getHash($smsCode, $userId)
@@ -76,11 +67,6 @@ class Registration_Component_Controller_Pending extends Phpfox_Component
         }
 
         return $this->hashFromDb;
-    }
-
-    public function removeUserIdFromCookie()
-    {
-        return Phpfox::setCookie('reg_user_id', '', time() - 3600);
     }
 
     public function enableUser($userId)

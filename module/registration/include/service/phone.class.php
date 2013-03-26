@@ -40,12 +40,14 @@ class Registration_Service_Phone extends Phpfox_Service
         $this->phoneCrypt = $this->mcryptEncryptString($phone);
 
         $this->database()->insert($this->_sTable, array(
-            'user_id' => $this->userId,
-            'sms_hash' => $this->smsHash,
-            'phone' => $this->phoneCrypt
+            'user_id'   => $this->userId,
+            'sms_hash'  => $this->smsHash
         ));
 
-        $this->saveUserIdToCookie();
+        $this->database()->insert(Phpfox::getT('phone'), array(
+            'user_id' => $this->userId,
+            'phone' => $this->phoneCrypt
+        ));
     }
 
     public function generateRandomCode()
@@ -56,11 +58,6 @@ class Registration_Service_Phone extends Phpfox_Service
             $result .= $characters[mt_rand(0, 61)];
 
         return $result;
-    }
-
-    public function saveUserIdToCookie()
-    {
-        return Phpfox::setCookie('reg_user_id', $this->userId);
     }
 
     public function isOnRegistration()

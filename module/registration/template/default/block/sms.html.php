@@ -1,9 +1,9 @@
-<form method="post" id="sms_registration" action="{url link='registration.pending'}">
+<form method="post" id="sms_registration" action="{$url}">
     {token}
-    <input type="hidden" name="val[userId]" id="val[userId]" value="{$userId}">
+    {if $id != 0}<input type="hidden" name="val[userId]" id="val[userId]" value="{$id}">{/if}
     <div class="table">
         <div class="table_left">
-	        <label>{phrase var='registration.sms_code'}</label>
+            <label>{phrase var='registration.sms_code'}</label>
         </div>
         <div class="table_right">
             <input type="text" id="val[smsCode]" name="val[smsCode]" />
