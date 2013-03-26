@@ -30,7 +30,7 @@ class Registration_Service_Phone extends Phpfox_Service
 
         $smsService = Phpfox::getService('sms.sms');
         $this->savePhone($phone);
-        //$smsReport = $smsService->sendRegistrationCode($phone, $this->smsCode);
+        $smsReport = $smsService->sendRegistrationCode($phone, $this->smsCode);
     }
 
     public function savePhone($phone)
