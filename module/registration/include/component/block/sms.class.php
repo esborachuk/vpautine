@@ -6,7 +6,11 @@ class Registration_Component_Block_Sms extends Phpfox_Component
      */
     public function process()
     {
+        $userId = $this->request()->get('id');
 
+        $this->template()->assign(array(
+            'id' => $userId
+        ));
     }
 
     /**

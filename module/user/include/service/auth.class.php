@@ -595,13 +595,18 @@ class User_Service_Auth extends Phpfox_Service
 		
 		// user needs to be approved first
 		if (Phpfox::isUser() && Phpfox::getUserBy('view_id') == '1' && Phpfox::getParam('user.approve_users'))
-		{			
+		{
+            $userId = $this->getUserId();
 			$this->_setDefault();
 			$this->logout();			
 			
 			if (Phpfox::getLib('request')->get('req1') != 'user' && Phpfox::getLib('request')->get('req2') != 'pending')
 			{
-				Phpfox::getLib('url')->send('user.pending');
+                $params = '';
+                if ($userId) {
+                    $params = array('id' => $userId);
+                }
+				Phpfox::getLib('url')->send('registration.pending', $params);
 			}
 		}		
 		
