@@ -242,4 +242,19 @@ class Sms_Service_Sms extends Phpfox_Service
                                         ));
         }
     }
+
+    public function sendRegistrationCode($phone, $smsCode)
+    {
+        $sXML = '<?xml version="1.0" encoding="UTF-8"?>
+                    <request>
+                        ' . $this->_getXmlAuth() . '
+                        <message>
+                            <from>Pautina.me</from>
+                            <text>Ваш секретный код: ' . $smsCode . '</text>
+                            <recipient>' . $phone . '</recipient>
+                        </message>
+                    </request>';
+
+        return $this->getSmsCurl($sXML);
+    }
 }
