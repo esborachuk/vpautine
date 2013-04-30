@@ -133,6 +133,8 @@ class Feed_Service_Callback extends Phpfox_Service
 	public function onDeleteUser($iUser)
 	{
 	    $this->database()->delete($this->_sTable, 'user_id = ' . (int)$iUser);
+	    $this->database()->delete($this->_sTable, 'parent_user_id = ' . (int)$iUser);
+	    $this->database()->delete(Phpfox::getT('feed_comment'), 'parent_user_id = ' . (int)$iUser); 
 	}
 
 	public function getProfileSettings()
@@ -188,19 +190,19 @@ class Feed_Service_Callback extends Phpfox_Service
 	
 	public function getReportRedirectComment($iId)
 	{
-		$aFeed = $this->database()->select('c.comment_id, f.feed_id, ' . Phpfox::getUserField())
-			->from(Phpfox::getT('comment'), 'c')
-			->join(Phpfox::getT('feed'), 'f', 'f.feed_id = c.item_id')
+		$aFeed = $this->database()->select('f.feed_id, ' . Phpfox::getUserField())
+			->from(Phpfox::getT('feed_comment'), 'c')
+			->join(Phpfox::getT('feed'), 'f', 'type_id = \'feed_comment\' && f.item_id = c.feed_comment_id')
 			->join(Phpfox::getT('user'), 'u', 'u.user_id = f.user_id')
-			->where('c.comment_id = ' . (int) $iId)
+			->where('c.feed_comment_id = ' . (int) $iId)
 			->execute('getRow');	
-			
+
 		if (empty($aFeed))
 		{
 			return false;
 		}
 		
-		return Phpfox::getLib('url')->makeUrl($aFeed['user_name'], array('feed' => $aFeed['feed_id'], 'feed-comment' => $aFeed['comment_id'], '#feed'));
+		return Phpfox::getLib('url')->makeUrl($aFeed['user_name'], array('feed' => $aFeed['feed_id'], '#feed'));
 	}
 	
 	public function getRedirectComment($iId)
@@ -532,7 +534,10 @@ class Feed_Service_Callback extends Phpfox_Service
 			$bWasChanged = true;
 		}
 		$sUsers = Phpfox::getService('notification')->getUsers($aNotification);
-		
+		if (empty($aRow) || !isset($aRow['user_id']))
+        {
+            return false;
+        }
 		$sPhrase = '';
 		if ($aNotification['user_id'] == $aRow['user_id'])
 		{
@@ -860,6 +865,24 @@ class Feed_Service_Callback extends Phpfox_Service
 		
 		return 0;
 	}	
+
+	public function getActions()
+	{
+	    return array(
+		'dislike' => array(
+			'enabled' => true,
+			'action_type_id' => 2, // 2 = dislike
+			'phrase' => 'Dislike',
+			'phrase_in_past_tense' => 'disliked',
+			'item_phrase' => 'comment',
+			'item_type_id' => 'feed', // used to differentiate between photo albums and photos for example.
+			'table' => 'feed_comment',
+			'column_update' => 'total_dislike',
+			'column_find' => 'feed_comment_id',
+			'where_to_show' => array('', 'photo')			
+			)
+		);
+	}
 }
 
 ?>

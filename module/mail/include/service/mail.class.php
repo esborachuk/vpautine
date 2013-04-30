@@ -11,7 +11,7 @@ defined('PHPFOX') or exit('NO DICE!');
  * @copyright		[PHPFOX_COPYRIGHT]
  * @author  		Raymond Benc
  * @package  		Module_Mail
- * @version 		$Id: mail.class.php 4966 2012-10-30 09:48:20Z Raymond_Benc $
+ * @version 		$Id: mail.class.php 5155 2013-01-17 12:55:36Z Miguel_Espinoza $
  */
 class Mail_Service_Mail extends Phpfox_Service
 {
@@ -187,6 +187,7 @@ class Mail_Service_Mail extends Phpfox_Service
 						->from(Phpfox::getT('mail_thread_text'), 'mt')
 						->join(Phpfox::getT('mail_thread_user'), 'th', 'th.user_id = mt.user_id')	
 						->join(Phpfox::getT('mail_thread'), 't', 't.thread_id = mt.thread_id')
+						->join(Phpfox::getT('user'), 'u', 'u.user_id = mt.user_id')
 						// ->join(Phpfox::getT('mail_thread_text'), 'tt', 'tt.message_id = t.last_id')					
 						->limit($iPage, $iLimit, $iCnt)
 						->order('t.time_stamp DESC')
@@ -197,7 +198,8 @@ class Mail_Service_Mail extends Phpfox_Service
 					$aRows = $this->database()->select('th.*, tt.text AS preview, tt.time_stamp, tt.user_id AS last_user_id')
 						->from(Phpfox::getT('mail_thread_user'), 'th')	
 						->join(Phpfox::getT('mail_thread'), 't', 't.thread_id = th.thread_id')
-						->join(Phpfox::getT('mail_thread_text'), 'tt', 'tt.message_id = t.last_id')					
+						->join(Phpfox::getT('mail_thread_text'), 'tt', 'tt.message_id = t.last_id')
+						->join(Phpfox::getT('user'), 'u', 'u.user_id = tt.user_id')
 						->limit($iPage, $iLimit, $iCnt)
 						->order('t.time_stamp DESC')
 						->execute('getSlaveRows');
@@ -473,6 +475,7 @@ class Mail_Service_Mail extends Phpfox_Service
 				->from(Phpfox::getT('mail_thread_user'), 'th')	
 				->join(Phpfox::getT('mail_thread'), 't', 't.thread_id = th.thread_id')
 				->join(Phpfox::getT('mail_thread_text'), 'tt', 'tt.message_id = t.last_id')					
+				->join(Phpfox::getT('user'), 'u', 'u.user_id = tt.user_id')
 				->where('th.user_id = ' . (int) Phpfox::getUserId() . ' AND th.is_archive = 0 AND th.is_sent_update = 0')
 				->limit(5)
 				->order('t.time_stamp DESC')

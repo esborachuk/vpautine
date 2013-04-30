@@ -229,7 +229,7 @@ This affects the other user's received messages list and is enabled by default.<
 
 Notice: X & Y are settings that can be changed.</info>]]></phrase>
 		<phrase module_id="mail" version_id="2.0.0rc1" var_name="setting_total_mail_messages_to_check" added="1251278379"><![CDATA[<title>PM Messages to Check</title><info>If the setting to check if PM's are identical you can see here how many messages in the past should be checked.</info>]]></phrase>
-		<phrase module_id="mail" version_id="2.0.0rc1" var_name="setting_total_minutes_to_wait_for_pm" added="1251278493"><![CDATA[<title>PM Minutes to Wait Unilt Next Check</title><info>If the setting to check if PM's are identical you can set here how far back we should check in minutes.</info>]]></phrase>
+		<phrase module_id="mail" version_id="2.0.0rc1" var_name="setting_total_minutes_to_wait_for_pm" added="1251278493"><![CDATA[<title>PM Minutes to Wait Until Next Check</title><info>If the setting to check if PM's are identical you can set here how far back we should check in minutes.</info>]]></phrase>
 		<phrase module_id="mail" version_id="2.0.0rc3" var_name="setting_show_preview_message" added="1254749315"><![CDATA[<title>Show Preview Message</title><info>If enabled, users will see a short version of their messages.</info>]]></phrase>
 		<phrase module_id="mail" version_id="2.0.0rc3" var_name="user_setting_send_message_to_max_users_each_time" added="1254829395">This value restricts sending private messages.
 It sets the maximum number of recipients when sending private messages, avoiding users to select way too many users and potentially spamming.
@@ -399,6 +399,7 @@ To reply to this message, follow the link below:
 		<phrase module_id="mail" version_id="3.4.0rc1" var_name="legacy_inbox" added="1349866285">Legacy Inbox</phrase>
 		<phrase module_id="mail" version_id="3.4.0" var_name="page_claim_message" added="1350911604"><![CDATA[Hello, I hereby claim the page "{title}" (URL: {url}) as my own and request your attention to the matter. I am able to provide any documentation that you may require.]]></phrase>
 		<phrase module_id="mail" version_id="3.4.0" var_name="claiming_page_title" added="1350912704"><![CDATA[Claiming Page &#039;{title}&#039;]]></phrase>
+		<phrase module_id="mail" version_id="3.5.0beta2" var_name="delete_conversation" added="1359462488">Delete Conversation</phrase>
 	</phrases>
 	<user_group_settings>
 		<setting is_admin_setting="0" module_id="mail" type="integer" admin="10" user="10" guest="0" staff="10" module="mail" ordering="0">total_folders</setting>

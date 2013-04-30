@@ -11,7 +11,7 @@ defined('PHPFOX') or exit('NO DICE!');
  * @copyright		[PHPFOX_COPYRIGHT]
  * @author  		Raymond Benc
  * @package 		Phpfox_Service
- * @version 		$Id: process.class.php 4460 2012-07-03 13:56:04Z Miguel_Espinoza $
+ * @version 		$Id: process.class.php 5349 2013-02-13 10:51:41Z Miguel_Espinoza $
  */
 class Forum_Service_Thread_Process extends Phpfox_Service 
 {
@@ -524,7 +524,7 @@ class Forum_Service_Thread_Process extends Phpfox_Service
 		
 		// Delete the newer thread
 		$this->database()->delete($this->_sTable, 'thread_id = ' . $aNewThread['thread_id']);
-		
+        		
 		// Update the new posts with the merged thread id
 		$this->database()->update(Phpfox::getT('forum_post'), array('thread_id' => $aOldThread['thread_id']), 'thread_id = ' . $aNewThread['thread_id']);
 		
@@ -556,7 +556,12 @@ class Forum_Service_Thread_Process extends Phpfox_Service
 				Phpfox::getService('forum.process')->updateCounter($iForumId, 'total_post', false, $iTotalPosts);
 	
 				$this->database()->update(Phpfox::getT('forum'), array('thread_id' => $aOldThread['thread_id'], 'post_id' => 0), 'forum_id = ' . $iForumId);		
-			}		
+			}	
+            
+            // Update the last post from the parent forum
+            Phpfox::getService('forum.process')->updateLastPost($aNewThread['forum_id']);
+            Phpfox::getService('forum.process')->updateLastPost($aOldThread['forum_id']);
+            
 		}
 		
 		$aForum = Phpfox::getService('forum')			

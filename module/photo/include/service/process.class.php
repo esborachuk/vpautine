@@ -11,7 +11,7 @@ defined('PHPFOX') or exit('NO DICE!');
  * @copyright		[PHPFOX_COPYRIGHT]
  * @author  		Raymond Benc
  * @package  		Module_Photo
- * @version 		$Id: process.class.php 4854 2012-10-09 05:20:40Z Raymond_Benc $
+ * @version 		$Id: process.class.php 5248 2013-01-29 12:25:49Z Raymond_Benc $
  */
 class Photo_Service_Process extends Phpfox_Service
 {
@@ -254,7 +254,7 @@ class Photo_Service_Process extends Phpfox_Service
 			    'extension' => strtolower($aVals['ext']),
 			    'file_size' => $aVals['size'],
 			    'mime_type' => $aVals['type'],
-			    'description' => (empty($aVals['description']) ? null : $this->preParse()->clean($aVals['description']))
+			    'description' => (empty($aVals['description']) ? null : $this->preParse()->prepare($aVals['description']))
 		    );
 	
 		    // Insert the data into the photo_info table

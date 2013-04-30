@@ -11,7 +11,7 @@ defined('PHPFOX') or exit('NO DICE!');
  * @copyright		[PHPFOX_COPYRIGHT]
  * @author  		Raymond Benc
  * @package  		Module_Comment
- * @version 		$Id: comment.class.php 4187 2012-05-31 09:20:19Z Miguel_Espinoza $
+ * @version 		$Id: comment.class.php 5382 2013-02-18 09:48:39Z Miguel_Espinoza $
  */
 class Comment_Service_Comment extends Phpfox_Service 
 {	
@@ -342,6 +342,8 @@ class Comment_Service_Comment extends Phpfox_Service
 			->group('c.user_id')
 			->execute('getSlaveRows');
 
+        if ($sPlugin = Phpfox_Plugin::get('comment.service_comment_massmail__1')){eval($sPlugin);}
+            
 		foreach ($aRows as $aRow)
 		{
 			if ($aRow['user_id'] == $iOwnerUserId)

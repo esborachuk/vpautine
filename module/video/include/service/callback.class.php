@@ -11,7 +11,7 @@ defined('PHPFOX') or exit('NO DICE!');
  * @copyright		[PHPFOX_COPYRIGHT]
  * @author  		Raymond Benc
  * @package  		Module_Video
- * @version 		$Id: callback.class.php 4621 2012-09-12 05:34:34Z Raymond_Benc $
+ * @version 		$Id: callback.class.php 5225 2013-01-28 13:08:46Z Miguel_Espinoza $
  */
 class Video_Service_Callback extends Phpfox_Service 
 {
@@ -1371,6 +1371,23 @@ Phpfox::getPhrase('video.full_name_commented_on_gender_video_a_href_link_title_a
 		);
 	}
 	
+	public function getActions()
+	{
+		return array(
+			'dislike' => array(
+				'enabled' => true,
+				'action_type_id' => 2, // 2 = dislike
+				'phrase' => 'Dislike',
+				'phrase_in_past_tense' => 'disliked',
+				'item_type_id' => 'video', // used to differentiate between photo albums and photos for example.
+				'table' => 'video',
+				'item_phrase' => Phpfox::getPhrase('video.item_phrase'),
+				'column_update' => 'total_dislike',
+				'column_find' => 'video_id',
+				'where_to_show' => array('video')
+				)
+		);
+	}
 	
 	/**
 	 * If a call is made to an unknown method attempt to connect

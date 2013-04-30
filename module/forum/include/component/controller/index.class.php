@@ -11,7 +11,7 @@ defined('PHPFOX') or exit('NO DICE!');
  * @copyright		[PHPFOX_COPYRIGHT]
  * @author  		Raymond Benc
  * @package  		Module_Forum
- * @version 		$Id: index.class.php 4596 2012-08-16 17:27:10Z Raymond_Benc $
+ * @version 		$Id: index.class.php 5219 2013-01-28 12:15:53Z Miguel_Espinoza $
  */
 class Forum_Component_Controller_Index extends Phpfox_Component
 {
@@ -57,7 +57,17 @@ class Forum_Component_Controller_Index extends Phpfox_Component
 		{
 			$this->url()->send('');
 		}
-		
+		else if (empty($aParentModule) && $this->request()->get('view') == 'new')
+		{
+		    $aDo = explode('/',$this->request()->get('do'));
+		    if ($aDo[0] == 'mobile' || (isset($aDo[1]) && $aDo[1] == 'mobile'))
+		    {
+			Phpfox::getLib('module')->getComponent('forum.forum', array('bNoTemplate' => true), 'controller');
+
+			return;
+		    }		    
+		}
+		    
 		if ($this->request()->get('req2') == 'topics' || $this->request()->get('req2') == 'posts')
 		{
 			return Phpfox::getLib('module')->setController('error.404');

@@ -11,7 +11,7 @@ defined('PHPFOX') or exit('NO DICE!');
  * @copyright		[PHPFOX_COPYRIGHT]
  * @author  		Raymond Benc
  * @package  		Module_Forum
- * @version 		$Id: callback.class.php 5054 2012-11-29 12:58:53Z Raymond_Benc $
+ * @version 		$Id: callback.class.php 5074 2012-12-06 10:37:26Z Raymond_Benc $
  */
 class Forum_Service_Callback extends Phpfox_Service 
 {
@@ -1112,6 +1112,24 @@ class Forum_Service_Callback extends Phpfox_Service
 
 		return $aRows;
 	}
+	
+	public function getActions()
+	{
+		return array(
+			'dislike' => array(
+				'enabled' => true,
+				'action_type_id' => 2, // 2 = dislike
+				'phrase' => 'Dislike',
+				'item_type_id' => 'forum-post', // used to differentiate between photo albums and photos for example.
+				'phrase_in_past_tense' => 'disliked',
+				'table' => 'forum_post',
+				'item_phrase' => Phpfox::getPhrase('forum.item_phrase'),
+				'column_update' => 'total_dislike',
+				'column_find' => 'post_id'				
+				)
+		);
+	}
+	
 	/**
 	 * If a call is made to an unknown method attempt to connect
 	 * it to a specific plug-in with the same name thus allowing 

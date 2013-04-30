@@ -20,14 +20,14 @@ defined('PHPFOX') or exit('NO DICE!');
  * @copyright		[PHPFOX_COPYRIGHT]
  * @author			Raymond Benc
  * @package 		Phpfox
- * @version 		$Id: phpfox.class.php 5072 2012-12-06 09:00:33Z Raymond_Benc $
+ * @version 		$Id: phpfox.class.php 5382 2013-02-18 09:48:39Z Miguel_Espinoza $
  */
 final class Phpfox
 {	
 	/**
  	* Product Version : major.minor.maintenance [alphaX, betaX or rcX]
  	*/
-	const VERSION = '3.4.1';
+	const VERSION = '3.5.0rc1';
 	
 	/**
 	 * Product Code Name
@@ -45,7 +45,7 @@ final class Phpfox
 	 * Product build number.
 	 *
 	 */
-	const PRODUCT_BUILD = '2';
+	const PRODUCT_BUILD = '1';
 	
 	/**
 	 * phpFox API server.
@@ -496,6 +496,8 @@ final class Phpfox
 			}
 		}
 		
+        if ($sPlugin = Phpfox_Plugin::get('library_phpfox_phpfox_getuserid__1')){eval($sPlugin);}
+        
 		if (defined('PHPFOX_APP_USER_ID'))
 		{			
 			return PHPFOX_APP_USER_ID;
@@ -519,6 +521,7 @@ final class Phpfox
 	 */
 	public static function isMobile()
 	{
+		if ($sPlugin = Phpfox_Plugin::get('library_phpfox_ismobile')){eval($sPlugin);if (isset($bReturnFromPlugin)) return $bReturnFromPlugin;}
 		return Phpfox::getLib('request')->isMobile();
 	}
 	
@@ -1183,7 +1186,7 @@ final class Phpfox
 				$aPageLastLogin = ((Phpfox::isModule('pages') && Phpfox::getUserBy('profile_page_id')) ? Phpfox::getService('pages')->getLastLogin() : false);
 				
 				$oTpl->assign(array(
-						'aMenus' => $oTpl->getMenu('main'),
+						'aMainMenus' => $oTpl->getMenu('main'),
 						'aRightMenus' => $oTpl->getMenu('main_right'),
 						'aAppMenus' => $oTpl->getMenu('explore'),
 						'aSubMenus' => $oTpl->getMenu(),
@@ -1279,6 +1282,24 @@ final class Phpfox
 		
 		list($aBreadCrumbs, $aBreadCrumbTitle) = $oTpl->getBreadCrumb();
 
+		/* Delayed unlink, we now delete all the images */
+		if (Phpfox::getParam('core.keep_files_in_server') == false)
+		{
+			$oSess = Phpfox::getLib('session');
+			$aFiles = $oSess->get('deleteFiles');
+			if (is_array($aFiles))
+			{
+				foreach ($aFiles as $sFile)
+				{
+					if (file_exists($sFile))
+					{
+						unlink($sFile);
+					}
+				}
+			}
+			$oSess->remove('deleteFiles');
+		}
+		
 		$oTpl->assign(array(
 				'aErrors' => (Phpfox_Error::getDisplay() ? Phpfox_Error::get() : array()),
 				'sPublicMessage' => Phpfox::getMessage(),
@@ -1311,7 +1332,7 @@ final class Phpfox
 		{
 			Phpfox::getLib('locale')->cache();
 		}		
-		
+		/*
 		if (!PHPFOX_IS_AJAX_PAGE && Phpfox::getParam('core.phpfox_is_hosted'))
 		{
 			$iTotalMembersOnline = Phpfox::getService('log.session')->getOnlineMembers();
@@ -1334,7 +1355,7 @@ final class Phpfox
 				ob_clean();		
 			}
 		}		
-		
+		*/
 		// Use GZIP to output the data if we can		
 		if (Phpfox::getParam('core.use_gzip') && !PHPFOX_IS_AJAX_PAGE)
 		{						
@@ -1507,7 +1528,7 @@ final class Phpfox
 	 */
 	public static function getCdnPath()
 	{
-		return 'http://cdn.group.ly/sites/' . self::getVersion() . '/';
+		return 'http://cdn.group.ly/' . self::getVersion() . '/';
 	}
 }
 

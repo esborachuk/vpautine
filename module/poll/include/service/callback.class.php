@@ -11,7 +11,7 @@ defined('PHPFOX') or exit('NO DICE!');
  * @copyright		[PHPFOX_COPYRIGHT]
  * @author  		Raymond Benc
  * @package  		Module_Poll
- * @version 		$Id: callback.class.php 4684 2012-09-20 06:15:07Z Raymond_Benc $
+ * @version 		$Id: callback.class.php 5225 2013-01-28 13:08:46Z Miguel_Espinoza $
  */
 class Poll_Service_Callback extends Phpfox_Service 
 {
@@ -862,6 +862,24 @@ class Poll_Service_Callback extends Phpfox_Service
 			'link' => Phpfox::getLib('url')->permalink('poll', $aRow['poll_id'], $aRow['question']) . 'comment_'. $aNotification['item_id'],
 			'message' => $sPhrase,
 			'icon' => Phpfox::getLib('template')->getStyle('image', 'activity.png', 'blog')
+		);
+	}
+	
+	public function getActions()
+	{
+		return array(
+			'dislike' => array(
+				'enabled' => true,
+				'action_type_id' => 2, // 2 = dislike
+				'phrase' => 'Dislike',
+				'phrase_in_past_tense' => 'disliked',
+				'item_type_id' => 'poll', // used to differentiate between photo albums and photos for example.
+				'table' => 'poll',
+				'item_phrase' => Phpfox::getPhrase('poll.item_phrase'),
+				'column_update' => 'total_dislike',
+				'column_find' => 'poll_id',
+				'where_to_show' => array('poll')
+				)
 		);
 	}
 	

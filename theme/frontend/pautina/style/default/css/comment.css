@@ -117,17 +117,34 @@ div.comment_mini_content_holder_icon
 
 div.comment_mini_content_border
 {
-
+	background:#f5f5f5;
+	border-radius:6px;
+	-moz-border-radius:6px;
+	-webkit-border-radius:6px;
 }
 
 div.comment_mini
 {
+	padding:4px;
 	position:relative;
+	border-bottom:1px #fff solid;
+}
+
+.comment_mini_content_holder
+{
+     
 }
 
 div.comment_mini_end
 {
-	padding: 0;
+	background:url('../image/layout/comment_mini_end.png') repeat-x bottom;
+	padding:8px 4px 8px 4px;	
+	border-bottom-right-radius:6px;
+	-moz-border-radius-bottomright:6px;
+	-webkit-border-bottom-right-radius:6px;
+	border-bottom-left-radius:6px;
+	-moz-border-radius-bottomleft:6px;
+	-webkit-border-bottom-left-radius:6px;
 }
 
 .comment_mini_link_image
@@ -138,15 +155,13 @@ div.comment_mini_end
 
 .comment_mini_link
 {
-    margin: 10px 0;
-    font-weight: bold;
+	margin-left:18px;
 }
 
 a.comment_mini_link_block,
 a.comment_mini_link_block:hover
 {
 	display:block;
-    color: #4c4c4c;
 }
 
 a.comment_mini_link_block_hidden,
@@ -164,29 +179,27 @@ a.comment_mini_link_block_hidden:hover
 
 div.js_mini_feed_comment
 {
-    border-bottom: 1px solid #D7D7D7;
 	min-height:52px;
 	height:auto !important;
 	height:52px;
-    margin-bottom: 30px;
 }
 
 div.comment_mini_text
 {
-	font-size: 14px;
-    margin: 10px 0;
+	display:inline;	
+	margin-left:5px;
 }
 
 div.comment_mini_image
 {
 	position:absolute; 
-	left:0;
+	left:0; 
+	margin-left:4px;
 }
 
 div.comment_mini_content
 {
-	margin-left:45px;
-    min-height: 50px;
+	margin-left:38px;
 }
 
 .comment_feed
@@ -210,16 +223,16 @@ div.comment_mini_content
 
 .js_feed_comment_process_form
 {
-    border-radius: 6px;
-    -moz-border-radius: 6px;
-    -webkit-border-radius: 6px;
-    bottom: 3px;
-    display: none;
-    left: 150px;
-    padding: 4px 12px 4px 4px;
-    position: absolute;
-    text-align: right;
-    z-index: 700;
+	display:none;
+	z-index:700;
+	padding:4px 12px 4px 4px;
+	background:url('../image/layout/thickbox_bg.png');
+	-moz-border-radius:6px;
+	-webkit-border-radius:6px;
+  	border-radius:6px;
+  	color:#fff;
+  	font-weight:bold;	
+  	text-align:right;
 }
 
 .js_comment_feed_textarea_focus
@@ -286,7 +299,7 @@ div.comment_mini_content
 .comment_mini_child_content div.comment_mini
 {
 	border-bottom:0px;
-    margin-bottom: 30px;
+	border-top:1px #fff solid;	
 }
 
 .js_mini_feed_comment div.comment_mini_end
@@ -297,10 +310,9 @@ div.comment_mini_content
 
 .feed_share_holder
 {
-	border:1px #d7d7d7 solid;
-	background:#F8F8F8;
-	padding:15px;
-    border-radius: 4px;
+	border:1px #D3DAE8 solid;
+	background:#F6F7F9;
+	padding:5px;
 }
 
 .timeline_holder .js_feed_comment_border
@@ -364,55 +376,80 @@ div.comment_mini_content
   	border-radius:4px;		
 }
 
-.comment_mini_child_content {
-    margin-top: 20px;
+.feed_sort_order
+{
+	border-bottom:1px #dfdfdf solid;
+	margin:12px 0px 12px 0px;
+	position:relative;
 }
 
-.js_feed_entry_add_comment {
-    background: url(../image/layout/comment.png) no-repeat 0 2px;
-    padding-left: 22px;
+.feed_sort_order a.feed_sort_order_link,
+.feed_sort_order a.feed_sort_order_link:hover
+{
+	position:absolute;
+	right:12px;
+	display:block;
+	background:#fff url('../image/layout/feed_sort.png') no-repeat right center;
+	padding:0px 16px 0px 8px;
+	top:-6px;
+	color:#939393;
+	text-transform:uppercase;
+	font-size:9px;
+	font-weight:bold;
 }
 
-a.feed_share_link {
-    background: url(../image/layout/share.png) no-repeat 0 1px;
-    padding-left: 20px;
+.feed_sort_holder
+{
+	width:150px;
+	position:absolute;
+	top:8px;
+	right:18px;
+	z-index:20000;
+	background:#fff;
+	border:1px #000 solid;
+	border-bottom:2px #000 solid;
+	display:none;
 }
 
-.js_feed_entry_add_comment, .feed_share_link, .js_feed_entry_add_comment:hover, .feed_share_link:hover {
-    color: #222;
-    line-height: 15px;
-    display: block;
+.feed_sort_holder ul
+{
+	margin:0px;
+	padding:0px;
 }
 
-.activity_feed_content_info .user_profile_link_span a {
-    font-size: 14px;
-    line-height: 15px;
+.feed_sort_holder ul li
+{
+	display:inline;	
 }
 
-.activity_feed_form_attach .comment-feed-application {
-    background: url(../image/layout/application_add.png) no-repeat 0 6px;
+.feed_sort_holder ul li a,
+.feed_sort_holder ul li a:hover
+{
+	display:block;
+	height:22px;
+	line-height:22px;
+	padding-left:22px;
+	text-decoration:none;	
 }
 
-.activity_feed_form_attach a.photo {
-    background: url(../image/layout/photo.png) no-repeat 0 6px;
-    background: url(../image/layout/photo.png) no-repeat 0 6px;
+.feed_sort_holder ul li a:hover
+{
+	background:#333;
+	color:#fff;
 }
 
-.activity_feed_form_attach a.link {
-    background: url(../image/layout/link.png) no-repeat 0 9px;
+.feed_sort_holder ul li a.active,
+.feed_sort_holder ul li a.active:hover
+{
+	background-image:url('../image/layout/friend_action_drop_down_active.png');
+	background-repeat:no-repeat;
+	background-position:6px center;
 }
 
-.activity_feed_form_attach a.blog, .activity_feed_form_attach a.blog:hover {
-    background: url(../image/blog-bg.png) no-repeat 0 5px;
-    padding-left: 27px;
-}
-
-.activity_feed_form_attach a.music, .activity_feed_form_attach a.music:hover {
-    background: url(../image/layout/music.png) no-repeat 0 6px;
-    padding-left: 18px;
-}
-
-.activity_feed_form_attach a.video, .activity_feed_form_attach a.video:hover {
-    background: url(../image/pautina/user_image_icons.png) no-repeat 1px -61px;
-    padding-left: 26px;
+.feed_sort_holder ul li a.process,
+.feed_sort_holder ul li a.process:hover
+{
+	background-image:url('../image/ajax/add.gif');
+	background-repeat:no-repeat;
+	background-position:120px center;
 }

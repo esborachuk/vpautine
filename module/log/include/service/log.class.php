@@ -11,7 +11,7 @@ defined('PHPFOX') or exit('NO DICE!');
  * @copyright		[PHPFOX_COPYRIGHT]
  * @author  		Raymond Benc
  * @package 		Phpfox_Service
- * @version 		$Id: log.class.php 2536 2011-04-14 19:37:29Z Raymond_Benc $
+ * @version 		$Id: log.class.php 5337 2013-02-11 12:56:47Z Miguel_Espinoza $
  */
 class Log_Service_Log extends Phpfox_Service 
 {
@@ -26,7 +26,7 @@ class Log_Service_Log extends Phpfox_Service
 	public function getRecentLoggedInUsers()
 	{
 		$iFriendsOnly = (int) Phpfox::getComponentSetting(Phpfox::getUserId(), 'log.user_login_display_limit', 0);
-		$iLimit = 9;
+		$iLimit = 10;
 		if ($iFriendsOnly === 1)
 		{
 			$aUsers = $this->database()->select(Phpfox::getUserField())
@@ -51,7 +51,7 @@ class Log_Service_Log extends Phpfox_Service
 	}
 	
 	public function getOnlineGuests($aConds, $sSort = '', $iPage = '', $iLimit = '')
-	{		
+	{	
 		$iCnt = $this->database()->select('COUNT(*)')
 			->from(Phpfox::getT('log_session'), 'ls')			
 			->where($aConds)
@@ -59,11 +59,12 @@ class Log_Service_Log extends Phpfox_Service
 			->execute('getSlaveField');	
 			
 		$aItems = array();
-		if ($iCnt)
+		if ($iCnt > 0)
 		{		
 			$aItems = $this->database()->select('ls.*, b.ban_id')
 				->from(Phpfox::getT('log_session'), 'ls')
 				->leftJoin(Phpfox::getT('ban'), 'b', 'b.type_id = \'ip\' AND b.find_value = ls.ip_address')
+                ->group('ip_address')
 				->where($aConds)
 				->order($sSort)
 				->limit($iPage, $iLimit, $iCnt)

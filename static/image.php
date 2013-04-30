@@ -5,7 +5,7 @@
  * @copyright		[PHPFOX_COPYRIGHT]
  * @author			Raymond Benc
  * @package 		Phpfox
- * @version 		$Id: image.php 3608 2011-11-30 07:17:43Z Raymond_Benc $
+ * @version 		$Id: image.php 5024 2012-11-14 16:02:47Z Miguel_Espinoza $
  */
 
 ob_start();
@@ -31,9 +31,12 @@ define('PHPFOX_DIR', dirname(dirname(__FILE__)) . PHPFOX_DS);
 // Require phpFox Init
 require(PHPFOX_DIR . 'include' . PHPFOX_DS . 'init.inc.php');
 
-$sFile = PHPFOX_DIR . 'file' . PHPFOX_DS . 'pic' . PHPFOX_DS . 'photo' . PHPFOX_DS . $_GET['file'] . '.' . $_GET['ext'];
+if (isset($_GET['file']) && isset($_GET['ext']))
+{
+	$sFile = PHPFOX_DIR . 'file' . PHPFOX_DS . 'pic' . PHPFOX_DS . 'photo' . PHPFOX_DS . $_GET['file'] . '.' . $_GET['ext'];
+}
 
-if (!isset($_SESSION['core']['image']['photo_' . md5($sFile)]) || !isset($_SESSION['phpfox']['image']['photo_' . md5($sFile)]))
+if (!isset($_GET['pq']) && (!isset($_SESSION['core']['image']['photo_' . md5($sFile)]) || !isset($_SESSION['phpfox']['image']['photo_' . md5($sFile)])))
 {	
 	$sName = $_GET['file'] . '.' . $_GET['ext'];
 	$sName = preg_replace('/(.*)_(.*)\.(.*)/i', '\\1.\\3', $sName);
@@ -104,7 +107,31 @@ if (!isset($_SESSION['core']['image']['photo_' . md5($sFile)]) || !isset($_SESSI
 	}
 }
 
-preg_match('/_[0-9]+/', $_GET['file'], $aSize);
+
+/* If its an image for the spam questions */
+if (isset($_GET['pq']))
+{
+	$oDb = Phpfox::getLib('database');
+	$oParse = Phpfox::getLib('parse.input');
+	$sHash = $oParse->clean($_GET['pq']);
+	$sPath = $oDb->select('hash')->from(Phpfox::getT('upload_track'))->where('user_hash = "' . $sHash .'"')->limit(1)->execute('getSlaveField');
+	
+	// Little check to make sure they cant get the folder
+	if (empty($sPath))
+	{
+		$sPath = rand(0,999999);
+	}
+	// we cannot delete it here because we need to revershe check it once they submit the form
+	//$oDb->delete(Phpfox::getT('upload_track'),'user_hash = "' . $sHash . '"');
+	$sFile = Phpfox::getParam('user.dir_user_spam') . $sPath;	
+	$_GET['ext'] = 'png';
+	
+}
+else
+{
+	preg_match('/_[0-9]+/', $_GET['file'], $aSize);
+}
+
 $sFile = preg_replace('/%s/', !empty($aSize[0]) ? $aSize[0] : '', $sFile); 
 if (file_exists($sFile))
 {

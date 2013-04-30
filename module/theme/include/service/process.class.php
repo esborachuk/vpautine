@@ -11,7 +11,7 @@ defined('PHPFOX') or exit('NO DICE!');
  * @copyright		[PHPFOX_COPYRIGHT]
  * @author  		Raymond Benc
  * @package 		Phpfox_Service
- * @version 		$Id: process.class.php 4980 2012-11-01 11:47:16Z Raymond_Benc $
+ * @version 		$Id: process.class.php 5360 2013-02-14 08:01:46Z Raymond_Benc $
  */
 class Theme_Service_Process extends Phpfox_Service 
 {
@@ -27,6 +27,16 @@ class Theme_Service_Process extends Phpfox_Service
 	public function __construct()
 	{	
 		$this->_sTable = Phpfox::getT('theme');	
+	}
+	
+	public function deleteUserMenu($iMenuId, $bRemove = false)
+	{
+		$this->database()->delete(Phpfox::getT('theme_umenu'), 'user_id = ' . Phpfox::getUserId() . ' AND menu_id = ' . (int) $iMenuId);
+		if (!$bRemove)
+		{
+			$this->database()->insert(Phpfox::getT('theme_umenu'), array('user_id' => Phpfox::getUserId(), 'menu_id' => $iMenuId));
+		}
+		Phpfox::getLib('cache')->remove(array('user', 'nbselectname_' . Phpfox::getUserId()));
 	}
 	
 	public function add($aVals, $iEditId = null, $sXmlData = null, $bIsImport = false)

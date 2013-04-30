@@ -11,7 +11,7 @@ defined('PHPFOX') or exit('NO DICE!');
  * @copyright		[PHPFOX_COPYRIGHT]
  * @author  		Raymond_Benc
  * @package 		Phpfox_Service
- * @version 		$Id: callback.class.php 5014 2012-11-12 11:59:35Z Raymond_Benc $
+ * @version 		$Id: callback.class.php 5334 2013-02-11 11:00:57Z Miguel_Espinoza $
  */
 class Link_Service_Callback extends Phpfox_Service 
 {
@@ -20,7 +20,7 @@ class Link_Service_Callback extends Phpfox_Service
 	 */	
 	public function __construct()
 	{	
-		$this->_sTable = Phpfox::getT('link');	
+		$this->_sTable = Phpfox::getT('link');
 	}
 	
 	public function getCommentNotificationTag($aNotification)
@@ -322,6 +322,13 @@ class Link_Service_Callback extends Phpfox_Service
 	
 	public function checkFeedShareLink()
 	{
+		(($sPlugin = Phpfox_Plugin::get('link.service_callback_checkfeedsharelink')) ? eval($sPlugin) : ''); 
+		
+		if (isset($bNoFeedLink))
+		{
+			return false;
+		}
+		
 		if (defined('PHPFOX_IS_PAGES_VIEW') && !Phpfox::getService('pages')->hasPerm(null, 'link.share_links'))
 		{
 			return false;
@@ -340,6 +347,23 @@ class Link_Service_Callback extends Phpfox_Service
 		return $sLink;
 	}
 	
+	public function getActions()
+	{
+		return array(
+			'dislike' => array(
+				'enabled' => true,
+				'action_type_id' => 2, // 2 = dislike
+				'phrase' => 'Dislike',
+				'phrase_in_past_tense' => 'disliked',
+				'item_phrase' => strtolower(Phpfox::getPhrase('link.link')),
+				'item_type_id' => 'link', // used to differentiate between photo albums and photos for example.
+				'table' => 'link',
+				'column_update' => 'total_dislike',
+				'column_find' => 'link_id',
+				'where_to_show' => array('', 'photo', 'link')			
+				)
+		);
+	}
 	/**
 	 * If a call is made to an unknown method attempt to connect
 	 * it to a specific plug-in with the same name thus allowing 

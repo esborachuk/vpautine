@@ -12,7 +12,7 @@ defined('PHPFOX') or exit('NO DICE!');
  * @copyright		[PHPFOX_COPYRIGHT]
  * @author			Raymond Benc
  * @package 		Phpfox
- * @version 		$Id: url.class.php 4943 2012-10-23 13:37:12Z Miguel_Espinoza $
+ * @version 		$Id: url.class.php 5348 2013-02-13 10:15:23Z Miguel_Espinoza $
  */
 class Phpfox_Url
 {
@@ -480,7 +480,7 @@ class Phpfox_Url
 			}
 		}
 		
-		if (preg_match('/http:\/\//i', $sUrl))
+		if (preg_match('/https?:\/\//i', $sUrl))
 		{
 		    return $sUrl;
 		}		
@@ -626,6 +626,11 @@ class Phpfox_Url
 		}
 		
 		(($sPlugin = Phpfox_Plugin::get('check_url_is_array_return')) ? eval($sPlugin) : false);
+		
+		if (defined('PHPFOX_IS_HOSTED_SCRIPT') && defined('PHPFOX_IS_HOSTED_VERSION'))
+		{
+			$sUrls = str_replace('/' . PHPFOX_IS_HOSTED_VERSION . '/', '/', $sUrls);
+		}		
 		
 		return $sUrls;
 	}

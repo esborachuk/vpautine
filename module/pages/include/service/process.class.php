@@ -11,7 +11,7 @@ defined('PHPFOX') or exit('NO DICE!');
  * @copyright		[PHPFOX_COPYRIGHT]
  * @author  		Raymond_Benc
  * @package 		Phpfox_Service
- * @version 		$Id: process.class.php 5040 2012-11-26 07:33:17Z Raymond_Benc $
+ * @version 		$Id: process.class.php 5328 2013-02-07 10:20:49Z Miguel_Espinoza $
  */
 class Pages_Service_Process extends Phpfox_Service 
 {
@@ -139,7 +139,15 @@ class Pages_Service_Process extends Phpfox_Service
 		
 		$oFilter = Phpfox::getLib('parse.input');
 		
-		if (!$aVals['is_block'])
+		if ($iEditId !== null)
+		{
+		    $sNewTitle = $this->database()->select('url_title')
+			->from(Phpfox::getT('pages_widget'))
+			->where('widget_id = ' . (int)$iEditId)
+			->execute('getSlaveField');
+		}
+		
+		if (!$aVals['is_block'] && ($iEditId !== null && ($sNewTitle != $aVals['url_title'])))
 		{
 			$sNewTitle = Phpfox::getLib('parse.input')->prepareTitle('pages', $aVals['url_title'], 'url_title', Phpfox::getUserId(), Phpfox::getT('pages_widget'), 'page_id = ' . (int) $aPage['page_id'] . ' AND url_title LIKE \'%' . $aVals['url_title'] . '%\'');
 		}
@@ -321,7 +329,13 @@ class Pages_Service_Process extends Phpfox_Service
 		
 		$iId = $this->database()->insert($this->_sTable, $aInsert);
 		
-		$this->database()->insert(Phpfox::getT('pages_text'), array('page_id' => $iId));
+		$aInsertText = array('page_id' => $iId);
+		if (isset($aVals['info']))
+		{
+			$aInsertText['text'] = $this->preParse()->clean($aVals['info']); 
+			$aInsertText['text_parsed'] = $this->preParse()->prepare($aVals['info']);
+		}
+		$this->database()->insert(Phpfox::getT('pages_text'), $aInsertText);
 		
 		$sSalt = '';
 		for ($i = 0; $i < 3; $i++)
@@ -377,6 +391,7 @@ class Pages_Service_Process extends Phpfox_Service
 		{
 			return false;
 		}
+		if ($sPlugin = Phpfox_Plugin::get('pages.service_process_update_0')){eval($sPlugin);if (isset($mReturnFromPlugin)){return $mReturnFromPlugin;}}
 		
 		$aUser = $this->database()->select('user_id')
 			->from(Phpfox::getT('user'))
@@ -390,6 +405,29 @@ class Pages_Service_Process extends Phpfox_Service
 			//'landing_page' => $aVals['landing_page'],
 			'privacy' => (isset($aVals['privacy']) ? (int) $aVals['privacy'] : 0)			
 		);
+		
+		if (isset($aVals['use_timeline']))
+		{
+			$aUpdate['use_timeline'] = (int)$aVals['use_timeline'];
+		}
+		
+		/* Only store the location if the admin has set a google key or ipinfodb key. This input is not always available */
+		if ( (Phpfox::getParam('core.ip_infodb_api_key') != '' || Phpfox::getParam('core.google_api_key')) && isset($aVals['location']))
+		{
+			if (isset($aVals['location']['name']))
+			{
+				$aUpdate['location_name'] = $this->preParse()->clean($aVals['location']['name']);
+			}
+			if (isset($aVals['location']['latlng']))
+			{
+				$aMatch = explode(',',$aVals['location']['latlng']);
+				if (isset($aMatch[1]))
+				{
+					$aUpdate['location_latitude'] = $aMatch[0];
+					$aUpdate['location_longitude']= $aMatch[1];
+				}
+			}
+		}
 		
 		if (isset($aVals['landing_page']))
 		{
@@ -442,6 +480,8 @@ class Pages_Service_Process extends Phpfox_Service
 			'text_parsed' => $this->preParse()->prepare($aVals["text"])
 		), 'page_id = ' . (int) $iId);		
 		
+		if ($sPlugin = Phpfox_Plugin::get('pages.service_process_update_1')){eval($sPlugin);if (isset($mReturnFromPlugin)){return $mReturnFromPlugin;}}
+
 		if (isset($aVals['invite']) && is_array($aVals['invite']))
 		{
 			$aNewPage = Phpfox::getService('pages')->getForEdit($aPage['page_id']);
@@ -464,6 +504,8 @@ class Pages_Service_Process extends Phpfox_Service
 				
 				
 			$bSent = false;
+            $sLink = Phpfox::getService('pages')->getUrl($aNewPage['page_id'], $aNewPage['title'], $aNewPage['vanity_url']);
+            
 			foreach ($aUsers as $aUser)
 			{
 				if (isset($aCachedEmails[$aUser['email']]))
@@ -476,7 +518,7 @@ class Pages_Service_Process extends Phpfox_Service
 					continue;
 				}
 				
-				$sLink = Phpfox::getService('pages')->getUrl($aNewPage['page_id'], $aNewPage['title'], $aNewPage['vanity_url']);
+				
 
 				$sMessage = Phpfox::getPhrase('pages.full_name_invited_you_to_the_page_title', array('full_name' => Phpfox::getUserBy('full_name'), 'title' => $aNewPage['title']));
 				$sMessage .= "\n" . Phpfox::getPhrase('pages.to_view_this_page_click_the_link_below_a_href_link_link_a', array('link' => $sLink)) . "\n";

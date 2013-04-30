@@ -64,20 +64,10 @@
 	margin-top:5px;
 }
 
-#js_controller_user_browse .pager_view_more_link a,
-#js_controller_user_browse .pager_view_more_link a:hover{
-    position: absolute;
-    bottom:0;
-}
-
 .pager_view_more_link a,
 .pager_view_more_link a:hover
-
 {
-	position:relative;
-    bottom:0;
-    width:200px;
-    height:27px;
+	position:relative;	
 	background:#f9f9f9;
 	border:1px #dfdfdf solid;
 	padding:0px 5px 0px 5px;	

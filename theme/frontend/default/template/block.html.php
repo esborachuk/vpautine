@@ -5,7 +5,7 @@
  * @copyright		[PHPFOX_COPYRIGHT]
  * @author			Raymond Benc
  * @package 		Phpfox
- * @version 		$Id: block.html.php 3952 2012-02-28 14:15:08Z Raymond_Benc $
+ * @version 		$Id: block.html.php 5345 2013-02-13 09:44:03Z Raymond_Benc $
  */
  
 defined('PHPFOX') or exit('NO DICE!'); 
@@ -84,7 +84,9 @@ defined('PHPFOX') or exit('NO DICE!');
 	</div>
 	{/if}	
 </div>
-{unset var=$sHeader var1=$sModule var2=$sComponent var3=$aFooter var4=$sBlockBorderJsId var5=$bBlockDisableSort var6=$bBlockCanMove var7=$aEditBar var8=$sDeleteBlock var9=$sBlockTitleBar var10=$sBlockJsId var11=$sCustomClassName}
 {/if}
+{unset var=$sHeader var1=$sModule var2=$sComponent var3=$aFooter var4=$sBlockBorderJsId var5=$bBlockDisableSort var6=$bBlockCanMove var7=$aEditBar var8=$sDeleteBlock var9=$sBlockTitleBar var10=$sBlockJsId var11=$sCustomClassName var12=$aMenu}
 
-{module name='ad.inner' sClass=$sClass}
+{if isset($sClass)}
+    {module name='ad.inner' sClass=$sClass}
+{/if}

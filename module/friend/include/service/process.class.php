@@ -11,7 +11,7 @@ defined('PHPFOX') or exit('NO DICE!');
  * @copyright		[PHPFOX_COPYRIGHT]
  * @author  		Raymond Benc
  * @package  		Module_Friend
- * @version 		$Id: process.class.php 4563 2012-07-24 10:44:36Z Miguel_Espinoza $
+ * @version 		$Id: process.class.php 4988 2012-11-05 10:57:40Z Miguel_Espinoza $
  */
 class Friend_Service_Process extends Phpfox_Service 
 {
@@ -214,12 +214,13 @@ class Friend_Service_Process extends Phpfox_Service
 		// non top friends even with higher ordering will be listed after the top friends
 		return true;
 	}	
+
 	
-	public function delete($iId)
+	public function delete($iId, $bIsFriendId = true)
 	{
 		$aFriend = $this->database()->select('f.*')
 			->from($this->_sTable, 'f')
-			->where('f.friend_id =' . (int) $iId . ' AND f.user_id = ' . Phpfox::getUserId())
+			->where( ($bIsFriendId == true ? 'f.friend_id =' : 'f.friend_user_id =') . (int) $iId  . ' AND f.user_id = ' . Phpfox::getUserId())
 			->execute('getSlaveRow');
 			
 		// Invalid friend ID#

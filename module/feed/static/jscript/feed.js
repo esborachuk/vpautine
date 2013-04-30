@@ -91,6 +91,7 @@ $Core.addNewPollOption = function()
 	return false;
 }
 
+/*
 
 $(function()
 {
@@ -122,6 +123,7 @@ $(function()
 	});	
 });
 
+*/
 
 $Core.forceLoadOnFeed = function()
 {
@@ -207,7 +209,7 @@ $Behavior.activityFeedProcess = function(){
 				else{
 					if (!$('.timeline_main_menu').hasClass('timeline_main_menu_fixed')){
 						$('.timeline_main_menu').addClass('timeline_main_menu_fixed');
-						
+
 						if ($('#content').height() > 600){
 							$('#timeline_dates').addClass('timeline_dates_fixed');
 						}						
@@ -314,12 +316,14 @@ $Behavior.activityFeedProcess = function(){
 			return false;
 		});		
 		
-		$('.activity_feed_form_attach li a').live('click', function()
+		$('.activity_feed_form_attach li a').click(function()
 		{			
 			$sCurrentForm = $(this).attr('rel');
 			
 			if ($sCurrentForm == 'view_more_link'){
+				
 				$('.view_more_drop').toggle();
+				
 				return false;
 			}
 			else{
@@ -440,7 +444,7 @@ $Behavior.activityFeedLoader = function()
 	/**
 	 * Click on adding a new comment link.
 	 */
-	$('.js_feed_entry_add_comment').live('click', function()
+	$('.js_feed_entry_add_comment').click(function()
 	{			
 		$('.js_comment_feed_textarea').each(function()
 		{
@@ -481,7 +485,7 @@ $Behavior.activityFeedLoader = function()
 	/**
 	 * Comment textarea on focus.
 	 */
-	$('.js_comment_feed_textarea').live('click', function()
+	$('.js_comment_feed_textarea').click(function()
 	{
 		$Core.commentFeedTextareaClick(this);
 	});		
@@ -526,7 +530,7 @@ $Behavior.activityFeedLoader = function()
 		return false;		
 	});
 	
-	$('.js_comment_feed_new_reply').live('click', function(){
+	$('.js_comment_feed_new_reply').click(function(){
 		
 		var oParent = $(this).parents('.js_mini_feed_comment:first').find('.js_comment_form_holder:first');
 		if ((Editor.sEditor == 'tiny_mce' || Editor.sEditor == 'tinymce') && isset(tinyMCE) && isset(tinyMCE.activeEditor)){
@@ -552,7 +556,7 @@ $Behavior.activityFeedLoader = function()
 		return false;
 	});
 	
-	$('.comment_mini').live('hover', function(){
+	$('.comment_mini').hover(function(){
 		
 		$('.feed_comment_delete_link').hide();
 		$(this).find('.feed_comment_delete_link:first').show();
@@ -591,7 +595,7 @@ $Core.commentFeedTextareaClick = function($oObj)
 						
 $Behavior.activityFeedAttachLink = function()
 {	
-	$('#js_global_attach_link').live('click', function()
+	$('#js_global_attach_link').click(function()
 	{	
 		$Core.activityFeedProcess(true);
 		
@@ -655,11 +659,13 @@ function attachFunctionTagger(sSelector)
 				{
 					$($(this).data('selector')).siblings('.chooseFriend').hide(function(){$(this).remove();});
 					return;
-				}
+				}			
+				
 				var sNameToFind = sInput.substring(iAtSymbol+1, iInputLength);				
 				
 				/* loop through friends */
 				var aFoundFriends = [], sOut = '';
+				
 				for (var i in $Cache.friends)
 				{
 					if ($Cache.friends[i]['full_name'].toLowerCase().indexOf(sNameToFind.toLowerCase()) >= 0)
@@ -669,14 +675,16 @@ function attachFunctionTagger(sSelector)
 						
 						aFoundFriends.push({user_id: $Cache.friends[i]['user_id'], full_name: $Cache.friends[i]['full_name'], user_image: $Cache.friends[i]['user_image']});				
 
-						sOut += '<div class="tagFriendChooser" onclick="$(\''+ $(this).data('selector') +'\').val(sToReplace + \'[x=' + $Cache.friends[i]['user_id'] + ']' + $Cache.friends[i]['full_name'] +'[/x]\').putCursorAtEnd();$(\''+$(this).data('selector')+'\').siblings(\'.chooseFriend\').remove();"><div class="tagFriendChooserImage"><img style="vertical-align:middle;width:25px; height:25px;" src="'+$Cache.friends[i]['user_image'] + '"> </div><span>' + (($Cache.friends[i]['full_name'].length > 25) ?($Cache.friends[i]['full_name'].substr(0,25) + '...') : $Cache.friends[i]['full_name']) + '</span></div>';
+						sOut += '<div class="tagFriendChooser" onclick="$(\''+ $(this).data('selector') +'\').val(sToReplace + \'\' + (getParam(\'bEnableMicroblogSite\') ? \'@' + $Cache.friends[i]['user_name'] + '\' : \'[x=' + $Cache.friends[i]['user_id'] + ']' + $Cache.friends[i]['full_name'] +'[/x]\') + \' \').putCursorAtEnd();$(\''+$(this).data('selector')+'\').siblings(\'.chooseFriend\').remove();"><div class="tagFriendChooserImage"><img style="vertical-align:middle;width:25px; height:25px;" src="'+$Cache.friends[i]['user_image'] + '"> </div><span>' + (($Cache.friends[i]['full_name'].length > 25) ?($Cache.friends[i]['full_name'].substr(0,25) + '...') : $Cache.friends[i]['full_name']) + '</span></div>';
 						/* just delete the fancy choose your friend and recreate it */
 						sOut = sOut.replace("\n", '').replace("\r", '');
 						
 					}
 				}
 				$($(this).data('selector')).siblings('.chooseFriend').remove();
-				$($(this).data('selector')).after('<div class="chooseFriend" style="width: '+ $(this).parent().width()+'px;">'+sOut+'</div>');
+				if (!empty(sOut)){
+					$($(this).data('selector')).after('<div class="chooseFriend" style="width: '+ $(this).parent().width()+'px;">'+sOut+'</div>');
+				}
 				
 			}).focus(function(){
 				if (typeof $Cache == 'undefined' || typeof $Cache.friends == 'undefined')

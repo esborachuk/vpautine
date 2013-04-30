@@ -11,7 +11,7 @@ defined('PHPFOX') or exit('NO DICE!');
  * @copyright		[PHPFOX_COPYRIGHT]
  * @author  		Raymond Benc
  * @package 		Phpfox_Service
- * @version 		$Id: seo.class.php 4165 2012-05-14 10:43:25Z Raymond_Benc $
+ * @version 		$Id: seo.class.php 5244 2013-01-29 10:54:32Z Raymond_Benc $
  */
 class Admincp_Service_Seo_Seo extends Phpfox_Service 
 {
@@ -55,10 +55,15 @@ class Admincp_Service_Seo_Seo extends Phpfox_Service
 			$aRows = $this->database()->select('*')
 				->from(Phpfox::getT('seo_meta'))
 				->execute('getSlaveRows');
+
 			$aMetas = array();
 			foreach ($aRows as $aRow)
 			{
-				$aMetas[$aRow['url']] = $aRow;
+				if (!isset($aMetas[$aRow['url']]))
+				{
+					$aMetas[$aRow['url']] = array();
+				}
+				$aMetas[$aRow['url']][] = $aRow;
 			}
 
 			$this->cache()->save($sCacheId, $aMetas);
@@ -69,7 +74,10 @@ class Admincp_Service_Seo_Seo extends Phpfox_Service
 			$sUrl = trim(Phpfox::getLib('url')->getFullUrl(true), '/');
 			if (isset($aMetas[$sUrl]))
 			{
-				Phpfox::getLib('template')->setMeta((!$aMetas[$sUrl]['type_id'] ? 'keywords' : 'description'), $aMetas[$sUrl]['content']);
+				foreach ($aMetas[$sUrl] as $aMeta)
+				{
+					Phpfox::getLib('template')->setMeta((!$aMeta['type_id'] ? 'keywords' : 'description'), $aMeta['content']);
+				}
 			}
 		}
 	}

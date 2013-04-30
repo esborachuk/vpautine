@@ -218,6 +218,10 @@ class CF_Authentication
                 "Expected headers missing from auth service.");
         }
         $this->storage_url = $surl;
+        if (defined('PHPFOX_IS_HOSTED_SCRIPT'))
+        {
+        	$this->storage_url = str_replace('dfw1', 'ord1', $this->storage_url);
+        }        
         $this->cdnm_url = $curl;
         $this->auth_token = $atoken;
         return True;
@@ -1976,7 +1980,7 @@ class CF_Object
     	if ($this->content_type)
             return;
             
-        if (function_exists("finfo_open")) {
+        if (function_exists("finfo_open") && !defined('PHPFOX_FORCE_NO_MIME')) {
             $local_magic = dirname(__FILE__) . "/share/magic";
             $finfo = @finfo_open(FILEINFO_MIME, $local_magic);
 

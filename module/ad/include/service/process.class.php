@@ -12,7 +12,7 @@ defined('PHPFOX') or exit('NO DICE!');
  * @copyright		[PHPFOX_COPYRIGHT]
  * @author  		Raymond Benc
  * @package 		Module_Ad
- * @version 		$Id: process.class.php 4913 2012-10-22 07:24:53Z Raymond_Benc $
+ * @version 		$Id: process.class.php 5381 2013-02-18 08:06:56Z Miguel_Espinoza $
  */
 class Ad_Service_Process extends Phpfox_Service 
 {
@@ -548,6 +548,11 @@ class Ad_Service_Process extends Phpfox_Service
 			}
 			$aVals['country_iso_custom'] = '';
 		}
+        /* http://www.phpfox.com/tracker/view/12665/ */
+        else if(empty($aVals['country_iso_custom']))
+        {
+              $this->database()->delete(Phpfox::getT('ad_country'), 'ad_id = ' . (int) $iId);
+        }
 	}
 	
 	/**

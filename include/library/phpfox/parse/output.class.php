@@ -17,7 +17,7 @@ defined('PHPFOX') or exit('NO DICE!');
  * @copyright		[PHPFOX_COPYRIGHT]
  * @author			Raymond Benc
  * @package 		Phpfox
- * @version 		$Id: output.class.php 5050 2012-11-28 09:47:44Z Raymond_Benc $
+ * @version 		$Id: output.class.php 5347 2013-02-13 10:04:41Z Miguel_Espinoza $
  */
 class Phpfox_Parse_Output
 {
@@ -141,6 +141,14 @@ class Phpfox_Parse_Output
 		
 		if (Phpfox::getParam('core.replace_url_with_links') || Phpfox::getParam('core.warn_on_external_links') || Phpfox::getParam('core.no_follow_on_external_links'))
 		{		
+            if (preg_match_all('#(<a\s*(?:href=[\'"]([^\'"]+)[\'"])?\s*(?:title=[\'"]([^\'"]+)[\'"])?.*?>((?:(?!</a>).)*)</a>)#i', $sTxt, $aMatches))
+            {
+                foreach ($aMatches[1] as $iKey => $sLink)
+                {
+                    $sNu = $this->_urlToLink(array(1 => '', 2 => $aMatches[2][$iKey]));
+                    $sTxt = str_replace($sLink, $sNu , $sTxt);
+                }
+            }
 			$sTxt = preg_replace_callback('#([\s>])([\w]+?://[\w\\x80-\\xff\#$%&~/.\-;:=,?@\[\]+]*)#is', array(&$this, '_urlToLink'), $sTxt);
 			$sTxt = preg_replace_callback('#([\s>])((www|ftp)\.[\w\\x80-\\xff\#$%&~/.\-;:=,?@\[\]+]*)#is', array(&$this, '_urlToLink'), $sTxt);	
 		}				
@@ -226,7 +234,38 @@ class Phpfox_Parse_Output
 		$sStr = preg_replace_callback('/\[PHPFOX_PHRASE\](.*?)\[\/PHPFOX_PHRASE\]/i', array($this, '_getPhrase'), $sStr);
 		
 		$sStr = Phpfox::getService('ban.word')->clean($sStr);
-		
+		/*
+		$aLines = explode("<br />", $sStr);
+		if (count($aLines) > 5)
+		{
+			$sLines = '<div class="js_read_more_parent_main">';
+			$iLineCnt = 0;
+			foreach ($aLines as $sLine)
+			{
+				$iLineCnt++;
+				
+				if ($iLineCnt == 5)
+				{
+					$bHasLineBreak = true;
+					$sLines .= '<div class="js_read_more_parent" style="display:none;">';
+					$sLines .= $sLine;
+				}
+				else
+				{
+					$sLines .= '<br />' . $sLine;
+				}
+			}
+			
+			if (isset($bHasLineBreak))
+			{
+				$sLines .= '</div><div><a href="#" onclick="$(this).parents(\'.js_read_more_parent_main:first\').find(\'.js_read_more_parent:first\').show(); $(this).hide(); return false;">Read More</a></div>';
+			}
+			
+			$sLines .= '</div>';
+			
+			return $sLines;
+		}
+		*/
 		return $sStr;
 	}
 	
@@ -367,7 +406,7 @@ class Phpfox_Parse_Output
 	    {
 	    	return $html;
 	    }	    
-    	
+	        	
     	$printedLength = 0;
 	    $position = 0;
 	    $tags = array();
@@ -482,7 +521,7 @@ class Phpfox_Parse_Output
 				}
 			}
 		}
-    	
+		
     	return $sNewString;    	
     }   
     

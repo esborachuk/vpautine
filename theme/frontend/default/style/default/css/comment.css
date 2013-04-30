@@ -130,6 +130,11 @@ div.comment_mini
 	border-bottom:1px #fff solid;
 }
 
+.comment_mini_content_holder
+{
+     
+}
+
 div.comment_mini_end
 {
 	background:url('../image/layout/comment_mini_end.png') repeat-x bottom;

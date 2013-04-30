@@ -11,7 +11,7 @@ defined('PHPFOX') or exit('NO DICE!');
  * @copyright		[PHPFOX_COPYRIGHT]
  * @author  		Raymond Benc
  * @package  		Module_Profile
- * @version 		$Id: index.class.php 5056 2012-11-30 10:39:19Z Raymond_Benc $
+ * @version 		$Id: index.class.php 5201 2013-01-28 07:05:48Z Raymond_Benc $
  */
 class Profile_Component_Controller_Index extends Phpfox_Component 
 {
@@ -412,12 +412,15 @@ class Profile_Component_Controller_Index extends Phpfox_Component
 				
 				(($sCmd = Phpfox::getLib('template')->getXml('design_css')) ? eval($sCmd) : null);
 				
-				Phpfox::getService('theme')->getDesignValues($aAdvanced, array(
+				if (isset($aAdvanced))
+				{
+				    Phpfox::getService('theme')->getDesignValues($aAdvanced, array(
 						'table' => 'user_css',
 						'field' => 'user_id',
 						'value' => $aRow['user_id']						
-					)
-				);				
+					    )
+				    );
+				}								
 				
 				
 				$this->template()
@@ -430,7 +433,7 @@ class Profile_Component_Controller_Index extends Phpfox_Component
 							)
 						)
 						->setHeader('cache', array(
-							'jquery/plugin/jquery.bgiframe.js' => 'static_script',
+							// 'jquery/plugin/jquery.bgiframe.js' => 'static_script',
 							'jquery/ui.js' => 'static_script',							
 							'style.css' => 'style_css',
 							'select.js' => 'module_theme',
@@ -450,10 +453,15 @@ class Profile_Component_Controller_Index extends Phpfox_Component
 							'<script type="text/javascript">$Core.design.init({type_id: \'profile\'});</script>'					
 						)
 					)
-					->assign(array(
+					;			
+				
+				if (isset($aAdvanced))
+				{
+				    $this->template()->assign(array(
 						'aAdvanced' => $aAdvanced				
 					)		
-				);			
+				    );
+				}
 				
 				if (Phpfox::getParam('profile.can_drag_drop_blocks_on_profile'))
 				{					

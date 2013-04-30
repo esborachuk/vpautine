@@ -5,7 +5,7 @@
  * @copyright		[PHPFOX_COPYRIGHT]
  * @author  		Raymond Benc
  * @package 		Phpfox
- * @version 		$Id: mini.html.php 5011 2012-11-12 09:02:36Z Raymond_Benc $
+ * @version 		$Id: mini.html.php 5268 2013-01-30 08:38:21Z Raymond_Benc $
  */
  
 defined('PHPFOX') or exit('NO DICE!'); 
@@ -15,7 +15,7 @@ defined('PHPFOX') or exit('NO DICE!');
 		{if (Phpfox::getUserParam('comment.delete_own_comment') && Phpfox::getUserId() == $aComment.user_id) || Phpfox::getUserParam('comment.delete_user_comment') || (defined('PHPFOX_IS_USER_PROFILE') && isset($aUser.user_id) && $aUser.user_id == Phpfox::getUserId() && Phpfox::getUserParam('comment.can_delete_comments_posted_on_own_profile'))
 		|| (defined('PHPFOX_IS_PAGES_VIEW') && Phpfox::getService('pages')->isAdmin('' . $aPage.page_id . ''))
 		}
-		<div class="feed_comment_delete_link"><a href="#" class="action_delete js_hover_title" onclick="$.ajaxCall('comment.InlineDelete', 'type_id={$aComment.type_id}&amp;comment_id={$aComment.comment_id}{if defined('PHPFOX_IS_THEATER_MODE')}&photo_theater=1{/if}', 'GET'); return false;"><span class="js_hover_info">{if defined('PHPFOX_IS_THEATER_MODE')}{phrase var='comment.delete'}{else}{phrase var='comment.delete_this_comment'}{/if}</span></a></div>
+		<div class="feed_comment_delete_link"><a href="#" class="action_delete js_hover_title" onclick="$.ajaxCall('comment.InlineDelete', 'type_id={$aComment.type_id}&amp;comment_id={$aComment.comment_id}{if defined('PHPFOX_IS_THEATER_MODE')}&photo_theater=1{/if}', 'GET'); return false;"><span class="js_hover_info">{phrase var='comment.delete'}</span></a></div>
 		{elseif Phpfox::getUserParam('comment.can_delete_comment_on_own_item')&& isset($aFeed) && isset($aFeed.feed_link) && $aFeed.user_id == Phpfox::getUserId()}
 		<div class="feed_comment_delete_link"><a href="{$aFeed.feed_link}ownerdeletecmt_{$aComment.comment_id}/" class="action_delete js_hover_title sJsConfirm"><span class="js_hover_info">{if defined('PHPFOX_IS_THEATER_MODE')}{phrase var='comment.delete'}{else}{phrase var='comment.delete_this_comment'}{/if}</span></a></div>
 		{/if}

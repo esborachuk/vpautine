@@ -18,12 +18,12 @@ defined('PHPFOX') or exit('NO DICE!');
 	<div class="info">
 		<div class="info_left">
 			{phrase var='profile.rating'}:
-		</div>
+		</div>	
 		<div class="info_right">
 			{module name='rate.display'}
-		</div>
+		</div>	
 	</div>
-{/if}
+{/if}	
 	{if Phpfox::getParam('user.enable_relationship_status') && $sRelationship != ''}
 	<div class="info">
 	    <div class="info_left">
@@ -39,10 +39,10 @@ defined('PHPFOX') or exit('NO DICE!');
 	<div class="info">
 		<div class="info_left">
 			{$sKey}:
-		</div>
+		</div>	
 		<div class="info_right">
 			{if Phpfox::isMobile()}{$sValue|strip_tags}{else}{$sValue}{/if}
-		</div>
+		</div>	
 	</div>
 	{/if}
 	{/foreach}

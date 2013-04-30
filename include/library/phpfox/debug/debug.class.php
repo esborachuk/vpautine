@@ -27,7 +27,7 @@ defined('PHPFOX') or exit('NO DICE!');
  * @copyright		[PHPFOX_COPYRIGHT]
  * @author			Raymond Benc
  * @package 		Phpfox
- * @version 		$Id: debug.class.php 2668 2011-06-14 13:11:58Z Miguel_Espinoza $
+ * @version 		$Id: debug.class.php 5352 2013-02-13 14:20:17Z Raymond_Benc $
  */
 class Phpfox_Debug
 {
@@ -257,7 +257,7 @@ class Phpfox_Debug
 		}
     	if (PHPFOX_DEBUG_LEVEL === 1)
     	{    	
-    		$sDebugReturn .= '<div style="font-size:9pt; text-align:center; padding-bottom:50px;">Page generated in ' . round($iTotalTime, 4) . ' seconds with ' . $iSqlCount . ' queries and GZIP ' . (Phpfox::getParam('core.use_gzip') ? 'enabled' : 'disabled') . '.</div>';
+    		$sDebugReturn .= '<div style="font-size:9pt; text-align:center; padding-bottom:50px;">Page generated in ' . round($iTotalTime, 4) . ' seconds with ' . $iSqlCount . ' queries and GZIP ' . (Phpfox::getParam('core.use_gzip') ? 'enabled' : 'disabled') . ' on ' . $_SERVER['SERVER_ADDR'] . '.</div>';
     	}
     	elseif (PHPFOX_DEBUG_LEVEL === 2 || PHPFOX_DEBUG_LEVEL === 3)
     	{

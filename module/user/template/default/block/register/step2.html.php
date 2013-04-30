@@ -42,7 +42,7 @@
 			<div class="table_right">
 				<select name="val[time_zone]">
 				{foreach from=$aTimeZones key=sTimeZoneKey item=sTimeZone}
-					<option value="{$sTimeZoneKey}"{if (Phpfox::getTimeZone() == $sTimeZoneKey && !isset($iTimeZonePosted)) || (isset($iTimeZonePosted) && $iTimeZonePosted == $sTimeZoneKey)} selected="selected"{/if}>{$sTimeZone}</option>
+					<option value="{$sTimeZoneKey}"{if (Phpfox::getTimeZone() == $sTimeZoneKey && !isset($iTimeZonePosted)) || (isset($iTimeZonePosted) && $iTimeZonePosted == $sTimeZoneKey) || (Phpfox::getParam('core.default_time_zone_offset') == $sTimeZoneKey)} selected="selected"{/if}>{$sTimeZone}</option>
 				{/foreach}
 				</select>
 			</div>
@@ -77,6 +77,9 @@
 		</div>				
 		{/if}
 	</div>
+	
+	{module name='user.showspamquestion'}
+	
 	{if Phpfox::getParam('user.force_user_to_upload_on_sign_up')}
 		<div class="separate"></div>
 		<div class="table">
@@ -90,4 +93,6 @@
 				</div>
 			</div>			
 		</div>
-		{/if}
+	{/if}
+	
+	

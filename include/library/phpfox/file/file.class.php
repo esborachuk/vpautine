@@ -25,7 +25,7 @@ defined('PHPFOX') or exit('NO DICE!');
  * @copyright		[PHPFOX_COPYRIGHT]
  * @author			Raymond Benc
  * @package 		Phpfox
- * @version 		$Id: file.class.php 4922 2012-10-22 14:33:52Z Miguel_Espinoza $
+ * @version 		$Id: file.class.php 5382 2013-02-18 09:48:39Z Miguel_Espinoza $
  */
 class Phpfox_File
 {
@@ -197,6 +197,8 @@ class Phpfox_File
 	 */
     public function upload($sFormItem, $sDestination, $sFileName, $bModifyFileName = true, $iPerm = 0644, $buildDir = true, $bCdn = true)
     {
+        (($sPlugin = Phpfox_Plugin::get('file_upload_start')) ? eval($sPlugin) : false);
+        
 		if ($buildDir)
 		{
 			$this->_buildDir($sDestination);
@@ -205,9 +207,8 @@ class Phpfox_File
 		{
 			$this->_sDestination = $sDestination;
 		}
-
-    	(($sPlugin = Phpfox_Plugin::get('file_upload_start')) ? eval($sPlugin) : false);
 	
+        if ($sPlugin = Phpfox_Plugin::get('library_phpfox_file_file_upload_1')){eval($sPlugin);if (isset($mReturnFromPlugin)){return $mReturnFromPlugin;}}
     	if (!defined('PHPFOX_APP_USER_ID') && !is_uploaded_file($this->_aFile['tmp_name']))
         {
             return Phpfox_Error::set(Phpfox::getPhrase('core.unable_to_upload_the_image'));
@@ -233,16 +234,17 @@ class Phpfox_File
         
         $sDest = $this->_sDestination . $sFileName . '.' . $this->_sExt;
 		
-		if (defined('PHPFOX_APP_USER_ID'))
-		{
-			 @copy($this->_aFile['tmp_name'], $sDest);
-			 @unlink($this->_aFile['tmp_name']);
-		}
+	if ($sPlugin = Phpfox_Plugin::get('library_phpfox_file_file_upload_2')){eval($sPlugin);if (isset($mReturnFromPlugin)){return $mReturnFromPlugin;}}
+	if (defined('PHPFOX_APP_USER_ID'))
+	{
+		 @copy($this->_aFile['tmp_name'], $sDest);
+		 @unlink($this->_aFile['tmp_name']);
+	}
         else if (!@move_uploaded_file($this->_aFile['tmp_name'], $sDest))
         {
             return Phpfox_Error::set(Phpfox::getPhrase('core.unable_to_move_the_file'));
         }    
-        
+        if ($sPlugin = Phpfox_Plugin::get('library_phpfox_file_file_upload_3')){eval($sPlugin);if (isset($mReturnFromPlugin)){return $mReturnFromPlugin;}}
         // Windows permission problem???
         if (stristr(PHP_OS, "win"))
         {        
@@ -625,7 +627,7 @@ class Phpfox_File
                 /**
                  * Trying to create a new file
                  */
-                $fp = @fopen($sPath . 'win-test.txt', 'w');                
+                $fp = @fopen($sPath . PHPFOX_DS . 'win-test.txt', 'w');                
                 if (!$fp)
                 {
                     if ($bForce === true)
@@ -849,6 +851,15 @@ class Phpfox_File
 		return $this->_aFile;
 	}
 	
+	public function getFileExt($sFileName)
+	{
+		$sFilename = strtolower($sFileName);
+		$aExts = preg_split("/[\/\\.]/", $sFileName);
+		$iCnt = count($aExts)-1;
+		
+		return strtolower($aExts[$iCnt]);		
+	}
+	
 	/**
 	 * Runs a check to make sure the item being uploaded is allowed to be uploaded
 	 * based on the server requirements.
@@ -951,7 +962,7 @@ class Phpfox_File
      */
     private function _buildFile($sFormItem)
     { 	
-    	if (!strpos($sFormItem, ']'))
+    	if (strpos($sFormItem, ']') === false)
         {
             $this->_aFile = $_FILES[$sFormItem];
         }

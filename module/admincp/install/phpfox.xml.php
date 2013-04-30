@@ -86,6 +86,20 @@
 		<hook module_id="admincp" hook_type="controller" module="admincp" call_name="admincp.component_controller_foxporter_index_clean" added="1274286148" version_id="2.0.5dev1" />
 		<hook module_id="admincp" hook_type="controller" module="admincp" call_name="admincp.component_controller_sql_title_clean" added="1276177474" version_id="2.0.5" />
 		<hook module_id="admincp" hook_type="service" module="admincp" call_name="admincp.service_product_product_export" added="1286546859" version_id="2.0.7" />
+		<hook module_id="admincp" hook_type="service" module="admincp" call_name="admincp.service_module_process_updateactivity" added="1358258443" version_id="3.5.0beta1" />
+		<hook module_id="admincp" hook_type="service" module="admincp" call_name="admincp.service_module_process_delete" added="1358258443" version_id="3.5.0beta1" />
+		<hook module_id="admincp" hook_type="service" module="admincp" call_name="admincp.service_product_process_update" added="1358258443" version_id="3.5.0beta1" />
+		<hook module_id="admincp" hook_type="service" module="admincp" call_name="admincp.service_product_process_delete" added="1358258443" version_id="3.5.0beta1" />
+		<hook module_id="admincp" hook_type="controller" module="admincp" call_name="admincp.component_controller_seo_nofollow_clean" added="1358258443" version_id="3.5.0beta1" />
+		<hook module_id="admincp" hook_type="controller" module="admincp" call_name="admincp.component_controller_seo_meta_clean" added="1358258443" version_id="3.5.0beta1" />
+		<hook module_id="admincp" hook_type="controller" module="admincp" call_name="admincp.component_controller_product_file_1" added="1358258443" version_id="3.5.0beta1" />
+		<hook module_id="admincp" hook_type="controller" module="admincp" call_name="admincp.component_controller_product_file_2" added="1358258443" version_id="3.5.0beta1" />
+		<hook module_id="admincp" hook_type="controller" module="admincp" call_name="admincp.component_controller_product_file_3" added="1358258443" version_id="3.5.0beta1" />
+		<hook module_id="admincp" hook_type="controller" module="admincp" call_name="admincp.component_controller_product_index_3" added="1358258443" version_id="3.5.0beta1" />
+		<hook module_id="admincp" hook_type="controller" module="admincp" call_name="admincp.component_controller_product_index_1" added="1358258443" version_id="3.5.0beta1" />
+		<hook module_id="admincp" hook_type="controller" module="admincp" call_name="admincp.component_controller_product_index_2" added="1358258443" version_id="3.5.0beta1" />
+		<hook module_id="admincp" hook_type="controller" module="admincp" call_name="admincp.component_controller_limit_clean" added="1361175548" version_id="3.5.0rc1" />
+		<hook module_id="admincp" hook_type="component" module="admincp" call_name="admincp.component_block_oncloud_clean" added="1361175548" version_id="3.5.0rc1" />
 	</hooks>
 	<components>
 		<component module_id="admincp" component="index" m_connection="" module="admincp" is_controller="0" is_block="0" is_active="1" />

@@ -11,7 +11,7 @@ defined('PHPFOX') or exit('NO DICE!');
  * @copyright		[PHPFOX_COPYRIGHT]
  * @author  		Raymond Benc
  * @package  		Module_Friend
- * @version 		$Id: list.class.php 5051 2012-11-28 12:40:24Z Raymond_Benc $
+ * @version 		$Id: list.class.php 5074 2012-12-06 10:37:26Z Raymond_Benc $
  */
 class Friend_Service_List_List extends Phpfox_Service 
 {

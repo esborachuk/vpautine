@@ -13,7 +13,7 @@ defined('PHPFOX') or exit('NO DICE!');
  * @copyright		[PHPFOX_COPYRIGHT]
  * @author			Raymond Benc
  * @package 		Phpfox
- * @version 		$Id: memcache.class.php 4961 2012-10-29 07:11:34Z Raymond_Benc $
+ * @version 		$Id: memcache.class.php 5362 2013-02-14 08:10:50Z Raymond_Benc $
  */
 class Phpfox_Cache_Storage_Memcache extends Phpfox_Cache_Abstract
 {
@@ -305,7 +305,11 @@ class Phpfox_Cache_Storage_Memcache extends Phpfox_Cache_Abstract
 			return true;
 		}		
 		else
-		{
+		{			
+			if (is_array($sName))
+			{				
+				$sName = $sName[0] . $sName[1];
+			}			
 			$this->_oDb->delete($this->_getName($sName));
 		}
 		

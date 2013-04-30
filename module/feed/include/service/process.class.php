@@ -11,7 +11,7 @@ defined('PHPFOX') or exit('NO DICE!');
  * @copyright		[PHPFOX_COPYRIGHT]
  * @author  		Raymond Benc
  * @package  		Module_Feed
- * @version 		$Id: process.class.php 4954 2012-10-24 10:07:12Z Miguel_Espinoza $
+ * @version 		$Id: process.class.php 5304 2013-02-01 10:51:59Z Miguel_Espinoza $
  */
 class Feed_Service_Process extends Phpfox_Service 
 {	
@@ -328,6 +328,7 @@ class Feed_Service_Process extends Phpfox_Service
 				Phpfox::getLib('mail')->to($this->_aCallback['email_user_id'])
 					->subject($this->_aCallback['subject'])
 					->message(sprintf($this->_aCallback['message'], $sLink))
+                    ->notification( ($this->_aCallback['notification'] == 'pages_comment' ? 'comment.add_new_comment' : $this->_aCallback['notification']))
 					->send();			
 				if (Phpfox::isModule('notification'))
 				{

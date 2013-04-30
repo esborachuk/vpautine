@@ -18,6 +18,9 @@ class Notification_Component_Ajax_Ajax extends Phpfox_Ajax
 	public function update()
 	{
 		Phpfox::massCallback('getGlobalNotifications');
+        
+        if ($sPlugin = Phpfox_Plugin::get('notification.component_ajax_update_1')){eval($sPlugin);}
+        
 		$this->call('$Core.notification.setTitle();');
 	}
 	

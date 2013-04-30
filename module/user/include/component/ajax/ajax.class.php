@@ -11,7 +11,7 @@ defined('PHPFOX') or exit('NO DICE!');
  * @copyright		[PHPFOX_COPYRIGHT]
  * @author  		Raymond Benc
  * @package  		Module_User
- * @version 		$Id: ajax.class.php 4929 2012-10-23 06:42:40Z Miguel_Espinoza $
+ * @version 		$Id: ajax.class.php 5289 2013-01-31 11:00:13Z Miguel_Espinoza $
  */
 class User_Component_Ajax_Ajax extends Phpfox_Ajax
 {
@@ -716,6 +716,10 @@ class User_Component_Ajax_Ajax extends Phpfox_Ajax
 				(Phpfox::isModule('feed') ? Phpfox::getService('feed.process')->add('user_photo', Phpfox::getUserId(), serialize(array('destination' => $sFileName, 'server_id' => $iServerId))) : null);				
 				
 				$this->call('$.ajaxCall(\'user.cropPhoto\', \'crop=true&js_disable_ajax_restart=true' . $sValues . '\');');
+				if (Phpfox::isModule('photo'))
+				{
+					Phpfox::getService('photo.album')->getForProfileView(Phpfox::getUserId(), true);
+				}
 			}
 			
 			return;
@@ -995,6 +999,25 @@ class User_Component_Ajax_Ajax extends Phpfox_Ajax
 		$iCount = Phpfox::getService('user')->getInactiveMembersCount($this->get('iDays'));
 		$this->html('#progress', Phpfox::getPhrase('user.there_are_a_total_of_icount_inactive_members', array('iCount' => $iCount)));
 	}	
+	
+	
+	public function deleteSpamQuestion()
+	{
+		if (Phpfox::getService('user.process')->deleteSpamQuestion($this->get('iQuestionId')) )
+		{
+			$this->softNotice(Phpfox::getPhrase('user.question_deleted_succesfully'));
+			$this->remove('#tr_new_question_' . $this->get('iQuestionId'));
+		}
+	}
+	
+	public function saveMyLatLng()
+	{
+		if ($this->get('lat') == '0' && $this->get('lng') == '0')
+		{
+			return;
+		}
+		Phpfox::getService('user.process')->saveMyLatLng(array('latitude' => $this->get('lat'), 'longitude' => $this->get('lng') ) );
+	}
 }
 
 ?>

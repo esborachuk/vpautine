@@ -13,7 +13,7 @@ defined('PHPFOX') or exit('NO DICE!');
  * @copyright		[PHPFOX_COPYRIGHT]
  * @author			Raymond Benc
  * @package 		Phpfox
- * @version 		$Id: module.class.php 4961 2012-10-29 07:11:34Z Raymond_Benc $
+ * @version 		$Id: module.class.php 5319 2013-02-04 12:53:36Z Miguel_Espinoza $
  */
 class Phpfox_Module
 {	
@@ -356,13 +356,13 @@ class Phpfox_Module
 		{
 			$this->_sModule = 'admincp';			
 		}	
-
+/*
 		if (Phpfox::isUser() && Phpfox::getParam('core.is_auto_hosted') && Phpfox::getService('log.session')->getOnlineMembers() > Phpfox::getParam('core.phpfox_max_users_online'))
 		{
 			$this->_sModule = 'core';
 			$this->_sController = 'full';
 		}		
-		
+*/
 		(($sPlugin = Phpfox_Plugin::get('module_setcontroller_end')) ? eval($sPlugin) : false);
 		
 		// Set the language pack cache
@@ -466,7 +466,7 @@ class Phpfox_Module
 		static $aBlocks = array();	
 		static $bIsOrdered = false;
 		
-		if (Phpfox::getService('profile')->timeline() && $iId == '1')
+		if (Phpfox::getService('profile')->timeline() && $iId == '1' && !defined('PAGE_TIME_LINE'))
 		{
 			$aBlocks[$iId] = array();
 			
@@ -580,6 +580,7 @@ class Phpfox_Module
 				else 
 				{				
 					$aBlocks[$iId][] = $sKey;
+					if ($sPlugin = Phpfox_Plugin::get('library_module_getmoduleblocks_1')){eval($sPlugin);if (isset($bReturnFromPlugin)) return $bReturnFromPlugin;}
 				}			
 			}	
 		}		
@@ -716,7 +717,7 @@ class Phpfox_Module
 	{
 		(($sPlugin = Phpfox_Plugin::get('module_getcomponent_start')) ? eval($sPlugin) : false);
 
-		if ($sType == 'ajax' && !strpos($sClass, '.'))
+		if ($sType == 'ajax' && strpos($sClass, '.') === false)
 		{
 			$sClass = $sClass . '.ajax';
 		}	
@@ -1356,7 +1357,7 @@ class Phpfox_Module
 	 * Cache all the active modules based on the package the client is using.
 	 *
 	 */
-	private function _cacheModules()
+	public function _cacheModules()
 	{
 		$oCache = Phpfox::getLib('cache');
 		$iCachedId = $oCache->set('module');		

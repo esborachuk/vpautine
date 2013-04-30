@@ -21,7 +21,7 @@ defined('PHPFOX') or exit('NO DICE!');
  * @copyright		[PHPFOX_COPYRIGHT]
  * @author			Raymond Benc
  * @package 		Phpfox
- * @version 		$Id: setting.class.php 4951 2012-10-24 09:55:04Z Raymond_Benc $
+ * @version 		$Id: setting.class.php 5186 2013-01-23 10:53:04Z Raymond_Benc $
  */
 class Phpfox_Setting
 {
@@ -340,6 +340,14 @@ class Phpfox_Setting
 		
 		$this->_aParams['core.theme_session_prefix'] = '';	
 		$this->_aParams['core.load_jquery_from_google_cdn'] = false;
+		
+		if (defined('PHPFOX_IS_HOSTED_SCRIPT') && isset($this->_aParams['core.phpfox_max_users_online']))
+		{
+			$aSettingParts = explode('|', $this->_aParams['core.phpfox_max_users_online']);
+			$this->_aParams['core.phpfox_grouply_space'] = (int) ($aSettingParts[0] * 1073741824);
+			$this->_aParams['core.phpfox_grouply_members'] = (int) $aSettingParts[1];
+			$this->_aParams['core.phpfox_grouply_admins'] = (int) $aSettingParts[2];
+		}		
 	}
 	
 	/**

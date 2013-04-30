@@ -13,7 +13,7 @@ defined('PHPFOX') or exit('NO DICE!');
  * @copyright		[PHPFOX_COPYRIGHT]
  * @author			Raymond Benc
  * @package 		Phpfox
- * @version 		$Id: helper.class.php 4961 2012-10-29 07:11:34Z Raymond_Benc $
+ * @version 		$Id: helper.class.php 5382 2013-02-18 09:48:39Z Miguel_Espinoza $
  */
 class Phpfox_Image_Helper
 {	
@@ -37,9 +37,16 @@ class Phpfox_Image_Helper
 	 */
 	public function getNewSize($sImage = null, $iMaxHeight, $iMaxWidth, $iWidth = 0, $iHeight = 0)
 	{
-		if ($sImage !== null && (!file_exists($sImage) || filesize($sImage) < 1))
+		if (is_array($sImage))
 		{
+			$sImage = $sImage[0];
+		}
+		else
+		{
+			if ($sImage !== null && (!file_exists($sImage) || filesize($sImage) < 1))
+			{
 				return array(0,0);
+			}
 		}
 	    if (!$iWidth && !$iHeight)
 	    {
@@ -104,7 +111,7 @@ class Phpfox_Image_Helper
 		
 		$bIsServer = (!empty($aParams['server_id']) ? true : false);
 				
-		(($sPlugin = Phpfox_Plugin::get('image_helper_display_start')) ? eval($sPlugin) : false);		
+		if (($sPlugin = Phpfox_Plugin::get('image_helper_display_start'))){eval($sPlugin);if (isset($mReturnPlugin)){return $mReturnPlugin;}}
 
 		if (isset($aParams['theme']))
 		{
@@ -229,7 +236,7 @@ class Phpfox_Image_Helper
 						}					
 					}		
 					
-					$sSrc = Phpfox::getLib('template')->getStyle('image', 'noimage/' . $sGender . 'profile' . $sImageSuffix . '.png');
+					$sSrc = Phpfox::getLib('template')->getStyle('image', 'noimage/' . $sGender . 'profile' . $sImageSuffix . '.png');	
 				}
 				else 
 				{
@@ -441,8 +448,15 @@ class Phpfox_Image_Helper
 		if ($bIsServer === true)
 		{
 			if (Phpfox::getParam('core.allow_cdn'))
-			{				
-				$sSrc = Phpfox::getLib('cdn')->getUrl($sSrc, $aParams['server_id']);	
+			{
+				if (!$bIsValid)
+				{				
+					
+				}
+				else
+				{				
+					$sSrc = Phpfox::getLib('cdn')->getUrl($sSrc, $aParams['server_id']);
+				}	
 			}
 			else 
 			{
@@ -472,7 +486,11 @@ class Phpfox_Image_Helper
 					if (isset($aLbMatches[2]) && isset($aLbMatches[3]))
 					{
 						list($iHeight, $iWidth) = $this->getNewSize(null, $aParams['max_height'], $aParams['max_width'], $aLbMatches[2], $aLbMatches[3]);
-					}					
+					}	
+					else
+					{
+						$bNoWidthHeightFound = true;
+					}				
 				}										
 			}
 			else
@@ -639,6 +657,11 @@ class Phpfox_Image_Helper
 		if (!empty($iWidth))
 		{
 			$sImage .= 'width="' . $iWidth . '" ';
+		}
+		
+		if (isset($bNoWidthHeightFound))
+		{
+			$sImage .= ' style="max-width:' . $aParams['max_width'] . 'px;max-height:' . $aParams['max_height'] . ';' . (isset($aParams['style']) ? $aParams['style'] : '') . '" ';
 		}
 		
 		if (isset($aParams['force_max']))

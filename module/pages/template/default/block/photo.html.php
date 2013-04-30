@@ -13,10 +13,11 @@ defined('PHPFOX') or exit('NO DICE!');
 ?>
 <div class="profile_image">
     <div class="profile_image_holder">
+	{* This is called only when Not in timeline *}
 		{if $aPage.is_app}
 		{img server_id=0 path='app.url_image' file=$aPage.aApp.image_path suffix='_200' max_width='175' max_height='300' title=$aPage.aApp.app_title}
 		{else}
-		{img thickbox=true server_id=$aPage.image_server_id title=$aPage.title path='pages.url_image' file=$aPage.image_path suffix='_200' max_width='175' max_height='300'}
+		{img thickbox=true server_id=$aPage.image_server_id title=$aPage.title path='core.url_user' file=$aPage.image_path suffix='_200' max_width='175' max_height='300'}
 		{/if}
 	</div>
 </div>

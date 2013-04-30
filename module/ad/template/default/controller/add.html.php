@@ -5,7 +5,7 @@
  * @copyright		[PHPFOX_COPYRIGHT]
  * @author  		Raymond_Benc
  * @package 		Phpfox
- * @version 		$Id: add.html.php 5020 2012-11-13 06:54:17Z Raymond_Benc $
+ * @version 		$Id: add.html.php 5022 2012-11-13 08:05:06Z Raymond_Benc $
  */
  
 defined('PHPFOX') or exit('NO DICE!'); 

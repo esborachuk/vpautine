@@ -77,8 +77,8 @@ class Input_Component_Controller_Admincp_Add extends Phpfox_Component
 			}
 		}
 		
-		$this->template()->setTitle('Add Input Field')
-			->setBreadcrumb('Add Input Field', null, true)
+		$this->template()->setTitle(Phpfox::getPhrase('input.add_input_field'))
+			->setBreadcrumb(Phpfox::getPhrase('input.add_input_field'), null, true)
 		->setHeader(array(
 			'admin.js' => 'module_input',
 			'admin.css' => 'module_input',

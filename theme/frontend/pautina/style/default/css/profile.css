@@ -1,10 +1,11 @@
 
 #js_is_user_profile .profile_header
 {
-	color:#999;
-	margin: 20px 0;
-	padding:0;
+	color:#333;
+	margin:0px 0px 6px 0px;	
+	padding:0px 0px 12px 0px;
     position:relative;
+    border-bottom:1px #D7D7D7 solid;
 	min-height:38px;
 }
 
@@ -16,7 +17,6 @@
 
 #js_is_user_profile .profile_header h1
 {
-    font-size: 36px;
 	margin:0px;
 	padding:0px;
 }
@@ -30,45 +30,30 @@
 {
 	font-size:12px; 
 	color:#75B079;
-	font-weight:bold;
+	font-weight:bold; 
+	position:absolute;
+	right:0px;
+	top:0px;
+}
+
+#js_is_user_profile #section_menu
+{
+	top:20px;
 }
 
 #js_is_user_profile .profile_image
 {
+	text-align:center;
 	position:relative;
-    float: left;
-    margin: 0 30px 0 25px;
-}
-
-.profile_header_inner_text {
-    padding: 10px;
-    margin-right: 30px;
-    border-radius: 4px;
-    color: #fff;
-    background: rgba(0,0,0,0.7);
-}
-
-.profile_header_inner_text  .profile_info span {
-    color: #fff;
-}
-
-#profile_header_image_title .profile_header {
-    margin-left: 220px;
-}
-
-#js_is_user_profile .profile_image img {
-    border: 5px solid #fff;
+	margin-bottom:6px;
 }
 
 #js_is_user_profile .profile_image .p_4
 {
-    position: absolute;
-    background: rgba(75, 75, 75, 0.5);
-    bottom: 8px;
-    left: 5px;
-    width: 173px;
-    line-height: 30px;
-    padding-left: 20px;
+	position:absolute;
+	right:0px;
+	top:0px;
+	background:#333;
 	display:none;
 }
 
@@ -101,12 +86,10 @@
 	padding:6px 0px 10px 10px;
 }
 
-/*
 #js_is_user_profile #section_menu
 {
 	bottom:5px;
 }
-*/
 
 #js_is_user_profile #content .block .title
 {	
@@ -182,16 +165,7 @@
 
 .cover_photo_link
 {
-	position:relative; height:315px; display:block; overflow:hidden;
-    display: block;
-}
-
-#js_is_user_profile .isset_logo .profile_image {
-    margin-top: -140px;
-}
-
-#profile_header_image_title {
-    padding-top: 5px;
+	position:relative; height:315px; display:block; overflow:hidden;	
 }
 
 #section_menu ul li #cover_section_menu_drop

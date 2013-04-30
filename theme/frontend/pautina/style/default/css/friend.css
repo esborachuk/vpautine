@@ -1,4 +1,16 @@
 
+.row_unfriend
+{
+	padding-top:5px;
+	font-size:11px;
+	display:none;
+}
+
+.row_friend_browse:hover .row_unfriend
+{
+	display:block;
+}
+
 .friend_row_holder
 {
 	position:relative;
@@ -8,6 +20,11 @@
 .friend_image
 {
 	position:absolute;
+}
+
+.friend_user_name
+{
+	margin-left:60px;	
 }
 
 .friend_user_name span.user_profile_link_span a,
@@ -36,7 +53,7 @@
 	position:absolute;
 	left:0px;
 	top:20px;
-	border-right:0 none;
+	border-right:1px #dfdfdf solid;
 }
 
 a.friend_action_edit_list,
@@ -67,11 +84,12 @@ a.friend_action_edit_list:hover
 a.friend_action_edit_list_active,
 a.friend_action_edit_list_active:hover
 {
-	background:url('../image/layout/friend_action_edit_list.png') no-repeat 0 -50px;
-	border:1px #ccc solid;
-	border-bottom:0;
-    border-bottom: 0;
+	background:url('../image/layout/friend_action_edit_list.png') no-repeat 0px -50px;
+	border:1px #000 solid;
 	color:#fff;
+  	-moz-box-shadow:2px 2px 2px #f1f1f1;
+  	-webkit-box-shadow:2px 2px 2px #f1f1f1;
+  	box-shadow:2px 2px 2px #f1f1f1;	
 }
 
 a.friend_action_delete,
@@ -98,10 +116,10 @@ ul.friend_action_drop_down
 	position:absolute;
 	z-index:10;
 	background:#fff;
-	border:1px #ccc solid;
-    top: 15px;
-	width:130px;
-	right:0;
+	border:1px #000 solid;
+	border-bottom:2px #000 solid;
+	width:160px;
+	right:5px;
 }
 
 ul.friend_action_drop_down li a,
@@ -118,7 +136,8 @@ ul.friend_action_drop_down li a:hover
 
 ul.friend_action_drop_down li a:hover
 {
-	background:#fff;
+	background:#333;
+	color:#fff;	
 }
 
 ul.friend_action_drop_down li a.active,

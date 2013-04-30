@@ -5,7 +5,7 @@
  * @copyright		[PHPFOX_COPYRIGHT]
  * @author			Raymond Benc
  * @package 		Phpfox
- * @version 		$Id: template.html.php 4872 2012-10-10 06:36:53Z Raymond_Benc $
+ * @version 		$Id: template.html.php 5330 2013-02-08 11:25:45Z Miguel_Espinoza $
  */
  
 defined('PHPFOX') or exit('NO DICE!'); 
@@ -38,10 +38,10 @@ defined('PHPFOX') or exit('NO DICE!');
 							{/if}
 							<div id="header_menu_holder">
 								{if Phpfox::isUser()}
-								{menu_account}
-								<div class="clear"></div>	
-								{else}
-								{module name='user.login-header'}
+                                    {menu_account}
+                                    <div class="clear"></div>	
+                                {else}
+                                    {module name='user.login-header'}
 								{/if}							
 							</div>							
 							{if Phpfox::isUser() && !Phpfox::getUserBy('profile_page_id') && Phpfox::isModule('search')}
@@ -109,12 +109,13 @@ defined('PHPFOX') or exit('NO DICE!');
 								{/if}
 								<div id="main_content_padding">
 
-									{if defined('PHPFOX_IS_USER_PROFILE')}
-									{module name='profile.header'}							
+									{if defined('PHPFOX_IS_USER_PROFILE') || defined('PHPFOX_IS_PAGES_VIEW') || (isset($aPage) && isset($aPage.use_timeline) && $aPage.use_timeline)}
+									    {if $bLoadedProfileHeader = true}{/if}
+									    {module name='profile.header'}
 									{/if}
-									{if defined('PHPFOX_IS_PAGES_VIEW')}
-									{block location='12'}
-									{module name='pages.header'}							
+									{if defined('PHPFOX_IS_PAGES_VIEW') && !isset($bLoadedProfileHeader)}
+									    {block location='12'}
+									    {module name='pages.header'}
 									{/if}							
 
 									<div id="content_load_data">

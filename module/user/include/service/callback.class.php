@@ -11,7 +11,7 @@ defined('PHPFOX') or exit('NO DICE!');
  * @copyright		[PHPFOX_COPYRIGHT]
  * @author  		Raymond Benc
  * @package  		Module_User
- * @version 		$Id: callback.class.php 4645 2012-09-17 11:20:35Z Raymond_Benc $
+ * @version 		$Id: callback.class.php 5076 2012-12-12 15:57:18Z Miguel_Espinoza $
  */
 class User_Service_Callback extends Phpfox_Service
 {
@@ -921,6 +921,16 @@ class User_Service_Callback extends Phpfox_Service
 			'comment_type_id' => 'user_status',
 			'like_type_id' => 'user_status'			
 		);	
+		
+		if (!empty($aRow['location_name']))
+		{
+			$aReturn['location_name'] = $aRow['location_name'];
+		}
+		if (!empty($aRow['location_latlng']))
+		{
+			$aReturn['location_latlng'] = json_decode($aRow['location_latlng'], true);
+		}
+		
 		if (!empty($aItem['app_id']))
 		{
 			$aApp = $this->database()->select('app_title, app_id')->from(Phpfox::getT('app'))
@@ -929,6 +939,7 @@ class User_Service_Callback extends Phpfox_Service
 			$sLink = '<a href="' . Phpfox::permalink('apps', $aApp['app_id'], $aApp['app_title']) . '">' . $aApp['app_title'] . '</a>';
 			$aReturn['app_link'] = $sLink;
 		}
+		
 		return $aReturn;
 	}
 	
@@ -1170,6 +1181,24 @@ Phpfox::getPhrase('user.full_name_commented_on_gender_status_update_a_href_link_
 				//'anyone' => true,
 				
 				
+			)
+		);
+	}
+	
+	public function getActions()
+	{
+		return array(
+			'dislike' => array(
+				'enabled' => true,
+				'action_type_id' => 2, // 2 = dislike
+				'phrase' => 'Dislike',
+				'phrase_in_past_tense' => 'disliked',
+				'item_phrase' => Phpfox::getPhrase('comment.item_phrase'),
+				'item_type_id' => 'user-status', // used to differentiate between photo albums and photos for example. This is not a phrase
+				'table' => 'comment',
+				'column_update' => 'total_dislike',
+				'column_find' => 'comment_id',
+				'where_to_show' => array('')			
 			)
 		);
 	}

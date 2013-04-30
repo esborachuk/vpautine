@@ -11,7 +11,7 @@ defined('PHPFOX') or exit('NO DICE!');
  * @copyright		[PHPFOX_COPYRIGHT]
  * @author  		Raymond Benc
  * @package  		Module_Photo
- * @version 		$Id: view.class.php 4879 2012-10-10 11:35:03Z Raymond_Benc $
+ * @version 		$Id: view.class.php 5170 2013-01-22 09:27:37Z Raymond_Benc $
  */
 class Photo_Component_Controller_View extends Phpfox_Component
 {
@@ -208,6 +208,26 @@ class Photo_Component_Controller_View extends Phpfox_Component
 			define('PHPFOX_IS_THEATER_MODE', true);
 		}
 		
+		if (defined('PHPFOX_IS_HOSTED_SCRIPT'))
+		{
+			$sImageUrl = Phpfox::getLib('image.helper')->display(array(
+				'server_id' => $aPhoto['server_id'],
+				'path' => 'photo.url_photo',
+				'file' => $aPhoto['destination'],
+				'suffix' => '_1024',
+				'return_url' => true
+				)
+			);
+			
+			list($iNewImageHeight, $iNewImageWidth) = Phpfox::getLib('image.helper')->getNewSize(array($sImageUrl), 1024, 1024);	
+
+			$this->template()->assign(array(
+					'iNewImageHeight' => $iNewImageHeight,
+					'iNewImageWidth' => $iNewImageWidth
+					)
+				);
+		}
+		
 		$this->template()
 				->setFullSite()
 				->setBreadcrumb(Phpfox::getPhrase('photo.photos'), ($aCallback === null ? $this->url()->makeUrl('photo') : $this->url()->makeUrl($aCallback['url_home_photo'])))
@@ -246,7 +266,8 @@ class Photo_Component_Controller_View extends Phpfox_Component
 						'switch_menu.js' => 'static_script',
 						'view.css' => 'module_photo',
 						'feed.js' => 'module_feed',
-						'edit.css' => 'module_photo'
+						'edit.css' => 'module_photo',
+						'index.js' => 'module_photo'
 					)
 				)
 				->setEditor(array(

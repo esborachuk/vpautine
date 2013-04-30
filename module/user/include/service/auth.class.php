@@ -11,7 +11,7 @@ defined('PHPFOX') or exit('NO DICE!');
  * @copyright		[PHPFOX_COPYRIGHT]
  * @author  		Raymond Benc
  * @package  		Module_User
- * @version 		$Id: auth.class.php 4854 2012-10-09 05:20:40Z Raymond_Benc $
+ * @version 		$Id: auth.class.php 5305 2013-02-01 11:55:29Z Miguel_Espinoza $
  */
 class User_Service_Auth extends Phpfox_Service
 {
@@ -86,7 +86,7 @@ class User_Service_Auth extends Phpfox_Service
 				if ((Phpfox::getLib('request')->get('req1') == '') || (Phpfox::getLib('request')->get('req1') == 'core'))
 				{
 					$bLoadUserField = true;
-					$sUserFieldSelect .= 'uf.total_view, u.last_login, ';
+					$sUserFieldSelect .= 'uf.total_view, u.last_login, uf.location_latlng, ';
 				}
 					
 				if (strtolower(Phpfox::getLib('request')->get('req1')) == Phpfox::getParam('admincp.admin_cp'))
@@ -95,7 +95,7 @@ class User_Service_Auth extends Phpfox_Service
 					$sUserFieldSelect .= 'uf.in_admincp, ';						
 				}
 				
-				if (Phpfox::getParam('ad.advanced_ad_filters'))
+				if (Phpfox::isModule('ad') && Phpfox::getParam('ad.advanced_ad_filters'))
 				{
 					$bLoadUserField = true;
 					$sUserFieldSelect .= 'uf.postal_code, uf.city_location, uf.country_child_id, ';
@@ -594,19 +594,14 @@ class User_Service_Auth extends Phpfox_Service
 		}
 		
 		// user needs to be approved first
-		if (Phpfox::isUser() && Phpfox::getUserBy('view_id') == '1' && Phpfox::getParam('user.approve_users'))
-		{
-            $userId = $this->getUserId();
+		if (Phpfox::isUser() && Phpfox::getUserBy('view_id') == '1')
+		{			
 			$this->_setDefault();
 			$this->logout();			
 			
 			if (Phpfox::getLib('request')->get('req1') != 'user' && Phpfox::getLib('request')->get('req2') != 'pending')
 			{
-                $params = '';
-                if ($userId) {
-                    $params = array('id' => $userId);
-                }
-				Phpfox::getLib('url')->send('registration.pending', $params);
+				Phpfox::getLib('url')->send('user.pending');
 			}
 		}		
 		

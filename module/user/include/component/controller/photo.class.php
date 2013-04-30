@@ -11,7 +11,7 @@ defined('PHPFOX') or exit('NO DICE!');
  * @copyright		[PHPFOX_COPYRIGHT]
  * @author			natio
  * @package  		Module_User
- * @version 		$Id: photo.class.php 4703 2012-09-20 11:52:55Z Raymond_Benc $
+ * @version 		$Id: photo.class.php 5170 2013-01-22 09:27:37Z Raymond_Benc $
  */
 class User_Component_Controller_Photo extends Phpfox_Component
 {
@@ -169,8 +169,19 @@ class User_Component_Controller_Photo extends Phpfox_Component
 		if ((Phpfox::getUserBy('user_image') && !empty($sImage)) || ($bIsProcess === true && !empty($sImage)))
 		{
 			preg_match("/height=\"(.*?)\" width=\"(.*?)\"/", $sImage, $aMatches);
-			$iHeight = $aMatches[1];
-			$iWidth = $aMatches[2];
+			if (!isset($aMatches[1]))
+			{
+				preg_match("/src=\"(.*?)\"/", $sImage, $aMatches);
+
+				$aImage = getimagesize($aMatches[1]);
+				$iHeight = $aImage[1];
+				$iWidth = $aImage[0];
+			}
+			else
+			{
+				$iHeight = $aMatches[1];
+				$iWidth = $aMatches[2];
+			}
 			
 			$this->template()->setHeader('cache', array(
 						'jquery/plugin/jquery.crop.js' => 'static_script',

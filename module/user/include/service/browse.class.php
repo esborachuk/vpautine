@@ -11,7 +11,7 @@ defined('PHPFOX') or exit('NO DICE!');
  * @copyright		[PHPFOX_COPYRIGHT]
  * @author  		Raymond Benc
  * @package  		Module_User
- * @version 		$Id: browse.class.php 5030 2012-11-19 11:44:53Z Raymond_Benc $
+ * @version 		$Id: browse.class.php 5330 2013-02-08 11:25:45Z Miguel_Espinoza $
  */
 class User_Service_Browse extends Phpfox_Service
 {
@@ -139,8 +139,14 @@ class User_Service_Browse extends Phpfox_Service
 	
 	public function get()
 	{
-		$aUsers = array();		
-
+		$aReturnUsers = array();
+		$aUsers = array();
+		if (!defined('PHPFOX_IS_ADMIN_SEARCH'))
+		{
+			// user groups that should be hidden
+			$aHiddenFromBrowse = Phpfox::getService('user.group.setting')->getUserGroupsBySetting('user.hide_from_browse');
+		}
+		
 		if ($sPlugin = Phpfox_Plugin::get('user.service_browse_get__start')){return eval($sPlugin);}
 		
 		if (($sPlugin = Phpfox_Plugin::get('user.service_browse_get__start_no_return')))
@@ -279,9 +285,20 @@ class User_Service_Browse extends Phpfox_Service
 			{
 				$this->database()->join(Phpfox::getT('user_ip'), 'uip', 'uip.user_id = u.user_id AND uip.ip_address = \'' . $this->database()->escape($this->_sIp) . '\'');
 			}
-		
+
+			if (!defined('PHPFOX_IS_ADMIN_SEARCH') && isset($aHiddenFromBrowse) && is_array($aHiddenFromBrowse) && !empty($aHiddenFromBrowse))
+			{
+				// skip users in these user groups that are invisible
+				foreach ($aHiddenFromBrowse as $iGroupId => $aGroup)
+				{
+					$this->_aConditions[] = 'AND (u.user_group_id != ' . $iGroupId . ' OR u.is_invisible != 1)';
+				}
+			}
+			
+			
 			$iCnt = $this->database()->from($this->_sTable, 'u')
 				->join(Phpfox::getT('user_field'), 'ufield', 'ufield.user_id = u.user_id')
+                ->forceIndex('status_id')
 				->where($this->_aConditions)
 				//->group('u.user_id')
 				->execute('getSlaveField');		
@@ -334,11 +351,11 @@ class User_Service_Browse extends Phpfox_Service
 			}
 
 			// Users cannot send Friend Requests if they have been blocked by the target user
-			if (!defined('PHPFOX_IS_ADMIN_SEARCH') && Phpfox::getParam('friend.allow_blocked_user_to_friend_request') == false)
+			if (!defined('PHPFOX_IS_ADMIN_SEARCH') && Phpfox::isModule('friend') && Phpfox::getParam('friend.allow_blocked_user_to_friend_request') == false)
 			{
 				$this->database()->select('ub.block_id as user_is_blocked, ')
 					->leftjoin(Phpfox::getT('user_blocked'), 'ub', 'ub.user_id = u.user_id AND block_user_id = ' . Phpfox::getUserId());
-			}		 
+			}
 			
 			// display the Unfeature/Feature option when landing on the Search page.
 			if ($this->_mFeatured === true && !$this->_bIsOnline)
@@ -362,7 +379,7 @@ class User_Service_Browse extends Phpfox_Service
 				$this->database()->join(Phpfox::getT('user_ip'), 'uip', 'uip.user_id = u.user_id AND uip.ip_address = \'' . $this->database()->escape($this->_sIp) . '\'');
 			}
 				
-			$aUsers = $this->database()->select('u.status_id as unverified, ' . ($this->_bExtend ? 'u.*, ufield.*' : Phpfox::getUserField()))
+			$aReturnUsers = $this->database()->select('u.status_id as unverified, ' . ($this->_bExtend ? 'u.*, ufield.*' : Phpfox::getUserField()))
 				->from($this->_sTable, 'u')
 				->join(Phpfox::getT('user_field'), 'ufield', 'ufield.user_id = u.user_id')
 				->where($this->_aConditions)
@@ -373,9 +390,9 @@ class User_Service_Browse extends Phpfox_Service
 				
 			if (Phpfox::isModule('friend'))
 			{
-				foreach ($aUsers as $iKey => $aUser)
+				foreach ($aReturnUsers as $iKey => $aUser)
 				{
-					$aUsers[$iKey]['mutual_friends'] = (Phpfox::getUserId() == $aUser['user_id'] ? 0 : $this->database()->select('COUNT(*)')
+					$aReturnUsers[$iKey]['mutual_friends'] = (Phpfox::getUserId() == $aUser['user_id'] ? 0 : $this->database()->select('COUNT(*)')
 						->from(Phpfox::getT('friend'), 'f')
 						->innerJoin('(SELECT friend_user_id FROM ' . Phpfox::getT('friend') . ' WHERE is_page = 0 AND user_id = ' . $aUser['user_id'] . ')', 'sf', 'sf.friend_user_id = f.friend_user_id')
 						->where('f.user_id = ' . Phpfox::getUserId())
@@ -385,16 +402,16 @@ class User_Service_Browse extends Phpfox_Service
 				
 			if ($this->_bExtend)
 			{
-				foreach ($aUsers as $iKey => $aUser)
+				foreach ($aReturnUsers as $iKey => $aUser)
 				{
 					$aBirthDay = Phpfox::getService('user')->getAgeArray($aUser['birthday']);
 					
-					$aUsers[$iKey]['month'] = Phpfox::getLib('date')->getMonth($aBirthDay['month']);
-					$aUsers[$iKey]['day'] = $aBirthDay['day'];
-					$aUsers[$iKey]['year'] = $aBirthDay['year'];
+					$aReturnUsers[$iKey]['month'] = Phpfox::getLib('date')->getMonth($aBirthDay['month']);
+					$aReturnUsers[$iKey]['day'] = $aBirthDay['day'];
+					$aReturnUsers[$iKey]['year'] = $aBirthDay['year'];
 					if (isset($aUser['last_ip_address']))
 					{
-						$aUsers[$iKey]['last_ip_address_search'] = str_replace('.', '-', $aUser['last_ip_address']);
+						$aReturnUsers[$iKey]['last_ip_address_search'] = str_replace('.', '-', $aUser['last_ip_address']);
 					}
 				}
 			}
@@ -402,7 +419,7 @@ class User_Service_Browse extends Phpfox_Service
 				
 		if ($sPlugin = Phpfox_Plugin::get('user.service_browse_get__end')){eval($sPlugin);}
 		
-		return array($iCnt, $aUsers);
+		return array($iCnt, $aReturnUsers);
 	}
 	
 	/**

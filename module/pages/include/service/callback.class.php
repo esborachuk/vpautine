@@ -11,7 +11,7 @@ defined('PHPFOX') or exit('NO DICE!');
  * @copyright		[PHPFOX_COPYRIGHT]
  * @author  		Raymond_Benc
  * @package 		Phpfox_Service
- * @version 		$Id: callback.class.php 5052 2012-11-28 12:52:44Z Raymond_Benc $
+ * @version 		$Id: callback.class.php 5344 2013-02-13 07:48:29Z Miguel_Espinoza $
  */
 class Pages_Service_Callback extends Phpfox_Service 
 {
@@ -403,12 +403,12 @@ class Pages_Service_Callback extends Phpfox_Service
 			'feed_info' => Phpfox::getPhrase('pages.liked_the_page_link_title_title', array('link' => $sLink, 'link_title' => Phpfox::getLib('parse.output')->clean($aRow['title']), 'title' => Phpfox::getLib('parse.output')->clean(Phpfox::getLib('parse.output')->shorten($aRow['title'], 50, '...')))),
 			'feed_link' => $sLink,
 			'no_target_blank' => true,			
-			//'feed_total_like' => $aRow['total_like'],
-			//'feed_is_liked' => $aRow['is_liked'],
+			'feed_total_like' => $aRow['total_like'],
+			'feed_is_liked' => $aRow['is_liked'],
 			'feed_icon' => Phpfox::getLib('image.helper')->display(array('theme' => 'misc/comment.png', 'return_url' => true)),
 			'time_stamp' => $aItem['time_stamp'],			
 			//'enable_like' => false,
-			//'like_type_id' => 'pages'
+			'like_type_id' => 'pages'
 		);		
 		
 		if (!empty($aRow['image_path']))
@@ -505,6 +505,22 @@ class Pages_Service_Callback extends Phpfox_Service
 	public function deleteLike($iItemId, $iUserId = 0)
 	{
 		$aRow = Phpfox::getService('pages')->getPage($iItemId);
+		
+		// Get the threads from this page
+		$aRows = $this->database()->select('thread_id')
+			->from(Phpfox::getT('forum_thread'))
+			->where('group_id = ' . (int)$iItemId)
+			->execute('getSlaveRows');
+		
+		$aThreads = array();
+		foreach ($aRows as $sKey => $aRow)
+		{
+		    $aThreads[] = $aRow['thread_id'];
+		}
+        if (!empty($aThreads))
+		{
+            $this->database()->delete(Phpfox::getT('forum_subscribe'), 'user_id = ' . Phpfox::getUserId() . ' AND thread_id IN (' . implode($aThreads, ',') . ')');
+        }
 
 		if (!isset($aRow['page_id']))
 		{
@@ -529,6 +545,12 @@ class Pages_Service_Callback extends Phpfox_Service
 				Phpfox::getLib('ajax')->call('window.location.href = \'' . $sLink. '\';');
 			}
 		}
+        
+        /* Remove invites */
+        if ($iUserId != Phpfox::getUserId()) // Its not the user willingly leaving the page
+        {
+            $this->database()->delete(Phpfox::getT('pages_invite'), 'page_id = ' . (int)$iItemId . ' AND invited_user_id =' . (int)$iUserId);
+        }
 	}	
 	
 	public function addLike($iItemId, $bDoNotSendEmail = false, $iUserId = null)
@@ -670,6 +692,27 @@ class Pages_Service_Callback extends Phpfox_Service
 		);
 	}	
 	
+	public function getBlogDetails($aItem)
+	{
+	    Phpfox::getService('pages')->setIsInPage();
+	    $aRow = Phpfox::getService('pages')->getPage($aItem['item_id']);
+	    if (!isset($aRow['page_id']))
+	    {
+		return false;
+	    }
+	    $sLink = Phpfox::getService('pages')->getUrl($aRow['page_id'], $aRow['title'], $aRow['vanity_url']);
+	    return array(
+		'breadcrumb_title' => Phpfox::getPhrase('pages.pages'),
+		'breadcrumb_home' => Phpfox::getLib('url')->makeUrl('pages'),
+		'module_id' => 'pages',
+		'item_id' => $aRow['page_id'],
+		'title' => $aRow['title'],
+		'url_home' => $sLink,
+		'url_home_photo' => $sLink . 'blog/',
+		'theater_mode' => Phpfox::getPhrase('pages.in_the_page_link_title', array('link' => $sLink, 'title' => $aRow['title']))
+	    );
+	}
+	
 	public function uploadSong($iItemId)
 	{
 		Phpfox::getService('pages')->setIsInPage();
@@ -705,6 +748,7 @@ class Pages_Service_Callback extends Phpfox_Service
 			->join(Phpfox::getT('pages'), 'p', 'p.page_id = ps.page_id')
 			->join(Phpfox::getT('user'), 'u', 'u.user_id = ps.user_id')
 			->leftJoin(Phpfox::getT('pages_url'), 'pu', 'pu.page_id = p.page_id')
+            ->where('ps.signup_id = ' . (int)$aNotification['item_id'])
 			->execute('getSlaveRow');
 		
 		if (!isset($aRow['page_id']))
@@ -809,7 +853,7 @@ class Pages_Service_Callback extends Phpfox_Service
 		
 		$aPerms['pages.share_updates'] = Phpfox::getPhrase('pages.who_can_post_a_comment');
 		$aPerms['pages.view_browse_updates'] = Phpfox::getPhrase('pages.who_can_view_browse_comments');
-		$aPerms['pages.view_browse_widgets'] = 'Can view widgets?';
+		$aPerms['pages.view_browse_widgets'] = Phpfox::getPhrase('pages.can_view_widgets');
 		
 		return $aPerms;
 	}
@@ -1281,6 +1325,33 @@ class Pages_Service_Callback extends Phpfox_Service
 		return false;
 	}		
 	
+	public function getActions()
+	{
+		return array(
+			'dislike' => array(
+				'enabled' => true,
+				'action_type_id' => 2, // 2 = dislike
+				'phrase' => 'Dislike',
+				'phrase_in_past_tense' => 'disliked',
+				'item_type_id' => 'pages', // used to differentiate between photo albums and photos for example.
+				'table' => 'pages',
+				'item_phrase' => Phpfox::getPhrase('pages.item_phrase'),
+				'column_update' => 'total_dislike',
+				'column_find' => 'page_id',
+				'where_to_show' => array('pages', 'apps', 'core')			
+				)
+		);
+	}
+	
+	/* Used to get a page when there is no certainty of the module */
+	public function getItem($iId)
+	{
+		Phpfox::getService('pages')->setIsInPage();
+		$aItem = $this->database()->select('*')->from(Phpfox::getT('pages'))->where('page_id = ' . (int)$iId)->execute('getSlaveRow');
+		$aItem['module'] = 'pages';
+		$aItem['item_id'] = $iId;
+		return $aItem;
+	}
 	/**
 	 * If a call is made to an unknown method attempt to connect
 	 * it to a specific plug-in with the same name thus allowing 

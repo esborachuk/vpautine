@@ -11,7 +11,7 @@ defined('PHPFOX') or exit('NO DICE!');
  * @copyright		[PHPFOX_COPYRIGHT]
  * @author  		Raymond Benc
  * @package  		Module_User
- * @version 		$Id: group.class.php 4490 2012-07-10 10:02:38Z Miguel_Espinoza $
+ * @version 		$Id: group.class.php 5330 2013-02-08 11:25:45Z Miguel_Espinoza $
  */
 class User_Service_Group_Group extends Phpfox_Service 
 {
@@ -34,7 +34,10 @@ class User_Service_Group_Group extends Phpfox_Service
 			'cache' => true,
 			'cache_name' => 'user_group'
 		);
-		
+		if (empty($aConds))
+        {
+            $aConds[] = 'user_group.user_group_id > 0';
+        }
 		return $this->database()->select('user_group.*')
 			->from($this->_sTable, 'user_group')
 			->where($aConds)

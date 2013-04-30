@@ -11,7 +11,7 @@ defined('PHPFOX') or exit('NO DICE!');
  * @copyright		[PHPFOX_COPYRIGHT]
  * @author  		Raymond Benc
  * @package  		Module_Music
- * @version 		$Id: process.class.php 4786 2012-09-27 10:40:14Z Miguel_Espinoza $
+ * @version 		$Id: process.class.php 5222 2013-01-28 12:51:22Z Raymond_Benc $
  */
 class Music_Service_Process extends Phpfox_Service 
 {
@@ -88,7 +88,7 @@ class Music_Service_Process extends Phpfox_Service
 			
 			if ($aVals['privacy'] == '4')
 			{
-				Phpfox::getService('privacy.process')->add('music_album', $iAlbumId, (isset($aVals['privacy_list']) ? $aVals['privacy_list'] : array()));			
+				// Phpfox::getService('privacy.process')->add('music_album', $iAlbumId, (isset($aVals['privacy_list']) ? $aVals['privacy_list'] : array()));			
 			}				
 		}
 		
@@ -303,9 +303,14 @@ class Music_Service_Process extends Phpfox_Service
 		
 		$aUpdate['privacy'] = (isset($aVals['privacy']) ? $aVals['privacy'] : '0');
 		$aUpdate['privacy_comment'] = (isset($aVals['privacy_comment']) ? $aVals['privacy_comment'] : '0');
-				
-		$this->database()->update($this->_sTable, $aUpdate, 'song_id = ' . (int) $iId);
 
+		// Decrease the count for the old album
+		$this->database()->updateCounter('music_album', 'total_track', 'album_id', $aSong['album_id'], true);		
+		
+		$this->database()->update($this->_sTable, $aUpdate, 'song_id = ' . (int) $iId);
+		// Decrease the count for the old album
+		$this->database()->updateCounter('music_album', 'total_track', 'album_id', $aVals['album_id'], false);
+		
 		if (Phpfox::isModule('privacy'))
 		{
 			if ($aVals['privacy'] == '4')

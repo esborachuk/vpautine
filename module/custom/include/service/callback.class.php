@@ -11,7 +11,7 @@ defined('PHPFOX') or exit('NO DICE!');
  * @copyright		[PHPFOX_COPYRIGHT]
  * @author  		Raymond Benc
  * @package 		Phpfox_Service
- * @version 		$Id: callback.class.php 4690 2012-09-20 08:05:05Z Miguel_Espinoza $
+ * @version 		$Id: callback.class.php 5188 2013-01-23 15:08:51Z Miguel_Espinoza $
  */
 class Custom_Service_Callback extends Phpfox_Service 
 {
@@ -838,6 +838,24 @@ class Custom_Service_Callback extends Phpfox_Service
 		}
 	}
 
+	public function getActions()
+	{
+		return array(
+			'dislike' => array(
+				'enabled' => true,
+				'action_type_id' => 2, // sort of redundant given the key 
+				'phrase' => 'Dislike',
+				'phrase_in_past_tense' => 'disliked',
+				'item_type_id' => 'custom_relation', // used internally to differentiate between photo albums and photos for example.
+				'item_phrase' => Phpfox::getPhrase('profile.relationship_status'), // used to display to the user what kind of item is this
+				'table' => 'custom_relation_data',
+				'column_update' => 'total_dislike',
+				'column_find' => 'relation_data_id',
+				'where_to_show' => array('blog', '')
+				)
+		);
+	}
+	
 	/**
 	 * If a call is made to an unknown method attempt to connect
 	 * it to a specific plug-in with the same name thus allowing 

@@ -10,8 +10,13 @@ div.im_holder
 
 #js_footer_im_holder
 {
-    background:#f9f9f9;
-    width:200px;
+    background:#F9F9F9;
+    border-radius: 4px 4px 0 0;
+    right: 22px !important;
+    width: 200px;
+    border-width:8px 8px 0;
+    border-style:solid;
+    border-color:rgba(0, 0, 0, 0.31);
 
 }
 #js_footer_im_holder:hover, #js_footer_im_holder:active, #js_footer_im_holder:focus{
@@ -20,11 +25,10 @@ div.im_holder
 
 div.im_header
 {
-    background:#333 url('../image/layout/js_im_link.png') repeat-x;
+    /*background:#333 url('../image/layout/js_im_link.png') repeat-x;*/
     padding:0px 5px 0px 5px;
     line-height:22px;
     height:22px;
-    color:#fff;
     font-weight:bold;
     position:relative;
     cursor:pointer;
@@ -108,11 +112,13 @@ div#js_im_text
 
 div.im_text
 {
-    position:relative;
-    color:#333;
-    margin-bottom:4px;
-    padding-top:8px;
-    border-top:1px #EFEFEF solid;
+    border-top: 1px solid #D3D3D3;
+    clear: both;
+    color: #333333;
+    margin: 5px;
+    min-height: 15px;
+    padding-top: 8px;
+    position: relative;
 }
 
 div.im_text_not_owner
@@ -154,29 +160,21 @@ div.im_text:hover div.im_date
     display:block;
 }
 
-.im_chat_image
-{
-    position:absolute;
-    left:0px;
-    top:6px;
-}
-
 .im_chat_image_owner
 {
     right:0px;
     left:auto;
 }
 
-div.im_text div.im_message{
-    width:160px;
-    border:1px solid #C6C6C6;
-    border-radius:8px 8px 8px 8px;
-    -webkit-box-shadow: -0.2px 1px 2px rgba(10, 31, 22, 0.4) !important;
-    -moz-box-shadow:    -0.2px 1px 2px rgba(10, 31, 22, 0.4) !important;
-    box-shadow:         -0.2px 1px 2px rgba(10, 31, 22, 0.4) !important;
-    margin:0 5px 4px 30px;
-    padding:5px 30px 5px 3px;
+div.im_text div.im_message
+{
+    font-family: verdana;
+    font-size: 11px;
+    margin-left: 32px;
+    width: 160px;
+    word-wrap: break-word;
 }
+
 
 .im_message_no_height
 {
@@ -194,13 +192,9 @@ div.im_text div.im_message{
 .close:hover{background-color:#4f4f4f;}
 .im_message_owner
 {
-    text-align:right;
-    -webkit-box-shadow: 1px 1px 1px rgba(50, 50, 50, 0.6);
-    -moz-box-shadow:    1px 1px 1px rgba(50, 50, 50, 0.6);
-    box-shadow:         1px 1px 1px rgba(50, 50, 50, 0.6);
-    margin:0 15px 0 5px !important;
-    width:170px !important;
+    text-align:left;
     color:#686868;
+    word-wrap:break-word;
 
 }
 
@@ -390,8 +384,9 @@ ul.im_extra_room li a.new
 #main_messenger_holder
 {
     /* We dont need it to show in the footer bar*/
-    position: absolute;
     bottom: 16px;
+    position: absolute;
+    right: -15px;
 }
 
 /* The list of users in the main block*/
@@ -408,7 +403,7 @@ ul.im_extra_room li a.new
 
 div#js_im_content
 {
-    height:348px;
+    height:334px;
     overflow:auto;
     cursor: auto;
 }
@@ -416,7 +411,7 @@ div#js_im_content
 textarea#js_im_text
 {
     margin:auto;
-    height:25px;
+    height:40px;
     width:230px;
     padding:2px 0px 2px 0px;
     border:0px;
@@ -429,6 +424,7 @@ textarea#js_im_text
 {
     position:relative;
     text-align:right;
+    top:-1px;
 }
 
 .im_text_form_img
@@ -455,6 +451,7 @@ div#js_friend_input_search
     padding:5px 0 5px 0;
     font-size:10px;
     border:1px solid #C1C1C1;
+    background:none !important;
 }
 
 #js_im_toggle_main_option
@@ -482,29 +479,51 @@ div#js_friend_input_search
     background-color: yellow;
 }
 
-
-/*==My Menu==*/
-#call-menu{
-    background: url("../image/module/my_menu.png") no-repeat scroll 0 0 #000000;
-    border: 3px solid #d7d7d7;
-    display: inline-block;
-    height: 105px;
-    padding: 0 10px;
-    position: fixed;
-    right: -20px;
-    top: 123px;
-    width: 44px;
-    z-index: 101;
+.v_middle.close_panel{
+    float:right;
+    margin:3px 0 0;
 }
 
-#user-menu{
-    background-color: #F8F8F8;
-    border:4px solid #D0D0D0;
-    padding: 0 90px 0 10px;
-    z-index: 100 !important;
-    position: fixed !important;
-    right: -12px;
-    top: 107px;
-    width: 122px;
-    display:none !important;
+.im_text.im_text_actual_owner.extra_info{
+    background:#E8E8E8;
+}
+#user-menu a{
+    display: block;
+    padding: 5px 0 10px 10px;
+}
+
+#im_footer_bar {
+    bottom: 0;
+    position: fixed;
+    right: 24px !important;
+    z-index: 1900;
+}
+#js_instant_messenger_link{
+    border:none !important;
+    width:216px !important;
+    position: relative;
+    color:#fff;
+    height: 17px;
+    left: -14px;
+    padding: 3px 0 0;
+    top:0;
+    background:none repeat scroll 0 0 rgba(0, 0, 0, 0.30) !important;
+}
+
+#js_im_status_online img{
+    display:none;
+}
+
+#im_footer_bar li #main_messenger_link a.seen,
+#im_footer_bar li #main_messenger_link a.seen:hover{
+    background-position:0 top !important;
+}
+
+
+#im_main_search_bar input, .im_text_form textarea{
+    background:none !important;
+}
+
+#js_im_content div.error_message{
+    margin:11px 0;
 }

@@ -11,7 +11,7 @@ defined('PHPFOX') or exit('NO DICE!');
  * @copyright		[PHPFOX_COPYRIGHT]
  * @author  		Raymond Benc
  * @package  		Module_Error
- * @version 		$Id: 404.class.php 2766 2011-07-29 11:58:31Z Raymond_Benc $
+ * @version 		$Id: 404.class.php 5382 2013-02-18 09:48:39Z Miguel_Espinoza $
  */
 class Error_Component_Controller_404 extends Phpfox_Component 
 {
@@ -21,6 +21,9 @@ class Error_Component_Controller_404 extends Phpfox_Component
 	public function process()
 	{
 		$aRequests = Phpfox::getLib('request')->getRequests();
+        
+        if ($sPlugin = Phpfox_Plugin::get('error.component_controller_notfound_1')){eval($sPlugin); if (isset($mReturnPlugin)){ return $mReturnPlugin;}}
+        
 		$aNewRequests = array();
 		$iCnt = 0;
 		foreach ($aRequests as $sKey => $sValue)

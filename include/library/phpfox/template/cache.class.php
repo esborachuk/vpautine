@@ -15,7 +15,7 @@ defined('PHPFOX') or exit('NO DICE!');
  * @author			Raymond Benc
  * @package 		Phpfox
  * @subpackage 		Template
- * @version 		$Id: cache.class.php 4899 2012-10-16 09:02:56Z Raymond_Benc $
+ * @version 		$Id: cache.class.php 5359 2013-02-14 07:47:40Z Raymond_Benc $
  */
 class Phpfox_Template_Cache extends Phpfox_Template
 {
@@ -361,7 +361,7 @@ class Phpfox_Template_Cache extends Phpfox_Template
 		$sData = $aMatches[2];
 		
 		$sForm = '<form' . stripslashes($sForm) . ">";
-		if (!strpos($sData, '{token}'))
+		if (strpos($sData, '{token}') === false)
 		{
 			$sForm .= "\n" . '<?php echo \'<div><input type="hidden" name="\' . Phpfox::getTokenName() . \'[security_token]" value="\' . Phpfox::getService(\'log.session\')->getToken() . \'" /></div>\'; ?>';
 		}
@@ -415,7 +415,7 @@ class Phpfox_Template_Cache extends Phpfox_Template
 				break;
 			case 'rdelim':
 				return $this->sRightDelim;
-				break;
+				break;	
 			case 'php':
 				if (!Phpfox::getParam('core.is_auto_hosted'))
 				{
@@ -425,7 +425,11 @@ class Phpfox_Template_Cache extends Phpfox_Template
 				else
 				{
 					return '';
-				}
+				}		
+				break;
+			case 'iterate':
+				$aArgs = $this->_parseArgs($sArguments);
+				return '<?php ' . $aArgs['int'] . '++; ?>';
 				break;
 			case 'for':
 				$sArguments = preg_replace("/\\$([A-Za-z0-9]+)/ise", "'' . \$this->_parseVariable('\$$1') . ''", $sArguments);

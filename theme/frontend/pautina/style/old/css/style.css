@@ -1,0 +1,545 @@
+/*header*/
+body{
+
+}
+/*body *{
+    color:#0e5e55 !important;
+}*/
+#header{
+    background: url("../image/bg_dot.png") repeat scroll 0 0 transparent;
+    box-shadow: 3px 0 5px rgba(0, 0, 0, 0.5);
+}
+
+#header_menu, .header_menu_top:hover{
+    background:none repeat scroll 0 0 rgba(0, 0, 0, 0.18)!important;
+    border-top:none !important;
+}
+#header_menu_page_holder{
+/*
+    background: url("../image/bg_dot.png") repeat scroll 0 0 transparent;
+*/
+}
+#header_menu ul li a, #header_menu ul li a:hover{
+    color:#626262 !important;
+    display:block;
+    font-size: 14px;
+    margin-left: 17px;
+    border-right:none !important;
+}
+#header_menu ul li{
+    display: inline-block !important;
+    padding-right: 19px !important;
+}
+#header_menu:hover ul li a{
+    color:#444444 !important;
+}
+#header_menu li:hover{
+    border-bottom: 2px solid #3FB6E2 !important;
+}
+#header_menu ul{
+    padding:0 !important;
+    height:29px;
+}
+.menu_box .profilebox-title,
+#left #js_block_border_friend_profile_small .title,
+#left #js_block_border_friend_mutual-friend .title,
+#left #js_block_border_friend_mini .title,
+#js_is_user_profile #content .block .title,
+#js_block_border_log_login .title {
+    background: url("../image/bg_dot.png") repeat scroll 0 0 transparent !important;
+    box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.3);
+    color: #3FB6E2;
+    font-size: 14px;
+    font-weight: bold;
+    margin-left: -5px;
+    padding: 10px 0 10px 25px;
+}
+#logo, #logo:hover{
+    text-indent: -9999px;
+    background:url("../image/layout/logo.png") no-repeat transparent 23% 27% ;
+}
+textarea{
+    -moz-box-shadow:    0 0 2px rgba(0, 0, 0, 0.26) inset;
+    -webkit-box-shadow: 0 0 2px rgba(0, 0, 0, 0.26) inset;
+    box-shadow:         0 0 2px rgba(0, 0, 0, 0.26) inset;
+}
+
+/*Photo*/
+
+#js_actual_photo_content{
+    border-right: 1px solid #D7D7D7;
+    border-bottom: 1px solid #D7D7D7;
+    display: block;
+    padding: 0;
+    position: relative;
+    width: 333px;
+    z-index: 1;
+    margin-bottom: 0;
+}
+#content_load_data #site_content > div{
+    padding:0;
+}
+.photo_row{
+    display: inline-block;
+    margin-bottom: 0;
+    padding-top: 0;
+    position: relative;
+    text-align: left;
+    width: 31.5% !important;
+    z-index: 1;
+    left:11px;
+}
+.photo_clip_holder_main{
+    display: inline-block;
+    height: 100px;
+    position: relative;
+    width: 102px;
+}
+
+div.video_moderate_link {
+    bottom: inherit;
+    left: 0;
+    position: absolute;
+    z-index: 200;
+}
+.photo_clip_holder_border{
+    display:inline;
+}
+.photo_clip_holder_border{
+    border:none !important;
+}
+
+a.photo_clip_holder, a.photo_clip_holder:hover{
+    clip: rect(10px, 123px, 109px, 20px) !important;
+    display: inline-block;
+    height: 120px;
+    left: -8px !important;
+    overflow: hidden;
+    position: absolute;
+    text-decoration: none;
+    text-indent: -1000px;
+    top: -4px;
+    width: 120px;
+}
+
+.photo_row_info {
+    bottom: 3px;
+    left: 4px;
+    padding: 0;
+    position: absolute;
+    text-align: left;
+    width: 95%;
+    z-index: 5;
+}
+
+.upload-photo-button a, .upload-button a {
+    background: url("../image/bg_dot.png") repeat scroll 0 0 transparent !important;
+    border-radius: 3px 3px 3px 3px;
+    display: block;
+    font-size: 20px;
+    height: auto;
+    margin-bottom: 25px;
+    padding: 10px 0 !important;
+    text-align: center;
+    width: 100%;
+    box-shadow:2px 2px 2px rgba(0, 0, 0, 0.37);
+}
+
+#content_load_data #site_content > div {
+    margin-bottom: 15px;
+    padding:0 0 20px 0 !important;
+}
+.js_blog_parent *{
+    font-size:11px !important;
+}
+
+.newclass #js_actual_photo_content {
+    display: inline-block;
+    width: 100%;
+}
+
+/*buttons*/
+#section_menu ul li a,
+#section_menu ul li#liMail a,
+#section_menu ul li#liPoke a,
+#section_menu ul li#js_add_friend_on_profile a{
+    -moz-border-bottom-colors: none;
+    -moz-border-left-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-top-colors: none;
+    background: url("../image/layout/section_menu.png") repeat-x scroll center bottom #FFFFFF;
+    background-color: #E0E0E0;
+    background-image: linear-gradient(to bottom, #FAFAFA 0px, #DCDCDC 100%);
+    border-image: none;
+    border-radius: 4px;
+    border: 1px solid;
+    border-color:#CCCCCC #CCCCCC #AAAAAA ;
+    box-shadow: 0 0 1px #FFFFFF inset;
+    color: #696967;
+    display: block;
+    font-size: 11px !important;
+    font-weight: bold;
+    line-height: 22px;
+    margin-left: 5px;
+    padding: 0 8px;
+    text-decoration: none;
+}
+
+#section_menu ul li a, #section_menu ul li a:hover{
+  /*  top: -91px;
+    left: -186px;
+    position:absolute;*/
+}
+
+/*buttons profile*/
+
+
+#section_menu ul li.profile-section-menu a span {
+    background: none;
+    text-align: center;
+    padding: 0;
+    margin: 0;
+    width: 32px;
+    height: auto;
+    color: #7F7F7F;
+    font-weight: normal;
+    font-size: 10px;
+}
+
+#section_menu ul li.profile-section-menu a {
+    display: block;
+    margin: 0 20px;
+    padding: 0;
+    border: none;
+    font-weight: normal;
+    text-align: center;
+}
+
+#section_menu ul li#js_add_friend_on_profile a:active {
+}
+
+.buttons_user{
+    border:1px solid #CDCDCD;
+    width:100%;
+    height:100%;
+    border-radius:4px;
+    margin:0 0 9px;
+    box-shadow:1px 1px 2px rgba(0, 0, 0, 0.22);
+    background: url("../image/bg_dot.png") repeat scroll 0 0 transparent !important;
+}
+
+.buttons_user ul {
+    padding: 3px;
+}
+
+#js_is_user_profile .profile_image .p_4{
+}
+
+.buttons_user a:hover{
+    background:#f8f8f8;
+}
+.buttons_user a{
+    background: #ffffff; /* Old browsers */
+    background: -moz-linear-gradient(top, #ffffff 0%, #DFDFDF 47%, #ededed 100%); /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#ffffff), color-stop(47%,#f6f6f6), color-stop(100%,#ededed)); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(top, #ffffff 0%,#DFDFDF 47%,#ededed 100%); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(top, #ffffff 0%,#DFDFDF 47%,#ededed 100%); /* Opera 11.10+ */
+    background: -ms-linear-gradient(top, #ffffff 0%,#DFDFDF 47%,#ededed 100%); /* IE10+ */
+    background: linear-gradient(top, #ffffff 0%,#DFDFDF 47%,#ededed 100%); /* W3C */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#ededed',GradientType=0 ); /* IE6-9 */
+    border:1px solid #FFFFFF;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
+    color: #4C4C4C;
+    display:block;
+    font-size: 12px;
+    font-weight: 700;
+    line-height: 20px;
+    margin:2px 4px;
+    padding: 0 6px;
+    text-shadow: 1px 1px 1px #FFFFFF;
+    text-align:center;
+}
+
+.isset_logo #profile_header_logo #section_menu {
+    position: absolute;
+}
+
+#profile_header_logo #section_menu {
+    top: 0;
+    position: relative;
+    width: 100%;
+    z-index: 1;
+}
+
+#profile_header_logo #section_menu ul li {
+    float: none;
+}
+
+#profile_header_logo #section_menu ul li a,
+#profile_header_logo #section_menu ul li a:hover
+{
+    display:block;
+    border: none;
+    margin: 0;
+    line-height:40px;
+    background: rgba(0, 0, 0, 0.2);
+    text-decoration:none;
+    padding:0 8px 0 8px;
+    color:#fff;
+    font-weight:bold;
+    text-align: center;
+    border-radius: 0;
+    box-shadow: none;
+}
+
+#profile_header_logo{
+    position:relative;
+}
+
+/*Menu Box*/
+#blogbox span{
+    font-size:11px;
+}
+
+
+#js_photo_privacy_holder{
+    display:inline-block;
+}
+
+.mass_uploader_table {
+    border-top:none;
+    clear: both;
+    display: inline-block;
+    margin: 5px 0 0;
+    padding: 10px 0 0;
+    width: 100%;
+}
+#album_table.table{
+    border-bottom: 1px solid #DFDFDF;
+}
+
+#js_photo_privacy_holder {
+    display: inline-block;
+    width: auto;
+}
+#js_controller_photo_add #main_content, #js_controller_music_upload #main_content, #js_controller_video_add #main_content{
+    width: auto;
+    padding:15px;
+}
+
+#js_controller_video_add #main_content #site_content {
+    width: 250px;
+}
+
+#js_photo_privacy_holder .table{
+    margin:5px 25px;
+    display:inline-block;
+}
+.swf_upload_text_holder{
+    cursor:pointer;
+    background:none repeat scroll 0 0 rgba(0, 0, 0, 0.1)!important;
+    width:auto;
+    margin:0 41px;
+}
+.swf_upload_text{
+    width:105% !important;
+}
+.table.mass_uploader_table .extra_info{
+    text-align:center;
+    padding: 15px 24px;
+}
+.table.mass_uploader_table{
+    background: url("../image/bg_dot.png") repeat scroll 0 0 transparent;
+    display: inline-block;
+    margin: 12px 0 0;
+}
+.mass_uploader_link{
+    margin-top: 20px;
+}
+
+/*blog*/
+
+#js_controller_blog_index #left{
+    width:147px !important;
+    padding-top: 0;
+    border: none !important;
+}
+
+#js_controller_blog_index #main_content {
+    width: auto;
+    margin:0 0 0 147px;
+}
+
+#js_controller_blog_index #site_content {
+    width: auto !important;
+    padding: 0;
+}
+
+#js_controller_blog_index .sub_section_menu ul li,
+#js_controller_blog_index #left .sub_section_menu {
+    border:none !important;
+}
+
+#js_controller_blog_index .sub_section_menu ul li a:hover
+{
+    background: #c7d1ff;
+}
+#js_controller_blog_index div.header_bar_menu{
+    background:#fff;
+}
+#js_controller_blog_index div.row_title_image{
+    float:left;
+}
+
+body.blog #blog_wrapper {
+    width: 227px;
+    padding-right: 10px;
+}
+
+#js_controller_blog_index #section_menu, #js_controller_friend_index #section_menu  {
+    position: absolute;
+    right: 25px;
+    top: 12px;
+}
+#js_controller_blog_index .content2, #js_controller_blog_index #site_content {
+    width: 752px;
+}
+
+/*chat*/
+#im_footer_bar .js_im_link a{
+    margin:0 25px 0 0;
+}
+.js_messages{
+    left:0;
+}
+.im_delete_button{
+    right:32px !important;
+}
+
+.im_in_chat_menu_bar a, .im_in_chat_menu_bar a:hover {
+    border-top: 1px solid #000000;
+    color: #FFFFFF;
+    display: inline-block;
+    font-weight: normal;
+    padding: 5px;
+    text-decoration: none;
+    width: 95%;
+}
+#js_im_display_online{
+    margin:0 4px 4px;
+}
+
+/*music*/
+.sub_section_menu ul li a:hover{
+    background:#0e5e55 !important;
+    color:#fff !important;
+}
+
+#js_controller_music_index #section_menu{
+    position: absolute;
+    right: 25px;
+    top: 13px;
+}
+
+.music_play{
+    background: url("../image/layout/music.png") no-repeat scroll 0 0 transparent;
+    cursor: pointer;
+    display: block;
+    height: 13px;
+    width: 12px;
+}
+#js_controller_music_index div.row_title_info,
+#js_controller_music_browse_album #main_content,
+.music_index #js_is_user_profile div.row_title_info
+{
+   min-height:0 !important;
+   margin-left:0 !important;
+}
+#js_controller_music_index #content_load_data #site_content > div {
+    padding:0 !important;
+}
+#js_controller_music_index div.row_title_image{
+    border:none !important;
+}
+.music_title_link{
+    margin-left: 19px;
+    position: relative;
+    top: -1px;
+}
+#js_controller_music_index #main_content, .music_index #js_is_user_profile #main_content {
+    width:auto;
+}
+#js_controller_music_index div.row_title_info a.link, .music_index #js_is_user_profile div.row_title_info a.link{
+    font-size:11px;
+}
+#js_controller_music_index .block_listing_title, .music_index #js_is_user_profile .block_listing_title {
+    background:none;
+    bottom:4px;
+}
+#js_controller_music_index .block_listing_title a, .music_index #js_is_user_profile .block_listing_title a {
+    color:#28A6FF;
+}
+
+#js_controller_music_index #right{
+    margin: 0 15px 0 0;
+    width: 260px;
+}
+
+#js_controller_music_index .content4 {
+    width:622px;
+}
+
+#js_controller_music_index .block_listing_image > a, .music_index #js_is_user_profile .block_listing_image > a {
+    position: relative;
+    z-index: 2;
+}
+
+#js_controller_music_index .duration, .music_index #js_is_user_profile .duration{
+    float:right;
+}
+#js_controller_music_index #site_content, .music_index #js_is_user_profile #site_content{
+    width:561px;
+    padding: 0 10px !important;
+}
+/*friend page*/
+#js_controller_friend_index #main_content, .music_index #js_is_user_profile #main_content{
+    border-left:none;
+}
+
+#js_controller_friend_index .sub_section_menu,
+#js_controller_friend_accept .sub_section_menu{
+    display:inline-block;
+}
+
+#js_controller_friend_index .slide-block{
+    display:none;
+}
+
+#js_controller_friend_index #js_friend_sort_holder{
+    overflow:visible;
+}
+#js_controller_friend_accept #main_content,
+#js_controller_friend_pending #main_content{
+    width:100%;
+}
+ /*chat*/
+
+.im_chat_image{
+    float:left;
+}
+
+/*text-area comment*/
+
+.feed_comment_bottom{
+    margin-top: 0;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+}
+div.comment_mini_content_border{
+    position: relative;
+}
+
+.profile_image_holder{
+    position: relative;
+}

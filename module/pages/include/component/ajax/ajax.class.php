@@ -11,7 +11,7 @@ defined('PHPFOX') or exit('NO DICE!');
  * @copyright		[PHPFOX_COPYRIGHT]
  * @author  		Raymond_Benc
  * @package 		Phpfox_Ajax
- * @version 		$Id: ajax.class.php 4915 2012-10-22 08:06:08Z Raymond_Benc $
+ * @version 		$Id: ajax.class.php 5304 2013-02-01 10:51:59Z Miguel_Espinoza $
  */
 class Pages_Component_Ajax_Ajax extends Phpfox_Ajax
 {
@@ -78,15 +78,25 @@ class Pages_Component_Ajax_Ajax extends Phpfox_Ajax
 	public function addFeedComment()
 	{
 		Phpfox::isUser(true);
-		
+				
 		$aVals = (array) $this->get('val');	
+		
+		if (!defined('PAGE_TIME_LINE'))
+		{
+		    // Check if this item is a page and is using time line
+		    if (isset($aVals['callback_module']) && $aVals['callback_module'] == 'pages' && isset($aVals['callback_item_id']) && Phpfox::getService('pages')->timelineEnabled($aVals['callback_item_id']))
+		    {
+			define('PAGE_TIME_LINE', true);			
+		    }
+			
+		}
 		
 		if (Phpfox::getLib('parse.format')->isEmpty($aVals['user_status']))
 		{
 			$this->alert(Phpfox::getPhrase('user.add_some_text_to_share'));
 			$this->call('$Core.activityFeedProcess(false);');
 			return;			
-		}			
+		}
 		
 		$aPage = Phpfox::getService('pages')->getPage($aVals['callback_item_id']);
 
@@ -343,7 +353,6 @@ class Pages_Component_Ajax_Ajax extends Phpfox_Ajax
 		{
 			$aErr = Phpfox_Error::get();
 			$sErr = implode($aErr);
-			$this->call('console.log("check 2 ' . $sErr .'");');
 		}
 	}
 	
@@ -353,13 +362,12 @@ class Pages_Component_Ajax_Ajax extends Phpfox_Ajax
 		{
 			$this->call('window.location.href = "' . Phpfox::permalink('pages', $this->get('page_id'), '') . '";');
 			//$this->call('location.reload();');
-			Phpfox::addMessage('Position set correctly.');
+			Phpfox::addMessage(Phpfox::getPhrase('pages.position_set_correctly'));
 		}
 		else
 		{
 			$aErr = Phpfox_Error::get();
 			$sErr = implode($aErr);
-			$this->call('console.log("check 2 ' . $sErr .'");');
 		}
 	}
 	
@@ -373,7 +381,6 @@ class Pages_Component_Ajax_Ajax extends Phpfox_Ajax
 		{
 			$aErr = Phpfox_Error::get();
 			$sErr = implode($aErr);
-			$this->call('console.log("check 2 ' . $sErr .'");');
 		}
 	}
 }
