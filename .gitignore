@@ -4,6 +4,6 @@
 .idea
 .project
 .htaccess
-file
+file/*
 index.php
 include/setting/server.sett.php
