@@ -6,3 +6,5 @@ c
 .project
 .htaccess
 file
+index.php
+include/settings/
