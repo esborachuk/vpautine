@@ -7,3 +7,4 @@ file/*
 .project
 .htaccess
 index.php
+include/setting/server.sett.php
