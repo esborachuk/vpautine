@@ -6,4 +6,4 @@
 .htaccess
 file
 index.php
-include/settings/
+include/setting/server.sett.php
