@@ -154,12 +154,45 @@ defined('PHPFOX') or exit('NO DICE!');
                 {if Phpfox::getLib('module')->getFullControllerName() != 'user.register'}
             </div>
             <div class="clear"></div>
-            <div class="register_bottom_message">
-                <div class="message_container">
-                    hello
+
+        </div>
+        <div class="register_bottom_message">
+            <div class="message_wrapper">
+            <div class="message_container">
+                <div class="message_header">
+                    <h4>Знакомьтесь с людьми</h4>
+                </div>
+                <div class="message_content people">
+                    <p>
+                        Заведите новые знакомства, новых друзей, и может быть даже найдите свою любовь!
+                    </p>
                 </div>
             </div>
+
+            <div class="message_container">
+                <div class="message_header">
+                    <h4>Делитесь информацией</h4>
+                </div>
+                <div class="message_content info-block">
+                    <p>
+                        Делитесь интересной информацией, фотографиями со своими друзями и знакомыми!
+                    </p>
+                </div>
+            </div>
+
+            <div class="message_container">
+                <div class="message_header">
+                    <h4>Общайтесь с легкостью</h4>
+                </div>
+                <div class="message_content talk">
+                    <p>
+                        Оставайтесь на связи  с вашими близкими даже вдали от дома!
+                    </p>
+                </div>
+            </div>
+            </div>
         </div>
+        <div class="clear"></div>
         {module name='user.images'}
     </div>
     {/if}
