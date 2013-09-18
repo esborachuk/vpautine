@@ -11,7 +11,7 @@ defined('PHPFOX') or exit('NO DICE!');
  * @copyright		[PHPFOX_COPYRIGHT]
  * @author  		Raymond Benc
  * @package 		Phpfox_Component
- * @version 		$Id: add.class.php 4448 2012-07-02 12:59:29Z Miguel_Espinoza $
+ * @version 		$Id: add.class.php 4632 2012-09-14 12:55:28Z Miguel_Espinoza $
  */
 class Ad_Component_Controller_Admincp_Add extends Phpfox_Component
 {
@@ -23,20 +23,33 @@ class Ad_Component_Controller_Admincp_Add extends Phpfox_Component
 		(($sPlugin = Phpfox_Plugin::get('ad.component_controller_admincp_add_process__start')) ? eval($sPlugin) : false);
 		$bIsEdit = false;
 		$aVals = $this->request()->getArray('val');
-		
+		$aAllCountries = Phpfox::getService('core.country')->getCountriesAndChildren();
+		$this->template()->setHeader(array(
+						'add.js' => 'module_ad',
+						'<script type="text/javascript">$Core.Ad.isEdit = true; $Core.Ad.setCountries(\''. json_encode($aAllCountries) .'\');</script>'
+					)
+				)->assign(array('aAllCountries' => $aAllCountries));
+				
 		if (($iId = $this->request()->getInt('id')))
 		{
 			if (($aAd = Phpfox::getService('ad')->getForEdit($iId)))
 			{
 				$bIsEdit = true;				
+				
 				$this->template()->assign('aForms', $aAd);
 				$this->template()->assign('aAccess', $aAd['user_group']);
 				
 				if (isset($aAd['countries_list']) && !empty($aAd['countries_list']))
 				{
 					$sCountries = implode('_', $aAd['countries_list']);
+					$sProvinces = '';
+					if (isset($aAd['province']) && !empty($aAd['province']))
+					{
+						$sProvinces = implode('_', $aAd['province']);						
+					}
+					
 					$this->template()->setHeader(array(
-					'<script type="text/javascript"> $Behavior.toggleSelectedCountries = function(){ $("#country_iso > option").each(function(){ if (this.value.length > 0 && "'.$sCountries.'".indexOf(this.value) > (-1)) $(this).attr("selected", "selected"); }); }; </script>'
+					'<script type="text/javascript"> $Behavior.toggleSelected = function(){$Core.Ad.toggleSelectedCountries("'.$sCountries.'");$Core.Ad.toggleSelectedProvinces("'. $sProvinces .'");};  </script>'
 					));
 				}
 				else
@@ -91,7 +104,7 @@ class Ad_Component_Controller_Admincp_Add extends Phpfox_Component
 					if (Phpfox::getService('ad.process')->add($aVals))
 					{
 						$this->url()->send('admincp.ad.add', null, Phpfox::getPhrase('ad.ad_successfully_added'));
-					}		
+					}
 				}
 			}
 			

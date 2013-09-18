@@ -11,7 +11,7 @@ defined('PHPFOX') or exit('NO DICE!');
  * @copyright		[PHPFOX_COPYRIGHT]
  * @author  		Raymond Benc
  * @package  		Module_Blog
- * @version 		$Id: process.class.php 4142 2012-05-02 09:55:48Z Miguel_Espinoza $
+ * @version 		$Id: process.class.php 5246 2013-01-29 12:04:10Z Raymond_Benc $
  */
 class Blog_Service_Process extends Phpfox_Service 
 {
@@ -24,7 +24,7 @@ class Blog_Service_Process extends Phpfox_Service
 	}	
 	
 	public function add($aVals)
-	{
+	{		
 		(($sPlugin = Phpfox_Plugin::get('blog.service_process__start')) ? eval($sPlugin) : false);
 		$oFilter = Phpfox::getLib('parse.input');		
 		
@@ -63,6 +63,12 @@ class Blog_Service_Process extends Phpfox_Service
 			'post_status' => (isset($aVals['post_status']) ? $aVals['post_status'] : '1'),
 			'total_attachment' => ($bHasAttachments ? Phpfox::getService('attachment')->getCount($aVals['attachment']) : 0)
 		);		
+		if (isset($aVals['item_id']) && isset($aVals['module_id']))
+		{
+			$aInsert['item_id'] = (int)$aVals['item_id'];
+			$aInsert['module_id'] = $oFilter->clean($aVals['module_id']);
+		}
+		
 		
 		$bIsSpam = false;
 		if (Phpfox::getParam('blog.spam_check_blogs'))
@@ -355,6 +361,8 @@ class Blog_Service_Process extends Phpfox_Service
 	{
 		(($sPlugin = Phpfox_Plugin::get('blog.service_process_delete__start')) ? eval($sPlugin) : false);
 		$aBlog = Phpfox::getService('blog')->getBlogForEdit($iId);
+		
+		$this->database()->delete(Phpfox::getT('tag'), "category_id = 'blog' AND item_id = " . (int) $iId);
 		
 		$this->database()->delete(Phpfox::getT('blog'), "blog_id = " . (int) $iId);		
 		$this->database()->delete(Phpfox::getT('blog_text'), "blog_id = " . (int) $iId);		

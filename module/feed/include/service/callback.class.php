@@ -133,6 +133,8 @@ class Feed_Service_Callback extends Phpfox_Service
 	public function onDeleteUser($iUser)
 	{
 	    $this->database()->delete($this->_sTable, 'user_id = ' . (int)$iUser);
+	    $this->database()->delete($this->_sTable, 'parent_user_id = ' . (int)$iUser);
+	    $this->database()->delete(Phpfox::getT('feed_comment'), 'parent_user_id = ' . (int)$iUser); 
 	}
 
 	public function getProfileSettings()
@@ -188,19 +190,19 @@ class Feed_Service_Callback extends Phpfox_Service
 	
 	public function getReportRedirectComment($iId)
 	{
-		$aFeed = $this->database()->select('c.comment_id, f.feed_id, ' . Phpfox::getUserField())
-			->from(Phpfox::getT('comment'), 'c')
-			->join(Phpfox::getT('feed'), 'f', 'f.feed_id = c.item_id')
+		$aFeed = $this->database()->select('f.feed_id, ' . Phpfox::getUserField())
+			->from(Phpfox::getT('feed_comment'), 'c')
+			->join(Phpfox::getT('feed'), 'f', 'type_id = \'feed_comment\' && f.item_id = c.feed_comment_id')
 			->join(Phpfox::getT('user'), 'u', 'u.user_id = f.user_id')
-			->where('c.comment_id = ' . (int) $iId)
+			->where('c.feed_comment_id = ' . (int) $iId)
 			->execute('getRow');	
-			
+
 		if (empty($aFeed))
 		{
 			return false;
 		}
 		
-		return Phpfox::getLib('url')->makeUrl($aFeed['user_name'], array('feed' => $aFeed['feed_id'], 'feed-comment' => $aFeed['comment_id'], '#feed'));
+		return Phpfox::getLib('url')->makeUrl($aFeed['user_name'], array('feed' => $aFeed['feed_id'], '#feed'));
 	}
 	
 	public function getRedirectComment($iId)
@@ -292,20 +294,20 @@ class Feed_Service_Callback extends Phpfox_Service
 	
 	public function getActivityFeedComment($aItem)
 	{
-		
+		/*
 		if (!empty($aItem['feed_reference']))
 		{
 			$aItem['item_id'] = $aItem['feed_reference'];
 			return Phpfox::getService('user.callback')->getActivityFeedStatus($aItem);
 		}	
+		*/
 		
 		$aRow = $this->database()->select('fc.*, l.like_id AS is_liked, ' . Phpfox::getUserField('u', 'parent_'))
 			->from(Phpfox::getT('feed_comment'), 'fc')			
 			->leftJoin(Phpfox::getT('user'), 'u', 'u.user_id = fc.parent_user_id')
 			->leftJoin(Phpfox::getT('like'), 'l', 'l.type_id = \'feed_comment\' AND l.item_id = fc.feed_comment_id AND l.user_id = ' . Phpfox::getUserId())			
 			->where('fc.feed_comment_id = ' . (int) $aItem['item_id'])
-			->execute('getSlaveRow');			
-
+			->execute('getSlaveRow');
 	
 		$sLink = Phpfox::getLib('url')->makeUrl($aRow['parent_user_name'], array('comment-id' => $aRow['feed_comment_id']));
 		
@@ -330,9 +332,13 @@ class Feed_Service_Callback extends Phpfox_Service
 				
 		if (!PHPFOX_IS_AJAX && defined('PHPFOX_IS_USER_PROFILE') && !empty($aRow['parent_user_name']) && $aRow['parent_user_id'] != Phpfox::getService('profile')->getProfileUserId())
 		{			
+			$aReturn['feed_info'] = Phpfox::getPhrase('feed.posted_on_parent_full_names_wall', array('parent_user_name' => Phpfox::getLib('url')->makeUrl($aRow['parent_user_name']), 'parent_full_name' => $aRow['parent_full_name']));
+			$aReturn['feed_status'] = $aRow['content'];			
+			
+			/*
 			if (Phpfox::getService('profile')->timeline())
 			{
-				$aReturn['feed_info'] = 'posted on <a href="' . Phpfox::getLib('url')->makeUrl($aRow['parent_user_name']) . '">' . $aRow['parent_full_name'] . '</a>\'s wall.';
+				$aReturn['feed_info'] = Phpfox::getPhrase('feed.posted_on_parent_full_names_wall', array('parent_user_name' => Phpfox::getLib('url')->makeUrl($aRow['parent_user_name']), 'parent_full_name' => $aRow['parent_full_name']));
 				$aReturn['feed_status'] = $aRow['content'];
 			}
 			else
@@ -341,15 +347,16 @@ class Feed_Service_Callback extends Phpfox_Service
 				{
 					$aReturn['parent_user'] = Phpfox::getService('user')->getUserFields(true, $aRow, 'parent_');
 				}
-				/*
+				
 				$aRow['content'] = strip_tags($aRow['content']);
 				$aRow['content'] = Phpfox::getLib('parse.output')->replaceUserTag($aRow['content']);				
 				
 				$aReturn['feed_mini'] = true;		
 				$aReturn['feed_mini_content'] = Phpfox::getPhrase('feed.content_on_a_href_link_parent_full_name_a_s_a_href_wall_link_wall_a', array('content' => $aRow['content'], 'link' => Phpfox::getLib('url')->makeUrl($aRow['parent_user_name']), 'parent_full_name' => $aRow['parent_full_name'], 'wall_link' => $sLink));	
 				unset($aReturn['feed_status']);
-				*/			
+							
 			}
+			*/
 		}
 		
 		return $aReturn;		
@@ -527,7 +534,10 @@ class Feed_Service_Callback extends Phpfox_Service
 			$bWasChanged = true;
 		}
 		$sUsers = Phpfox::getService('notification')->getUsers($aNotification);
-		
+		if (empty($aRow) || !isset($aRow['user_id']))
+        {
+            return false;
+        }
 		$sPhrase = '';
 		if ($aNotification['user_id'] == $aRow['user_id'])
 		{
@@ -769,43 +779,110 @@ class Feed_Service_Callback extends Phpfox_Service
 			'name' => Phpfox::getPhrase('feed.find_missing_share_buttons'),
 			'id' => 'missing-share'
 		);		
+		
+		$aList[] = array(
+			'name' => Phpfox::getPhrase('feed.update_feed_time_stamps'),
+			'id' => 'update-feed'
+		);		
+		
+		$aList[] = array(
+			'name' => Phpfox::getPhrase('feed.update_feed_time_stamps_for_pages'),
+			'id' => 'update-pages-feed'
+		);	
 
+		$aList[] = array(
+			'name' => Phpfox::getPhrase('feed.update_feed_time_stamps_for_events'),
+			'id' => 'update-event-feed'
+		);
+		
 		return $aList;
 	}	
 	
 	public function updateCounter($iId, $iPage, $iPageLimit)
 	{	
-		$aModules = Phpfox::getService('core')->getModulePager('feed_share', 0, 200);
-		
-		foreach ($aModules as $sModule => $aData)
+		if (!empty($iId))
 		{
-			$iCheck = $this->database()->select('COUNT(*)')
-				->from(Phpfox::getT('feed_share'))
-				->where('module_id = \'' . $this->database()->escape($aData['share']['module_id']) . '\' AND title = \'' . $this->database()->escape($aData['share']['title']) . '\'')
+			$sPrefix = '';
+			if ($iId == 'update-pages-feed')
+			{
+				$sPrefix = 'pages_';
+			}
+			elseif ($iId == 'update-event-feed')
+			{
+				$sPrefix = 'event_';
+			}			
+			//  == 'update-pages-feed'
+
+			$iCnt = $this->database()->select('COUNT(*)')
+				->from(Phpfox::getT($sPrefix . 'feed'))
+				->where('time_update = 0')
 				->execute('getSlaveField');
 			
-			if (!$iCheck)
+			$aRows = $this->database()->select('feed_id, time_stamp')
+				->from(Phpfox::getT($sPrefix . 'feed'))
+				->where('time_update = 0')				
+				->limit($iPage, $iPageLimit, $iCnt)
+				->execute('getSlaveRows');	
+
+			foreach ($aRows as $aRow)
 			{
-				$aRow = $aData['share'];
-				$this->database()->insert(Phpfox::getT('feed_share'), array(
-						'product_id' => 'phpfox',
-						'module_id' => $aData['share']['module_id'],						
-						'title' => $aRow['title'],
-						'description' => $aRow['description'],
-						'block_name' => $aRow['block_name'],
-						'no_input' => (int) $aRow['no_input'],
-						'is_frame' => (int) $aRow['is_frame'],
-						'ajax_request' => (empty($aRow['ajax_request']) ? null : $aRow['ajax_request']),
-						'no_profile' => (int) $aRow['no_profile'],
-						'icon' => (empty($aRow['icon']) ? null : $aRow['icon']),
-						'ordering' => (int) $aRow['ordering']
-					)
-				);				
+				$this->database()->update(Phpfox::getT('feed'), array('time_update' => $aRow['time_stamp']), 'feed_id = ' . (int) $aRow['feed_id']);
+			}
+			
+			return $iCnt;
+		}
+		else
+		{
+			$aModules = Phpfox::getService('core')->getModulePager('feed_share', 0, 200);
+			
+			foreach ($aModules as $sModule => $aData)
+			{
+				$iCheck = $this->database()->select('COUNT(*)')
+					->from(Phpfox::getT('feed_share'))
+					->where('module_id = \'' . $this->database()->escape($aData['share']['module_id']) . '\' AND title = \'' . $this->database()->escape($aData['share']['title']) . '\'')
+					->execute('getSlaveField');
+				
+				if (!$iCheck)
+				{
+					$aRow = $aData['share'];
+					$this->database()->insert(Phpfox::getT('feed_share'), array(
+							'product_id' => 'phpfox',
+							'module_id' => $aData['share']['module_id'],						
+							'title' => $aRow['title'],
+							'description' => $aRow['description'],
+							'block_name' => $aRow['block_name'],
+							'no_input' => (int) $aRow['no_input'],
+							'is_frame' => (int) $aRow['is_frame'],
+							'ajax_request' => (empty($aRow['ajax_request']) ? null : $aRow['ajax_request']),
+							'no_profile' => (int) $aRow['no_profile'],
+							'icon' => (empty($aRow['icon']) ? null : $aRow['icon']),
+							'ordering' => (int) $aRow['ordering']
+						)
+					);				
+				}
 			}
 		}
 		
 		return 0;
 	}	
+
+	public function getActions()
+	{
+	    return array(
+		'dislike' => array(
+			'enabled' => true,
+			'action_type_id' => 2, // 2 = dislike
+			'phrase' => 'Dislike',
+			'phrase_in_past_tense' => 'disliked',
+			'item_phrase' => 'comment',
+			'item_type_id' => 'feed', // used to differentiate between photo albums and photos for example.
+			'table' => 'feed_comment',
+			'column_update' => 'total_dislike',
+			'column_find' => 'feed_comment_id',
+			'where_to_show' => array('', 'photo')			
+			)
+		);
+	}
 }
 
 ?>

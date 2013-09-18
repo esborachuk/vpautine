@@ -47,6 +47,10 @@ class User_Component_Controller_Verify extends Phpfox_Component
 				Phpfox::getLib('session')->set('redirect', str_replace('.', '/', $sRedirect));
 			}			
 			
+			if (Phpfox::isMobile())
+			{
+				$this->url()->send('mobile.user.login', null, Phpfox::getPhrase('user.your_email_has_been_verified_please_log_in_with_the_information_you_provided_during_sign_up'));
+			}
 			// send to the log in and say everything is ok
 			$this->url()->send('user.login', null, Phpfox::getPhrase('user.your_email_has_been_verified_please_log_in_with_the_information_you_provided_during_sign_up'));
 		}
@@ -55,13 +59,13 @@ class User_Component_Controller_Verify extends Phpfox_Component
 			//send to the log in and say there was an error
 			Phpfox_Error::set(Phpfox::getPhrase('user.invalid_verification_link'));
 			$iTime = Phpfox::getParam('user.verify_email_timeout');
-			if ($sTime < 60)
+			if ($iTime < 60)
 			{
 				$sTime = Phpfox::getPhrase('user.time_minutes', array('time' => $iTime));
 			}
-			elseif ($sTime < (60 * 60 * 24)) // one day
+			elseif ($iTime < (60 * 60 * 24)) // one day
 			{			
-				$sTime = ($sTime == 60 ? Phpfox::getPhrase('user.time_hour', array('time' => round($sTime / 60))) : Phpfox::getPhrase('user.time_hours', array('time' => round($sTime / 60))));
+				$sTime = ($iTime == 60 ? Phpfox::getPhrase('user.time_hour', array('time' => round($iTime / 60))) : Phpfox::getPhrase('user.time_hours', array('time' => round($iTime / 60))));
 			}
 			else
 			{

@@ -160,12 +160,7 @@ $Behavior.photoCategoryDropDown = function()
 	});
 	
 	$('#js_photo_album_select').change(function()
-	{
-		if ($('#js_is_photo_callback').length > 0)
-		{
-			alert('test');
-		}
-		
+	{		
 		if (empty(this.value))
 		{
 			$('#js_photo_view_this_album').remove();	
@@ -204,4 +199,11 @@ function uploadComplete()
 			window.parent.$.ajaxCall('photo.process', 'js_disable_ajax_restart=true&' + sPhotos + '&action='+$('#js_photo_action').val());
 		}
 	}
+}
+
+if (typeof $Core.Photo == 'undefined') $Core.Photo = {};
+
+$Core.Photo.setCoverPhoto = function(iPhotoId, iItemId)
+{
+	$.ajaxCall('pages.setCoverPhoto', 'photo_id=' + iPhotoId + '&page_id=' + iItemId);
 }

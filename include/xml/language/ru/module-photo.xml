@@ -1,0 +1,522 @@
+<phrases>
+	<phrase module_id="photo" version_id="2.0.4" var_name="setting_how_many_categories_to_show_in_title" added="1268150470"><![CDATA[<title>Сколько категорий показывать в заголовке</title><info>При просмотре фотографий с категориями, вы можете показывать название категорий в заголовке страницы. Эта опция отвечает за их показ. Если установлено на 0, категории не будут показаны в заголовке страницы при просмотре фотографии.</info>]]></phrase>
+	<phrase module_id="photo" version_id="2.0.0alpha1" var_name="module_photo" added="1232963935">Фотографии</phrase>
+	<phrase module_id="photo" version_id="2.0.0alpha1" var_name="menu_photo" added="1232964074">Фото</phrase>
+	<phrase module_id="photo" version_id="2.0.0alpha1" var_name="menu_photos" added="1233146048">Фотографии</phrase>
+	<phrase module_id="photo" version_id="2.0.0alpha1" var_name="menu_upload_new_image" added="1233314832">Добавить фотографии</phrase>
+	<phrase module_id="photo" version_id="2.0.0alpha1" var_name="menu_view_photos" added="1233314868">Мои фотографии</phrase>
+	<phrase module_id="photo" version_id="2.0.0alpha1" var_name="user_setting_can_create_photo_album" added="1234005559">Может создавать новые фотоальбомы?</phrase>
+	<phrase module_id="photo" version_id="2.0.0alpha1" var_name="user_setting_max_number_of_albums" added="1234008456"><![CDATA[Определите общее количество фотоальбомов, которые пользователь может создать, если он в этой группе пользователей.  <b>Примечание:</b> Если вы установите это значение в <b>null</b> это позволит создавать им неограниченное количество фотоальбомов. Установка этого значения в <b>0</b> отключит возможность создавать фотоальбомы.]]></phrase>
+	<phrase module_id="photo" version_id="2.0.0alpha1" var_name="setting_photo_pic_sizes" added="1234108211"><![CDATA[<title>Размеры изображения</title><info>Размеры изображения</info>]]></phrase>
+	<phrase module_id="photo" version_id="2.0.0alpha1" var_name="user_setting_points_photo" added="1234168710">Баллы, полученные при загрузке нового изображения.</phrase>
+	<phrase module_id="photo" version_id="2.0.0alpha1" var_name="user_setting_can_upload_photos" added="1234355661">Может загружать фотографии?</phrase>
+	<phrase module_id="photo" version_id="2.0.0alpha1" var_name="user_setting_can_password_protect_albums" added="1234356018">Может защитить фотоальбомы паролем?</phrase>
+	<phrase module_id="photo" version_id="2.0.0alpha1" var_name="user_setting_can_use_privacy_settings" added="1234356693">Может использовать параметры приватности при создании альбома?</phrase>
+	<phrase module_id="photo" version_id="2.0.0alpha1" var_name="setting_total_photo_input_bars" added="1234356994"><![CDATA[<title>Формы загрузки</title><info>Определите, сколько форм загрузки должно отображаться, когда пользователь размещает фотографии.</info>]]></phrase>
+	<phrase module_id="photo" version_id="2.0.0alpha1" var_name="user_setting_max_images_per_upload" added="1234357193"><![CDATA[Определите максимальное количество изображений, которые пользователь может загрузить каждый раз используя форму загрузки.  <b>Примечание:</b> Этот параметр не контролирует, сколько изображений пользователь может загрузить в общей сложности.]]></phrase>
+	<phrase module_id="photo" version_id="2.0.0alpha1" var_name="user_setting_can_add_to_rating_module" added="1234359086">Может добавлять рейтинг фотографиям в публичных разделах?</phrase>
+	<phrase module_id="photo" version_id="2.0.0alpha1" var_name="user_setting_can_add_tags_on_photos" added="1234359767">Может добавить метки фотографиям?</phrase>
+	<phrase module_id="photo" version_id="2.0.0alpha1" var_name="user_setting_can_control_comments_on_photos" added="1234359856">Может контролировать комментарии у фотографий?</phrase>
+	<phrase module_id="photo" version_id="2.0.0alpha1" var_name="user_setting_can_add_mature_images" added="1234360050">Может добавить изображение для взрослых с предупреждениями?</phrase>
+	<phrase module_id="photo" version_id="2.0.0alpha1" var_name="user_setting_can_search_for_photos" added="1234461616">Может искать фотографии?</phrase>
+	<phrase module_id="photo" version_id="2.0.0alpha1" var_name="user_setting_total_photos_displays" added="1234463967">Определите, сколько изображений пользователь может просматривать сразу при просмотре публичной части?</phrase>
+	<phrase module_id="photo" version_id="2.0.0alpha1" var_name="user_setting_default_photo_display_limit" added="1234464570"><![CDATA[Определите, сколько фотографий должно отображаться по умолчанию.  <b>Примечание:</b> Это значение должно быть частью массива <setting>photo.total_photos_displays</setting> для того, чтобы функционировать.]]></phrase>
+	<phrase module_id="photo" version_id="2.0.0alpha1" var_name="user_setting_max_photo_display_limit" added="1234464816"><![CDATA[Определите максимальное количество фотографий, которое пользователь может просматривать на каждой странице.   <b>Примечание:</b> Это значение должно работать вместе с <setting>photo.total_photos_displays</setting>]]></phrase>
+	<phrase module_id="photo" version_id="2.0.0alpha1" var_name="user_setting_refresh_featured_photo" added="1234468064"><![CDATA[Определите, сколько минут или секунд, сценарий должен ждать, пока обновляют фото.  <b>Примечание:</b> Чтобы добавить X минут вот несколько примеров: [code] 1 min 2 min 30 min [/code] Если вы хотите определить в течение нескольких секунд вот несколько примеров: [code] 20 sec 30 sec 90 sec [/code]]]></phrase>
+	<phrase module_id="photo" version_id="2.0.0alpha1" var_name="admin_menu_categories" added="1234775140">Категории</phrase>
+	<phrase module_id="photo" version_id="2.0.0alpha1" var_name="setting_photo_image_details_time_stamp" added="1234855825"><![CDATA[<title>Описание фотографии</title><info>Описание фотографии</info>]]></phrase>
+	<phrase module_id="photo" version_id="2.0.0alpha1" var_name="user_setting_can_download_user_photos" added="1234869122">Может загрузить фото пользователей?</phrase>
+	<phrase module_id="photo" version_id="2.0.0alpha1" var_name="user_setting_can_view_all_photo_sizes" added="1234872811">Может просмотреть все доступные размеры фото?</phrase>
+	<phrase module_id="photo" version_id="2.0.0alpha1" var_name="user_setting_can_edit_own_photo_album" added="1235028102">Может редактировать свои фотоальбомы?</phrase>
+	<phrase module_id="photo" version_id="2.0.0alpha1" var_name="user_setting_can_edit_other_photo_albums" added="1235028151">Может редактировать фотоальбомы, которые принадлежат другим пользователям?</phrase>
+	<phrase module_id="photo" version_id="2.0.0alpha1" var_name="user_setting_can_photo_album" added="1235065612">Может добавить новые фотоальбомы?</phrase>
+	<phrase module_id="photo" version_id="2.0.0alpha1" var_name="user_setting_can_view_hidden_photos" added="1235068622"><![CDATA[Может просматривать скрытые фотографии?  <b>Примечание:</b> Это предназначено для группы пользователей с правами администратора.]]></phrase>
+	<phrase module_id="photo" version_id="2.0.0alpha1" var_name="setting_protect_photos_from_public" added="1235132674"><![CDATA[<title>Защита Фото</title><info>Если вы хотите, защитить частную жизнь пользователей. Установите <b>Да</b>. При включении этой функции пользователи не смогут просматривать изображения с помощью их прямого адреса, если они не имеют разрешения на просмотр конкретного изображения. Однако, это дополнительные запросы к базе данных и может добавить дополнительную нагрузку на сервер.  <b>Примечание:</b> Apache должен иметь возможность использовать эту функцию "mod_rewrite". После включения этой функции необходимо отредактировать файл ".htaccess".  Обратите внимание на следующее в этом файле: [code] # RewriteRule ^file/pic/photo/(.*).(.*)$ static/image.php?file=$1&ext=$2 [/code]  Замените на: [code] RewriteRule ^file/pic/photo/(.*).(.*)$ static/image.php?file=$1&ext=$2 [/code] </info>]]></phrase>
+	<phrase module_id="photo" version_id="2.0.0alpha1" var_name="user_setting_can_delete_own_photo" added="1235400287">Может удалять свои фотографии?</phrase>
+	<phrase module_id="photo" version_id="2.0.0alpha1" var_name="user_setting_can_delete_other_photos" added="1235400340">Может удалить фотографии, загруженные другими пользователями?</phrase>
+	<phrase module_id="photo" version_id="2.0.0alpha1" var_name="user_setting_can_edit_own_photo" added="1235499296">Может редактировать свои фотографии?</phrase>
+	<phrase module_id="photo" version_id="2.0.0alpha1" var_name="user_setting_can_edit_other_photo" added="1235499334">Может редактировать фотографии, добавленные другими пользователями?</phrase>
+	<phrase module_id="photo" version_id="2.0.0alpha1" var_name="user_setting_photo_mature_age_limit" added="1235502907"><![CDATA[Определите возраст для параметра "Для взрослых"?  <b>Примечание:</b>Вы определяете возраст, который позволит пользователям с этого возраста и старше просматривать фотографии для взрослых.]]></phrase>
+	<phrase module_id="photo" version_id="2.0.0alpha1" var_name="feed_user_add_photos" added="1235639996"><![CDATA[<a href="{owner_link}">{owner_full_name}</a> добавил(а) фото в альбом "<a href="{link}">{album_name}</a>".]]></phrase>
+	<phrase module_id="photo" version_id="2.0.0alpha1" var_name="menu_rate_photos" added="1235720223">Рейтинг фотографий</phrase>
+	<phrase module_id="photo" version_id="2.0.0alpha1" var_name="setting_can_rate_on_photos" added="1235920519"><![CDATA[<title>Фото рейтинг</title><info>Установите <b>Да</b>, если вы хотите предоставить возможность пользователям оценивать фотографии, загруженные другими пользователями.</info>]]></phrase>
+	<phrase module_id="photo" version_id="2.0.0alpha1" var_name="user_setting_can_rate_on_photos" added="1235920668">Может выставлять рейтинг?</phrase>
+	<phrase module_id="photo" version_id="2.0.0alpha1" var_name="setting_rating_total_photos_cache" added="1235920999"><![CDATA[<title>Количество фотографий в кэше для выставления рейтинга</title><info>Определите количество фотографий, которые нужно хранить в кэше, чтобы увеличить скорость работы, системы выставления рейтинга.</info>]]></phrase>
+	<phrase module_id="photo" version_id="2.0.0alpha1" var_name="setting_rating_randomize_photos" added="1235921158"><![CDATA[<title>Случайные фотографии в блоке рейтинга</title><info>Установите <b>Да</b>, если фотографии в блоке рейтинга должны быть расположены случайным образом. Если установлено значение <b>Нет</b>, мы будем отображать изображения в зависимости от даты их загрузки в порядке убывания.</info>]]></phrase>
+	<phrase module_id="photo" version_id="2.0.0alpha1" var_name="user_setting_can_edit_photo_categories" added="1235999973">Может изменять общественные категории фото?</phrase>
+	<phrase module_id="photo" version_id="2.0.0alpha1" var_name="user_setting_can_add_public_categories" added="1236000044">Может добавить общественные категории фото?</phrase>
+	<phrase module_id="photo" version_id="2.0.0alpha1" var_name="menu_photo_battles" added="1236005084">Фотоконкурс</phrase>
+	<phrase module_id="photo" version_id="2.0.0alpha1" var_name="setting_photo_battle_image_cache" added="1236024195"><![CDATA[<title>Кэш фото для фотоконкурса</title><info>Определите, сколько изображений будет в кэше, когда используется фотоконкурс.</info>]]></phrase>
+	<phrase module_id="photo" version_id="2.0.0alpha1" var_name="user_setting_photo_must_be_approved" added="1236065652"><![CDATA[Установите <b>Да</b>, если загруженное фото должно быть проверено, прежде чем оно будет доступно для общественности.]]></phrase>
+	<phrase module_id="photo" version_id="2.0.0alpha1" var_name="user_setting_can_approve_photos" added="1236066726">Может проверять фотографии?</phrase>
+	<phrase module_id="photo" version_id="2.0.0alpha2" var_name="user_setting_can_feature_photo" added="1237643657">Может изменять фотографии?</phrase>
+	<phrase module_id="photo" version_id="2.0.0alpha3" var_name="setting_rename_uploaded_photo_names" added="1239041807"><![CDATA[<title>Изменение имен фотографий</title><info>Установите <b>Да</b>, чтобы изменять названия фотографий.</info>]]></phrase>
+	<phrase module_id="photo" version_id="2.0.0alpha3" var_name="user_setting_can_delete_own_photo_album" added="1239099768">Может удалять собственные фотоальбомы?</phrase>
+	<phrase module_id="photo" version_id="2.0.0alpha3" var_name="user_setting_can_delete_other_photo_albums" added="1239099813">Может удалить фотоальбомы, созданные другими пользователями?</phrase>
+	<phrase module_id="photo" version_id="2.0.0beta4" var_name="user_setting_can_tag_own_photo" added="1244485890">Может добавить тэги на фотографии?</phrase>
+	<phrase module_id="photo" version_id="2.0.0beta4" var_name="user_setting_can_tag_other_photos" added="1244485972">Может добавить тэги на фотографии, добавленные другими пользователями?</phrase>
+	<phrase module_id="photo" version_id="2.0.0beta4" var_name="user_setting_how_many_tags_on_own_photo" added="1244486244">Сколько раз можно использовать тэги?</phrase>
+	<phrase module_id="photo" version_id="2.0.0beta4" var_name="user_setting_how_many_tags_on_other_photo" added="1244486633">Сколько раз можно добавлять тэги на фото других пользователей?</phrase>
+	<phrase module_id="photo" version_id="2.0.0beta4" var_name="setting_total_tags_on_photos" added="1244486871"><![CDATA[<title>Всего тегов на фотографии</title><info>Определите, сколько тегов может быть на одной фотографии.</info>]]></phrase>
+	<phrase module_id="photo" version_id="2.0.0beta4" var_name="stat_title_3" added="1245143473">Фотографии</phrase>
+	<phrase module_id="photo" version_id="2.0.0rc1" var_name="user_setting_photo_max_upload_size" added="1248950092"><![CDATA[Максимальный размер загружаемых фото в килобайтах (kb). (1000 kb = 1 mb) Без ограничения - добавить "0" без кавычек.]]></phrase>
+	<phrase module_id="photo" version_id="2.0.0rc1" var_name="setting_enabled_watermark_on_photos" added="1249708251"><![CDATA[<title>Водяной знак</title><info>Включите эту опцию, для отображения водяного знака на фотографии.  <b>Внимание:</b> Установка <setting>core.watermark_option</setting> должна быть разрешена.</info>]]></phrase>
+	<phrase module_id="photo" version_id="2.0.0rc1" var_name="setting_photo_meta_description" added="1252062286"><![CDATA[<title>Описание этого фото.</title><info>Описание этого фото.</info>]]></phrase>
+	<phrase module_id="photo" version_id="2.0.0rc1" var_name="setting_photo_meta_keywords" added="1252062356"><![CDATA[<title>Ключевые слова этого фото.</title><info>Ключевые слова этого фото.</info>]]></phrase>
+	<phrase module_id="photo" version_id="2.0.0rc4" var_name="you_have_reached_your_limit_you_are_currently_unable_to_create_new_photo_albums" added="1255093572">Вы достигли предела. В данный момент Вы не можете создавать новые фотоальбомы.</phrase>
+	<phrase module_id="photo" version_id="2.0.0rc4" var_name="you_have_rated_all_the_available_images" added="1255094396">Нет фотографий, чтобы оценить.</phrase>
+	<phrase module_id="photo" version_id="2.0.0rc4" var_name="editing_category" added="1255094413">Изменить категории</phrase>
+	<phrase module_id="photo" version_id="2.0.0rc4" var_name="cancel" added="1255094438">Отмена</phrase>
+	<phrase module_id="photo" version_id="2.0.0rc4" var_name="are_you_sure" added="1255098330">Вы уверены?</phrase>
+	<phrase module_id="photo" version_id="2.0.0rc4" var_name="un_feature_this_photo" added="1255098352">Снять рекомендацию с фотографии.</phrase>
+	<phrase module_id="photo" version_id="2.0.0rc4" var_name="feature_this_photo" added="1255098360">Рекомендовать фотографию.</phrase>
+	<phrase module_id="photo" version_id="2.0.0rc4" var_name="photo_successfully_featured" added="1255098370">Фотография успешно рекомендована.</phrase>
+	<phrase module_id="photo" version_id="2.0.0rc4" var_name="photo_successfully_un_featured" added="1255098382">Рекомендация с фото успешно снята.</phrase>
+	<phrase module_id="photo" version_id="2.0.0rc4" var_name="photo_successfully_uploaded" added="1255098410">Фотография успешно загружена.</phrase>
+	<phrase module_id="photo" version_id="2.0.0rc4" var_name="photos_successfully_uploaded" added="1255098421">Фотографии добавлены успешно.</phrase>
+	<phrase module_id="photo" version_id="2.0.0rc4" var_name="processing_image_current_total" added="1255098472">Обработка изображений {current}/{total}</phrase>
+	<phrase module_id="photo" version_id="2.0.0rc4" var_name="provide_a_name_for_your_album" added="1255098524">Укажите название для вашего альбома.</phrase>
+	<phrase module_id="photo" version_id="2.0.0rc4" var_name="select_a_privacy_setting_for_your_album" added="1255098533">Выберите настройки приватности для вашего альбома.</phrase>
+	<phrase module_id="photo" version_id="2.0.0rc4" var_name="categories" added="1255098543">Категории</phrase>
+	<phrase module_id="photo" version_id="2.0.0rc4" var_name="image_details" added="1255098555">Детали</phrase>
+	<phrase module_id="photo" version_id="2.0.0rc4" var_name="featured_photo" added="1255098622">Популярные фотографии</phrase>
+	<phrase module_id="photo" version_id="2.0.0rc4" var_name="browse_filter" added="1255098633">Фильтр обзора</phrase>
+	<phrase module_id="photo" version_id="2.0.0rc4" var_name="photos" added="1255098653">Фотографии</phrase>
+	<phrase module_id="photo" version_id="2.0.0rc4" var_name="view_more_photos" added="1255098663">Ещё фотографии</phrase>
+	<phrase module_id="photo" version_id="2.0.0rc4" var_name="average_rating" added="1255098694">Средний балл</phrase>
+	<phrase module_id="photo" version_id="2.0.0rc4" var_name="provide_a_name_for_your_photo_category" added="1255098718">Укажите имя для категории фотографий.</phrase>
+	<phrase module_id="photo" version_id="2.0.0rc4" var_name="photo_category_order_successfully_updated" added="1255098727">Порядок фото-категорий успешно обновлён.</phrase>
+	<phrase module_id="photo" version_id="2.0.0rc4" var_name="invalid_section" added="1255098738">Неверный раздел.</phrase>
+	<phrase module_id="photo" version_id="2.0.0rc4" var_name="photo_category_successfully_deleted" added="1255098747">Категория фотографий успешно удалена.</phrase>
+	<phrase module_id="photo" version_id="2.0.0rc4" var_name="photo_category_successfully_updated" added="1255098756">Категория фотографий успешно обновлена.</phrase>
+	<phrase module_id="photo" version_id="2.0.0rc4" var_name="photo_category_successfully_added" added="1255098771">Категория фотографий успешно добавлена.</phrase>
+	<phrase module_id="photo" version_id="2.0.0rc4" var_name="manage_photo_categories" added="1255098780">Управление категориями фотографий</phrase>
+	<phrase module_id="photo" version_id="2.0.0rc4" var_name="photo_album_successfully_deleted" added="1255099435">Фотоальбом успешно удален.</phrase>
+	<phrase module_id="photo" version_id="2.0.0rc4" var_name="invalid_photo_album" added="1255099446">Неверный фотоальбом.</phrase>
+	<phrase module_id="photo" version_id="2.0.0rc4" var_name="password_is_not_correct_please_try_again" added="1255099457">Пароль не верный. Пожалуйста, попробуйте еще раз.</phrase>
+	<phrase module_id="photo" version_id="2.0.0rc4" var_name="full_name_s_photos" added="1255099478">{full_name} - Фотографии</phrase>
+	<phrase module_id="photo" version_id="2.0.0rc4" var_name="full_name_s_photo_album_from_time_stamp" added="1255099519">Фотоальбом пользователя {full_name} от {time_stamp}</phrase>
+	<phrase module_id="photo" version_id="2.0.0rc4" var_name="photo_battle" added="1255099553">Фотоконкурс</phrase>
+	<phrase module_id="photo" version_id="2.0.0rc4" var_name="battle" added="1255099567">Конкурс</phrase>
+	<phrase module_id="photo" version_id="2.0.0rc4" var_name="not_allowed_to_download_this_image" added="1255099580">Загрузка этого изображения запрещена.</phrase>
+	<phrase module_id="photo" version_id="2.0.0rc4" var_name="photo_section_is_closed" added="1255099610">Раздел фотографий закрыт.</phrase>
+	<phrase module_id="photo" version_id="2.0.0rc4" var_name="site_title_has_a_total_of_total_photo_s" added="1255099671">На {site_title} размещено {total} фотографий.</phrase>
+	<phrase module_id="photo" version_id="2.0.0rc4" var_name="section_is_private" added="1255099728">Закрытый раздел.</phrase>
+	<phrase module_id="photo" version_id="2.0.0rc4" var_name="full_name_s_photos_on_site_title_full_name_has_total_photo_photo_s_and_total_album_photo" added="1255100161">Фотографии {full_name} на {site_title}. У {full_name} уже {total_photo} фоток и {total_album} фотоальбом(ов).</phrase>
+	<phrase module_id="photo" version_id="2.0.0rc4" var_name="photo_rating_is_disabled" added="1255100253">Рейтинг фотографии не доступен.</phrase>
+	<phrase module_id="photo" version_id="2.0.0rc4" var_name="rate_photos" added="1255100268">Рейтинг фотографии</phrase>
+	<phrase module_id="photo" version_id="2.0.0rc4" var_name="rate" added="1255100290">Рейтинг</phrase>
+	<phrase module_id="photo" version_id="2.0.0rc4" var_name="photo_tags" added="1255100311">Фотометки</phrase>
+	<phrase module_id="photo" version_id="2.0.0rc4" var_name="photo" added="1255100318">Изображение</phrase>
+	<phrase module_id="photo" version_id="2.0.0rc4" var_name="tags" added="1255100325">Теги</phrase>
+	<phrase module_id="photo" version_id="2.0.0rc4" var_name="upload_photos" added="1255100342">Добавить фотографии</phrase>
+	<phrase module_id="photo" version_id="2.0.0rc4" var_name="photos_successfully_updated" added="1255100368">Фотографии успешно обновлены.</phrase>
+	<phrase module_id="photo" version_id="2.0.0rc4" var_name="photo_s_successfully_updated" added="1255100380">Фотография успешно обновлена.</phrase>
+	<phrase module_id="photo" version_id="2.0.0rc4" var_name="process_photos" added="1255100393">Редактирование фотографии</phrase>
+	<phrase module_id="photo" version_id="2.0.0rc4" var_name="upload" added="1255100452">Добавить</phrase>
+	<phrase module_id="photo" version_id="2.0.0rc4" var_name="invalid_photo" added="1255101664">Недействительная фотография.</phrase>
+	<phrase module_id="photo" version_id="2.0.0rc4" var_name="sorry_this_photo_can_only_be_viewed_by_those_older_then_the_age_of_limit" added="1255101703">К сожалению, эту фотографию могут увидеть только те, кто старше {limit} лет.</phrase>
+	<phrase module_id="photo" version_id="2.0.0rc4" var_name="not_a_valid_photo_album_to_delete" added="1255101768">Не действительный фотоальбом для удаления.</phrase>
+	<phrase module_id="photo" version_id="2.0.0rc4" var_name="you_do_not_have_sufficient_permission_to_delete_this_photo_album" added="1255101778">У вас нет прав, необходимых для удаления этого фотоальбома.</phrase>
+	<phrase module_id="photo" version_id="2.0.0rc4" var_name="unable_to_find_the_photo" added="1255101869">Не удалось найти фотографию.</phrase>
+	<phrase module_id="photo" version_id="2.0.0rc4" var_name="this_photo_is_already_tagged_in_the_same_position" added="1255101890">Метка уже создана на той же позиции.</phrase>
+	<phrase module_id="photo" version_id="2.0.0rc4" var_name="no_more_tags_for_this_photo_can_be_added" added="1255101900">Нельзя добавить больше меток для этой фотографии.</phrase>
+	<phrase module_id="photo" version_id="2.0.0rc4" var_name="full_name_has_already_been_tagged_in_this_photo" added="1255101918">{full_name} уже отмечен(а) на этой фотографии.</phrase>
+	<phrase module_id="photo" version_id="2.0.0rc4" var_name="provide_a_photo_tag" added="1255101946">Разрешить фотометки</phrase>
+	<phrase module_id="photo" version_id="2.0.0rc4" var_name="not_allowed_to_tag_this_photo" added="1255101956">Фотометки на этой фотографии запрещены.</phrase>
+	<phrase module_id="photo" version_id="2.0.0rc4" var_name="unable_to_find_photo" added="1255101967">Не удалось найти фотографии.</phrase>
+	<phrase module_id="photo" version_id="2.0.0rc4" var_name="unable_to_delete_this_tag" added="1255101979">Не удается удалить этот тег.</phrase>
+	<phrase module_id="photo" version_id="2.0.0rc4" var_name="a_href_profile_link_owner_full_name_a_uploaded_a_new_photo" added="1255156765"><![CDATA[<a href="{profile_link}">{owner_full_name}</a> загрузил(а) новые фотографии.]]></phrase>
+	<phrase module_id="photo" version_id="2.0.0rc4" var_name="a_href_profile_link_owner_full_name_a_uploaded_new_photos" added="1255156843"><![CDATA[<a href="{profile_link}">{owner_full_name}</a> загрузил(а) новые фотографии.]]></phrase>
+	<phrase module_id="photo" version_id="2.0.0rc4" var_name="a_href_user_link_full_name_a_added_a_new_comment_on_their_own_a_href_title_link_photo" added="1255156971"><![CDATA[<a href="{user_link}">{full_name}</a> добавил(а) комментарий к своей <a href="{title_link}">фотографии</a>.]]></phrase>
+	<phrase module_id="photo" version_id="2.0.0rc4" var_name="a_href_user_link_full_name_a_added_a_new_comment_on_your_a_href_title_link_photo_a" added="1255157021"><![CDATA[<a href="{user_link}">{full_name}</a> добавил(а) комментарий к <a href="{title_link}">фотографии</a>.]]></phrase>
+	<phrase module_id="photo" version_id="2.0.0rc4" var_name="a_href_user_link_full_name_a_added_a_new_comment_on" added="1255157088"><![CDATA[<a href="{user_link}">{full_name}</a> добавил(а) комментарий к <a href="{title_link}">фото</a> пользователя <a href="{item_user_link}">{item_user_name}</a>.]]></phrase>
+	<phrase module_id="photo" version_id="2.0.0rc4" var_name="user_name_left_you_a_comment_on_site_title" added="1255157199">{user_name} оставил(а) Вам комментарий на {site_title}.</phrase>
+	<phrase module_id="photo" version_id="2.0.0rc4" var_name="user_name_left_you_a_comment_on_site_title_message" added="1255157259"><![CDATA[{user_name} оставил(а) Вам комментарий на {site_title}.  Для просмотра этого комментария перейдите по ссылке: <a href="{link}">{link}</a>]]></phrase>
+	<phrase module_id="photo" version_id="2.0.0rc4" var_name="user_name_left_you_a_comment_on_site_title_however_before_it_can_be_displayed_it_needs_to_be" added="1255157349"><![CDATA[{user_name} оставил(а) Вам комментарий на {site_title}, но прежде чем отобразиться он должен быть одобрен Вами.  Вы можете одобрить комментарий или отказать, для этого перейдите по ссылке: <a href="{link}">{link}</a>]]></phrase>
+	<phrase module_id="photo" version_id="2.0.0rc4" var_name="a_href_user_link_full_name_a_wrote_a_comment_on_your_photo_a_href_photo_link_title" added="1255158733"><![CDATA[<a href="{user_link}">{full_name}</a> написал(а) комментарий к вашей фотографии "<a href="{photo_link}">{title}</a>".]]></phrase>
+	<phrase module_id="photo" version_id="2.0.0rc4" var_name="on_name_s_photo" added="1255158838">На фотографии {name}.</phrase>
+	<phrase module_id="photo" version_id="2.0.0rc4" var_name="full_name_approved_your_comment_on_site_title" added="1255158932">{full_name} одобрил(а) Ваш комментарий на {site_title}.</phrase>
+	<phrase module_id="photo" version_id="2.0.0rc4" var_name="full_name_approved_your_comment_on_site_title_message" added="1255158993"><![CDATA[{full_name} одобрил(а) Ваш комментарий на {site_title}.  Для просмотра, перейдите по ссылке: <a href="{link}">{link}</a>]]></phrase>
+	<phrase module_id="photo" version_id="2.0.0rc4" var_name="a_href_photo_section_link_photo_a_uploaded_on_time_stamp_by_a_href_user_link" added="1255159132"><![CDATA[<a href="{photo_section_link}">Фотография</a> загружена {time_stamp} пользователем <a href="{user_link}">{full_name}</a>.]]></phrase>
+	<phrase module_id="photo" version_id="2.0.0rc4" var_name="photo_albums" added="1255159204">Фотоальбомы</phrase>
+	<phrase module_id="photo" version_id="2.0.0rc4" var_name="upload_a_photo" added="1255159230">Добавить фотографии</phrase>
+	<phrase module_id="photo" version_id="2.0.0rc4" var_name="manage_photos" added="1255159237">Управление фотографиями</phrase>
+	<phrase module_id="photo" version_id="2.0.0rc4" var_name="view_photos" added="1255159267">Посмотреть фотографии</phrase>
+	<phrase module_id="photo" version_id="2.0.0rc4" var_name="unable_to_find_the_photo_you_plan_to_edit" added="1255159921">Фотография которую вы хотите изменить не найдена.</phrase>
+	<phrase module_id="photo" version_id="2.0.0rc4" var_name="updating_album" added="1255160073">Обновление альбома</phrase>
+	<phrase module_id="photo" version_id="2.0.0rc4" var_name="loading" added="1255160127">Загрузка</phrase>
+	<phrase module_id="photo" version_id="2.0.0rc4" var_name="none_of_your_files_were_uploaded_please_make_sure_you_upload_either_a_jpg_gif_or_png_file" added="1255160204">Ни один из файлов не был загружен. Пожалуйста, убедитесь, что вы загружаете JPG, GIF или PNG файл.</phrase>
+	<phrase module_id="photo" version_id="2.0.0rc4" var_name="updating_photo" added="1255160312">Обновление фотографии</phrase>
+	<phrase module_id="photo" version_id="2.0.0rc4" var_name="password_protected_album" added="1255160379">АЛЬБОМ ЗАЩИЩЁН ПАРОЛЕМ</phrase>
+	<phrase module_id="photo" version_id="2.0.0rc4" var_name="private_album" added="1255160387">ЗАКРЫТЫЙ АЛЬБОМ</phrase>
+	<phrase module_id="photo" version_id="2.0.0rc4" var_name="name_by_full_name" added="1255160410">{name} от {full_name}</phrase>
+	<phrase module_id="photo" version_id="2.0.0rc4" var_name="view_more_albums_total" added="1255160470">Ещё альбомы ({total})</phrase>
+	<phrase module_id="photo" version_id="2.0.0rc4" var_name="submit" added="1255160494">Создать</phrase>
+	<phrase module_id="photo" version_id="2.0.0rc4" var_name="all_categories" added="1255160526">Все категории</phrase>
+	<phrase module_id="photo" version_id="2.0.0rc4" var_name="url" added="1255160539">URL</phrase>
+	<phrase module_id="photo" version_id="2.0.0rc4" var_name="search_for_keyword" added="1255160559">Поиск по ключевому слову</phrase>
+	<phrase module_id="photo" version_id="2.0.0rc4" var_name="display" added="1255160572">Фотографий на страницу</phrase>
+	<phrase module_id="photo" version_id="2.0.0rc4" var_name="sort" added="1255160583">Сортировать</phrase>
+	<phrase module_id="photo" version_id="2.0.0rc4" var_name="time" added="1255160590">Время</phrase>
+	<phrase module_id="photo" version_id="2.0.0rc4" var_name="most_viewed" added="1255160598">Популярные</phrase>
+	<phrase module_id="photo" version_id="2.0.0rc4" var_name="most_talked_about" added="1255160606">Наиболее обсуждаемые</phrase>
+	<phrase module_id="photo" version_id="2.0.0rc4" var_name="top_rated" added="1255160782">Лучшие</phrase>
+	<phrase module_id="photo" version_id="2.0.0rc4" var_name="top_battle" added="1255160797">Фото-конкурс</phrase>
+	<phrase module_id="photo" version_id="2.0.0rc4" var_name="by" added="1255160804">От</phrase>
+	<phrase module_id="photo" version_id="2.0.0rc4" var_name="descending" added="1255160810">По убыванию</phrase>
+	<phrase module_id="photo" version_id="2.0.0rc4" var_name="ascending" added="1255160817">По возрастанию</phrase>
+	<phrase module_id="photo" version_id="2.0.0rc4" var_name="name" added="1255160998">Имя</phrase>
+	<phrase module_id="photo" version_id="2.0.0rc4" var_name="description" added="1255161008">Описание</phrase>
+	<phrase module_id="photo" version_id="2.0.0rc4" var_name="privacy" added="1255161017">Приватность</phrase>
+	<phrase module_id="photo" version_id="2.0.0rc4" var_name="public_photos_will_be_added_to_our_public_photo_section" added="1255162284">Публичный (Фотографии будут добавлены в общий альбом)</phrase>
+	<phrase module_id="photo" version_id="2.0.0rc4" var_name="personal_photos_will_only_be_displayed_on_your_profile" added="1255162294">Персональный (Фотографии будут показаны только в Вашем профиле)</phrase>
+	<phrase module_id="photo" version_id="2.0.0rc4" var_name="friends_only_you_and_your_friends_can_view_this_album" added="1255162303">Друзья (только вы и ваши друзья)</phrase>
+	<phrase module_id="photo" version_id="2.0.0rc4" var_name="preferred_list_only_you_and_the_members_you_select_can_view_this_album" added="1255162321">Свой список (выбранные пользователи)</phrase>
+	<phrase module_id="photo" version_id="2.0.0rc4" var_name="password_protect" added="1255162339">Защищено паролем</phrase>
+	<phrase module_id="photo" version_id="2.0.0rc4" var_name="image_is_pending_approval" added="1255162439">Изображение ожидает подтверждения.</phrase>
+	<phrase module_id="photo" version_id="2.0.0rc4" var_name="title" added="1255162468">Название</phrase>
+	<phrase module_id="photo" version_id="2.0.0rc4" var_name="category" added="1255162481">Категория</phrase>
+	<phrase module_id="photo" version_id="2.0.0rc4" var_name="mature_content" added="1255162491">Для взрослых (18+)</phrase>
+	<phrase module_id="photo" version_id="2.0.0rc4" var_name="yes_strict" added="1255162500">Да</phrase>
+	<phrase module_id="photo" version_id="2.0.0rc4" var_name="yes_warning" added="1255162507">Ну, почти</phrase>
+	<phrase module_id="photo" version_id="2.0.0rc4" var_name="no" added="1255162513">Нет</phrase>
+	<phrase module_id="photo" version_id="2.0.0rc4" var_name="discussion" added="1255162520">Комментарии</phrase>
+	<phrase module_id="photo" version_id="2.0.0rc4" var_name="allow_comments_default" added="1255162529">Разрешены</phrase>
+	<phrase module_id="photo" version_id="2.0.0rc4" var_name="encourage_advanced_critique" added="1255162539">Поощрить  критику</phrase>
+	<phrase module_id="photo" version_id="2.0.0rc4" var_name="discourage_criticism" added="1255162547">Препятствовать критике</phrase>
+	<phrase module_id="photo" version_id="2.0.0rc4" var_name="moderate_comments_first" added="1255162554">Предмодерация</phrase>
+	<phrase module_id="photo" version_id="2.0.0rc4" var_name="disable_comments" added="1255162562">Запрещены</phrase>
+	<phrase module_id="photo" version_id="2.0.0rc4" var_name="public_rating" added="1255162574">Общественный рейтинг</phrase>
+	<phrase module_id="photo" version_id="2.0.0rc4" var_name="yes" added="1255162585">Да</phrase>
+	<phrase module_id="photo" version_id="2.0.0rc4" var_name="download_enabled" added="1255162599">Скачивание разрешено</phrase>
+	<phrase module_id="photo" version_id="2.0.0rc4" var_name="download_enabled" added="1255162599">Скачивание разрешено</phrase>
+	<phrase module_id="photo" version_id="2.0.0rc4" var_name="enabling_this_option_will_allow_others_the_rights_to_download_this_photo" added="1255162616">Включение этой функции дает возможность другим пользователям скачать эту фотографию.</phrase>
+	<phrase module_id="photo" version_id="2.0.0rc4" var_name="enabling_this_option_will_allow_others_the_rights_to_download_these_photos" added="1255162622">Включение этой функции дает возможность другим пользователям скачать эти фотографии.</phrase>
+	<phrase module_id="photo" version_id="2.0.0rc4" var_name="report_a_photo_album" added="1255162727">Пожаловаться на фотоальбом</phrase>
+	<phrase module_id="photo" version_id="2.0.0rc4" var_name="report" added="1255162734">Пожаловаться</phrase>
+	<phrase module_id="photo" version_id="2.0.0rc4" var_name="add_to_your_favorites" added="1255162744">Добавить в ваши закладки</phrase>
+	<phrase module_id="photo" version_id="2.0.0rc4" var_name="add_to_favorites" added="1255162752">Добавить в избранное</phrase>
+	<phrase module_id="photo" version_id="2.0.0rc4" var_name="edit_this_album" added="1255162760">Редактировать альбом</phrase>
+	<phrase module_id="photo" version_id="2.0.0rc4" var_name="upload_photos_to_album" added="1255162767">Добавить фотографии в альбом</phrase>
+	<phrase module_id="photo" version_id="2.0.0rc4" var_name="delete" added="1255162773">Удалить</phrase>
+	<phrase module_id="photo" version_id="2.0.0rc4" var_name="view_all_sizes" added="1255162789">Просмотреть все размеры</phrase>
+	<phrase module_id="photo" version_id="2.0.0rc4" var_name="report_a_photo" added="1255162798">Пожаловаться на фотографию</phrase>
+	<phrase module_id="photo" version_id="2.0.0rc4" var_name="download" added="1255162827">Загрузить</phrase>
+	<phrase module_id="photo" version_id="2.0.0rc4" var_name="edit_this_photo" added="1255162835">Редактировать фотографию</phrase>
+	<phrase module_id="photo" version_id="2.0.0rc4" var_name="upload_a_new_image" added="1255162844">Добавить фотографии</phrase>
+	<phrase module_id="photo" version_id="2.0.0rc4" var_name="delete_this_photo" added="1255162853">Удалить фотографию</phrase>
+	<phrase module_id="photo" version_id="2.0.0rc4" var_name="rotate_right" added="1255162862">Повернуть направо</phrase>
+	<phrase module_id="photo" version_id="2.0.0rc4" var_name="rotate_left" added="1255162869">Повернуть налево</phrase>
+	<phrase module_id="photo" version_id="2.0.0rc4" var_name="tag_this_photo" added="1255162876">Добавить фотометку</phrase>
+	<phrase module_id="photo" version_id="2.0.0rc4" var_name="no_photos_have_been_added_yet" added="1255162892">Фотографии не были добавлены.</phrase>
+	<phrase module_id="photo" version_id="2.0.0rc4" var_name="be_the_first_to_upload_a_photo" added="1255162898">Загрузите фотографию первым!</phrase>
+	<phrase module_id="photo" version_id="2.0.0rc4" var_name="title_by_full_name" added="1255162922">{title} от {full_name}</phrase>
+	<phrase module_id="photo" version_id="2.0.0rc4" var_name="by_user_info" added="1255162955">{user_info}</phrase>
+	<phrase module_id="photo" version_id="2.0.0rc4" var_name="no_photos_added_yet" added="1255163019">Фотографии не добавлены.</phrase>
+	<phrase module_id="photo" version_id="2.0.0rc4" var_name="click_here_to_upload_a_photo" added="1255163025">Нажмите здесь для загрузки фотографий.</phrase>
+	<phrase module_id="photo" version_id="2.0.0rc4" var_name="approve_this_photo" added="1255163046">Подтвердить эту фотографию.</phrase>
+	<phrase module_id="photo" version_id="2.0.0rc4" var_name="set_as_album_cover" added="1255163072">Поставить на обложку альбома.</phrase>
+	<phrase module_id="photo" version_id="2.0.0rc4" var_name="no_photos_uploaded_yet" added="1255165857">Фотографий не загружено.</phrase>
+	<phrase module_id="photo" version_id="2.0.0rc4" var_name="click_here_to_upload_photos" added="1255165864">Нажмите здесь для загрузки фотографий.</phrase>
+	<phrase module_id="photo" version_id="2.0.0rc4" var_name="warning" added="1255168472">Внимание!</phrase>
+	<phrase module_id="photo" version_id="2.0.0rc4" var_name="the_photo_you_are_about_to_view_may_contain_nudity_sexual_themes_violence_gore_strong_language_or_ideologically_sensitive_subject_matter" added="1255168917">Фото, которое вы собираетесь посмотреть,  может содержать сцены эротического или насильственного характера, нецензурной лексики или касаться идеологических аспектов.</phrase>
+	<phrase module_id="photo" version_id="2.0.0rc4" var_name="would_you_like_to_view_this_image" added="1255168925">Посмотреть изображение?</phrase>
+	<phrase module_id="photo" version_id="2.0.0rc4" var_name="no_thanks" added="1255168937">Нет, спасибо.</phrase>
+	<phrase module_id="photo" version_id="2.0.0rc4" var_name="add_a_photo_category" added="1255168955">Добавить категорию фото</phrase>
+	<phrase module_id="photo" version_id="2.0.0rc4" var_name="parent" added="1255168960">Источник</phrase>
+	<phrase module_id="photo" version_id="2.0.0rc4" var_name="update" added="1255168981">Обновить</phrase>
+	<phrase module_id="photo" version_id="2.0.0rc4" var_name="are_you_sure_you_want_to_delete_this_album_and_all_the_pictures_that_belong_to_it" added="1255168994">Вы точно хотите удалить альбом и все фотографии связанные с ним?</phrase>
+	<phrase module_id="photo" version_id="2.0.0rc4" var_name="note_that_this_cannot_be_undone" added="1255169000">Обратите внимание, действие нельзя отменить.</phrase>
+	<phrase module_id="photo" version_id="2.0.0rc4" var_name="update_photo" added="1255169021">Обновить фотографию</phrase>
+	<phrase module_id="photo" version_id="2.0.0rc4" var_name="update_album" added="1255169041">Обновить альбом</phrase>
+	<phrase module_id="photo" version_id="2.0.0rc4" var_name="this_photo_album_is_password_protected" added="1255169058">Этот фотоальбом защищён паролем.</phrase>
+	<phrase module_id="photo" version_id="2.0.0rc4" var_name="enter_password" added="1255169066">Введите пароль</phrase>
+	<phrase module_id="photo" version_id="2.0.0rc4" var_name="no_images_found" added="1255169114">Изображений не найдено.</phrase>
+	<phrase module_id="photo" version_id="2.0.0rc4" var_name="v_br_e_br_r_br_s_br_u_br_s" added="1255169125"><![CDATA[С<br />р<br />а<br />в<br />н<br />и]]></phrase>
+	<phrase module_id="photo" version_id="2.0.0rc4" var_name="there_is_one_image_that_requires_your_approval" added="1255169140">Есть одно изображение, ожидающее Вашего подтверждения.</phrase>
+	<phrase module_id="photo" version_id="2.0.0rc4" var_name="there_are_total_images_that_require_your_approval" added="1255169150">Накопилось {total} фотографий, ожидающие вашего подтверждения.</phrase>
+	<phrase module_id="photo" version_id="2.0.0rc4" var_name="no_public_photos_have_been_uploaded_yet" added="1255169181">Публичных фотографий загружено не было.</phrase>
+	<phrase module_id="photo" version_id="2.0.0rc4" var_name="click_here_to_approve_photos" added="1255169212">Нажмите здесь, чтобы одобрить фотографию.</phrase>
+	<phrase module_id="photo" version_id="2.0.0rc4" var_name="photos_total" added="1255169369">Фотографий: ({total})</phrase>
+	<phrase module_id="photo" version_id="2.0.0rc4" var_name="albums_total" added="1255169418">Альбомов: ({total})</phrase>
+	<phrase module_id="photo" version_id="2.0.0rc4" var_name="you_have_not_uploaded_any_photos_yet" added="1255169448">Вы еще не загружали фотографии.</phrase>
+	<phrase module_id="photo" version_id="2.0.0rc4" var_name="user_info_has_not_uploaded_any_photos_yet" added="1255169497">{user_info} еще не загрузил(а) фотографии.</phrase>
+	<phrase module_id="photo" version_id="2.0.0rc4" var_name="upload_your_photos" added="1255169521">Загрузить ваши фотографии</phrase>
+	<phrase module_id="photo" version_id="2.0.0rc4" var_name="browse_other_photos" added="1255169528">Просмотреть другие фотографии</phrase>
+	<phrase module_id="photo" version_id="2.0.0rc4" var_name="skip" added="1255169618">Пропустить</phrase>
+	<phrase module_id="photo" version_id="2.0.0rc4" var_name="b_back_b_to_full_name_s_photo_section" added="1255169648"><![CDATA[<b>Вернутся</b> к фотографии {full_name}.]]></phrase>
+	<phrase module_id="photo" version_id="2.0.0rc4" var_name="b_back_b_to_title_s_photo_section" added="1255169673"><![CDATA[<b>Вернутся</b> в {title}.]]></phrase>
+	<phrase module_id="photo" version_id="2.0.0rc4" var_name="upload_by_user_info_on_time_stamp" added="1255169715">Загрузил(а) {user_info}   {time_stamp}.</phrase>
+	<phrase module_id="photo" version_id="2.0.0rc4" var_name="available_sizes" added="1255169742">Доступные размеры</phrase>
+	<phrase module_id="photo" version_id="2.0.0rc4" var_name="download_this_image" added="1255169758">Скачать это изображение</phrase>
+	<phrase module_id="photo" version_id="2.0.0rc4" var_name="photo_links" added="1255169768">Ссылки на фотографии</phrase>
+	<phrase module_id="photo" version_id="2.0.0rc4" var_name="html_embed" added="1255169774">HTML</phrase>
+	<phrase module_id="photo" version_id="2.0.0rc4" var_name="photo_path" added="1255169846">Путь к фотографии</phrase>
+	<phrase module_id="photo" version_id="2.0.0rc4" var_name="skip_this_step" added="1255169861">Пропустить этот шаг</phrase>
+	<phrase module_id="photo" version_id="2.0.0rc4" var_name="global_photo_settings" added="1255169872">Общие настройки фотографий</phrase>
+	<phrase module_id="photo" version_id="2.0.0rc4" var_name="note_that_global_photo_settings_will_override_any_settings_saved_individually_below" added="1255169879"><![CDATA[Сохранение "Общих настроек фотографий" перезапишет любые опции, изменённые ранее.]]></phrase>
+	<phrase module_id="photo" version_id="2.0.0rc4" var_name="save_global_settings" added="1255169887">Сохранить общие настройки</phrase>
+	<phrase module_id="photo" version_id="2.0.0rc4" var_name="uploaded_photos" added="1255169895">Загруженные фотографии</phrase>
+	<phrase module_id="photo" version_id="2.0.0rc4" var_name="save" added="1255169909">Сохранить</phrase>
+	<phrase module_id="photo" version_id="2.0.0rc4" var_name="and_then" added="1255169918">, а затем</phrase>
+	<phrase module_id="photo" version_id="2.0.0rc4" var_name="process_next_batch_total_left" added="1255169930">следующая страница ({total} left).</phrase>
+	<phrase module_id="photo" version_id="2.0.0rc4" var_name="view_this_album" added="1255169945">посмотреть альбом.</phrase>
+	<phrase module_id="photo" version_id="2.0.0rc4" var_name="view_your_photos" added="1255169951">посмотреть фото.</phrase>
+	<phrase module_id="photo" version_id="2.0.0rc4" var_name="upload_new_images" added="1255169957">загрузить новые изображения.</phrase>
+	<phrase module_id="photo" version_id="2.0.0rc4" var_name="album" added="1255169993">Альбом</phrase>
+	<phrase module_id="photo" version_id="2.0.0rc4" var_name="select_an_album" added="1255170002">Выбрать альбом</phrase>
+	<phrase module_id="photo" version_id="2.0.0rc4" var_name="or" added="1255170019">или</phrase>
+	<phrase module_id="photo" version_id="2.0.0rc4" var_name="create_a_new_one" added="1255170026">Создать новый</phrase>
+	<phrase module_id="photo" version_id="2.0.0rc4" var_name="select_photo_s" added="1255170034">Выбрать фотографии</phrase>
+	<phrase module_id="photo" version_id="2.0.0rc4" var_name="process_your_photos" added="1255170053">оформить фото.</phrase>
+	<phrase module_id="photo" version_id="2.0.0rc4" var_name="upload_more_photos" added="1255170060">загрузить ещё фото.</phrase>
+	<phrase module_id="photo" version_id="2.0.0rc4" var_name="you_can_upload_a_jpg_gif_or_png_file" added="1255170081">Форматы, допустимые для загрузки: JPG, GIF, PNG.</phrase>
+	<phrase module_id="photo" version_id="2.0.0rc4" var_name="the_file_size_limit_is_file_size_if_your_upload_does_not_work_try_uploading_a_smaller_picture" added="1255170105">Ограничение размера файла: {file_size}. Если загрузка не удалась, попытайтесь загрузить файл меньшего размера</phrase>
+	<phrase module_id="photo" version_id="2.0.0rc4" var_name="recently_uploaded" added="1255170121">Недавно загруженные</phrase>
+	<phrase module_id="photo" version_id="2.0.0rc4" var_name="process_your_photo_s" added="1255170132">Обработка Вашего фото</phrase>
+	<phrase module_id="photo" version_id="2.0.0rc4" var_name="in" added="1255170264">в</phrase>
+	<phrase module_id="photo" version_id="2.0.0rc4" var_name="by_lower" added="1255170279">от</phrase>
+	<phrase module_id="photo" version_id="2.0.0rc4" var_name="in_this_photo" added="1255170329">На этой фотографии</phrase>
+	<phrase module_id="photo" version_id="2.0.0rc4" var_name="full_name_s_photo_from_time_stamp" added="1256488497">{full_name} фотографии от {time_stamp}</phrase>
+	<phrase module_id="photo" version_id="2.0.0rc4" var_name="click_here_to_tag_as_yourself" added="1256488630">Нажмите здесь, чтобы отметить себя.</phrase>
+	<phrase module_id="photo" version_id="2.0.0rc4" var_name="groups" added="1256489661">Группы</phrase>
+	<phrase module_id="photo" version_id="2.0.0rc4" var_name="select_an_area_on_your_photo_to_crop" added="1256490113">Выберите область фотографии для обрезки.</phrase>
+	<phrase module_id="photo" version_id="2.0.0rc4" var_name="all_photos" added="1256712979">Все фотографии</phrase>
+	<phrase module_id="photo" version_id="2.0.0rc6" var_name="submitted" added="1257169324">Загружено</phrase>
+	<phrase module_id="photo" version_id="2.0.0rc6" var_name="file_size" added="1257169340">Размер файла</phrase>
+	<phrase module_id="photo" version_id="2.0.0rc6" var_name="resolution" added="1257169346">Разрешение</phrase>
+	<phrase module_id="photo" version_id="2.0.0rc6" var_name="comments" added="1257169352">Комментариев</phrase>
+	<phrase module_id="photo" version_id="2.0.0rc6" var_name="views" added="1257169359">Просмотров</phrase>
+	<phrase module_id="photo" version_id="2.0.0rc6" var_name="rating" added="1257169365">Рейтинг</phrase>
+	<phrase module_id="photo" version_id="2.0.0rc6" var_name="battle_wins" added="1257169373">Побед в конкурсе</phrase>
+	<phrase module_id="photo" version_id="2.0.0rc6" var_name="downloads" added="1257169380">Загрузки</phrase>
+	<phrase module_id="photo" version_id="2.0.0rc6" var_name="not_enough_photos_to_have_a_battle" added="1257251559">Не достаточно фотографий для фотоконкурса.</phrase>
+	<phrase module_id="photo" version_id="2.0.0rc6" var_name="get_the_battle_started_and_upload_some_photos" added="1257251607">Начните фотоконкурс, загрузив несколько фотографий.</phrase>
+	<phrase module_id="photo" version_id="2.0.0rc6" var_name="photo_successfully_deleted" added="1257256844">Фотография успешно удалена</phrase>
+	<phrase module_id="photo" version_id="2.0.0rc8" var_name="remove_tag" added="1258385449">удалить</phrase>
+	<phrase module_id="photo" version_id="2.0.0rc9" var_name="added_on_time_stamp_by_full_name" added="1259162534">Добавлено {time_stamp} пользователем {full_name}.</phrase>
+	<phrase module_id="photo" version_id="2.0.0rc9" var_name="with_a_total_of_total_vote_votes" added="1259162619">Всего голосов: {total_vote}.</phrase>
+	<phrase module_id="photo" version_id="2.0.0rc10" var_name="menu_photo_albums" added="1259613604">Фотоальбомы</phrase>
+	<phrase module_id="photo" version_id="2.0.0rc10" var_name="photo_count_for_photo_albums" added="1259673154">Счётчик фотографий для фотоальбомов</phrase>
+	<phrase module_id="photo" version_id="2.0.0rc10" var_name="by_full_name" added="1259673587">От: {full_name}</phrase>
+	<phrase module_id="photo" version_id="2.0.0rc11" var_name="no_photos_have_been_featured" added="1260189682">Нет рекомендуемых фотографий.</phrase>
+	<phrase module_id="photo" version_id="2.0.0rc11" var_name="no_photos_pending_approval" added="1260189708">Нет фотографий ожидающих одобрения.</phrase>
+	<phrase module_id="photo" version_id="2.0.0rc11" var_name="recent_photos" added="1260189785">Последние фотографии</phrase>
+	<phrase module_id="photo" version_id="2.0.0rc11" var_name="featured" added="1260189792">Рекомендуемые</phrase>
+	<phrase module_id="photo" version_id="2.0.0rc11" var_name="pending" added="1260189799">В ожидании</phrase>
+	<phrase module_id="photo" version_id="2.0.0rc11" var_name="unfeature" added="1260190575">Убрать фотометку</phrase>
+	<phrase module_id="photo" version_id="2.0.0rc11" var_name="photo_successfully_unfeatured" added="1260190782">Фотометка успешно убрана.</phrase>
+	<phrase module_id="photo" version_id="2.0.0rc11" var_name="albums" added="1260195690">Альбомы</phrase>
+	<phrase module_id="photo" version_id="2.0.0rc11" var_name="no_public_photo_albums_found" added="1260195737">Публичных фотоальбомов не найдено</phrase>
+	<phrase module_id="photo" version_id="2.0.0rc11" var_name="advanced_critique_is_encouraged_when_commenting_on_this_photo" added="1260204958">Разрешить комментарии к фотографии.</phrase>
+	<phrase module_id="photo" version_id="2.0.0rc11" var_name="criticism_is_discouraged_when_commenting_on_this_photo" added="1260204967">Запретить комментарии к фотографии.</phrase>
+	<phrase module_id="photo" version_id="2.0.0rc11" var_name="create_a_new_album" added="1260206706">Создать новый альбом</phrase>
+	<phrase module_id="photo" version_id="2.0.0rc11" var_name="user_setting_can_view_photos" added="1260276540">Разрешить обзор и просмотр фото модуля?</phrase>
+	<phrase module_id="photo" version_id="2.0.0rc12" var_name="a_href_user_link_full_name_a_liked_their_own_a_href_link_photo_album_a" added="1260451144"><![CDATA[<a href="{user_link}">{full_name}</a> понравился свой <a href="{link}">фотоальбом</a>.]]></phrase>
+	<phrase module_id="photo" version_id="2.0.0rc12" var_name="a_href_user_link_full_name_a_liked_a_href_view_user_link_view_full_name_a_s_a_href_link_photo_album_a" added="1260451210"><![CDATA[<a href="{user_link}">{full_name}</a> понравился <a href="{link}">фотоальбом</a> <a href="{view_user_link}">{view_full_name}</a>.]]></phrase>
+	<phrase module_id="photo" version_id="2.0.0rc12" var_name="a_href_user_link_full_name_a_liked_a_href_view_user_link_view_full_name_a_s_a_href_link_photo_a" added="1260452199"><![CDATA[<a href="{user_link}">{full_name}</a> понравилось <a href="{link}">фото</a> <a href="{view_user_link}">{view_full_name}</a>.]]></phrase>
+	<phrase module_id="photo" version_id="2.0.0rc12" var_name="a_href_user_link_full_name_a_liked_their_own_a_href_link_photo_a" added="1260452218"><![CDATA[<a href="{user_link}">{full_name}</a> понравилось своё <a href="{link}">фото</a>.]]></phrase>
+	<phrase module_id="photo" version_id="2.0.0rc12" var_name="a_href_user_link_full_name_a_liked_your_a_href_link_photo_album_a" added="1260458422"><![CDATA[<a href="{user_link}">{full_name}</a> понравился ваш <a href="{link}">фотоальбом</a>.]]></phrase>
+	<phrase module_id="photo" version_id="2.0.0rc12" var_name="a_href_user_link_full_name_a_liked_your_a_href_link_photo_a" added="1260459387"><![CDATA[<a href="{user_link}">{full_name}</a> понравилась ваша <a href="{link}">фото</a>.]]></phrase>
+	<phrase module_id="photo" version_id="2.0.0rc12" var_name="part_of_the_photo_album" added="1260896980">Часть фотоальбома</phrase>
+	<phrase module_id="photo" version_id="2.0.0rc12" var_name="full_name_s_albums" added="1260897047">Альбомы пользователя {full_name}</phrase>
+	<phrase module_id="photo" version_id="2.0.0" var_name="update_tags_photo" added="1261056664">Обновить фотометки</phrase>
+	<phrase module_id="photo" version_id="2.0.0" var_name="user_setting_can_view_private_photos" added="1261073026">Может ли пользователь просматривать приватные и защищённые паролем изображения?</phrase>
+	<phrase module_id="photo" version_id="2.0.0" var_name="rate_this_image" added="1261161424">Оценить фотографию</phrase>
+	<phrase module_id="photo" version_id="2.0.0" var_name="total_rating_out_of_5" added="1261179113">{total_rating} из 10</phrase>
+	<phrase module_id="photo" version_id="2.0.0" var_name="no_photos_found" added="1261179316">Фотографий не найдено.</phrase>
+	<phrase module_id="photo" version_id="2.0.0" var_name="no_photos_have_been_rated" added="1261179331">Фотографии не были оценены.</phrase>
+	<phrase module_id="photo" version_id="2.0.0" var_name="no_photo_battles_have_taken_place" added="1261179377">Ни одной топ-фотографии.</phrase>
+	<phrase module_id="photo" version_id="2.0.0" var_name="total_battle_win_s" added="1261179478"><![CDATA[Победы: <b>{total_battle}</b>]]></phrase>
+	<phrase module_id="photo" version_id="2.0.0" var_name="setting_ajax_refresh_on_featured_photos" added="1261335633"><![CDATA[<title>AJAX обновление отмеченных фото</title><info>Если эта опция включена, то блок "Отмеченные фото" будет обновляться.</info>]]></phrase>
+	<phrase module_id="photo" version_id="2.0.0" var_name="no_popular_photos_found" added="1261412466">Популярных фотографий не найдено.</phrase>
+	<phrase module_id="photo" version_id="2.0.0" var_name="no_featured_photos_found" added="1261412669">Фотографий с фотометками не найдено.</phrase>
+	<phrase module_id="photo" version_id="2.0.0" var_name="comments_total_comment" added="1261413297">Комментариев: ({total_comment})</phrase>
+	<phrase module_id="photo" version_id="2.0.0" var_name="total_score_out_of_10" added="1261413456">{total_score} из 10</phrase>
+	<phrase module_id="photo" version_id="2.0.0" var_name="sorry_the_photo_you_are_looking_for_no_longer_exists" added="1261415869"><![CDATA[К сожалению, фото, которое вы ищете больше не существует. Пожалуйста, <a href="{link}">нажмите здесь</ A> для просмотра других фотографий.]]></phrase>
+	<phrase module_id="photo" version_id="2.0.0" var_name="cancel_lowercase" added="1261511944">Отмена</phrase>
+	<phrase module_id="photo" version_id="2.0.0" var_name="personal_this_album_will_only_be_displayed_on_your_profile" added="1261514661">Личный (только вы)</phrase>
+	<phrase module_id="photo" version_id="2.0.0" var_name="public_this_album_will_be_added_to_our_public_photo_album_section" added="1261514696">Публичный (все пользователи)</phrase>
+	<phrase module_id="photo" version_id="2.0.0" var_name="delete_this_image" added="1261570267">Удалить это изображение</phrase>
+	<phrase module_id="photo" version_id="2.0.2" var_name="update_photo_thumbnails" added="1262710651">Обновить эскизы</phrase>
+	<phrase module_id="photo" version_id="2.0.3" var_name="user_setting_can_post_on_photos" added="1264423442">Разрешить комментарии к фото?</phrase>
+	<phrase module_id="photo" version_id="2.0.5" var_name="user_setting_can_sponsor_photo" added="1269941437">Могут ли пользователи этой группы размещать рекламу в фотоальбомах?</phrase>
+	<phrase module_id="photo" version_id="2.0.5" var_name="unsponsor_this_photo" added="1269941692">Завершить рекламную компанию фотографии</phrase>
+	<phrase module_id="photo" version_id="2.0.5" var_name="sponsor_this_photo" added="1269941832">Начать рекламную компанию фотографии</phrase>
+	<phrase module_id="photo" version_id="2.0.5" var_name="photo_successfully_sponsored" added="1269943956">Рекламная компания фотографии начата.</phrase>
+	<phrase module_id="photo" version_id="2.0.5" var_name="photo_successfully_un_sponsored" added="1269944039">Рекламная компания фотографии завершена.</phrase>
+	<phrase module_id="photo" version_id="2.0.5" var_name="sponsored_photo" added="1270022791">Рекламировать фото</phrase>
+	<phrase module_id="photo" version_id="2.0.5" var_name="user_setting_can_purchase_sponsor" added="1271074731">Могут ли пользователи этой группы приобрести пространство под рекламу?</phrase>
+	<phrase module_id="photo" version_id="2.0.5" var_name="sponsor_help" added="1271080634"><![CDATA[Для того, чтобы рекламировать фотографии нажмите на фото, которое вы хотите рекламировать, а затем нажмите в меню "Реклама"]]></phrase>
+	<phrase module_id="photo" version_id="2.0.5" var_name="encourage_sponsor" added="1271150118">Рекламировать ваши фотографии</phrase>
+	<phrase module_id="photo" version_id="2.0.5" var_name="user_setting_photo_sponsor_price" added="1271244034">Сколько стоит рекламное место? Работает на основе CPM.</phrase>
+	<phrase module_id="photo" version_id="2.0.5" var_name="user_setting_auto_publish_sponsored_item" added="1271418913">После того, как пользователь купил рекламное место, оно должно быть опубликовано сразу же? Если установить нет, то admin должен будет одобрить каждую новую платежную операцию для рекламы, прежде чем это будет показана на сайте.</phrase>
+	<phrase module_id="photo" version_id="2.0.5" var_name="sponsor_paypal_message" added="1271944103">Оплата за рекламную площадку для фотографии: {sPhotoTitle}</phrase>
+	<phrase module_id="photo" version_id="2.0.5" var_name="sponsor_title" added="1271944272">Фотография: {sPhotoTitle}</phrase>
+	<phrase module_id="photo" version_id="2.0.5" var_name="update_friend_count" added="1273153962">Обновить счётчик друзей</phrase>
+	<phrase module_id="photo" version_id="2.0.5" var_name="user_setting_can_view_photo_albums" added="1273168609">Может просматривать фотоальбомы?</phrase>
+	<phrase module_id="photo" version_id="2.0.5dev2" var_name="user_setting_flood_control_photos" added="1275105927"><![CDATA[Сколько времени должен ожидать пользователь, между загрузками очередных фотографий?  Примечание: если стоит по умолчанию "0" (без кавычек), то пользователи не будут ждать.]]></phrase>
+	<phrase module_id="photo" version_id="2.0.5dev2" var_name="uploading_photos_a_little_too_soon" added="1275105953">Слишком быстро, не спешите.</phrase>
+	<phrase module_id="photo" version_id="3.0.0Beta1" var_name="say_something_about_this_photo" added="1302202989">Расскажите что-нибудь об этом фото...</phrase>
+	<phrase module_id="photo" version_id="2.0.8" var_name="the_following_files_were_not_uploaded_because_their_size_exceeds_the_limit_of_ilimit_sfiles" added="1294924698">Следующие файлы не были загружены, потому что их размер превышает предел {iLimit}: {sFiles}</phrase>
+	<phrase module_id="photo" version_id="2.0.8" var_name="setting_enable_mass_uploader" added="1294927024"><![CDATA[<title>Включить массовую загрузку</title><info>огда включено, пользователи смогут выбрать несколько файлов для загрузки. Используется SWFUpload (http://code.google.com/p/swfupload/) и Flash объекты.</info>]]></phrase>
+	<phrase module_id="photo" version_id="2.0.8" var_name="use_simple_uploader" added="1296651153">Использовать простой загрузчик</phrase>
+	<phrase module_id="photo" version_id="2.0.8" var_name="use_mass_uploader" added="1296651172">Использовать массовый загрузчик</phrase>
+	<phrase module_id="photo" version_id="2.1.0beta2" var_name="user_setting_total_photo_display_profile" added="1300968617">Определите, сколько фотографий показывать в альбоме на профиле пользователя.</phrase>
+	<phrase module_id="photo" version_id="2.1.0beta2" var_name="album_successfully_created" added="1300969620">Альбом успешно создан.</phrase>
+	<phrase module_id="photo" version_id="3.0.0beta1" var_name="setting_auto_crop_photo" added="1306738298"><![CDATA[<title>Автоматическое обрезание фотографии</title><info>Если эта опция включена изображения в разделе фото будут получать фиксированную ширину и высоту, это сделает фото разделы удобными для просмотра. Все как на Facebook.</info>]]></phrase>
+	<phrase module_id="photo" version_id="3.0.0beta3" var_name="setting_view_photos_in_theater_mode" added="1316011101"><![CDATA[<title>Просмотр фотографий в режиме слайд-шоу</title><info>В некоторых областях, где показываются фотографии, пользователь нажимая на фото будет иметь возможность просматривать фотографии в режиме слайд-шоу.</info>]]></phrase>
+	<phrase module_id="photo" version_id="3.0.0beta5" var_name="create_a_new_photo_album" added="1319122273">Создать новый фотоальбом</phrase>
+	<phrase module_id="photo" version_id="3.0.0beta5" var_name="editing_photo" added="1319122283">Редактирование фото</phrase>
+	<phrase module_id="photo" version_id="3.0.0beta5" var_name="select_a_photo_to_attach" added="1319122541">Выберите изображение, которое хотите прикрепить.</phrase>
+	<phrase module_id="photo" version_id="3.0.0beta5" var_name="add_a_title" added="1319184119">Добавить название.</phrase>
+	<phrase module_id="photo" version_id="3.0.0beta5" var_name="photo_has_been_approved" added="1319184129">Фотография была одобрена.</phrase>
+	<phrase module_id="photo" version_id="3.0.0beta5" var_name="photo_approved" added="1319184137">Фото проверено</phrase>
+	<phrase module_id="photo" version_id="3.0.0beta5" var_name="successfully_updated_photo_s" added="1319184147">Фотографии успешно обновлены</phrase>
+	<phrase module_id="photo" version_id="3.0.0beta5" var_name="notice" added="1319184153">Примечание</phrase>
+	<phrase module_id="photo" version_id="3.0.0beta5" var_name="unable_to_find_the_photo_you_are_looking_for" added="1319184162">Не удалось найти фотографию, которую вы ищете.</phrase>
+	<phrase module_id="photo" version_id="3.0.0beta5" var_name="unable_to_import_this_photo" added="1319184170">Невозможно импортировать эту фотографию.</phrase>
+	<phrase module_id="photo" version_id="3.0.0beta5" var_name="note_when_selecting_a_photo_to_import" added="1319188547">Обратите внимание, при отборе фото для импорта не импортируются настройки приватности, поскольку Вы можете управлять настройками приватности с места, куда вы прикрепляете это фото.</phrase>
+	<phrase module_id="photo" version_id="3.0.0beta5" var_name="no_photos_to_select_from" added="1319188559">Нет фотографий для выбора.</phrase>
+	<phrase module_id="photo" version_id="3.0.0beta5" var_name="search_photos" added="1319190264">Поиск фото ...</phrase>
+	<phrase module_id="photo" version_id="3.0.0beta5" var_name="latest" added="1319190271">Последние</phrase>
+	<phrase module_id="photo" version_id="3.0.0beta5" var_name="most_discussed" added="1319190286">Самые обсуждаемые</phrase>
+	<phrase module_id="photo" version_id="3.0.0beta5" var_name="approve" added="1319190316">Одобрить</phrase>
+	<phrase module_id="photo" version_id="3.0.0beta5" var_name="my_photos" added="1319190348">Мои фото</phrase>
+	<phrase module_id="photo" version_id="3.0.0beta5" var_name="friends_photos" added="1319190373">Фото друзей</phrase>
+	<phrase module_id="photo" version_id="3.0.0beta5" var_name="featured_photos" added="1319190381">Популярные фото</phrase>
+	<phrase module_id="photo" version_id="3.0.0beta5" var_name="pending_photos" added="1319190393">Фото в ожидании</phrase>
+	<phrase module_id="photo" version_id="3.0.0beta5" var_name="all_albums" added="1319190402">Все альбомы</phrase>
+	<phrase module_id="photo" version_id="3.0.0beta5" var_name="my_albums" added="1319190409">Мои альбомы</phrase>
+	<phrase module_id="photo" version_id="3.0.0beta5" var_name="photo_battles" added="1319190425">Фотоконкурсы</phrase>
+	<phrase module_id="photo" version_id="3.0.0beta5" var_name="link" added="1319190492">Ссылка</phrase>
+	<phrase module_id="photo" version_id="3.0.0beta5" var_name="delete_photo" added="1319190502">Удалить фото</phrase>
+	<phrase module_id="photo" version_id="3.0.0beta5" var_name="edit_photo" added="1319190510">Изменить фото</phrase>
+	<phrase module_id="photo" version_id="3.0.0beta5" var_name="make_profile_picture" added="1319190517">Сделать фото для профиля</phrase>
+	<phrase module_id="photo" version_id="3.0.0beta5" var_name="setting_this_photo_as_your_profile_picture_please_hold" added="1319190528">Установка этого фото в профиль. Пожалуйста, ждите ...</phrase>
+	<phrase module_id="photo" version_id="3.0.0beta5" var_name="un_feature" added="1319190539">Скрыть</phrase>
+	<phrase module_id="photo" version_id="3.0.0beta5" var_name="feature" added="1319190544">Показать</phrase>
+	<phrase module_id="photo" version_id="3.0.0beta5" var_name="sponsored" added="1319190555">Рекламируемые</phrase>
+	<phrase module_id="photo" version_id="3.0.0beta5" var_name="moderate" added="1319190566">Модерация</phrase>
+	<phrase module_id="photo" version_id="3.0.0beta5" var_name="actions" added="1319190701">Действия</phrase>
+	<phrase module_id="photo" version_id="3.0.0beta5" var_name="photo_current_of_total" added="1319190720">Фото {current} из {total}</phrase>
+	<phrase module_id="photo" version_id="3.0.0beta5" var_name="previous" added="1319190735">Предыдущая</phrase>
+	<phrase module_id="photo" version_id="3.0.0beta5" var_name="next" added="1319190741">Следующая</phrase>
+	<phrase module_id="photo" version_id="3.0.0beta5" var_name="by_full_name_lowercase" added="1319190805">от {full_name}</phrase>
+	<phrase module_id="photo" version_id="3.0.0beta5" var_name="report_this_photo" added="1319190960">Пожаловаться на фото</phrase>
+	<phrase module_id="photo" version_id="3.0.0beta5" var_name="time_stamp_by_full_name" added="1319191037">{time_stamp} от {full_name}</phrase>
+	<phrase module_id="photo" version_id="3.0.0beta5" var_name="please_hold_while_your_images_are_being_processed_processing_image" added="1319191210">Пожалуйста, подождите пока ваши изображения обрабатываются. Обработка изображений.</phrase>
+	<phrase module_id="photo" version_id="3.0.0beta5" var_name="out_of" added="1319191219">из</phrase>
+	<phrase module_id="photo" version_id="3.0.0beta5" var_name="unable_to_view_this_item_due_to_privacy_settings" added="1319195316">Не удается просмотреть эту область в связи с настройками приватности.</phrase>
+	<phrase module_id="photo" version_id="3.0.0beta5" var_name="photo_s_privacy" added="1319195363">Приватность фото</phrase>
+	<phrase module_id="photo" version_id="3.0.0beta5" var_name="comment_privacy" added="1319195370">Приватность комментариев</phrase>
+	<phrase module_id="photo" version_id="3.0.0beta5" var_name="control_who_can_see_these_photo_s" added="1319195378">Кто может видеть эти фото.</phrase>
+	<phrase module_id="photo" version_id="3.0.0beta5" var_name="control_who_can_comment_on_these_photo_s" added="1319195387">Кто может прокомментировать эти фото.</phrase>
+	<phrase module_id="photo" version_id="3.0.0beta5" var_name="upload_problems_try_the_basic_uploader" added="1319195704"><![CDATA[Проблемы с загрузкой? Попробуйте <a href="{link}">простой загрузчик</a>.]]></phrase>
+	<phrase module_id="photo" version_id="3.0.0beta5" var_name="profile_pictures" added="1319195784">Фото профиля</phrase>
+	<phrase module_id="photo" version_id="3.0.0beta5" var_name="album_s_privacy" added="1319195799">Приватность альбомов</phrase>
+	<phrase module_id="photo" version_id="3.0.0beta5" var_name="control_who_can_see_this_photo_album_and_any_photos_associated_with_it" added="1319195808">Кто может просматривать этот альбом, и любые фотографии, связанные с ним.</phrase>
+	<phrase module_id="photo" version_id="3.0.0beta5" var_name="control_who_can_comment_on_this_photo_album_and_any_photos_associated_with_it" added="1319195833">Кто может прокомментировать фотоальбом и любые фотографии, связанные с ним.</phrase>
+	<phrase module_id="photo" version_id="3.0.0beta5" var_name="mass_edit_photos" added="1319197005">Массовое редактирование фото</phrase>
+	<phrase module_id="photo" version_id="3.0.0beta5" var_name="update_photo_s" added="1319197015">Обновление фото</phrase>
+	<phrase module_id="photo" version_id="3.0.0rc1" var_name="photo_album_not_found" added="1320074867">Фотоальбом не найден.</phrase>
+	<phrase module_id="photo" version_id="3.0.0rc1" var_name="album_successfully_updated" added="1320074886">Альбом успешно обновлен.</phrase>
+	<phrase module_id="photo" version_id="3.0.0rc1" var_name="album_info" added="1320074894">Сведения об альбоме</phrase>
+	<phrase module_id="photo" version_id="3.0.0rc1" var_name="view_this_album_uppercase" added="1320074913">Посмотреть этот альбом</phrase>
+	<phrase module_id="photo" version_id="3.0.0rc1" var_name="editing_album" added="1320074922">Редактирование альбомов</phrase>
+	<phrase module_id="photo" version_id="3.0.0rc1" var_name="report_this_photo_album" added="1320075087">Пожаловаться на этот фотоальбом</phrase>
+	<phrase module_id="photo" version_id="3.0.0rc1" var_name="upload_photo_s" added="1320075582">Загрузить фото</phrase>
+	<phrase module_id="photo" version_id="3.0.0rc1" var_name="edit" added="1320075589">Редактировать</phrase>
+	<phrase module_id="photo" version_id="3.0.0rc1" var_name="by_lowercase" added="1320075610">от</phrase>
+	<phrase module_id="photo" version_id="3.0.0rc2" var_name="close_full_mode" added="1321347942">Закрыть полный режим</phrase>
+	<phrase module_id="photo" version_id="3.0.0rc2" var_name="open_full_mode" added="1321347948">Открыть полный режим</phrase>
+	<phrase module_id="photo" version_id="3.0.0rc2" var_name="added_by_full_name_br_on_time_stamp" added="1321347978"><![CDATA[Добавлено {full_name}<br /> в {time_stamp}]]></phrase>
+	<phrase module_id="photo" version_id="3.0.0rc2" var_name="vs" added="1321348013">VS</phrase>
+	<phrase module_id="photo" version_id="3.0.0rc2" var_name="no_available_images_to_rate" added="1321348065">Нет доступных фото для рейтинга.</phrase>
+	<phrase module_id="photo" version_id="3.0.0rc2" var_name="no_albums_found_here" added="1321348119">Альбомы не найдены.</phrase>
+	<phrase module_id="photo" version_id="3.0.0rc2" var_name="search_photo_albums" added="1321348151">Поиск фотоальбомов...</phrase>
+	<phrase module_id="photo" version_id="3.0.0rc2" var_name="delete_this_photo_lowercase" added="1321348986">Удалить эту фотографию.</phrase>
+	<phrase module_id="photo" version_id="3.0.0rc2" var_name="who_can_share_a_photo" added="1321360826">Кто может поделиться фото?</phrase>
+	<phrase module_id="photo" version_id="3.0.0rc2" var_name="who_can_view_browse_photos" added="1321360833">Кто может просматривать фотографии?</phrase>
+	<phrase module_id="photo" version_id="3.0.0rc2" var_name="in_the_album" added="1321365448">В альбом</phrase>
+	<phrase module_id="photo" version_id="3.0.0rc2" var_name="set_as_the_album_cover" added="1321366546">Установить в качестве обложки альбома.</phrase>
+	<phrase module_id="photo" version_id="3.0.0rc2" var_name="move_to" added="1321366577">Переместить в</phrase>
+	<phrase module_id="photo" version_id="3.0.0rc2" var_name="select" added="1321366584">Выбрать</phrase>
+	<phrase module_id="photo" version_id="3.0.0rc2" var_name="control_who_can_see_this_photo" added="1321366614">Кто может видеть эту фотографию.</phrase>
+	<phrase module_id="photo" version_id="3.0.0rc2" var_name="control_who_can_comment_on_this_photo" added="1321366625">Кто может прокомментировать это фото.</phrase>
+	<phrase module_id="photo" version_id="3.0.0" var_name="update_user_photo_count" added="1322462330">Update User Photo Count</phrase>
+	<phrase module_id="photo" version_id="3.0.0" var_name="full_name_commented_on_your_photo_album_name" added="1322465669"><![CDATA[{full_name} прокомментировал(а) ваши фотографии в альбоме "{name}".]]></phrase>
+	<phrase module_id="photo" version_id="3.0.0" var_name="full_name_commented_on_your_photo_title" added="1322465959"><![CDATA[{full_name} прокомментировал(а) вашу фотографию "{title}".]]></phrase>
+	<phrase module_id="photo" version_id="3.0.0" var_name="added" added="1322466623">Добавлено</phrase>
+	<phrase module_id="photo" version_id="3.0.0" var_name="plays_lowercase" added="1322466667">играть</phrase>
+	<phrase module_id="photo" version_id="3.0.0" var_name="get_all_the_photos_for_a_user_if_you_do_not_pass_the_user_id_we_will_return_information_about_the_user_that_is_currently_logged_in" added="1322645842">Получить все фотографии пользователя.</phrase>
+	<phrase module_id="photo" version_id="3.0.0" var_name="unable_to_post_a_comment_on_this_item_due_to_privacy_settings" added="1322645871">Невозможно, оставить комментарий в связи с настройками приватности.</phrase>
+	<phrase module_id="photo" version_id="3.0.0" var_name="posted_a_comment_on_gender_photo" added="1322645988">прокомментировал(а) вашу {gender} фотографию</phrase>
+	<phrase module_id="photo" version_id="3.0.0" var_name="posted_a_comment_on_user_name_s_photo" added="1322646033"><![CDATA[прокомментировал(а) вашу {user_name} фотографию]]></phrase>
+	<phrase module_id="photo" version_id="3.0.0" var_name="full_name_commented_on_your_photo_a_href_link_title_a_to_see_the_comment_thread_follow_the_link_below_a_href_link_link_a" added="1322646178"><![CDATA[{full_name} прокомментировал(а) вашу фотографию "<a href="{link}">{title}</a>".
+Чтобы увидеть комментарии, пройдите по ссылке ниже:
+<a href="{link}">{link}</a>]]></phrase>
+	<phrase module_id="photo" version_id="3.0.0" var_name="full_name_commented_on_gender_photo" added="1322646407">{full_name} прокомментировал(а) вашу {gender} фотографию.</phrase>
+	<phrase module_id="photo" version_id="3.0.0" var_name="full_name_commented_on_other_full_name_s_photo" added="1322647040"><![CDATA[{full_name} прокомментировал(а) {other_full_name} фотографию.]]></phrase>
+	<phrase module_id="photo" version_id="3.0.0" var_name="full_name_commented_on_gender_photo_a_href_link_title_a_to_see_the_comment_thread_follow_the_link_below_a_href_link_link_a" added="1322647390"><![CDATA[{full_name} прокомментировал(а) {gender} фотографию "<a href="{link}">{title}</a>".
+Чтобы увидеть комментарии, пройдите по ссылке ниже:
+<a href="{link}">{link}</a>]]></phrase>
+	<phrase module_id="photo" version_id="3.0.0" var_name="full_name_commented_on_other_full_name_s_photo_a_href_link_title_a_to_see_the_comment_thread_follow_the_link_below_a_href_link_link_a" added="1322647522"><![CDATA[{full_name} прокомментировал(а) {other_full_name} фотографию "<a href="{link}">{title}</a>".
+Чтобы увидеть комментарии, пройдите по ссылке ниже:
+<a href="{link}">{link}</a>]]></phrase>
+	<phrase module_id="photo" version_id="3.0.0" var_name="user_name_liked_gender_own_photo_title" added="1322647856"><![CDATA[{user_name} нравится {gender} своя фотография "{title}"]]></phrase>
+	<phrase module_id="photo" version_id="3.0.0" var_name="user_name_liked_your_photo_title" added="1322647948"><![CDATA[{user_name} нравится ваша фотография "{title}"]]></phrase>
+	<phrase module_id="photo" version_id="3.0.0" var_name="user_name_liked_span_class_drop_data_user_full_name_s_span_photo_title" added="1322648103"><![CDATA[{user_name} нравится <span class="drop_data_user">{full_name}</span> фотография "{title}"]]></phrase>
+	<phrase module_id="photo" version_id="3.0.0" var_name="user_name_commented_on_gender_photo_title" added="1322648213"><![CDATA[{user_name} прокомментировал(а) {gender} фотографию "{title}"]]></phrase>
+	<phrase module_id="photo" version_id="3.0.0" var_name="user_name_commented_on_your_photo_title" added="1322648290"><![CDATA[{user_name} прокомментировал(а) вашу фотографию "{title}"]]></phrase>
+	<phrase module_id="photo" version_id="3.0.0" var_name="user_name_commented_on_span_class_drop_data_user_full_name_s_span_photo_title" added="1322648462"><![CDATA[{user_name} прокомментировал(а) <span class="drop_data_user">{full_name}</span> фотографию "{title}"]]></phrase>
+	<phrase module_id="photo" version_id="3.0.0" var_name="full_name_posted_a_href_link_photo_a_photo_a_on_a_href_link_user_parent_full_name_a_s_a_href_link_wall_wall_a" added="1322649115"><![CDATA[{full_name} опубликовал(а) <a href="{link_photo}"> фотографию</a> на <a href="{link_user}">{parent_full_name}</a> <a href="{link_wall}">стене</a>]]></phrase>
+	<phrase module_id="photo" version_id="3.0.0" var_name="user_name_liked_gender_own_photo_album_title" added="1322649280"><![CDATA[{user_name} нравится {gender} свой фотоальбом "{title}"]]></phrase>
+	<phrase module_id="photo" version_id="3.0.0" var_name="user_name_liked_your_photo_album_title" added="1322649469"><![CDATA[{user_name} нравится ваш фотоальбом "{title}"]]></phrase>
+	<phrase module_id="photo" version_id="3.0.0" var_name="user_name_liked_span_class_drop_data_user_full_name_s_span_photo_album_title" added="1322649592"><![CDATA[{user_name} нравится <span class="drop_data_user">{full_name}</span> фотоальбом "{title}"]]></phrase>
+	<phrase module_id="photo" version_id="3.0.0" var_name="full_name_commented_on_your_photo_album_a_href_link_title_a_to_see_the_comment_thread_follow_the_link_below_a_href_link_link_a" added="1322649784"><![CDATA[{full_name} прокомментировал(а) ваш фотоальбом "<a href="{link}">{title}</a>".
+Чтобы увидеть комментарии, пройдите по ссылке ниже:
+<a href="{link}">{link}</a>]]></phrase>
+	<phrase module_id="photo" version_id="3.0.0" var_name="full_name_commented_on_gender_photo_album" added="1322650140">{full_name} прокомментировал(а) {gender} фотоальбом.</phrase>
+	<phrase module_id="photo" version_id="3.0.0" var_name="full_name_commented_on_other_full_name_s_photo_album" added="1322650217"><![CDATA[{full_name} прокомментировал(а) {other_full_name} фотоальбом.]]></phrase>
+	<phrase module_id="photo" version_id="3.0.0" var_name="full_name_commented_on_gender_photo_album_a_href_link_title_a_to_see_the_comment_thread_follow_the_link_below_a_href_link_link_a" added="1322650597"><![CDATA[{full_name} прокомментировал(а) {gender} фотоальбом "<a href="{link}">{title}</a>.
+Чтобы увидеть комментарии, пройдите по ссылке ниже:
+<a href="{link}">{link}</a>]]></phrase>
+	<phrase module_id="photo" version_id="3.0.0" var_name="full_name_commented_on_other_full_name_s_photo_album_a_href_link_title_a_to_see_the_comment_thread_follow_the_link_below_a_href_link_link_a" added="1322650759"><![CDATA[{full_name} прокомментировал(а) {other_full_name} фотоальбом "<a href="{link}">{title}</a>".
+Чтобы увидеть комментарии, пройдите по ссылке ниже:
+<a href="{link}">{link}</a>]]></phrase>
+	<phrase module_id="photo" version_id="3.0.0" var_name="user_name_commented_on_gender_photo_album_title" added="1322650881"><![CDATA[{user_name} прокомментировал(а) {gender} фотоальбом "{title}"]]></phrase>
+	<phrase module_id="photo" version_id="3.0.0" var_name="user_name_commented_on_your_photo_album_title" added="1322650947"><![CDATA[{user_name} прокомментировал(а) ваш фотоальбом "{title}"]]></phrase>
+	<phrase module_id="photo" version_id="3.0.0" var_name="user_name_commented_on_span_class_drop_data_user_full_name_s_span_photo_album_title" added="1322651104"><![CDATA[{user_name} прокомментировал(а) <span class="drop_data_user">{full_name}</span> фотоальбом"{title}"]]></phrase>
+	<phrase module_id="photo" version_id="3.0.0" var_name="you_tagged_yourself_in_your_photo_title" added="1322651213"><![CDATA[You tagged yourself in your photo "{title}"]]></phrase>
+	<phrase module_id="photo" version_id="3.0.0" var_name="user_name_tagged_you_in_span_class_drop_data_user_full_name_s_span_photo_title" added="1322651318"><![CDATA[{user_name} отметил(а) <span class="drop_data_user">{full_name}</span> фотографию "{title}"]]></phrase>
+	<phrase module_id="photo" version_id="3.0.0" var_name="setting_enable_photo_battle" added="1322718976"><![CDATA[<title>Фотоконкурс</title><info>Установите <b>Да</b>, если вы хотите предоставить возможность пользователям голосовать за фотографии, загруженные другими пользователями.</info>]]></phrase>
+	<phrase module_id="photo" version_id="3.0.0" var_name="photos_unfortunately_cannot_be_uploaded_via_mobile_devices_at_this_moment" added="1322737379">К сожалению фотографии, не могут быть загружены с помощью мобильных устройств на данный момент.</phrase>
+	<phrase module_id="photo" version_id="3.0.0" var_name="photo_album" added="1322737409">Фотоальбом:</phrase>
+	<phrase module_id="photo" version_id="3.0.0" var_name="profile_photo_successfully_updated" added="1322737467">Фотография профиля успешно обновлена.</phrase>
+	<phrase module_id="photo" version_id="3.0.0" var_name="photo_s_successfully_approved" added="1322740660">Фотография(и) успешно провера(ы).</phrase>
+	<phrase module_id="photo" version_id="3.0.0" var_name="photo_s_successfully_deleted" added="1322740672">Фотография(и) успешно удалена(ы).</phrase>
+	<phrase module_id="photo" version_id="3.0.0" var_name="save_changes" added="1323086740">Сохранить</phrase>
+	<phrase module_id="photo" version_id="3.0.0" var_name="subcategories" added="1323170112">Подкатегории</phrase>
+	<phrase module_id="photo" version_id="3.0.0" var_name="your_photo_title_has_been_approved" added="1323327516"><![CDATA[Ваша фотография "{title}" была проверена.]]></phrase>
+	<phrase module_id="photo" version_id="3.1.0beta1" var_name="setting_display_profile_photo_within_gallery" added="1329766842"><![CDATA[<title>Показывать фотографии профиля в галерее</title><info>Отключите эту функцию, если вы не хотите отображать фотографии профиля в фотогалерее.</info>]]></phrase>
+	<phrase module_id="photo" version_id="3.1.0beta1" var_name="update_profile_photos" added="1329769181">Обновить фотографии профиля</phrase>
+	<phrase module_id="photo" version_id="3.1.0beta1" var_name="user_name_tagged_you_in_a_comment_in_a_photo" added="1331221050">{user_name} отметил(а) ваш комментарий у фотографии</phrase>
+	<phrase module_id="photo" version_id="3.1.0beta1" var_name="user_name_tagged_you_in_a_comment_in_a_photo_album" added="1331221198">{user_name} отметил(а) ваш комментарий в фотоальбоме</phrase>
+	<phrase module_id="photo" version_id="3.1.0rc1" var_name="tagged_gender_on_a_href_link_photo_full_name_s_photo" added="1332162548"><![CDATA[отметил(а) {gender}  <a href="{link}">{photo_full_name}вашу фотографию.]]></phrase>
+	<phrase module_id="photo" version_id="3.1.0" var_name="read_more" added="1332840601">Подробнее</phrase>
+	<phrase module_id="photo" version_id="3.2.0" var_name="your_photo_has_been_approved_message" added="1335946950"><![CDATA[Ваша фотография "<a href=&#039;{sLink}&#039;>{title}</a>" была проверена.
+Для просмотра фотографий перейдите по следующей ссылке:
+<a href="{sLink}">{sLink}</a>]]></phrase>
+	<phrase module_id="photo" version_id="3.3.0beta1" var_name="setting_photo_upload_process" added="1337064029"><![CDATA[<title>Изменение фотографий после загрузки</title><info>Включите этот параметр, если вы хотите разрешить пользователям редактировать фотографии после загрузки.</info>]]></phrase>
+	<phrase module_id="photo" version_id="3.3.0beta1" var_name="in_this_album" added="1339154953">В этом альбоме</phrase>
+	<phrase module_id="photo" version_id="3.3.0beta1" var_name="please_upload_an_image_for_your_profile" added="1340029029">Пожалуйста, загрузите изображение для вашего профиля.</phrase>
+	<phrase module_id="photo" version_id="3.3.0beta2" var_name="full_name_tagged_you_on_gender_photo" added="1340286898"><![CDATA[{full_name} отметил(а) вас на {gender} фото "<a href="{link}">{title}</a>".]]></phrase>
+	<phrase module_id="photo" version_id="3.3.0beta2" var_name="full_name_tagged_you_on_user_photo" added="1340287021"><![CDATA[{full_name} отметил(а) вас на {other_full_name} фото "<a href="{link}">{title}</a>
+Для просмотра фотографий перейдите по следующей ссылке:
+<a href="{link}">{link}</a>]]></phrase>
+	<phrase module_id="photo" version_id="3.3.0beta2" var_name="full_name_tagged_you_in_a_photo" added="1340287175">{full_name} отметил(а) вас на фотографии.</phrase>
+	<phrase module_id="photo" version_id="3.3.0beta2" var_name="menu_photo_upload_a_new_image_714586c73197300f65ba08f7dee8cb4a" added="1340638576">Загрузить новое изображение</phrase>
+	<phrase module_id="photo" version_id="3.3.0beta2" var_name="photo_details" added="1340815615">Детали фото</phrase>
+</phrases>

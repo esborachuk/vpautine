@@ -5,7 +5,7 @@
  * @copyright		[PHPFOX_COPYRIGHT]
  * @author  		Raymond_Benc
  * @package 		Phpfox
- * @version 		$Id: form.html.php 4106 2012-04-18 09:28:09Z Miguel_Espinoza $
+ * @version 		$Id: form.html.php 4854 2012-10-09 05:20:40Z Raymond_Benc $
  */
  
 defined('PHPFOX') or exit('NO DICE!');
@@ -16,8 +16,8 @@ defined('PHPFOX') or exit('NO DICE!');
 	<a href="#" class="privacy_setting_active{if $sPrivacyFormType == 'mini'} js_hover_title{/if}">{$aSelectedPrivacyControl.phrase}<span class="js_hover_info">{$aSelectedPrivacyControl.phrase}</span></a>
 	<div class="privacy_setting_holder">
 		<ul>
-		{foreach from=$aPrivacyControls item=aPrivacyControl}
-			<li><a href="#"{if isset($aPrivacyControl.onclick)} onclick="{$aPrivacyControl.onclick} return false;"{/if} rel="{$aPrivacyControl.value}" {if isset($aPrivacyControl.is_active)}class="is_active_image"{/if}>{$aPrivacyControl.phrase}</a></li>
+		{foreach from=$aPrivacyControls name=privacycontrol item=aPrivacyControl}
+			<li><a href="#"{if isset($aPrivacyControl.onclick)} onclick="{$aPrivacyControl.onclick} return false;"{/if} rel="{$aPrivacyControl.value}" {if (isset($aPrivacyControl.is_active)) || (isset($bNoActive) && $bNoActive && $phpfox.iteration.privacycontrol == 1)}class="is_active_image"{/if}>{$aPrivacyControl.phrase}</a></li>
 		{/foreach}
 		</ul>
 	</div>

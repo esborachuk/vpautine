@@ -169,12 +169,11 @@ $Core.handlePasteInFeed = function(oObj)
 	}
 }
 
-$Behavior.activityFeedProcess = function()
-	{				
+$Behavior.activityFeedProcess = function(){	
 		if (!$Core.exists('#js_feed_content')){
 			$iReloadIteration = 0;
 			return;
-		}
+		}	
 		
 		if ($Core.exists('.global_view_more')){
 			if ($Core.isInView('.global_view_more')){
@@ -186,7 +185,14 @@ $Behavior.activityFeedProcess = function()
 					$Core.forceLoadOnFeed();
 				}			
 			});							
-		}		
+		}	
+		
+		$('.like_count_link').each(function(){
+			var sHtml = $(this).parent().find('.like_count_link_holder:first').html();
+			if (empty(sHtml)){
+				$(this).parents('.activity_like_holder:first').hide();
+			}
+		});
 		
 		$sFormAjaxRequest = $('.activity_feed_form_attach li a.active').find('.activity_feed_link_form_ajax').html();
 		if (typeof Plugin_sFormAjaxRequest == 'function')
@@ -203,8 +209,8 @@ $Behavior.activityFeedProcess = function()
 				else{
 					if (!$('.timeline_main_menu').hasClass('timeline_main_menu_fixed')){
 						$('.timeline_main_menu').addClass('timeline_main_menu_fixed');
-						
-						if ($('.content').height() > 600){
+
+						if ($('#content').height() > 600){
 							$('#timeline_dates').addClass('timeline_dates_fixed');
 						}						
 					}					
@@ -308,14 +314,16 @@ $Behavior.activityFeedProcess = function()
 			}
 			
 			return false;
-		});
+		});		
 		
 		$('.activity_feed_form_attach li a').click(function()
 		{			
 			$sCurrentForm = $(this).attr('rel');
 			
 			if ($sCurrentForm == 'view_more_link'){
+				
 				$('.view_more_drop').toggle();
+				
 				return false;
 			}
 			else{
@@ -408,22 +416,31 @@ $Behavior.activityFeedProcess = function()
 			{
 				$('.activity_feed_form_button_status_info').hide();
 			}		
-						
-			if (((navigator.userAgent.match(/iPhone/i)) ||  (navigator.userAgent.match(/iPod/i)) || (navigator.userAgent.match(/iPad/i))) )
-			{				
-				if ($('#Filedata').length < 1) /* it means we already added it and triggered mobileInit() */
-				{
-					$('.activity_feed_form_button .button').hide().after('<input type="button" name="Filedata" id="Filedata" value="Choose photo">');
-					mobileInit();
-				}
-				
+					
+			if ($(this).attr('rel') == 'global_attachment_photo'){
+				if (((navigator.userAgent.match(/iPhone/i)) ||  (navigator.userAgent.match(/iPod/i)) || (navigator.userAgent.match(/iPad/i))) )
+				{				
+					// if ($('#Filedata').length < 1) /* it means we already added it and triggered mobileInit() */
+					$('#js_piccup_upload').remove();
+					$('.activity_feed_form_button .button').hide().after('<div id="js_piccup_upload"><input type="button" name="Filedata" id="Filedata" value="Choose photo"></div>');
+					mobileInit();					
+				}			
 			}
+			else{
+				$('.activity_feed_form_button .button').show();
+				$('#js_piccup_upload').hide();
+			}
+			
 			return false;
 		});		
 	}
 
 $Behavior.activityFeedLoader = function()
-{		
+{
+	if (empty($('.view_more_drop').html())){
+		$('.timeline_view_more').parent().hide();
+	}	
+	
 	/**
 	 * Click on adding a new comment link.
 	 */
@@ -508,6 +525,7 @@ $Behavior.activityFeedLoader = function()
 		
 		$(this).parent().parent().find('.js_feed_comment_process_form:first').show(); 
 		$(this).ajaxCall('comment.add'); 
+		$(this).find('.error_message').remove();
 			
 		return false;		
 	});
@@ -515,7 +533,7 @@ $Behavior.activityFeedLoader = function()
 	$('.js_comment_feed_new_reply').click(function(){
 		
 		var oParent = $(this).parents('.js_mini_feed_comment:first').find('.js_comment_form_holder:first');
-		if (Editor.sEditor == 'tiny_mce' || Editor.sEditor == 'tinymce'){
+		if ((Editor.sEditor == 'tiny_mce' || Editor.sEditor == 'tinymce') && isset(tinyMCE) && isset(tinyMCE.activeEditor)){
 			$('.js_comment_feed_form').find('.js_feed_comment_parent_id:first').val($(this).attr('rel'));
 			tinyMCE.activeEditor.focus();			
 			if (typeof($.scrollTo) == 'function'){
@@ -529,6 +547,8 @@ $Behavior.activityFeedLoader = function()
 		
 		oParent.find('.js_comment_feed_textarea:first').focus();
 		$Core.commentFeedTextareaClick(oParent.find('.js_comment_feed_textarea:first'));
+		
+		$('.js_feed_add_comment_button .error_message').remove();
 		
 		$Core.loadInit();
 		/*$Behavior.activityFeedLoader();*/
@@ -625,10 +645,10 @@ $ActivityFeedCompleted.photo = function()
 	$('#global_attachment_photo_file_input').val('');
 }
 
-
+var sToReplace = '';
 
 function attachFunctionTagger(sSelector)
-{	
+{
 	$(sSelector).data('selector', sSelector).keyup(function(eventObject, sSelector){				
 				var sInput = $($(this).data('selector')).val();
 				
@@ -639,36 +659,39 @@ function attachFunctionTagger(sSelector)
 				{
 					$($(this).data('selector')).siblings('.chooseFriend').hide(function(){$(this).remove();});
 					return;
-				}
-				var sNameToFind = sInput.substring(iAtSymbol+1, iInputLength);
+				}			
 				
+				var sNameToFind = sInput.substring(iAtSymbol+1, iInputLength);				
 				
 				/* loop through friends */
 				var aFoundFriends = [], sOut = '';
+				
 				for (var i in $Cache.friends)
 				{
 					if ($Cache.friends[i]['full_name'].toLowerCase().indexOf(sNameToFind.toLowerCase()) >= 0)
 					{
+						var sNewInput = sInput.substr(0, iAtSymbol).replace(/\'/g,'\\\'').replace(/\"/g,'&#34;');
+						sToReplace = sNewInput;
 						
-						var sNewInput = sInput.substr(0, iAtSymbol).replace(/\'/g,'\\\'').replace(/\"/g,'&#34;');						
-						aFoundFriends.push({user_id: $Cache.friends[i]['user_id'], full_name: $Cache.friends[i]['full_name'], user_image: $Cache.friends[i]['user_image']});											
-						
-						sOut += '<div class="tagFriendChooser" onclick="$(\''+ $(this).data('selector') +'\').val(\''+ sNewInput + '[x=' + $Cache.friends[i]['user_id'] + ']' + $Cache.friends[i]['full_name'] +'[/x]\').putCursorAtEnd();$(\''+$(this).data('selector')+'\').siblings(\'.chooseFriend\').remove();"><div class="tagFriendChooserImage"><img style="vertical-align:middle;width:25px; height:25px;" src="'+$Cache.friends[i]['user_image'] + '"> </div><span>' +(($Cache.friends[i]['full_name'].length > 25) ?($Cache.friends[i]['full_name'].substr(0,25) + '...') : $Cache.friends[i]['full_name']) + '</span></div>';
+						aFoundFriends.push({user_id: $Cache.friends[i]['user_id'], full_name: $Cache.friends[i]['full_name'], user_image: $Cache.friends[i]['user_image']});				
+
+						sOut += '<div class="tagFriendChooser" onclick="$(\''+ $(this).data('selector') +'\').val(sToReplace + \'\' + (getParam(\'bEnableMicroblogSite\') ? \'@' + $Cache.friends[i]['user_name'] + '\' : \'[x=' + $Cache.friends[i]['user_id'] + ']' + $Cache.friends[i]['full_name'] +'[/x]\') + \' \').putCursorAtEnd();$(\''+$(this).data('selector')+'\').siblings(\'.chooseFriend\').remove();"><div class="tagFriendChooserImage"><img style="vertical-align:middle;width:25px; height:25px;" src="'+$Cache.friends[i]['user_image'] + '"> </div><span>' + (($Cache.friends[i]['full_name'].length > 25) ?($Cache.friends[i]['full_name'].substr(0,25) + '...') : $Cache.friends[i]['full_name']) + '</span></div>';
 						/* just delete the fancy choose your friend and recreate it */
+						sOut = sOut.replace("\n", '').replace("\r", '');
+						
 					}
 				}
-				
 				$($(this).data('selector')).siblings('.chooseFriend').remove();
-				$($(this).data('selector')).after('<div class="chooseFriend" style="width: '+ $(this).parent().width()+'px;">'+sOut+'</div>');
+				if (!empty(sOut)){
+					$($(this).data('selector')).after('<div class="chooseFriend" style="width: '+ $(this).parent().width()+'px;">'+sOut+'</div>');
+				}
 				
 			}).focus(function(){
 				if (typeof $Cache == 'undefined' || typeof $Cache.friends == 'undefined')
 				{
-					
 					$.ajaxCall('friend.buildCache','','GET');
 				}
-			});
-			
+			});			
 }
 
 
@@ -702,8 +725,7 @@ $Behavior.tagger = function()
 	for (var i in aSelectors)
 	{
 		var sSelector = aSelectors[i];
-		
-		
+				
 		/* Dont tag users in feeds in pages, events or profiles other than mine*/
 		if (sSelector == '#pageFeedTextarea' || sSelector == '#eventFeedTextarea'  || sSelector == '#profileFeedTextarea') 
 		{

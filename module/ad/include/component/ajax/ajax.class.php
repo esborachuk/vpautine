@@ -11,7 +11,7 @@ defined('PHPFOX') or exit('NO DICE!');
  * @copyright		[PHPFOX_COPYRIGHT]
  * @author  		Raymond Benc
  * @package 		Phpfox_Ajax
- * @version 		$Id: ajax.class.php 4470 2012-07-05 09:53:29Z Miguel_Espinoza $
+ * @version 		$Id: ajax.class.php 5159 2013-01-18 08:42:08Z Miguel_Espinoza $
  */
 class Ad_Component_Ajax_Ajax extends Phpfox_Ajax
 {
@@ -32,14 +32,14 @@ class Ad_Component_Ajax_Ajax extends Phpfox_Ajax
 	
 	public function changeImage()
 	{
-		unlink(Phpfox::getParam('ad.dir_image') . sprintf($this->get('image'), ''));
+		Phpfox::getLib('file')->unlink(Phpfox::getParam('ad.dir_image') . sprintf($this->get('image'), ''));
 		
 		$this->show('#js_image_holder_link');
 	}
 	
 	public function getAdPrice()
 	{
-		if (($aPlan = Phpfox::getService('ad')->getPlan($this->get('location'), false)))
+		if (($aPlan = Phpfox::getService('ad')->getPlan($this->get('block_id'), false)))
 		{
 			
 			//$this->html('#js_ad_info_cost', '' . Phpfox::getService('core.currency')->getCurrency($aPlan['default_cost']) . ($this->get('isCPM') == true ? (' CPM (' . Phpfox::getPhrase('ad.total_ad_views', array('total' => '1000')) . ')' ) : (' /click')));
@@ -63,7 +63,7 @@ class Ad_Component_Ajax_Ajax extends Phpfox_Ajax
 		}
 		else 
 		{			
-			if (($aPlan = Phpfox::getService('ad')->getPlan($this->get('location'), false)))
+			if (($aPlan = Phpfox::getService('ad')->getPlan($this->get('location'), true)))
 			{
 				$iTotal = ($this->get('isCPM') ? (($this->get('total') / 1000) * $aPlan['default_cost']) : ($this->get('total')*$aPlan['default_cost']));
 				$this->html('#js_ad_cost', Phpfox::getService('core.currency')->getCurrency($iTotal))

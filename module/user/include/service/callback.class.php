@@ -11,13 +11,47 @@ defined('PHPFOX') or exit('NO DICE!');
  * @copyright		[PHPFOX_COPYRIGHT]
  * @author  		Raymond Benc
  * @package  		Module_User
- * @version 		$Id: callback.class.php 4520 2012-07-18 14:08:39Z Miguel_Espinoza $
+ * @version 		$Id: callback.class.php 5076 2012-12-12 15:57:18Z Miguel_Espinoza $
  */
 class User_Service_Callback extends Phpfox_Service
 {
 	public function  __construct()
 	{
 		$this->_sTable = Phpfox::getT('user');
+	}
+	
+	public function paymentApiCallback($aParams)
+	{
+		Phpfox::log('Module callback recieved: ' . var_export($aParams, true));
+		
+		$aRow = $this->database()->select('pp.*, ua.activity_points')
+			->from(Phpfox::getT('point_purchase'), 'pp')
+			->join(Phpfox::getT('user_activity'), 'ua', 'ua.user_id = pp.user_id')
+			->where('pp.purchase_id = ' . (int) $aParams['item_number'])
+			->execute('getSlaveRow');
+		
+		if (!isset($aRow['purchase_id']))
+		{
+			Phpfox::log('Unable to find this purchase.');
+			
+			return false;
+		}
+		
+		if ($aParams['status'] == 'completed')
+		{
+			$iNewTotal = (int) ($aRow['activity_points'] + $aRow['total_point']);
+			
+			$this->database()->update(Phpfox::getT('point_purchase'), array('status' => '1'), 'purchase_id = ' . (int) $aRow['purchase_id']);
+			$this->database()->update(Phpfox::getT('user_activity'), array('activity_points	' => $iNewTotal), 'user_id = ' . (int) $aRow['user_id']);
+			
+			Phpfox::log('Purchase completed. Giving the user #' . $aRow['user_id'] . ' ' . $iNewTotal . ' points.');
+			
+			return true;
+		}
+		
+		Phpfox::log('Purchase was not paid.');
+		
+		return false;
 	}
 	
 	public function getActivityFeedBirth($aRow)
@@ -844,6 +878,11 @@ class User_Service_Callback extends Phpfox_Service
 			->where('us.status_id = ' . (int) $aItem['item_id'])
 			->execute('getSlaveRow');	
 		
+		if (empty($aRow))
+		{
+			return false;
+		}
+		
 		if (!empty($aItem['content']))
 		{
 			if (!empty($aItem['content']))
@@ -882,6 +921,16 @@ class User_Service_Callback extends Phpfox_Service
 			'comment_type_id' => 'user_status',
 			'like_type_id' => 'user_status'			
 		);	
+		
+		if (!empty($aRow['location_name']))
+		{
+			$aReturn['location_name'] = $aRow['location_name'];
+		}
+		if (!empty($aRow['location_latlng']))
+		{
+			$aReturn['location_latlng'] = json_decode($aRow['location_latlng'], true);
+		}
+		
 		if (!empty($aItem['app_id']))
 		{
 			$aApp = $this->database()->select('app_title, app_id')->from(Phpfox::getT('app'))
@@ -890,6 +939,7 @@ class User_Service_Callback extends Phpfox_Service
 			$sLink = '<a href="' . Phpfox::permalink('apps', $aApp['app_id'], $aApp['app_title']) . '">' . $aApp['app_title'] . '</a>';
 			$aReturn['app_link'] = $sLink;
 		}
+		
 		return $aReturn;
 	}
 	
@@ -1131,6 +1181,24 @@ Phpfox::getPhrase('user.full_name_commented_on_gender_status_update_a_href_link_
 				//'anyone' => true,
 				
 				
+			)
+		);
+	}
+	
+	public function getActions()
+	{
+		return array(
+			'dislike' => array(
+				'enabled' => true,
+				'action_type_id' => 2, // 2 = dislike
+				'phrase' => 'Dislike',
+				'phrase_in_past_tense' => 'disliked',
+				'item_phrase' => Phpfox::getPhrase('comment.item_phrase'),
+				'item_type_id' => 'user-status', // used to differentiate between photo albums and photos for example. This is not a phrase
+				'table' => 'comment',
+				'column_update' => 'total_dislike',
+				'column_find' => 'comment_id',
+				'where_to_show' => array('')			
 			)
 		);
 	}

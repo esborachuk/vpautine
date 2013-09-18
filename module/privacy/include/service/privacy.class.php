@@ -11,7 +11,7 @@ defined('PHPFOX') or exit('NO DICE!');
  * @copyright		[PHPFOX_COPYRIGHT]
  * @author  		Raymond Benc
  * @package  		Module_Privacy
- * @version 		$Id: privacy.class.php 4545 2012-07-20 10:40:35Z Raymond_Benc $
+ * @version 		$Id: privacy.class.php 5077 2012-12-13 09:05:45Z Raymond_Benc $
  */
 class Privacy_Service_Privacy extends Phpfox_Service 
 {
@@ -183,6 +183,8 @@ class Privacy_Service_Privacy extends Phpfox_Service
 				break;
 		}
 		
+		(($sPlugin = Phpfox_Plugin::get('privacy.service_privacy_getphrase')) ? eval($sPlugin) : '');
+		
 		return $sPhrase;
 	}
 	
@@ -236,7 +238,7 @@ class Privacy_Service_Privacy extends Phpfox_Service
 										
 			$this->database()->select(($bIsCount ? (isset($aCond['distinct']) ? 'COUNT(DISTINCT ' . $aCond['distinct'] . ')' : 'COUNT(*)') : $aCond['alias'] . '.*'))
 				->from($aCond['table'], $aCond['alias'])						
-				->join(Phpfox::getT('privacy'), 'p', 'p.module_id = \'' . $aCond['module_id'] . '\' AND p.item_id = ' . $aCond['alias'] . '.' . $aCond['field'])
+				->join(Phpfox::getT('privacy'), 'p', 'p.module_id = \'' . str_replace('.', '_', $aCond['module_id']) . '\' AND p.item_id = ' . $aCond['alias'] . '.' . $aCond['field'])
 				->join(Phpfox::getT('friend_list_data'), 'fld', 'fld.list_id = p.friend_list_id AND fld.friend_user_id = ' . Phpfox::getUserId() . '')
 				->where($aCustomCond)									
 				->union();

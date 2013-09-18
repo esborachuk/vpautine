@@ -11,7 +11,7 @@ defined('PHPFOX') or exit('NO DICE!');
  * @copyright		[PHPFOX_COPYRIGHT]
  * @author  		Raymond Benc
  * @package  		Module_Admincp
- * @version 		$Id: setting.class.php 3956 2012-03-01 12:28:26Z Raymond_Benc $
+ * @version 		$Id: setting.class.php 5196 2013-01-25 12:35:36Z Raymond_Benc $
  */
 class Admincp_Service_Setting_Setting extends Phpfox_Service 
 {
@@ -176,6 +176,57 @@ class Admincp_Service_Setting_Setting extends Phpfox_Service
 				
 		$aTimezones = Phpfox::getService('core')->getTimeZones();
 		
+		if (defined('PHPFOX_IS_HOSTED_SCRIPT'))
+		{
+			$aNotAllowedToEdit = array(
+					'core.allow_cdn',
+					'core.amazon_access_key',
+					'core.amazon_secret_key',
+					'core.amazon_bucket',
+					'core.amazon_bucket_created',
+					'core.cdn_cname',
+					'core.cdn_amazon_https',
+					'core.cdn_service',
+					'core.enable_amazon_expire_urls',
+					'core.amazon_s3_expire_url_timeout',
+					'core.rackspace_username',
+					'core.rackspace_key',
+					'core.rackspace_container',
+					'core.rackspace_url',
+					'core.unzip_path',
+					'core.tar_path',
+					'core.zip_path',
+					'core.session_prefix',
+					'core.cookie_path',
+					'core.cookie_domain',
+					'core.admin_debug_mode',
+					'core.log_missing_images',
+					'core.cache_plugins',
+					'core.ftp_enabled',
+					'core.ftp_host',
+					'core.ftp_username',
+					'core.ftp_password',
+					'core.ftp_dir_path',
+					'log.active_session',
+					'core.build_format',
+					'core.log_site_activity',
+					'core.cache_js_css',
+					'core.enable_getid3_check',
+					'core.force_https_secure_pages',
+					'core.disable_hash_bang_support',
+					'core.site_wide_ajax_browsing',
+					'core.mail_smtp_password',
+					'core.use_dnscheck',
+					'core.mail_smtp_port',
+					'core.mail_smtp_username',
+					'core.mail_smtp_authentication',
+					'core.mailsmtphost',
+					'core.method',
+					'apps.openssl_config_path',
+					'apps.token_keep_alive'
+				);
+		}
+		
 		$aCacheSetting = array();
 		foreach ($aRows as $iKey => $aRow)
 		{
@@ -185,6 +236,16 @@ class Admincp_Service_Setting_Setting extends Phpfox_Service
 				
 				continue;
 			}			
+			
+			if (defined('PHPFOX_IS_HOSTED_SCRIPT') && !defined('PHPFOX_SHOW_HIDDEN'))
+			{				
+				if (in_array($aRow['module_id'] . '.' . $aRow['var_name'], $aNotAllowedToEdit))
+				{
+					unset($aRows[$iKey]);
+					
+					continue;
+				}	
+			}
 			
 			$aCacheSetting[$aRow['var_name']] = true;
 			
@@ -254,16 +315,13 @@ class Admincp_Service_Setting_Setting extends Phpfox_Service
 				if ($aRows[$iKey]['setting_info'])
 				{					
 					$aRows[$iKey]['setting_info'] = preg_replace("/<setting>([a-z\._]+)<\/setting>/i", "<a href=\"" . Phpfox::getLib('url')->makeUrl('admincp', array('setting', 'search', 'var' => '$1')) . "\">$1</a>", $aRows[$iKey]['setting_info']);
-					$aRows[$iKey]['setting_info'] = preg_replace("/\{url link\='(.*?)'\}/is", "" . Phpfox::getLib('url')->makeUrl('$1') . "", $aRows[$iKey]['setting_info']);
-					
-					// I dont know why this regex didnt work in index.php?do=/admincp/setting/edit/group-id_cron/ the one above did but the one below worked fine in http://www.functions-online.com/preg_replace.html with the same text...
-					//$aRows[$iKey]['setting_info'] = preg_replace("/<setting>(.*)<\/setting>/i", "<a href=\"" . Phpfox::getLib('url')->makeUrl('admincp', array('setting', 'search', 'var' => '$1')) . "\">$1</a>", $aRows[$iKey]['setting_info']);				
+					$aRows[$iKey]['setting_info'] = preg_replace("/\{url link\='(.*?)'\}/is", "" . Phpfox::getLib('url')->makeUrl('$1') . "", $aRows[$iKey]['setting_info']);				
 				}
 			}			
 			
 			unset($aRows[$iKey]['title']);
 			
-			if ($aRow['var_name'] == 'on_signup_new_friend')
+			if ($aRow['var_name'] == 'on_signup_new_friend' || ($aRow['var_name'] == 'admin_in_charge_of_page_claims'))
 			{
 				$aUserArray = array();
 				$aUsers = $this->database()->select('user_id, full_name')
@@ -319,6 +377,24 @@ class Admincp_Service_Setting_Setting extends Phpfox_Service
 			if ($aRow['var_name'] == 'ftp_password')
 			{
 				$aRows[$iKey]['value_actual'] = substr_replace(base64_decode(base64_decode($aRow['value_actual'])), '', -32);									
+			}
+			
+			if ($aRow['var_name'] == 'points_conversion_rate')
+			{
+				$aValueActuals = array();
+				if (!empty($aRow['value_actual']))
+				{
+					$aValueActuals = json_decode($aRow['value_actual'], true);					
+				}
+				$aCurrencies = Phpfox::getService('core.currency')->get();
+				$aDisplayValues = array();
+				foreach ($aCurrencies as $sCurrencyKey => $aCurrencyValue)
+				{
+					$aDisplayValues[$sCurrencyKey] = (isset($aValueActuals[$sCurrencyKey]) ? $aValueActuals[$sCurrencyKey] : '');
+				}
+
+				$aRows[$iKey]['type_id'] = 'multi_text';
+				$aRows[$iKey]['values'] = $aDisplayValues;				
 			}
 		}	
 		

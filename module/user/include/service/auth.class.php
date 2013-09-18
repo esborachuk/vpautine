@@ -11,7 +11,7 @@ defined('PHPFOX') or exit('NO DICE!');
  * @copyright		[PHPFOX_COPYRIGHT]
  * @author  		Raymond Benc
  * @package  		Module_User
- * @version 		$Id: auth.class.php 4288 2012-06-18 13:16:50Z Miguel_Espinoza $
+ * @version 		$Id: auth.class.php 5305 2013-02-01 11:55:29Z Miguel_Espinoza $
  */
 class User_Service_Auth extends Phpfox_Service
 {
@@ -86,7 +86,7 @@ class User_Service_Auth extends Phpfox_Service
 				if ((Phpfox::getLib('request')->get('req1') == '') || (Phpfox::getLib('request')->get('req1') == 'core'))
 				{
 					$bLoadUserField = true;
-					$sUserFieldSelect .= 'uf.total_view, u.last_login, ';
+					$sUserFieldSelect .= 'uf.total_view, u.last_login, uf.location_latlng, ';
 				}
 					
 				if (strtolower(Phpfox::getLib('request')->get('req1')) == Phpfox::getParam('admincp.admin_cp'))
@@ -94,7 +94,12 @@ class User_Service_Auth extends Phpfox_Service
 					$bLoadUserField = true;
 					$sUserFieldSelect .= 'uf.in_admincp, ';						
 				}
-
+				
+				if (Phpfox::isModule('ad') && Phpfox::getParam('ad.advanced_ad_filters'))
+				{
+					$bLoadUserField = true;
+					$sUserFieldSelect .= 'uf.postal_code, uf.city_location, uf.country_child_id, ';
+				}
 				if ($bLoadUserField === true)
 				{
 					$this->database()->select($sUserFieldSelect)->join(Phpfox::getT('user_field'), 'uf', 'uf.user_id = u.user_id');
@@ -105,7 +110,7 @@ class User_Service_Auth extends Phpfox_Service
 					$this->database()->select('uactivity.activity_points, uactivity.user_id AS activity_user_id, ')->leftJoin(Phpfox::getT('user_activity'), 'uactivity', 'uactivity.user_id = u.user_id');
 				}
 
-				$this->_aUser = $this->database()->select('u.profile_page_id, u.status_id, u.view_id, u.user_id, u.server_id, u.user_group_id, u.user_name, u.email, u.gender, u.style_id, u.language_id, u.birthday, u.full_name, u.user_image, u.password, u.password_salt, u.joined, u.hide_tip, u.status, u.footer_bar, u.country_iso, u.time_zone, u.dst_check, u.last_activity, u.im_beep, u.im_hide, u.is_invisible, u.total_spam ' . $sSelect)
+				$this->_aUser = $this->database()->select('u.profile_page_id, u.status_id, u.view_id, u.user_id, u.server_id, u.user_group_id, u.user_name, u.email, u.gender, u.style_id, u.language_id, u.birthday, u.full_name, u.user_image, u.password, u.password_salt, u.joined, u.hide_tip, u.status, u.footer_bar, u.country_iso, u.time_zone, u.dst_check, u.last_activity, u.im_beep, u.im_hide, u.is_invisible, u.total_spam, u.feed_sort ' . $sSelect)
 					->from($this->_sTable, 'u')
 					->where("u.user_id = '" . $this->database()->escape($iUserId) . "'")
 					->execute('getRow');	
@@ -135,8 +140,13 @@ class User_Service_Auth extends Phpfox_Service
 				}
 
 				(($sPlugin = Phpfox_Plugin::get('user.service_auth___construct_end')) ? eval($sPlugin) : false);
+				
 				unset($this->_aUser['password'], $this->_aUser['password_salt']);
-				//Phpfox::getService('core.process')->trackUpload();
+				
+				if (isset($this->_aUser['fb_user_id']) && $this->_aUser['fb_user_id'] > 0 && $this->_aUser['fb_is_unlinked'])
+				{
+					$this->_aUser['fb_user_id'] = 0;	
+				}
 			}
 			else
 			{
@@ -584,7 +594,7 @@ class User_Service_Auth extends Phpfox_Service
 		}
 		
 		// user needs to be approved first
-		if (Phpfox::isUser() && Phpfox::getUserBy('view_id') == '1' && Phpfox::getParam('user.approve_users'))
+		if (Phpfox::isUser() && Phpfox::getUserBy('view_id') == '1')
 		{			
 			$this->_setDefault();
 			$this->logout();			

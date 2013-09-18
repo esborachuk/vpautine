@@ -11,7 +11,7 @@ defined('PHPFOX') or exit('NO DICE!');
  * @copyright		[PHPFOX_COPYRIGHT]
  * @author  		Raymond Benc
  * @package  		Module_Admincp
- * @version 		$Id: process.class.php 4484 2012-07-06 08:39:32Z Raymond_Benc $
+ * @version 		$Id: process.class.php 4597 2012-08-17 07:27:46Z Raymond_Benc $
  */
 class Admincp_Service_Setting_Process extends Phpfox_Service 
 {
@@ -218,7 +218,11 @@ class Admincp_Service_Setting_Process extends Phpfox_Service
 		{
 			if (is_array($mValue))
 			{
-				if ($sKey == 'captcha_font' || $sKey == 'cdn_service')
+				if ($sKey == 'points_conversion_rate')
+				{
+					$aValues['value_actual'] = json_encode($mValue);
+				}				
+				elseif ($sKey == 'captcha_font' || $sKey == 'cdn_service')
 				{
 					$aValues['value_actual'] = $mValue['value'];	
 				}

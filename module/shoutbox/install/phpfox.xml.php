@@ -19,7 +19,7 @@
 		<setting group="" module_id="shoutbox" is_hidden="0" type="integer" var_name="shoutbox_total" phrase_var_name="setting_shoutbox_total" ordering="1" version_id="2.0.0alpha1">100</setting>
 	</settings>
 	<blocks>
-		<block type_id="0" m_connection="core.index-member" module_id="shoutbox" component="display" location="3" is_active="1" ordering="11" disallow_access="" can_move="1">
+		<block type_id="0" m_connection="core.index-member" module_id="shoutbox" component="display" location="3" is_active="1" ordering="8" disallow_access="" can_move="1">
 			<title><![CDATA[{phrase var=&#039;shoutbox.shoutbox&#039;}]]></title>
 			<source_code />
 			<source_parsed />
@@ -29,7 +29,7 @@
 			<source_code />
 			<source_parsed />
 		</block>
-		<block type_id="0" m_connection="pages.view" module_id="shoutbox" component="display" location="3" is_active="1" ordering="5" disallow_access="" can_move="1">
+		<block type_id="0" m_connection="pages.view" module_id="shoutbox" component="display" location="3" is_active="1" ordering="7" disallow_access="" can_move="1">
 			<title>Shoutbox</title>
 			<source_code />
 			<source_parsed />
@@ -75,6 +75,7 @@
 		<phrase module_id="shoutbox" version_id="2.0.0rc4" var_name="delete_this_shoutout" added="1255865184">Delete this shoutout.</phrase>
 		<phrase module_id="shoutbox" version_id="2.0.0rc4" var_name="are_you_sure" added="1255865416">Are you sure?</phrase>
 		<phrase module_id="shoutbox" version_id="2.0.0rc8" var_name="enter_a_shoutout" added="1258389086">Enter a shoutout.</phrase>
+		<phrase module_id="shoutbox" version_id="3.4.0rc1" var_name="can_view_post_in_shoutbox" added="1349765715">Can view/post in shoutbox?</phrase>
 	</phrases>
 	<user_group_settings>
 		<setting is_admin_setting="0" module_id="shoutbox" type="boolean" admin="1" user="1" guest="1" staff="1" module="shoutbox" ordering="0">can_view_shoutbox</setting>

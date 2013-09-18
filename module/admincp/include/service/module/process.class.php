@@ -11,7 +11,7 @@ defined('PHPFOX') or exit('NO DICE!');
  * @copyright		[PHPFOX_COPYRIGHT]
  * @author  		Raymond Benc
  * @package  		Module_Admincp
- * @version 		$Id: process.class.php 4113 2012-04-18 14:57:54Z Raymond_Benc $
+ * @version 		$Id: process.class.php 5143 2013-01-15 14:16:21Z Miguel_Espinoza $
  */
 class Admincp_Service_Module_Process extends Phpfox_Service 
 {
@@ -234,7 +234,9 @@ class Admincp_Service_Module_Process extends Phpfox_Service
 	{
 		Phpfox::isUser(true);
 		Phpfox::getUserParam('admincp.has_admin_access', true);		
-	
+		
+		if ($sPlugin = Phpfox_Plugin::get('admincp.service_module_process_updateactivity')){eval($sPlugin);if (isset($mReturnFromPlugin)){return $mReturnFromPlugin;}}
+		
 		$this->database()->update($this->_sTable, array('is_active' => (int) ($iType == '1' ? 1 : 0)), 'module_id = \'' . $this->database()->escape($iId) . '\'');
 		
 		$this->cache()->remove();
@@ -242,6 +244,7 @@ class Admincp_Service_Module_Process extends Phpfox_Service
 	
 	public function delete($iId)
 	{		
+		if ($sPlugin = Phpfox_Plugin::get('admincp.service_module_process_delete')){eval($sPlugin);if (isset($mReturnFromPlugin)){return $mReturnFromPlugin;}}
 		$aRow = $this->database()->select('*')
 			->from($this->_sTable)
 			->where("module_id = '" . $iId . "'")
@@ -570,7 +573,7 @@ class Admincp_Service_Module_Process extends Phpfox_Service
 			$aModule = Phpfox::getLib('xml.parser')->parse($sFile);			
 			
 			if (isset($aModule['install']))
-			{	 	
+			{
 				eval($aModule['install']);
 			}			
 		}

@@ -11,7 +11,7 @@ defined('PHPFOX') or exit('NO DICE!');
  * @copyright		[PHPFOX_COPYRIGHT]
  * @author  		Raymond Benc
  * @package  		Module_Language
- * @version 		$Id: process.class.php 3410 2011-11-02 09:24:12Z Miguel_Espinoza $
+ * @version 		$Id: process.class.php 4961 2012-10-29 07:11:34Z Raymond_Benc $
  */
 class Language_Service_Phrase_Process extends Phpfox_Service 
 {
@@ -302,8 +302,16 @@ class Language_Service_Phrase_Process extends Phpfox_Service
 	public function installFromFolder($sPack, $iPage = 0, $iLimit = 5)
 	{
 		$iGroup = (($iPage * $iLimit) + 1);	
-		
-		$sDir = PHPFOX_DIR_INCLUDE . 'xml' . PHPFOX_DS . 'language' . PHPFOX_DS . $sPack . PHPFOX_DS;
+		if (is_array($sPack))
+		{
+			$sDir = PHPFOX_DIR_CACHE . $sPack[0] . PHPFOX_DS . 'upload' . PHPFOX_DS . str_replace(PHPFOX_DIR, '', PHPFOX_DIR_INCLUDE) . 'xml' . PHPFOX_DS . 'language' . PHPFOX_DS . $sPack[1] . PHPFOX_DS;
+			$sPack = $sPack[1];
+		}
+		else
+		{
+			$sDir = PHPFOX_DIR_INCLUDE . 'xml' . PHPFOX_DS . 'language' . PHPFOX_DS . $sPack . PHPFOX_DS;
+		}
+				
 		if (!is_dir($sDir))
 		{
 			return Phpfox_Error::set(Phpfox::getPhrase('language.not_a_valid_language_package_to_install'));
@@ -318,14 +326,14 @@ class Language_Service_Phrase_Process extends Phpfox_Service
 		$iActualCount = 0;		
 		$hDir = opendir($sDir);
 		while ($sFile = readdir($hDir))
-		{
+		{			
 			if ($sFile == '.' || $sFile == '..')
 			{
 				continue;
 			}
-			
+
 			if (preg_match('/^module-(.*?)\.xml$/i', $sFile, $aMatches))
-			{
+			{				
 				if (Phpfox::isModule($aMatches[1]))
 				{
 					$iActualCount++;
@@ -362,8 +370,8 @@ class Language_Service_Phrase_Process extends Phpfox_Service
 			}
 		}
 		closedir($hDir);
-		
-		return ($iCnt ? true : false);
+
+		return ($iCnt ? true : 'done');
 	}
 
 	/**

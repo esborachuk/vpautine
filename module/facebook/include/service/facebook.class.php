@@ -11,7 +11,7 @@ defined('PHPFOX') or exit('NO DICE!');
  * @copyright		[PHPFOX_COPYRIGHT]
  * @author  		Raymond Benc
  * @package 		Phpfox_Service
- * @version 		$Id: facebook.class.php 2792 2011-08-03 17:11:30Z Raymond_Benc $
+ * @version 		$Id: facebook.class.php 4671 2012-09-19 07:52:40Z Miguel_Espinoza $
  */
 class Facebook_Service_Facebook extends Phpfox_Service 
 {
@@ -53,9 +53,7 @@ class Facebook_Service_Facebook extends Phpfox_Service
 				'client_id' => '' . Phpfox::getParam('facebook.facebook_app_id') . '',
 				'redirect_uri' => $sUrl
 			)
-		);	
-		
-		d($mReturn, true);
+		);			
 	}
 	
 	public function get($sAction, $sUrl)

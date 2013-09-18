@@ -11,7 +11,7 @@ defined('PHPFOX') or exit('NO DICE!');
  * @copyright		[PHPFOX_COPYRIGHT]
  * @author  		Raymond Benc
  * @package 		Phpfox_Service
- * @version 		$Id: admincp.class.php 4466 2012-07-04 10:58:47Z Raymond_Benc $
+ * @version 		$Id: admincp.class.php 4873 2012-10-10 06:45:05Z Raymond_Benc $
  */
 class Core_Service_Admincp_Admincp extends Phpfox_Service 
 {
@@ -34,6 +34,11 @@ class Core_Service_Admincp_Admincp extends Phpfox_Service
 				->execute('getField');
 				
 			$this->cache()->save($sCacheId, $sNote);
+		}
+		
+		if ($sNote == 'Save your notes here...')
+		{
+			$sNote = Phpfox::getPhrase('admincp.save_your_notes_here');
 		}
 		
 		return $sNote;

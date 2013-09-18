@@ -1,0 +1,757 @@
+<phrases>
+	<phrase module_id="user" version_id="2.0.0alpha1" var_name="log" added="1217034494">Вход</phrase>
+	<phrase module_id="user" version_id="2.0.0alpha1" var_name="module_user" added="1219147645">Пользователь</phrase>
+	<phrase module_id="user" version_id="2.0.0alpha1" var_name="username" added="1214844661">Имя пользователя</phrase>
+	<phrase module_id="user" version_id="2.0.0alpha1" var_name="add_user_group_setting" added="1214789475">Добавить настройку группы</phrase>
+	<phrase module_id="user" version_id="2.0.0alpha1" var_name="setting_successfully_added" added="1214789508">Настройки успешно добавлены​​.</phrase>
+	<phrase module_id="user" version_id="2.0.0alpha1" var_name="select_varname" added="1214789526">Выберите имя переменной для пользовательской настройки.</phrase>
+	<phrase module_id="user" version_id="2.0.0alpha1" var_name="add_info_regarding_setting" added="1214789544">Добавить информацию о пользовательских настройках.</phrase>
+	<phrase module_id="user" version_id="2.0.0alpha1" var_name="setting_details" added="1214790399">Настройка подробнее</phrase>
+	<phrase module_id="user" version_id="2.0.0alpha1" var_name="product" added="1214790410">Продукт</phrase>
+	<phrase module_id="user" version_id="2.0.0alpha1" var_name="module" added="1214790423">Модуль</phrase>
+	<phrase module_id="user" version_id="2.0.0alpha1" var_name="varname" added="1214790434">Имя переменной</phrase>
+	<phrase module_id="user" version_id="2.0.0alpha1" var_name="type" added="1214790445">Тип</phrase>
+	<phrase module_id="user" version_id="2.0.0alpha1" var_name="user_group_values" added="1214790456">Значение пользовательской группы</phrase>
+	<phrase module_id="user" version_id="2.0.0alpha1" var_name="language_package_details" added="1214790470">О языковом пакете</phrase>
+	<phrase module_id="user" version_id="2.0.0alpha1" var_name="info" added="1214790493">Информация</phrase>
+	<phrase module_id="user" version_id="2.0.0alpha1" var_name="manage_user_settings" added="1214964403">Настройки пользователей</phrase>
+	<phrase module_id="user" version_id="2.0.0alpha1" var_name="user_group_updated" added="1214964439">Пользовательская группа обновлена.</phrase>
+	<phrase module_id="user" version_id="2.0.0alpha1" var_name="invalid_user_group" added="1214966740">Возникла проблема.</phrase>
+	<phrase module_id="user" version_id="2.0.0alpha1" var_name="setting_successfully_updated" added="1214981663">Настройки успешно обновлены.</phrase>
+	<phrase module_id="user" version_id="2.0.0alpha1" var_name="manage_user_groups" added="1214986555">Управлять группами</phrase>
+	<phrase module_id="user" version_id="2.0.0alpha1" var_name="default_user_groups" added="1214986645">Группы пользователей по умолчанию</phrase>
+	<phrase module_id="user" version_id="2.0.0alpha1" var_name="title" added="1214986655">Название</phrase>
+	<phrase module_id="user" version_id="2.0.0alpha1" var_name="user" added="1214986664">Пользователь</phrase>
+	<phrase module_id="user" version_id="2.0.0alpha1" var_name="actions" added="1214986673">Действие</phrase>
+	<phrase module_id="user" version_id="2.0.0alpha1" var_name="select_action" added="1214986688">Выберите действие</phrase>
+	<phrase module_id="user" version_id="2.0.0alpha1" var_name="edit" added="1214986699">Изменить</phrase>
+	<phrase module_id="user" version_id="2.0.0alpha1" var_name="manage_user_group" added="1214986755">Управление пользовательской группой</phrase>
+	<phrase module_id="user" version_id="2.0.0alpha1" var_name="user_group_information" added="1214986781">Информация</phrase>
+	<phrase module_id="user" version_id="2.0.0alpha1" var_name="title_for_user_group" added="1214986796">Название для группы пользователей.</phrase>
+	<phrase module_id="user" version_id="2.0.0alpha1" var_name="user_group_settings" added="1214986808">Настройки групп пользователей</phrase>
+	<phrase module_id="user" version_id="2.0.0alpha1" var_name="menu_register" added="1217033146">Регистрация</phrase>
+	<phrase module_id="user" version_id="2.0.0alpha1" var_name="user_name" added="1218458106">Имя пользователя</phrase>
+	<phrase module_id="user" version_id="2.0.0alpha1" var_name="email" added="1218458120">E-mail</phrase>
+	<phrase module_id="user" version_id="2.0.0alpha1" var_name="login" added="1218458136">Ваш E-mail</phrase>
+	<phrase module_id="user" version_id="2.0.0alpha1" var_name="password" added="1218458188">Пароль</phrase>
+	<phrase module_id="user" version_id="2.0.0alpha1" var_name="remember" added="1218459828">Запомнить меня</phrase>
+	<phrase module_id="user" version_id="2.0.0alpha1" var_name="login_button" added="1218459855">Войти</phrase>
+	<phrase module_id="user" version_id="2.0.0alpha1" var_name="sign" added="1218459940">Регистрация</phrase>
+	<phrase module_id="user" version_id="2.0.0alpha1" var_name="forgot_password" added="1218459951">Забыли пароль?</phrase>
+	<phrase module_id="user" version_id="2.0.0alpha1" var_name="site_name_login" added="1218461107">{name} Вход</phrase>
+	<phrase module_id="user" version_id="2.0.0alpha1" var_name="sign_for_site_name" added="1218461161"><![CDATA[или <a href="{url}">зарегистрироваться на сайте {name}</a>]]></phrase>
+	<phrase module_id="user" version_id="2.0.0alpha1" var_name="forgot_your_password" added="1218464832">Забыли свой пароль?</phrase>
+	<phrase module_id="user" version_id="2.0.0alpha1" var_name="provide_your_user_name" added="1218464879">Укажите ваше имя пользователя.</phrase>
+	<phrase module_id="user" version_id="2.0.0alpha1" var_name="provide_your_email" added="1218464891">Укажите свой адрес электронной почты.</phrase>
+	<phrase module_id="user" version_id="2.0.0alpha1" var_name="provide_your_user_name_email" added="1218464903">Укажите ваше имя пользователя или адрес электронной почты.</phrase>
+	<phrase module_id="user" version_id="2.0.0alpha1" var_name="provide_your_password" added="1218464912">Укажите свой пароль.</phrase>
+	<phrase module_id="user" version_id="2.0.0alpha1" var_name="login_title" added="1218464970">Войти</phrase>
+	<phrase module_id="user" version_id="2.0.0alpha1" var_name="invalid_user_name" added="1218465012">Неверное имя пользователя.</phrase>
+	<phrase module_id="user" version_id="2.0.0alpha1" var_name="invalid_email" added="1218465021">Неверная электронная почта.</phrase>
+	<phrase module_id="user" version_id="2.0.0alpha1" var_name="invalid_login_id" added="1218465032">Неверный логин/e-mail.</phrase>
+	<phrase module_id="user" version_id="2.0.0alpha1" var_name="invalid_password" added="1218465047">Неверный пароль.</phrase>
+	<phrase module_id="user" version_id="2.0.0alpha1" var_name="you_need_logged_that" added="1218724550">Вам необходимо войти в свой аккаунт.</phrase>
+	<phrase module_id="user" version_id="2.0.0alpha1" var_name="sign_and_start_using_site" added="1219836880">Зарегистрируйтесь и используйте {site}!</phrase>
+	<phrase module_id="user" version_id="2.0.0alpha1" var_name="menu_browse" added="1231832504">Люди</phrase>
+	<phrase module_id="user" version_id="2.0.0alpha1" var_name="menu_settings" added="1231837038">Настройки</phrase>
+	<phrase module_id="user" version_id="2.0.0alpha1" var_name="user_setting_can_add_user_group_setting" added="1214790898">Можно добавлять/редактировать настройки для групп пользователей? Примечание: Включить эту функцию только в случае создания плагинов или изменения пакета.</phrase>
+	<phrase module_id="user" version_id="2.0.0alpha2" var_name="menu_who_s_online" added="1237189857">Сейчас на сайте</phrase>
+	<phrase module_id="user" version_id="2.0.0alpha2" var_name="user_setting_can_control_profile_privacy" added="1237552899">Может управлять настройками приватности своего профиля?</phrase>
+	<phrase module_id="user" version_id="2.0.0alpha2" var_name="user_setting_can_control_notification_privacy" added="1237552966">Может управлять настройками уведомлений?</phrase>
+	<phrase module_id="user" version_id="2.0.0alpha2" var_name="user_setting_can_override_user_privacy" added="1237553281">Можно изменить настройки конфиденциальности пользователей?</phrase>
+	<phrase module_id="user" version_id="2.0.0alpha2" var_name="setting_multi_step_registration_form" added="1237571029"><![CDATA[<title>Многоступенчатая регистрационная форма</title><info>Включение этой опции сделает процесс регистрации в несколько этапов.</info>]]></phrase>
+	<phrase module_id="user" version_id="2.0.0alpha2" var_name="user_setting_require_profile_image" added="1237573969">Пользователи должны загрузить изображение профиля?</phrase>
+	<phrase module_id="user" version_id="2.0.0alpha2" var_name="setting_registration_steps" added="1237574533"><![CDATA[<title>Регистрация шаги</title><info>С помощью этой опции вы можете добавить дополнительные шаги в процесс регистрации.</info>]]></phrase>
+	<phrase module_id="user" version_id="2.0.0alpha3" var_name="menu_edit_profile" added="1238410664">Обо мне</phrase>
+	<phrase module_id="user" version_id="2.0.0alpha3" var_name="custom_group_about_me" added="1238671524">О себе</phrase>
+	<phrase module_id="user" version_id="2.0.0alpha3" var_name="custom_about_me" added="1238671545">О себе</phrase>
+	<phrase module_id="user" version_id="2.0.0alpha3" var_name="custom_who_i_d_like_to_meet" added="1238671563">Кого хотел бы встретить</phrase>
+	<phrase module_id="user" version_id="2.0.0alpha3" var_name="custom_group_interests" added="1238671589">Интересы</phrase>
+	<phrase module_id="user" version_id="2.0.0alpha3" var_name="custom_interests" added="1238671614">Интересы</phrase>
+	<phrase module_id="user" version_id="2.0.0alpha3" var_name="custom_music" added="1238671629">Аудиозапись</phrase>
+	<phrase module_id="user" version_id="2.0.0alpha3" var_name="custom_movies" added="1238671647">Кино</phrase>
+	<phrase module_id="user" version_id="2.0.0alpha3" var_name="custom_group_details" added="1238671708">Детали</phrase>
+	<phrase module_id="user" version_id="2.0.0alpha3" var_name="custom_smoker" added="1238671738">Курение</phrase>
+	<phrase module_id="user" version_id="2.0.0alpha3" var_name="cf_option_yes" added="1238671738">Да</phrase>
+	<phrase module_id="user" version_id="2.0.0beta3" var_name="setting_usernames_to_suggest" added="1244550909"><![CDATA[<title>Варианты имени пользователя</title><info>Когда пользователи не прошли проверку имени пользователя при регистрации будет предложено нескольких имен. Первая часть из этих предложений (вторая часть представляет собой случайное число). Возможные результаты: user234 member181 friend921</info>]]></phrase>
+	<phrase module_id="user" version_id="2.0.0beta3" var_name="setting_how_many_usernames_to_suggest" added="1244551391"><![CDATA[<title>Сколько имен предложить</title><info>Когда проверяется имя пользователя при регистрации, предлагаются варианты свободных имен. Сколько имен показывать в этом списке?</info>]]></phrase>
+	<phrase module_id="user" version_id="2.0.0alpha3" var_name="cf_option_no" added="1238671738">Нет</phrase>
+	<phrase module_id="user" version_id="2.0.0alpha3" var_name="cf_option_sometimes" added="1238671738">Иногда</phrase>
+	<phrase module_id="user" version_id="2.0.0alpha3" var_name="custom_drinker" added="1238749684">Алкоголь</phrase>
+	<phrase module_id="user" version_id="2.0.0alpha3" var_name="setting_user_browse_display_results_default" added="1239092643"><![CDATA[<title>Просмотр пользователей</title><info>Выберите <b>name_photo</b> если вы хотите, чтобы по умолчанию отображалост имя пользователя и фотографии только в пределах раздела поиска. Выберите <b>name_photo_detail</b> если вы хотите, отобразить имена пользователей, фото и общую информацию о человеке в пределах раздела поиска.</info>]]></phrase>
+	<phrase module_id="user" version_id="2.0.0beta2" var_name="user_setting_can_edit_gender_setting" added="1242643138">Можно изменять пол?</phrase>
+	<phrase module_id="user" version_id="2.0.0beta2" var_name="user_setting_custom_name_field" added="1242643942">Поле имени пользователя</phrase>
+	<phrase module_id="user" version_id="2.0.0beta2" var_name="user_setting_can_edit_dob" added="1242644281">Можно изменять дату рождения?</phrase>
+	<phrase module_id="user" version_id="2.0.0beta4" var_name="user_setting_can_edit_users" added="1244545054"><![CDATA[Может редактировать профиль пользователя? <b>Примечание:</b> Требуется войти в AdminCP.]]></phrase>
+	<phrase module_id="user" version_id="2.0.0beta4" var_name="user_setting_can_stay_logged_in" added="1244557119">Может войти на сайт?</phrase>
+	<phrase module_id="user" version_id="2.0.0beta4" var_name="user_setting_can_change_other_user_picture" added="1244565702">Можно менять фотографии в профиле, добавленные другими пользователями?</phrase>
+	<phrase module_id="user" version_id="2.0.0beta4" var_name="user_setting_can_edit_other_user_privacy" added="1244566805">Можно изменять настройки приватности для других пользователей?</phrase>
+	<phrase module_id="user" version_id="2.0.0beta4" var_name="user_setting_can_change_own_user_name" added="1244571194">Можно изменить собственное имя пользователя?</phrase>
+	<phrase module_id="user" version_id="2.0.0beta4" var_name="user_setting_total_times_can_change_user_name" added="1244571909">Сколько раз эта группа пользователей может редактировать своё имя пользователя?</phrase>
+	<phrase module_id="user" version_id="2.0.0beta4" var_name="setting_user_profile_private_age" added="1244573463"><![CDATA[<title>Принудительная приватность профиля</title><info>Определите возраст при котором профиль будет закрытым, независимо отнастройки приватности профиля.  <b>Примечание:</b> Установить на "0" (без кавычек) для снятия ограничения.</info>]]></phrase>
+	<phrase module_id="user" version_id="2.0.0beta4" var_name="user_setting_can_block_other_members" added="1244626170">Можно заблокировать пользователя?</phrase>
+	<phrase module_id="user" version_id="2.0.0beta4" var_name="user_setting_can_be_blocked_by_others" added="1244626313">Может ли эта группа пользователей быть заблокирована другими пользователями?</phrase>
+	<phrase module_id="user" version_id="2.0.0beta4" var_name="setting_validate_full_name" added="1244645932"><![CDATA[<title>Проверять Полное/Отображаемое Имя</title><info>Установите <b>Да</b> если вы хотите проверять полное имя пользователей.</info>]]></phrase>
+	<phrase module_id="user" version_id="2.0.0beta4" var_name="stat_title_1" added="1245140437">Участники</phrase>
+	<phrase module_id="user" version_id="2.0.0beta5" var_name="user_setting_can_feature" added="1246003244">Могут ли пользователи этой группы ставить отметку популярный пользователь?</phrase>
+	<phrase module_id="user" version_id="2.0.0beta5" var_name="setting_randomize_featured_members" added="1246007440"><![CDATA[<title>Случайные - популярные пользователи</title><info>Если популярные пользователи случайно появляются?  Когда эта функция отключена в новом разделе, всё будет показано в Обзоре Пользователей в админ-панели для установки порядка.</info>]]></phrase>
+	<phrase module_id="user" version_id="2.0.0beta5" var_name="setting_how_many_featured_members" added="1246007756"><![CDATA[<title>Сколько популярных пользователей показать</title><info>Этот параметр указывает, сколько популярных пользователей будет показано в одно время.</info>]]></phrase>
+	<phrase module_id="user" version_id="2.0.0beta5" var_name="menu_featured_members" added="1246272467">Активные участники</phrase>
+	<phrase module_id="user" version_id="2.0.0beta5" var_name="setting_verify_email_at_signup" added="1246354785"><![CDATA[<title>Проверка электронной почты при регистрации</title><info>Когда гость регистрируется, мы должны проверить адрес электронной почты? Если функция включена на электронную почту будет отправлена специальная ссылка, чтобы убедиться, что адрес верный.</info>]]></phrase>
+	<phrase module_id="user" version_id="2.0.0beta5" var_name="setting_verify_email_timeout" added="1246355083"><![CDATA[<title>Проверка электронной почты тайм-аут</title><info>Этот параметр указывает, сколько времени (в минутах) нужно для проверки адреса электронной почты нового пользователя. Установите "0" для отключения тайм-аута.</info>]]></phrase>
+	<phrase module_id="user" version_id="2.0.0beta5" var_name="user_setting_can_change_email" added="1246368069">Может ли пользователь этой группы менять свой ​​адрес электронной почты?</phrase>
+	<phrase module_id="user" version_id="2.0.0beta5" var_name="setting_logout_after_change_email_if_verify" added="1246370838"><![CDATA[<title>Выход после изменения электронной почты</title><info>Пользователи должны подтвердить адрес электронной почты, после его изменения.</info>]]></phrase>
+	<phrase module_id="user" version_id="2.0.0beta5" var_name="user_setting_can_verify_others_emails" added="1246447720"><![CDATA[Разрешить пользователям этой группы проверять адреса электронной почты в AdminCP -> Пользователи -> Обзор Пользователей ?]]></phrase>
+	<phrase module_id="user" version_id="2.0.0beta5" var_name="user_cancellation_6" added="1246619355">reason 3</phrase>
+	<phrase module_id="user" version_id="2.0.0beta5" var_name="user_cancellation_7" added="1246619366">reason 4</phrase>
+	<phrase module_id="user" version_id="2.0.0beta5" var_name="user_setting_can_delete_own_account" added="1246874203">Могут ли пользователи этой группы удалять свои учетные записи?</phrase>
+	<phrase module_id="user" version_id="2.0.0beta5" var_name="user_setting_can_change_own_full_name" added="1247145812">Могут ли пользователи данной группы изменять свое полное имя?</phrase>
+	<phrase module_id="user" version_id="2.0.0beta5" var_name="user_setting_total_times_can_change_own_full_name" added="1247145932">Сколько раз можно пользователям этой группы изменить свое полное имя? Оставьте 0 для неограниченного количества</phrase>
+	<phrase module_id="user" version_id="2.0.0beta5" var_name="menu_account_settings" added="1247223348">Мои данные</phrase>
+	<phrase module_id="user" version_id="2.0.0beta5" var_name="menu_privacy_settings" added="1247223384">Приватность</phrase>
+	<phrase module_id="user" version_id="2.0.0beta5" var_name="menu_edit_profile_picture" added="1247226022">Фотография</phrase>
+	<phrase module_id="user" version_id="30" var_name="user_setting_can_delete_others_account" added="1247641642"><![CDATA[Могут ли пользователи этой группы, удалить другие учетные записи?]]></phrase>
+	<phrase module_id="user" version_id="2.0.0rc1" var_name="user_setting_can_be_invisible" added="1248682127">Можно выбрать, быть невидимым?</phrase>
+	<phrase module_id="user" version_id="2.0.0rc1" var_name="setting_display_user_online_status" added="1248697618"><![CDATA[<title>Показать статус онлайн</title><info>Выберите <b>Да</b> чтобы отобразить пользователей со статусом онлайн, который будет изменять изображение профиля.</info>]]></phrase>
+	<phrase module_id="user" version_id="2.0.0rc1" var_name="user_setting_total_upload_space" added="1248951473"><![CDATA[Общий объем пространства, которое пользователь может использовать при загрузке на сервер (например, фотографии, видео, песни и т.д. ..) в мегабайтах (МБ). Установите "0" для неограниченного пространства.]]></phrase>
+	<phrase module_id="user" version_id="2.0.0rc1" var_name="user_setting_force_cropping_tool_for_photos" added="1250774093"><![CDATA[Разрешить группе пользователей использовать инструмент обрезки до завершения загрузки фотографии в профиль. <b>Примечание:</b> Это используется, чтобы убедиться, что все фотографии на сайте, правильно обрезаются.]]></phrase>
+	<phrase module_id="user" version_id="2.0.0rc1" var_name="user_setting_max_upload_size_profile_photo" added="1250849063"><![CDATA[Максимальный размер файла для фото профиля в килобитах (кб). (1000 Кб = 1 Мб). Неограниченный максимальный размер установите "0" без кавычек.]]></phrase>
+	<phrase module_id="user" version_id="2.0.0rc2" var_name="setting_min_length_for_username" added="1253525527"><![CDATA[<title>Минимальная длина для имени пользователя</title><info>Минимальная длина для имени пользователя</info>]]></phrase>
+	<phrase module_id="user" version_id="2.0.0rc2" var_name="setting_max_length_for_username" added="1253525598"><![CDATA[<title>Максимальная длина для имени пользователя</title><info>Максимальная длина для имени пользователя</info>]]></phrase>
+	<phrase module_id="user" version_id="2.0.0rc4" var_name="your_password_has_been_sent_to_your_email" added="1255346076">Ваш пароль отправлен на ваш e-mail.</phrase>
+	<phrase module_id="user" version_id="2.0.0rc4" var_name="we_found_a_problem_with_your_request_please_try_again" added="1255346107">Ошибка.</phrase>
+	<phrase module_id="user" version_id="2.0.0rc4" var_name="you_cannot_rate_your_own_profile" added="1255346129">Вы не можете оценивать собственный профиль.</phrase>
+	<phrase module_id="user" version_id="2.0.0rc4" var_name="this_username_is_available" added="1255346146">Это имя пользователя доступно.</phrase>
+	<phrase module_id="user" version_id="2.0.0rc4" var_name="user_successfully_blocked" added="1255346166">Пользователь успешно заблокирован.</phrase>
+	<phrase module_id="user" version_id="2.0.0rc4" var_name="user_successfully_unblocked" added="1255346175">Пользователь успешно разблокирован.</phrase>
+	<phrase module_id="user" version_id="2.0.0rc4" var_name="unfeature_user" added="1255346187">Не избранный пользователь</phrase>
+	<phrase module_id="user" version_id="2.0.0rc4" var_name="feature_user" added="1255346203">Избранный пользователь</phrase>
+	<phrase module_id="user" version_id="2.0.0rc4" var_name="an_error_occured_and_this_operation_was_not_completed" added="1255346213">Произошла ошибка, эта операция не может быть завершена.</phrase>
+	<phrase module_id="user" version_id="2.0.0rc4" var_name="an_error_occured_and_this_user_could_not_be_verified" added="1255346223">Произошла ошибка, эта операция не может быть завершена.</phrase>
+	<phrase module_id="user" version_id="2.0.0rc4" var_name="an_error_occured_and_the_email_could_not_be_sent" added="1255346241">Произошла ошибка, e-mail не может быть отправлен.</phrase>
+	<phrase module_id="user" version_id="2.0.0rc4" var_name="profile_photo_successfully_uploaded" added="1255346279">Фотография профиля успешно загружена.</phrase>
+	<phrase module_id="user" version_id="2.0.0rc4" var_name="done" added="1255346288">Готово!</phrase>
+	<phrase module_id="user" version_id="2.0.0rc4" var_name="un_ban_user" added="1255346306">Разблокировать пользователя</phrase>
+	<phrase module_id="user" version_id="2.0.0rc4" var_name="ban_user" added="1255346312">Заблокировать пользователя</phrase>
+	<phrase module_id="user" version_id="2.0.0rc4" var_name="unable_to_find_this_member" added="1255346340">Невозможно найти этого пользователя.</phrase>
+	<phrase module_id="user" version_id="2.0.0rc4" var_name="unable_to_block_this_user" added="1255346349">Невозможно заблокировать этого пользователя.</phrase>
+	<phrase module_id="user" version_id="2.0.0rc4" var_name="view_all" added="1255346369">Все</phrase>
+	<phrase module_id="user" version_id="2.0.0rc4" var_name="featured_members" added="1255346377">Активные участники</phrase>
+	<phrase module_id="user" version_id="2.0.0rc4" var_name="set_browse_criteria" added="1255346405">Критерии поиска</phrase>
+	<phrase module_id="user" version_id="2.0.0rc4" var_name="basic" added="1255346411">Простой</phrase>
+	<phrase module_id="user" version_id="2.0.0rc4" var_name="advanced" added="1255346417">Расширенный</phrase>
+	<phrase module_id="user" version_id="2.0.0rc4" var_name="option_updated_successfully" added="1255346509">Опция успешно обновлена.</phrase>
+	<phrase module_id="user" version_id="2.0.0rc4" var_name="option_added_successfully" added="1255346516">Опция успешно добавлена.</phrase>
+	<phrase module_id="user" version_id="2.0.0rc4" var_name="item_not_found" added="1255346524">Не найдено.</phrase>
+	<phrase module_id="user" version_id="2.0.0rc4" var_name="add_cancellation_options" added="1255346532">Добавить опции</phrase>
+	<phrase module_id="user" version_id="2.0.0rc4" var_name="view_feedback_on_cancellations" added="1255346545">Обратная связь</phrase>
+	<phrase module_id="user" version_id="2.0.0rc4" var_name="option_deleted_successfully" added="1255346558">Опция успешно удалена</phrase>
+	<phrase module_id="user" version_id="2.0.0rc4" var_name="manage_cancellation_options" added="1255346573">Управление обратной связью</phrase>
+	<phrase module_id="user" version_id="2.0.0rc4" var_name="user_groups" added="1255346596">Группы пользователей</phrase>
+	<phrase module_id="user" version_id="2.0.0rc4" var_name="manage_settings" added="1255346613">Управление настройками</phrase>
+	<phrase module_id="user" version_id="2.0.0rc4" var_name="user_group_successfully_added" added="1255346624">Группа пользователей успешно добавлена.</phrase>
+	<phrase module_id="user" version_id="2.0.0rc4" var_name="create_new_user_group" added="1255346647">Создать группу пользователей</phrase>
+	<phrase module_id="user" version_id="2.0.0rc4" var_name="successfully_deleted_user_group" added="1255346670">Группа пользователей успешно удалена.</phrase>
+	<phrase module_id="user" version_id="2.0.0rc4" var_name="unable_to_find_the_user_group_you_want_to_delete" added="1255346678">Невозможно найти группу пользователей, которую вы хотите удалить.</phrase>
+	<phrase module_id="user" version_id="2.0.0rc4" var_name="not_allowed_to_delete_this_user_group" added="1255346686">Вы не можете удалить эту группу пользователей.</phrase>
+	<phrase module_id="user" version_id="2.0.0rc4" var_name="delete_user_group" added="1255346693">Удалить группу пользователей.</phrase>
+	<phrase module_id="user" version_id="2.0.0rc4" var_name="user_successfully_updated" added="1255346774">Пользователь успешно обновлен.</phrase>
+	<phrase module_id="user" version_id="2.0.0rc4" var_name="basic_information" added="1255346782">Основная информация</phrase>
+	<phrase module_id="user" version_id="2.0.0rc4" var_name="display_name" added="1255346790">Имя пользователя</phrase>
+	<phrase module_id="user" version_id="2.0.0rc4" var_name="user_group" added="1255346823">Группа пользователя</phrase>
+	<phrase module_id="user" version_id="2.0.0rc4" var_name="location" added="1255346829">Страна</phrase>
+	<phrase module_id="user" version_id="2.0.0rc4" var_name="city" added="1255346835">Город</phrase>
+	<phrase module_id="user" version_id="2.0.0rc4" var_name="zip_postal_code" added="1255346841">Почтовый индекс</phrase>
+	<phrase module_id="user" version_id="2.0.0rc4" var_name="gender" added="1255346847">Пол</phrase>
+	<phrase module_id="user" version_id="2.0.0rc4" var_name="date_of_birth" added="1255346856">Дата рождения</phrase>
+	<phrase module_id="user" version_id="2.0.0rc4" var_name="time_zone" added="1255346863">Временная зона</phrase>
+	<phrase module_id="user" version_id="2.0.0rc4" var_name="status" added="1255346869">Статус</phrase>
+	<phrase module_id="user" version_id="2.0.0rc4" var_name="spam_count" added="1255346876">SPAM статистика</phrase>
+	<phrase module_id="user" version_id="2.0.0rc4" var_name="editing_member" added="1255346886">Изменение пользователя</phrase>
+	<phrase module_id="user" version_id="2.0.0rc4" var_name="browse_members" added="1255346893">Обзор пользователей</phrase>
+	<phrase module_id="user" version_id="2.0.0rc4" var_name="add_new_member" added="1255346903">Добавить нового пользователя</phrase>
+	<phrase module_id="user" version_id="2.0.0rc4" var_name="password_request_successfully_sent_check_your_email_to_verify_your_request" added="1255346930">Запрос о смене пароля успешно принят. Проверьте ваш e-mail чтобы подтвердить запрос.</phrase>
+	<phrase module_id="user" version_id="2.0.0rc4" var_name="password_request" added="1255346939">Запрос о смене пароля</phrase>
+	<phrase module_id="user" version_id="2.0.0rc4" var_name="new_password_successfully_sent_check_your_email_to_use_your_new_password" added="1255346980">Новый пароль успешно отправлен. Проверьте ваш e-mail чтобы узнать новый пароль.</phrase>
+	<phrase module_id="user" version_id="2.0.0rc4" var_name="password_request_verification" added="1255346988">Подтверждение запроса о смене пароля</phrase>
+	<phrase module_id="user" version_id="2.0.0rc4" var_name="members_section_is_closed" added="1255347016">Закрыто.</phrase>
+	<phrase module_id="user" version_id="2.0.0rc4" var_name="joined" added="1255347023">Зарегистрировался</phrase>
+	<phrase module_id="user" version_id="2.0.0rc4" var_name="last_login" added="1255347030">Последний вход</phrase>
+	<phrase module_id="user" version_id="2.0.0rc4" var_name="email_name" added="1255347041">Имя и E-mail</phrase>
+	<phrase module_id="user" version_id="2.0.0rc4" var_name="name" added="1255347054">Имя</phrase>
+	<phrase module_id="user" version_id="2.0.0rc4" var_name="men" added="1255347063">Мужчина</phrase>
+	<phrase module_id="user" version_id="2.0.0rc4" var_name="women" added="1255347069">Женщина</phrase>
+	<phrase module_id="user" version_id="2.0.0rc4" var_name="both" added="1255347076">всех</phrase>
+	<phrase module_id="user" version_id="2.0.0rc4" var_name="all_members" added="1255347085">Всего участников</phrase>
+	<phrase module_id="user" version_id="2.0.0rc4" var_name="online" added="1255347097">Онлайн</phrase>
+	<phrase module_id="user" version_id="2.0.0rc4" var_name="pending_verification_members" added="1255347106">Пользователи? ожидающие подтверждения</phrase>
+	<phrase module_id="user" version_id="2.0.0rc4" var_name="name_and_photo_only" added="1255347114">Только имя и фотография</phrase>
+	<phrase module_id="user" version_id="2.0.0rc4" var_name="name_photo_and_users_details" added="1255347122">Имя, фотография и информация</phrase>
+	<phrase module_id="user" version_id="2.0.0rc4" var_name="you_still_need_to_verify_your_email_address" added="1255347174">Вам необходимо подтвердить ваш e-mail адрес.</phrase>
+	<phrase module_id="user" version_id="2.0.0rc4" var_name="logout" added="1255347189">Выйти</phrase>
+	<phrase module_id="user" version_id="2.0.0rc4" var_name="lost_password" added="1255347198">Потерял пароль</phrase>
+	<phrase module_id="user" version_id="2.0.0rc4" var_name="upload_profile_picture" added="1255347236">Загрузить фотографию профиля</phrase>
+	<phrase module_id="user" version_id="2.0.0rc4" var_name="edit_profile_picture" added="1255347246">Фотография</phrase>
+	<phrase module_id="user" version_id="2.0.0rc4" var_name="privacy_settings_have_been_disabled_for_your_user_group" added="1255347263">Настройки приватности для вас отключены.</phrase>
+	<phrase module_id="user" version_id="2.0.0rc4" var_name="privacy_settings_successfully_updated" added="1255347271">Настройки приватности успешно обновлены.</phrase>
+	<phrase module_id="user" version_id="2.0.0rc4" var_name="privacy_settings" added="1255347278">Приватность</phrase>
+	<phrase module_id="user" version_id="2.0.0rc4" var_name="successfully_updated_full_name_profile" added="1255347302">Успешно обновлен профиль {full_name}.</phrase>
+	<phrase module_id="user" version_id="2.0.0rc4" var_name="edit_profile" added="1255347324">Обо мне</phrase>
+	<phrase module_id="user" version_id="2.0.0rc4" var_name="cancel_account" added="1255347356">Удалить аккаунт</phrase>
+	<phrase module_id="user" version_id="2.0.0rc4" var_name="unable_to_edit_this_account" added="1255347370">Невозможно изменить этот аккаунт.</phrase>
+	<phrase module_id="user" version_id="2.0.0rc4" var_name="select_current_location" added="1255347378">Выберите страну.</phrase>
+	<phrase module_id="user" version_id="2.0.0rc4" var_name="select_your_gender" added="1255347385">Выберите пол.</phrase>
+	<phrase module_id="user" version_id="2.0.0rc4" var_name="select_month_of_birth" added="1255347392">Выберите месяц рождения.</phrase>
+	<phrase module_id="user" version_id="2.0.0rc4" var_name="select_day_of_birth" added="1255347399">Выберите день рождения.</phrase>
+	<phrase module_id="user" version_id="2.0.0rc4" var_name="select_year_of_birth" added="1255347406">Выберите год рождения.</phrase>
+	<phrase module_id="user" version_id="2.0.0rc4" var_name="zip_postal_code_is_invalid" added="1255347414">Почтовый индекс введен неверно.</phrase>
+	<phrase module_id="user" version_id="2.0.0rc4" var_name="provide_your_full_name" added="1255347423">Укажите Ваше Имя и Фамилию.</phrase>
+	<phrase module_id="user" version_id="2.0.0rc4" var_name="provide_a_user_name" added="1255347430">Выберите имя пользователя.</phrase>
+	<phrase module_id="user" version_id="2.0.0rc4" var_name="account_settings_updated" added="1255347439">Настройки аккаунта обновлены.</phrase>
+	<phrase module_id="user" version_id="2.0.0rc4" var_name="account_settings_updated_your_new_mail_address_requires_verification_and_an_email_has_been_sent_until_then_your_email_remains_the_same" added="1255347448">Настройки аккаунта обновлены. Ваш новый почтовый адрес требует проверки и сообщение для проверки было отправлено. До сих пор адрес вашей электронной почты остается тем же.</phrase>
+	<phrase module_id="user" version_id="2.0.0rc4" var_name="email_updated_you_need_to_verify_your_new_email_address_before_logging_in" added="1255347456">E-mail обновлен. Вы должны подтвердить ваш e-mail перед тем, как войти.</phrase>
+	<phrase module_id="user" version_id="2.0.0rc4" var_name="account_settings" added="1255347468">Мои данные</phrase>
+	<phrase module_id="user" version_id="2.0.0rc4" var_name="full_name" added="1255347477">Имя и Фамилия</phrase>
+	<phrase module_id="user" version_id="2.0.0rc4" var_name="your_email_has_been_verified_please_log_in_with_the_information_you_provided_during_sign_up" added="1255347489">Ваш e-mail подтвержден, пожалуйста, войдите.</phrase>
+	<phrase module_id="user" version_id="2.0.0rc4" var_name="invalid_verification_link" added="1255347519">Неверная ссылка.</phrase>
+	<phrase module_id="user" version_id="2.0.0rc4" var_name="not_able_to_block_yourself" added="1255347588">Невозможно заблокировать себя.</phrase>
+	<phrase module_id="user" version_id="2.0.0rc4" var_name="you_have_already_blocked_this_user" added="1255347597">Вы уже заблокировали этого пользователя.</phrase>
+	<phrase module_id="user" version_id="2.0.0rc4" var_name="select_a_product" added="1255347628">Выберите продукт.</phrase>
+	<phrase module_id="user" version_id="2.0.0rc4" var_name="select_a_module" added="1255347636">Выберите модуль.</phrase>
+	<phrase module_id="user" version_id="2.0.0rc4" var_name="you_need_to_add_a_message_to_show" added="1255347643">Вы должны добавить сообщение, чтобы показать его.</phrase>
+	<phrase module_id="user" version_id="2.0.0rc4" var_name="select_if_the_cancellation_option_is_active_or_not" added="1255347651">Выберите.</phrase>
+	<phrase module_id="user" version_id="2.0.0rc4" var_name="please_enter_your_password" added="1255347663">Пожалуйста, введите ваш пароль.</phrase>
+	<phrase module_id="user" version_id="2.0.0rc4" var_name="you_are_not_allowed_to_delete_your_own_account" added="1255347672">Вы не можете удалить свой аккаунт.</phrase>
+	<phrase module_id="user" version_id="2.0.0rc4" var_name="your_account_has_been_deleted" added="1255347685">Ваш аккаунт удален.</phrase>
+	<phrase module_id="user" version_id="2.0.0rc4" var_name="not_a_valid_request" added="1255347704">Неверный запрос.</phrase>
+	<phrase module_id="user" version_id="2.0.0rc4" var_name="provide_a_name_for_the_user_group" added="1255347780">Выберите имя для группы пользователей.</phrase>
+	<phrase module_id="user" version_id="2.0.0rc4" var_name="select_an_inherit_user_group" added="1255347788">Select an inherit user group.</phrase>
+	<phrase module_id="user" version_id="2.0.0rc4" var_name="email_verification_on_site_title" added="1255347882">Подтверждение E-mail для {site_title}</phrase>
+	<phrase module_id="user" version_id="2.0.0rc4" var_name="you_registered_an_account_on_site_title_before" added="1255347957"><![CDATA[Вы зарегистрировались в {site_title}, перед тем, как пользоваться социальной сетью, нам необходимо проверить ваш E-mail. Для этого, пожалуйста, перейдите по этой ссылке: <a href="{link}">{link}</a>]]></phrase>
+	<phrase module_id="user" version_id="2.0.0rc4" var_name="email_does_not_match_the_one_that_is_currently_in_use" added="1255348015">E-mail не соответствует.</phrase>
+	<phrase module_id="user" version_id="2.0.0rc4" var_name="you_need_to_verify_your_email_address_before_logging_in" added="1255348029"><![CDATA[Вам необходимо подтвердить E-mail после входа на сайт.  Мы выслали вам подтверждающий код на: <b>{e-mail}</b>]]></phrase>
+	<phrase module_id="user" version_id="2.0.0rc4" var_name="you_do_not_have_permission_to_modify_this_item" added="1255348044">У вас нет прав для редактирования.</phrase>
+	<phrase module_id="user" version_id="2.0.0rc4" var_name="members" added="1255348095">Участники</phrase>
+	<phrase module_id="user" version_id="2.0.0rc4" var_name="view_more_members" added="1255348104">Ещё участники</phrase>
+	<phrase module_id="user" version_id="2.0.0rc4" var_name="a_href_link_member_a_joined_joined" added="1255348147"><![CDATA[<a href="{link}">Пользователь</a> вступил {joined}.]]></phrase>
+	<phrase module_id="user" version_id="2.0.0rc4" var_name="a_href_link_full_name_a_updated_their_profile_picture" added="1255348200"><![CDATA[<a href="{link}">{full_name}</a> обновил(а) фотографию профиля.]]></phrase>
+	<phrase module_id="user" version_id="2.0.0rc4" var_name="a_href_link_full_name_a_joined_the_community" added="1255348257"><![CDATA[<a href="{link}">{full_name}</a> вступил(а) в сообщество.]]></phrase>
+	<phrase module_id="user" version_id="2.0.0rc4" var_name="users_profile_main_section" added="1255348288">Профиль пользователя - основной.</phrase>
+	<phrase module_id="user" version_id="2.0.0rc4" var_name="users_profile_basic_information" added="1255348295">Профиль пользователя - Основная информация</phrase>
+	<phrase module_id="user" version_id="2.0.0rc4" var_name="users_profile_side_panel" added="1255348303">Профиль пользователя - боковая панель.</phrase>
+	<phrase module_id="user" version_id="2.0.0rc4" var_name="users_profile" added="1255348313">Профиль пользователя</phrase>
+	<phrase module_id="user" version_id="2.0.0rc4" var_name="account_info" added="1255348327">Информация</phrase>
+	<phrase module_id="user" version_id="2.0.0rc4" var_name="activity" added="1255348333">Активность на сайте</phrase>
+	<phrase module_id="user" version_id="2.0.0rc4" var_name="users" added="1255348364">Пользователи</phrase>
+	<phrase module_id="user" version_id="2.0.0rc4" var_name="user_activity" added="1255348378">Активность пользователя</phrase>
+	<phrase module_id="user" version_id="2.0.0rc4" var_name="time_stamp" added="1255348396">Время</phrase>
+	<phrase module_id="user" version_id="2.0.0rc4" var_name="not_a_valid_email" added="1255348410">Неверный e-mail.</phrase>
+	<phrase module_id="user" version_id="2.0.0rc4" var_name="password_request_for_site_title" added="1255348422">Запрос пароля для {site_title}</phrase>
+	<phrase module_id="user" version_id="2.0.0rc4" var_name="you_have_requested_for_us_to_send_you_a_new_password_for_site_title" added="1255348468"><![CDATA[Вы попросили нас прислать вам новый пароль для {site_title}.  Чтобы подтвердить ваш запрос, пожалуйста перейдите по этой ссылке: <a href="{link}">{link}</a>]]></phrase>
+	<phrase module_id="user" version_id="2.0.0rc4" var_name="not_a_valid_password_request" added="1255348509">неверный запрос пароля.</phrase>
+	<phrase module_id="user" version_id="2.0.0rc4" var_name="password_request_id_does_not_match" added="1255348517">Неверный запрос пароля.</phrase>
+	<phrase module_id="user" version_id="2.0.0rc4" var_name="new_password_for_site_title" added="1255348541">Новый пароль для {site_title}</phrase>
+	<phrase module_id="user" version_id="2.0.0rc4" var_name="you_have_requested_for_us_to_send_you_a_new_password_for_site_title_with_password" added="1255348604"><![CDATA[Вы попросили прислать вам новый пароль для {site_title}.  Ваш новый пароль: {password}  Чтобы войти, пожалуйста, перейдите по этой ссылке: <a href="{link}">{link}</a>]]></phrase>
+	<phrase module_id="user" version_id="2.0.0rc4" var_name="the_field_field_is_required" added="1255348655">Поле `{field}` обязательно.</phrase>
+	<phrase module_id="user" version_id="2.0.0rc4" var_name="not_a_valid_name" added="1255348671">Неверное имя.</phrase>
+	<phrase module_id="user" version_id="2.0.0rc4" var_name="select_a_membership_package" added="1255348680">Укажите статус.</phrase>
+	<phrase module_id="user" version_id="2.0.0rc4" var_name="please_verify_your_email_for_site_title" added="1255348711">Пожалуйста, подтвердите ваш E-mail для: {site_title}</phrase>
+	<phrase module_id="user" version_id="2.0.0rc4" var_name="you_registered_an_account_on_site_title_before_being_able_to_use_your_account_you_need_to_verify_that_this_is_your_email_address_by_clicking_here_a_href_link_link_a" added="1255348750"><![CDATA[Вы зарегистрировались на {site_title}, перед тем, как начать пользоваться социальной сетью, вы должны подтвердить что получили это письмо. Для этого необходимо перейти по этой ссылке: <a href="{link}">{link}</a>]]></phrase>
+	<phrase module_id="user" version_id="2.0.0rc4" var_name="not_a_valid_city" added="1255348792">неверный город.</phrase>
+	<phrase module_id="user" version_id="2.0.0rc4" var_name="this_display_name_is_not_allowed_to_be_used" added="1255348815">Это имя недопустимо.</phrase>
+	<phrase module_id="user" version_id="2.0.0rc4" var_name="add_some_text_to_share" added="1255348834">Введите текст.</phrase>
+	<phrase module_id="user" version_id="2.0.0rc4" var_name="fill_in_a_display_name" added="1255348849">Введите имя.</phrase>
+	<phrase module_id="user" version_id="2.0.0rc4" var_name="select_a_user_group_for_this_user" added="1255348857">Укажите группу пользователей для этого пользователя.</phrase>
+	<phrase module_id="user" version_id="2.0.0rc4" var_name="select_a_location" added="1255348865">Укажите страну.</phrase>
+	<phrase module_id="user" version_id="2.0.0rc4" var_name="select_a_gender" added="1255348872">Укажите пол.</phrase>
+	<phrase module_id="user" version_id="2.0.0rc4" var_name="select_a_date_of_birth" added="1255348880">Укажите дату рождения.</phrase>
+	<phrase module_id="user" version_id="2.0.0rc4" var_name="username_is_required_and_can_only_contain_alphanumeric_characters_and_or_and_must_be_between_5_and_25_characters_long" added="1255348890">Укажите имя пользователя.</phrase>
+	<phrase module_id="user" version_id="2.0.0rc4" var_name="provide_a_valid_email" added="1255348903">Укажите верный e-mail.</phrase>
+	<phrase module_id="user" version_id="2.0.0rc4" var_name="missing_old_password" added="1255348917">Не указан старый пароль.</phrase>
+	<phrase module_id="user" version_id="2.0.0rc4" var_name="missing_new_password" added="1255348924">Не указан новый пароль</phrase>
+	<phrase module_id="user" version_id="2.0.0rc4" var_name="your_current_password_does_not_match_your_old_password" added="1255348932">Ваш пароль не соответствует вашему старому паролю.</phrase>
+	<phrase module_id="user" version_id="2.0.0rc4" var_name="you_should_not_ban_yourself" added="1255348944">Вы не можете заблокировать себя.</phrase>
+	<phrase module_id="user" version_id="2.0.0rc4" var_name="provide_a_valid_password" added="1255348967">введите верный пароль.</phrase>
+	<phrase module_id="user" version_id="2.0.0rc4" var_name="check_our_agreement_in_order_to_join_our_site" added="1255348975">Примите наше пользовательское соглашение, чтобы войти на сайт.</phrase>
+	<phrase module_id="user" version_id="2.0.0rc4" var_name="provide_a_valid_user_name" added="1255348982">Некорректное имя пользователя. Имя пользователя может содержать только буквы и _ или - и должно быть не меньше {min}, и не больше {max} символов.</phrase>
+	<phrase module_id="user" version_id="2.0.0rc4" var_name="unable_to_upload_you_have_reached_your_limit_of_current_you_are_currently_using_total" added="1255349057">Невозможно загрузить. Вы достигли вашего лимита {current}. Сейчас вы используете {total}.</phrase>
+	<phrase module_id="user" version_id="2.0.0rc4" var_name="unable_to_upload_you_have_reached_your_limit_of_limit_with_this_upload_you_will_be_using_total" added="1255349126">Невозможно загрузить. Вы достигли вашего лимита {current}. Сейчас вы используете {total}.</phrase>
+	<phrase module_id="user" version_id="2.0.0rc4" var_name="unable_to_find_the_user_you_plan_to_edit" added="1255349166">Невозможно найти пользователя, которого вы хотите изменить.</phrase>
+	<phrase module_id="user" version_id="2.0.0rc4" var_name="user_name_is_already_in_use" added="1255349204">Имя пользователя уже занято.</phrase>
+	<phrase module_id="user" version_id="2.0.0rc4" var_name="this_username_is_not_allowed_to_be_used" added="1255349213">Это имя пользователя запрещено.</phrase>
+	<phrase module_id="user" version_id="2.0.0rc4" var_name="email_is_invalid_and_cannot_be_used" added="1255349222">E-mail введен неверно и не может быть использован.</phrase>
+	<phrase module_id="user" version_id="2.0.0rc4" var_name="this_email_is_not_allowed_to_be_used" added="1255349229">Этот E-mail запрещен.</phrase>
+	<phrase module_id="user" version_id="2.0.0rc4" var_name="loading_custom_fields" added="1255349270">Загрузка дополнительных полей.</phrase>
+	<phrase module_id="user" version_id="2.0.0rc4" var_name="continue" added="1255349314">Продолжить</phrase>
+	<phrase module_id="user" version_id="2.0.0rc4" var_name="you_are_about_to_delete" added="1255349645">Удалить...</phrase>
+	<phrase module_id="user" version_id="2.0.0rc4" var_name="total_activity" added="1255349689">Общая активность</phrase>
+	<phrase module_id="user" version_id="2.0.0rc4" var_name="are_you_completely_sure_you_want_to_delete_this_user" added="1255349704">Вы уверены, что хотите удалить этого пользователя?</phrase>
+	<phrase module_id="user" version_id="2.0.0rc4" var_name="no_cancel" added="1255349713">Нет, отменить</phrase>
+	<phrase module_id="user" version_id="2.0.0rc4" var_name="yes_delete" added="1255349719">Да, удалить</phrase>
+	<phrase module_id="user" version_id="2.0.0rc4" var_name="html_prefix" added="1255349733">HTML Prefix</phrase>
+	<phrase module_id="user" version_id="2.0.0rc4" var_name="html_suffix" added="1255349741">HTML Suffix</phrase>
+	<phrase module_id="user" version_id="2.0.0rc4" var_name="cancel" added="1255349841">отмена</phrase>
+	<phrase module_id="user" version_id="2.0.0rc4" var_name="you_can_upload_a_jpg_gif_or_png_file" added="1255349851">Вы можете загрузить JPG, GIF или PNG файл.</phrase>
+	<phrase module_id="user" version_id="2.0.0rc4" var_name="the_advised_width_height_is_20_pixels" added="1255349861">Высота и ширина 20 px.</phrase>
+	<phrase module_id="user" version_id="2.0.0rc4" var_name="yes" added="1255349896">Да</phrase>
+	<phrase module_id="user" version_id="2.0.0rc4" var_name="no" added="1255349905">Нет</phrase>
+	<phrase module_id="user" version_id="2.0.0rc4" var_name="choose_a_username" added="1255349927">Выберите имя пользователя</phrase>
+	<phrase module_id="user" version_id="2.0.0rc4" var_name="your_username_is_used_to_easily_connect_to_your_profile" added="1255349938">Ваше имя пользователя будет подключено к вашему профилю.</phrase>
+	<phrase module_id="user" version_id="2.0.0rc4" var_name="check_availability" added="1255349950">Проверить занятость</phrase>
+	<phrase module_id="user" version_id="2.0.0rc4" var_name="email_address" added="1255349958">E-mail адрес</phrase>
+	<phrase module_id="user" version_id="2.0.0rc4" var_name="membership" added="1255350061">Тип профиля</phrase>
+	<phrase module_id="user" version_id="2.0.0rc4" var_name="select" added="1255350068">Выбрать</phrase>
+	<phrase module_id="user" version_id="2.0.0rc4" var_name="free_normal" added="1255350074">(Бесплатно) Обычный</phrase>
+	<phrase module_id="user" version_id="2.0.0rc4" var_name="membership_upgrades" added="1255350091">Обновление статуса</phrase>
+	<phrase module_id="user" version_id="2.0.0rc4" var_name="click_here_to_learn_more_about_our_membership_upgrades" added="1255350114">Нажмите здесь чтобы узнать больше о статусах.</phrase>
+	<phrase module_id="user" version_id="2.0.0rc4" var_name="would_you_like_to_unblock_user_info" added="1255350478">Вы хотите разблокировать {user_info}?</phrase>
+	<phrase module_id="user" version_id="2.0.0rc4" var_name="yes_unblock_this_user" added="1255350492">Да, разблокировать этого пользователя.</phrase>
+	<phrase module_id="user" version_id="2.0.0rc4" var_name="no_do_not_unblock_this_user" added="1255350499">Нет, не разблокировать этого пользователя.</phrase>
+	<phrase module_id="user" version_id="2.0.0rc4" var_name="are_you_sure_you_want_to_block_user_info" added="1255350513">Вы действительно хотите заблокировать {user_info}?</phrase>
+	<phrase module_id="user" version_id="2.0.0rc4" var_name="yes_block_this_user" added="1255350542">Да, заблокировать этого пользователя.</phrase>
+	<phrase module_id="user" version_id="2.0.0rc4" var_name="no_do_not_block_this_user" added="1255350550">Нет, не блокировать этого пользователя.</phrase>
+	<phrase module_id="user" version_id="2.0.0rc4" var_name="search_by_email_full_name_or_user_name" added="1255350564">Поиск по e-mail или имени.</phrase>
+	<phrase module_id="user" version_id="2.0.0rc4" var_name="loading" added="1255350587">Загрузка</phrase>
+	<phrase module_id="user" version_id="2.0.0rc4" var_name="sorry_no_users_were_found" added="1255350630">Извините, пользователи не найдены.</phrase>
+	<phrase module_id="user" version_id="2.0.0rc4" var_name="use_selected" added="1255350638">Использовать Выбранное</phrase>
+	<phrase module_id="user" version_id="2.0.0rc4" var_name="cancel_uppercase" added="1255350654">Отмена</phrase>
+	<phrase module_id="user" version_id="2.0.0rc4" var_name="browse_for" added="1255350679">Искать</phrase>
+	<phrase module_id="user" version_id="2.0.0rc4" var_name="between_ages" added="1255350686">Возраст</phrase>
+	<phrase module_id="user" version_id="2.0.0rc4" var_name="located_within" added="1255350702">Страна</phrase>
+	<phrase module_id="user" version_id="2.0.0rc4" var_name="keywords" added="1255350723">Имя/Фамилия</phrase>
+	<phrase module_id="user" version_id="2.0.0rc4" var_name="within" added="1255350730">в</phrase>
+	<phrase module_id="user" version_id="2.0.0rc4" var_name="any" added="1255350747">Любые</phrase>
+	<phrase module_id="user" version_id="2.0.0rc4" var_name="display_results_by" added="1255350759">Отображать результаты по</phrase>
+	<phrase module_id="user" version_id="2.0.0rc4" var_name="sort_results_by" added="1255350765">Сортировать результаты по</phrase>
+	<phrase module_id="user" version_id="2.0.0rc4" var_name="update" added="1255350772">Обновить</phrase>
+	<phrase module_id="user" version_id="2.0.0rc4" var_name="reset" added="1255350778">Сбросить</phrase>
+	<phrase module_id="user" version_id="2.0.0rc4" var_name="view_more" added="1255350805">Ещё</phrase>
+	<phrase module_id="user" version_id="2.0.0rc4" var_name="old_password" added="1255350815">Старый пароль</phrase>
+	<phrase module_id="user" version_id="2.0.0rc4" var_name="new_password" added="1255350820">Новый пароль</phrase>
+	<phrase module_id="user" version_id="2.0.0rc4" var_name="select_an_image" added="1255350839">Выберите изображение</phrase>
+	<phrase module_id="user" version_id="2.0.0rc4" var_name="file" added="1255350845">Файл</phrase>
+	<phrase module_id="user" version_id="2.0.0rc4" var_name="upload_picture" added="1255350860">Загрузить изображение.</phrase>
+	<phrase module_id="user" version_id="2.0.0rc4" var_name="anyone" added="1255350875">Все</phrase>
+	<phrase module_id="user" version_id="2.0.0rc4" var_name="network" added="1255350881">Сеть</phrase>
+	<phrase module_id="user" version_id="2.0.0rc4" var_name="friends_only" added="1255350888">Только друзья</phrase>
+	<phrase module_id="user" version_id="2.0.0rc4" var_name="no_one" added="1255350894">Никто</phrase>
+	<phrase module_id="user" version_id="2.0.0rc4" var_name="go_advanced" added="1255350950">вперед</phrase>
+	<phrase module_id="user" version_id="2.0.0rc4" var_name="username_is_not_available_here_are_other_suggestions_you_may_like" added="1255350959">Это имя пользователя уже занято, мы можем предложить вам:</phrase>
+	<phrase module_id="user" version_id="2.0.0rc4" var_name="click_to_change_your_status" added="1255350982">Нажмите, чтобы изменить ваш статус.</phrase>
+	<phrase module_id="user" version_id="2.0.0rc4" var_name="none" added="1255351003">(пусто)</phrase>
+	<phrase module_id="user" version_id="2.0.0rc4" var_name="a_href_onclick_js_user_status_form_ajaxcall_user_updatestatus_return_false_save_a_or_a_href_class_js_update_status_cancel_a" added="1255351064"><![CDATA[<a href="#" onclick="$('#js_user_status_form').ajaxCall('user.updateStatus'); return false;">сохранить</a> или <a href="#" class="js_update_status">отменить</a>]]></phrase>
+	<phrase module_id="user" version_id="2.0.0rc4" var_name="add_new_option" added="1255351089">Добавить новую опцию</phrase>
+	<phrase module_id="user" version_id="2.0.0rc4" var_name="cancellation_reason" added="1255351098">Причина</phrase>
+	<phrase module_id="user" version_id="2.0.0rc4" var_name="is_active" added="1255351109">Активен</phrase>
+	<phrase module_id="user" version_id="2.0.0rc4" var_name="submit" added="1255351131">Применить</phrase>
+	<phrase module_id="user" version_id="2.0.0rc4" var_name="e_mail" added="1255351154">E-Mail</phrase>
+	<phrase module_id="user" version_id="2.0.0rc4" var_name="reasons_given" added="1255351167">Причины</phrase>
+	<phrase module_id="user" version_id="2.0.0rc4" var_name="feedback_text" added="1255351173">Поддержка</phrase>
+	<phrase module_id="user" version_id="2.0.0rc4" var_name="deleted_on" added="1255351179">Удалено</phrase>
+	<phrase module_id="user" version_id="2.0.0rc4" var_name="delete_feedback" added="1255351194">Удалить</phrase>
+	<phrase module_id="user" version_id="2.0.0rc4" var_name="no_feedback_to_review" added="1255351204">Пусто</phrase>
+	<phrase module_id="user" version_id="2.0.0rc4" var_name="active" added="1255351222">Активен</phrase>
+	<phrase module_id="user" version_id="2.0.0rc4" var_name="manage" added="1255351229">Управление</phrase>
+	<phrase module_id="user" version_id="2.0.0rc4" var_name="edit_reason" added="1255351236">Изменить причину</phrase>
+	<phrase module_id="user" version_id="2.0.0rc4" var_name="delete_reason" added="1255351242">Удалить причину</phrase>
+	<phrase module_id="user" version_id="2.0.0rc4" var_name="deactivate" added="1255351250">Деактивировать</phrase>
+	<phrase module_id="user" version_id="2.0.0rc4" var_name="activate" added="1255351255">Активировать</phrase>
+	<phrase module_id="user" version_id="2.0.0rc4" var_name="there_are_no_options_available" added="1255351286">Нет доступных опций.</phrase>
+	<phrase module_id="user" version_id="2.0.0rc4" var_name="click_here_to_add" added="1255351293">Нажмите здесь, чтобы добавить.</phrase>
+	<phrase module_id="user" version_id="2.0.0rc4" var_name="user_group_details" added="1255351302">Детали группы</phrase>
+	<phrase module_id="user" version_id="2.0.0rc4" var_name="inherit" added="1255351307">Inherit</phrase>
+	<phrase module_id="user" version_id="2.0.0rc4" var_name="add_user_group" added="1255351316">Добавить группу</phrase>
+	<phrase module_id="user" version_id="2.0.0rc4" var_name="saving" added="1255351336">Сохранение</phrase>
+	<phrase module_id="user" version_id="2.0.0rc4" var_name="module_settings" added="1255351345">Настройки модуля</phrase>
+	<phrase module_id="user" version_id="2.0.0rc4" var_name="save" added="1255351360">Сохранить</phrase>
+	<phrase module_id="user" version_id="2.0.0rc4" var_name="are_you_sure_you_want_to_delete_the_user_group_title" added="1255351390"><![CDATA[Вы действительно хотите удалить эту группу: "{title}"?]]></phrase>
+	<phrase module_id="user" version_id="2.0.0rc4" var_name="b_notice_b_this_cannot_be_undone" added="1255351405"><![CDATA[<b>Примечание:</b> Это действие нельзя будет вернуть.]]></phrase>
+	<phrase module_id="user" version_id="2.0.0rc4" var_name="b_yes_b_i_am_sure_move_any_members_that_belong_to_the_user_group_title_to" added="1255351482"><![CDATA[<b>Да</b>, я уверен. Переместите пользователей, которые находятся в группе "{title}" в]]></phrase>
+	<phrase module_id="user" version_id="2.0.0rc4" var_name="delete_this_user_group" added="1255351495">Удалить эту группу</phrase>
+	<phrase module_id="user" version_id="2.0.0rc4" var_name="no_thanks_get_me_out_of_here" added="1255351502">Нет, уйти отсюда</phrase>
+	<phrase module_id="user" version_id="2.0.0rc4" var_name="edit_user_group" added="1255351676">Изменить эту группу</phrase>
+	<phrase module_id="user" version_id="2.0.0rc4" var_name="custom_user_groups" added="1255351684">Группы пользователей</phrase>
+	<phrase module_id="user" version_id="2.0.0rc4" var_name="are_you_sure" added="1255351719">Вы уверены?</phrase>
+	<phrase module_id="user" version_id="2.0.0rc4" var_name="delete" added="1255351726">Удалить</phrase>
+	<phrase module_id="user" version_id="2.0.0rc4" var_name="n_a" added="1255351737">N/A</phrase>
+	<phrase module_id="user" version_id="2.0.0rc4" var_name="php" added="1255351754">PHP</phrase>
+	<phrase module_id="user" version_id="2.0.0rc4" var_name="check_the_box_to_confirm_that_you_want_to_edit_this_field" added="1255351792">поставив галочку, вы подтверждаете, что хотите изменить это поле.</phrase>
+	<phrase module_id="user" version_id="2.0.0rc4" var_name="profile_picture" added="1255351809">Фотография</phrase>
+	<phrase module_id="user" version_id="2.0.0rc4" var_name="photo" added="1255351814">Фотография</phrase>
+	<phrase module_id="user" version_id="2.0.0rc4" var_name="change_this_photo" added="1255351877">Изменить эту фотографию</phrase>
+	<phrase module_id="user" version_id="2.0.0rc4" var_name="profile_privacy" added="1255351942">Приватность профиля</phrase>
+	<phrase module_id="user" version_id="2.0.0rc4" var_name="notification" added="1255351949">Уведомление</phrase>
+	<phrase module_id="user" version_id="2.0.0rc4" var_name="custom_fields" added="1255351955">Дополнительные поля</phrase>
+	<phrase module_id="user" version_id="2.0.0rc4" var_name="request_new_password" added="1255351990">Запросить новый пароль</phrase>
+	<phrase module_id="user" version_id="2.0.0rc4" var_name="member_search" added="1255352000">Поиск пользователей</phrase>
+	<phrase module_id="user" version_id="2.0.0rc4" var_name="search" added="1255352006">Поиск</phrase>
+	<phrase module_id="user" version_id="2.0.0rc4" var_name="age_group" added="1255352048">Возрастная группа</phrase>
+	<phrase module_id="user" version_id="2.0.0rc4" var_name="show_members" added="1255352055">Показать пользователей</phrase>
+	<phrase module_id="user" version_id="2.0.0rc4" var_name="group" added="1255352125">Группа</phrase>
+	<phrase module_id="user" version_id="2.0.0rc4" var_name="last_activity" added="1255352137">Последняя активность</phrase>
+	<phrase module_id="user" version_id="2.0.0rc4" var_name="resend_verification_mail" added="1255352186">Выслать заново подтверждающее письмо</phrase>
+	<phrase module_id="user" version_id="2.0.0rc4" var_name="verify_this_user" added="1255352197">Подтвердить этого пользователя</phrase>
+	<phrase module_id="user" version_id="2.0.0rc4" var_name="delete_user" added="1255352225">Удалить пользователя</phrase>
+	<phrase module_id="user" version_id="2.0.0rc4" var_name="verify" added="1255352242">(Проверка)</phrase>
+	<phrase module_id="user" version_id="2.0.0rc4" var_name="view_all_the_activity_from_this_ip" added="1255352316">Посмотреть всю активность этого IP.</phrase>
+	<phrase module_id="user" version_id="2.0.0rc4" var_name="birthday" added="1255352341">День рождения</phrase>
+	<phrase module_id="user" version_id="2.0.0rc4" var_name="age" added="1255352346">Возраст</phrase>
+	<phrase module_id="user" version_id="2.0.0rc4" var_name="view_profile" added="1255352373">Смотреть профиль</phrase>
+	<phrase module_id="user" version_id="2.0.0rc4" var_name="send_message" added="1255352380">Отправить сообщение</phrase>
+	<phrase module_id="user" version_id="2.0.0rc4" var_name="add_full_name_as_your_friend" added="1255352392">Добавить {full_name} в список ваших друзей.</phrase>
+	<phrase module_id="user" version_id="2.0.0rc4" var_name="add_to_friends" added="1255352416">Добавить в друзья</phrase>
+	<phrase module_id="user" version_id="2.0.0rc4" var_name="un_feature_this_member" added="1255352431">Un-Feature this member.</phrase>
+	<phrase module_id="user" version_id="2.0.0rc4" var_name="unfeature" added="1255352438">Из избранных</phrase>
+	<phrase module_id="user" version_id="2.0.0rc4" var_name="feature_this_member" added="1255352446">Избранный участник</phrase>
+	<phrase module_id="user" version_id="2.0.0rc4" var_name="feature" added="1255352454">В избранные</phrase>
+	<phrase module_id="user" version_id="2.0.0rc4" var_name="unable_to_find_any_members_with_the_current_browse_criteria" added="1255352506">Не найдено ни одного пользователя с данными критериями поиска.</phrase>
+	<phrase module_id="user" version_id="2.0.0rc4" var_name="reset_browse_criteria" added="1255352511">Обновить критерии поиска</phrase>
+	<phrase module_id="user" version_id="2.0.0rc4" var_name="you_have_logged_out" added="1255352791">Вы вышли из аккаунта.</phrase>
+	<phrase module_id="user" version_id="2.0.0rc4" var_name="skip_this_step" added="1255352808">Пропустить этот шаг</phrase>
+	<phrase module_id="user" version_id="2.0.0rc4" var_name="thumbnail" added="1255352821">Миниатюра</phrase>
+	<phrase module_id="user" version_id="2.0.0rc4" var_name="profile_picture_cropping_tool" added="1255352829">Обрезка изображения профиля</phrase>
+	<phrase module_id="user" version_id="2.0.0rc4" var_name="avatar" added="1255352835">Аватар</phrase>
+	<phrase module_id="user" version_id="2.0.0rc4" var_name="the_image_you_uploaded_is_rather_small_so_we_are_unable_to_crop_it_however_you_can_still_save_this_image_if_you_want_to_use_it" added="1255352849">Эта фотография слишком мала, мы не можем обрезать её. В любом случае, вы можете сохранить её и использовать.</phrase>
+	<phrase module_id="user" version_id="2.0.0rc4" var_name="save_avatar" added="1255352862">Сохранить аватар</phrase>
+	<phrase module_id="user" version_id="2.0.0rc4" var_name="click_and_drag_a_box_on_the_original_image_to_create_your_cropped_image" added="1255352881"><![CDATA[Нажмите на "<b>Оригинал</b>" изображения. Растяните, перетащите поле выделения для создания необходимого Вам изображения. Результат можно видеть в "<b>Предпросмотр</b>". Нажмите кнопку "Сохранить аватар", чтобы создать свой новый аватар. Аватар используются по всему сайту.]]></phrase>
+	<phrase module_id="user" version_id="2.0.0rc4" var_name="original" added="1255352892">Оригинал</phrase>
+	<phrase module_id="user" version_id="2.0.0rc4" var_name="preview" added="1255352898">Предпросмотр</phrase>
+	<phrase module_id="user" version_id="2.0.0rc4" var_name="upload_a_new_profile_picture" added="1255353021">Загрузить новое изображение профиля</phrase>
+	<phrase module_id="user" version_id="2.0.0rc4" var_name="the_file_size_limit_is_file_size_if_your_upload_does_not_work_try_uploading_a_smaller_picture" added="1255353065">Максимальный размер файла {file_size}. Если ваша загрузка не работает, попытайтесь загрузить картинку меньшего размера.</phrase>
+	<phrase module_id="user" version_id="2.0.0rc4" var_name="invisible_mode" added="1255353140">Невидимка</phrase>
+	<phrase module_id="user" version_id="2.0.0rc4" var_name="invisible_mode_allows_you_to_browse_the_site_without_appearing_on_any_online_lists" added="1255353150"><![CDATA[Режим Невидимка позволяет вам использовать все возможности сайта, не находясь в списках "Онлайн".]]></phrase>
+	<phrase module_id="user" version_id="2.0.0rc4" var_name="enable_invisible_mode" added="1255353157">Включить Невидимку</phrase>
+	<phrase module_id="user" version_id="2.0.0rc4" var_name="save_changes" added="1255353176">Сохранить изменения</phrase>
+	<phrase module_id="user" version_id="2.0.0rc4" var_name="profile" added="1255353183">Профиль</phrase>
+	<phrase module_id="user" version_id="2.0.0rc4" var_name="display_age_and_date_of_birth" added="1255353205">Отображать возраст и дату рождения.</phrase>
+	<phrase module_id="user" version_id="2.0.0rc4" var_name="display_age_and_day_month_of_birth" added="1255353212">Отображать возраст и день/месяц рождения.</phrase>
+	<phrase module_id="user" version_id="2.0.0rc4" var_name="display_only_my_age" added="1255353221">Отображать только мой возраст.</phrase>
+	<phrase module_id="user" version_id="2.0.0rc4" var_name="display_only_day_month_of_birth" added="1255353228">Показывать только день и месяц в дате рождения.</phrase>
+	<phrase module_id="user" version_id="2.0.0rc4" var_name="hide_my_age_and_date_of_birth" added="1255353239">Скрыть мой возраст и дату рождения.</phrase>
+	<phrase module_id="user" version_id="2.0.0rc4" var_name="notifications" added="1255353258">Уведомления</phrase>
+	<phrase module_id="user" version_id="2.0.0rc4" var_name="blocked_users" added="1255353273">Заблокированные пользователи</phrase>
+	<phrase module_id="user" version_id="2.0.0rc4" var_name="check_the_boxes_to_unblock_users" added="1255353279">Поставьте галочки, чтобы убрать пользователей из заблокированных</phrase>
+	<phrase module_id="user" version_id="2.0.0rc4" var_name="you_have_not_blocked_any_users" added="1255353290">У вас нет заблокированных пользователей</phrase>
+	<phrase module_id="user" version_id="2.0.0rc4" var_name="view_your_updated_profile" added="1255353335">Посмотреть ваш обновленный профиль.</phrase>
+	<phrase module_id="user" version_id="2.0.0rc4" var_name="updating_profile" added="1255353348">Обновление профиля</phrase>
+	<phrase module_id="user" version_id="2.0.0rc4" var_name="no_custom_fields_have_been_added" added="1255353363">Дополнительные поля не созданы.</phrase>
+	<phrase module_id="user" version_id="2.0.0rc4" var_name="add_a_new_custom_field" added="1255353370">Добавить дополнительное поле</phrase>
+	<phrase module_id="user" version_id="2.0.0rc4" var_name="i_have_read_and_agree_to_the_a_href_id_js_terms_of_use_terms_of_use_a_and_a_href_id_js_privacy_policy_privacy_policy_a" added="1255353746"><![CDATA[Я прочитал и согласен с <a href="#" id="js_terms_of_use">условиями использования</a> и <a href="#" id="js_privacy_policy">политикой приватности</a>.]]></phrase>
+	<phrase module_id="user" version_id="2.0.0rc4" var_name="sign_up" added="1255353757">Регистрация</phrase>
+	<phrase module_id="user" version_id="2.0.0rc4" var_name="terms_of_use" added="1255353807">Условия использования</phrase>
+	<phrase module_id="user" version_id="2.0.0rc4" var_name="privacy_policy" added="1255353814">Политика приватности</phrase>
+	<phrase module_id="user" version_id="2.0.0rc4" var_name="are_you_sure_you_want_to_delete_your_account" added="1255353879">Вы действительно хотите удалить свой аккаунт?</phrase>
+	<phrase module_id="user" version_id="2.0.0rc4" var_name="user_info_will_miss_you" added="1255353902">{user_info} скучает по вам.</phrase>
+	<phrase module_id="user" version_id="2.0.0rc4" var_name="why_are_you_deleting_your_account" added="1255353918">Почему вы удаляете свой аккаунт?</phrase>
+	<phrase module_id="user" version_id="2.0.0rc4" var_name="please_tell_us_why" added="1255353928">Пожалуйста, скажите нам, почему :(</phrase>
+	<phrase module_id="user" version_id="2.0.0rc4" var_name="enter_your_password" added="1255353935">Введите ваш пароль</phrase>
+	<phrase module_id="user" version_id="2.0.0rc4" var_name="are_you_absolutely_sure_this_operation_cannot_be_undone" added="1255353943">Вы уверены? Эта операция необратима.</phrase>
+	<phrase module_id="user" version_id="2.0.0rc4" var_name="delete_my_account" added="1255353954">Удалить мой аккаунт</phrase>
+	<phrase module_id="user" version_id="2.0.0rc4" var_name="total_user_change_out_of_total_user_name_changes" added="1255354010">{total_user_change} из {total} изменений имени пользователя.</phrase>
+	<phrase module_id="user" version_id="2.0.0rc4" var_name="changing_your_email_address_requires_you_to_verify_your_new_email" added="1255354040">изменение твоей эл. почты требует подтверждения твоего нового e-mail.</phrase>
+	<phrase module_id="user" version_id="2.0.0rc4" var_name="change_password" added="1255354053">Изменить пароль.</phrase>
+	<phrase module_id="user" version_id="2.0.0rc4" var_name="enable_dst_daylight_savings_time_detection" added="1255354117">Enable DST (Daylight Savings Time) detection.</phrase>
+	<phrase module_id="user" version_id="2.0.0rc4" var_name="cancel_your_account" added="1255354151">Отключить мой аккаунт</phrase>
+	<phrase module_id="user" version_id="2.0.0rc4" var_name="the_link_that_brought_you_here_is_not_valid_it_may_already_have_expired" added="1255354177"><![CDATA[<p></p>]]></phrase>
+	<phrase module_id="user" version_id="2.0.0rc4" var_name="this_site_is_very_concerned_about_security" added="1255354208"><![CDATA[<p></p>]]></phrase>
+	<phrase module_id="user" version_id="2.0.0rc4" var_name="primary_language" added="1255508010">Исходный язык</phrase>
+	<phrase module_id="user" version_id="2.0.0rc4" var_name="edit_user" added="1255767831">Изменить пользователя</phrase>
+	<phrase module_id="user" version_id="2.0.0rc4" var_name="setting_on_signup_new_friend" added="1256302937"><![CDATA[<title>Авто-дружба при регистрации</title><info>если вы выберите пользователя из списка, этот пользователь автоматически будет дружить со всеми, кто проходит регистрацию.</info>]]></phrase>
+	<phrase module_id="user" version_id="2.0.0rc4" var_name="provide_a_name_that_is_not_representing_an_empty_name" added="1256498562">Имя пользователя введено неверно.</phrase>
+	<phrase module_id="user" version_id="2.0.0rc4" var_name="email_is_not_valid" added="1256498658">Адрес эл. почты введен неверно.</phrase>
+	<phrase module_id="user" version_id="2.0.0rc5" var_name="you_have_already_added_this_recently_try_adding_something_else" added="1256831625">Вы уже добавляли это ранее. Попробуйте добавить что-нибудь еще.</phrase>
+	<phrase module_id="user" version_id="2.0.0rc5" var_name="setting_check_status_updates" added="1256831739"><![CDATA[<title>Проверка статусов на спам</title><info>Определите, сколько изменений статуса мы должны проверить.</info>]]></phrase>
+	<phrase module_id="user" version_id="2.0.0rc6" var_name="rating" added="1257148296">Рейтинг</phrase>
+	<phrase module_id="user" version_id="2.0.0rc6" var_name="confirm_password" added="1257149713">Подтвердите пароль</phrase>
+	<phrase module_id="user" version_id="2.0.0rc6" var_name="password_successfully_updated" added="1257149818">Пароль успешно обновлен.</phrase>
+	<phrase module_id="user" version_id="2.0.0rc6" var_name="confirm_your_new_password" added="1257149930">Подтвердите свой новый пароль.</phrase>
+	<phrase module_id="user" version_id="2.0.0rc6" var_name="your_confirmed_password_does_not_match_your_new_password" added="1257149968">Ваш подтвержденный пароль не совпадает с новым паролем.</phrase>
+	<phrase module_id="user" version_id="2.0.0rc6" var_name="search_for_members" added="1257171948">Поиск пользователей</phrase>
+	<phrase module_id="user" version_id="2.0.0rc6" var_name="icon" added="1257255484">Иконка</phrase>
+	<phrase module_id="user" version_id="2.0.0rc6" var_name="complete_this_step_to_setup_your_personal_profile" added="1257262042">Заполните эти поля, чтобы создать ваш персональный профиль.</phrase>
+	<phrase module_id="user" version_id="2.0.0rc6" var_name="you_are_required_to_upload_a_profile_image" added="1257262086">Необходимо загрузить аватар профиля.</phrase>
+	<phrase module_id="user" version_id="2.0.0rc7" var_name="joined_time_stamp" added="1257931076">Регистрация {time_stamp}</phrase>
+	<phrase module_id="user" version_id="2.0.0rc8" var_name="user_id" added="1258553081">ID# Пользователя</phrase>
+	<phrase module_id="user" version_id="2.0.0rc8" var_name="provide_a_valid_email_address" added="1258742333">Введите верный адрес эл. почты.</phrase>
+	<phrase module_id="user" version_id="2.0.0rc8" var_name="new_members" added="1258756750">Новые пользователи</phrase>
+	<phrase module_id="user" version_id="2.0.0rc8" var_name="new_comments" added="1258756762">Новые комментарии</phrase>
+	<phrase module_id="user" version_id="2.0.0rc8" var_name="updating" added="1258899641">Обновление</phrase>
+	<phrase module_id="user" version_id="2.0.0rc8" var_name="total_full_name_change_out_of_allowed" added="1258984271">{total_full_name_change} из {allowed}</phrase>
+	<phrase module_id="user" version_id="2.0.0rc10" var_name="setting_redirect_after_signup" added="1259688625"><![CDATA[<title>Переадрисация после входа</title><info>Укажите полный путь, по которому отправлять пользователей после входа. Оставьте пустым, если хотите оставить стандартный путь.</info>]]></phrase>
+	<phrase module_id="user" version_id="2.0.0rc10" var_name="setting_suggest_usernames_on_registration" added="1259610406"><![CDATA[<title>Предложить имя пользователя при регистрации</title><info>При включении будет показан список допустимых имен, если то имя, которое пытались использовать не доступно.</info>]]></phrase>
+	<phrase module_id="user" version_id="2.0.0rc11" var_name="enable_dst_daylight_savings_time" added="1259938658">Включить автоматический переход на летнее время</phrase>
+	<phrase module_id="user" version_id="2.0.0rc11" var_name="setting_date_of_birth_start" added="1259943344"><![CDATA[<title>Дата рождения</title><info>Дата рождения</info>]]></phrase>
+	<phrase module_id="user" version_id="2.0.0rc11" var_name="setting_date_of_birth_end" added="1259943587"><![CDATA[<title>Дата рождения</title><info>Дата рождения</info>]]></phrase>
+	<phrase module_id="user" version_id="2.0.0rc11" var_name="your_user_name" added="1259960987">your-user-name</phrase>
+	<phrase module_id="user" version_id="2.0.0rc11" var_name="forum_signature" added="1260027584">Подпись на форуме</phrase>
+	<phrase module_id="user" version_id="2.0.0rc11" var_name="space_total_out_of_unlimited" added="1260197948">{space_total} из неограниченного</phrase>
+	<phrase module_id="user" version_id="2.0.0rc11" var_name="space_total_out_of_total" added="1260198034">{space_total} использовано из {total} Mb</phrase>
+	<phrase module_id="user" version_id="2.0.0rc11" var_name="sorry_no_members_found" added="1260198777">Извините, пользователи не найдены.</phrase>
+	<phrase module_id="user" version_id="2.0.0rc11" var_name="user_setting_can_search_user_gender" added="1260199675">Можно искать по полу пользователя?</phrase>
+	<phrase module_id="user" version_id="2.0.0rc11" var_name="user_setting_can_search_user_age" added="1260199727">Можно искать по возрасту пользователя?</phrase>
+	<phrase module_id="user" version_id="2.0.0rc11" var_name="register_for_an_account" added="1260232205">Зарегистрировать аккаунт</phrase>
+	<phrase module_id="user" version_id="2.0.0rc11" var_name="user_setting_can_browse_users_in_public" added="1260276391">Можно искать пользователей, используя публичный поиск?</phrase>
+	<phrase module_id="user" version_id="2.0.0rc11" var_name="title_featured_members" added="1260209155">Активные участники</phrase>
+	<phrase module_id="user" version_id="2.0.0rc11" var_name="title_who_s_online" added="1260209680">Сейчас на сайте</phrase>
+	<phrase module_id="user" version_id="2.0.0rc12" var_name="a_href_user_link_full_name_a_liked_that_they_joined_the_community" added="1260446167"><![CDATA[<a href="{user_link}">{full_name}</a> рад вступить в сообщество.]]></phrase>
+	<phrase module_id="user" version_id="2.0.0rc12" var_name="a_href_user_link_full_name_a_liked_that_a_href_view_user_link_view_full_name_a_a_href_link_joined_a_the_community" added="1260446507"><![CDATA[<a href="{user_link}">{full_name}</a> рад что <a href="{view_user_link}">{view_full_name}</a> вступил в сообщество.]]></phrase>
+	<phrase module_id="user" version_id="2.0.0rc12" var_name="a_href_user_link_full_name_a_liked_that_you_joined_the_community" added="1260460353"><![CDATA[<a href="{user_link}">{full_name}</a> рад что ты вступил в сообщество.]]></phrase>
+	<phrase module_id="user" version_id="2.0.0rc12" var_name="a_href_user_link_full_name_a_likes_your_a_href_link_status_a" added="1260475316"><![CDATA[<a href="{user_link}">{full_name}</a> нравится твой <a href="{link}">статус</a>.]]></phrase>
+	<phrase module_id="user" version_id="2.0.0rc12" var_name="a_href_user_link_full_name_a_likes_their_own_a_href_link_status_a" added="1260476016"><![CDATA[<a href="{user_link}">{full_name}</a> нравится {gender} свой <a href="{link}">статус</a>.]]></phrase>
+	<phrase module_id="user" version_id="2.0.0rc12" var_name="a_href_user_link_full_name_a_likes_a_href_view_user_link_view_full_name_a_s_a_href_link_status_a" added="1260476034"><![CDATA[<a href="{user_link}">{full_name}</a> нравится <a href="{link}">статус</a> <a href="{view_user_link}">{view_full_name}</a>.]]></phrase>
+	<phrase module_id="user" version_id="2.0.0rc12" var_name="a_href_user_link_full_name_a_likes_your_profile_a_href_link_photo_a" added="1260479272"><![CDATA[<a href="{user_link}">{full_name}</a> нравится твоя фотография <a href="{link}">в профиле</a>.]]></phrase>
+	<phrase module_id="user" version_id="2.0.0rc12" var_name="a_href_user_link_full_name_a_likes_their_own_profile_a_href_link_photo_a" added="1260479341"><![CDATA[<a href="{user_link}">{full_name}</a> нравится {gender} своя фотография <a href="{link}">в профиле</a>.]]></phrase>
+	<phrase module_id="user" version_id="2.0.0rc12" var_name="a_href_user_link_full_name_a_likes_a_href_view_user_link_view_full_name_a_s_profile_a_href_link_photo_a" added="1260479374"><![CDATA[<a href="{user_link}">{full_name}</a> нравится фотография <a href="{view_user_link}">{view_full_name}</a> <a href="{link}">в профиле</a>.]]></phrase>
+	<phrase module_id="user" version_id="2.0.0rc12" var_name="a_href_user_link_full_name_a_likes_their_own_a_href_link_comment_a" added="1260483339"><![CDATA[<a href="{user_link}">{full_name}</a> нравится {gender} свой <a href="{link}">комментарий</a>.]]></phrase>
+	<phrase module_id="user" version_id="2.0.0rc12" var_name="no_featured_members" added="1260813540">Нет рекомендуемых пользователей.</phrase>
+	<phrase module_id="user" version_id="2.0.0rc12" var_name="there_are_no_members_online" added="1260813553">Нет пользователей онлайн.</phrase>
+	<phrase module_id="user" version_id="2.0.0rc12" var_name="setting_user_browse_default_result" added="1260819672"><![CDATA[<title>Поиск пользователей в стандартном порядке</title><info></info>]]></phrase>
+	<phrase module_id="user" version_id="2.0.0rc12" var_name="user_setting_can_edit_user_group_membership" added="1260825005"><![CDATA[Можно изменять пользовательский "Пользовательской группы" статус?]]></phrase>
+	<phrase module_id="user" version_id="2.0.0rc12" var_name="setting_remove_users_hidden_age" added="1260827335"><![CDATA[<title>Скрыть пользователей без возраста</title><info>Включите эту опцию, если хотите убрать из поиска пользователей, которые не указали свой возраст.</info>]]></phrase>
+	<phrase module_id="user" version_id="2.0.0rc12" var_name="setting_on_register_privacy_setting" added="1260914895"><![CDATA[<title>Приватные настройки при регистрации</title><info>С помощью этой функции вы можете контролировать приватные настройки для пользователей при регистрации.</info>]]></phrase>
+	<phrase module_id="user" version_id="2.0.0rc12" var_name="browse_filter_submit" added="1260981597">Поиск</phrase>
+	<phrase module_id="user" version_id="2.0.0" var_name="total_score_out_of_5" added="1261177339">{total_score} из 5.</phrase>
+	<phrase module_id="user" version_id="2.0.0" var_name="setting_min_count_for_top_rating" added="1261177451"><![CDATA[<title>Минимальный рейтинг для "ТОП" пользователей</title><info>Определить, сколько раз пользователь должен быть оценен перед тем, как он войдет в список "ТОП" пользователей.</info>]]></phrase>
+	<phrase module_id="user" version_id="2.0.0" var_name="top_rated_members" added="1261178262">Топ лучших</phrase>
+	<phrase module_id="user" version_id="2.0.0" var_name="no_top_members_found" added="1261178695">Ни одного топ-пользователя.</phrase>
+	<phrase module_id="user" version_id="2.0.0" var_name="menu_user_top_rated_members" added="1261178780">Топ лучших</phrase>
+	<phrase module_id="user" version_id="2.0.0" var_name="all" added="1261179636">Все</phrase>
+	<phrase module_id="user" version_id="2.0.0" var_name="male" added="1261179642">Мужчины</phrase>
+	<phrase module_id="user" version_id="2.0.0" var_name="female" added="1261179649">Женщины</phrase>
+	<phrase module_id="user" version_id="2.0.2" var_name="update_user_photos" added="1262110390">Обновить фотографии пользователя</phrase>
+	<phrase module_id="user" version_id="2.0.2" var_name="total_score_out_of_10" added="1263212593">{total_score} из 10</phrase>
+	<phrase module_id="user" version_id="2.0.2" var_name="user_setting_can_view_if_a_user_is_invisible" added="1263216036"><![CDATA[Показывать "Последнее посещение" пользователя (время) в их профиле, если пользователь в статусе невидимка?]]></phrase>
+	<phrase module_id="user" version_id="2.0.4" var_name="total_activity_points" added="1266500173">Всего пунктов активности</phrase>
+	<phrase module_id="user" version_id="2.0.4" var_name="activity_points" added="1266500821">Пункты активности</phrase>
+	<phrase module_id="user" version_id="2.0.5" var_name="setting_approve_users" added="1269284711"><![CDATA[<title>Подтвердить пользователей</title><info>Включите эту функцию, если хотите подтверждать пользователей перед тем, как они смогут пользоваться социальной сетью.</info>]]></phrase>
+	<phrase module_id="user" version_id="2.0.5" var_name="your_account_is_pending_approval" added="1269285880">Ваш аккаунт ожидает проверки.</phrase>
+	<phrase module_id="user" version_id="2.0.5" var_name="pending_approval" added="1269286717">Ожидает проверки</phrase>
+	<phrase module_id="user" version_id="2.0.5" var_name="deny_user" added="1269286833">Отказать пользователю</phrase>
+	<phrase module_id="user" version_id="2.0.5" var_name="approve_user" added="1269286895">Подтвердить пользователя</phrase>
+	<phrase module_id="user" version_id="2.0.5" var_name="user_successfully_approved" added="1269350848">Пользователь успешно подтвержден.</phrase>
+	<phrase module_id="user" version_id="2.0.5" var_name="not_approved" added="1269350868">Не подтвержден</phrase>
+	<phrase module_id="user" version_id="2.0.5" var_name="user_successfully_denied" added="1269350886">Пользователь отказан</phrase>
+	<phrase module_id="user" version_id="2.0.5" var_name="account_approved" added="1269351018">Пользователь подтвержден</phrase>
+	<phrase module_id="user" version_id="2.0.5" var_name="your_account_has_been_approved_on_site_title" added="1269351079"><![CDATA[Ваш аккаунт подтвержден. {site_title}  <a href="{link}">{link}</a>]]></phrase>
+	<phrase module_id="user" version_id="2.0.5" var_name="users_pending_approval" added="1269352177">Пользователи, ожидающие проверки</phrase>
+	<phrase module_id="user" version_id="2.0.5" var_name="user_setting_can_edit_currency" added="1271666567">Пользователи могут выбирать валюту?</phrase>
+	<phrase module_id="user" version_id="2.0.5" var_name="preferred_currency" added="1271673716">Основная валюта</phrase>
+	<phrase module_id="user" version_id="2.0.5" var_name="show_prices_and_make_purchases_in_this_currency" added="1271673733">Показывать цены и совершать покупки в этой валюте.</phrase>
+	<phrase module_id="user" version_id="2.0.5" var_name="payment_methods" added="1272279403">Способы оплаты</phrase>
+	<phrase module_id="user" version_id="2.0.5" var_name="setting_display_or_full_name" added="1272872994"><![CDATA[<title>Отображение полного имени</title><info>При регистрации пользователя на сайте он(а) может ввести свое Имя и Фамилию или отображаемое имя. </info>]]></phrase>
+	<phrase module_id="user" version_id="2.0.5" var_name="pending_email_verification" added="1273224031">Ожидается подтверждение электронной почты</phrase>
+	<phrase module_id="user" version_id="2.0.5dev1" var_name="setting_disable_username_on_sign_up" added="1274282432"><![CDATA[<title>Отключить Имя пользователя при регистрации</title><info>Если отключить, то не покажет соответствующую форму ввода при регистрации. Имя пользователя используется для создания уникальных URL пользователей (например, http://www.site.com/username). Если отключено, то будет использоваться ID пользователей для создания уникальных URL. Позже в настройках групп пользователей Вы можете разрешить пользователям редактировать своё имя пользователя.</info>]]></phrase>
+	<phrase module_id="user" version_id="2.0.5dev1" var_name="email_verification" added="1274636277">Проверка адреса электронной почты</phrase>
+	<phrase module_id="user" version_id="2.0.5dev1" var_name="mail_sent" added="1274637971">Отправка почты</phrase>
+	<phrase module_id="user" version_id="2.0.5dev1" var_name="verification_email_sent" added="1274637981">Проверка электронной почты.</phrase>
+	<phrase module_id="user" version_id="2.0.5dev1" var_name="resend_verification_email" added="1274637994">Повторная проверка электронной почты</phrase>
+	<phrase module_id="user" version_id="2.0.5dev2" var_name="promotions" added="1275109970"><![CDATA[Продвижения]]></phrase>
+	<phrase module_id="user" version_id="2.0.5dev2" var_name="manage_promotions" added="1275110028"><![CDATA[Управление продвижениями]]></phrase>
+	<phrase module_id="user" version_id="2.0.5dev2" var_name="add_promotion" added="1275110053"><![CDATA[Добавить продвижение]]></phrase>
+	<phrase module_id="user" version_id="2.0.5dev2" var_name="upgraded_user_group" added="1275112001"><![CDATA[Обновить группу пользователей]]></phrase>
+	<phrase module_id="user" version_id="2.0.5dev2" var_name="total_days_registered" added="1275112016"><![CDATA[Всего зарегистрировано]]></phrase>
+	<phrase module_id="user" version_id="2.0.5dev2" var_name="no_promotions_found" added="1275112046"><![CDATA[Не найдены продвижения.]]></phrase>
+	<phrase module_id="user" version_id="2.0.5dev2" var_name="promotion_successfully_deleted" added="1275112057"><![CDATA[Продвижение удалено.]]></phrase>
+	<phrase module_id="user" version_id="2.0.5dev2" var_name="promotion_successfully_update" added="1275112080"><![CDATA[Продвижения обновлены.]]></phrase>
+	<phrase module_id="user" version_id="2.0.5dev2" var_name="promotion_successfully_added" added="1275112090"><![CDATA[Продвижение добавлено.]]></phrase>
+	<phrase module_id="user" version_id="2.0.5dev2" var_name="editing_promotion" added="1275112127"><![CDATA[Изменить продвижение]]></phrase>
+	<phrase module_id="user" version_id="2.0.5dev2" var_name="promotion_details" added="1275112153"><![CDATA[О продвижении]]></phrase>
+	<phrase module_id="user" version_id="2.0.5dev2" var_name="days_registered" added="1275112186"><![CDATA[Зарегистрирован]]></phrase>
+	<phrase module_id="user" version_id="2.0.5dev2" var_name="move_user_to_user_group" added="1275112194"><![CDATA[Перемещение пользователя в пользовательскую группу]]></phrase>
+	<phrase module_id="user" version_id="2.0.5dev2" var_name="setting_check_promotion_system" added="1275113089"><![CDATA[<title>Проверка на продвижение</title><info>Если включить эту опцию то включится система продвижений, которая запустит проверку пользователей при входе на сайт.</info>]]></phrase>
+	<phrase module_id="user" version_id="2.0.5dev2" var_name="congratulations_you_have_been_promoted_to_the_following_user_group_title" added="1275114389"><![CDATA[Поздравляем! Вы были повышены до следующей группы пользователей: {title}]]></phrase>
+	<phrase module_id="user" version_id="2.0.5dev2" var_name="before_you_can_use_this_feature_you_need_to_enable_the_option" added="1275114542"><![CDATA[Прежде чем использовать эту функцию, необходимо включить опцию "Проверить на продвижение", которая может быть найдена <a href="{link}">здесь</a>.]]></phrase>
+	<phrase module_id="user" version_id="2.0.5dev2" var_name="user_s_successfully_deleted" added="1275116475"><![CDATA[Пользователи удалены.]]></phrase>
+	<phrase module_id="user" version_id="2.0.5dev2" var_name="delete_selected" added="1275116518"><![CDATA[Удалить выбранных]]></phrase>
+	<phrase module_id="user" version_id="2.0.5dev2" var_name="user_s_successfully_banned" added="1275116738"><![CDATA[Пользователи забанены.]]></phrase>
+	<phrase module_id="user" version_id="2.0.5dev2" var_name="user_s_successfully_un_banned" added="1275116766"><![CDATA[Пользователи разбанены.]]></phrase>
+	<phrase module_id="user" version_id="2.0.5dev2" var_name="ban_selected" added="1275116858"><![CDATA[Забанить выбранных]]></phrase>
+	<phrase module_id="user" version_id="2.0.5dev2" var_name="un_ban_selected" added="1275116870"><![CDATA[Разбанить выбранных]]></phrase>
+	<phrase module_id="user" version_id="2.0.5dev2" var_name="ban" added="1275179147"><![CDATA[Забанить]]></phrase>
+	<phrase module_id="user" version_id="2.0.5dev2" var_name="un_ban" added="1275179159"><![CDATA[Разбанить]]></phrase>
+	<phrase module_id="user" version_id="2.0.5dev2" var_name="with_selected" added="1275179181"><![CDATA[С выбранными]]></phrase>
+	<phrase module_id="user" version_id="2.0.5dev2" var_name="delete_user_full_name" added="1275179424"><![CDATA[Удалить пользователя {full_name}]]></phrase>
+	<phrase module_id="user" version_id="2.0.5dev2" var_name="email_verification_s_sent" added="1275179908"><![CDATA[Проверка электронной почты.]]></phrase>
+	<phrase module_id="user" version_id="2.0.5dev2" var_name="user_s_verified" added="1275180138"><![CDATA[Проверка пользователей]]></phrase>
+	<phrase module_id="user" version_id="2.0.5dev2" var_name="approve" added="1275180410"><![CDATA[Утвердить]]></phrase>
+	<phrase module_id="user" version_id="2.0.5dev2" var_name="user_s_successfully_approved" added="1275180491"><![CDATA[Пользователь утвержден.]]></phrase>
+	<phrase module_id="user" version_id="2.0.5dev2" var_name="ip_address" added="1275182314"><![CDATA[IP-адрес]]></phrase>
+	<phrase module_id="user" version_id="2.0.5dev2" var_name="user_link_full_name_commented_on_your_status" added="1275306747"><![CDATA[<a href="{user_link}">{full_name}</a> комментарий в вашем действующем <a href="{link}">канале</a>.]]></phrase>
+	<phrase module_id="user" version_id="2.0.7" var_name="setting_allow_user_registration" added="1288616671"><![CDATA[<title>Разрешить регистрацию пользователей</title><info>Включите этот параметр, чтобы разрешить открытую регистрацию.</info>]]></phrase>
+	<phrase module_id="user" version_id="2.0.7" var_name="user_setting_can_manage_user_group_settings" added="1289825772">Может управлять настройками групп пользователей?</phrase>
+	<phrase module_id="user" version_id="2.0.7" var_name="user_setting_can_edit_user_group" added="1289825844">Можно редактировать группы пользователей?</phrase>
+	<phrase module_id="user" version_id="2.0.7" var_name="user_setting_can_delete_user_group" added="1289826018">Можно удалять группы пользователей?</phrase>
+	<phrase module_id="user" version_id="2.0.7" var_name="you_are_unable_to_delete_a_site_administrator" added="1289827215">Вы не можете удалить администратора сайта.</phrase>
+	<phrase module_id="user" version_id="2.0.7" var_name="you_are_unable_to_ban_a_site_administrator" added="1289827731">Вы не можете забанить администратора сайта.</phrase>
+	<phrase module_id="user" version_id="2.0.7" var_name="you_are_unable_to_edit_a_site_administrators_account" added="1289828060">Вы не можете редактировать администраторов сайта.</phrase>
+	<phrase module_id="user" version_id="2.1.0Beta1" var_name="setting_enable_user_tooltip" added="1292335520"><![CDATA[<title>Использовать AJAX</title><info>Включите этот параметр, чтобы использовать AJAX при наведении курсора на некоторые имена пользователей.</info>]]></phrase>
+	<phrase module_id="user" version_id="3.0.0Beta1" var_name="menu_user_logout_4ee1a589029a67e7f1a00990a1786f46" added="1295699471">Выйти</phrase>
+	<phrase module_id="user" version_id="2.0.8" var_name="inactive_member_email_subject" added="1296833975">Ми скучали за вами</phrase>
+	<phrase module_id="user" version_id="2.0.8" var_name="inactive_member_email_body" added="1297074929"><![CDATA[<p>Привет {user_name},<br /> мы скучаем за вами в сети <a href="{site_url}">{site_name}</a> <br /><br /> Почему бы не зайти, посетить друзей, и наверстать упущенное</p>]]></phrase>
+	<phrase module_id="user" version_id="2.0.8" var_name="there_are_a_total_of_icount_inactive_members" added="1297086852">Есть в общей сложности {iCount} неактивных</phrase>
+	<phrase module_id="user" version_id="2.0.8" var_name="enter_a_number_of_days" added="1297087186">Введите число дней</phrase>
+	<phrase module_id="user" version_id="2.0.8" var_name="enter_a_number_to_size_each_batch" added="1297087223">Введите размер каждой партии</phrase>
+	<phrase module_id="user" version_id="2.0.8" var_name="not_enough_users_to_mail" added="1297087333">Не хватает e-mail пользователя</phrase>
+	<phrase module_id="user" version_id="2.0.8" var_name="user_setting_can_member_snoop" added="1297692328">Могут ли члены этой группы пользователей войти в систему как другой пользователь без ввода пароля?</phrase>
+	<phrase module_id="user" version_id="2.0.8" var_name="log_in_as_this_user" added="1297697254">Войти как этот пользователь</phrase>
+	<phrase module_id="user" version_id="2.0.8" var_name="member_snoop" added="1297697278">Ищейка пользователей</phrase>
+	<phrase module_id="user" version_id="2.0.8" var_name="member_snoop_text" added="1297697535"><![CDATA[Вы собираетесь войти в систему как пользователь <a href="{user_link}" target="_blank">{user_name}</a> ({full_name}). Это имеет тот же эффект, как если бы вы вошли в систему с паролем этого пользователя. В этом режиме, все ваши действия будут рассматриваться как совершенные {full_name}. <br />]]></phrase>
+	<phrase module_id="user" version_id="2.0.8" var_name="abort_log_in_as_this_user" added="1297697736">Войдите под этим пользователем</phrase>
+	<phrase module_id="user" version_id="2.0.8" var_name="deny_mail_subject" added="1298464722">Ваша регистрация в сети {site_name} была отказана</phrase>
+	<phrase module_id="user" version_id="2.0.8" var_name="deny_mail_message" added="1298464944">В этот момент ваш профиль не соответствует минимальным требованиям для нашего сайта. Если вы считаете что это ошибка, не стесняйтесь, свяжитесь с нами {site_e-mail}</phrase>
+	<phrase module_id="user" version_id="2.0.8" var_name="you_are_about_to_deny_user" added="1298470496"><![CDATA[Вы собираетесь забанить пользователя <a href="{link}">{user_name}</a> в сети. Если вы хотите отправить письмо этому пользователю, вы можете сделать это здесь]]></phrase>
+	<phrase module_id="user" version_id="2.0.8" var_name="deny_and_send_email" added="1298471061">Запретить и отправить e-mail</phrase>
+	<phrase module_id="user" version_id="2.0.8" var_name="deny_without_email" added="1298471080">Запретить без e-mail</phrase>
+	<phrase module_id="user" version_id="2.0.8" var_name="setting_brute_force_attempts_count" added="1299680854"><![CDATA[<title>Количество попыток</title><info>Сколько попыток допускается? Этот параметр используется вместе с "Временем блокировки", чтобы лучше защитить ваш сайт от грубой попытки входа. Вы определяете время в минутах и сколько неудачных попыток разрешено в течение этого периода времени.</info>]]></phrase>
+	<phrase module_id="user" version_id="2.0.8" var_name="setting_brute_force_time_check" added="1299681159"><![CDATA[<title>Время блокировки</title><info>Сколько минут использовать для блокировки? Установите 0, если вы не хотите запускать эту проверку Этот параметр используется вместе с "Количеством попыток", чтобы лучше защитить ваш сайт от грубой попытки входа.</info>]]></phrase>
+	<phrase module_id="user" version_id="2.0.8" var_name="setting_brute_force_cool_down" added="1299682133"><![CDATA[<title>Время блокировки учетной записи</title><info>Когда учетная запись была заблокирована в связи с грубой попыткой входа, сколько минут должен ждать пользователь до разблокировки учетной записи?</info>]]></phrase>
+	<phrase module_id="user" version_id="2.0.8" var_name="brute_force_account_locked" added="1299683217"><![CDATA[Превышено количество попыток для входа. Ваша учетная запись была заблокирована на {iCoolDown} минут. Если вы забыли свой пароль, воспользуйтесь инструментом <a href="{sForgotLink}">Восстановления пароля</a>. Вы можете попробовать снова войти в систему через {iUnlockTimeOut} минут.]]></phrase>
+	<phrase module_id="user" version_id="2.1.0beta1" var_name="that_user_does_not_exist" added="1300099212">Этот пользователь не существует</phrase>
+	<phrase module_id="user" version_id="2.1.0beta1" var_name="email_is_in_use_and_user_can_login" added="1300891508"><![CDATA[Еmail уже существует с учетной записью "{e-mail}". Если это Ваш E-mail пожалуйста, войдите в систему <a href="{link}">здесь</a>.]]></phrase>
+	<phrase module_id="user" version_id="2.1.0rc1" var_name="setting_force_user_to_upload_on_sign_up" added="1301564621"><![CDATA[<title>Заставить пользователей загрузить изображение профиля</title><info>Включите этот параметр, чтобы заставить пользователей загрузить изображение профиля, прежде чем они могут зарегистрироваться.</info>]]></phrase>
+	<phrase module_id="user" version_id="2.1.0rc1" var_name="profile_image" added="1301564651">Фото профиля</phrase>
+	<phrase module_id="user" version_id="3.0.0beta1" var_name="custom_relationship_status" added="1302872875">Семейное положение</phrase>
+	<phrase module_id="user" version_id="3.0.0beta1" var_name="cf_option_single" added="1302872875">Сам(а)</phrase>
+	<phrase module_id="user" version_id="3.0.0beta1" var_name="cf_option_in_a_relationship" added="1302872875">В отношениях</phrase>
+	<phrase module_id="user" version_id="3.0.0beta1" var_name="cf_option_engaged" added="1302872875">Занят(а)</phrase>
+	<phrase module_id="user" version_id="3.0.0beta1" var_name="cf_option_married" added="1302872875">В браке</phrase>
+	<phrase module_id="user" version_id="3.0.0beta1" var_name="cf_option_its_complicated" added="1302872875">Все сложно</phrase>
+	<phrase module_id="user" version_id="3.0.0beta1" var_name="cf_option_in_an_open_relationship" added="1302872875">В открытых отношениях</phrase>
+	<phrase module_id="user" version_id="3.0.0beta1" var_name="cf_option_widowed" added="1302872875">Овдовел(а)</phrase>
+	<phrase module_id="user" version_id="3.0.0beta1" var_name="cf_option_separated" added="1302872875">Разошлись</phrase>
+	<phrase module_id="user" version_id="3.0.0beta1" var_name="cf_option_divorced" added="1302872875">Разведен(а)</phrase>
+	<phrase module_id="user" version_id="3.0.0beta1" var_name="setting_hide_main_menu" added="1306142141"><![CDATA[<title>Скрыть главное меню</title><info>Включите этот параметр, чтобы скрыть главное меню, если пользователь не вошел на сайт.</info>]]></phrase>
+	<phrase module_id="user" version_id="3.0.0beta1" var_name="setting_invite_only_community" added="1306476862"><![CDATA[<title>Invite Only</title><info>Включите эту опцию, чтобы регистрация была только по приглашению.</info>]]></phrase>
+	<phrase module_id="user" version_id="3.0.0beta3" var_name="setting_new_user_terms_confirmation" added="1315851732"><![CDATA[<title>Условия конфиденциальности и подтверждение</title><info>Включите эту опцию, если пользователи должны подтвердить, что они понимают, и готовы соблюдать условия и политику конфиденциальности.</info>]]></phrase>
+	<phrase module_id="user" version_id="3.0.0beta4" var_name="menu_user_account_settings_73c8da87d666df89aabd61620c81c24c" added="1317128919">Параметры учетной записи</phrase>
+	<phrase module_id="user" version_id="3.0.0beta4" var_name="menu_user_privacy_settings_73c8da87d666df89aabd61620c81c24c" added="1317128967">Настройки приватности</phrase>
+	<phrase module_id="user" version_id="3.0.0beta4" var_name="setting_enable_relationship_status" added="1317129649"><![CDATA[<title>Включить отношения</title><info>Если вы хотите, чтобы ваши пользователи имели возможность устанавливать свои отношения включите эту функцию.</info>]]></phrase>
+	<phrase module_id="user" version_id="3.0.0beta5" var_name="1_mutual_friend" added="1319122856">1 общий друг</phrase>
+	<phrase module_id="user" version_id="3.0.0beta5" var_name="total_mutual_friends" added="1319122869">{total} общих друзей</phrase>
+	<phrase module_id="user" version_id="3.0.0beta5" var_name="add_friend" added="1319122883">Добавить в друзья</phrase>
+	<phrase module_id="user" version_id="3.0.0beta5" var_name="advanced_filters" added="1319122982">Расширенный поиск</phrase>
+	<phrase module_id="user" version_id="3.0.0beta5" var_name="close_advanced_filters" added="1319122993">Закрыть расширенный фильтр</phrase>
+	<phrase module_id="user" version_id="3.0.0beta5" var_name="1_member" added="1319187425">1 пользователь.</phrase>
+	<phrase module_id="user" version_id="3.0.0beta5" var_name="total_members" added="1319187451">{total} пользователей.</phrase>
+	<phrase module_id="user" version_id="3.0.0beta5" var_name="1_person_likes_this" added="1319187466">1 чел. нравится.</phrase>
+	<phrase module_id="user" version_id="3.0.0beta5" var_name="total_people_like_this" added="1319187480">{total} людям нравится.</phrase>
+	<phrase module_id="user" version_id="3.0.0beta5" var_name="age_years_old" added="1319187501">{age} лет</phrase>
+	<phrase module_id="user" version_id="3.0.0beta5" var_name="mutual_friends_total" added="1319187520">Общие друзья ({total})</phrase>
+	<phrase module_id="user" version_id="3.0.0beta5" var_name="add_as_friend" added="1319187556">Добавить в друзья</phrase>
+	<phrase module_id="user" version_id="3.0.0beta5" var_name="say_happy_birthday" added="1319187573">Скажите С Днем Рождения</phrase>
+	<phrase module_id="user" version_id="3.0.0beta5" var_name="customize_how_other_users_interact_with_your_profile" added="1319465869">Настроить, как другие пользователи взаимодействуют с вашим профилем.</phrase>
+	<phrase module_id="user" version_id="3.0.0beta5" var_name="show_my_full_birthday_in_my_profile" added="1319466000">Показать мой полный день рождения в профиле.</phrase>
+	<phrase module_id="user" version_id="3.0.0beta5" var_name="show_only_month_amp_day_in_my_profile" added="1319466009">Показывать только месяц и день в профиле.</phrase>
+	<phrase module_id="user" version_id="3.0.0beta5" var_name="don_t_show_my_birthday_in_my_profile" added="1319466023">Не показывать мой день рождения в профиле.</phrase>
+	<phrase module_id="user" version_id="3.0.0beta5" var_name="customize_your_default_settings_for_when_sharing_new_items_on_the_site" added="1319466044">REC</phrase>
+	<phrase module_id="user" version_id="3.0.0beta5" var_name="items" added="1319466075">Элементы</phrase>
+	<phrase module_id="user" version_id="3.0.0beta5" var_name="view_your_profile" added="1319466105">Просмотр профиля</phrase>
+	<phrase module_id="user" version_id="3.0.0beta5" var_name="send_you_a_message" added="1319466218">Отправить вам сообщение</phrase>
+	<phrase module_id="user" version_id="3.0.0beta5" var_name="display_rss_subscribers_count" added="1319466235">Показать RSS подписчиков</phrase>
+	<phrase module_id="user" version_id="3.0.0beta5" var_name="subscribe_to_your_rss_feed" added="1319466242">Подписаться на RSS</phrase>
+	<phrase module_id="user" version_id="3.0.0beta5" var_name="view_who_recently_viewed_your_profile" added="1319466253">Посмотреть, кто недавно смотрел ваш профиль</phrase>
+	<phrase module_id="user" version_id="3.0.0beta5" var_name="view_your_friends" added="1319466263">Посмотреть ваших друзей</phrase>
+	<phrase module_id="user" version_id="3.0.0beta5" var_name="share_on_your_wall" added="1319466274">Поделиться на вашей стене</phrase>
+	<phrase module_id="user" version_id="3.0.0beta5" var_name="view_your_wall" added="1319466288">Посмотреть вашу стену</phrase>
+	<phrase module_id="user" version_id="3.0.0beta5" var_name="rate_your_profile" added="1319466306">Оценка вашего профиля</phrase>
+	<phrase module_id="user" version_id="3.0.0beta5" var_name="view_photos_within_your_profile" added="1319466316">Посмотреть фотографии в профиле</phrase>
+	<phrase module_id="user" version_id="3.0.0beta5" var_name="view_your_profile_lowercase" added="1319466339">Просмотр профиля</phrase>
+	<phrase module_id="user" version_id="3.0.0beta5" var_name="view_your_basic_information" added="1319466348">Просмотр основной информации</phrase>
+	<phrase module_id="user" version_id="3.0.0beta5" var_name="view_your_profile_information" added="1319466355">Просмотр информации профиля</phrase>
+	<phrase module_id="user" version_id="3.0.0beta5" var_name="view_your_location" added="1319466365">Просмотр вашего местоположения</phrase>
+	<phrase module_id="user" version_id="3.0.0beta5" var_name="community" added="1319466425">Сообщество</phrase>
+	<phrase module_id="user" version_id="3.0.0beta5" var_name="blogs" added="1319466527">Блоги</phrase>
+	<phrase module_id="user" version_id="3.0.0beta5" var_name="polls" added="1319466537">Опросы</phrase>
+	<phrase module_id="user" version_id="3.0.0beta5" var_name="photos" added="1319466559">Фото</phrase>
+	<phrase module_id="user" version_id="3.0.0beta5" var_name="songs" added="1319466570">Музыка</phrase>
+	<phrase module_id="user" version_id="3.0.0beta5" var_name="quizzes" added="1319466580">Викторины</phrase>
+	<phrase module_id="user" version_id="3.0.0beta5" var_name="full_name_liked_your_status_update_content" added="1319468529">{full_name} нравится ваше обновление статуса.</phrase>
+	<phrase module_id="user" version_id="3.0.0beta5" var_name="full_name_liked_your_status_update_message" added="1319468654"><![CDATA[{full_name} нравится ваше обновление статуса "<a href="{link}">{content}</a>" Для просмотра этого обновления, перейдите по ссылке ниже: <a href="{link}">{link}</a>]]></phrase>
+	<phrase module_id="user" version_id="3.0.0beta5" var_name="full_name_liked_a_comment_you_posted_on_row_full_name_s_wall" added="1319468762">{full_name} понравился комментарий, что вы писали на {row_full_name} стене</phrase>
+	<phrase module_id="user" version_id="3.0.0beta5" var_name="full_name_liked_your_comment_message" added="1319529906"><![CDATA[{full_name} нравится ваш комментарий "<a href="{link}">{content}</a>" что вы писали на {row_full_name} стене. Для просмотра этого комментария, перейдите по ссылке ниже: <a href="{link}">{link}</a>]]></phrase>
+	<phrase module_id="user" version_id="3.0.0beta5" var_name="full_name_liked_one_of_your_comments" added="1319529963">{full_name} понравился один из ваших комментариев</phrase>
+	<phrase module_id="user" version_id="3.0.0beta5" var_name="full_name_liked_your_comment_message_mini" added="1319530048"><![CDATA[{full_name} нравится ваш комментарий "<a href="{link}">{content}</a>" что вы писали. Для просмотра этого комментария, перейдите по ссылке ниже: <a href="{link}">{link}</a>]]></phrase>
+	<phrase module_id="user" version_id="3.0.0rc1" var_name="it_s_free_and_always_will_be" added="1320060012">Это всегда будет бесплатно.</phrase>
+	<phrase module_id="user" version_id="3.0.0rc1" var_name="ssitetitle_is_an_invite_only_community_enter_your_email_below_if_you_have_received_an_invitation" added="1320060060">{sSiteTitle} только по приглашению. Введите e-mail ниже, если вы получили приглашение.</phrase>
+	<phrase module_id="user" version_id="3.0.0rc1" var_name="ssitename_helps_you_connect_and_share_with_the_people_in_your_life" added="1320060210">{sSiteName} помогает объединению людей.</phrase>
+	<phrase module_id="user" version_id="3.0.0rc1" var_name="i_am" added="1320060287">Я</phrase>
+	<phrase module_id="user" version_id="3.0.0rc1" var_name="ssitetitle_helps_you_connect_and_share_with_the_people_in_your_life" added="1320060853">{sSiteTitle} помогает объединению людей.</phrase>
+	<phrase module_id="user" version_id="3.0.0rc1" var_name="join_ssitetitle_to_connect_with_friends_share_photos_and_create_your_own_profile" added="1320060918">Присоединиться к {sSiteTitle}, и общаться с друзьями, обмениваться фотографиями и создать свой собственный профиль.</phrase>
+	<phrase module_id="user" version_id="3.0.0rc1" var_name="or_sign_up_with" added="1320060934">или зарегистрироваться</phrase>
+	<phrase module_id="user" version_id="3.0.0rc1" var_name="keep_me_logged_in" added="1320061093">Запомнить меня</phrase>
+	<phrase module_id="user" version_id="3.0.0rc1" var_name="login_singular" added="1320061124">Войти</phrase>
+	<phrase module_id="user" version_id="3.0.0rc1" var_name="or_login_with" added="1320061134">или</phrase>
+	<phrase module_id="user" version_id="3.0.0rc1" var_name="sign_up_for_ssitetitle" added="1320061195">Подпишитесь на {sSiteTitle}</phrase>
+	<phrase module_id="user" version_id="3.0.0rc2" var_name="profile_photo_successfully_updated" added="1321363890">Фото профиля успешно обновлено.</phrase>
+	<phrase module_id="user" version_id="3.0.0rc2" var_name="search_friends_by_their_name" added="1321365393">Поиск друзей по имени...</phrase>
+	<phrase module_id="user" version_id="3.0.0rc2" var_name="login_ajax" added="1321437272">Войти</phrase>
+	<phrase module_id="user" version_id="3.0.0" var_name="full_name_commented_on_your_status_update" added="1322466364">{full_name} прокомментировал(а) ваш новый ​​статус.</phrase>
+	<phrase module_id="user" version_id="3.0.0" var_name="get_information_about_a_user_based_on_the_user_id_you_pass_if_you_do_not_pass_the_user_id_we_will_return_information_about_the_user_that_is_currently_logged_in" added="1322730371">Получить информацию о пользователе на основе идентификатора пользователя ID#.</phrase>
+	<phrase module_id="user" version_id="3.0.0" var_name="user_name_liked_gender_own_status_update_title" added="1322730467"><![CDATA[{user_name} нравится {gender} свой новый статус "{title}"]]></phrase>
+	<phrase module_id="user" version_id="3.0.0" var_name="user_name_liked_your_status_update_title" added="1322730568"><![CDATA[{user_name} нравится ваш новый ​​статус "{title}"]]></phrase>
+	<phrase module_id="user" version_id="3.0.0" var_name="user_name_liked_span_class_drop_data_user_full_name_s_span_status_update_title" added="1322730676"><![CDATA[{user_name} нравится <span class="drop_data_user">{full_name}'s</span> новый ​​статус "{title}"]]></phrase>
+	<phrase module_id="user" version_id="3.0.0" var_name="full_name_commented_on_your_status_update_title_to_see_the_comment_thread_follow_the_link_below_a_href_link_link_a" added="1322732634"><![CDATA[{full_name} прокомментировал(а) ваш новый ​​статус "{title}".
+Чтобы увидеть комментарии, пройдите по ссылке ниже:
+<a href="{link}">{link}</a>]]></phrase>
+	<phrase module_id="user" version_id="3.0.0" var_name="full_name_commented_on_one_of_gender_status_updates" added="1322732711">{full_name} прокомментировал(а) один из {gender} новых статусов.</phrase>
+	<phrase module_id="user" version_id="3.0.0" var_name="full_name_commented_on_one_of_other_full_name_s_status_updates" added="1322732816"><![CDATA[{full_name} прокомментировал(а) один из {other_full_name} новых статусов.]]></phrase>
+	<phrase module_id="user" version_id="3.0.0" var_name="full_name_commented_on_gender_status_update_a_href_link_title_a_to_see_the_comment_thread_follow_the_link_below_a_href_link_link_a" added="1322732978"><![CDATA[{full_name} прокомментировал(а) {gender} новый ​​статус "<a href="{link}">{title}</a>".
+Чтобы увидеть комментарии, пройдите по ссылке ниже:
+<a href="{link}">{link}</a>]]></phrase>
+	<phrase module_id="user" version_id="3.0.0" var_name="full_name_commented_on_other_full_name_s_status_update_a_href_link_title_a_to_see_the_comment_thread_follow_the_link_below_a_href_link_link_a" added="1322733117"><![CDATA[{full_name} прокомментировал(а) {other_full_name} новый ​​статус "<a href="{link}">{title}</a>".
+Чтобы увидеть комментарии, пройдите по ссылке ниже:
+<a href="{link}">{link}</a>]]></phrase>
+	<phrase module_id="user" version_id="3.0.0" var_name="unable_to_post_a_comment_on_this_item_due_to_privacy_settings" added="1322733155">Невозможно, оставить комментарий в связи с настройками приватности.</phrase>
+	<phrase module_id="user" version_id="3.0.0" var_name="span_class_drop_data_user_full_name_span_commented_on_gender_status_update_title" added="1322733247"><![CDATA[<span class="drop_data_user">{full_name}</span> прокомментировал(а) {gender} новый ​​статус "{title}"]]></phrase>
+	<phrase module_id="user" version_id="3.0.0" var_name="span_class_drop_data_user_full_name_span_commented_on_your_status_update_title" added="1322733434"><![CDATA[<span class="drop_data_user">{full_name}</span> прокомментировал(а) ваш новый ​​статус "{title}"]]></phrase>
+	<phrase module_id="user" version_id="3.0.0" var_name="span_class_drop_data_user_full_name_span_commented_on_span_class_drop_data_user_other_full_name_s_span_status_update_title" added="1322733562"><![CDATA[<span class="drop_data_user">{full_name}</span> прокомментировал(а) <span class="drop_data_user">{other_full_name}</span> новый ​​статус "{title}"]]></phrase>
+	<phrase module_id="user" version_id="3.0.0" var_name="pending_confirmation" added="1323087876">В ожидании подтверждения</phrase>
+	<phrase module_id="user" version_id="3.0.0" var_name="setting_user_dob_month_day_year" added="1323244991"><![CDATA[<title>User D.O.B (Месяц, День & Год)</title><info>Как выглядят параметры приватности у настройки даты рождения пользователя, "Показать мой полный день рождения в профиле".</info>]]></phrase>
+	<phrase module_id="user" version_id="3.0.0" var_name="setting_user_dob_month_day" added="1323245329"><![CDATA[<title>User D.O.B (Month & Day)</title><info>Как выглядят параметры приватности у настройки даты рождения пользователя, "Показать только месяц и день в моем профиле.".</info>]]></phrase>
+	<phrase module_id="user" version_id="3.0.0" var_name="user_registration_has_been_disabled" added="1323687223">Регистрация пользователя была отключена</phrase>
+	<phrase module_id="user" version_id="3.1.0beta1" var_name="setting_default_privacy_brithdate" added="1330014202"><![CDATA[<title>Default Birthday Privacy Setting</title><info>Пользователи могут управлять своими настройками приватности по умолчанию, когда речь идет о том, как они хотят видеть свой день рождения, который отображается в их профиле.
+
+Вот ключевые значения...
+<b>full_birthday</b> = <i>Показать полный день рождения</i>
+<b>month_day</b> = <i>Показать месяц и день</i>
+<b>show_age</b> = <i>Показывать только возраст</i>
+<b>hide</b> = <i>Скрыть возраст пользователя/день рождения</i></info>]]></phrase>
+	<phrase module_id="user" version_id="3.1.0beta1" var_name="user_name_tagged_you_in_a_comment" added="1331221510">{user_name} отметил(а) ваш комментарий</phrase>
+	<phrase module_id="user" version_id="3.1.0beta1" var_name="user_name_tagged_you_in_a_status_update" added="1331221577">{user_name}отметил(а) ваш новый статус</phrase>
+	<phrase module_id="user" version_id="3.1.0beta1" var_name="setting_no_show_activity_points" added="1331554285"><![CDATA[<title>Показать баллы активности на главной странице</title><info>Включите этот параметр, чтобы показать баллы активности на главной странице.</info>]]></phrase>
+	<phrase module_id="user" version_id="3.1.0" var_name="to" added="1332764521"></phrase>
+	<phrase module_id="user" version_id="3.1.0" var_name="with" added="1332765004">с</phrase>
+	<phrase module_id="user" version_id="3.2.0beta1" var_name="set_as_cover_photo" added="1334069903">Сделать фотографию для обложки</phrase>
+	<phrase module_id="user" version_id="3.2.0beta1" var_name="set_this_photo_as_your_profile_cover_photo" added="1334069940">Установить фото как ваше фото обложки профиля.</phrase>
+	<phrase module_id="user" version_id="3.2.0beta1" var_name="add_a_cover" added="1334155780">Добавить обложку</phrase>
+	<phrase module_id="user" version_id="3.2.0beta1" var_name="change_cover" added="1334155789">Изменение обложки</phrase>
+	<phrase module_id="user" version_id="3.2.0beta1" var_name="choose_from_photos" added="1334155795">Выберите из фотографий</phrase>
+	<phrase module_id="user" version_id="3.2.0beta1" var_name="upload_photo" added="1334155802">Загрузить фото</phrase>
+	<phrase module_id="user" version_id="3.2.0beta1" var_name="reposition" added="1334155808">Расположите</phrase>
+	<phrase module_id="user" version_id="3.2.0beta1" var_name="remove" added="1334155814">Удалить</phrase>
+	<phrase module_id="user" version_id="3.2.0beta1" var_name="drag_to_reposition_cover" added="1334155838">Перетащите, чтобы изменить обложку</phrase>
+	<phrase module_id="user" version_id="3.2.0beta1" var_name="cancel_cover_photo" added="1334155858">Отмена</phrase>
+	<phrase module_id="user" version_id="3.2.0beta1" var_name="select_a_photo" added="1334155876">Выберите фото</phrase>
+	<phrase module_id="user" version_id="3.2.0beta1" var_name="upload" added="1334155888">Загрузить</phrase>
+	<phrase module_id="user" version_id="3.2.0beta1" var_name="status_updates" added="1334579416">Статус Обновления</phrase>
+	<phrase module_id="user" version_id="3.2.0beta1" var_name="who_can_tag_me_in_written_contexts" added="1334583235">Кто может пометить меня в письменном контексте?</phrase>
+	<phrase module_id="user" version_id="3.3.0beta1" var_name="setting_maximum_length_for_full_name" added="1338899710"><![CDATA[<title>Максимальная длина Полного имени</title><info>Максимальная длина Полного имени</info>]]></phrase>
+	<phrase module_id="user" version_id="3.3.0beta1" var_name="please_shorten_full_name" added="1338900126">Сократите ваши полное имя до {iMax} символов.</phrase>
+	<phrase module_id="user" version_id="3.3.0beta1" var_name="please_shorten_display_name" added="1338900157">Пожалуйста, сократите ваше отображаемое имя на {iMax} символов.</phrase>
+	<phrase module_id="user" version_id="3.3.0beta1" var_name="timeline" added="1339425152">Хронология</phrase>
+	<phrase module_id="user" version_id="3.3.0rc1" var_name="administrator" added="1341914231">Администратор</phrase>
+	<phrase module_id="user" version_id="3.3.0rc1" var_name="registered_user" added="1341914250">Зарегистрированный пользователь</phrase>
+	<phrase module_id="user" version_id="3.3.0rc1" var_name="guest" added="1341914265">Гость</phrase>
+	<phrase module_id="user" version_id="3.3.0rc1" var_name="staff" added="1341914276">Сотрудники</phrase>
+	<phrase module_id="user" version_id="3.3.0rc1" var_name="banned" added="1341914289">Забанен</phrase>
+	<phrase module_id="user" version_id="3.3.0rc1" var_name="user_banned" added="1342606816">Забанен</phrase>
+	<phrase module_id="user" version_id="3.3.0" var_name="time_minutes" added="1343729369">{time} минут</phrase>
+	<phrase module_id="user" version_id="3.3.0" var_name="time_hour" added="1343729770">{time} час</phrase>
+	<phrase module_id="user" version_id="3.3.0" var_name="time_hours" added="1343729854">{time} часов</phrase>
+	<phrase module_id="user" version_id="3.3.0" var_name="time_days" added="1343729890">{time} дней</phrase>
+
+    <phrase module_id="user" version_id="3.1.0beta1" var_name="custom_group_509838a3e0752" added="1331634021">Семейное положение</phrase>
+    <phrase module_id="user" version_id="3.1.0beta1" var_name="custom_group_50983b11a7af8" added="1331635581">Внешность</phrase>
+    <phrase module_id="user" version_id="3.1.0beta1" var_name="custom_group_509847b48f8be" added="1331635512">Социальное положение</phrase>
+    <phrase module_id="user" version_id="3.1.0beta1" var_name="custom_group_50b521d98b7ae" added="1331635885">Контакты</phrase>
+</phrases>

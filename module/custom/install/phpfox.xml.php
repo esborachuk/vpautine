@@ -75,6 +75,7 @@
 		<hook module_id="custom" hook_type="service" module="custom" call_name="custom.service_relation_process_updaterelationship__1" added="1319729453" version_id="3.0.0rc1" />
 		<hook module_id="custom" hook_type="service" module="custom" call_name="custom.service_relation_process__call" added="1319729453" version_id="3.0.0rc1" />
 		<hook module_id="custom" hook_type="service" module="custom" call_name="custom.component_service_callback_getactivityfeed__1" added="1335951260" version_id="3.2.0" />
+		<hook module_id="custom" hook_type="service" module="custom" call_name="custom.service_custom_getforedit_1" added="1358258443" version_id="3.5.0beta1" />
 	</hooks>
 	<components>
 		<component module_id="custom" component="panel" m_connection="" module="custom" is_controller="0" is_block="1" is_active="1" />

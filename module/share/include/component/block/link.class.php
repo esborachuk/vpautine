@@ -11,7 +11,7 @@ defined('PHPFOX') or exit('NO DICE!');
  * @copyright		[PHPFOX_COPYRIGHT]
  * @author  		Raymond Benc
  * @package  		Module_Share
- * @version 		$Id: link.class.php 4154 2012-05-07 14:32:57Z Raymond_Benc $
+ * @version 		$Id: link.class.php 5074 2012-12-06 10:37:26Z Raymond_Benc $
  */
 class Share_Component_Block_Link extends Phpfox_Component
 {
@@ -20,10 +20,13 @@ class Share_Component_Block_Link extends Phpfox_Component
 	 */
 	public function process()
 	{
+		$sUrl = $this->getParam('url');
+		$sUrl .= '/t_' . PHPFOX_TIME . '/';
+		
 		// Assign template vars passed via module call
 		$this->template()->assign(array(
 				'sBookmarkType' => $this->getParam('type'),
-				'sBookmarkUrl' => urlencode($this->getParam('url')),
+				'sBookmarkUrl' => urlencode($sUrl),
 				'sBookmarkTitle' => urlencode($this->getParam('title')),
 				'sBookmarkDisplay' => $this->getParam('display'),
 				'bIsFirstLink' => $this->getParam('first'),

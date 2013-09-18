@@ -11,10 +11,18 @@ defined('PHPFOX') or exit('NO DICE!');
  * @copyright		[PHPFOX_COPYRIGHT]
  * @author  		Raymond_Benc
  * @package 		Phpfox_Ajax
- * @version 		$Id: ajax.class.php 3654 2011-12-05 08:29:00Z Raymond_Benc $
+ * @version 		$Id: ajax.class.php 5304 2013-02-01 10:51:59Z Miguel_Espinoza $
  */
 class Pages_Component_Ajax_Ajax extends Phpfox_Ajax
 {
+	public function removeLogo()
+	{
+		if (($aPage = Phpfox::getService('pages.process')->removeLogo($this->get('page_id'))) !== false)
+		{
+			$this->call('window.location.href = \'' . $aPage['link'] . '\';');
+		}
+	}	
+	
 	public function deleteWidget()
 	{
 		if (Phpfox::getService('pages.process')->deleteWidget($this->get('widget_id')))
@@ -56,7 +64,7 @@ class Pages_Component_Ajax_Ajax extends Phpfox_Ajax
 		{
 			$aPage = Phpfox::getService('pages')->getPage($iId);
 			
-			$this->call('window.location.href = \'' . Phpfox::getLib('url')->makeUrl('pages.add', array('id' => $aPage['page_id'])) . '\';');
+			$this->call('window.location.href = \'' . Phpfox::getLib('url')->makeUrl('pages.add', array('id' => $aPage['page_id'], 'new' => '1')) . '\';');
 		}
 		else
 		{
@@ -70,15 +78,25 @@ class Pages_Component_Ajax_Ajax extends Phpfox_Ajax
 	public function addFeedComment()
 	{
 		Phpfox::isUser(true);
-		
+				
 		$aVals = (array) $this->get('val');	
+		
+		if (!defined('PAGE_TIME_LINE'))
+		{
+		    // Check if this item is a page and is using time line
+		    if (isset($aVals['callback_module']) && $aVals['callback_module'] == 'pages' && isset($aVals['callback_item_id']) && Phpfox::getService('pages')->timelineEnabled($aVals['callback_item_id']))
+		    {
+			define('PAGE_TIME_LINE', true);			
+		    }
+			
+		}
 		
 		if (Phpfox::getLib('parse.format')->isEmpty($aVals['user_status']))
 		{
 			$this->alert(Phpfox::getPhrase('user.add_some_text_to_share'));
 			$this->call('$Core.activityFeedProcess(false);');
 			return;			
-		}			
+		}
 		
 		$aPage = Phpfox::getService('pages')->getPage($aVals['callback_item_id']);
 
@@ -295,7 +313,76 @@ class Pages_Component_Ajax_Ajax extends Phpfox_Ajax
 		);		
 		
 		Phpfox::getLib('cache')->remove('pages', 'substr');
-	}		
+	}	
+
+	public function approveClaim()
+	{
+		if (Phpfox::getService('pages.process')->approveClaim($this->get('claim_id')))
+		{
+			$this->hide('#claim_' . $this->get('claim_id'));
+		}
+		else
+		{
+			$this->alert('An error occured');
+		}
+	}
+	
+	public function denyClaim()
+	{
+		if (Phpfox::getService('pages.process')->denyClaim($this->get('claim_id')))
+		{
+			$this->hide('#claim_' . $this->get('claim_id'));
+		}
+		else
+		{
+			$this->alert('An error occured');
+		}
+	}
+	
+	public function setCoverPhoto()
+	{
+		$iPageId = $this->get('page_id');
+		$iPhotoId = $this->get('photo_id');
+		
+		if (Phpfox::getService('pages.process')->setCoverPhoto($iPageId , $iPhotoId))
+		{
+			$this->call('window.location.href = "' . Phpfox::permalink('pages', $this->get('page_id'), '') . 'coverupdate_1";');
+			
+		}
+		else
+		{
+			$aErr = Phpfox_Error::get();
+			$sErr = implode($aErr);
+		}
+	}
+	
+	public function updateCoverPosition()
+	{
+		if (Phpfox::getService('pages.process')->updateCoverPosition($this->get('page_id'), $this->get('position')))
+		{
+			$this->call('window.location.href = "' . Phpfox::permalink('pages', $this->get('page_id'), '') . '";');
+			//$this->call('location.reload();');
+			Phpfox::addMessage(Phpfox::getPhrase('pages.position_set_correctly'));
+		}
+		else
+		{
+			$aErr = Phpfox_Error::get();
+			$sErr = implode($aErr);
+		}
+	}
+	
+	public function removeCoverPhoto()
+	{
+		if (Phpfox::getService('pages.process')->removeCoverPhoto($this->get('page_id')))
+		{
+			$this->call('window.location.href=window.location.href;');
+		}
+		else
+		{
+			$aErr = Phpfox_Error::get();
+			$sErr = implode($aErr);
+		}
+	}
 }
 
 ?>

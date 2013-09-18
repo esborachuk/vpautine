@@ -11,7 +11,7 @@ defined('PHPFOX') or exit('NO DICE!');
  * @copyright		[PHPFOX_COPYRIGHT]
  * @author  		Raymond Benc
  * @package  		Module_Mail
- * @version 		$Id: process.class.php 4442 2012-07-02 08:42:46Z Raymond_Benc $
+ * @version 		$Id: process.class.php 5112 2013-01-11 06:56:25Z Raymond_Benc $
  */
 class Mail_Service_Process extends Phpfox_Service 
 {
@@ -33,7 +33,7 @@ class Mail_Service_Process extends Phpfox_Service
 		}		
 		
 		$bIsThreadReply = false;
-		if (!isset($aVals['to']) && !empty($aVals['thread_id']) && Phpfox::getParam('mail.threaded_mail_conversation'))
+		if (!isset($aVals['to']) && !empty($aVals['thread_id']) && Phpfox::getParam('mail.threaded_mail_conversation') && !isset($aVals['claim_page']))
 		{
 			$bIsThreadReply = true;
 			$aPastThread = $this->database()->select('mt.*')
@@ -110,7 +110,7 @@ class Mail_Service_Process extends Phpfox_Service
 					
 					// Make sure we found a user
 					if (($iTemp = $this->add($aVals, true)) && is_numeric($iTemp))
-					{
+					{						
 						$aCache[] = $iTemp;	
 					}
 				}
@@ -125,6 +125,11 @@ class Mail_Service_Process extends Phpfox_Service
 				{
 					$this->database()->update($this->_sTable, array('mass_id' => $aLastCache[0]), 'mail_id = ' . (int) $iMailId);	
 				}
+			}
+
+			if (empty($aCache))
+			{
+				return false;
 			}
 			
 			return $aCache;	
@@ -145,11 +150,11 @@ class Mail_Service_Process extends Phpfox_Service
 				return false;
 			}
 
-			if (!Phpfox::getService('user.privacy')->hasAccess($aDetails['user_id'], 'mail.send_message'))
+			if (!isset($aVals['claim_page']) && !Phpfox::getService('user.privacy')->hasAccess($aDetails['user_id'], 'mail.send_message'))
 			{
 				return Phpfox_Error::set(Phpfox::getPhrase('mail.unable_to_send_a_private_message_to_full_name_as_they_have_disabled_this_option_for_the_moment', array('full_name' => $aDetails['full_name'])));
 			}		
-
+			
 			// Check if user is allowed to receive messages: http://forums.phpfox.com/project.php?issueid=2216
 			if (Phpfox::getService('user.group.setting')->getGroupParam($aDetails['user_group_id'], 'mail.override_mail_box_limit') == false)
 			{
@@ -170,6 +175,7 @@ class Mail_Service_Process extends Phpfox_Service
 			{
 				return Phpfox_Error::set(Phpfox::getPhrase('mail.you_cannot_message_yourself'));
 			}
+			
 			// check if user can send message to non friends: http://forums.phpfox.com/project.php?issueid=2216
 			if (Phpfox::getUserParam('mail.restrict_message_to_friends') && !(Phpfox::getService('user.group.setting')->getGroupParam($aDetails['user_group_id'],'mail.override_restrict_message_to_friends')))
 			{
@@ -212,7 +218,7 @@ class Mail_Service_Process extends Phpfox_Service
 		$aVals['subject'] = (isset($aVals['subject']) ? $oFilter->clean($aVals['subject'], 255) : null);
 		
 		if (Phpfox::getParam('mail.threaded_mail_conversation'))
-		{	
+		{			
 			$aUserInsert = array_merge(array(Phpfox::getUserId()), $aOriginal);			
 
 			sort($aUserInsert, SORT_NUMERIC);
@@ -232,7 +238,15 @@ class Mail_Service_Process extends Phpfox_Service
 				->join(Phpfox::getT('user'), 'u', 'u.user_id = mtu.user_id')
 				->where('mtu.user_id IN(' . implode(', ', $aUserInsert) . ')')
 				->group('u.user_id')
-				->execute('getSlaveRows');			
+				->execute('getSlaveRows');	
+
+			foreach ($aThreadUsers as $aThreadUser)
+			{
+				if ($aThreadUser['user_id'] != Phpfox::getUserId() && !Phpfox::getService('user.privacy')->hasAccess($aThreadUser['user_id'], 'mail.send_message'))
+				{
+					return Phpfox_Error::set(Phpfox::getPhrase('mail.unable_to_send_a_private_message_to_full_name_as_they_have_disabled_this_option_for_the_moment', array('full_name' => $aThreadUser['full_name'])));
+				}
+			}			
 			
 			if (isset($aPastThread['thread_id']))
 			{
@@ -439,19 +453,38 @@ class Mail_Service_Process extends Phpfox_Service
 		Phpfox::getUserParam('mail.can_read_private_messages', true); // they need to see it in order to delete it
 		Phpfox::getUserParam('mail.can_delete_others_messages', true);
 		
-		$aMail = $this->database()->select('mail_id, viewer_user_id')
-			->from(Phpfox::getT('mail'))
-			->where('mail_id = ' . (int) $iId)
-			->execute('getSlaveRow');
-			
-		if (!isset($aMail['mail_id']))
+		if (Phpfox::getParam('mail.threaded_mail_conversation'))
 		{
-			return false;
+			$aMail = $this->database()->select('thread_id')
+				->from(Phpfox::getT('mail_thread'))
+				->where('thread_id = ' . (int) $iId)
+				->execute('getSlaveRow');
+			
+			if (!isset($aMail['thread_id']))
+			{
+				return false;
+			}			
+			
+			$this->database()->delete(Phpfox::getT('mail_thread'), 'thread_id = ' . (int)$iId);
+			$this->database()->delete(Phpfox::getT('mail_thread_text'), 'thread_id = ' . (int)$iId);
+			$this->database()->delete(Phpfox::getT('mail_thread_user'), 'thread_id = ' . (int)$iId);
 		}
-
-		// do some logging before deleting?
-		$this->database()->delete($this->_sTable, 'mail_id = ' . (int)$iId);
-		$this->database()->delete(Phpfox::getT('mail_text'), 'mail_id = ' . (int)$iId);		
+		else
+		{
+			$aMail = $this->database()->select('mail_id, viewer_user_id')
+				->from(Phpfox::getT('mail'))
+				->where('mail_id = ' . (int) $iId)
+				->execute('getSlaveRow');
+				
+			if (!isset($aMail['mail_id']))
+			{
+				return false;
+			}
+	
+			// do some logging before deleting?
+			$this->database()->delete($this->_sTable, 'mail_id = ' . (int)$iId);
+			$this->database()->delete(Phpfox::getT('mail_text'), 'mail_id = ' . (int)$iId);
+		}		
 		
 		return true;
 	}

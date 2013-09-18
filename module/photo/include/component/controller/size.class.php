@@ -11,7 +11,7 @@ defined('PHPFOX') or exit('NO DICE!');
  * @copyright		[PHPFOX_COPYRIGHT]
  * @author  		Raymond Benc
  * @package  		Module_Photo
- * @version 		$Id: size.class.php 4580 2012-07-31 15:19:24Z Raymond_Benc $
+ * @version 		$Id: size.class.php 5369 2013-02-14 10:12:21Z Raymond_Benc $
  */
 class Photo_Component_Controller_Size extends Phpfox_Component
 {
@@ -40,8 +40,13 @@ class Photo_Component_Controller_Size extends Phpfox_Component
 		{
 			$sPath = Phpfox::getParam('photo.dir_photo') . sprintf($aPhoto['original_destination'], '_' . $iPhotoSize);
 			// Make sure the photo exists
-			if (file_exists($sPath))
+			if (file_exists($sPath) || defined('PHPFOX_IS_HOSTED_SCRIPT'))
 			{
+				if (defined('PHPFOX_IS_HOSTED_SCRIPT'))
+				{
+					$sPath = str_replace(PHPFOX_DIR, rtrim(Phpfox::getParam('core.rackspace_url'), '/') . '/', $sPath);
+				}
+				
 				// Match the int values to make sure we know what image we are viewing
 				if ((int) $iViewSize === (int) $iPhotoSize)
 				{
@@ -64,21 +69,29 @@ class Photo_Component_Controller_Size extends Phpfox_Component
 					'actual' => $iPhotoSize
 				);
 				
-				$aCache[$iWidth][$iHeight] = true;
+				$aCache[$iWidth][$iHeight] = true;				
 			}
 		}
-		
+		unset($iHeight);
+		unset($iWidth);
 		// Get the width and height of the original image
-		if (preg_match("/\{file\/pic\/(.*)\/(.*)\.jpg\}/i", $aPhoto['destination'], $aMatches))
+		if (defined('PHPFOX_IS_HOSTED_SCRIPT'))
+		{
+			$sImagePath = Phpfox::getParam('photo.dir_photo') . sprintf($aPhoto['original_destination'], '');
+			$sImagePath = str_replace(PHPFOX_DIR, rtrim(Phpfox::getParam('core.rackspace_url'), '/') . '/', $sImagePath);
+			
+			list($iWidth, $iHeight) = getimagesize($sImagePath);
+		}
+		else if (preg_match("/\{file\/pic\/(.*)\/(.*)\.jpg\}/i", $aPhoto['destination'], $aMatches))
 		{
 			list($iWidth, $iHeight) = getimagesize(PHPFOX_DIR . str_replace(array('{', '}'), '', $aMatches[0]));
 		}
-		else 
+		else if (file_exists(Phpfox::getParam('photo.dir_photo') . sprintf($aPhoto['original_destination'], '')))
 		{
 			list($iWidth, $iHeight) = getimagesize(Phpfox::getParam('photo.dir_photo') . sprintf($aPhoto['original_destination'], ''));
 		}
 				
-		if (!isset($aCache[$iWidth][$iHeight]))
+		if (isset($iWidth) && isset($iHeight) && !isset($aCache[$iWidth][$iHeight]))
 		{
 			// Add the original image details to the size array
 			$aSizes[] = array(
@@ -87,7 +100,6 @@ class Photo_Component_Controller_Size extends Phpfox_Component
 				'actual' => 'full'
 			);		
 		}		
-		
 		// If no matches were found lets display the full image
 		if ($bIsSet === false)
 		{

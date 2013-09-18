@@ -99,7 +99,7 @@ defined('PHPFOX') or exit('NO DICE!');
 				<div {holder_name}>		
 					<div {is_page_view} class="holder">	
 						<div id="content_holder">		
-
+							{block location='13'}
 							{block location='7'}	
 							
 							{module name='profile.logo'}

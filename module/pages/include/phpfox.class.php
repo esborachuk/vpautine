@@ -11,7 +11,7 @@ defined('PHPFOX') or exit('NO DICE!');
  * @copyright		[PHPFOX_COPYRIGHT]
  * @author  		Raymond_Benc
  * @package 		Phpfox_Module
- * @version 		$Id: phpfox.class.php 3995 2012-03-12 15:51:10Z Raymond_Benc $
+ * @version 		$Id: phpfox.class.php 5022 2012-11-13 08:05:06Z Raymond_Benc $
  */
 class Module_Pages
 {
@@ -26,6 +26,7 @@ class Module_Pages
 		'pages',
 		'pages_admin',
 		'pages_category',
+		'pages_claim',
 		'pages_design_order',
 		'pages_feed',
 		'pages_feed_comment',
@@ -40,6 +41,10 @@ class Module_Pages
 		'pages_widget',
 		'pages_widget_text'
 	);
+	
+	public static $aInstallWritable = array(
+			'file/pic/pages/'
+	);	
 }
 
 ?>

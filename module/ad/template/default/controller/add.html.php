@@ -5,7 +5,7 @@
  * @copyright		[PHPFOX_COPYRIGHT]
  * @author  		Raymond_Benc
  * @package 		Phpfox
- * @version 		$Id: add.html.php 4073 2012-03-28 13:25:57Z Miguel_Espinoza $
+ * @version 		$Id: add.html.php 5022 2012-11-13 08:05:06Z Raymond_Benc $
  */
  
 defined('PHPFOX') or exit('NO DICE!'); 
@@ -41,7 +41,7 @@ defined('PHPFOX') or exit('NO DICE!');
 <div class="main_break"></div>
 	{if isset($bIsFree) && $bIsFree == true}
 		<div class="message">
-			Your ad has been created.
+			{phrase var='ad.your_ad_has_been_created'}
 		</div>
 	{else}
 		<div class="message">
@@ -53,12 +53,11 @@ defined('PHPFOX') or exit('NO DICE!');
 	
 {else}
 
-<div id="js_upload_image_holder_frame">	
+<div id="js_upload_image_holder_frame" style="z-index:999; background:#fff;">	
 	<div id="js_upload_image_holder" style="z-index:999;" class="ajax_link_reset">
 		<form method="post" action="{url link='ad.image'}" target="upload_ad_iframe" enctype="multipart/form-data">			
 			<div><input type="hidden" name="ad_size" value="728x90" id="js_upload_ad_size" /></div>
 			<input id="js_form_upload_file" type="file" name="image" onchange="$('#js_upload_image_holder').hide(); $('#js_image_holder_message').show(); $(this).parent('form').submit();$('#js_upload_image_holder_frame').hide();$('#link_show_image_uploader').hide();" />
-			<a href="#" onclick="$('#js_upload_image_holder_frame').hide(); return false;">Close</a>
 		</form>
 	</div>
 	<iframe framewidth="400" frameheight="200" name="upload_ad_iframe" id="upload_ad_iframe" style="display:none;"></iframe>
@@ -117,6 +116,7 @@ defined('PHPFOX') or exit('NO DICE!');
 				{phrase var='ad.ad_placement'}:
 			</div>
 			<div class="table_right">
+				<div><input type="hidden" name="val[block_id]" value="" id="js_block_id" /></div>
 				<select name="val[location]" id="location" style="display:none;">	
 					{for $i = 1; $i <= 10; $i++}
 						<option value="{$i}"{value type='select' id='location' default=$i}>{phrase var='admincp.block' x=$i}</option>
@@ -189,7 +189,7 @@ defined('PHPFOX') or exit('NO DICE!');
 					{phrase var='ad.image_optional'}:
 				</div>
 				<div class="table_right">
-					<a href="#" id="link_show_image_uploader" onclick="$('#js_upload_image_holder_frame').show(); return false;"> {phrase var='ad.choose_image'} </a>
+					<a href="#" id="link_show_image_uploader" style="z-index:1;" onclick="var thisPosition = $(this).position(); $('#js_upload_image_holder_frame').css({l}'top': thisPosition.top + 'px', 'left': '0px', 'z-index': '1000px'{r}); $('#js_upload_image_holder_frame').show(); return false;"> {phrase var='ad.choose_image'} </a>
 					<div id="js_image_holder"></div>
 					<div id="js_image_holder_link" style="display:none;">
 						<a href="#">{phrase var='ad.change_image'}</a>

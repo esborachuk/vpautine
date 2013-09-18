@@ -11,7 +11,7 @@ defined('PHPFOX') or exit('NO DICE!');
  * @copyright		[PHPFOX_COPYRIGHT]
  * @author  		Raymond Benc
  * @package 		Phpfox_Service
- * @version 		$Id: privacy.class.php 4469 2012-07-05 08:05:05Z Raymond_Benc $
+ * @version 		$Id: privacy.class.php 4708 2012-09-21 08:36:43Z Miguel_Espinoza $
  */
 class User_Service_Privacy_Privacy extends Phpfox_Service 
 {
@@ -187,12 +187,12 @@ class User_Service_Privacy_Privacy extends Phpfox_Service
 					}
 					else 
 					{
-						if (!isset($aIsFriend[$iUserId][Phpfox::getUserId()]))
+						if (!isset($aIsFriend[$iUserId][Phpfox::getUserId()]) && Phpfox::isModule('friend'))
 						{
 							$aIsFriend[$iUserId][Phpfox::getUserId()] = Phpfox::getService('friend')->isFriend($iUserId, Phpfox::getUserId());
 						}
 						
-						if (!$aIsFriend[$iUserId][Phpfox::getUserId()])
+						if (isset($aIsFriend[$iUserId]) && !$aIsFriend[$iUserId][Phpfox::getUserId()])
 						{
 							$bPass = false;
 						}						

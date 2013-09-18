@@ -5,7 +5,7 @@
  * @copyright		[PHPFOX_COPYRIGHT]
  * @author  		Raymond Benc
  * @package 		Phpfox
- * @version 		$Id: filter.html.php 4361 2012-06-26 14:01:00Z Raymond_Benc $
+ * @version 		$Id: filter.html.php 5027 2012-11-15 15:08:37Z Miguel_Espinoza $
  */
 
 defined('PHPFOX') or exit('NO DICE!');
@@ -45,14 +45,16 @@ defined('PHPFOX') or exit('NO DICE!');
 			{filter key='city'}
 		</div>
 	</div>
-
-	<div class="p_top_4">
-		<span class="user_browse_title">{phrase var='user.zip_postal_code'}</span>:
-		<div class="p_4">
-			{filter key='zip'}
+	
+	{if Phpfox::getUserParam('user.can_search_by_zip')}
+		<div class="p_top_4">
+			<span class="user_browse_title">{phrase var='user.zip_postal_code'}</span>:
+			<div class="p_4">
+				{filter key='zip'}
+			</div>
 		</div>
-	</div>
-
+	{/if}
+	
 	<div class="p_top_4">
 		<span class="user_browse_title">{phrase var='user.keywords'}</span>:
 		<div class="p_4">

@@ -258,10 +258,15 @@ class Custom_Service_Relation_Process extends Phpfox_Service
 				), 'user_id = ' . Phpfox::getUserId());
 			
 			/* Send an email and insert in the feed table */
-			Phpfox::getLib('mail')->to(array($iUser, $iWith))
+			Phpfox::getLib('mail')->to(array($iUser))
 				->subject(array('custom.relationship_status_confirmed'))
 				->message(array('custom.full_name_and_full_name_with_are_now_phrase_var_name', array('full_name' => Phpfox::getUserBy('full_name'), 'full_name_with' => $aExisting['full_name_with'], 'phrase_var_name' => Phpfox::getPhrase($aExisting['phrase_var_name']))))
 				->send();
+				
+				Phpfox::getLib('mail')->to($iWith)
+				->subject(array('custom.relationship_status_confirmed'))
+				->message(array('custom.full_name_and_full_name_with_are_now_phrase_var_name', array('full_name' => Phpfox::getUserBy('full_name'), 'full_name_with' => $aExisting['full_name_with'], 'phrase_var_name' => Phpfox::getPhrase($aExisting['phrase_var_name']))))
+				->send();				
 			
 			/* Add the feed */
 			Phpfox::getService('feed.process')->add('custom_relation', $iNewRelationId, 0, 0, 0, $aExisting['with_user_id'], $aExisting['crd_user_id']);
@@ -369,10 +374,15 @@ class Custom_Service_Relation_Process extends Phpfox_Service
 		if ($iWith != $iUser)
 		{
 			$sLink = Phpfox::getLib('url')->makeUrl('friend.accept');
-			Phpfox::getLib('mail')->to(array($iUser, $iWith))
+			Phpfox::getLib('mail')->to($iUser)
 				->subject(array('custom.relationship_status_confirmation'))
 				->message(array('custom.full_name_wants_to_list_you_both_as_phrase_var_name', array('full_name' => Phpfox::getUserBy('full_name'), 'phrase_var_name' => Phpfox::getPhrase($aExisting['phrase_var_name']), 'link' => $sLink)))
 				->send();
+				
+				Phpfox::getLib('mail')->to($iWith)
+				->subject(array('custom.relationship_status_confirmation'))
+				->message(array('custom.full_name_wants_to_list_you_both_as_phrase_var_name', array('full_name' => Phpfox::getUserBy('full_name'), 'phrase_var_name' => Phpfox::getPhrase($aExisting['phrase_var_name']), 'link' => $sLink)))
+				->send();				
 		}
 
 		/* This happens only when the user is setting the status without giving 

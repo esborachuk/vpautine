@@ -11,7 +11,7 @@ defined('PHPFOX') or exit('NO DICE!');
  * @copyright		[PHPFOX_COPYRIGHT]
  * @author  		Raymond Benc
  * @package  		Module_Video
- * @version 		$Id: callback.class.php 4545 2012-07-20 10:40:35Z Raymond_Benc $
+ * @version 		$Id: callback.class.php 5225 2013-01-28 13:08:46Z Miguel_Espinoza $
  */
 class Video_Service_Callback extends Phpfox_Service 
 {
@@ -73,7 +73,7 @@ class Video_Service_Callback extends Phpfox_Service
 	
 	public function getCommentItem($iId)
 	{
-		$aRow = $this->database()->select('video_id AS comment_item_id, privacy_comment, user_id AS comment_user_id')
+		$aRow = $this->database()->select('video_id AS comment_item_id, privacy_comment, user_id AS comment_user_id, module_id AS parent_module_id')
 			->from(Phpfox::getT('video'))
 			->where('video_id = ' . (int) $iId)
 			->execute('getSlaveRow');		
@@ -1371,6 +1371,23 @@ Phpfox::getPhrase('video.full_name_commented_on_gender_video_a_href_link_title_a
 		);
 	}
 	
+	public function getActions()
+	{
+		return array(
+			'dislike' => array(
+				'enabled' => true,
+				'action_type_id' => 2, // 2 = dislike
+				'phrase' => 'Dislike',
+				'phrase_in_past_tense' => 'disliked',
+				'item_type_id' => 'video', // used to differentiate between photo albums and photos for example.
+				'table' => 'video',
+				'item_phrase' => Phpfox::getPhrase('video.item_phrase'),
+				'column_update' => 'total_dislike',
+				'column_find' => 'video_id',
+				'where_to_show' => array('video')
+				)
+		);
+	}
 	
 	/**
 	 * If a call is made to an unknown method attempt to connect

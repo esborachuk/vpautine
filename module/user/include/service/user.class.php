@@ -11,7 +11,7 @@ defined('PHPFOX') or exit('NO DICE!');
  * @copyright		[PHPFOX_COPYRIGHT]
  * @author  		Raymond Benc
  * @package  		Module_User
- * @version 		$Id: user.class.php 4213 2012-06-05 10:24:49Z Miguel_Espinoza $
+ * @version 		$Id: user.class.php 5076 2012-12-12 15:57:18Z Miguel_Espinoza $
  */
 class User_Service_User extends Phpfox_Service 
 {	
@@ -554,6 +554,7 @@ class User_Service_User extends Phpfox_Service
 				}
 			}
 			
+			$sPhrase = Phpfox::getPhrase('user.birth_date');
 			switch($aUser['dob_setting'])
 			{
 				case '1':					
@@ -561,12 +562,13 @@ class User_Service_User extends Phpfox_Service
 					break;	
 				case '2':
 					$sDateExtra = $aUser['birthday'];
+					$sPhrase = Phpfox::getPhrase('profile.age');
 					break;
 				default:
 					$sDateExtra = Phpfox::getTime(Phpfox::getParam('user.user_dob_month_day_year'), mktime(0, 0, 0, $aBirthDay['month'], $aBirthDay['day'], $aBirthDay['year']), false);
 					break;
 			}
-			$aUserDetails[Phpfox::getPhrase('profile.age')] = $sDateExtra;
+			$aUserDetails[$sPhrase] = $sDateExtra;
 		}	
 		
 		return $aUserDetails;
@@ -607,6 +609,38 @@ class User_Service_User extends Phpfox_Service
 		}
 		
 		return $aRows;
+	}
+	
+	public function getSpamQuestions()
+	{
+		$aQuestions = $this->database()->select('*')
+			->from(Phpfox::getT('user_spam'))
+			->execute('getSlaveRows');
+		
+		
+		foreach ($aQuestions as $iKey => $aQuestion)
+		{			
+			$aQuestions[$iKey]['answers_phrases'] = json_decode($aQuestion['answers_phrases']);
+		}
+		
+		
+		return $aQuestions;
+	}
+	
+	public function getInfoForAction($aItem)
+	{
+		if (is_numeric($aItem))
+		{
+			$aItem = array('item_id' => $aItem);
+		}
+		$aRow = $this->database()->select('us.status_id, us.content as title, us.user_id, u.gender, u.user_name, u.full_name')	
+			->from(Phpfox::getT('user_status'), 'us')
+			->join(Phpfox::getT('user'), 'u', 'u.user_id = us.user_id')
+			->where('us.status_id = ' . (int) $aItem['item_id'])
+			->execute('getSlaveRow');
+						
+		$aRow['link'] = Phpfox::getLib('url')->makeUrl($aRow['user_name'], array('status_id' => $aRow['status_id']));
+		return $aRow;
 	}
 	
 	/**

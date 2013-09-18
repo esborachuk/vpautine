@@ -21,7 +21,7 @@ defined('PHPFOX') or exit('NO DICE!');
  * @copyright		[PHPFOX_COPYRIGHT]
  * @author			Raymond Benc
  * @package 		Phpfox
- * @version 		$Id: setting.class.php 4459 2012-07-03 13:11:06Z Miguel_Espinoza $
+ * @version 		$Id: setting.class.php 5186 2013-01-23 10:53:04Z Raymond_Benc $
  */
 class Phpfox_Setting
 {
@@ -81,7 +81,8 @@ class Phpfox_Setting
 		'core.use_jquery_datepicker' => false,
 		'core.date_field_order' => 'MDY',
 		'core.cache_storage' => 'file',
-		'core.allow_cdn' => false
+		'core.allow_cdn' => false,
+		'core.is_auto_hosted' => false
 	);
 	
 	/**
@@ -224,7 +225,7 @@ class Phpfox_Setting
 			$aRows = Phpfox::getLib('database')->select('s.type_id, s.var_name, s.value_actual, m.module_id AS module_name')
 				->from(Phpfox::getT('setting'), 's')
 				->join(Phpfox::getT('module'), 'm', 'm.module_id = s.module_id AND m.is_active = 1')
-				->execute('getRows');				
+				->execute('getRows');			
 
 			foreach ($aRows as $iKey => $aRow)
 			{
@@ -334,11 +335,19 @@ class Phpfox_Setting
 		// Make sure we set the correct cookie domain in case the admin did not
 		if ($this->_aParams['core.url_rewrite'] == '3' && empty($this->_aParams['core.cookie_domain']))
 		{
-			$this->_aParams['core.cookie_domain'] = preg_replace("/(.*?)\.(.*?)$/i", ".$2", $_SERVER['HTTP_HOST']);			
-		}		
+			$this->_aParams['core.cookie_domain'] = preg_replace("/(.*?)\.(.*?)$/i", ".$2", $_SERVER['HTTP_HOST']);
+		}
 		
 		$this->_aParams['core.theme_session_prefix'] = '';	
 		$this->_aParams['core.load_jquery_from_google_cdn'] = false;
+		
+		if (defined('PHPFOX_IS_HOSTED_SCRIPT') && isset($this->_aParams['core.phpfox_max_users_online']))
+		{
+			$aSettingParts = explode('|', $this->_aParams['core.phpfox_max_users_online']);
+			$this->_aParams['core.phpfox_grouply_space'] = (int) ($aSettingParts[0] * 1073741824);
+			$this->_aParams['core.phpfox_grouply_members'] = (int) $aSettingParts[1];
+			$this->_aParams['core.phpfox_grouply_admins'] = (int) $aSettingParts[2];
+		}		
 	}
 	
 	/**
@@ -352,8 +361,25 @@ class Phpfox_Setting
 	{		
 		if ($mVar == 'core.wysiwyg' && !defined('PHPFOX_INSTALLER') && Phpfox::isMobile())
 		{
-			//return 'default'; // fixes http://www.phpfox.com/tracker/view/8666/
-		}		
+			return 'default';
+		}				
+		
+		if ($mVar == 'core.phpfox_is_hosted')
+		{
+			return $this->getParam('core.is_auto_hosted');
+		}
+		
+		if (defined('PHPFOX_IS_HOSTED_SCRIPT'))
+		{
+			if ($mVar == 'core.url_static_script')
+			{
+				return Phpfox::getCdnPath() . 'static/jscript/';
+			}
+			elseif ($mVar == 'core.setting_session_prefix')
+			{
+				return PHPFOX_IS_HOSTED_SCRIPT;	
+			}
+		}
 		
 		if (is_array($mVar))
 		{
@@ -371,6 +397,11 @@ class Phpfox_Setting
 			if ($mVar == 'admincp.admin_cp')
 			{
 				$sParam = strtolower($sParam);
+			}	
+			
+			if ($mVar == 'user.points_conversion_rate')
+			{
+				$sParam = (empty($sParam) ? array() : json_decode($sParam, true));
 			}			
 		}
 		

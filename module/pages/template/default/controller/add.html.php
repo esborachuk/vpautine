@@ -5,7 +5,7 @@
  * @copyright		[PHPFOX_COPYRIGHT]
  * @author  		Raymond_Benc
  * @package 		Phpfox
- * @version 		$Id: add.html.php 4365 2012-06-26 14:26:25Z Miguel_Espinoza $
+ * @version 		$Id: add.html.php 5231 2013-01-29 08:23:38Z Raymond_Benc $
  */
  
 defined('PHPFOX') or exit('NO DICE!'); 
@@ -13,7 +13,7 @@ defined('PHPFOX') or exit('NO DICE!');
 ?>
 {if $bIsEdit}
 <div id="js_pages_add_holder">
-	<form method="post" action="{url link='pages.add'}" enctype="multipart/form-data">
+	<form method="post" action="{url link='pages.add'}{if $bIsNewPage}{$sStep}/new_1/{/if}" enctype="multipart/form-data">
 		<div><input type="hidden" name="id" value="{$aForms.page_id}" /></div>
 		<div><input type="hidden" name="val[category_id]" value="{value type='input' id='category_id'}" id="js_category_pages_add_holder" /></div>
 
@@ -35,22 +35,32 @@ defined('PHPFOX') or exit('NO DICE!');
 					</div>
 					<div class="pages_sub_category">						
 						{foreach from=$aTypes item=aType}
-						{if isset($aType.categories) && is_array($aType.categories) && count($aType.categories)}					
-						<div class="js_pages_add_sub_category" id="js_pages_add_sub_category_{$aType.type_id}"{if $aType.type_id != $aForms.type_id} style="display:none;"{/if}>
-							<select name="js_category_{$aType.type_id}">
-								<option value="">{phrase var='core.select'}</option>
-								{foreach from=$aType.categories item=aCategory}
-								<option value="{$aCategory.category_id}"{value type='select' id='category_id' default=$aCategory.category_id}>{$aCategory.name|convert}</option>
-								{/foreach}
-							</select>
-						</div>					
-						{/if}			
+							{if isset($aType.categories) && is_array($aType.categories) && count($aType.categories)}					
+								<div class="js_pages_add_sub_category" id="js_pages_add_sub_category_{$aType.type_id}"{if $aType.type_id != $aForms.type_id} style="display:none;"{/if}>
+									<select name="js_category_{$aType.type_id}">
+										<option value="">{phrase var='core.select'}</option>
+										{foreach from=$aType.categories item=aCategory}
+										<option value="{$aCategory.category_id}"{value type='select' id='category_id' default=$aCategory.category_id}>{$aCategory.name|convert}</option>
+										{/foreach}
+									</select>
+								</div>					
+							{/if}			
 						{/foreach}						
 					</div>
 					<div class="clear"></div>
 					{/if}
 				</div>
 			</div>	
+			
+			<div class="table">
+				<div class="table_left">
+					{phrase var='pages.use_timeline'}
+				</div>
+				<div class="table_right">
+					<input type="radio" value="1" name="val[use_timeline]" {value type='radio' id='use_timeline' default='1' selected='true'} id="rdo_timeline_1"> <label for="rdo_timeline_1">{phrase var='pages.yes'}</label>
+					<input type="radio" value="0" name="val[use_timeline]" {value type='radio' id='use_timeline' default='0'}id="rdo_timeline_0"> <label for="rdo_timeline_0">{phrase var='pages.no'}</label>
+				</div>
+			</div>
 
 			<div class="table">
 				<div class="table_left">
@@ -145,8 +155,9 @@ defined('PHPFOX') or exit('NO DICE!');
 		</div>		
 		
 		<div id="js_pages_block_info" class="js_pages_block page_section_menu_holder" style="display:none;">
+			{plugin call='pages.template_controller_add_1'}
 			{editor id='text'}
-			<div class="table_clear">
+			<div class="table_clear p_top_8">
 				<input type="submit" value="{phrase var='pages.update'}" class="button" />
 			</div>			
 		</div>
@@ -250,7 +261,8 @@ defined('PHPFOX') or exit('NO DICE!');
 					</div>				
 					<div class="p_top_8">
 						<input type="submit" value="{phrase var='pages.send_invitations'}" class="button" />
-					</div>				
+					</div>		
+					<br />
 				</div>
 
 				<div style="margin-left:77%; position:relative;">
@@ -294,7 +306,48 @@ defined('PHPFOX') or exit('NO DICE!');
 			{/foreach}
 			</ul>
 		</div>
+		
+		
+		{if Phpfox::getParam('core.ip_infodb_api_key') != '' || Phpfox::getParam('core.google_api_key')}
+			<div id="js_pages_block_location" class="js_pages_block page_section_menu_holder">
+				{phrase var='pages.place_your_page_in_the_map'}
+				
+				<div class="table" id="js_location_enter">
+					<div class="table_left">
+						{phrase var='pages.you_can_also_write_your_address'}
+					</div>
+					<div class="table_right">
+						<input type="text" name="val[location][name]" id="txt_location_name">
+						<div id="js_add_location_suggestions"></div>
+					</div>
+					<div>
+						<input type="hidden" name="val[location][latlng]" id="txt_location_latlng">
+					</div>
+				</div>
+				
+				<div class="table">
+					<div class="table_left">
+					</div>
+					
+					<div class="table_right">
+						<div id="js_location"></div>
+					</div>
+				</div>
 
+					<div class="table_clear">
+						<input type="submit" value="{phrase var='pages.update'}" class="button" />
+					</div>	
+			</div>
+		{/if}
+		
+		
+		{if $sStep != 'invite' && $bIsNewPage}
+		<strong>{phrase var='pages.after_updating'}:</strong> 
+		<select name="action">
+			<option value="1">{phrase var='pages.go_to_the_next_step'}</option>
+			<option value="2">{phrase var='pages.view_this_page_lower'}</option>
+		</select>		
+		{/if}
 	</form>
 </div>
 {else}

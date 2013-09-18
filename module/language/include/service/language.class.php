@@ -11,7 +11,7 @@ defined('PHPFOX') or exit('NO DICE!');
  * @copyright		[PHPFOX_COPYRIGHT]
  * @author  		Raymond Benc
  * @package  		Module_Language
- * @version 		$Id: language.class.php 4316 2012-06-21 13:57:37Z Miguel_Espinoza $
+ * @version 		$Id: language.class.php 4605 2012-08-20 11:17:45Z Miguel_Espinoza $
  */
 class Language_Service_Language extends Phpfox_Service 
 {
@@ -344,6 +344,17 @@ class Language_Service_Language extends Phpfox_Service
 			$this->cache()->save($sCacheId, $aPhrases);
 		}
 		return $aPhrases;
+	}
+	
+	
+	public function getPhraseInEveryLanguage($sModule, $sVar)
+	{
+		$aPhrases = $this->database()->select('language_id, phrase_id, text')
+			->from(Phpfox::getT('language_phrase'))
+			->where('module_id = "'. $sModule .'" AND var_name = "'. $sVar .'"')
+			->execute('getSlaveRows');
+		
+		return $aPhrases;	
 	}
 	/**
 	 * If a call is made to an unknown method attempt to connect

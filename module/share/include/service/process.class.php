@@ -11,7 +11,7 @@ defined('PHPFOX') or exit('NO DICE!');
  * @copyright		[PHPFOX_COPYRIGHT]
  * @author  		Raymond Benc
  * @package  		Module_Share
- * @version 		$Id: process.class.php 4422 2012-06-29 08:41:34Z Raymond_Benc $
+ * @version 		$Id: process.class.php 4786 2012-09-27 10:40:14Z Miguel_Espinoza $
  */
 class Share_Service_Process extends Phpfox_Service 
 {
@@ -82,7 +82,7 @@ class Share_Service_Process extends Phpfox_Service
 				$aOld = Phpfox::getService('share')->getForEdit($iEditId);
 				if (file_exists(Phpfox::getParam('share.dir_image') . $aOld['icon']))
 				{
-					unlink(Phpfox::getParam('share.dir_image') . $aOld['icon']);
+					Phpfox::getLib('file')->unlink(Phpfox::getParam('share.dir_image') . $aOld['icon']);
 				}				
 				
 				if (!($aVals['icon'] = $this->_uploadImage($aVals['icon'])))
@@ -115,7 +115,7 @@ class Share_Service_Process extends Phpfox_Service
 		
 		if (file_exists(Phpfox::getParam('share.dir_image') . $aSite['icon']))
 		{
-			unlink(Phpfox::getParam('share.dir_image') . $aSite['icon']);
+			Phpfox::getLib('file')->unlink(Phpfox::getParam('share.dir_image') . $aSite['icon']);
 		}		
 		
 		$this->database()->delete($this->_sTable, 'site_id = ' . $aSite['site_id']);

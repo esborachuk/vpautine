@@ -11,7 +11,7 @@ defined('PHPFOX') or exit('NO DICE!');
  * @copyright		[PHPFOX_COPYRIGHT]
  * @author  		Raymond Benc
  * @package  		Module_Poll
- * @version 		$Id: index.class.php 3551 2011-11-22 14:49:19Z Raymond_Benc $
+ * @version 		$Id: index.class.php 5074 2012-12-06 10:37:26Z Raymond_Benc $
  */
 class Poll_Component_Controller_Index extends Phpfox_Component
 {
@@ -77,7 +77,7 @@ class Poll_Component_Controller_Index extends Phpfox_Component
 				'type' => 'poll',
 				'field' => 'poll.poll_id',				
 				'search_tool' => array(
-					'table_alias' => 'p',
+					'table_alias' => 'poll',
 					'search' => array(
 						'action' => (defined('PHPFOX_IS_USER_PROFILE') ? $this->url()->makeUrl($aUser['user_name'], array('poll', 'view' => $this->request()->get('view'))) : $this->url()->makeUrl('poll', array('view' => $this->request()->get('view')))),
 						'default_value' => Phpfox::getPhrase('poll.search_polls'),

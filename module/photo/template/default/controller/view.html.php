@@ -5,12 +5,14 @@
  * @copyright		[PHPFOX_COPYRIGHT]
  * @author  		Raymond Benc
  * @package  		Module_Photo
- * @version 		$Id: view.html.php 4582 2012-08-01 08:25:38Z Raymond_Benc $
+ * @version 		$Id: view.html.php 5287 2013-01-31 09:28:28Z Raymond_Benc $
  */
  
 defined('PHPFOX') or exit('NO DICE!'); 
 
 ?>
+<div id="js_current_page_url" style="display:none;">{if $iForceAlbumId > 0}albumid_{$iForceAlbumId}{else}{if isset($feedUserId)}userid_{$feedUserId}/{/if}{/if}</div>
+
 {if isset($aForms.view_id) && $aForms.view_id == 1}
 <div class="message js_moderation_off">
 	{phrase var='photo.image_is_pending_approval'}
@@ -33,20 +35,23 @@ defined('PHPFOX') or exit('NO DICE!');
 		</div>									
 	</div>
 	
-	<div class="photo_view_box_comment">			
+	<div class="photo_view_box_comment">	
+		{plugin call='photo.template_controller_view_view_box_comment_1'}
 		<div class="photo_view_box_comment_padding">
+			{plugin call='photo.template_controller_view_view_box_comment_2'}
 			<div id="js_photo_view_box_title">
+				{plugin call='photo.template_controller_view_view_box_comment_3'}
 				<div class="row_title">
 					<div class="row_title_image">
-						{img user=$aForms suffix='_50_square' max_width=50 max_height=50}
+						<a href="{url link=$aForms.user_name}" class="no_ajax_link">{img user=$aForms suffix='_50_square' max_width=50 max_height=50 no_link=true}</a>
 					</div>
 					<div class="row_title_info" style="position:relative;">					
-						<div class="photo_view_box_user">{$aForms|user:'':'':50}</div>
+						<div class="photo_view_box_user"><a href="{url link=$aForms.user_name}" class="no_ajax_link">{$aForms.full_name|shorten:50}</a></div>
 						<ul class="extra_info_middot">
 							<li>{$aForms.time_stamp|convert_time}</li>
 							{if !empty($aForms.album_id)} 
-							<li>&middot;</li>
-							<li>in <a href="{$aForms.album_url}">{$aForms.album_title|clean|split:45|shorten:75:'...'}</a> </li>						
+								<li>&middot;</li>
+								<li>{phrase var='photo.in'} <a href="{$aForms.album_url}">{$aForms.album_title|clean|split:45|shorten:75:'...'}</a> </li>						
 							{/if}
 						</ul>
 					</div>
@@ -71,13 +76,13 @@ defined('PHPFOX') or exit('NO DICE!');
 				
 				{if $aForms.description}
 				<div id="js_photo_description_{$aForms.photo_id}" class="extra_info">
-					{$aForms.description|clean|shorten:200:'photo.read_more':true|emoticon}
+					{$aForms.description|parse|shorten:200:'photo.read_more':true}
 				</div>
 				{/if}
 			</div>
 					
 			{if Phpfox::isModule('tag') && isset($aForms.tag_list)}
-			{module name='tag.item' sType='photo' sTags=$aForms.tag_list iItemId=$aForms.photo_id iUserId=$aForms.user_id}
+				{module name='tag.item' sType='photo' sTags=$aForms.tag_list iItemId=$aForms.photo_id iUserId=$aForms.user_id}
 			{/if}			
 						
 			{plugin call='photo.template_default_controller_view_extra_info'}			
@@ -90,7 +95,7 @@ defined('PHPFOX') or exit('NO DICE!');
 
 	<div class="photo_view_box_image photo_holder_image" {if isset($aPhotoStream.next.photo_id)}onclick="tb_show('', '{$aPhotoStream.next.link}{if $iForceAlbumId > 0}albumid_{$iForceAlbumId}{else}{if isset($feedUserId)}userid_{$feedUserId}/{/if}{/if}', this);" rel="{$aPhotoStream.next.photo_id}"{/if}>		
 		 <div id="photo_view_tag_photo">
-			<a href="#" id="js_tag_photo">{phrase var='photo.tag_this_photo'}</a>
+			<a href="#" id="js_tag_photo" onclick="$Core.photo_tag.init({l}{$sPhotoJsContent}{r})">{phrase var='photo.tag_this_photo'}</a>
 		</div>
 		<div id="photo_view_ajax_loader">{img theme='ajax/loader.gif'}</div>
 			{if $aPhotoStream.total > 1}
@@ -113,6 +118,12 @@ defined('PHPFOX') or exit('NO DICE!');
 				<a href="{$aPhotoStream.next.link}{if $iForceAlbumId > 0}albumid_{$iForceAlbumId}{else}{if isset($feedUserId)}userid_{$feedUserId}/{/if}{/if}"{if $bIsTheater} class="thickbox photo_holder_image" rel="{$aPhotoStream.next.photo_id}"{/if}>
 				{/if}
 					{if $aForms.user_id == Phpfox::getUserId()}
+						{img style="display:none;" id='js_photo_view_image_small' server_id=$aForms.server_id path='photo.url_photo' file=$aForms.destination suffix='_500' max_width=500 max_height=500 title=$aForms.title time_stamp=true onmouseover="$('.photo_next_previous .next a').addClass('is_hover_active');" onmouseout="$('.photo_next_previous .next a').removeClass('is_hover_active');"}
+					{else}
+						{img style="display:none;" id='js_photo_view_image_small' server_id=$aForms.server_id path='photo.url_photo' file=$aForms.destination suffix='_500' max_width=500 max_height=500 title=$aForms.title onmouseover="$('.photo_next_previous .next a').addClass('is_hover_active');" onmouseout="$('.photo_next_previous .next a').removeClass('is_hover_active');"}
+					{/if}					
+				
+					{if $aForms.user_id == Phpfox::getUserId()}
 						{img id='js_photo_view_image' server_id=$aForms.server_id path='photo.url_photo' file=$aForms.destination suffix='_1024' max_width=1024 max_height=1024 title=$aForms.title time_stamp=true onmouseover="$('.photo_next_previous .next a').addClass('is_hover_active');" onmouseout="$('.photo_next_previous .next a').removeClass('is_hover_active');"}
 					{else}
 						{img id='js_photo_view_image' server_id=$aForms.server_id path='photo.url_photo' file=$aForms.destination suffix='_1024' max_width=1024 max_height=1024 title=$aForms.title onmouseover="$('.photo_next_previous .next a').addClass('is_hover_active');" onmouseout="$('.photo_next_previous .next a').removeClass('is_hover_active');"}
@@ -128,9 +139,13 @@ defined('PHPFOX') or exit('NO DICE!');
 
 <script type="text/javascript">
 $Behavior.autoLoadPhoto = function(){l}
+
+	{if isset($iNewImageHeight)}
+	$('#js_photo_view_image').attr({l}height: '{$iNewImageHeight}', width: '{$iNewImageWidth}'{r});
+	{/if}
 	
 	{literal}
-	$('#main_core_body_holder').hide();
+	// $('#main_core_body_holder').hide();
 	
 	$('#photo_view_ajax_loader').hide();
 	$('.js_box_image_holder_full').find('.js_box').show();
@@ -140,8 +155,11 @@ $Behavior.autoLoadPhoto = function(){l}
 	
 	var iCommentBoxMaxHeight = 300;
 
-	iCommentBoxMaxHeight = (($('.js_box_image_holder_full').find('.js_box_content').height() - ($('#js_photo_view_box_title').height() + $('#js_photo_box_view_bottom_ad').height())) - 170);	
-		
+	iCommentBoxMaxHeight = (($('.js_box_image_holder_full').find('.js_box_content').height() - ($('#js_photo_view_box_title').height() + $('#js_photo_box_view_bottom_ad').height())) - ($Core.exists('#js_ad_space_photo_theater') ? 220 : 235));	
+	if (!$Core.exists('#js_ad_space_photo_theater')){
+		// iCommentBoxMaxHeight = iCommentBoxMaxHeight - 150;
+	}
+	
 	$('.js_box_image_holder_full').find('.js_feed_comment_view_more_holder:first').css({
 		'max-height': iCommentBoxMaxHeight + 'px',
 		overflow: 'auto'
@@ -152,10 +170,18 @@ $Behavior.autoLoadPhoto = function(){l}
 		'top': 0,
 		'left': '16px'	    		
 	});
+
+	if ($('#js_photo_view_image').height() >= $('.js_box_image_holder_full').find('.js_box_content').height()){
+		$('.photo_view_box_image_holder').css({top: 0});
+	}
+	else {
+		$('.photo_view_box_image_holder').css({
+			top: '50%',
+			'margin-top': '-' + ($('#js_photo_view_image').height() / 2) + 'px',		
+		});
+	}
 	
 	$('.photo_view_box_image_holder').css({
-		top: '50%',
-		'margin-top': '-' + ($('#js_photo_view_image').height() / 2) + 'px',
 		left: '50%',
 		'margin-left': '-' + ($('#js_photo_view_image').width() / 2) + 'px'		
 	});			
@@ -169,10 +195,30 @@ $Behavior.autoLoadPhoto = function(){l}
 		$(this).addClass('no_resize_textarea');
 		return true;
 	});
+
+	$("<img/>")
+	    .attr("src", $('#js_photo_view_image').attr("src"))
+	    .load(function() {
+		    
+	    	sPicWidth = this.width;
+	    	sPicHeight = this.height;
+
+	    	if (sPicHeight >= $('.js_box').height() || sPicWidth >= ($('.js_box').width() - 420)){
+	    		$('#js_photo_view_image').hide();
+	    		$('#js_photo_view_image_small').show();
+	    		
+	    		$('.photo_view_box_image_holder').css({
+	    			left: '50%',
+	    			top: '50%',
+	    			'margin-left': '-' + ($('#js_photo_view_image_small').width() / 2) + 'px',
+	    			'margin-top': '-' + ($('#js_photo_view_image_small').height() / 2) + 'px'		
+	    		});	
+	    	}	    	
+	    });	
 	
 	{/literal}
 	
-	$Core.photo_tag.init({l}{$sPhotoJsContent}{r});
+	// $Core.photo_tag.init({l}{$sPhotoJsContent}{r});
 	$Behavior.autoLoadPhoto = function(){l}{r}
 {r}
 </script>
@@ -203,11 +249,103 @@ $Behavior.autoLoadPhoto = function(){l}
 			</div>		
 		</div>	    
 		{/if}
+	
+		<div class="t_center" id="js_photo_view_holder_process"></div>
+		<div id="js_photo_view_main_holder"{if !Phpfox::isMobile()} style="margin-bottom:30px;"{/if}>
+			<div class="t_center" id="js_photo_view_holder">
+			
+			{if $aPhotoStream.total > 1 && $bIsTheater}
+		    <div class="photo_next_previous">
+				<ul>
+				{if isset($aPhotoStream.previous.photo_id)}
+				<li class="previous"><a href="{$aPhotoStream.previous.link}{if $iForceAlbumId > 0}albumid_{$iForceAlbumId}{else}{if isset($feedUserId)}userid_{$feedUserId}/{/if}{/if}"{if $bIsTheater} class="thickbox photo_holder_image" rel="{$aPhotoStream.previous.photo_id}"{/if}>{phrase var='photo.previous'}</a></li>
+				{/if}	
+			
+				{if isset($aPhotoStream.next.photo_id)}
+				<li class="next"><a href="{$aPhotoStream.next.link}{if $iForceAlbumId > 0}albumid_{$iForceAlbumId}{else}{if isset($feedUserId)}userid_{$feedUserId}/{/if}{/if}"{if $bIsTheater} class="thickbox photo_holder_image" rel="{$aPhotoStream.next.photo_id}"{/if}>{phrase var='photo.next'}</a></li>
+				{/if}
+				</ul>
+				<div class="clear"></div>
+			</div>
+			{/if}		
+		
+			
+				{if (Phpfox::getUserParam('photo.can_edit_own_photo') && $aForms.user_id == Phpfox::getUserId()) || Phpfox::getUserParam('photo.can_edit_other_photo')}
+				<div class="photo_rotate">
+					<ul>					
+						<li>
+							<a href="#" onclick="$('#menu').remove(); $('#noteform').hide(); $('#js_photo_view_image').imgAreaSelect({left_curly} hide: true {right_curly}); $('#js_photo_view_holder').hide(); $('#js_photo_view_holder_process').html($.ajaxProcess('', 'large')).height($('#js_photo_view_holder').height()).show(); $.ajaxCall('photo.rotate', 'photo_id={$aForms.photo_id}&amp;photo_cmd=left&amp;currenturl=' + $('#js_current_page_url').html()); return false;" class="left js_hover_title">
+								<span class="js_hover_info">
+									{phrase var='photo.rotate_left'}
+								</span></a>
+						</li>
+						<li>
+							<a href="#" onclick="$('#menu').remove(); $('#noteform').hide(); $('#js_photo_view_image').imgAreaSelect({left_curly} hide: true {right_curly}); $('#js_photo_view_holder').hide(); $('#js_photo_view_holder_process').html($.ajaxProcess('', 'large')).height($('#js_photo_view_holder').height()).show(); $.ajaxCall('photo.rotate', 'photo_id={$aForms.photo_id}&amp;photo_cmd=right&amp;currenturl=' + $('#js_current_page_url').html()); return false;" class="right js_hover_title"><span class="js_hover_info">{phrase var='photo.rotate_right'}</span></a>
+						</li>
+					</ul>
+					<div class="clear"></div>
+				</div>
+				{/if}			
+			
+				{if isset($aPhotoStream.next.photo_id)}
+				<a href="{$aPhotoStream.next.link}{if $iForceAlbumId > 0}albumid_{$iForceAlbumId}{else}{if isset($feedUserId)}userid_{$feedUserId}/{/if}{/if}"{if $bIsTheater} class="thickbox photo_holder_image" rel="{$aPhotoStream.next.photo_id}"{/if}>
+				{/if}
+				{if Phpfox::isMobile()}
+					{if $aForms.user_id == Phpfox::getUserId()}
+						{img id='js_photo_view_image' server_id=$aForms.server_id path='photo.url_photo' file=$aForms.destination suffix='_500' max_width=285 max_height=300 title=$aForms.title time_stamp=true onmouseover="$('.photo_next_previous .next a').addClass('is_hover_active');" onmouseout="$('.photo_next_previous .next a').removeClass('is_hover_active');"}
+					{else}
+						{img id='js_photo_view_image' server_id=$aForms.server_id path='photo.url_photo' file=$aForms.destination suffix='_500' max_width=285 max_height=300 title=$aForms.title onmouseover="$('.photo_next_previous .next a').addClass('is_hover_active');" onmouseout="$('.photo_next_previous .next a').removeClass('is_hover_active');"}
+					{/if}
+				{else}
+					{if $aForms.user_id == Phpfox::getUserId()}
+						{img id='js_photo_view_image' server_id=$aForms.server_id path='photo.url_photo' file=$aForms.destination suffix='_1024' max_width=1024 max_height=1024 title=$aForms.title time_stamp=true onmouseover="$('.photo_next_previous .next a').addClass('is_hover_active');" onmouseout="$('.photo_next_previous .next a').removeClass('is_hover_active');"}
+					{else}
+						{img id='js_photo_view_image' server_id=$aForms.server_id path='photo.url_photo' file=$aForms.destination suffix='_1024' max_width=1024 max_height=1024 title=$aForms.title onmouseover="$('.photo_next_previous .next a').addClass('is_hover_active');" onmouseout="$('.photo_next_previous .next a').removeClass('is_hover_active');"}
+					{/if}
+					<script type="text/javascript">
+					$Behavior.autoLoadFullPhoto = function(){l}
+
+						{if isset($iNewImageHeight)}
+						$('#js_photo_view_image').attr({l}height: '{$iNewImageHeight}', width: '{$iNewImageWidth}'{r});
+						{/if}					
+	
+						var sImageHeight = $('#js_photo_view_image').height();
+						var sImageWidth = $('#js_photo_view_image').width();
+	
+						$('#js_photo_view_holder').css({l}
+							'position': 'absolute',
+							'left': '50%',
+							'margin-left': '-' + (sImageWidth / 2) + 'px'						
+						{r});
+						
+						if (sImageHeight > 0)
+						{l}
+							$('#js_photo_view_main_holder').css('height', sImageHeight);
+						{r}
+						
+						$('#js_photo_view_image').load(function(){l}
+							$('#js_photo_view_main_holder').css('height', $('#js_photo_view_image').height());
+						{r});
+						
+						$Behavior.autoLoadFullPhoto = function(){l}{r}
+					{r}
+					</script>
+				{/if}
+				
+				{if isset($aPhotoStream.next.photo_id)}
+				</a>
+				{/if}
+			
+			</div>
+		</div>
+		
 		{if !$bIsTheater}
 		{if $aPhotoStream.total > 1}
 	    <div class="photo_next_previous">
 			<ul>
+			{if !Phpfox::isMobile()}
 			<li class="photo_stream_info">{phrase var='photo.photo_current_of_total' current=$aPhotoStream.current total=$aPhotoStream.total}</li>
+			{/if}
 			{if isset($aPhotoStream.previous.photo_id)}
 			<li class="previous"><a href="{$aPhotoStream.previous.link}{if $iForceAlbumId > 0}albumid_{$iForceAlbumId}{else}{if isset($feedUserId)}userid_{$feedUserId}/{/if}{/if}">{phrase var='photo.previous'}</a></li>
 			{/if}	
@@ -219,95 +357,19 @@ $Behavior.autoLoadPhoto = function(){l}
 			<div class="clear"></div>
 		</div>
 		{/if}			
-		{/if}
-	
-		<div class="t_center" id="js_photo_view_holder_process"></div>
-		<div class="t_center" id="js_photo_view_holder">
-		
-		{if $aPhotoStream.total > 1 && $bIsTheater}
-	    <div class="photo_next_previous">
-			<ul>
-			{if isset($aPhotoStream.previous.photo_id)}
-			<li class="previous"><a href="{$aPhotoStream.previous.link}{if $iForceAlbumId > 0}albumid_{$iForceAlbumId}{else}{if isset($feedUserId)}userid_{$feedUserId}/{/if}{/if}"{if $bIsTheater} class="thickbox photo_holder_image" rel="{$aPhotoStream.previous.photo_id}"{/if}>{phrase var='photo.previous'}</a></li>
-			{/if}	
-		
-			{if isset($aPhotoStream.next.photo_id)}
-			<li class="next"><a href="{$aPhotoStream.next.link}{if $iForceAlbumId > 0}albumid_{$iForceAlbumId}{else}{if isset($feedUserId)}userid_{$feedUserId}/{/if}{/if}"{if $bIsTheater} class="thickbox photo_holder_image" rel="{$aPhotoStream.next.photo_id}"{/if}>{phrase var='photo.next'}</a></li>
-			{/if}
-			</ul>
-			<div class="clear"></div>
-		</div>
 		{/if}		
-	
 		
-			{if (Phpfox::getUserParam('photo.can_edit_own_photo') && $aForms.user_id == Phpfox::getUserId()) || Phpfox::getUserParam('photo.can_edit_other_photo')}
-			<div class="photo_rotate">
-				<ul>					
-					<li>
-						<a href="#" onclick="$('#menu').remove(); $('#noteform').hide(); $('#js_photo_view_image').imgAreaSelect({left_curly} hide: true {right_curly}); $('#js_photo_view_holder').hide(); $('#js_photo_view_holder_process').html($.ajaxProcess('', 'large')).height($('#js_photo_view_holder').height()).show(); $.ajaxCall('photo.rotate', 'photo_id={$aForms.photo_id}&amp;photo_cmd=left'); return false;" class="left js_hover_title">
-							<span class="js_hover_info">
-								{phrase var='photo.rotate_left'}
-							</span></a>
-					</li>
-					<li>
-						<a href="#" onclick="$('#menu').remove(); $('#noteform').hide(); $('#js_photo_view_image').imgAreaSelect({left_curly} hide: true {right_curly}); $('#js_photo_view_holder').hide(); $('#js_photo_view_holder_process').html($.ajaxProcess('', 'large')).height($('#js_photo_view_holder').height()).show(); $.ajaxCall('photo.rotate', 'photo_id={$aForms.photo_id}&amp;photo_cmd=right'); return false;" class="right js_hover_title"><span class="js_hover_info">{phrase var='photo.rotate_right'}</span></a>
-					</li>
-				</ul>
-				<div class="clear"></div>
-			</div>
-			{/if}			
-		
-			{if isset($aPhotoStream.next.photo_id)}
-			<a href="{$aPhotoStream.next.link}{if $iForceAlbumId > 0}albumid_{$iForceAlbumId}{else}{if isset($feedUserId)}userid_{$feedUserId}/{/if}{/if}"{if $bIsTheater} class="thickbox photo_holder_image" rel="{$aPhotoStream.next.photo_id}"{/if}>
-			{/if}
-			{if Phpfox::isMobile()}
-				{if $aForms.user_id == Phpfox::getUserId()}
-					{img id='js_photo_view_image' server_id=$aForms.server_id path='photo.url_photo' file=$aForms.destination suffix='_500' max_width=285 max_height=300 title=$aForms.title time_stamp=true onmouseover="$('.photo_next_previous .next a').addClass('is_hover_active');" onmouseout="$('.photo_next_previous .next a').removeClass('is_hover_active');"}
-				{else}
-					{img id='js_photo_view_image' server_id=$aForms.server_id path='photo.url_photo' file=$aForms.destination suffix='_500' max_width=285 max_height=300 title=$aForms.title onmouseover="$('.photo_next_previous .next a').addClass('is_hover_active');" onmouseout="$('.photo_next_previous .next a').removeClass('is_hover_active');"}
-				{/if}
-			{else}
-				{if $aForms.user_id == Phpfox::getUserId()}
-					{img id='js_photo_view_image' server_id=$aForms.server_id path='photo.url_photo' file=$aForms.destination suffix='_500' max_width=500 max_height=500 title=$aForms.title time_stamp=true onmouseover="$('.photo_next_previous .next a').addClass('is_hover_active');" onmouseout="$('.photo_next_previous .next a').removeClass('is_hover_active');"}
-				{else}
-					{img id='js_photo_view_image' server_id=$aForms.server_id path='photo.url_photo' file=$aForms.destination suffix='_500' max_width=500 max_height=500 title=$aForms.title onmouseover="$('.photo_next_previous .next a').addClass('is_hover_active');" onmouseout="$('.photo_next_previous .next a').removeClass('is_hover_active');"}
-				{/if}
-			{/if}
-			
-			{if isset($aPhotoStream.next.photo_id)}
-			</a>
-			{/if}
-		
-		</div>
-
-		{if $bIsTheater}
+		{if !Phpfox::isMobile()}
 		<div class="photo_view_ad">
 			{module name='ad.display' block_id='photo_theater'}
 		</div>
 		
-		<div class="photo_view_detail">
-			<div class="photo_view_detail_content">
-				{if $bIsTheater}
-					{if $aPhotoStream.total > 1}
-					<div class="extra_info">
-						{phrase var='photo.photo_current_of_total' current=$aPhotoStream.current total=$aPhotoStream.total}
-					</div>
-					{/if}
-				{/if}
-				<div class="extra_info">
-					{if !empty($aForms.album_id)} {phrase var='photo.in_the_album'} <a href="{$aForms.album_url}">{$aForms.album_title|clean|split:45|shorten:75:'...'}</a>{/if}
-					{if isset($aCallback.theater_mode)}<div class="p_top_4">{$aCallback.theater_mode}</div>{/if}
-					<div class="p_top_4">
-						{phrase var='photo.by_full_name_lowercase' full_name=$aForms|user:'':'':20}
-					</div>
-				</div>
-			</div>
-			
+		<div class="photo_view_detail" style="padding-top:10px;">			
 			{module name='photo.detail'}
 		</div>	
 		
 		<div class="photo_view_comment">
-		{/if}		
+		{/if}
 			{if $aForms.description}
 			<div id="js_photo_description_{$aForms.photo_id}">
 				{$aForms.description|clean|shorten:200:'photo.read_more':true}
@@ -324,14 +386,14 @@ $Behavior.autoLoadPhoto = function(){l}
 			
 			{plugin call='photo.template_default_controller_view_extra_info'}
 			
-			<div {if $aForms.view_id != 0}style="display:none;" class="js_moderation_on"{/if}>
+			<div style="{if $aForms.view_id != 0}display:none;{/if}" class="js_moderation_on">
 				{module name='feed.comment'}
 			</div>	
-		{if $bIsTheater}
+		{if !Phpfox::isMobile()}
 		</div>	
-		
-		<div class="clear"></div>
 		{/if}
+		<div class="clear"></div>
+		
 	</div>
 </div>
 <script type="text/javascript">$Behavior.tagPhoto = function() {l} $Core.photo_tag.init({l}{$sPhotoJsContent}{r}); {r}

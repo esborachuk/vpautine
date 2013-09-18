@@ -11,7 +11,7 @@ defined('PHPFOX') or exit('NO DICE!');
  * @copyright		[PHPFOX_COPYRIGHT]
  * @author  		Raymond_Benc
  * @package 		Phpfox_Component
- * @version 		$Id: add.class.php 4523 2012-07-19 07:20:55Z Raymond_Benc $
+ * @version 		$Id: add.class.php 5143 2013-01-15 14:16:21Z Miguel_Espinoza $
  */
 class Video_Component_Controller_Add extends Phpfox_Component
 {
@@ -23,12 +23,15 @@ class Video_Component_Controller_Add extends Phpfox_Component
 		Phpfox::isUser(true);
 		Phpfox::getUserParam('video.can_upload_videos', true);
 		
+		if ($sPlugin = Phpfox_Plugin::get('video.component_controller_add_1')){eval($sPlugin);if (isset($mReturnFromPlugin)){return $mReturnFromPlugin;}}
+		
 		$sModule = $this->request()->get('module', false);
 		$iItem =  $this->request()->getInt('item', false);		
 		
 		$aCallback = false;
 		if ($sModule !== false && $iItem !== false && Phpfox::hasCallback($sModule, 'getVideoDetails'))
 		{			
+			if ($sPlugin = Phpfox_Plugin::get('video.component_controller_add_2')){eval($sPlugin);if (isset($mReturnFromPlugin)){return $mReturnFromPlugin;}}
 			if (($aCallback = Phpfox::callback($sModule . '.getVideoDetails', array('item_id' => $iItem))))
 			{			
 				$this->template()->setBreadcrumb($aCallback['breadcrumb_title'], $aCallback['breadcrumb_home']);
@@ -53,6 +56,7 @@ class Video_Component_Controller_Add extends Phpfox_Component
 		
 		if (($aVals = $this->request()->get('val')))
 		{
+			if ($sPlugin = Phpfox_Plugin::get('video.component_controller_add_3')){eval($sPlugin);if (isset($mReturnFromPlugin)){return $mReturnFromPlugin;}}
 			if (($iFlood = Phpfox::getUserParam('video.flood_control_videos')) !== 0)
 			{
 				$aFlood = array(
@@ -74,6 +78,7 @@ class Video_Component_Controller_Add extends Phpfox_Component
 					
 			if (Phpfox_Error::isPassed())
 			{			
+				if ($sPlugin = Phpfox_Plugin::get('video.component_controller_add_4')){eval($sPlugin);if (isset($mReturnFromPlugin)){return $mReturnFromPlugin;}}
 				if (Phpfox::getService('video.grab')->get($aVals['url']))
 				{			
 					if ($iId = Phpfox::getService('video.process')->addShareVideo($aVals))
@@ -168,11 +173,27 @@ class Video_Component_Controller_Add extends Phpfox_Component
 		$aMenus = array();		
 		if (Phpfox::getParam('video.allow_video_uploading'))
 		{
-			$aMenus['file'] = Phpfox::getPhrase('video.file_upload');
+			$aMenus[$this->url()->makeUrl('video.add')] = Phpfox::getPhrase('video.file_upload');
 		}
-		$aMenus['url'] = Phpfox::getPhrase('video.paste_url');
+		$aMenus[$this->url()->makeUrl('video.add.url')] = Phpfox::getPhrase('video.paste_url');
 		
-		$this->template()->buildPageMenu('js_upload_video', $aMenus);
+		if (!empty($sModule))
+		{
+			foreach ($aMenus as $sUrl => $sPhrase)
+			{
+				unset($aMenus[$sUrl]);
+				
+				$aMenus[$sUrl . 'module_' . $sModule . '/item_' . $iItem . '/'] = $sPhrase;
+			}
+		}
+		
+		$bIsVideoUploading = false;
+		if (Phpfox::getParam('video.allow_video_uploading') && $this->request()->get('req3') != 'url')
+		{
+			$bIsVideoUploading = true;
+		}
+		
+		$this->template()->buildPageMenu('js_upload_video', $aMenus, null, true);
 		
 		if (Phpfox::getParam('video.video_upload_service'))
 		{
@@ -194,7 +215,8 @@ class Video_Component_Controller_Add extends Phpfox_Component
 					'sModule' => $sModule,
 					'iItem' => $iItem,				
 					'sMethod' => $sMethod,
-					'sMethodUrl' => $sMethodUrl			
+					'sMethodUrl' => $sMethodUrl,
+					'bIsVideoUploading' => $bIsVideoUploading	
 				)
 			)
 			->setHeader('cache', array(

@@ -11,7 +11,7 @@ defined('PHPFOX') or exit('NO DICE!');
  * @copyright		[PHPFOX_COPYRIGHT]
  * @author  		Raymond Benc
  * @package  		Module_Forum
- * @version 		$Id: callback.class.php 4545 2012-07-20 10:40:35Z Raymond_Benc $
+ * @version 		$Id: callback.class.php 5074 2012-12-06 10:37:26Z Raymond_Benc $
  */
 class Forum_Service_Callback extends Phpfox_Service 
 {
@@ -213,7 +213,7 @@ class Forum_Service_Callback extends Phpfox_Service
 		    ->join(Phpfox::getT('forum_thread'),'ft','ft.forum_id = f.forum_id')
 		    ->join(Phpfox::getT('forum_post'),'fp', 'fp.thread_id = ft.thread_id')
 		    ->join(Phpfox::getT('forum_post_text'),'fpt','fpt.post_id = fp.post_id')
-		    ->where('fp.post_id = ' . (int)$iId)
+		    ->where('fp.thread_id = ' . (int)$iId)
 		    ->execute('getSlaveRow');
 	    
 	    if (empty($aThread))
@@ -1087,6 +1087,48 @@ class Forum_Service_Callback extends Phpfox_Service
 		
 		return true;
 	}	
+
+		/**
+	 * @description This function filters out thread ids from search results.
+	 * @param $aResults Array from search->query it has thread_ids and we need to find their forum
+	 * @return the ids of the threads that are not allowed to be shown
+	 * */
+	public function filterSearchResults($aResults)
+	{
+		$sInts = implode(',', $aResults);
+		preg_match('/([0-9,]*)/', $sInts, $aMatches);
+
+		if (!isset($aMatches[1]) || empty($aMatches[1]))
+		{
+			return array();
+		}
+
+		$aRows = $this->database()
+			->select('ft.thread_id as item_id, "forum" as item_type_id')
+			->from(Phpfox::getT('forum_access'), 'fa')
+			->join(Phpfox::getT('forum_thread'), 'ft', 'ft.forum_id = fa.forum_id')
+			->where('ft.thread_id IN (' . $aMatches[1] .') AND fa.user_group_id = ' . Phpfox::getUserBy('user_group_id') .' AND fa.var_value = 0 AND (fa.var_name = "can_view_forum" OR fa.var_name = "can_view_thread_content")' )
+			->execute('getSlaveRows');
+
+		return $aRows;
+	}
+	
+	public function getActions()
+	{
+		return array(
+			'dislike' => array(
+				'enabled' => true,
+				'action_type_id' => 2, // 2 = dislike
+				'phrase' => 'Dislike',
+				'item_type_id' => 'forum-post', // used to differentiate between photo albums and photos for example.
+				'phrase_in_past_tense' => 'disliked',
+				'table' => 'forum_post',
+				'item_phrase' => Phpfox::getPhrase('forum.item_phrase'),
+				'column_update' => 'total_dislike',
+				'column_find' => 'post_id'				
+				)
+		);
+	}
 	
 	/**
 	 * If a call is made to an unknown method attempt to connect

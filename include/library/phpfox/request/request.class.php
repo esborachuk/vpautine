@@ -13,7 +13,7 @@ defined('PHPFOX') or exit('NO DICE!');
  * @copyright		[PHPFOX_COPYRIGHT]
  * @author			Raymond Benc
  * @package 		Phpfox
- * @version 		$Id: request.class.php 4576 2012-07-31 10:32:27Z Raymond_Benc $
+ * @version 		$Id: request.class.php 5271 2013-01-30 09:56:22Z Raymond_Benc $
  */
 class Phpfox_Request
 {	
@@ -243,8 +243,16 @@ class Phpfox_Request
     	}
     	elseif (preg_match('/\s+?chrome\/([0-9.]{1,10})/i', $sAgent, $aMatches))
     	{
-    		$aParts = explode(' ', trim($aMatches[1]));
-    		$sAgent = 'Chrome ' . $aParts[0];
+    		if (preg_match('/android/i', $sAgent))
+    		{
+    			$this->_bIsMobile = true;
+    			$sAgent = 'Android';
+    		}
+    		else
+    		{
+	    		$aParts = explode(' ', trim($aMatches[1]));
+	    		$sAgent = 'Chrome ' . $aParts[0];
+    		}
     	}
     	elseif (preg_match('/android/i', $sAgent))
     	{
@@ -314,6 +322,15 @@ class Phpfox_Request
     		
     		if ($this->_bIsMobile === true && !PHPFOX_IS_AJAX)
     		{
+    			if ($this->get('req1') == 'apps' && $this->get('req2') == 'install')
+    			{
+    				Phpfox::getLib('url')->send('mobile.apps.install.' . $this->get('req3'));
+    			}
+    			elseif ($this->get('req1') == 'user' && $this->get('req2') == 'verify' && $this->get('link'))
+    			{
+    				Phpfox::getLib('url')->send('mobile.user.verify', array('link' => $this->get('link')));
+    			}
+    			
     			Phpfox::getLib('url')->send('mobile');
     		}
     	}

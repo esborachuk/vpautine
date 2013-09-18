@@ -12,7 +12,7 @@ defined('PHPFOX') or exit('NO DICE!');
  * @copyright		[PHPFOX_COPYRIGHT]
  * @author  		Raymond Benc
  * @package  		Module_Shoutbox
- * @version 		$Id: display.class.php 3995 2012-03-12 15:51:10Z Raymond_Benc $
+ * @version 		$Id: display.class.php 4858 2012-10-09 06:56:45Z Raymond_Benc $
  */
 class Shoutbox_Component_Block_Display extends Phpfox_Component
 {
@@ -29,7 +29,7 @@ class Shoutbox_Component_Block_Display extends Phpfox_Component
 	
 		$aCallback = $this->getParam('aCallbackShoutbox', array());
 
-		if (isset($aCallback['module']) && $aCallback['module'] == 'pages' && !Phpfox::getService('pages')->hasPerm($aCallback['item'], 'shoutbox.can_use_shoutbox'))
+		if (isset($aCallback['module']) && $aCallback['module'] == 'pages' && !Phpfox::getService('pages')->hasPerm($aCallback['item'], 'shoutbox.view_post_shoutbox'))
 		{
 			return false;
 		}

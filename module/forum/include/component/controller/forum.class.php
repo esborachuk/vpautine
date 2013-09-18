@@ -20,7 +20,7 @@ class Forum_Component_Controller_Forum extends Phpfox_Component
 	 */
 	public function process()
 	{
-		if (Phpfox::isMobile() && Phpfox::getLib('module')->getFullControllerName() == 'forum.forum' && !$this->request()->getInt('req2'))
+		if (Phpfox::isMobile() && Phpfox::getLib('module')->getFullControllerName() == 'forum.forum' && !$this->request()->getInt('req2') && !in_array($this->request()->get('view'), array('subscribed','new','my-thread')))
 		{
 			return Phpfox::getLib('module')->setController('forum.index');
 		}
@@ -275,7 +275,7 @@ class Forum_Component_Controller_Forum extends Phpfox_Component
 					$oSearch->setCondition("AND ft.group_id = 0 AND tag.tag_url = '" . Phpfox::getLib('database')->escape($this->request()->get('req3')) . "'");
 				}
 			}			
-			
+
 			list($iCnt, $aThreads) = Phpfox::getService('forum.thread')->isSearch($bIsSearch)
 				->isTagSearch($bIsTagSearch)
 				->isNewSearch(($sView == 'new' ? true : false))

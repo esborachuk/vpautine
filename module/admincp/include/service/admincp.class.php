@@ -11,7 +11,7 @@ defined('PHPFOX') or exit('NO DICE!');
  * @copyright		[PHPFOX_COPYRIGHT]
  * @author  		Raymond Benc
  * @package  		Module_Admincp
- * @version 		$Id: admincp.class.php 1496 2010-03-05 17:15:05Z Raymond_Benc $
+ * @version 		$Id: admincp.class.php 5322 2013-02-04 14:18:26Z Raymond_Benc $
  */
 class Admincp_Service_Admincp extends Phpfox_Service 
 {
@@ -22,12 +22,228 @@ class Admincp_Service_Admincp extends Phpfox_Service
 	{	
 	}
 	
+	public function getHostingInfo($sCall, $aPost = array())
+	{
+		$aPost['hash'] = Phpfox::getParam(array('db', 'host')); 
+		
+		$mReturn = json_decode(Phpfox::getLib('request')->send('http://oncloud.phpfox.com/oncloud/apicall_' . $sCall . '/', $aPost), true);
+		
+		return $mReturn;
+	}
+		
+	public function getHostingStats()
+	{
+		$sCacheId = $this->cache()->set('admincp_site_cache');
+		if (!($aReturn = $this->cache()->get($sCacheId, 1 * 60 * 60))) // cache is in hours
+		{
+			$aParts = explode('|', Phpfox::getParam('core.phpfox_max_users_online'));
+			$iTotalMemberCnt = $this->database()->select('COUNT(*)')
+				->from(Phpfox::getT('user'))
+				->where('view_id = 0')
+				->execute('getSlaveField');
+			
+			$iOneGigIntoBytes = 1073741824;
+			$iTotalSpace = ($aParts[0] * $iOneGigIntoBytes);
+			$iTotalUsed = Phpfox::getLib('cdn')->getUsage();
+			
+			$iCount1 = $iTotalUsed / $iTotalSpace;
+			$iCount2 = $iCount1 * 100;
+			$iTotalUsage = number_format($iCount2, 0);	
+			if (!$iTotalUsage)
+			{
+				$iTotalUsage = '< 1';
+			}	
+			
+			if ($aParts[1] == '0')
+			{
+				$aParts[1] = 'Unlimited';
+			}		
+			else
+			{	
+				$iCount1 = $iTotalMemberCnt / $aParts[1];
+				$iCount2 = $iCount1 * 100;
+				$iTotalMemberUsage = number_format($iCount2, 0);
+				if (!$iTotalMemberUsage)
+				{
+					$iTotalMemberUsage = '< 1';
+				}		
+			}
+					
+			$aReturn = array(
+					'sTotalSpaceUsage' => $iTotalUsage . '% (' . Phpfox::getLib('file')->filesize($iTotalUsed) . ' out of ' . $aParts[0] . ' GB)', 
+					'sTotalMemberUsage' => (isset($iTotalMemberUsage) ? $iTotalMemberUsage . '% (' . $iTotalMemberCnt . ' out of ' . number_format($aParts[1]) . ')' : 'Unlimited')
+					);
+
+			$this->cache()->save($sCacheId, $aReturn);
+		}
+		
+		return $aReturn;
+	}
+	
+	public function getAdmincpRules()
+	{
+		$aRows = $this->database()->select('*')
+			->from(Phpfox::getT('admincp_privacy'))
+			->order('time_stamp DESC')
+			->execute('getSlaveRows');
+		
+		$aUserGroupCache = array();
+		$aUserGroups = $this->database()->select('*')
+			->from(Phpfox::getT('user_group'))
+			->execute('getSlaveRows');
+		foreach ($aUserGroups as $aUserGroup)
+		{
+			$aUserGroupCache[$aUserGroup['user_group_id']] = $aUserGroup['title'];
+		}
+		
+		foreach ($aRows as $iKey => $aRow)
+		{
+			$aRows[$iKey]['user_groups'] = '';
+			foreach ((array) json_decode($aRow['user_group'], true) as $iGroup)
+			{
+				if (!isset($aUserGroups[$iGroup]))
+				{
+					continue;
+				}
+
+				$aRows[$iKey]['user_groups'] .= $aUserGroupCache[$iGroup] . ', ';
+			}
+			
+			$aRows[$iKey]['user_groups'] = rtrim($aRows[$iKey]['user_groups'] , ', ');
+		}
+				
+		return $aRows;
+	}
+	
+	public function checkAdmincpPrivacy($aMenus)
+	{
+		$aMenuCache = array();
+		$sCacheId = $this->cache()->set('admincp_url_' . Phpfox::getUserId());
+		
+		// if (!($aMenuCache = $this->cache()->get($sCacheId)))
+		{
+			$aPrivacyCache = array();
+			$aRows = $this->database()->select('*')
+				->from(Phpfox::getT('admincp_privacy'))
+				->order('time_stamp DESC')
+				->execute('getSlaveRows');
+			foreach ($aRows as $aRow)
+			{
+				foreach ((array) json_decode($aRow['user_group'], true) as $iGroup)
+				{
+					$aPrivacyCache[$iGroup][$aRow['url']] = ($aRow['wildcard'] ? true : false);
+				}
+			}		
+			
+			$aCache = array();
+			if (isset($aPrivacyCache[Phpfox::getUserBy('user_group_id')]))
+			{
+				$aCache = $aPrivacyCache[Phpfox::getUserBy('user_group_id')];
+				$sUrl = Phpfox::getLib('url')->getFullUrl(true);
+				$sUrl = str_replace('/', '.', $sUrl);
+				$sUrl = trim($sUrl, '.');
+				$sNewParts = '';
+				$aParts = explode('.', $sUrl);
+				foreach ($aParts as $sPart)
+				{
+					if (strpos($sPart, '_'))
+					{
+						continue;
+					}
+					$sNewParts .= $sPart . '.';
+				}
+				$sNewParts = rtrim($sNewParts, '.');			
+				
+				$bFailed = false;
+				foreach ($aCache as $sUrlValue => $bWildcard)
+				{
+					if ($sUrlValue == $sNewParts)
+					{
+						$bFailed = true;					
+					}
+					
+					if ($bWildcard && preg_match('/' . $sUrlValue . '(.*)/i', $sNewParts))
+					{
+						$bFailed = true;
+					}
+				}
+				
+				if ($bFailed)
+				{
+					Phpfox::getLib('url')->send('admincp');
+				}
+			}
+			
+			foreach ($aMenus as $sPhrase1 => $mValue1)
+			{
+				if (is_array($mValue1))
+				{
+					foreach ($mValue1 as $sPhrase2 => $mValue2)
+					{
+						if (is_array($mValue2))
+						{
+							foreach ($mValue2 as $sPhrase3 => $mValue3)
+							{
+								if (isset($aCache[$mValue3]))
+								{
+									unset($aMenus[$sPhrase1][$sPhrase2][$sPhrase3]);
+								}
+								
+								foreach ($aCache as $sUrlValue => $bWildcard)
+								{							
+									if ($bWildcard && preg_match('/' . $sUrlValue . '(.*)/i', $mValue3))
+									{
+										if (isset($aMenus[$sPhrase1][$sPhrase2][$sPhrase3]))
+										{
+											unset($aMenus[$sPhrase1][$sPhrase2][$sPhrase3]);
+										}
+									}
+								}							
+							}
+						}
+						else
+						{
+							if (isset($aCache[$mValue2]))
+							{
+								unset($aMenus[$sPhrase1][$sPhrase2]);
+							}							
+						}
+					}
+				}
+			}
+			
+			$aMenuCache = $aMenus;
+			
+			foreach ($aMenuCache as $sP1 => $mV1)
+			{
+				if (is_array($mV1))
+				{
+					foreach ($mV1 as $sP2 => $mV2)
+					{
+						if (is_array($mV2) && empty($mV2))
+						{
+							unset($aMenuCache[$sP1][$sP2]);
+						}
+					}
+				}
+			}
+			
+			$this->cache()->save($sCacheId, $aMenuCache);
+		}
+		
+		// exit;
+		// d($aMenus);
+		// exit;
+		
+		return $aMenuCache;
+	}
+	
 	public function check()
 	{
 		$iCnt = 0;
 		
 		// Is the install dir. in place?
-		if (file_exists(PHPFOX_DIR . 'install' . PHPFOX_DS . 'index.php'))
+		if (!defined('PHPFOX_IS_HOSTED_SCRIPT') && file_exists(PHPFOX_DIR . 'install' . PHPFOX_DS . 'index.php'))
 		{
 			Phpfox_Error::set(Phpfox::getPhrase('admincp.install_dir_exists'));
 			$iCnt++;

@@ -5,7 +5,7 @@
  * @copyright		[PHPFOX_COPYRIGHT]
  * @author  		Raymond Benc
  * @package  		Module_Poll
- * @version 		$Id: entry.html.php 3753 2011-12-12 07:51:45Z Raymond_Benc $
+ * @version 		$Id: entry.html.php 5074 2012-12-06 10:37:26Z Raymond_Benc $
  */
  
 defined('PHPFOX') or exit('NO DICE!'); 
@@ -86,22 +86,25 @@ defined('PHPFOX') or exit('NO DICE!');
 			
 			<div id="js_poll_results_{$aPoll.poll_id}">			
 				{template file='poll.block.vote'}
-			</div>									
-	
-	{if !isset($bDesign) && isset($bIsViewingPoll) && $aPoll.total_votes > 0 && ((Phpfox::getUserParam('poll.can_view_user_poll_results_own_poll') && $aPoll.user_id == Phpfox::getUserId()) || Phpfox::getUserParam('poll.can_view_user_poll_results_other_poll')) && isset($aPoll.results)}
-	
+			</div>	
+
+	{if !isset($bDesign) && isset($bIsViewingPoll) && $aPoll.total_votes > 0 
+		&& ((Phpfox::getUserParam('poll.can_view_user_poll_results_own_poll') && $aPoll.user_id == Phpfox::getUserId()) 
+		|| Phpfox::getUserParam('poll.can_view_user_poll_results_other_poll'))}	
 		{if isset($aPoll.user_voted_this_poll) && ($aPoll.user_voted_this_poll == false && Phpfox::getUserParam('poll.view_poll_results_before_vote')) ||
 			($aPoll.user_voted_this_poll == true && Phpfox::getUserParam('poll.view_poll_results_after_vote'))}
-			{if !isset($bIsCustomPoll)}
-			<div id="votes"><a name="votes"></a></div>
-			<h3>{phrase var='poll.members_votes_total_votes' total_votes=$aPoll.total_votes}</h3>			
-			{if !Phpfox::getUserParam('poll.can_view_hidden_poll_votes') && $aPoll.hide_vote == '1' && Phpfox::getUserId() != $aPoll.user_id}
-			<div class="message">
-				{phrase var='poll.votes_are_hidden_for_this_poll'}
-			</div>
-			{else}
-			<div id="js_votes">
-				{module name="poll.votes" page=0}
+			<div style="max-width:500px;">
+				{if !isset($bIsCustomPoll)}			
+				<div id="votes"><a name="votes"></a></div>
+				<h3>{phrase var='poll.members_votes_total_votes' total_votes=$aPoll.total_votes}</h3>			
+				{if !Phpfox::getUserParam('poll.can_view_hidden_poll_votes') && $aPoll.hide_vote == '1' && Phpfox::getUserId() != $aPoll.user_id}
+				<div class="message">
+					{phrase var='poll.votes_are_hidden_for_this_poll'}
+				</div>
+				{else}
+				<div id="js_votes">
+					{module name="poll.votes" page=0}
+				</div>
 			</div>
 			{/if}
 			{/if}

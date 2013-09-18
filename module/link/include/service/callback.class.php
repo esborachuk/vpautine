@@ -11,7 +11,7 @@ defined('PHPFOX') or exit('NO DICE!');
  * @copyright		[PHPFOX_COPYRIGHT]
  * @author  		Raymond_Benc
  * @package 		Phpfox_Service
- * @version 		$Id: callback.class.php 4425 2012-06-29 10:42:12Z Miguel_Espinoza $
+ * @version 		$Id: callback.class.php 5334 2013-02-11 11:00:57Z Miguel_Espinoza $
  */
 class Link_Service_Callback extends Phpfox_Service 
 {
@@ -20,17 +20,37 @@ class Link_Service_Callback extends Phpfox_Service
 	 */	
 	public function __construct()
 	{	
-		$this->_sTable = Phpfox::getT('link');	
+		$this->_sTable = Phpfox::getT('link');
 	}
+	
+	public function getCommentNotificationTag($aNotification)
+	{		
+		$aRow = $this->database()->select('c.comment_id, l.link_id, l.title, u.user_name, u.full_name')
+					->from(Phpfox::getT('comment'), 'c')
+					->join(Phpfox::getT('link'), 'l', 'l.link_id = c.item_id')
+					->join(Phpfox::getT('user'), 'u', 'u.user_id = l.user_id')
+					->where('c.comment_id = ' . (int)$aNotification['item_id'])
+					->execute('getSlaveRow');		
+		
+		$sPhrase = Phpfox::getPhrase('link.full_name_tagged_you_in_a_link', array('full_name' => $aRow['full_name']));
+		
+		return array(
+			'link' => Phpfox::getLib('url')->makeUrl($aRow['user_name']) . 'link-id_' . $aRow['link_id'] . '/comment_' . $aRow['comment_id'] . '/',
+			'message' => $sPhrase,
+			'icon' => Phpfox::getLib('template')->getStyle('image', 'activity.png', 'blog')
+		);
+	}	
 	
 	public function getActivityFeed($aItem)
 	{		
-		$aRow = $this->database()->select('link.*, l.like_id AS is_liked, ' . Phpfox::getUserField('u', 'parent_'))
-			->from($this->_sTable, 'link')
-			->leftJoin(Phpfox::getT('user'), 'u', 'u.user_id = link.parent_user_id')
-			->leftJoin(Phpfox::getT('like'), 'l', 'l.type_id = \'link\' AND l.item_id = link.link_id AND l.user_id = ' . Phpfox::getUserId())
-			->where('link.link_id = ' . (int) $aItem['item_id'])
-			->execute('getSlaveRow');
+		$aRow = $this->database()->select('link.*, l.like_id AS is_liked, p.app_id, a.image_path AS app_image_path, ' . Phpfox::getUserField('u', 'parent_'))
+		    ->from($this->_sTable, 'link') 
+		    ->leftJoin(Phpfox::getT('user'), 'u', 'u.user_id = link.parent_user_id') 
+		    ->leftJoin(Phpfox::getT('like'), 'l', 'l.type_id = \'link\' AND l.item_id = link.link_id AND l.user_id = ' . Phpfox::getUserId())
+		    ->leftJoin(Phpfox::getT('pages'), 'p', 'p.page_id = u.profile_page_id') 
+		    ->leftJoin(Phpfox::getT('app'), 'a', 'a.app_id = p.app_id') 
+		    ->where('link.link_id = ' . (int) $aItem['item_id']) 
+		    ->execute('getSlaveRow'); 
 		
 		if (!isset($aRow['link_id']))
 		{
@@ -43,6 +63,11 @@ class Link_Service_Callback extends Phpfox_Service
 		{
 			return false;
 		}		
+
+		if (empty($aRow['link']))
+		{
+			return false;
+		}
 		
 		if (substr($aRow['link'], 0, 7) != 'http://' && substr($aRow['link'], 0, 8) != 'https://')
 		{
@@ -50,32 +75,35 @@ class Link_Service_Callback extends Phpfox_Service
 		}
 		
 		$aParts = parse_url($aRow['link']);		
-		
+				
 		$sLink = Phpfox::getLib('url')->makeUrl($aRow['parent_user_name']);
 		
-		$aReturn = array(
-			'feed_title' => $aRow['title'],			
-			'feed_status' => $aRow['status_info'],
-			'feed_link_comment' => $aItem['user_name'] . '/link-id_' . $aRow['link_id'] . '/',
-			'feed_link' => strip_tags($aRow['link']),
-			'feed_content' => $aRow['description'],
-			'total_comment' => $aRow['total_comment'],
-			'feed_total_like' => $aRow['total_like'],
-			'feed_is_liked' => $aRow['is_liked'],
-			'feed_icon' => Phpfox::getLib('image.helper')->display(array('theme' => 'feed/link.png', 'return_url' => true)),
-			'time_stamp' => $aRow['time_stamp'],			
-			'enable_like' => true,			
-			'comment_type_id' => 'link',
-			'like_type_id' => 'link',
-			'feed_title_extra' => $aParts['host'],
-			'feed_title_extra_link' => $aParts['scheme'] . '://' . $aParts['host']			
-		);
+		$aReturn = array( 
+		    'feed_title' => $aRow['title'],             
+		    'feed_status' => $aRow['status_info'], 
+		    'feed_link_comment' => Phpfox::getLib('url')->makeUrl($aItem['user_name'], array('link-id' => $aRow['link_id'])),
+		    'feed_link' => Phpfox::getLib('url')->makeUrl($aItem['user_name'], array('link-id' => $aRow['link_id'])),
+			'feed_link_actual' => $aRow['link'],
+		    'feed_content' => $aRow['description'], 
+		    'total_comment' => $aRow['total_comment'], 
+		    'feed_total_like' => $aRow['total_like'], 
+		    'feed_is_liked' => $aRow['is_liked'], 
+		    'feed_icon' => Phpfox::getLib('image.helper')->display(array('theme' => 'feed/link.png', 'return_url' => true)), 
+		    'time_stamp' => $aRow['time_stamp'],             
+		    'enable_like' => true,             
+		    'comment_type_id' => 'link', 
+		    'like_type_id' => 'link', 
+		    'feed_title_extra' => $aParts['host'], 
+		    'feed_title_extra_link' => $aParts['scheme'] . '://' . $aParts['host'], 
+		    'is_custom_app' => $aRow['app_id'], 
+		    'app_image_path' => $aRow['app_image_path'] 
+		); 
 		
 		if (Phpfox::getParam('core.warn_on_external_links'))
 		{
-			if (!preg_match('/' . preg_quote(Phpfox::getParam('core.host')) . '/i', $aReturn['feed_link']))
+			if (!preg_match('/' . preg_quote(Phpfox::getParam('core.host')) . '/i', $aRow['link']))
 			{
-				$aReturn['feed_link'] = Phpfox::getLib('url')->makeUrl('core.redirect', array('url' => Phpfox::getLib('url')->encode($aReturn['feed_link'])));
+				$aReturn['feed_link_actual'] = Phpfox::getLib('url')->makeUrl('core.redirect', array('url' => Phpfox::getLib('url')->encode($aRow['link'])));
 				$aReturn['feed_title_extra_link'] = Phpfox::getLib('url')->makeUrl('core.redirect', array('url' => Phpfox::getLib('url')->encode($aReturn['feed_title_extra_link'])));
 			}						
 		}
@@ -223,7 +251,7 @@ class Link_Service_Callback extends Phpfox_Service
 	
 	public function getCommentItem($iId)
 	{
-		$aRow = $this->database()->select('link_id AS comment_item_id, privacy_comment, user_id AS comment_user_id')
+		$aRow = $this->database()->select('link_id AS comment_item_id, privacy_comment, user_id AS comment_user_id, module_id AS parent_module_id')
 			->from(Phpfox::getT('link'))
 			->where('link_id = ' . (int) $iId)
 			->execute('getSlaveRow');		
@@ -294,6 +322,13 @@ class Link_Service_Callback extends Phpfox_Service
 	
 	public function checkFeedShareLink()
 	{
+		(($sPlugin = Phpfox_Plugin::get('link.service_callback_checkfeedsharelink')) ? eval($sPlugin) : ''); 
+		
+		if (isset($bNoFeedLink))
+		{
+			return false;
+		}
+		
 		if (defined('PHPFOX_IS_PAGES_VIEW') && !Phpfox::getService('pages')->hasPerm(null, 'link.share_links'))
 		{
 			return false;
@@ -312,6 +347,23 @@ class Link_Service_Callback extends Phpfox_Service
 		return $sLink;
 	}
 	
+	public function getActions()
+	{
+		return array(
+			'dislike' => array(
+				'enabled' => true,
+				'action_type_id' => 2, // 2 = dislike
+				'phrase' => 'Dislike',
+				'phrase_in_past_tense' => 'disliked',
+				'item_phrase' => strtolower(Phpfox::getPhrase('link.link')),
+				'item_type_id' => 'link', // used to differentiate between photo albums and photos for example.
+				'table' => 'link',
+				'column_update' => 'total_dislike',
+				'column_find' => 'link_id',
+				'where_to_show' => array('', 'photo', 'link')			
+				)
+		);
+	}
 	/**
 	 * If a call is made to an unknown method attempt to connect
 	 * it to a specific plug-in with the same name thus allowing 

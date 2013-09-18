@@ -1,0 +1,608 @@
+<phrases>
+	<phrase module_id="admincp" version_id="2.0.0alpha1" var_name="module_admincp" added="1219147675">Админ-панель</phrase>
+	<phrase module_id="admincp" version_id="2.0.0alpha1" var_name="logged_in_as" added="1212102851">Вы вошли как {full_name}</phrase>
+	<phrase module_id="admincp" version_id="2.0.0alpha1" var_name="view_site" added="1212102898">Обзор сайта</phrase>
+	<phrase module_id="admincp" version_id="2.0.0alpha1" var_name="logout" added="1212102912">Выйти</phrase>
+	<phrase module_id="admincp" version_id="2.0.0alpha1" var_name="admin_cp" added="1212102946">Панель администратора</phrase>
+	<phrase module_id="admincp" version_id="2.0.0alpha1" var_name="dashboard" added="1212104757">Панель управления</phrase>
+	<phrase module_id="admincp" version_id="2.0.0alpha1" var_name="setting_add_group" added="1213992518"><![CDATA[Выберите группу, к которой будут принадлежать ваши новые настройки.   Вне зависимости от группы, к которой они принадлежать, к ним будет возможен глобальный доступ. Настройки будут разделены на 3 группы: <b>Глобальные Настройки</b>, <b>Настройки Модуля</b> или <b>Настройки Продукта</b>.  <b>Глобальные Настройки</b> - настройки, которые не являются частью какого-либо определенного модуля или стороннего продукта, поэтому они попадают под категорию глобальной переменной.   <b>Настройки Модуля</b> - настройки, относящиеся к определенному модулю, в котором они используются. Настройки также доступны и из других модулей, тем не менее, они задуманы для использования в определенном модуле (для которого были специально созданы).  <b>Настройки Продукта</b> - настройки, принадлежащие продуктам третьих лиц.]]></phrase>
+	<phrase module_id="admincp" version_id="2.0.0alpha1" var_name="setting_details" added="1213992880">Детали настройки</phrase>
+	<phrase module_id="admincp" version_id="2.0.0alpha1" var_name="group" added="1213992894">Группы</phrase>
+	<phrase module_id="admincp" version_id="2.0.0alpha1" var_name="global_settings" added="1213992913">Общие настройки</phrase>
+	<phrase module_id="admincp" version_id="2.0.0alpha1" var_name="module_settings" added="1213992929">Настройки модулей</phrase>
+	<phrase module_id="admincp" version_id="2.0.0alpha1" var_name="product_settings" added="1213992943">Настройки продукта</phrase>
+	<phrase module_id="admincp" version_id="2.0.0alpha1" var_name="variable" added="1213992960">Переменная</phrase>
+	<phrase module_id="admincp" version_id="2.0.0alpha1" var_name="type" added="1213992972">Тип</phrase>
+	<phrase module_id="admincp" version_id="2.0.0alpha1" var_name="string" added="1213992984">Строка</phrase>
+	<phrase module_id="admincp" version_id="2.0.0alpha1" var_name="boolean" added="1213992994">Логическое</phrase>
+	<phrase module_id="admincp" version_id="2.0.0alpha1" var_name="integer" added="1213993005">Целое</phrase>
+	<phrase module_id="admincp" version_id="2.0.0alpha1" var_name="array" added="1213993015">Массив</phrase>
+	<phrase module_id="admincp" version_id="2.0.0alpha1" var_name="defined_drop_down" added="1213993026">Выпадающий список</phrase>
+	<phrase module_id="admincp" version_id="2.0.0alpha1" var_name="value" added="1213993039">Значение</phrase>
+	<phrase module_id="admincp" version_id="2.0.0alpha1" var_name="language_package_details" added="1213993059">О языковом пакете</phrase>
+	<phrase module_id="admincp" version_id="2.0.0alpha1" var_name="title" added="1213993072">Название</phrase>
+	<phrase module_id="admincp" version_id="2.0.0alpha1" var_name="info" added="1213993093">Информация</phrase>
+	<phrase module_id="admincp" version_id="2.0.0alpha1" var_name="submit" added="1213993106">Применить</phrase>
+	<phrase module_id="admincp" version_id="2.0.0alpha1" var_name="true" added="1213993147">Да</phrase>
+	<phrase module_id="admincp" version_id="2.0.0alpha1" var_name="false" added="1213993164">Нет</phrase>
+	<phrase module_id="admincp" version_id="2.0.0alpha1" var_name="setting_array_example" added="1213993190"><![CDATA[Пример: array("val1", "val2", "val3");]]></phrase>
+	<phrase module_id="admincp" version_id="2.0.0alpha1" var_name="setting_drop_down_example" added="1213993229">Укажите значения элементов выпадающего списка разделённые запятыми. Первое значение будет использовано по умолчанию. (Например: знач1, знач2, знач3)</phrase>
+	<phrase module_id="admincp" version_id="2.0.0alpha1" var_name="setting_add_var" added="1213994889"><![CDATA[<b>Переменная</b> вашей новой настройки - то, как вы будете идентифицировать, называть эту настройку и обращаться к заданному значению.  Если вы создадите <b>Переменную</b> с именем <b>foo</b> то в PHP скрипте эту переменную можно будет использовать так: [php] echo App::getParam('foo'); [/php] Вышеуказанный код выведет значение переменной foo.  Внимание, если Название переменной будет содержать пробелы или неподдерживаемые символы, они будут заменены на знак подчеркивания для соответствия стандартам.]]></phrase>
+	<phrase module_id="admincp" version_id="2.0.0alpha1" var_name="admincp_help" added="1213995090">Помощь по админ-панели</phrase>
+	<phrase module_id="admincp" version_id="2.0.0alpha1" var_name="setting_add_type" added="1213996094"><![CDATA[Настройки могут быть сохранены как Строка, Логическое, Целое, Массив или элемент Выпадающего списка.  <b><u>Строка</u></b>  Хранится как строка состоящая из буквенно-цифровых символов или многострочный текст.  <b><u>Логическое</u></b>  Хранится в виде значений TRUE или FALSE.  <b><u>Целое</u></b>  Хранится как числовое значение.  <b><u>Массив</u></b> Хранится как массив значений.  <b><u>Выпадающий список</u></b> Выпадающий список аналогичен типу "Массив", но отличается тем что может быть выбрано только одно значение.]]></phrase>
+	<phrase module_id="admincp" version_id="2.0.0alpha1" var_name="setting_add_value" added="1213996483"><![CDATA[Настройки могут быть сохранены как Строка, Логическое значение, Целое, Массив или элемент Выпадающего списка.  <b><u>Строка</u></b> Хранится как строка состоящая из буквенно-цифровых символов или многострочный текст.  <b><u>Логическое</u></b> Хранится в виде значений TRUE или FALSE. Выберите TRUE если значение добавленной вами настройки должно быть по умолчанию TRUE.  <b><u>Целое</u></b> Хранится как числовое значение.  <b><u>Массив</u></b> Хранится как массив значений. Значения массива задаются так же как в PHP.   Пример: [php] array("val1", "val2", "val3"); [/php]  <b><u>Выпадающий список</u></b> Выпадающий список аналогичен типу "Массив", но отличается тем, что может быть выбрано только одно значение.  Значения выпадающего списка разделяются запятой. Значение указанной первым будет использовано как значение по умолчанию для выпадающего списка.   Пример:  [quote] drop1, drop2, drop3 [/quote]]]></phrase>
+	<phrase module_id="admincp" version_id="2.0.0alpha1" var_name="setting_add_title" added="1213996632">Каждая настройка должна иметь фразу, добавленную в языковой пакет для того, чтобы знать, что мы редактируем (когда придет время редактирования настроек в будущем).   Оставляйте название настройки коротким, так как далее вы будете добавлять более информативную фразу (используемую для объяснения того, как настройка реагирует на сайт).</phrase>
+	<phrase module_id="admincp" version_id="2.0.0alpha1" var_name="setting_add_info" added="1213996745">Добавьте как можно больше информации о новой настройке, потому что другим могут потребоваться эти данные при последующем редактировании этой настройки в будущем.   Инструкции о том, какое влияние оказывает настройка на сайт, когда она включена/выключена, являются очень полезными.</phrase>
+	<phrase module_id="admincp" version_id="2.0.0alpha1" var_name="add_variable_name" added="1213997343">Добавьте название Переменной, которое идентифицирует вашу новую настройку</phrase>
+	<phrase module_id="admincp" version_id="2.0.0alpha1" var_name="setting_must_have_value" added="1213997421">У вашей Настройки должно быть Значение</phrase>
+	<phrase module_id="admincp" version_id="2.0.0alpha1" var_name="add_title_for_setting" added="1213997453">Добавьте Название к вашей настройке</phrase>
+	<phrase module_id="admincp" version_id="2.0.0alpha1" var_name="add_information_regarding_setting" added="1213997500">Добавьте некоторую информацию о настройке</phrase>
+	<phrase module_id="admincp" version_id="2.0.0alpha1" var_name="already_in_use" added="1213997527">Уже используется</phrase>
+	<phrase module_id="admincp" version_id="2.0.0alpha1" var_name="added" added="1213997544">Добавленный</phrase>
+	<phrase module_id="admincp" version_id="2.0.0alpha1" var_name="add_setting" added="1213997573">Добавить настройку</phrase>
+	<phrase module_id="admincp" version_id="2.0.0alpha1" var_name="updated" added="1213998211">Обновлено!</phrase>
+	<phrase module_id="admincp" version_id="2.0.0alpha1" var_name="manage_settings" added="1213998227">Управление настройками</phrase>
+	<phrase module_id="admincp" version_id="2.0.0alpha1" var_name="quick_jump" added="1213998537">Быстрый переход</phrase>
+	<phrase module_id="admincp" version_id="2.0.0alpha1" var_name="remove" added="1213998602">Удаление</phrase>
+	<phrase module_id="admincp" version_id="2.0.0alpha1" var_name="add_a_new_value" added="1213998867">Добавить новое значение...</phrase>
+	<phrase module_id="admincp" version_id="2.0.0alpha1" var_name="add" added="1213998909">Добавить</phrase>
+	<phrase module_id="admincp" version_id="2.0.0alpha1" var_name="setting_group_avaliable_settings" added="1213998954">Для этого параметра группы нет доступных настроек.</phrase>
+	<phrase module_id="admincp" version_id="2.0.0alpha1" var_name="add_a_title_for_the_group" added="1214047004">Добавить название для группы</phrase>
+	<phrase module_id="admincp" version_id="2.0.0alpha1" var_name="add_information_regarding_group" added="1214047044">Добавить информацию о группе</phrase>
+	<phrase module_id="admincp" version_id="2.0.0alpha1" var_name="group_information" added="1214047080">Информация группы</phrase>
+	<phrase module_id="admincp" version_id="2.0.0alpha1" var_name="product" added="1214047136">Продукт</phrase>
+	<phrase module_id="admincp" version_id="2.0.0alpha1" var_name="name" added="1214047154">Название</phrase>
+	<phrase module_id="admincp" version_id="2.0.0alpha1" var_name="add_setting_group" added="1214047478">Добавить настройку группе</phrase>
+	<phrase module_id="admincp" version_id="2.0.0alpha1" var_name="export" added="1214048708">Экспорт</phrase>
+	<phrase module_id="admincp" version_id="2.0.0alpha1" var_name="not_valid_array" added="1214050827">Не действительный массив</phrase>
+	<phrase module_id="admincp" version_id="2.0.0alpha1" var_name="value_must_be_numeric" added="1214050852">Значение должно быть числом</phrase>
+	<phrase module_id="admincp" version_id="2.0.0alpha1" var_name="import" added="1214060258">Импорт</phrase>
+	<phrase module_id="admincp" version_id="2.0.0alpha1" var_name="download" added="1214060328">Скачать</phrase>
+	<phrase module_id="admincp" version_id="2.0.0alpha1" var_name="upload" added="1214060337">Загрузить</phrase>
+	<phrase module_id="admincp" version_id="2.0.0alpha1" var_name="select_file" added="1214060347">Выбрать файл</phrase>
+	<phrase module_id="admincp" version_id="2.0.0alpha1" var_name="valid_file_extensions" added="1214060404">Действительные расширения файлов</phrase>
+	<phrase module_id="admincp" version_id="2.0.0alpha1" var_name="import_export_settings" added="1214060450">Импорт/Экспорт настроек</phrase>
+	<phrase module_id="admincp" version_id="2.0.0alpha1" var_name="product_does_not_have_any_settings" added="1214060583">Продукт не имеет настроек.</phrase>
+	<phrase module_id="admincp" version_id="2.0.0alpha1" var_name="unable_load_cached_config_file" added="1214060887">Невозможно загрузить файл конфигурации. Пожалуйста, убедитесь, что вы загружаете корректный файл.</phrase>
+	<phrase module_id="admincp" version_id="2.0.0alpha1" var_name="setting_imported" added="1214060918">{total} настроек импортировано. База данных сейчас актуальна.</phrase>
+	<phrase module_id="admincp" version_id="2.0.0alpha1" var_name="nothing_new_import" added="1214060951">Ничего нового для импорта. Ваша база данных актуальна.</phrase>
+	<phrase module_id="admincp" version_id="2.0.0alpha1" var_name="invalid_file_extension" added="1214060974">Не верное расширение файла</phrase>
+	<phrase module_id="admincp" version_id="2.0.0alpha1" var_name="module_folder_already_exists" added="1214230661">Невозможно использовать это Название модуля. Папка модуля уже существует.</phrase>
+	<phrase module_id="admincp" version_id="2.0.0alpha1" var_name="select_name_for_your_module" added="1214230680">Выберите Название для вашего модуля.</phrase>
+	<phrase module_id="admincp" version_id="2.0.0alpha1" var_name="provide_information_regarding_module" added="1214230700">Укажите некоторую информацию касательно модуля</phrase>
+	<phrase module_id="admincp" version_id="2.0.0alpha1" var_name="module_name_already_used" added="1214230730">Такое Название модуля уже используется. Выберите другое Название.</phrase>
+	<phrase module_id="admincp" version_id="2.0.0alpha1" var_name="create_module" added="1214230746">Создать модуль</phrase>
+	<phrase module_id="admincp" version_id="2.0.0alpha1" var_name="module_successfully_created" added="1214230798">Модуль успешно создан. Создайте следующую файловую структуру для вашего модуля</phrase>
+	<phrase module_id="admincp" version_id="2.0.0alpha1" var_name="module_details" added="1214230813">Детали модуля</phrase>
+	<phrase module_id="admincp" version_id="2.0.0alpha1" var_name="add_menu" added="1214230844">Добавить в меню</phrase>
+	<phrase module_id="admincp" version_id="2.0.0alpha1" var_name="yes" added="1214230853">Да</phrase>
+	<phrase module_id="admincp" version_id="2.0.0alpha1" var_name="no" added="1214230945">Нет</phrase>
+	<phrase module_id="admincp" version_id="2.0.0alpha1" var_name="menu" added="1214230956">Меню</phrase>
+	<phrase module_id="admincp" version_id="2.0.0alpha1" var_name="phrase" added="1214230977">Фраза</phrase>
+	<phrase module_id="admincp" version_id="2.0.0alpha1" var_name="link" added="1214231004">Ссылка</phrase>
+	<phrase module_id="admincp" version_id="2.0.0alpha1" var_name="add_more" added="1214231280">Добавить ещё</phrase>
+	<phrase module_id="admincp" version_id="2.0.0alpha1" var_name="unable_import_settings" added="1214232088">Невозможно импортировать настройки. Ни один продукт не был указан в файле XML.</phrase>
+	<phrase module_id="admincp" version_id="2.0.0alpha1" var_name="untouchables" added="1214317575">Неприкасаемые</phrase>
+	<phrase module_id="admincp" version_id="2.0.0alpha1" var_name="phpfox_hidden_settings" added="1214317835">phpFox - скрытые настройки.</phrase>
+	<phrase module_id="admincp" version_id="2.0.0alpha1" var_name="or" added="1214324454">или</phrase>
+	<phrase module_id="admincp" version_id="2.0.0alpha1" var_name="file_unsupported" added="1214326996">Сервер не поддерживает расширение загружаемого файла.</phrase>
+	<phrase module_id="admincp" version_id="2.0.0alpha1" var_name="download_file_format" added="1214327614">Формат загружаемого файла</phrase>
+	<phrase module_id="admincp" version_id="2.0.0alpha1" var_name="cached_cleared" added="1214785672">Кэш очищен.</phrase>
+	<phrase module_id="admincp" version_id="2.0.0alpha1" var_name="clear_cache" added="1214785703">Очистить кэш</phrase>
+	<phrase module_id="admincp" version_id="2.0.0alpha1" var_name="user_setting_can_clear_site_cache" added="1214788895">Можно очищать кэш сайта.  Позволяя пользователям очищать кэш, они смогу очищать либо кэшированные данные SQL, либо HTML шаблоны.   Учтите что, как только страница обновится, все данные будут заново кэшированы. Тем не менее, наилучшим вариантом будет позволить доступ к этому функционалу только Администраторам или разработчикам.</phrase>
+	<phrase module_id="admincp" version_id="2.0.0alpha1" var_name="data_size" added="1214790713">Размер данных</phrase>
+	<phrase module_id="admincp" version_id="2.0.0alpha1" var_name="cached" added="1214790722">Кешировано</phrase>
+	<phrase module_id="admincp" version_id="2.0.0alpha1" var_name="clear_selected" added="1214790764">Очистить выбранное</phrase>
+	<phrase module_id="admincp" version_id="2.0.0alpha1" var_name="clear_all" added="1214790772">Очистить всё</phrase>
+	<phrase module_id="admincp" version_id="2.0.0alpha1" var_name="cache_source" added="1214790801">Кэш Источник</phrase>
+	<phrase module_id="admincp" version_id="2.0.0alpha1" var_name="add_new_menu" added="1214845204">Добавить меню</phrase>
+	<phrase module_id="admincp" version_id="2.0.0alpha1" var_name="menu_successfully_added" added="1214845273">Меню добавлено.</phrase>
+	<phrase module_id="admincp" version_id="2.0.0alpha1" var_name="menu_details" added="1214851754">Детали меню</phrase>
+	<phrase module_id="admincp" version_id="2.0.0alpha1" var_name="module" added="1214851821">Модули</phrase>
+	<phrase module_id="admincp" version_id="2.0.0alpha1" var_name="connection" added="1214851848">Связи</phrase>
+	<phrase module_id="admincp" version_id="2.0.0alpha1" var_name="menus" added="1214851856">Меню</phrase>
+	<phrase module_id="admincp" version_id="2.0.0alpha1" var_name="modules" added="1214851863">Модули</phrase>
+	<phrase module_id="admincp" version_id="2.0.0alpha1" var_name="url" added="1214851874">URL</phrase>
+	<phrase module_id="admincp" version_id="2.0.0alpha1" var_name="user_group_access" added="1214851921">Права доступа группы пользователей</phrase>
+	<phrase module_id="admincp" version_id="2.0.0alpha1" var_name="allow_access" added="1214851932">Разрешить доступ</phrase>
+	<phrase module_id="admincp" version_id="2.0.0alpha1" var_name="menu_add_product" added="1214853997">Продукт, которому будет принадлежать данное меню.</phrase>
+	<phrase module_id="admincp" version_id="2.0.0alpha1" var_name="core_module" added="1214957846">Основной модуль</phrase>
+	<phrase module_id="admincp" version_id="2.0.0alpha1" var_name="sub_menu" added="1214960766">Подменю</phrase>
+	<phrase module_id="admincp" version_id="2.0.0alpha1" var_name="cms" added="1214963139">CMS</phrase>
+	<phrase module_id="admincp" version_id="2.0.0alpha1" var_name="user_group_manager" added="1214963173">Группы пользователей</phrase>
+	<phrase module_id="admincp" version_id="2.0.0alpha1" var_name="add_user_group_setting" added="1214963493">Добавить настройку группы</phrase>
+	<phrase module_id="admincp" version_id="2.0.0alpha1" var_name="manage_user_settings" added="1214963811">Управление настройками пользователя</phrase>
+	<phrase module_id="admincp" version_id="2.0.0alpha1" var_name="users" added="1214963853">Пользователи</phrase>
+	<phrase module_id="admincp" version_id="2.0.0alpha1" var_name="extensions" added="1214963862">Расширения</phrase>
+	<phrase module_id="admincp" version_id="2.0.0alpha1" var_name="create_new_module" added="1214963912">Создать новый модуль</phrase>
+	<phrase module_id="admincp" version_id="2.0.0alpha1" var_name="language" added="1214963926">Языки</phrase>
+	<phrase module_id="admincp" version_id="2.0.0alpha1" var_name="manage_language_packs" added="1214963938">Управление языками</phrase>
+	<phrase module_id="admincp" version_id="2.0.0alpha1" var_name="phrase_manager" added="1214963958">Управление фразами</phrase>
+	<phrase module_id="admincp" version_id="2.0.0alpha1" var_name="add_phrase" added="1214963974">Добавить фразу</phrase>
+	<phrase module_id="admincp" version_id="2.0.0alpha1" var_name="language_import_export" added="1214963992">Импорт/Экспорт</phrase>
+	<phrase module_id="admincp" version_id="2.0.0alpha1" var_name="settings" added="1214964004">Настройки</phrase>
+	<phrase module_id="admincp" version_id="2.0.0alpha1" var_name="manage_setting_groups" added="1214964025">Управление настройкой групп</phrase>
+	<phrase module_id="admincp" version_id="2.0.0alpha1" var_name="add_new_setting" added="1214964037">Добавить настройку</phrase>
+	<phrase module_id="admincp" version_id="2.0.0alpha1" var_name="add_new_setting_group" added="1214964045">Добавить настойку групп</phrase>
+	<phrase module_id="admincp" version_id="2.0.0alpha1" var_name="maintenance" added="1214964072">Обслуживание</phrase>
+	<phrase module_id="admincp" version_id="2.0.0alpha1" var_name="tools" added="1214964140">Инструменты</phrase>
+	<phrase module_id="admincp" version_id="2.0.0alpha1" var_name="update" added="1214964195">Обновить</phrase>
+	<phrase module_id="admincp" version_id="2.0.0alpha1" var_name="manage_user_groups" added="1214966536">Управлять группами</phrase>
+	<phrase module_id="admincp" version_id="2.0.0alpha1" var_name="user_setting_has_admin_access" added="1214976110">Имеет общий доступ к панели управления администратора.  В целях безопасности рекомендуется предоставлять доступ только Администраторам и Сотрудникам.</phrase>
+	<phrase module_id="admincp" version_id="2.0.0alpha1" var_name="install_dir_exists" added="1215780338"><![CDATA[Установочная директория "install/" уже существует. Пожалуйста, удалите эту директорию в целях безопасности.]]></phrase>
+	<phrase module_id="admincp" version_id="2.0.0alpha1" var_name="user_setting_can_add_new_block" added="1216066116">Можно ли добавлять/изменять блоки, добавленные из панели администратора?</phrase>
+	<phrase module_id="admincp" version_id="2.0.0alpha1" var_name="blocks" added="1216069451">Блоки</phrase>
+	<phrase module_id="admincp" version_id="2.0.0alpha1" var_name="add_new_block" added="1216069481">Добавить блок</phrase>
+	<phrase module_id="admincp" version_id="2.0.0alpha1" var_name="developer" added="1216070830">Разработчик</phrase>
+	<phrase module_id="admincp" version_id="2.0.0alpha1" var_name="log_query" added="1216070861">Лог Запросов</phrase>
+	<phrase module_id="admincp" version_id="2.0.0alpha1" var_name="block_successfully_added" added="1216070957">Блок добавлен.</phrase>
+	<phrase module_id="admincp" version_id="2.0.0alpha1" var_name="select_product" added="1216071011">Выберите продукт.</phrase>
+	<phrase module_id="admincp" version_id="2.0.0alpha1" var_name="select_controller" added="1216071026">Выберите контроллер.</phrase>
+	<phrase module_id="admincp" version_id="2.0.0alpha1" var_name="select_component" added="1216071042">Выберите компонент.</phrase>
+	<phrase module_id="admincp" version_id="2.0.0alpha1" var_name="select_block_placement" added="1216071063">Выберите размещение блока.</phrase>
+	<phrase module_id="admincp" version_id="2.0.0alpha1" var_name="specify_block_active" added="1216071082">Укажите блок активен или нет.</phrase>
+	<phrase module_id="admincp" version_id="2.0.0alpha1" var_name="user_setting_can_view_product_options" added="1216071352">Можно ли просматривать продукты в выпадающем списке Админ-панели?  В определенных секциях Админ-панели Управления существуют области, где ввод значений в базу требует ID# продукта. Если вы отключите эту функцию, у пользователей не будет возможности просматривать Название продукта, и автоматически будет вводиться ID# продукта по умолчанию.   Включайте эту функцию только тогда, когда вы создаете плагин или сторонний модуль.</phrase>
+	<phrase module_id="admincp" version_id="2.0.0alpha1" var_name="block_details" added="1216072142">Детали блока</phrase>
+	<phrase module_id="admincp" version_id="2.0.0alpha1" var_name="controller" added="1216089356">Контроллер</phrase>
+	<phrase module_id="admincp" version_id="2.0.0alpha1" var_name="component" added="1216090253">Компонент</phrase>
+	<phrase module_id="admincp" version_id="2.0.0alpha1" var_name="placement" added="1216091622">Размещение</phrase>
+	<phrase module_id="admincp" version_id="2.0.0alpha1" var_name="active" added="1216091671">Статус</phrase>
+	<phrase module_id="admincp" version_id="2.0.0alpha1" var_name="view_sample_layout" added="1216091824">Обзор образца макета</phrase>
+	<phrase module_id="admincp" version_id="2.0.0alpha1" var_name="sample_layout" added="1216091833">Образец макета</phrase>
+	<phrase module_id="admincp" version_id="2.0.0alpha1" var_name="block" added="1216091850">Блок {x}</phrase>
+	<phrase module_id="admincp" version_id="2.0.0alpha1" var_name="select" added="1216091882">Выбрать</phrase>
+	<phrase module_id="admincp" version_id="2.0.0alpha1" var_name="manage_menus" added="1217026597">Управление меню</phrase>
+	<phrase module_id="admincp" version_id="2.0.0alpha1" var_name="menu_successfully_deleted" added="1217189351">Меню удалено.</phrase>
+	<phrase module_id="admincp" version_id="2.0.0alpha1" var_name="order" added="1217189374">Порядок</phrase>
+	<phrase module_id="admincp" version_id="2.0.0alpha1" var_name="location" added="1217189417">Местоположение</phrase>
+	<phrase module_id="admincp" version_id="2.0.0alpha1" var_name="actions" added="1217189540">Действия</phrase>
+	<phrase module_id="admincp" version_id="2.0.0alpha1" var_name="edit" added="1217189636">Редактировать</phrase>
+	<phrase module_id="admincp" version_id="2.0.0alpha1" var_name="delete" added="1217189646">Удалить</phrase>
+	<phrase module_id="admincp" version_id="2.0.0alpha1" var_name="menu_successfully_updated" added="1217189724">Меню обновлено.</phrase>
+	<phrase module_id="admincp" version_id="2.0.0alpha1" var_name="menu_manager" added="1217189774">Управление меню</phrase>
+	<phrase module_id="admincp" version_id="2.0.0alpha1" var_name="manage_blocks" added="1217190522">Управление блоками</phrase>
+	<phrase module_id="admincp" version_id="2.0.0alpha1" var_name="successfully_deleted" added="1217193508">Удалено.</phrase>
+	<phrase module_id="admincp" version_id="2.0.0alpha1" var_name="successfully_updated" added="1217197677">Обновлено.</phrase>
+	<phrase module_id="admincp" version_id="2.0.0alpha1" var_name="block_manager" added="1217198066">Управление блоками</phrase>
+	<phrase module_id="admincp" version_id="2.0.0alpha1" var_name="pages" added="1217201690">Страницы</phrase>
+	<phrase module_id="admincp" version_id="2.0.0alpha1" var_name="add_new_page" added="1217201717">Добавить страницу</phrase>
+	<phrase module_id="admincp" version_id="2.0.0alpha1" var_name="page_menu_successfully_added" added="1217278396">Страница и меню добавлены</phrase>
+	<phrase module_id="admincp" version_id="2.0.0alpha1" var_name="manage_pages" added="1217293918">Управление страницами</phrase>
+	<phrase module_id="admincp" version_id="2.0.0alpha1" var_name="add_component" added="1217802855">Добавить компонент</phrase>
+	<phrase module_id="admincp" version_id="2.0.0alpha1" var_name="component_successfully_added" added="1217808626">Компонент добавлен!</phrase>
+	<phrase module_id="admincp" version_id="2.0.0alpha1" var_name="component_details" added="1217808713">Детали компонента</phrase>
+	<phrase module_id="admincp" version_id="2.0.0alpha1" var_name="url_connection" added="1217808781">URL подключение</phrase>
+	<phrase module_id="admincp" version_id="2.0.0alpha1" var_name="block_actual" added="1217808814">Блок</phrase>
+	<phrase module_id="admincp" version_id="2.0.0alpha1" var_name="specify_component" added="1217808943">Укажите компоненты.</phrase>
+	<phrase module_id="admincp" version_id="2.0.0alpha1" var_name="select_component_active" added="1217808955">Выберите, если компонент является активным.</phrase>
+	<phrase module_id="admincp" version_id="2.0.0alpha1" var_name="select_component_type" added="1217808964">Выберите тип компонента.</phrase>
+	<phrase module_id="admincp" version_id="2.0.0alpha1" var_name="menu_order_successfully_updated" added="1217939317">Порядок меню обновлён.</phrase>
+	<phrase module_id="admincp" version_id="2.0.0alpha1" var_name="manage_modules" added="1219067475">Управление модулями</phrase>
+	<phrase module_id="admincp" version_id="2.0.0alpha1" var_name="core_modules" added="1219225433">Основные модули</phrase>
+	<phrase module_id="admincp" version_id="2.0.0alpha1" var_name="module_s_updated" added="1219225575">Модуль(и) обновлён(ы).</phrase>
+	<phrase module_id="admincp" version_id="2.0.0alpha1" var_name="overwrite_default_data" added="1219225665">Переписать дату по умолчанию</phrase>
+	<phrase module_id="admincp" version_id="2.0.0alpha1" var_name="user_setting_can_manage_modules" added="1219225982">Можно ли управлять модулями продукта?  Внимание: это включает обновление статуса, редактирование или удаление модулей.</phrase>
+	<phrase module_id="admincp" version_id="2.0.0alpha1" var_name="user_setting_can_add_new_modules" added="1219226029">Можно ли добавить новые модули продуктов?</phrase>
+	<phrase module_id="admincp" version_id="2.0.0alpha1" var_name="module_successfully_deleted" added="1219228565">Модуль удалён.</phrase>
+	<phrase module_id="admincp" version_id="2.0.0alpha1" var_name="admin_menu_manage_categories" added="1219330154">Управление категориями</phrase>
+	<phrase module_id="admincp" version_id="2.0.0alpha1" var_name="admin_menu_add_category" added="1219330307">Добавить категорию</phrase>
+	<phrase module_id="admincp" version_id="2.0.0alpha1" var_name="not_allowed_for_guests" added="1219654948"><![CDATA[Не все опции будут работать с этой конкретной группой пользователей, поскольку она помечена как "Гость", да и многие функции, имеющиеся на сайте, доступны только зарегистрированным пользователям.]]></phrase>
+	<phrase module_id="admincp" version_id="2.0.0alpha1" var_name="admin_menu_add_article" added="1223227838">Добавить статью</phrase>
+	<phrase module_id="admincp" version_id="2.0.0alpha1" var_name="user_setting_bcaneditarticles" added="1223385298">Можно править статьи?</phrase>
+	<phrase module_id="admincp" version_id="2.0.0alpha1" var_name="admin_menu_import_export" added="1223390093">Импорт Экспорт</phrase>
+	<phrase module_id="admincp" version_id="2.0.0alpha1" var_name="products" added="1230854108">Продукты</phrase>
+	<phrase module_id="admincp" version_id="2.0.0alpha1" var_name="manage_products" added="1230854160">Управление продуктами</phrase>
+	<phrase module_id="admincp" version_id="2.0.0alpha1" var_name="create_new_product" added="1230854171">Создать продукт</phrase>
+	<phrase module_id="admincp" version_id="2.0.0alpha1" var_name="import_export" added="1230855085">Импорт продуктов</phrase>
+	<phrase module_id="admincp" version_id="2.0.0alpha1" var_name="theme" added="1231033391">Оформление</phrase>
+	<phrase module_id="admincp" version_id="2.0.0alpha1" var_name="manage_themes" added="1231033425">Управление темами</phrase>
+	<phrase module_id="admincp" version_id="2.0.0alpha1" var_name="plugin" added="1231748137">Плагины</phrase>
+	<phrase module_id="admincp" version_id="2.0.0alpha1" var_name="manage_plugins" added="1231748173">Управление плагинами</phrase>
+	<phrase module_id="admincp" version_id="2.0.0alpha1" var_name="create_new_plugin" added="1231750982">Создать плагин</phrase>
+	<phrase module_id="admincp" version_id="2.0.0alpha1" var_name="new_sample_test_phrase" added="1235553235">У вас {total} комментариев.</phrase>
+	<phrase module_id="admincp" version_id="2.0.0beta1" var_name="create_user_group" added="1240572399">Создать группу</phrase>
+	<phrase module_id="admincp" version_id="2.0.0beta4" var_name="browse_members" added="1244542842">Обзор пользователей</phrase>
+	<phrase module_id="admincp" version_id="2.0.0beta4" var_name="country_management" added="1244642320">Управление странами</phrase>
+	<phrase module_id="admincp" version_id="2.0.0beta4" var_name="payment_gateways_menu" added="1244909510">Платёжные системы</phrase>
+	<phrase module_id="admincp" version_id="2.0.0beta4" var_name="system_settings_menu" added="1244909711">Системные настройки</phrase>
+	<phrase module_id="admincp" version_id="2.0.0beta4" var_name="menu_site_stats" added="1245138476">Статистика сайта</phrase>
+	<phrase module_id="admincp" version_id="2.0.0beta4" var_name="menu_manage_stats" added="1245138629">Управление статистикой</phrase>
+	<phrase module_id="admincp" version_id="2.0.0beta4" var_name="menu_create_new_stat" added="1245138672">Добавить статистику</phrase>
+	<phrase module_id="admincp" version_id="1.0" var_name="user_cancellation_options" added="1215331034">Опции</phrase>
+	<phrase module_id="admincp" version_id="1.0" var_name="user_cancellation_options_add" added="1215331034">Добавить опции</phrase>
+	<phrase module_id="admincp" version_id="1.0" var_name="user_cancellation_options_manage" added="1215331034">Управление опциями</phrase>
+	<phrase module_id="admincp" version_id="1.0" var_name="user_cancellations_feedback" added="1215331034">Посмотреть отзывы</phrase>
+	<phrase module_id="admincp" version_id="30" var_name="mail_messages" added="1247588853">Сообщения</phrase>
+	<phrase module_id="admincp" version_id="30" var_name="view_messages" added="1247588922">Обзор личных сообщений</phrase>
+	<phrase module_id="admincp" version_id="30" var_name="menu_tools_emoticon_add" added="1247743917">Добавить смайл</phrase>
+	<phrase module_id="admincp" version_id="30" var_name="menu_tools_emoticon_package_add" added="1247831553">Добавить пакет</phrase>
+	<phrase module_id="admincp" version_id="30" var_name="menu_tools_emoticon_package" added="1248091043">Управление пакетами</phrase>
+	<phrase module_id="admincp" version_id="2.0.0rc1" var_name="setting_cache_time_stamp" added="1248617319"><![CDATA[<title>Кэш - время</title><info>Кэш - метка времени</info>]]></phrase>
+	<phrase module_id="admincp" version_id="2.0.0rc1" var_name="menu_cache_manager" added="1248617362">Управление кэшем</phrase>
+	<phrase module_id="admincp" version_id="2.0.0rc2" var_name="cache_system_unlocked" added="1252757444">Система кэширования разблокирована.</phrase>
+	<phrase module_id="admincp" version_id="2.0.0rc2" var_name="timestamp" added="1252757507">Время</phrase>
+	<phrase module_id="admincp" version_id="2.0.0rc2" var_name="cache_name" added="1252757518">Название кэша</phrase>
+	<phrase module_id="admincp" version_id="2.0.0rc2" var_name="module_successfully_updated" added="1252757604">Модуль обновлён.</phrase>
+	<phrase module_id="admincp" version_id="2.0.0rc2" var_name="module_successfully_created_redirect" added="1252757646">Модуль создан.</phrase>
+	<phrase module_id="admincp" version_id="2.0.0rc2" var_name="select_what_type_of_a_hook_this_is" added="1252757683"><![CDATA[Выберите тип hook'а.]]></phrase>
+	<phrase module_id="admincp" version_id="2.0.0rc2" var_name="hook_successfully_added" added="1252757694">Hook добавлен.</phrase>
+	<phrase module_id="admincp" version_id="2.0.0rc2" var_name="add_hook" added="1252757705">Добавить Hook</phrase>
+	<phrase module_id="admincp" version_id="2.0.0rc2" var_name="provide_a_title_for_your_plugin" added="1252757723">Утвердить название для вашего плагина.</phrase>
+	<phrase module_id="admincp" version_id="2.0.0rc2" var_name="select_a_hook" added="1252757733">Выберите hook.</phrase>
+	<phrase module_id="admincp" version_id="2.0.0rc2" var_name="provide_php_code_for_your_plugin" added="1252757744">Укажите PHP код для вашего плагина.</phrase>
+	<phrase module_id="admincp" version_id="2.0.0rc2" var_name="plugin_successfully_updated" added="1252757756">Плагин обновлен.</phrase>
+	<phrase module_id="admincp" version_id="2.0.0rc2" var_name="plugin_successfully_added" added="1252757766">Плагин добавлен.</phrase>
+	<phrase module_id="admincp" version_id="2.0.0rc2" var_name="create_plugin" added="1252757776">Создать плагин</phrase>
+	<phrase module_id="admincp" version_id="2.0.0rc2" var_name="plugin_s_updated" added="1252757793">Плагин(ы) обновлен(ы).</phrase>
+	<phrase module_id="admincp" version_id="2.0.0rc2" var_name="plugin_successfully_deleted" added="1252757806">Плагин удален.</phrase>
+	<phrase module_id="admincp" version_id="2.0.0rc2" var_name="add_a_product_id" added="1252757839">Добавить ID продукта.</phrase>
+	<phrase module_id="admincp" version_id="2.0.0rc2" var_name="add_a_product_title" added="1252757861">Добавить заголовок продукта.</phrase>
+	<phrase module_id="admincp" version_id="2.0.0rc2" var_name="product_dependency_updated" added="1252757875">Зависимость продукта обновлена.</phrase>
+	<phrase module_id="admincp" version_id="2.0.0rc2" var_name="product_install_uninstall_updated" added="1252757892">Установка/удаление продукта обновлена.</phrase>
+	<phrase module_id="admincp" version_id="2.0.0rc2" var_name="product_successfully_updated" added="1252757902">Продукт обновлён.</phrase>
+	<phrase module_id="admincp" version_id="2.0.0rc2" var_name="product_successfully_created" added="1252757912">Продукт создан.</phrase>
+	<phrase module_id="admincp" version_id="2.0.0rc2" var_name="editing_product" added="1252757935">Редактирование продукта</phrase>
+	<phrase module_id="admincp" version_id="2.0.0rc2" var_name="product_successfully_installed" added="1252757983">Продукт установлен.</phrase>
+	<phrase module_id="admincp" version_id="2.0.0rc2" var_name="import_products" added="1252767035">Импорт продуктов</phrase>
+	<phrase module_id="admincp" version_id="2.0.0rc2" var_name="product_s_updated" added="1252767068">Продукт(ы) обновлен(ы).</phrase>
+	<phrase module_id="admincp" version_id="2.0.0rc2" var_name="product_successfully_deleted" added="1252767078">Продукт удалён.</phrase>
+	<phrase module_id="admincp" version_id="2.0.0rc2" var_name="your_search_did_not_return_any_results" added="1252767458">Ваш поиск не дал результатов.</phrase>
+	<phrase module_id="admincp" version_id="2.0.0rc2" var_name="stat_successfully_updated" added="1252767479">Статистика обновлена.</phrase>
+	<phrase module_id="admincp" version_id="2.0.0rc2" var_name="stat_successfully_added" added="1252767488">Статистика добавлена.</phrase>
+	<phrase module_id="admincp" version_id="2.0.0rc2" var_name="add_new_stat" added="1252767499">Добавить статистику</phrase>
+	<phrase module_id="admincp" version_id="2.0.0rc2" var_name="manage_stats" added="1252767512">Управление статистикой</phrase>
+	<phrase module_id="admincp" version_id="2.0.0rc2" var_name="stat_successfully_deleted" added="1252767526">Статистика удалена.</phrase>
+	<phrase module_id="admincp" version_id="2.0.0rc2" var_name="successfully_logged_out" added="1252767587">Вы успешно вышли.</phrase>
+	<phrase module_id="admincp" version_id="2.0.0rc2" var_name="module_id_can_only_contain_the_following_characters" added="1252767742">ID модуля может содержать только следующие символы: a-z, A-Z, 0-9.</phrase>
+	<phrase module_id="admincp" version_id="2.0.0rc2" var_name="hook_already_exists" added="1252767835">Hook уже существует.</phrase>
+	<phrase module_id="admincp" version_id="2.0.0rc2" var_name="product_name_is_not_valid" added="1252767852">Не верное Название продукта.</phrase>
+	<phrase module_id="admincp" version_id="2.0.0rc2" var_name="not_a_valid_product_to_import" added="1252767877">Не верный продукт для импорта.</phrase>
+	<phrase module_id="admincp" version_id="2.0.0rc2" var_name="not_a_valid_xml_file" added="1252767894">Не верный XML файл.</phrase>
+	<phrase module_id="admincp" version_id="2.0.0rc2" var_name="product_already_exists" added="1252767905">Продукт уже существует.</phrase>
+	<phrase module_id="admincp" version_id="2.0.0rc2" var_name="product_requires_php_version" added="1252768039">Продукт требует версию PHP {dependency_start}.</phrase>
+	<phrase module_id="admincp" version_id="2.0.0rc2" var_name="product_requires_php_version_up_until" added="1252768178">Продукт требует версию PHP {dependency_start} вплоть до {dependency_end}.</phrase>
+	<phrase module_id="admincp" version_id="2.0.0rc2" var_name="product_requires_phpfox_version" added="1252768235">Продукт требует версию phpFox {dependency_start}.</phrase>
+	<phrase module_id="admincp" version_id="2.0.0rc2" var_name="product_requires_phpfox_version_up_until" added="1252768322">Продукт требует версию phpFox {dependency_start} вплоть до {dependency_end}.</phrase>
+	<phrase module_id="admincp" version_id="2.0.0rc2" var_name="product_requires_check_id_version_dependency_start" added="1252768418">Продукт требует {check_id} версию {dependency_start}.</phrase>
+	<phrase module_id="admincp" version_id="2.0.0rc2" var_name="product_requires_check_id_version_dependency_start_up_until_dependency_end" added="1252768480">Продукт требует {check_id} версию {dependency_start} вплоть до {dependency_end}.</phrase>
+	<phrase module_id="admincp" version_id="2.0.0rc2" var_name="main_configuration_file_file_path_is_writable" added="1252768745"><![CDATA[Обнаружена угроза безопасности. Конфигурационный файл ({file_path}) не должен иметь разрешения "записи".]]></phrase>
+	<phrase module_id="admincp" version_id="2.0.0rc2" var_name="main_file_folder_is_writable_file_path" added="1252768815"><![CDATA[Обнаружена угроза безопасности. Главная папка файлов ({file_path}) не должна иметь разрешения "записи".]]></phrase>
+	<phrase module_id="admincp" version_id="2.0.0rc2" var_name="none_site_wide" added="1252768924">Нет (ширина сайта)</phrase>
+	<phrase module_id="admincp" version_id="2.0.0rc2" var_name="can_drag_drop" added="1252768952">Можно перетаскивания</phrase>
+	<phrase module_id="admincp" version_id="2.0.0rc2" var_name="site_wide" added="1252769097">Ширина сайта</phrase>
+	<phrase module_id="admincp" version_id="2.0.0rc2" var_name="block_block_number" added="1252769121">Блок № {block_number}</phrase>
+	<phrase module_id="admincp" version_id="2.0.0rc2" var_name="cache_system_is_locked" added="1252908150">Система кэша заблокирована.</phrase>
+	<phrase module_id="admincp" version_id="2.0.0rc2" var_name="the_cache_system_is_locked_during_an_operation_that_requires_all_cache_files_to_be_kept_in_place" added="1252908171"><![CDATA[Система кэширования заблокирована во время операции, чтобы все файлы кэша сохранились на месте. Если вы хотите, разблокировать систему кликните <a href="{link}" onclick="return confirm('Вы уверены?');">здесь</a>.]]></phrase>
+	<phrase module_id="admincp" version_id="2.0.0rc2" var_name="cache_stats" added="1252908186">Статистика кэша</phrase>
+	<phrase module_id="admincp" version_id="2.0.0rc2" var_name="total_files" added="1252908194">Всего файлов</phrase>
+	<phrase module_id="admincp" version_id="2.0.0rc2" var_name="cache_size" added="1252908203">Размер кэша</phrase>
+	<phrase module_id="admincp" version_id="2.0.0rc2" var_name="last_cached_file" added="1252908212">Последнее кэширование</phrase>
+	<phrase module_id="admincp" version_id="2.0.0rc2" var_name="search_filter" added="1252908222">Фильтр поиска</phrase>
+	<phrase module_id="admincp" version_id="2.0.0rc2" var_name="search" added="1252908230">Искать</phrase>
+	<phrase module_id="admincp" version_id="2.0.0rc2" var_name="display" added="1252908239">Показать</phrase>
+	<phrase module_id="admincp" version_id="2.0.0rc2" var_name="sort" added="1252908248">Сортировать</phrase>
+	<phrase module_id="admincp" version_id="2.0.0rc2" var_name="files" added="1252908257">Файлы</phrase>
+	<phrase module_id="admincp" version_id="2.0.0rc2" var_name="no_cache_date_found" added="1252908269">Не найдено кэшированных данных.</phrase>
+	<phrase module_id="admincp" version_id="2.0.0rc2" var_name="or_select_a_page" added="1252908368">или выберите страницу</phrase>
+	<phrase module_id="admincp" version_id="2.0.0rc2" var_name="module_id" added="1252908459">ID Модуля</phrase>
+	<phrase module_id="admincp" version_id="2.0.0rc2" var_name="hook_details" added="1252908498"><![CDATA[Описание Hook'а]]></phrase>
+	<phrase module_id="admincp" version_id="2.0.0rc2" var_name="call" added="1252908530">Вызов</phrase>
+	<phrase module_id="admincp" version_id="2.0.0rc2" var_name="save" added="1252908547">Сохранить</phrase>
+	<phrase module_id="admincp" version_id="2.0.0rc2" var_name="plugin_details" added="1252908572">О плагине</phrase>
+	<phrase module_id="admincp" version_id="2.0.0rc2" var_name="hook" added="1252908589">Hook</phrase>
+	<phrase module_id="admincp" version_id="2.0.0rc2" var_name="php_code" added="1252908620">PHP код</phrase>
+	<phrase module_id="admincp" version_id="2.0.0rc2" var_name="create_a_new_plugin" added="1252908670">Создать плагин</phrase>
+	<phrase module_id="admincp" version_id="2.0.0rc2" var_name="product_details" added="1252908687">Информация о продукте</phrase>
+	<phrase module_id="admincp" version_id="2.0.0rc2" var_name="product_id" added="1252908695">ID продукта</phrase>
+	<phrase module_id="admincp" version_id="2.0.0rc2" var_name="description" added="1252908714">Описание</phrase>
+	<phrase module_id="admincp" version_id="2.0.0rc2" var_name="version" added="1252908721">Версия</phrase>
+	<phrase module_id="admincp" version_id="2.0.0rc2" var_name="product_url" added="1252908730">Продукт URL</phrase>
+	<phrase module_id="admincp" version_id="2.0.0rc2" var_name="version_check_url" added="1252908739">Проверка версии URL</phrase>
+	<phrase module_id="admincp" version_id="2.0.0rc2" var_name="existing_product_dependencies" added="1252908781">Существующие зависимости продукта</phrase>
+	<phrase module_id="admincp" version_id="2.0.0rc2" var_name="dependencies" added="1252908788">Зависимости</phrase>
+	<phrase module_id="admincp" version_id="2.0.0rc2" var_name="dependency_type" added="1252908797">Тип зависимости</phrase>
+	<phrase module_id="admincp" version_id="2.0.0rc2" var_name="compatibility_starts" added="1252908805">Совместимо с</phrase>
+	<phrase module_id="admincp" version_id="2.0.0rc2" var_name="incompatible_with" added="1252908813">Несовместимо с</phrase>
+	<phrase module_id="admincp" version_id="2.0.0rc2" var_name="add_new_product_dependency" added="1252908833">Добавить Новую Зависимость Продуктов</phrase>
+	<phrase module_id="admincp" version_id="2.0.0rc2" var_name="php" added="1252908848">PHP</phrase>
+	<phrase module_id="admincp" version_id="2.0.0rc2" var_name="phpfox_version" added="1252908856">phpFox версия</phrase>
+	<phrase module_id="admincp" version_id="2.0.0rc2" var_name="compatibility_starts_with_version" added="1252908880">Совместимость, начиная с версии</phrase>
+	<phrase module_id="admincp" version_id="2.0.0rc2" var_name="compatibility_end_with_version" added="1252908889">Совместимость, заканчивая версией</phrase>
+	<phrase module_id="admincp" version_id="2.0.0rc2" var_name="install_uninstall" added="1252908916">Установить/Удалить</phrase>
+	<phrase module_id="admincp" version_id="2.0.0rc2" var_name="existing_install_uninstall_code" added="1252908924">Существующий код установки/удаления</phrase>
+	<phrase module_id="admincp" version_id="2.0.0rc2" var_name="install_code" added="1252908939">Код установки</phrase>
+	<phrase module_id="admincp" version_id="2.0.0rc2" var_name="uninstall_code" added="1252908949">Код удаления</phrase>
+	<phrase module_id="admincp" version_id="2.0.0rc2" var_name="add_new_install_uninstall_code" added="1252908966">Добавить новый код установки/удаления</phrase>
+	<phrase module_id="admincp" version_id="2.0.0rc2" var_name="install" added="1252908980">Установить</phrase>
+	<phrase module_id="admincp" version_id="2.0.0rc2" var_name="uninstall" added="1252908988">Удалить</phrase>
+	<phrase module_id="admincp" version_id="2.0.0rc2" var_name="overwrite" added="1252909024">Перезаписать</phrase>
+	<phrase module_id="admincp" version_id="2.0.0rc2" var_name="ftp_support_must_be_enabled_in_order_to_import_products" added="1252909057">FTP поддержка должна быть включена для импорта продуктов.</phrase>
+	<phrase module_id="admincp" version_id="2.0.0rc2" var_name="click_a_href_url_link_admincp_setting_edit_group_id_ftp_here_a_to_enable_ftp_support" added="1252909066"><![CDATA[Нажмите <a href="{link}">здесь</a>, чтобы включить поддержку FTP.]]></phrase>
+	<phrase module_id="admincp" version_id="2.0.0rc2" var_name="create_a_new_product" added="1252909083">Новый продукт</phrase>
+	<phrase module_id="admincp" version_id="2.0.0rc2" var_name="import_a_product" added="1252909091">Импорт продуктов</phrase>
+	<phrase module_id="admincp" version_id="2.0.0rc2" var_name="no_products_have_been_added" added="1252909101">Нет продуктов для добавления.</phrase>
+	<phrase module_id="admincp" version_id="2.0.0rc2" var_name="image" added="1252909340">Изображение</phrase>
+	<phrase module_id="admincp" version_id="2.0.0rc2" var_name="your_current_watermark_image" added="1252909349">Ваше текущее изображение водяного знака</phrase>
+	<phrase module_id="admincp" version_id="2.0.0rc2" var_name="b_notice_b_advised_image_is_a_transparent_png_with_a_max_width_height_of_52_pixels" added="1252909363"><![CDATA[<b>Внимание:</b> Рекомендуется прозрачный PNG размером по ширине и высоте 52 px.]]></phrase>
+	<phrase module_id="admincp" version_id="2.0.0rc2" var_name="you_can_upload_a_jpg_gif_or_png_file" added="1252909373">Вы можете загрузить JPG, GIF или PNG файл.</phrase>
+	<phrase module_id="admincp" version_id="2.0.0rc2" var_name="stat_details" added="1252909438">Статистика подробно</phrase>
+	<phrase module_id="admincp" version_id="2.0.0rc2" var_name="stats" added="1252909528">Статистика</phrase>
+	<phrase module_id="admincp" version_id="2.0.0rc2" var_name="are_you_sure" added="1252909580">Вы уверены?</phrase>
+	<phrase module_id="admincp" version_id="2.0.0rc2" var_name="activate" added="1252909600">Включить</phrase>
+	<phrase module_id="admincp" version_id="2.0.0rc2" var_name="deactivate" added="1252909608">Отключить</phrase>
+	<phrase module_id="admincp" version_id="2.0.0rc2" var_name="admincp_login" added="1252909626">Вход в Админ-панель</phrase>
+	<phrase module_id="admincp" version_id="2.0.0rc2" var_name="email" added="1252909632">E-mail</phrase>
+	<phrase module_id="admincp" version_id="2.0.0rc2" var_name="password" added="1252909640">Пароль</phrase>
+	<phrase module_id="admincp" version_id="2.0.0rc2" var_name="back_to_site" added="1252909648">Вернуться на сайт</phrase>
+	<phrase module_id="admincp" version_id="2.0.0rc2" var_name="login" added="1252909655">Вход</phrase>
+	<phrase module_id="admincp" version_id="2.0.0rc2" var_name="active_admins" added="1253083283">Активные админы</phrase>
+	<phrase module_id="admincp" version_id="2.0.0rc2" var_name="latest_admin_logins" added="1253083475">Последние вошедшие админы</phrase>
+	<phrase module_id="admincp" version_id="2.0.0rc2" var_name="view_more" added="1253083486">Ещё</phrase>
+	<phrase module_id="admincp" version_id="2.0.0rc2" var_name="phpfox_news_and_updates" added="1253083534">Новости и обновления phpFox</phrase>
+	<phrase module_id="admincp" version_id="2.0.0rc2" var_name="admincp_notes" added="1253083547">Записки в панели администратора</phrase>
+	<phrase module_id="admincp" version_id="2.0.0rc2" var_name="quick_links" added="1253083563">Быстрый доступ</phrase>
+	<phrase module_id="admincp" version_id="2.0.0rc2" var_name="members" added="1253083582">Пользователей</phrase>
+	<phrase module_id="admincp" version_id="2.0.0rc2" var_name="guests" added="1253083590">Гостей</phrase>
+	<phrase module_id="admincp" version_id="2.0.0rc2" var_name="online" added="1253083603">Сейчас на сайте</phrase>
+	<phrase module_id="admincp" version_id="2.0.0rc2" var_name="pending_approval" added="1253083614">В ожидании утверждения</phrase>
+	<phrase module_id="admincp" version_id="2.0.0rc2" var_name="reported_items_users" added="1253083633">Жалобы на контент или пользователей</phrase>
+	<phrase module_id="admincp" version_id="2.0.0rc2" var_name="spam" added="1253083646">Спам</phrase>
+	<phrase module_id="admincp" version_id="2.0.0rc2" var_name="site_statistics" added="1253083662">Статистика сайта</phrase>
+	<phrase module_id="admincp" version_id="2.0.0rc2" var_name="phpfox_tweets" added="1253083701">phpFox пометки</phrase>
+	<phrase module_id="admincp" version_id="2.0.0rc2" var_name="not_a_valid_country" added="1253083732">Не верная страна.</phrase>
+	<phrase module_id="admincp" version_id="2.0.0rc2" var_name="state_province_successfully_updated" added="1253083745">Область/Регион успешно обновлен.</phrase>
+	<phrase module_id="admincp" version_id="2.0.0rc2" var_name="state_province_successfully_added" added="1253083757">Область/Регион успешно добавлен.</phrase>
+	<phrase module_id="admincp" version_id="2.0.0rc2" var_name="country_manager" added="1253083768">Управление странами</phrase>
+	<phrase module_id="admincp" version_id="2.0.0rc2" var_name="adding_state_province" added="1253083780">Добавление Области/Губернии</phrase>
+	<phrase module_id="admincp" version_id="2.0.0rc2" var_name="editing_state_province" added="1253083798">Редактирование Области/Губернии</phrase>
+	<phrase module_id="admincp" version_id="2.0.0rc2" var_name="state_province_successfully_deleted" added="1253083824">Область/Губерния успешно удалена.</phrase>
+	<phrase module_id="admincp" version_id="2.0.0rc2" var_name="states_provinces" added="1253083849">Область/Губерния</phrase>
+	<phrase module_id="admincp" version_id="2.0.0rc2" var_name="country_successfully_updated" added="1253083871">Страна успешно обновлена.</phrase>
+	<phrase module_id="admincp" version_id="2.0.0rc2" var_name="country_successfully_added" added="1253083883">Страна успешно добавлена.</phrase>
+	<phrase module_id="admincp" version_id="2.0.0rc2" var_name="add_a_country" added="1253083894">Добавить страну</phrase>
+	<phrase module_id="admincp" version_id="2.0.0rc2" var_name="editing_country" added="1253083903">Редактирование страны</phrase>
+	<phrase module_id="admincp" version_id="2.0.0rc2" var_name="text_import_successfully_completed" added="1253083984">Отчёт по импорту завершён. Удачно: {completed} - Ошибок: {failed}.</phrase>
+	<phrase module_id="admincp" version_id="2.0.0rc2" var_name="import_successfully_completed" added="1253084014">Импорт успешно завершён.</phrase>
+	<phrase module_id="admincp" version_id="2.0.0rc2" var_name="import_countries_states_provinces" added="1253084025">Импорт стран, областей и губерний</phrase>
+	<phrase module_id="admincp" version_id="2.0.0rc2" var_name="country_successfully_deleted" added="1253084063">Страна успешно удалена.</phrase>
+	<phrase module_id="admincp" version_id="2.0.0rc2" var_name="phpfox_branding_removal_successfully_installed" added="1253084098">Деинсталятор бренда phpFox успешно установлен.</phrase>
+	<phrase module_id="admincp" version_id="2.0.0rc2" var_name="phpfox_branding_removal" added="1253084108">Деинсталяция бренда phpFox</phrase>
+	<phrase module_id="admincp" version_id="2.0.0rc2" var_name="login_time_stamp" added="1253084135">Отображение времени входа</phrase>
+	<phrase module_id="admincp" version_id="2.0.0rc2" var_name="ip_address" added="1253084146">IP адрес</phrase>
+	<phrase module_id="admincp" version_id="2.0.0rc2" var_name="online_guests" added="1253084165">Гости он-лайн</phrase>
+	<phrase module_id="admincp" version_id="2.0.0rc2" var_name="admincp_logins" added="1253084211">Входы в Админ-панель</phrase>
+	<phrase module_id="admincp" version_id="2.0.0rc2" var_name="last_activity" added="1253084264">Последняя активность</phrase>
+	<phrase module_id="admincp" version_id="2.0.0rc2" var_name="guests_bots" added="1253084308">Гости/Боты</phrase>
+	<phrase module_id="admincp" version_id="2.0.0rc2" var_name="php_info" added="1253084322">PHP инфо</phrase>
+	<phrase module_id="admincp" version_id="2.0.0rc2" var_name="system" added="1253084334">Система</phrase>
+	<phrase module_id="admincp" version_id="2.0.0rc2" var_name="system_overview" added="1253084347">Обзор системы</phrase>
+	<phrase module_id="admincp" version_id="2.0.0rc2" var_name="customize_dashboard" added="1253084382">Внешний вид</phrase>
+	<phrase module_id="admincp" version_id="2.0.0rc2" var_name="not_a_valid_login_log" added="1253084504">Недействительное Название для входа.</phrase>
+	<phrase module_id="admincp" version_id="2.0.0rc2" var_name="not_a_valid_account" added="1253084517">Недействующий аккаунт.</phrase>
+	<phrase module_id="admincp" version_id="2.0.0rc2" var_name="email_failure" added="1253084527">Неверный E-mail.</phrase>
+	<phrase module_id="admincp" version_id="2.0.0rc2" var_name="password_failure" added="1253084538">Неверный пароль.</phrase>
+	<phrase module_id="admincp" version_id="2.0.0rc2" var_name="success" added="1253084548">Удачно</phrase>
+	<phrase module_id="admincp" version_id="2.0.0rc2" var_name="provide_a_category_name" added="1253084625">Укажите название категории.</phrase>
+	<phrase module_id="admincp" version_id="2.0.0rc2" var_name="provide_a_name" added="1253084710">Укажите Название.</phrase>
+	<phrase module_id="admincp" version_id="2.0.0rc2" var_name="select_a_country" added="1253084725">Выберите страну.</phrase>
+	<phrase module_id="admincp" version_id="2.0.0rc2" var_name="the_state_province_name_already_exists" added="1253084747"><![CDATA[Область/Губерния "{name}" уже существует.]]></phrase>
+	<phrase module_id="admincp" version_id="2.0.0rc2" var_name="all_fields_are_required" added="1253084816">Все поля обязательны для заполнения.</phrase>
+	<phrase module_id="admincp" version_id="2.0.0rc2" var_name="iso_can_only_contain_2_characters" added="1253084826">ISO может содержать только 2 символа.</phrase>
+	<phrase module_id="admincp" version_id="2.0.0rc2" var_name="the_iso_is_already_in_use" added="1253084836">ISO уже используется.</phrase>
+	<phrase module_id="admincp" version_id="2.0.0rc2" var_name="not_a_valid_country_package" added="1253084876">Не действительный пакет стран.</phrase>
+	<phrase module_id="admincp" version_id="2.0.0rc2" var_name="select_a_product" added="1253084897">Выберите продукт.</phrase>
+	<phrase module_id="admincp" version_id="2.0.0rc2" var_name="select_a_module" added="1253084914">Выберите модуль.</phrase>
+	<phrase module_id="admincp" version_id="2.0.0rc2" var_name="at_least_one_title_for_the_stat_is_required" added="1253084926">По крайней мере один заголовок должен быть.</phrase>
+	<phrase module_id="admincp" version_id="2.0.0rc2" var_name="link_for_the_stat_is_required" added="1253084936">Отсутствует ссылка.</phrase>
+	<phrase module_id="admincp" version_id="2.0.0rc2" var_name="image_for_the_stat_is_required" added="1253084946">Отсутствует изображение.</phrase>
+	<phrase module_id="admincp" version_id="2.0.0rc2" var_name="php_code_for_the_stat_is_required" added="1253084958">Отсутствует PHP код.</phrase>
+	<phrase module_id="admincp" version_id="2.0.0rc2" var_name="select_if_the_stat_is_active_or_not" added="1253084971">Выберите, статистика активна или нет.</phrase>
+	<phrase module_id="admincp" version_id="2.0.0rc2" var_name="not_a_valid_request" added="1253084994">Не корректный запрос.</phrase>
+	<phrase module_id="admincp" version_id="2.0.0rc2" var_name="the_stat_you_are_looking_for_cannot_be_found" added="1253085007">Статистика, что вы ищете, не найдена.</phrase>
+	<phrase module_id="admincp" version_id="2.0.0rc2" var_name="unable_to_find_the_stat_you_want_to_edit" added="1253085033">Не удается найти статистику, вы хотите изменить.</phrase>
+	<phrase module_id="admincp" version_id="2.0.0rc2" var_name="php_version" added="1253085208">Версия PHP</phrase>
+	<phrase module_id="admincp" version_id="2.0.0rc2" var_name="php_sapi" added="1253085217">PHP Sapi</phrase>
+	<phrase module_id="admincp" version_id="2.0.0rc2" var_name="php_safe_mode" added="1253085231">PHP safe_mode</phrase>
+	<phrase module_id="admincp" version_id="2.0.0rc2" var_name="php_open_basedir" added="1253085243">PHP open_basedir</phrase>
+	<phrase module_id="admincp" version_id="2.0.0rc2" var_name="php_disabled_functions" added="1253085253">Отключённые функции PHP</phrase>
+	<phrase module_id="admincp" version_id="2.0.0rc2" var_name="php_loaded_extensions" added="1253085262">Загруженные расширения PHP</phrase>
+	<phrase module_id="admincp" version_id="2.0.0rc2" var_name="operating_system" added="1253085278">Операционная система</phrase>
+	<phrase module_id="admincp" version_id="2.0.0rc2" var_name="server_time_stamp" added="1253085310">Время сервера</phrase>
+	<phrase module_id="admincp" version_id="2.0.0rc2" var_name="gzip" added="1253085352">GZIP</phrase>
+	<phrase module_id="admincp" version_id="2.0.0rc2" var_name="sql_driver_version" added="1253085368">Версия драйвера SQL</phrase>
+	<phrase module_id="admincp" version_id="2.0.0rc2" var_name="sql_slave_enabled" added="1253085377">Вспомогательный SQL включён</phrase>
+	<phrase module_id="admincp" version_id="2.0.0rc2" var_name="sql_total_slaves" added="1253085387">Всего вспомогательных SQL</phrase>
+	<phrase module_id="admincp" version_id="2.0.0rc2" var_name="sql_slave_server" added="1253085399">Вспомогательный SQL сервер</phrase>
+	<phrase module_id="admincp" version_id="2.0.0rc2" var_name="memory_limit" added="1253085408">Лимит памяти</phrase>
+	<phrase module_id="admincp" version_id="2.0.0rc2" var_name="load_balancing_enabled" added="1253085422">Балансировка нагрузки включена.</phrase>
+	<phrase module_id="admincp" version_id="2.0.0rc2" var_name="none" added="1253085465">Нет</phrase>
+	<phrase module_id="admincp" version_id="2.0.0rc2" var_name="enabled" added="1253085477">Включено</phrase>
+	<phrase module_id="admincp" version_id="2.0.0rc2" var_name="disabled" added="1253085488">Отключено</phrase>
+	<phrase module_id="admincp" version_id="2.0.0rc2" var_name="n_a" added="1253085499">N/A</phrase>
+	<phrase module_id="admincp" version_id="2.0.0rc2" var_name="total_server_memory" added="1253085571">Всего памяти на сервере</phrase>
+	<phrase module_id="admincp" version_id="2.0.0rc2" var_name="available_server_memory" added="1253085584">Доступная память на сервере</phrase>
+	<phrase module_id="admincp" version_id="2.0.0rc2" var_name="current_server_load" added="1253085598">Текущая загрузка сервера</phrase>
+	<phrase module_id="admincp" version_id="2.0.0rc2" var_name="your_ftp_path_is_empty_and_does_not_need_to_have_any_value" added="1253086015"><![CDATA[Ваш FTP путь "пустой" and does not need to have any value.]]></phrase>
+	<phrase module_id="admincp" version_id="2.0.0rc2" var_name="ftp_details" added="1253086025">FTP подробности</phrase>
+	<phrase module_id="admincp" version_id="2.0.0rc2" var_name="ftp_host" added="1253086033">FTP хост</phrase>
+	<phrase module_id="admincp" version_id="2.0.0rc2" var_name="ftp_username" added="1253086042">FTP пользователь</phrase>
+	<phrase module_id="admincp" version_id="2.0.0rc2" var_name="ftp_password" added="1253086052">FTP пароль</phrase>
+	<phrase module_id="admincp" version_id="2.0.0rc2" var_name="admincp_login_log" added="1253086100">Лог входа в Админ-панель</phrase>
+	<phrase module_id="admincp" version_id="2.0.0rc2" var_name="view_attempt" added="1253086110">Обзор попыток</phrase>
+	<phrase module_id="admincp" version_id="2.0.0rc2" var_name="cancel" added="1253086155">Отмена</phrase>
+	<phrase module_id="admincp" version_id="2.0.0rc2" var_name="posted_on_time_stamp_by_creator" added="1253086263">Размещено {time_stamp} {creator}.</phrase>
+	<phrase module_id="admincp" version_id="2.0.0rc2" var_name="find_users" added="1253086389">Найти пользователя</phrase>
+	<phrase module_id="admincp" version_id="2.0.0rc2" var_name="go" added="1253086398">Вперёд</phrase>
+	<phrase module_id="admincp" version_id="2.0.0rc2" var_name="manage_user_group_settings" added="1253086409">Группы пользователей</phrase>
+	<phrase module_id="admincp" version_id="2.0.0rc2" var_name="edit_user_groups" added="1253086443">Настройки групп пользователей</phrase>
+	<phrase module_id="admincp" version_id="2.0.0rc2" var_name="edit_system_settings" added="1253086453">Системные настройки</phrase>
+	<phrase module_id="admincp" version_id="2.0.0rc2" var_name="send_newsletter" added="1253086462">Рассылка</phrase>
+	<phrase module_id="admincp" version_id="2.0.0rc2" var_name="write_an_announcement" added="1253086471">Написать объявление</phrase>
+	<phrase module_id="admincp" version_id="2.0.0rc2" var_name="posted_on_time_stamp" added="1253086501">Добавлено {time_stamp}.</phrase>
+	<phrase module_id="admincp" version_id="2.0.0rc2" var_name="log_details" added="1253086570">Детали</phrase>
+	<phrase module_id="admincp" version_id="2.0.0rc2" var_name="attempt" added="1253086578">Попытка</phrase>
+	<phrase module_id="admincp" version_id="2.0.0rc2" var_name="user" added="1253086587">Пользователь</phrase>
+	<phrase module_id="admincp" version_id="2.0.0rc2" var_name="time_stamp" added="1253086595">Время</phrase>
+	<phrase module_id="admincp" version_id="2.0.0rc2" var_name="referrer" added="1253086623">Реферация</phrase>
+	<phrase module_id="admincp" version_id="2.0.0rc2" var_name="user_agent" added="1253086633">Браузер</phrase>
+	<phrase module_id="admincp" version_id="2.0.0rc2" var_name="security_token" added="1253086642">Маркёр безопасности</phrase>
+	<phrase module_id="admincp" version_id="2.0.0rc2" var_name="close" added="1253086659">Закрыть</phrase>
+	<phrase module_id="admincp" version_id="2.0.0rc2" var_name="state_province_details" added="1253087117">Детали Области/Губернии</phrase>
+	<phrase module_id="admincp" version_id="2.0.0rc2" var_name="country" added="1253087125">Страна</phrase>
+	<phrase module_id="admincp" version_id="2.0.0rc2" var_name="manage" added="1253087292">Управление</phrase>
+	<phrase module_id="admincp" version_id="2.0.0rc2" var_name="country_details" added="1253087344">Детали страны</phrase>
+	<phrase module_id="admincp" version_id="2.0.0rc2" var_name="iso" added="1253087352">ISO</phrase>
+	<phrase module_id="admincp" version_id="2.0.0rc2" var_name="import_country_package" added="1253087386">Импорт пакета стран</phrase>
+	<phrase module_id="admincp" version_id="2.0.0rc2" var_name="file" added="1253087395">Файл</phrase>
+	<phrase module_id="admincp" version_id="2.0.0rc2" var_name="import_text_file" added="1253087438">Импорт текстового файла</phrase>
+	<phrase module_id="admincp" version_id="2.0.0rc2" var_name="you_can_upload_a_text_file_with_a_list" added="1253087470">Вы можете загрузить текстовый файл со списком областей, губерний, что вы хотели бы импортировать, каждая область / губерния должна быть на новой строке.</phrase>
+	<phrase module_id="admincp" version_id="2.0.0rc2" var_name="countries" added="1253087487">Страны</phrase>
+	<phrase module_id="admincp" version_id="2.0.0rc2" var_name="add_state_province" added="1253087540">Добавить Область/Губернию</phrase>
+	<phrase module_id="admincp" version_id="2.0.0rc2" var_name="manage_states_provinces" added="1253087549">Управление Областями/Губерниями</phrase>
+	<phrase module_id="admincp" version_id="2.0.0rc2" var_name="login_with_your_phpfox_client_details" added="1253087588"><![CDATA[Войдите, используя вашу учётную запись клиента phpFox для того, чтобы установить <i>деинсталятор бренда</i>.]]></phrase>
+	<phrase module_id="admincp" version_id="2.0.0rc2" var_name="phpfox_client_login_details" added="1253087596">Детали входа phpFox клиента</phrase>
+	<phrase module_id="admincp" version_id="2.0.0rc2" var_name="client_email" added="1253087604">E=mail клиента</phrase>
+	<phrase module_id="admincp" version_id="2.0.0rc2" var_name="client_password" added="1253087612">Пароль клиента</phrase>
+	<phrase module_id="admincp" version_id="2.0.0rc2" var_name="admins" added="1253087631">Администраторы</phrase>
+	<phrase module_id="admincp" version_id="2.0.0rc2" var_name="banned" added="1253087720">Забаненные</phrase>
+	<phrase module_id="admincp" version_id="2.0.0rc2" var_name="unban" added="1253087737">Разбанить</phrase>
+	<phrase module_id="admincp" version_id="2.0.0rc2" var_name="ban" added="1253087744">Забанить</phrase>
+	<phrase module_id="admincp" version_id="2.0.0rc2" var_name="no_guests_online" added="1253087754">Нет гостей он-лайн.</phrase>
+	<phrase module_id="admincp" version_id="2.0.0rc2" var_name="server_overview" added="1253087766">Инфо сервера</phrase>
+	<phrase module_id="admincp" version_id="2.0.0rc2" var_name="you_are_about_to_leave_our_site_to_visit" added="1253087796"><![CDATA[Вы покидаете наш сайт, чтобы посетить: <a href="{link}">{link}</a>]]></phrase>
+	<phrase module_id="admincp" version_id="2.0.0rc2" var_name="click_here_to_continue" added="1253087813">Далее.</phrase>
+	<phrase module_id="admincp" version_id="2.0.0rc2" var_name="note_we_are_in_no_way_affiliated" added="1253087832"><![CDATA[<strong>Внимание:</strong> Мы никоим образом не связаны с "{link}".]]></phrase>
+	<phrase module_id="admincp" version_id="2.0.0rc2" var_name="controllers" added="1253104993">Контроллеры</phrase>
+	<phrase module_id="admincp" version_id="2.0.0rc2" var_name="php_block_file" added="1253105020">PHP Block File</phrase>
+	<phrase module_id="admincp" version_id="2.0.0rc2" var_name="html_code" added="1253105036">HTML код</phrase>
+	<phrase module_id="admincp" version_id="2.0.0rc2" var_name="not_a_valid_ip_address" added="1253522964">Не верный IP адрес.</phrase>
+	<phrase module_id="admincp" version_id="2.0.0rc2" var_name="ip_information" added="1253522974">информация IP</phrase>
+	<phrase module_id="admincp" version_id="2.0.0rc2" var_name="host_address" added="1253522984">Host Address</phrase>
+	<phrase module_id="admincp" version_id="2.0.0rc2" var_name="view_all_the_activity_from_this_ip" added="1253523295">Посмотреть все действия с данного IP адреса.</phrase>
+	<phrase module_id="admincp" version_id="2.0.0rc2" var_name="search_ip_address" added="1253523525">Поиск по IP адресу</phrase>
+	<phrase module_id="admincp" version_id="2.0.0rc3" var_name="admincp_menu_reparser" added="1253959468">Репарсер</phrase>
+	<phrase module_id="admincp" version_id="2.0.0rc4" var_name="edit_this_block" added="1255709840">Изменить этот блок</phrase>
+	<phrase module_id="admincp" version_id="2.0.0rc4" var_name="remove_this_block" added="1255709849">Удалить этот блок</phrase>
+	<phrase module_id="admincp" version_id="2.0.0rc4" var_name="remove_duplicates" added="1255856692">Удалить дубликаты</phrase>
+	<phrase module_id="admincp" version_id="2.0.0rc4" var_name="parsing_completed" added="1255860451">Парсинг завершен.</phrase>
+	<phrase module_id="admincp" version_id="2.0.0rc4" var_name="text_reparser" added="1255861071">Парсинг текста</phrase>
+	<phrase module_id="admincp" version_id="2.0.0rc4" var_name="reparser" added="1255861077">Репарсер</phrase>
+	<phrase module_id="admincp" version_id="2.0.0rc4" var_name="parsing_page_current_total_please_hold" added="1255861123">Обработка страницы {current}/{total}. Пожалуйста подождите...</phrase>
+	<phrase module_id="admincp" version_id="2.0.0rc4" var_name="text_data" added="1255861153">Текстовые данные</phrase>
+	<phrase module_id="admincp" version_id="2.0.0rc4" var_name="records" added="1255861159">Записи</phrase>
+	<phrase module_id="admincp" version_id="2.0.0rc4" var_name="there_is_no_data_to_parse" added="1255861167">Нет даты.</phrase>
+	<phrase module_id="admincp" version_id="2.0.0rc4" var_name="successfully_removed_duplicate_entries" added="1255863746">Успешно удалены одинаковые значения.</phrase>
+	<phrase module_id="admincp" version_id="2.0.0rc4" var_name="user_group_settings" added="1255863782">Настройки групп пользователя</phrase>
+	<phrase module_id="admincp" version_id="2.0.0rc4" var_name="check" added="1255863866">Проверить</phrase>
+	<phrase module_id="admincp" version_id="2.0.0rc4" var_name="custom_field" added="1256490984">Дополнительное поле</phrase>
+	<phrase module_id="admincp" version_id="2.0.0rc6" var_name="admincp_name_not_allowed" added="1256889425">AdminCP Название не разрешено</phrase>
+	<phrase module_id="admincp" version_id="2.0.0rc6" var_name="large_string" added="1256891252">Большой STRING</phrase>
+	<phrase module_id="admincp" version_id="2.0.0rc7" var_name="enable_utf_encoding" added="1257799322">Включить UTF Encoding</phrase>
+	<phrase module_id="admincp" version_id="2.0.0rc8" var_name="sql" added="1258744172">SQL</phrase>
+	<phrase module_id="admincp" version_id="2.0.0rc8" var_name="sql_maintenance" added="1258744239">Тех. обслуживание</phrase>
+	<phrase module_id="admincp" version_id="2.0.0rc8" var_name="table_s_successfully_optimized" added="1258745778">Таблица(ы) успешно оптимизирована(ы).</phrase>
+	<phrase module_id="admincp" version_id="2.0.0rc8" var_name="table_s_successfully_repaired" added="1258745790">Таблица(ы) успешно восстановлена(ы).</phrase>
+	<phrase module_id="admincp" version_id="2.0.0rc8" var_name="sql_maintenance_title" added="1258745827">SQL обслуживание</phrase>
+	<phrase module_id="admincp" version_id="2.0.0rc8" var_name="database_size" added="1258746004">Размер БД</phrase>
+	<phrase module_id="admincp" version_id="2.0.0rc8" var_name="overhead" added="1258746010">Потолок</phrase>
+	<phrase module_id="admincp" version_id="2.0.0rc8" var_name="total_tables" added="1258746230">Всего таблиц</phrase>
+	<phrase module_id="admincp" version_id="2.0.0rc8" var_name="sql_tables" added="1258746241">SQL Таблиц</phrase>
+	<phrase module_id="admincp" version_id="2.0.0rc8" var_name="table" added="1258746253">Таблица</phrase>
+	<phrase module_id="admincp" version_id="2.0.0rc8" var_name="size" added="1258746266">Размер</phrase>
+	<phrase module_id="admincp" version_id="2.0.0rc8" var_name="optimize_table_s" added="1258746303">Оптимизировать таблицу</phrase>
+	<phrase module_id="admincp" version_id="2.0.0rc8" var_name="repair_table_s" added="1258746310">Восстановить таблицу</phrase>
+	<phrase module_id="admincp" version_id="2.0.0rc8" var_name="sql_backup" added="1258746653">Резервная копия</phrase>
+	<phrase module_id="admincp" version_id="2.0.0rc8" var_name="sql_backup_successfully_created_and_can_be_downloaded_here_path" added="1258754213">SQL бэкап успешно создан: {path}</phrase>
+	<phrase module_id="admincp" version_id="2.0.0rc8" var_name="the_path_you_provided_is_not_a_valid_directory" added="1258754263">Путь который вы указали введен неверно.</phrase>
+	<phrase module_id="admincp" version_id="2.0.0rc8" var_name="backup" added="1258754347">Резервная копия</phrase>
+	<phrase module_id="admincp" version_id="2.0.0rc8" var_name="sql_backup_header" added="1258754406">Резервная копия SQL</phrase>
+	<phrase module_id="admincp" version_id="2.0.0rc8" var_name="path" added="1258754414">Путь</phrase>
+	<phrase module_id="admincp" version_id="2.0.0rc8" var_name="provide_the_full_path_to_where_we_should_save_the_sql_backup" added="1258754422">Укажите полный путь, где должен быть сохранен SQL бэкап.</phrase>
+	<phrase module_id="admincp" version_id="2.0.0rc8" var_name="your_operating_system_does_not_support_the_method_of_backup_we_provide" added="1258754523">Ваша операционная система не поддерживает предоставляемый нами метод резервного копирования. Советуем вам связаться с вашим хостером и узнать о лучшем методе резервного копирования вашей базы данных; большинство хостинговых компаний предоставляют такую опцию через панель управления хостингом (например, cPanel, Plesk, и тп.).</phrase>
+	<phrase module_id="admincp" version_id="2.0.0rc8" var_name="today_s_site_stats" added="1258756073">Статистика сайта сегодня</phrase>
+	<phrase module_id="admincp" version_id="2.0.0rc8" var_name="counters" added="1258900597">Счетчики</phrase>
+	<phrase module_id="admincp" version_id="2.0.0rc8" var_name="update_of_counter_successfully_completed" added="1258979452">Обновление счетчика успешно завершено.</phrase>
+	<phrase module_id="admincp" version_id="2.0.0rc8" var_name="update_counters" added="1258979493">Обновить счетчики</phrase>
+	<phrase module_id="admincp" version_id="2.0.0rc8" var_name="updating_counters_processing_page_current_out_of_page" added="1258979529">Обновление счетчиков. Готово {current} из {page}.</phrase>
+	<phrase module_id="admincp" version_id="2.0.0rc10" var_name="unable_to_find_xml_file_to_import_for_this_product" added="1259331413">Не найден XML для импортирования этого продукта.</phrase>
+	<phrase module_id="admincp" version_id="2.0.0rc10" var_name="the_module_name_is_required" added="1259331430"><![CDATA[Модуль "{name}" необходимо.]]></phrase>
+	<phrase module_id="admincp" version_id="2.0.0rc10" var_name="product_successfully_upgraded" added="1259334325">Продукт успешно обновлен.</phrase>
+	<phrase module_id="admincp" version_id="2.0.0rc10" var_name="upgrade" added="1259334365">Обновить</phrase>
+	<phrase module_id="admincp" version_id="2.0.0rc10" var_name="upgrade_upgrade_version" added="1259334389">Обновить ({upgrade_version})</phrase>
+	<phrase module_id="admincp" version_id="2.0.0rc10" var_name="not_a_valid_product_to_upgrade" added="1259334492">Недопустимое обновление продукта. Он не существует в нашей базе.</phrase>
+	<phrase module_id="admincp" version_id="2.0.0rc10" var_name="latest" added="1259347180">Последний</phrase>
+	<phrase module_id="admincp" version_id="2.0.0rc11" var_name="module_successfully_installed" added="1260124073">Модуль успешно установлен.</phrase>
+	<phrase module_id="admincp" version_id="2.0.0rc11" var_name="install_this_module" added="1260124108">Установить этот модуль</phrase>
+	<phrase module_id="admincp" version_id="2.0.0rc11" var_name="menu_block" added="1260127011">Блок меню</phrase>
+	<phrase module_id="admincp" version_id="2.0.0rc11" var_name="parent_menu" added="1260127285">Родительское меню</phrase>
+	<phrase module_id="admincp" version_id="2.0.0rc11" var_name="manage_children_total_children" added="1260133275">Управление детьми ({total_children})</phrase>
+	<phrase module_id="admincp" version_id="2.0.0rc11" var_name="editing" added="1260205884">Изменение</phrase>
+	<phrase module_id="admincp" version_id="2.0.0rc11" var_name="country_child_entries_successfully_deleted" added="1260232705">Подчинённые записи страны успешно удалены.</phrase>
+	<phrase module_id="admincp" version_id="2.0.0rc11" var_name="show_price" added="1260234779">Показать цену</phrase>
+	<phrase module_id="admincp" version_id="2.0.0" var_name="manage_components" added="1261233363">Управление компонентами</phrase>
+	<phrase module_id="admincp" version_id="2.0.0" var_name="component_successfully_updated" added="1261237677">Компонент успешно обновлен.</phrase>
+	<phrase module_id="admincp" version_id="2.0.0" var_name="editing_component" added="1261237699">Изменение компонента</phrase>
+	<phrase module_id="admincp" version_id="2.0.0" var_name="component_successfully_deleted" added="1261238215">Компонент успешно удален.</phrase>
+	<phrase module_id="admincp" version_id="2.0.0" var_name="components" added="1261238355">Компоненты</phrase>
+	<phrase module_id="admincp" version_id="2.0.2" var_name="checking_the_following_modules_for_missing_settings" added="1263387520">Проверка следующих модулей на недостающие настройки</phrase>
+	<phrase module_id="admincp" version_id="2.0.2" var_name="missing_settings_successfully_imported" added="1263387546">Недостающие настройки успешно импортированы.</phrase>
+	<phrase module_id="admincp" version_id="2.0.2" var_name="missing_settings" added="1263387556">Недостающие настройки</phrase>
+	<phrase module_id="admincp" version_id="2.0.2" var_name="find_missing_settings" added="1263387601">Найти недостающие настройки</phrase>
+	<phrase module_id="admincp" version_id="2.0.5" var_name="provide_a_3_character_currency_id" added="1271666124">Укажите ID</phrase>
+	<phrase module_id="admincp" version_id="2.0.5" var_name="provide_a_symbol" added="1271666133">Укажите символ.</phrase>
+	<phrase module_id="admincp" version_id="2.0.5" var_name="provide_a_phrase_for_your_currency" added="1271666142">Название валюты.</phrase>
+	<phrase module_id="admincp" version_id="2.0.5" var_name="select_if_this_currency_is_active_or_not" added="1271666153">Выберите, если эта валюта активна или нет.</phrase>
+	<phrase module_id="admincp" version_id="2.0.5" var_name="this_currency_is_already_in_use" added="1271666169">Эта валюта уже используется.</phrase>
+	<phrase module_id="admincp" version_id="2.0.5" var_name="currency_successfully_deleted" added="1271666187">Валюта успешно удалена.</phrase>
+	<phrase module_id="admincp" version_id="2.0.5" var_name="id" added="1271666197">ID</phrase>
+	<phrase module_id="admincp" version_id="2.0.5" var_name="symbol" added="1271666204">Символ</phrase>
+	<phrase module_id="admincp" version_id="2.0.5" var_name="currency" added="1271666211">Валюта</phrase>
+	<phrase module_id="admincp" version_id="2.0.5" var_name="default" added="1271666217">Основная</phrase>
+	<phrase module_id="admincp" version_id="2.0.5" var_name="set_as_default" added="1271666247">Сделать основной</phrase>
+	<phrase module_id="admincp" version_id="2.0.5" var_name="currency_successfully_updated" added="1271666288">Валюта успешно обновлена.</phrase>
+	<phrase module_id="admincp" version_id="2.0.5" var_name="currency_successfully_added" added="1271666297">Валюта успешно добавлена.</phrase>
+	<phrase module_id="admincp" version_id="2.0.5" var_name="add_currency" added="1271666307">Добавить валюту</phrase>
+	<phrase module_id="admincp" version_id="2.0.5" var_name="currency_details" added="1271666317">Детали валюты</phrase>
+	<phrase module_id="admincp" version_id="2.0.5" var_name="currency_id" added="1271666324">ID Валюты</phrase>
+	<phrase module_id="admincp" version_id="2.0.5" var_name="is_active" added="1271666344">Активен</phrase>
+	<phrase module_id="admincp" version_id="2.0.5" var_name="foxporter" added="1273067717">Foxporter</phrase>
+	<phrase module_id="admincp" version_id="2.0.5" var_name="action" added="1273067760">Действие</phrase>
+	<phrase module_id="admincp" version_id="2.0.5" var_name="importing_data" added="1273067770">Импорт данных</phrase>
+	<phrase module_id="admincp" version_id="2.0.5" var_name="refresh" added="1273067778"><![CDATA[Обновить]]></phrase>
+	<phrase module_id="admincp" version_id="2.0.5" var_name="continue_to_the_next_step" added="1273067788"><![CDATA[Далее...]]></phrase>
+	<phrase module_id="admincp" version_id="2.0.5" var_name="start_importing" added="1273067800"><![CDATA[Импортируется...]]></phrase>
+	<phrase module_id="admincp" version_id="2.0.5" var_name="not_a_valid_country_package_must_be_an_xml_file" added="1273136397"><![CDATA[Не верный пакет стран. Должен быть XML-файл.]]></phrase>
+	<phrase module_id="admincp" version_id="2.0.5" var_name="alter_title_fields" added="1275386165"><![CDATA[Изменить название полей]]></phrase>
+	<phrase module_id="admincp" version_id="2.0.5" var_name="database_tables_updated" added="1275386206"><![CDATA[Обновление таблиц БД]]></phrase>
+	<phrase module_id="admincp" version_id="2.0.5" var_name="b_notice_b_this_routine_is_highly_experimental" added="1275386223"><![CDATA[<b>Внимание:/b> экспериментальная функция.]]></phrase>
+	<phrase module_id="admincp" version_id="2.0.5" var_name="all_items_on_the_site_store_certain_information_in_the_database" added="1275386310"><![CDATA[Все элементы на сайте хранят некоторую информацию в базе данных. Часть этой информации - заголовки элементов. По умолчанию поля, которые хранят заголовки элементов, имеют предел в 255 символов, который для алфавитно-цифровых символов является вполне достаточным. Однако, при использовании не латинских символов этого может оказаться не совсем достаточно, и заголовки будут обрезаны. По этой причине не латинские символы конвертируются прежде, чем они добавятся в базу данных так, что когда они выводятся, каждый может увидеть эти символы независимо от того, какая кодировка в браузере. Используя инструменты на этой странице, Вы можете увеличить эти поля, чтобы хранить максимум 65 535 символов.]]></phrase>
+	<phrase module_id="admincp" version_id="2.0.5" var_name="update_database_tables" added="1275386334"><![CDATA[Обновление таблицы БД]]></phrase>
+	<phrase module_id="admincp" version_id="2.0.7" var_name="you_have_logged_out_of_the_site" added="1288205070"><![CDATA[Обновление таблицы БД. Переадресация к странице входа...]]></phrase>
+	<phrase module_id="admincp" version_id="2.0.7" var_name="missing_api_key" added="1289989043">Отсутствует API Key</phrase>
+	<phrase module_id="admincp" version_id="2.0.7" var_name="enter_your_api_key" added="1289989168"><![CDATA[Введите ваш ключ API <a href="{link}">здесь</a>, чтоб получать дополнительную IP-информацию.]]></phrase>
+	<phrase module_id="admincp" version_id="2.0.7" var_name="city" added="1289989619"><![CDATA[Город]]></phrase>
+	<phrase module_id="admincp" version_id="2.0.7" var_name="zip_postal_code" added="1289989718"><![CDATA[Почтовый Индекс]]></phrase>
+	<phrase module_id="admincp" version_id="2.0.7" var_name="latitude" added="1289989746"><![CDATA[Широта]]></phrase>
+	<phrase module_id="admincp" version_id="2.0.7" var_name="longitude" added="1289989773"><![CDATA[Долгота]]></phrase>
+	<phrase module_id="admincp" version_id="2.0.8" var_name="inactive_member_reminder" added="1296740123"><![CDATA[Напоминание неактивным пользователям]]></phrase>
+	<phrase module_id="admincp" version_id="2.1.0rc1" var_name="inactive_members" added="1301568738"><![CDATA[Не активные пользователи]]></phrase>
+	<phrase module_id="admincp" version_id="3.0.0beta5" var_name="update_privacy_for_v3_upgrade" added="1319536489"><![CDATA[Обновление приватности для версии 3<b> (Это нужно запускать, если вы только что обновились до версии 3 и убедитесь, что это будет выполнено только один раз.)</b>]]></phrase>
+	<phrase module_id="admincp" version_id="3.0.0beta5" var_name="import_groups_from_v2_to_v3_pages" added="1319536506"><![CDATA[Импорт Групп из v2 в Страницы v3<b> (Это нужно запускать, если вы только что обновились до версии 3 и убедитесь, что это будет выполнено только один раз.)</b>]]></phrase>
+	<phrase module_id="admincp" version_id="3.3.0beta1" var_name="nofollow_urls" added="1336984686">NoFollow URLs</phrase>
+	<phrase module_id="admincp" version_id="3.3.0beta1" var_name="add_new_url" added="1336984704">Добавить URL</phrase>
+	<phrase module_id="admincp" version_id="3.3.0beta1" var_name="provide_the_full_url_to_the_page" added="1336984727"><![CDATA[Укажите полную ссылку на страницу, которую вы хотите добавить <a href="http://support.google.com/webmasters/bin/answer.py?hl=en&amp;answer=96569" target="_blank">rel="nofollow"</a>.]]></phrase>
+	<phrase module_id="admincp" version_id="3.3.0beta1" var_name="urls" added="1336984743">URLs</phrase>
+	<phrase module_id="admincp" version_id="3.3.0beta1" var_name="successfully_added_a_new_url" added="1336984781">Успешно добавлен новый URL.</phrase>
+	<phrase module_id="admincp" version_id="3.3.0beta1" var_name="provide_a_url" added="1336984796">Обеспечить URL.</phrase>
+	<phrase module_id="admincp" version_id="3.3.0beta1" var_name="successfully_added_a_new_meta_tag" added="1336990850">Успешно добавлен новый мета-тег.</phrase>
+	<phrase module_id="admincp" version_id="3.3.0beta1" var_name="keyword" added="1336991005">Ключевое слово</phrase>
+	<phrase module_id="admincp" version_id="3.3.0beta1" var_name="custom_meta_tags" added="1336991043">Пользовательские мета-теги</phrase>
+	<phrase module_id="admincp" version_id="3.3.0beta1" var_name="add_new_meta" added="1336991058">Добавить мета</phrase>
+	<phrase module_id="admincp" version_id="3.3.0beta1" var_name="separate_keywords_with_commas" added="1336991101">Разделите слова запятыми.</phrase>
+	<phrase module_id="admincp" version_id="3.3.0beta1" var_name="meta_keyword_descriptions" added="1336991188">Ключевое слово/Описание</phrase>
+	<phrase module_id="admincp" version_id="3.3.0beta1" var_name="provide_the_full_url_to_add_your_custom_meta_keywords_or_descriptions" added="1336991540">Укажите полный URL, чтобы добавить пользовательские ключевые слова мета или описания.</phrase>
+	<phrase module_id="admincp" version_id="3.3.0beta1" var_name="seo" added="1336993044">SEO</phrase>
+	<phrase module_id="admincp" version_id="3.3.0beta2" var_name="to_your_left_you_will_find_all_the_available" added="1340288196"><![CDATA[Слева вы найдете все доступные контроллеры, которые имеют блоки, связанные с ними. Как только вы нажмете на контроллере появится перечень всех блоков, а оттуда вы можете перетащить элементы в нужные места. Вы также можете "Включить DnD Mode", который позволит вам визуально просматривать сайт и перетаскивать блоки, а также добавлять новые блоки.]]></phrase>
+	<phrase module_id="admincp" version_id="3.3.0rc1" var_name="enable_dnd_mode" added="1341561848">Включить режим DnD</phrase>
+
+</phrases>

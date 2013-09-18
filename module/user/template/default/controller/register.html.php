@@ -5,7 +5,7 @@
  * @copyright		[PHPFOX_COPYRIGHT]
  * @author  		Raymond Benc
  * @package  		Module_User
- * @version 		$Id: register.html.php 3826 2011-12-16 12:30:19Z Raymond_Benc $
+ * @version 		$Id: register.html.php 5143 2013-01-15 14:16:21Z Miguel_Espinoza $
  */
 
 defined('PHPFOX') or exit('NO DICE!');
@@ -87,7 +87,7 @@ $Behavior.termsAndPrivacy = function()
 							{phrase var='user.email'}:
 						</div>
 						<div class="table_right">
-							<input type="text" name="val[invite_email]" value="{if !empty($sUserEmailCookie)}{$sUserEmailCookie|clean}{/if}" />
+							<input type="text" name="val[invite_email]" value="" />
 						</div>
 					</div>
 					<div class="table_clear">
@@ -108,11 +108,7 @@ $Behavior.termsAndPrivacy = function()
 		<div id="js_signup_error_message" style="width:350px;"></div>
 		{if Phpfox::getParam('user.allow_user_registration')}
 			<div class="main_break" id="js_registration_holder">	
-				{if Phpfox::getParam('user.multi_step_registration_form') && !isset($bIsPosted)}
-				<form method="post" action="{url link='user.register'}" id="js_form" enctype="multipart/form-data">
-				{else}
-				<form method="post" action="{url link='user.register'}" id="js_form"{if isset($sGetJsForm)} onsubmit="{$sGetJsForm}"{/if} enctype="multipart/form-data">
-				{/if}		
+				<form method="post" action="{url link='user.register'}" id="js_form" enctype="multipart/form-data">	
 				{token}
 
 					<div id="js_signup_block">
@@ -125,7 +121,7 @@ $Behavior.termsAndPrivacy = function()
 							{template file='user.block.register.step1'}			
 						{/if}
 					</div>		
-			
+					{plugin call='user.template_controller_register_pre_captcha'}
 					{if Phpfox::isModule('captcha') && Phpfox::getParam('user.captcha_on_signup')}
 					<div id="js_register_capthca_image"{if Phpfox::getParam('user.multi_step_registration_form') && !isset($bIsPosted)} style="display:none;"{/if}>
 						{module name='captcha.form'}

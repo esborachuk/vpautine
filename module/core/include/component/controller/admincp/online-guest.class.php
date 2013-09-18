@@ -11,7 +11,7 @@ defined('PHPFOX') or exit('NO DICE!');
  * @copyright		[PHPFOX_COPYRIGHT]
  * @author  		Raymond Benc
  * @package 		Phpfox_Component
- * @version 		$Id: online-guest.class.php 1631 2010-06-06 17:32:26Z Raymond_Benc $
+ * @version 		$Id: online-guest.class.php 4694 2012-09-20 08:50:15Z Miguel_Espinoza $
  */
 class Core_Component_Controller_Admincp_Online_Guest extends Phpfox_Component
 {
@@ -66,6 +66,8 @@ class Core_Component_Controller_Admincp_Online_Guest extends Phpfox_Component
 		);		
 		
 		$oSearch->setCondition('AND ls.user_id = 0');
+		// The following condition was added to match the function log.session->getOnlineStats
+		$oSearch->setCondition('AND ls.last_activity > '  . (PHPFOX_TIME - (Phpfox::getParam('log.active_session')*60)));
 
 		list($iCnt, $aGuests) = Phpfox::getService('log')->getOnlineGuests($oSearch->getConditions(), $oSearch->getSort(), $oSearch->getPage(), $oSearch->getDisplay());
 		

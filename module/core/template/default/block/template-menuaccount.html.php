@@ -5,13 +5,12 @@
  * @copyright		[PHPFOX_COPYRIGHT]
  * @author  		Raymond_Benc
  * @package 		Phpfox
- * @version 		$Id: template-menuaccount.html.php 4371 2012-06-27 07:43:48Z Raymond_Benc $
+ * @version 		$Id: template-menuaccount.html.php 5074 2012-12-06 10:37:26Z Raymond_Benc $
  */
  
 defined('PHPFOX') or exit('NO DICE!'); 
 
-?>
-									{if Phpfox::getUserBy('profile_page_id') > 0}								
+?>									{if Phpfox::getUserBy('profile_page_id') > 0}								
 									<ul>
 										<li>
 											<a href="#" class="has_drop_down">{phrase var='pages.account'}</a>
@@ -21,7 +20,7 @@ defined('PHPFOX') or exit('NO DICE!');
 														{img user=$aGlobalUser suffix='_50_square' max_width=50 max_height=50}
 													</div>
 													<div id="header_menu_user_profile">
-														{$aGlobalUser|user|split:10|shorten:20:'...'}
+														{$aGlobalUser|user:'':10:20}
 													</div>
 												</li>		
 												<li class="header_menu_user_link_page">
@@ -45,8 +44,7 @@ defined('PHPFOX') or exit('NO DICE!');
 											{if isset($aMenu.children) && count($aMenu.children) && is_array($aMenu.children)}
 											<ul>
 												{if Phpfox::isUser() && $aMenu.url == 'user.setting'}
-												<li class="header_menu_user_link">
-													
+												<li class="header_menu_user_link">													
 													<div id="header_menu_user_image">
 														{img user=$aGlobalUser suffix='_50_square' max_width=50 max_height=50}
 													</div>
@@ -61,10 +59,13 @@ defined('PHPFOX') or exit('NO DICE!');
 												{foreach from=$aMenu.children item=aChild name=child_menu}
 												<li{if $phpfox.iteration.child_menu == 1} class="first"{/if}><a {if $aChild.url == 'pages.login'}id="js_login_as_page"{/if} href="{url link=$aChild.url}"{if $aChild.url == 'profile.designer' || $aChild.url == 'pages.login'} class="no_ajax_link"{/if}>{phrase var=$aChild.module'.'$aChild.var_name}</a></li>
 												{/foreach}
+												{if Phpfox::getUserBy('fb_user_id') && Phpfox::isUser() && $aMenu.url == 'user.setting'}
+													<li><a href="{url link='facebook.unlink'}">{phrase var='facebook.unlink_facebook_account'}</a>
+												{/if}												
 											</ul>
 											{/if}
 										</li>
-									{/foreach}
+									{/foreach}									
 									{unset var=$aRightMenus var1=$aMenu}
 									</ul>
 									{/if}

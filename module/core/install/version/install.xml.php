@@ -1,5 +1,5 @@
 <?php
-/** $Id: install.xml.php 2826 2011-08-11 19:41:03Z Raymond_Benc $ **/
+/** $Id: install.xml.php 4955 2012-10-24 12:58:45Z Miguel_Espinoza $ **/
 defined('PHPFOX') or exit('NO DICE!');
 ?>
 <phpfox>
@@ -198,5 +198,8 @@ defined('PHPFOX') or exit('NO DICE!');
 				$this->database()->insert(Phpfox::getT('country_child'), array('country_iso' => $sIso, 'name' => $sChild));
 			}
 		}
+
+		/* Remove the attribute Unsigned from feed table*/
+		$this->database()->query("ALTER TABLE  `" . Phpfox::getParam(array('db','prefix')) . "feed` CHANGE  `feed_reference`  `feed_reference` INT( 10 ) NOT NULL DEFAULT  '0'");
 	]]></install>
 </phpfox>

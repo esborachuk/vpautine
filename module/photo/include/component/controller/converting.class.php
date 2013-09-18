@@ -20,8 +20,8 @@ class Photo_Component_Controller_Converting extends Phpfox_Component
 	 */
 	public function process()
 	{
-		$fh = fopen(PHPFOX_DIR . 'picup.log', 'a');
-		fwrite($fh, "\n" . __FILE__);
+		// $fh = fopen(PHPFOX_DIR . 'picup.log', 'a');
+		// fwrite($fh, "\n" . __FILE__);
 		
 		$aImage = Phpfox::getService('photo')->getForConverting(Phpfox::getUserId());
 		if (empty($aImage))
@@ -34,9 +34,9 @@ class Photo_Component_Controller_Converting extends Phpfox_Component
 			$aImage[$iKey]['completed'] = 'false';
 			$aImage[$iKey]['picup'] = '1';
 		}
-		fwrite($fh, "\n" . __FILE__ . ': ' . print_r($aImage, true));
+		// fwrite($fh, "\n" . __FILE__ . ': ' . print_r($aImage, true));
 		$sImage = urlencode(base64_encode(json_encode($aImage)));	
-		fwrite($fh, "\n" . __FILE__ . ': ' . $sImage);
+		// fwrite($fh, "\n" . __FILE__ . ': ' . $sImage);
 		$this->template()
 			->setHeader(array(
 				'<script type="text/javascript"> $Behavior.imageRun = function(){$.ajaxCall("photo.process", "photos=' . $sImage . '&action=picup"); } </script>"'

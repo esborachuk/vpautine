@@ -13,7 +13,7 @@ defined('PHPFOX') or exit('NO DICE!');
  * @copyright		[PHPFOX_COPYRIGHT]
  * @author			Raymond Benc
  * @package 		Phpfox
- * @version 		$Id: bbcode.class.php 3987 2012-03-08 17:07:25Z Miguel_Espinoza $
+ * @version 		$Id: bbcode.class.php 4783 2012-09-27 09:00:14Z Raymond_Benc $
  */
 class Phpfox_Parse_Bbcode
 {	
@@ -571,7 +571,8 @@ class Phpfox_Parse_Bbcode
 			switch($sType)
 			{
 				case 'code':
-				case 'html':				
+				case 'html':	
+				case 'php':			
 					$sTxt = trim($sTxt);
 					$this->_aBlockHeight[md5($sTxt)] = $this->_getBlockHeight($sTxt);
 					$sNewTxt = htmlspecialchars($sTxt);							
@@ -579,7 +580,7 @@ class Phpfox_Parse_Bbcode
 					$sNewTxt = preg_replace('#&lt;((?>[^&"\']+?|&quot;.*&quot;|&(?!gt;)|"[^"]*"|\'[^\']*\')+)&gt;#esiU', "\$this->_htmlTags('\\1')", $sNewTxt);
 					// $this->_aBlockHeight[md5($sTxt)] = $this->_getBlockHeight($sNewTxt);
 					break;
-				case 'php':
+				case 'phpold':
 					
 					
 					$aCodeFind = array(

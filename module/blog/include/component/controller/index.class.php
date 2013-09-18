@@ -11,7 +11,7 @@ defined('PHPFOX') or exit('NO DICE!');
  * @copyright		[PHPFOX_COPYRIGHT]
  * @author  		Raymond Benc
  * @package  		Module_Blog
- * @version 		$Id: index.class.php 3551 2011-11-22 14:49:19Z Raymond_Benc $
+ * @version 		$Id: index.class.php 5233 2013-01-29 08:41:30Z Raymond_Benc $
  */
 class Blog_Component_Controller_Index extends Phpfox_Component
 {
@@ -19,17 +19,32 @@ class Blog_Component_Controller_Index extends Phpfox_Component
 	 * Class process method wnich is used to execute this component.
 	 */
 	public function process()
-	{		
+	{	
+		
+		$aParentModule = $this->getParam('aParentModule');	
+		
+		if ($aParentModule === null && $this->request()->getInt('req2') > 0)
+		{
+			
+			if ((Phpfox::isModule('pages') == false) || ($aParentModule['module_id'] == 'pages' && Phpfox::getService('pages')->hasPerm($aParentModule['item_id'], 'blog.view_browse_blog') == false) )
+			{
+				return Phpfox_Error::display(Phpfox::getPhrase('blog.cannot_display_due_to_privacy'));
+			}
+			return Phpfox::getLib('module')->setController('blog.view');
+		}
+		
+			
 		if (defined('PHPFOX_IS_USER_PROFILE') && ($sLegacyTitle = $this->request()->get('req3')) && !empty($sLegacyTitle))
 		{			
 			Phpfox::getService('core')->getLegacyItem(array(
 					'field' => array('blog_id', 'title'),
 					'table' => 'blog',		
 					'redirect' => 'blog',
-					'title' => $sLegacyTitle
+					'title' => $sLegacyTitle,
+					'search' => 'title'
 				)
 			);
-		}		
+		}
 		
 		if ($this->request()->get('req2') == 'main')
 		{
@@ -66,7 +81,7 @@ class Blog_Component_Controller_Index extends Phpfox_Component
 		 */
 		if (!Phpfox::isAdminPanel())
 		{
-			if ($this->request()->getInt('req2') > 0)
+			if ($this->request()->getInt('req2') > 0 && !isset($aParentModule['module_id']))
 			{
 				/**
 				 * Since we are going to be viewing a blog lets reset the controller and get out of this one.
@@ -128,7 +143,7 @@ class Blog_Component_Controller_Index extends Phpfox_Component
 		);		
 		
 		$aFilterMenu = array();
-		if (!defined('PHPFOX_IS_USER_PROFILE'))
+		if (!defined('PHPFOX_IS_USER_PROFILE') && !isset($aParentModule['module_id']))
 		{
 			$aFilterMenu = array(
 				Phpfox::getPhrase('blog.all_blogs') => '',
@@ -213,6 +228,16 @@ class Blog_Component_Controller_Index extends Phpfox_Component
 				$this->search()->setCondition('AND tag.tag_text = \'' . Phpfox::getLib('database')->escape($aTag['tag_text']) . '\'');	
 			}
 		}		
+		
+		if (isset($aParentModule) && isset($aParentModule['module_id']))
+		{
+			/* Only get items without a parent (not belonging to pages) */
+			$this->search()->setCondition('AND blog.module_id = \''. $aParentModule['module_id'] .'\' AND blog.item_id = ' . (int) $aParentModule['item_id']);			
+		}
+		else if ($aParentModule === null)
+		{
+			$this->search()->setCondition('AND blog.module_id = \'blog\'');
+		}
 		
 		$this->search()->browse()->params($aBrowseParams)->execute();
 		

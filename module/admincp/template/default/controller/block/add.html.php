@@ -5,7 +5,7 @@
  * @copyright		[PHPFOX_COPYRIGHT]
  * @author  		Raymond Benc
  * @package  		Module_Admincp
- * @version 		$Id: add.html.php 3226 2011-10-06 13:21:25Z Raymond_Benc $
+ * @version 		$Id: add.html.php 4622 2012-09-12 07:18:24Z Miguel_Espinoza $
  */
  
 defined('PHPFOX') or exit('NO DICE!'); 
@@ -105,7 +105,7 @@ defined('PHPFOX') or exit('NO DICE!');
 		</div>
 		<div class="table_right">
 			<select name="val[location]" id="location">	
-				{for $i = 1; $i <= 11; $i++}
+				{for $i = 1; $i <= 13; $i++}
 					<option value="{$i}"{value type='select' id='location' default=$i}>{phrase var='admincp.block' x=$i}</option>
 				{/for}
 			</select>{if Phpfox::getUserParam('theme.can_view_theme_sample')} <a href="#?call=theme.sample&amp;width=1300" class="inlinePopup" title="{phrase var='admincp.sample_layout'}">{phrase var='admincp.view_sample_layout'}</a>{/if}	

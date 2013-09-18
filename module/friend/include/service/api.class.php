@@ -11,7 +11,7 @@ defined('PHPFOX') or exit('NO DICE!');
  * @copyright		[PHPFOX_COPYRIGHT]
  * @author  		Raymond_Benc
  * @package 		Phpfox_Service
- * @version 		$Id: api.class.php 2900 2011-08-26 09:18:42Z Raymond_Benc $
+ * @version 		$Id: api.class.php 5112 2013-01-11 06:56:25Z Raymond_Benc $
  */
 class Friend_Service_Api extends Phpfox_Service 
 {
@@ -24,8 +24,21 @@ class Friend_Service_Api extends Phpfox_Service
 		$this->_oApi = Phpfox::getService('api');		
 	}
 	
+	public function get()
+	{
+		/*
+		@title
+		@info Get a list of the users friends.
+		@method GET
+		@extra user_id=#{User ID to get friends|int|no}
+		@return user_id=#{User ID#|int}&name=#{Display/Full name|string}&permalink=#{Link to users profile|string}&photo_50px=#{Profile photo. 50px|string}&photo_50px_square=#{Square profile photo. 50px|string}&photo_120px=#{Profile photo. 120px|string}
+		*/
+		
+		return $this->getFriends();
+	}
+	
 	public function getFriends()
-	{	
+	{		
 		if ((int) $this->_oApi->get('user_id') === 0)
 		{
 			$iUserId = $this->_oApi->getUserId();
@@ -56,10 +69,16 @@ class Friend_Service_Api extends Phpfox_Service
 		$aFriends = array();
 		foreach ($aRows as $iKey => $aRow)
 		{
+			unset($aRows[$iKey]['user_name'], $aRows[$iKey]['country_iso'], $aRows[$iKey]['gender'], $aRows[$iKey]['joined']);
+			
 			if (!$this->_oApi->isAllowed('user.get_full_name', null, $aRow['user_id']))
 			{
-				unset($aRows[$iKey]['full_name']);	
-			}				
+				unset($aRows[$iKey]['full_name']);
+			}		
+			else
+			{
+				$aRows[$iKey]['name'] = $aRow['full_name'];
+			}		
 
 			if (!$this->_oApi->isAllowed('user.get_email', null, $aRow['user_id']))
 			{
@@ -73,33 +92,25 @@ class Friend_Service_Api extends Phpfox_Service
 					'suffix' => '_50',
 					'return_url' => true
 				)
-			);
+			);	
 			
 			$aRows[$iKey]['photo_50px_square'] = Phpfox::getLib('image.helper')->display(array(
 					'user' => $aRow,
 					'suffix' => '_50_square',
 					'return_url' => true
 				)
-			);			
-			
+			);		
+
 			$aRows[$iKey]['photo_120px'] = Phpfox::getLib('image.helper')->display(array(
 					'user' => $aRow,
 					'suffix' => '_120',
 					'return_url' => true
 				)
-			);		
+			);
 			
-			$aRows[$iKey]['photo_original'] = Phpfox::getLib('image.helper')->display(array(
-					'user' => $aRow,
-					'suffix' => '',
-					'return_url' => true
-				)
-			);	
+			$aRows[$iKey]['permalink'] = Phpfox::getLib('url')->makeUrl($aRow['user_name']);
 			
-			$aRows[$iKey]['gender'] = ($aRow['gender'] == '1' ? 'Male' : 'Female');
-			$aRows[$iKey]['profile_url'] = Phpfox::getLib('url')->makeUrl($aRow['user_name']);
-			
-			unset($aRows[$iKey]['user_image']);			
+			unset($aRows[$iKey]['user_image']);		
 		}
 			
 		return $aRows;
@@ -107,6 +118,14 @@ class Friend_Service_Api extends Phpfox_Service
 	
 	public function isFriend()
 	{
+		/*
+		@title
+		@info Check to see if 2 users are friends. If the users are friends it will return <b>true</b>, if not <b>false</b>.
+		@method GET
+		@extra user_id=#{User ID# of one of the users. This is option and if nothing is passed here we will get the user that is currently logged in.|int|no}&friend_user_id=#{User ID# of the other user|int|yes}
+		@return
+		*/		
+		
 		if ((int) $this->_oApi->get('user_id') === 0)
 		{
 			$iUserId = $this->_oApi->getUserId();

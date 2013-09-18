@@ -11,7 +11,7 @@ defined('PHPFOX') or exit('NO DICE!');
  * @copyright		[PHPFOX_COPYRIGHT]
  * @author  		Raymond Benc
  * @package  		Module_Photo
- * @version 		$Id: ajax.class.php 4166 2012-05-15 06:44:59Z Raymond_Benc $
+ * @version 		$Id: ajax.class.php 5365 2013-02-14 10:00:13Z Raymond_Benc $
  */
 class Photo_Component_Ajax_Ajax extends Phpfox_Ajax
 {
@@ -95,9 +95,11 @@ class Photo_Component_Ajax_Ajax extends Phpfox_Ajax
      */
     public function browse()
     {
+		if (!defined('PHPFOX_IS_AJAX_CONTROLLER')) define('PHPFOX_IS_AJAX_CONTROLLER', true);
 		Phpfox::getLib('module')->getComponent('photo.index', $this->getAll(), 'controller');
-	
-		$this->call('$(\'#site_content\').html(\'' . $this->getContent() . '\'); $.scrollTo(\'#site_content\', 340); $Behavior.hoverAction(); $Behavior.imageHoverHolder();');
+		$this->call('$(".pager_container, .moderation_holder").remove();');
+		$this->call('$(\'#js_ajax_browse_content\').append(\'' . $this->getContent() . '\'); ');
+		$this->call('$Core.loadInit();');
     }
 
     /**
@@ -196,9 +198,17 @@ class Photo_Component_Ajax_Ajax extends Phpfox_Ajax
 		$aPostVals = $this->get('val');		
 		$aVals = $aPostVals[$this->get('photo_id')];		
 		$aVals['set_album_cover'] = (isset($aPostVals['set_album_cover']) ? $aPostVals['set_album_cover'] : null);
-		$aVals['privacy'] = (isset($aPostVals['privacy']) ? $aPostVals['privacy'] : 0);
-		$aVals['privacy_comment'] = (isset($aPostVals['privacy_comment']) ? $aPostVals['privacy_comment'] : 0);
-	
+		if (!isset($aVals['privacy']) && isset($aPostVals['privacy']))
+		{
+			$aVals['privacy'] = $aPostVals['privacy'];
+			$aVals['privacy_comment'] = $aPostVals['privacy_comment'];	
+		}
+		else 
+		{
+			$aVals['privacy'] = (isset($aVals['privacy']) ? $aVals['privacy'] : 0);
+			$aVals['privacy_comment'] = (isset($aVals['privacy_comment']) ? $aVals['privacy_comment'] : 0);
+		}
+			
 		if (($iUserId = Phpfox::getService('user.auth')->hasAccess('photo', 'photo_id', $aVals['photo_id'], 'photo.can_edit_own_photo', 'photo.can_edit_other_photo')) && Phpfox::getService('photo.process')->update($iUserId, $aVals['photo_id'], $aVals))
 		{
 		    $oParseInput = Phpfox::getLib('parse.input');
@@ -245,6 +255,18 @@ class Photo_Component_Ajax_Ajax extends Phpfox_Ajax
 		{
 	
 		}
+    }
+    
+    public function deleteTheaterPhoto()
+    {
+    	Phpfox::isUser(true);
+    	
+    	if (Phpfox::getService('photo.process')->delete($this->get('photo_id')))
+    	{
+	    	$this->call("js_box_remove($('.js_box_image_holder_full').find('.js_box_content:first'));");
+	    	$this->call("$('.js_photo_item_" . $this->get('photo_id') . "').parents('.js_parent_feed_entry:first').remove();");
+	    	$this->call("$('#js_photo_id_" . $this->get('photo_id') . "').remove();");
+    	}
     }
 
     public function deletePhoto()
@@ -440,13 +462,13 @@ class Photo_Component_Ajax_Ajax extends Phpfox_Ajax
     }
     
     public function rotate()
-    {
+    {    	
 		Phpfox::isUser(true);
 		if ($aPhoto = Phpfox::getService('photo.process')->rotate($this->get('photo_id'), $this->get('photo_cmd')))
 		{
 		    Phpfox::getService('photo.tag.process')->deleteAll($this->get('photo_id'));
-	
-		    $this->call('window.location.href = \'' . Phpfox::getLib('url')->permalink('photo', $aPhoto['photo_id'], $aPhoto['title']) . 'refresh_1/\';');
+
+		    $this->call('window.location.href = \'' . Phpfox::getLib('url')->permalink('photo', $aPhoto['photo_id'], $aPhoto['title']) . 'refresh_1/' . (!empty($_REQUEST['currenturl']) ? $_REQUEST['currenturl'] : '') . '\';');
 		}
     }
 
@@ -495,6 +517,8 @@ class Photo_Component_Ajax_Ajax extends Phpfox_Ajax
 		$iGroupId = 0;
 		$bProcess = false;
 		$bIsPicup = false;
+		
+		
 		foreach ($aImages as $iKey => $aImage)
 		{
 			if (isset($aImage['picup']))
@@ -539,9 +563,18 @@ class Photo_Component_Ajax_Ajax extends Phpfox_Ajax
 		
 						// Add the new file size to the total file size variable
 						$iFileSizes += filesize(Phpfox::getParam('photo.dir_photo') . sprintf($sFileName, '_' . $iSize));
+						
+						if (defined('PHPFOX_IS_HOSTED_SCRIPT'))
+						{
+							unlink(Phpfox::getParam('photo.dir_photo') . sprintf($sFileName, '_' . $iSize));
+						}
 				    }
-		
-				    if (Phpfox::getParam('photo.enabled_watermark_on_photos'))
+
+				    if (Phpfox::getParam('photo.delete_original_after_resize') && $this->get('is_page') != 1)
+				    {
+						Phpfox::getLib('file')->unlink(Phpfox::getParam('photo.dir_photo') . sprintf($sFileName, ''));
+					}
+				    else if (Phpfox::getParam('photo.enabled_watermark_on_photos'))
 				    {
 						$oImage->addMark(Phpfox::getParam('photo.dir_photo') . sprintf($sFileName, ''));
 				    }
@@ -597,7 +630,11 @@ class Photo_Component_Ajax_Ajax extends Phpfox_Ajax
 			}
 			
 			// this next if is the one you will have to bypass if they come from sharing a photo in the activity feed.
-			if ($bIsPicup)
+			if ( ($this->get('page_id') > 0) )
+			{
+				$this->call('window.location.href = "' . Phpfox::getLib('url')->permalink('pages', $this->get('page_id'), '') .'coverupdate_1";');
+			}
+			else if ($bIsPicup)
 			{
 				$this->call('window.location.href = "' . Phpfox::getLib('url')->permalink('mobile.photo', $aPhoto['photo_id'], $aPhoto['title']) . 'userid_' . Phpfox::getUserId() . '";');
 
@@ -672,9 +709,21 @@ class Photo_Component_Ajax_Ajax extends Phpfox_Ajax
 				$sExtra .= '&parent_user_id=' . $this->get('parent_user_id');
 			}
 			
+			if ($this->get('start_year') && $this->get('start_month') && $this->get('start_day'))
+			{
+				$sExtra .= '&start_year= ' . $this->get('start_year') . '&start_month= ' . $this->get('start_month') . '&start_day= ' . $this->get('start_day') . '';
+			}			
+			
 			$sExtra .= '&is_cover_photo=' . $this->get('is_cover_photo');
 			
 		    $this->call('$.ajaxCall(\'photo.process\', \'&action=' . $this->get('action') . '&js_disable_ajax_restart=true&photos=' . urlencode(base64_encode(json_encode($aImages))) . $sExtra . '\');');
+		}
+		
+		$aVals = $this->get('core');
+		
+		if (isset($aVals['profile_user_id']) && !empty($aVals['profile_user_id']) && $aVals['profile_user_id'] != Phpfox::getUserId() && Phpfox::isModule('notification'))
+		{
+			Phpfox::getService('notification.process')->add('feed_comment_profile', $aPhoto['photo_id'], $aVals['profile_user_id']);
 		}
     }
 

@@ -11,7 +11,7 @@ defined('PHPFOX') or exit('NO DICE!');
  * @copyright		[PHPFOX_COPYRIGHT]
  * @author  		Raymond Benc
  * @package  		Module_Friend
- * @version 		$Id: friend.class.php 4500 2012-07-11 13:05:52Z Miguel_Espinoza $
+ * @version 		$Id: friend.class.php 5330 2013-02-08 11:25:45Z Miguel_Espinoza $
  */
 class Friend_Service_Friend extends Phpfox_Service
 {
@@ -49,6 +49,7 @@ class Friend_Service_Friend extends Phpfox_Service
 			if ($bIsListView)
 			{
 				$this->database()->join(Phpfox::getT('friend_list_data'), 'fld', 'fld.friend_user_id = friend.friend_user_id');
+				$aCond[] = 'AND friend.user_id = ' . (int) Phpfox::getUserId() . ' AND friend.friend_user_id = fld.friend_user_id';				
 			}
 			
 			if ((int) $iListId > 0)
@@ -83,11 +84,12 @@ class Friend_Service_Friend extends Phpfox_Service
 			if ($bIsListView)
 			{
 				$this->database()->join(Phpfox::getT('friend_list_data'), 'fld', 'fld.friend_user_id = friend.friend_user_id');		
+				$aCond[] = 'AND friend.user_id = ' . (int) Phpfox::getUserId() . ' AND friend.friend_user_id = fld.friend_user_id';				
 			}
 			
 			if ((int) $iListId > 0)
 			{
-				$this->database()->innerJoin(Phpfox::getT('friend_list_data'), 'fld', 'fld.list_id = ' . (int) $iListId . ' AND fld.friend_user_id = friend.friend_user_id');
+				$this->database()->innerJoin(Phpfox::getT('friend_list_data'), 'fld', 'fld.list_id = ' . (int) $iListId . ' AND fld.friend_user_id = friend.friend_user_id');								
 			}			
 
 			$aRows = $this->database()->select('uf.dob_setting, friend.friend_id, friend.friend_user_id, friend.is_top_friend, friend.time_stamp, ' . Phpfox::getUserField())  
@@ -158,13 +160,18 @@ class Friend_Service_Friend extends Phpfox_Service
 		}
 		else
 		{
-			$aRows = $this->database()->select('f.*, ' . Phpfox::getUserField())
-				->from($this->_sTable, 'f')
-				->join(Phpfox::getT('user'), 'u', 'u.user_id = f.friend_user_id')
-				->where(($mAllowCustom ? '' : 'f.is_page = 0 AND') . ' f.user_id = ' . Phpfox::getUserId())
-				->limit(Phpfox::getParam('friend.friend_cache_limit'))
-				->order('u.last_activity DESC')
-				->execute('getSlaveRows');
+			(($sPlugin = Phpfox_Plugin::get('friend.service_getfromcachequery')) ? eval($sPlugin) : false);
+			
+			if (!isset($bForceQuery))
+			{
+				$aRows = $this->database()->select('f.*, ' . Phpfox::getUserField())
+					->from($this->_sTable, 'f')
+					->join(Phpfox::getT('user'), 'u', 'u.user_id = f.friend_user_id')
+					->where(($mAllowCustom ? '' : 'f.is_page = 0 AND') . ' f.user_id = ' . Phpfox::getUserId())
+					->limit(Phpfox::getParam('friend.friend_cache_limit'))
+					->order('u.last_activity DESC')
+					->execute('getSlaveRows');
+			}
 		}	
 
 		foreach ($aRows as $iKey => $aRow)
@@ -395,9 +402,9 @@ class Friend_Service_Friend extends Phpfox_Service
 	/**
 	 * Checks if userA is friends with userB
 	 *
-	 * @param unknown_type $iUserId
-	 * @param unknown_type $iFriendId
-	 * @param unknown_type $bRedirect
+	 * @param int $iUserId
+	 * @param int $iFriendId
+	 * @param boolean $bRedirect
 	 * @return boolean
 	 */
 	public function isFriend($iUserId, $iFriendId, $bRedirect = false)
@@ -471,9 +478,22 @@ class Friend_Service_Friend extends Phpfox_Service
 			 eval($sPlugin);
 		}				
 		
-		$aRows = $this->database()->select(($bNoCount ? '' : 'SQL_CALC_FOUND_ROWS ') . Phpfox::getUserField())
+        /* http://www.phpfox.com/tracker/view/12737/ */
+        if ($bNoCount == false)
+        {
+            $iCnt = $this->database()->select('count(f.user_id)')
+                ->from(Phpfox::getT('friend'), 'f')
+                ->join(Phpfox::getT('friend'), 'sf', 'sf.friend_user_id = f.friend_user_id AND sf.user_id = ' . (int)$iUserId . $sExtra1)
+                ->join(Phpfox::getT('user'), 'u', 'u.user_id = f.friend_user_id')
+                ->where('f.is_page = 0 AND f.user_id = ' . Phpfox::getUserId() . $sExtra2)
+                ->group('f.friend_user_id')
+                ->execute('getSlaveRows');	
+            $iCnt = count($iCnt);
+            
+        }
+		$aRows = $this->database()->select(Phpfox::getUserField())
 			->from(Phpfox::getT('friend'), 'f')
-			->innerJoin('(SELECT friend_user_id FROM ' . Phpfox::getT('friend') . ' WHERE is_page = 0 AND user_id = ' . $iUserId . $sExtra1 . ')', 'sf', 'sf.friend_user_id = f.friend_user_id')
+			->join(Phpfox::getT('friend'), 'sf', 'sf.friend_user_id = f.friend_user_id AND sf.user_id = ' . (int)$iUserId . $sExtra1)
 			->join(Phpfox::getT('user'), 'u', 'u.user_id = f.friend_user_id')
 			->where('f.is_page = 0 AND f.user_id = ' . Phpfox::getUserId() . $sExtra2)
 			->order('f.time_stamp DESC')
@@ -483,7 +503,7 @@ class Friend_Service_Friend extends Phpfox_Service
 
 		if (!$bNoCount)
 		{
-			$iCnt = $this->database()->getField('SELECT FOUND_ROWS()');
+			//$iCnt = $this->database()->getField('SELECT FOUND_ROWS()');
 		}
 		
 		$aCache[$iUserId] = array($iCnt, $aRows);
@@ -566,7 +586,10 @@ class Friend_Service_Friend extends Phpfox_Service
 	*/
 	public function getFriendsOfFriends($aFriends = array())
 	{
-		Phpfox::isUser(true);
+		if (!Phpfox::isUser())
+		{
+			return array();
+		}
 		
 		if (is_array($aFriends) && !empty($aFriends))
 		{

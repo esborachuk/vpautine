@@ -1,0 +1,45 @@
+@charset "utf-8";
+/* CSS Document */
+
+/* Global */
+a { text-decoration:none; color:#2277dd; }
+a:hover { color:#ff9900; }
+
+/* Page Structure */
+.main_module { float:left; width:100%; line-height:30px; margin-bottom:30px; position:relative; }
+	.module_title { float:left; font-size:20px; margin-top:30px; width:100%; border-bottom:1px solid #ddd; }
+		.quick_test { float:right; font-size:13px; }
+	.module_title:first-child { margin-top:0px; }
+		.one_row { float:left; width:100%; }
+			.one_row_title { float:left; width:25%; margin-right:20px; }
+			.one_row_desc { float:left; width:70%; }
+
+.divTestArea { float:left; margin-top:50px; line-height:20px; }
+	.divTestArea .one_row { padding-top:10px; }
+	
+.disable_module { width:100%; height:100%; background-color:#fff; opacity:0.6; position:absolute; }
+
+/* phpFox System Layout */
+div#copyright { float:left; width:100%; }
+#main_body_holder { display:none; }
+
+/* miniColors */
+.color-picker { float:left; }
+.miniColors-triggerWrap { float:left; margin-top:2px; }
+.miniColors-trigger { float:left !important; }
+
+/* Detail Element */
+.table_position { background:none; width:320px; line-height:16px; padding:0px; margin:0px; border-bottom:none; }
+.table_position td { text-align:center; }
+
+.table_style { background:none; width:auto; line-height:16px; padding:0px; margin:0px; border-bottom:none; }
+.table_style td { text-align:center; padding-right:25px; }
+
+.margin_textbox { width:30px; text-align:right; }
+
+.detail_attribute { display:none; }
+
+/* Defines */
+.dn { display:none; }
+.fl { float:left; }
+.po_re { position:relative; width:100%; }

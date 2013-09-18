@@ -13,7 +13,7 @@ defined('PHPFOX') or exit('NO DICE!');
  * @copyright		[PHPFOX_COPYRIGHT]
  * @author			Raymond Benc
  * @package 		Phpfox
- * @version 		$Id: validator.class.php 4225 2012-06-07 13:27:24Z Miguel_Espinoza $
+ * @version 		$Id: validator.class.php 5193 2013-01-25 08:04:37Z Miguel_Espinoza $
  */
 final class Phpfox_Validator
 {	
@@ -61,7 +61,7 @@ final class Phpfox_Validator
 	 */
 	private $_aRegex = array(
 		'user_name' => '/^[a-zA-Z0-9_\- ]{5,25}$/',
-		'email' => '/^[0-9a-zA-Z]([\-.\w]*[0-9a-zA-Z]?)*@([0-9a-zA-Z][\-\w]*[0-9a-zA-Z]\.)+[a-zA-Z]{2,}$/',
+		'email' => '/^[0-9a-zA-Z]([+\-.\w]*[0-9a-zA-Z]?)*@([0-9a-zA-Z][\-\w]*[0-9a-zA-Z]\.)+[a-zA-Z]{2,}$/',
 		'html' => '/<(.*?)>/',
 		'url' => '~(?>[a-z+]{2,}://|www\.)(?:[a-z0-9]+(?:\.[a-z0-9]+)?@)?(?:(?:[a-z](?:[a-z0-9]|(?<!-)-)*[a-z0-9])(?:\.[a-z](?:[a-z0-9]|(?<!-)-)*[a-z0-9])+|(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?))(?:/[^\\/:?*"<>|\n]*[a-z0-9])*/?(?:\?[a-z0-9_.%]+(?:=[a-z0-9_.%:/+-]*)?(?:&[a-z0-9_.%]+(?:=[a-z0-9_.%:/+-]*)?)*)?(?:#[a-z0-9_%.]+)?~is',
 		'currency_id' => '/^[A-Z]{3,3}$/'
@@ -454,7 +454,7 @@ final class Phpfox_Validator
 				
 				if ($bFailed)
 				{
-					Phpfox_Error::set((isset($aParam['message']) ? $aParam['message'] : $sDebug) . ((PHPFOX_DEBUG && isset($aParam['message'])) ? ' DEBUG: ' . $sDebug : ''));
+					Phpfox_Error::set((isset($aParam['message']) ? $aParam['message'] : $sDebug . '(' . $sKey . ')') . ((PHPFOX_DEBUG && isset($aParam['message'])) ? ' DEBUG: ' . $sDebug : ''));
 				}				
 			}
 			
@@ -490,6 +490,46 @@ final class Phpfox_Validator
 		return $this;
 	}
 	
+	/**
+	* This implements checks for Input fields
+	*/
+	public function setAction($sAction)
+	{
+		if (!Phpfox::isModule('input'))
+		{
+			return false;
+		}
+		
+		list($sModule, $sAction) = explode('.', $sAction);
+		if (Phpfox::isModule($sModule) && Phpfox::hasCallback($sModule, 'getEnabledInputField'))
+		{
+			$aInputs = Phpfox::callback($sModule.'.getEnabledInputField');
+			$aActions = array();
+			foreach ($aInputs as $aInput)
+			{
+				$aActions[] = $aInput['action'];
+			}
+			if (!empty($aActions))
+			{
+				// get required fields (we can cache this)
+				$aRequired = Phpfox::getLib('database')->select('i.field_id, i.phrase_var, ifc.table_name, ifc.column_name, ifc.operand, ifc.full_value')
+					->from(Phpfox::getT('input_field'), 'i')
+					->leftjoin(Phpfox::getT('input_field_condition'), 'ifc', 'ifc.field_id = i.field_id')
+					->where('module_id = "'.$sModule .'" AND action IN ("'. implode('","',$aActions).'") AND is_required = 1')
+					->execute('getSlaveRows');					
+				$oInput = Phpfox::getService('input');
+				foreach ($aRequired as $aInput)
+				{
+					if ($oInput->canEnterInfo($aInput))
+					{
+						$this->aFields['input_' . $aInput['field_id']] = array(
+							'title' => 'Please provide a value for ' . Phpfox::getPhrase($aInput['phrase_var']), 
+							'def' => 'required');
+					}
+				}
+			}
+		}
+	}
 	/**
 	 * Create the JS form onsubmit=""
 	 *
@@ -530,14 +570,11 @@ final class Phpfox_Validator
 	 	$sStr .= "\t" . '$(\'#' . $this->_sName . '_msg\').hide(\'\');' . "\n";
 	 	$sStr .= "\t" . '$(\'#' . $this->_sName . '_msg\').html(\'\');' . "\n";
 	 	$sStr .= "\t" . "var bIsValid = true;\n";	 	
-		$sStr  .= "\tvar bReturn = false;\n";
+		$sStr .= "\tvar bReturn = false;\n";
+		$sStr .= "\t".'$(".error_message").each(function(){$(this).remove();});';
 		
 		foreach ($this->aFields as $sFieldKey => $aFieldValue)
 		{
-			if (is_string($aFieldValue))
-			{
-				$sStr .= "\t".'$(".error_message").each(function(){if ($(this).text() == "'.$aFieldValue.'"){bReturn=true;$(this).hide("slow",function(){$(this).show();})}});';
-			}
 			$sStr .= $this->_checkRoutine($aFieldValue, $sFieldKey, 'js');
 		}
 		
@@ -573,7 +610,11 @@ final class Phpfox_Validator
 		}		
 		
 		$sStr = '';
-	 	if ( isset($aFieldValue['pattern']) )
+		if ($sFieldKey == 'email' && function_exists('filter_var') && !empty($sValue) && !filter_var($sValue, FILTER_VALIDATE_EMAIL))
+		{
+		    Phpfox_Error::set($aFieldValue['title']);
+		}
+	 	else if ( isset($aFieldValue['pattern']) )
 	 	{
 	 		if ( $sType == 'php' && !preg_match($aFieldValue['pattern'], $sValue) )
 	 		{
@@ -628,10 +669,14 @@ final class Phpfox_Validator
 		 	 			{
 		 	 				Phpfox_Error::set($aFieldValue['title']);
 		 	 			}
-		 	 			elseif (Phpfox::getLib('parse.format')->isEmpty($sValue))
+		 	 			elseif (is_string($sValue) && Phpfox::getLib('parse.format')->isEmpty($sValue))
 		 	 			{		 	 						 	 				
 		 	 				Phpfox_Error::set($aFieldValue['title']);
-		 	 			}		 			
+		 	 			}
+						else if (is_array($sValue) && empty($sValue))
+						{
+							Phpfox_Error::set($aFieldValue['title']);
+						}
 		 	 		}
 		 	 		else
 		 	 		{

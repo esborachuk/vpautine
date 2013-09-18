@@ -1,0 +1,44 @@
+<product>
+	<data>
+		<product_id>socialloft_scrolltotop</product_id>
+		<is_core>0</is_core>
+		<title>SocialLOFT - Scroll To Top</title>
+		<description><![CDATA[The SocialLOFT 's Product]]></description>
+		<version>1.3</version>
+		<latest_version></latest_version>
+		<last_check>1351224314</last_check>
+		<is_active>1</is_active>
+		<url>http://socialloft.com/</url>
+		<url_version_check>http://socialloft.com/</url_version_check>
+	</data>
+	<installs>
+		<install>
+			<version>1.0</version>
+			<install_code><![CDATA[Phpfox::getLib('database')->query("
+CREATE TABLE IF NOT EXISTS `phpfox_socialloft_scrolltotop` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `display_position` varchar(16) NOT NULL DEFAULT 'BR',
+  `margin` varchar(32) NOT NULL DEFAULT '0',
+  `style` int(11) NOT NULL DEFAULT '1',
+  `speed` int(11) NOT NULL DEFAULT '500',
+  `how_long` int(11) NOT NULL DEFAULT '20',
+  `text_display` varchar(64) NOT NULL,
+  `text_color` varchar(16) NOT NULL,
+  `text_hover_color` varchar(16) NOT NULL,
+  `background_color` varchar(16) NOT NULL DEFAULT '#ffffff',
+  `background_hover_color` varchar(16) NOT NULL DEFAULT '#ffff00',
+  `enable_module` tinyint(1) NOT NULL DEFAULT '1',
+  `test_module` tinyint(1) NOT NULL DEFAULT '1',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
+");
+	
+Phpfox::getLib('database')->query("INSERT INTO `phpfox_socialloft_scrolltotop` (`id`, `display_position`, `margin`, `style`, `speed`, `how_long`, `text_display`, `text_color`, `text_hover_color`, `background_color`, `background_hover_color`, `enable_module`, `test_module`) VALUES
+(1, 'BR', '20px 20px 20px 20px', 1, 500, 20, 'Back To Top', '#ffffff', '#000000', '#f2f2f2', '#f2fa05', 1, 1);");]]></install_code>
+			<uninstall_code><![CDATA[Phpfox::getLib('database')->query("DROP TABLE `phpfox_socialloft_scrolltotop`;");]]></uninstall_code>
+		</install>
+	</installs>
+	<modules>
+		<module_id>slscrolltotop</module_id>
+	</modules>
+</product>

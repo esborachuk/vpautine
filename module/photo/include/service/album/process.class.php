@@ -11,7 +11,7 @@ defined('PHPFOX') or exit('NO DICE!');
  * @copyright		[PHPFOX_COPYRIGHT]
  * @author  		Raymond Benc
  * @package  		Module_Photo
- * @version 		$Id: process.class.php 4140 2012-05-02 09:51:52Z Miguel_Espinoza $
+ * @version 		$Id: process.class.php 4770 2012-09-26 07:59:38Z Raymond_Benc $
  */
 class Photo_Service_Album_Process extends Phpfox_Service 
 {
@@ -39,9 +39,7 @@ class Photo_Service_Album_Process extends Phpfox_Service
 		
 		// Create the fields to insert
 		$aFields = array(
-			'name',
-			'module_id',
-			'group_id' => 'int',
+			'name',					
 			'privacy' => 'int',
 			'privacy_comment' => 'int'	
 		);
@@ -94,6 +92,8 @@ class Photo_Service_Album_Process extends Phpfox_Service
 		}
 		else 
 		{
+			$aFields[] = 'module_id';
+			$aFields['group_id'] = 'int';
 			$aFields['user_id'] = 'int';
 			$aFields[] = 'time_stamp';
 			

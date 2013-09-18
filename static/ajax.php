@@ -5,7 +5,7 @@
  * @copyright		[PHPFOX_COPYRIGHT]
  * @author			Raymond Benc
  * @package 		Phpfox
- * @version 		$Id: ajax.php 3118 2011-09-16 10:51:04Z Raymond_Benc $
+ * @version 		$Id: ajax.php 4941 2012-10-23 12:43:23Z Miguel_Espinoza $
  */
 ob_start();
 
@@ -164,6 +164,11 @@ else
 	$oAjax = Phpfox::getLib('ajax');
 	$oAjax->process();
 	echo $oAjax->getData();
+	if ($oAjax->bIsModeration == true)
+	{
+		echo '$(window).trigger("moderation_ended");';
+	}
+	
 	if (!isset($_REQUEST['height']) && !isset($_REQUEST['width']) && !isset($_REQUEST['no_page_update']))
 	{
 		// echo '$Core.updatePageHistory();';	

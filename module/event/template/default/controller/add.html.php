@@ -5,7 +5,7 @@
  * @copyright		[PHPFOX_COPYRIGHT]
  * @author  		Raymond Benc
  * @package 		Phpfox
- * @version 		$Id: add.html.php 4094 2012-04-16 13:20:54Z Miguel_Espinoza $
+ * @version 		$Id: add.html.php 4729 2012-09-24 06:51:00Z Raymond_Benc $
  */
  
 defined('PHPFOX') or exit('NO DICE!'); 
@@ -57,7 +57,7 @@ defined('PHPFOX') or exit('NO DICE!');
 				{phrase var='event.start_time'}:
 			</div>
 			<div class="table_right">
-				<div style="position: relative;">
+				<div style="position: relative;" class="js_event_select">
 					{select_date prefix='start_' id='_start' start_year='current_year' end_year='+1' field_separator=' / ' field_order='MDY' default_all=true add_time=true start_hour='+1' time_separator='event.time_separator'}				
 				</div>
 				{if !$bIsEdit}
@@ -73,7 +73,7 @@ defined('PHPFOX') or exit('NO DICE!');
 				{phrase var='event.end_time'}:
 			</div>
 			<div class="table_right">
-				<div style="position: relative;">
+				<div style="position: relative;" class="js_event_select">
 				{select_date prefix='end_' id='_end' start_year='current_year' end_year='+1' field_separator=' / ' field_order='MDY' default_all=true add_time=true start_hour='+4' time_separator='event.time_separator'}
 				</div>
 			</div>
@@ -291,3 +291,12 @@ defined('PHPFOX') or exit('NO DICE!');
 	{/if}
 	
 </form>
+
+
+<script type="text/javascript">
+{literal}
+	$Behavior.resetDatepicker = function(){
+		$('.js_event_select .js_date_picker').datepicker('option', 'maxDate', '+1y');
+	};
+{/literal}
+</script>

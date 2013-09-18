@@ -11,7 +11,7 @@ defined('PHPFOX') or exit('NO DICE!');
  * @copyright		[PHPFOX_COPYRIGHT]
  * @author  		Raymond Benc
  * @package 		Phpfox_Component
- * @version 		$Id: index.class.php 2000 2010-10-29 11:24:24Z Raymond_Benc $
+ * @version 		$Id: index.class.php 4906 2012-10-22 04:52:14Z Raymond_Benc $
  */
 class Theme_Component_Controller_Admincp_Style_Css_Index extends Phpfox_Component
 {
@@ -63,7 +63,8 @@ class Theme_Component_Controller_Admincp_Style_Css_Index extends Phpfox_Componen
 			->assign(array(
 					'aFiles' => Phpfox::getService('theme.style')->getFiles($aStyle['theme_folder'], $aStyle['folder'], $aStyle['style_id']),
 					'aStyle' => $aStyle,
-					'aProducts' => Phpfox::getService('admincp.product')->get()
+					'aProducts' => Phpfox::getService('admincp.product')->get(),
+					'aCustomDataContent' => (defined('PHPFOX_IS_HOSTED_SCRIPT') ? Phpfox::getService('theme.style')->getStyleContent($aStyle['style_id']) : '')
 				)
 			);			
 	}

@@ -11,7 +11,7 @@ defined('PHPFOX') or exit('NO DICE!');
  * @copyright		[PHPFOX_COPYRIGHT]
  * @author  		Raymond Benc
  * @package  		Module_Admincp
- * @version 		$Id: index.class.php 4334 2012-06-25 14:50:39Z Miguel_Espinoza $
+ * @version 		$Id: index.class.php 5332 2013-02-11 08:27:54Z Raymond_Benc $
  */
 class Admincp_Component_Controller_Index extends Phpfox_Component 
 {
@@ -23,8 +23,8 @@ class Admincp_Component_Controller_Index extends Phpfox_Component
 	 */
 	public function process()
 	{
-		Phpfox::getUserParam('admincp.has_admin_access', true);		
-		
+		Phpfox::getUserParam('admincp.has_admin_access', true);
+	
 		if (Phpfox::getParam('admincp.admin_cp') != $this->request()->get('req1'))
 		{
 			return Phpfox::getLib('module')->setController('error.404');	
@@ -35,6 +35,15 @@ class Admincp_Component_Controller_Index extends Phpfox_Component
 			return Phpfox::getLib('module')->setController('admincp.login');
 		}	
 		
+		if ($this->request()->get('upgraded'))
+		{
+			Phpfox::getLib('cache')->remove();
+			Phpfox::getLib('template.cache')->remove();
+			
+			$this->url()->send('admincp');
+		}
+		
+		/*
 		if (Phpfox::getParam('core.phpfox_is_hosted'))
 		{
 			$sMaxHistory = Phpfox::getParam('core.phpfox_total_users_online_history');
@@ -47,7 +56,7 @@ class Admincp_Component_Controller_Index extends Phpfox_Component
 				);				
 			}
 		}
-		
+		*/
 		$this->_sModule = (($sReq2 = $this->request()->get('req2')) ? strtolower($sReq2) : Phpfox::getParam('admincp.admin_cp'));
 		if ($this->_sModule == 'logout')
 		{
@@ -176,7 +185,6 @@ class Admincp_Component_Controller_Index extends Phpfox_Component
 					'admincp.phrase_manager' => 'admincp.language.phrase',
 					'admincp.add_phrase' => 'admincp.language.phrase.add',
 					'language.create_language_pack' => 'admincp.language.add',
-					// 'admincp.language_import_export' => 'admincp.language.file'
 					'language.import_language_pack' => 'admincp.language.import',
 					'language.email_phrases' => 'admincp.language.email'
 				),
@@ -197,7 +205,16 @@ class Admincp_Component_Controller_Index extends Phpfox_Component
 					'theme.admincp_create_css_file' => 'admincp.theme.style.css.add',
 					'theme.admincp_menu_import_themes' => 'admincp.theme.import',
 					'theme.admincp_menu_import_styles' => 'admincp.theme.style.import'
-				)				
+				),
+				'admincp.plugin' => array(
+					'admincp.manage_plugins' => 'admincp.plugin',
+					'admincp.create_new_plugin' => 'admincp.plugin.add'
+				),
+				'apps.admincp_menu_apps' => array(
+					'apps.categories' => 'admincp.apps.categories',
+					'apps.install_app' => 'admincp.apps.import',
+					'apps.export_apps' => 'admincp.apps.export'					
+				)
 			),
 			'admincp.settings' => array(
 				'admincp.system_settings_menu' => array(
@@ -210,9 +227,12 @@ class Admincp_Component_Controller_Index extends Phpfox_Component
 				'admincp.payment_gateways_menu' => 'admincp.api.gateway'
 			),
 			'admincp.tools' => array(
-				'core.site_statistics' => 'admincp.core.stat',
-				'core.admincp_menu_system_overview' => 'admincp.core.system',
-				'admincp.ip_address' => 'admincp.core.ip',
+				'admincp.general' => array(
+					'core.site_statistics' => 'admincp.core.stat',
+					'core.admincp_menu_system_overview' => 'admincp.core.system',
+					'admincp.ip_address' => 'admincp.core.ip',
+					'admincp.admincp_privacy' => 'admincp.privacy'		
+				),				
 				'admincp.menu_site_stats' => array(
 					'admincp.menu_manage_stats' => 'admincp.stat',
 					'admincp.menu_create_new_stat' => 'admincp.stat.add'
@@ -305,7 +325,7 @@ class Admincp_Component_Controller_Index extends Phpfox_Component
 			);
 		}
 		
-		if (!Phpfox::getParam('core.branding'))
+		if (!Phpfox::getParam('core.branding') && !Phpfox::getParam('core.phpfox_is_hosted'))
 		{
 			$aMenus['admincp.settings']['core.phpfox_branding_removal'] = 'admincp.core.branding';	
 		}
@@ -316,15 +336,18 @@ class Admincp_Component_Controller_Index extends Phpfox_Component
 			unset($aMenus['admincp.extensions']['admincp.products']['admincp.create_new_product']);
 			unset($aMenus['admincp.extensions']['admincp.products']['admincp.import_export']);
 			unset($aMenus['admincp.extensions']['admincp.plugin']);
-			unset($aMenus['admincp.extensions']['admincp.language']['language.import_language_pack']);
+			// unset($aMenus['admincp.extensions']['admincp.language']['language.import_language_pack']);
 			unset($aMenus['admincp.extensions']['admincp.theme']['theme.create_a_new_template']);
 			unset($aMenus['admincp.extensions']['admincp.theme']['theme.admincp_create_css_file']);
-			unset($aMenus['admincp.extensions']['admincp.theme']['theme.admincp_menu_import_themes']);
+			// unset($aMenus['admincp.extensions']['admincp.theme']['theme.admincp_menu_import_themes']);
 			unset($aMenus['admincp.extensions']['admincp.theme']['theme.admincp_menu_import_styles']);
 			unset($aMenus['admincp.extensions']['emoticon.emoticons']['emoticon.import_export_emoticon']);
 			unset($aMenus['admincp.settings']['admincp.system_settings_menu']['admincp.add_new_setting']);
 			unset($aMenus['admincp.settings']['admincp.system_settings_menu']['admincp.add_new_setting_group']);
+			unset($aMenus['admincp.settings']['admincp.payment_gateways_menu']);
 		}		
+		
+		$aMenus = Phpfox::getService('admincp')->checkAdmincpPrivacy($aMenus);
 		
 		(($sPlugin = Phpfox_Plugin::get('admincp.component_controller_index_process_menu')) ? eval($sPlugin) : false);
 				
@@ -424,6 +447,11 @@ class Admincp_Component_Controller_Index extends Phpfox_Component
 				$sActiveSideBar = $this->_sModule;
 				foreach ($aModules as $aModule)
 				{
+					if (!isset($aModule['module_id']))
+					{
+						continue;
+					}
+					
 					if (!$aModule['is_menu'])
 					{
 						continue;
@@ -492,6 +520,15 @@ class Admincp_Component_Controller_Index extends Phpfox_Component
 				);
 			}
 		}	
+		
+		if (defined('PHPFOX_IS_HOSTED_SCRIPT'))
+		{
+			$iTotalSpaceUsed = Phpfox::getLib('cdn')->getUsage();
+			if ($iTotalSpaceUsed > Phpfox::getParam('core.phpfox_grouply_space'))
+			{
+				return Phpfox::getLib('module')->setController('admincp.limit');
+			}		
+		}
 	}
 	
 	/**

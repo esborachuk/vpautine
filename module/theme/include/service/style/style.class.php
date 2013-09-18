@@ -11,7 +11,7 @@ defined('PHPFOX') or exit('NO DICE!');
  * @copyright		[PHPFOX_COPYRIGHT]
  * @author  		Raymond Benc
  * @package 		Phpfox_Service
- * @version 		$Id: style.class.php 3992 2012-03-12 13:40:21Z Raymond_Benc $
+ * @version 		$Id: style.class.php 4906 2012-10-22 04:52:14Z Raymond_Benc $
  */
 class Theme_Service_Style_Style extends Phpfox_Service 
 {
@@ -27,6 +27,33 @@ class Theme_Service_Style_Style extends Phpfox_Service
 	public function __construct()
 	{	
 		$this->_sTable = Phpfox::getT('theme_style');
+	}
+	
+	public function getStyleContent($iStyleId)	
+	{
+		$aRow = $this->database()->select('*')
+			->from(Phpfox::getT('theme_css'))
+			->where('style_id = ' . (int) $iStyleId . ' AND file_name = \'custom.css\'')
+			->execute('getSlaveRow');
+		
+		$aStyle = $this->database()->select('ts.*, t.folder AS theme_folder')
+			->from($this->_sTable, 'ts')
+			->join(Phpfox::getT('theme'), 't', 't.theme_id = ts.theme_id AND t.is_active = 1')
+			->where('ts.style_id = ' . (int) $iStyleId)
+			->execute('getSlaveRow');		
+		
+		if (!isset($aRow['css_id']))
+		{
+			$sCssFile = PHPFOX_DIR . 'theme/frontend/' . $aStyle['theme_folder'] . '/style/' . $aStyle['folder'] . '/css/custom.css';
+			if (file_exists($sCssFile))
+			{
+				return array('css_data' => file_get_contents($sCssFile));
+			}
+			
+			return '';
+		}
+		
+		return $aRow;
 	}
 	
 	public function get($aCond = array())
@@ -55,7 +82,6 @@ class Theme_Service_Style_Style extends Phpfox_Service
 			->where('ts.is_active = 1')
 			->execute('getSlaveRows');
 		
-		// {param var='core.path'}theme/frontend/{$aStyle.theme_folder}/style/{$aStyle.folder}/phpfox.gif
 		foreach ($aRows as $iKey => $aRow)
 		{
 			$aRows[$iKey]['block_total'] = range(1, 10);
@@ -629,6 +655,12 @@ class Theme_Service_Style_Style extends Phpfox_Service
             {
                 Phpfox::getLib('file')->write($sThemePath . 'php' . PHPFOX_DS . 'header.php', file_get_contents($sPhpHeaderFile));
             }
+            
+            $sSamplePngFile = PHPFOX_DIR_THEME . 'frontend' . PHPFOX_DS . $aStyle['theme_folder'] . PHPFOX_DS . 'style' . PHPFOX_DS . $aStyle['folder'] . PHPFOX_DS . 'sample.png';
+            if (file_exists($sSamplePngFile))
+            {
+            	Phpfox::getLib('file')->write($sThemePath . 'sample.png', file_get_contents($sSamplePngFile));
+            }            
 					
 			if ($bMultiple === false)
 			{

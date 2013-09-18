@@ -13,23 +13,69 @@ defined('PHPFOX') or exit('NO DICE!');
 ?>
 
 <div class="table">
+	<div class="table_left">
+		{phrase var='ad.location'}:
+	</div>
+	<div class="table_right">
+		{if isset($aAllCountries)}
+			<select multiple="multiple" name="val[country_iso_custom][]" id="country_iso_custom">
+				<option value="">{phrase var='core.any'}
+				{foreach from=$aAllCountries key=sIso item=aCountry}
+					<option value="{$sIso}" {if isset($aForms) && isset($aForms.countries_list)}{foreach from=$aForms.countries_list item=sChosen} {if $sChosen == $sIso} selected="selected" {/if}{/foreach}{/if}> {$aCountry.name}
+				{/foreach}
+			</select>
+		{else}
+			{select_location value_title='phrase var=core.any' name='country_iso_custom'}
+		{/if}
+	</div>
+	<div class="clear"></div>
+</div>
+
+{if Phpfox::getParam('ad.advanced_ad_filters')}
+	<div class="table tbl_province">
+		<div class="table_left">
+			State/Province:
+		</div>
+		<div class="table_right">
+			{foreach from=$aAllCountries item=aCountry}
+				{if is_array($aCountry.children) && !empty($aCountry.children)}				
+					<div id="country_{$aCountry.country_iso}" class="select_child_country">
+						<div>{$aCountry.name}</div>
+						<select class="sct_child_country" id="sct_country_{$aCountry.country_iso}" name="val[child_country][{$aCountry.country_iso}][]" multiple="multiple">
+							{foreach from=$aCountry.children item=aChild}
+								<option value="{$aChild.child_id}">{$aChild.name_decoded}</option>
+							{/foreach}
+						</select>
+					</div>
+				{/if}
+			{/foreach}
+		</div>
+	</div>
+	
+	<div class="table">
 			<div class="table_left">
-				{phrase var='ad.location'}:
+				Postal Code:
 			</div>
 			<div class="table_right">
-				{if isset($aAllCountries)}
-					<select multiple="multiple" name="val[country_iso_custom][]" id="country_iso_custom">
-						<option value="">{phrase var='core.any'}
-						{foreach from=$aAllCountries key=sIso item=sCountry}
-							<option value="{$sIso}" {if isset($aForms)}{foreach from=$aForms.countries_list item=sChosen} {if $sChosen == $sIso} selected="selected" {/if}{/foreach}{/if}> {$sCountry}
-						{/foreach}
-					</select>
-				{else}
-					{select_location value_title='phrase var=core.any' name='country_iso_custom'}
-				{/if}
+				<input type="text" name="val[postal_code]" id='postal_code' value="{value type='input' id='postal_code'}">
+				<div class="extra_info">
+					Separate multiple postal codes by a comma.
+				</div>
 			</div>
-			<div class="clear"></div>
 		</div>
+		
+		<div class="table">
+			<div class="table_left">
+				City:
+			</div>
+			<div class="table_right">
+				<input type="text" name="val[city_location]" id='city_location' value="{value type='input' id='city_location'}">
+				<div class="extra_info">
+					Separate multiple cities by a comma.
+				</div>
+			</div>
+		</div>
+{/if}
 		<div class="table">
 			<div class="table_left">
 				{phrase var='ad.gender'}:

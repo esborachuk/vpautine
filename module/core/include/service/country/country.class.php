@@ -11,7 +11,7 @@ defined('PHPFOX') or exit('NO DICE!');
  * @copyright		[PHPFOX_COPYRIGHT]
  * @author  		Raymond Benc
  * @package  		Module_Core
- * @version 		$Id: country.class.php 3635 2011-12-01 11:08:46Z Raymond_Benc $
+ * @version 		$Id: country.class.php 4607 2012-08-27 07:23:45Z Miguel_Espinoza $
  */
 class Core_Service_Country_Country extends Phpfox_Service 
 {
@@ -139,6 +139,42 @@ class Core_Service_Country_Country extends Phpfox_Service
 		}
 		
 		return $iChild;
+	}
+	
+	public function getCountriesAndChildren()
+	{
+		$sCacheId = $this->cache()->set('countries_and_children_' . Phpfox::getLib('locale')->getLangId());
+		if (!($aCountries = $this->cache()->get($sCacheId)))
+		{
+			$aAll = $this->database()->select('cc.child_id, cc.name as child_name, c.country_iso, c.name as country_name')
+				->from(Phpfox::getT('country'), 'c')
+				->leftjoin(Phpfox::getT('country_child'), 'cc', 'cc.country_iso = c.country_iso')
+				->execute('getSlaveRows');
+			$aCountries = array();
+			foreach ($aAll as $aItem)
+			{
+				if (!isset($aCountries[$aItem['country_iso']]))
+				{
+					$aCountries[$aItem['country_iso']] =  array(
+						'name' => htmlentities($aItem['country_name'], ENT_QUOTES),
+						'country_iso' => $aItem['country_iso'],
+						'children' => array()
+					);
+				}
+				
+				if (isset($aItem['child_id']) && !empty($aItem['child_id']))
+				{
+					$aCountries[$aItem['country_iso']]['children'][$aItem['child_id']] = array(
+						'name' => htmlentities($aItem['child_name'], ENT_QUOTES),
+						'name_decoded' => $aItem['child_name'],
+						'child_id' => $aItem['child_id']
+					);
+				}
+			}
+			
+			$this->cache()->save($sCacheId, $aCountries);
+		}
+		return $aCountries;
 	}
 	
 	public function getChildren($sCountry)

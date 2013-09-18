@@ -10,7 +10,7 @@
 		<writable />
 	</data>
 	<menus>
-		<menu module_id="mobile" parent_var_name="" m_connection="footer" var_name="menu_mobile_mobile_251d164643533a527361dbe1a7b9235d" ordering="94" url_value="mobile-info" version_id="2.0.4" disallow_access="" module="mobile" />
+		<menu module_id="mobile" parent_var_name="" m_connection="footer" var_name="menu_mobile_mobile_251d164643533a527361dbe1a7b9235d" ordering="94" url_value="mobile" version_id="2.0.4" disallow_access="" module="mobile" />
 	</menus>
 	<hooks>
 		<hook module_id="mobile" hook_type="service" module="mobile" call_name="mobile.service_process__call" added="1267629983" version_id="2.0.4" />

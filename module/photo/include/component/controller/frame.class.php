@@ -12,7 +12,7 @@ defined('PHPFOX') or exit('NO DICE!');
  * @copyright		[PHPFOX_COPYRIGHT]
  * @author  		Raymond Benc
  * @package  		Module_Photo
- * @version 		$Id: frame.class.php 4271 2012-06-13 14:55:57Z Miguel_Espinoza $
+ * @version 		$Id: frame.class.php 5366 2013-02-14 10:02:27Z Raymond_Benc $
  */
 class Photo_Component_Controller_Frame extends Phpfox_Component
 {
@@ -20,12 +20,13 @@ class Photo_Component_Controller_Frame extends Phpfox_Component
 	 * Class process method wnich is used to execute this component.
 	 */
 	public function process()
-	{	
+	{
 		// We only allow users the ability to upload images.
 		if (!Phpfox::isUser())
 		{		
 			exit;
 		}
+
 		if (isset($_REQUEST['picup']))
 		{
 			$_FILES['Filedata'] = $_FILES['image'];
@@ -39,7 +40,6 @@ class Photo_Component_Controller_Frame extends Phpfox_Component
 			$_FILES['image']['type']['image'] = $_FILES['Filedata']['type'];
 			$_FILES['image']['tmp_name']['image'] = $_FILES['Filedata']['tmp_name'];
 			$_FILES['image']['size']['image'] = $_FILES['Filedata']['size'];
-
 		}
 		
 		// If no images were uploaded lets get out of here.
@@ -67,14 +67,12 @@ class Photo_Component_Controller_Frame extends Phpfox_Component
 				 			
 				// actually check if flooding
 			if (Phpfox::getLib('spam')->check($aFlood))
-			{
-				
+			{				
 				Phpfox_Error::set(Phpfox::getPhrase('photo.uploading_photos_a_little_too_soon') . ' ' . Phpfox::getLib('spam')->getWaitTime());	
 			}
 			
 			if (!Phpfox_Error::isPassed())
-			{
-				
+			{				
 				// Output JavaScript	
 				echo '<script type="text/javascript">';
 				if (!$bIsInline)
@@ -94,8 +92,7 @@ class Photo_Component_Controller_Frame extends Phpfox_Component
 						echo 'window.parent.$Core.resetActivityFeedError(\'' . implode('', Phpfox_Error::get()) . '\');';
 					}
 				}
-				echo '</script>';
-				
+				echo '</script>';				
 				exit;			
 			}
 		}		
@@ -133,11 +130,9 @@ class Photo_Component_Controller_Frame extends Phpfox_Component
 		}
 		
 		foreach ($_FILES['image']['error'] as $iKey => $sError)
-		{
-			
+		{	
 			if ($sError == UPLOAD_ERR_OK) 
 			{				
-				
 				if ($aImage = $oFile->load('image[' . $iKey . ']', array(
 							'jpg',
 							'gif',
@@ -202,9 +197,7 @@ class Photo_Component_Controller_Frame extends Phpfox_Component
 				{
 					
 				}
-				
 			}
-			
 		}		
 		
 		
@@ -213,11 +206,15 @@ class Photo_Component_Controller_Frame extends Phpfox_Component
 		// Make sure we were able to upload some images
 		if (count($aImages))
 		{
-			
+			if (defined('PHPFOX_IS_HOSTED_SCRIPT'))
+			{
+				unlink(Phpfox::getParam('photo.dir_photo') . sprintf($sFileName, ''));
+			}
 			
 			$aCallback = (!empty($aVals['callback_module']) ? Phpfox::callback($aVals['callback_module'] . '.addPhoto', $aVals['callback_item_id']) : null);
 			
 			$sAction = (isset($aVals['action']) ? $aVals['action'] : 'view_photo');
+			
 			// Have we posted an album for these set of photos?
 			if (isset($aVals['album_id']) && !empty($aVals['album_id']))
 			{
@@ -254,12 +251,25 @@ class Photo_Component_Controller_Frame extends Phpfox_Component
 					// (Phpfox::isModule('feed') ? $iFeedId = Phpfox::getService('feed.process')->callback($aCallback)->add('photo', $iId, (isset($aVals['privacy']) ? (int) $aVals['privacy'] : 0), (isset($aVals['privacy_comment']) ? (int) $aVals['privacy_comment'] : 0), (isset($aVals['parent_user_id']) ? (int) $aVals['parent_user_id'] : 0)) : null);
 				}				
 			}
-			
+			//die('temp:' . __LINE__ . ' count: ' . count($aImages) . 'isset: ' . (print_r(isset($aVals['album_id']), true)));
 			// Update the user space usage
 			Phpfox::getService('user.space')->update(Phpfox::getUserId(), 'photo', $iFileSizes);			
 
-			(($sPlugin = Phpfox_Plugin::get('photo.component_controller_frame_process_photos_done')) ? eval($sPlugin) : false);						
-			
+			(($sPlugin = Phpfox_Plugin::get('photo.component_controller_frame_process_photos_done')) ? eval($sPlugin) : false);
+						
+			if (isset($aVals['page_id']) && $aVals['page_id'] > 0)
+			{				
+				if (Phpfox::getService('pages.process')->setCoverPhoto($aVals['page_id'], $iId, true))
+				 {
+					//echo '<script type="text/javascript">parent.window.location.href = "' . Phpfox::permalink('pages', $aVals['page_id'], '') . '";</script>';
+					$aVals['is_cover_photo'] = 1;
+				 }
+				 else
+				 {
+					echo '<script type="text/javascript">alert("Something went wrong: ' . implode(Phpfox_Error::get()) . '");</script>';
+					
+				 }				 
+			}
 			
 			if (isset($_REQUEST['picup']))
 			{
@@ -273,9 +283,14 @@ class Photo_Component_Controller_Frame extends Phpfox_Component
 			}
 			else 
 			{
+				$sExtra = '';
+				if (!empty($aVals['start_year']) && !empty($aVals['start_month']) && !empty($aVals['start_day']))
+				{
+					$sExtra .= '&start_year= ' . $aVals['start_year'] . '&start_month= ' . $aVals['start_month'] . '&start_day= ' . $aVals['start_day'] . '';	
+				}
 				
 				echo '<script type="text/javascript">';
-				echo 'window.parent.$.ajaxCall(\'photo.process\', \'js_disable_ajax_restart=true&twitter_connection=' . ((isset($aVals['connection']) && isset($aVals['connection']['twitter'])) ? $aVals['connection']['twitter'] : '0') . '&facebook_connection=' . (isset($aVals['connection']['facebook']) ? $aVals['connection']['facebook'] : '0') . '&custom_pages_post_as_page=' . $this->request()->get('custom_pages_post_as_page') . '&photos=' . urlencode(base64_encode(json_encode($aImages))) . '&action=' . $sAction . '' . (isset($iFeedId) ? '&feed_id=' . $iFeedId : '') . '' . ($aCallback !== null ? '&callback_module=' . $aCallback['module'] . '&callback_item_id=' . $aCallback['item_id'] : '') . '&parent_user_id=' . (isset($aVals['parent_user_id']) ? (int) $aVals['parent_user_id'] : 0) . '&is_cover_photo=' . (isset($aVals['is_cover_photo']) ? '1' : '0') . '\');';
+				echo 'window.parent.$.ajaxCall(\'photo.process\', \''. ((isset($aVals['page_id']) && !empty($aVals['page_id'])) ? 'is_page=1&' : '') .'js_disable_ajax_restart=true' . $sExtra . '&twitter_connection=' . ((isset($aVals['connection']) && isset($aVals['connection']['twitter'])) ? $aVals['connection']['twitter'] : '0') . '&facebook_connection=' . (isset($aVals['connection']['facebook']) ? $aVals['connection']['facebook'] : '0') . '&custom_pages_post_as_page=' . $this->request()->get('custom_pages_post_as_page') . '&photos=' . urlencode(base64_encode(json_encode($aImages))) . '&action=' . $sAction . '' . (isset($iFeedId) ? '&feed_id=' . $iFeedId : '') . '' . ($aCallback !== null ? '&callback_module=' . $aCallback['module'] . '&callback_item_id=' . $aCallback['item_id'] : '') . '&parent_user_id=' . (isset($aVals['parent_user_id']) ? (int) $aVals['parent_user_id'] : 0) . '&is_cover_photo=' . (isset($aVals['is_cover_photo']) ? '1' : '0') . ((isset($aVals['page_id']) && $aVals['page_id'] > 0) ? '&page_id='.$aVals['page_id'] : '') . '\');';
 				echo '</script>';
 			}
 			
@@ -297,6 +312,8 @@ class Photo_Component_Controller_Frame extends Phpfox_Component
 			{
 				if (isset($aVals['is_cover_photo']))
 				{
+					echo 'window.parent.$(\'#js_cover_photo_iframe_loader_upload\').hide();';
+					echo 'window.parent.$(\'#js_activity_feed_form\').show();';
 					echo 'window.parent.$(\'#js_cover_photo_iframe_loader_error\').html(\'<div class="error_message">' . implode('', Phpfox_Error::get()) . '</div>\');';
 				}
 				else

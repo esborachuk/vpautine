@@ -173,20 +173,14 @@ class Egift_Service_Process extends Phpfox_Service
 			}
 			$aVar = explode('.', $aCategory['phrase']);
 
+			/*
 			$aPhrase = $this->database()->select('*')
 							->from(Phpfox::getT('language_phrase'))
 							->where('language_id = "' . Phpfox::getLib('parse.input')->clean($sLanguage) . '" AND module_id = "egift" AND var_name = "' . $aVar[1] . '"')
 							->execute('getSlaveRow');
-
-			$bUpdate = Phpfox::getService('language.phrase.process')->update($aPhrase['phrase_id'], $sValue);
-			if ($bUpdate == false)
-			{
-				/* In practice this never happens because update() always returns true,
-				 * but its safer to not rely on this behavior for potential changes to update()
-				 * @todo add a hook here
-				 */
-				return false;
-			}
+			*/
+			$this->database()->update(Phpfox::getT('language_phrase'), array('text' => $sValue), 'language_id = "' . Phpfox::getLib('parse.input')->clean($sLanguage) . '" AND module_id = "egift" AND var_name = "' . $aVar[1] . '"');
+			// $bUpdate = Phpfox::getService('language.phrase.process')->update($aPhrase['phrase_id'], $sValue);
 		}
 		foreach ($aVal['dates'] as $iId => $aDates)
 		{
@@ -205,7 +199,9 @@ class Egift_Service_Process extends Phpfox_Service
 				'time_end' => $iEnd
 			), 'category_id = ' . (int)$iId);
 		}
-		$this->cache()->remove('egift_category');
+		
+		$this->cache()->remove();
+		
 		return true;
 	}
 
@@ -222,6 +218,7 @@ class Egift_Service_Process extends Phpfox_Service
 		$mLoaded = null;
 		$oImage = Phpfox::getLib('image');
 		$bIsEdit = isset($aVals['egift_id']) && $aVals['egift_id'] > 0;
+		$aVals['category'] = (isset($aVals['category']) ? (int)$aVals['category'] : 0);
 		$aSQL = array('category_id' => (int) $aVals['category'],
 			'user_id' => Phpfox::getUserId(),
 			'time_stamp' => PHPFOX_TIME,

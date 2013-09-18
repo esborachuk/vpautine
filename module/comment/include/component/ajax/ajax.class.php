@@ -11,7 +11,7 @@ defined('PHPFOX') or exit('NO DICE!');
  * @copyright		[PHPFOX_COPYRIGHT]
  * @author  		Raymond Benc
  * @package  		Module_Comment
- * @version 		$Id: ajax.class.php 4582 2012-08-01 08:25:38Z Raymond_Benc $
+ * @version 		$Id: ajax.class.php 5268 2013-01-30 08:38:21Z Raymond_Benc $
  */
 class Comment_Component_Ajax_Ajax extends Phpfox_Ajax
 {
@@ -24,7 +24,16 @@ class Comment_Component_Ajax_Ajax extends Phpfox_Ajax
 		{
 			Phpfox::getUserParam($sVar, true);
 		}
-		Phpfox::getUserParam('comment.can_post_comments', true);
+		
+		if (!Phpfox::getUserParam('comment.can_post_comments'))
+		{
+			$this->html('#js_comment_process', '');
+			$this->call("$('#js_comment_submit').removeAttr('disabled');");
+			$this->hide('.js_feed_comment_process_form');
+			$this->alert('Your user group is not allowed to add comments.');			
+			
+			return false;
+		}
 		
 		(($sPlugin = Phpfox_Plugin::get('comment.component_ajax_ajax_add_start')) ? eval($sPlugin) : false);		
 		
@@ -100,7 +109,8 @@ class Comment_Component_Ajax_Ajax extends Phpfox_Ajax
 			}		
 		}
 		
-		if (Phpfox::getLib('parse.format')->isEmpty($aVals['text']))
+		if (Phpfox::getLib('parse.format')->isEmpty($aVals['text'])
+			|| (isset($aVals['default_feed_value']) && $aVals['default_feed_value'] == $aVals['text']))
 		{			
 			if (isset($aVals['is_via_feed']))
 			{		
@@ -114,6 +124,7 @@ class Comment_Component_Ajax_Ajax extends Phpfox_Ajax
 			}			
 			
 			$this->alert(Phpfox::getPhrase('comment.add_some_text_to_your_comment'));
+			$this->hide('.js_feed_comment_process_form');
 			
 			return false;
 		}
@@ -186,8 +197,7 @@ class Comment_Component_Ajax_Ajax extends Phpfox_Ajax
 								$this->call('$(\'#js_feed_comment_form_textarea_' . $aVals['is_via_feed'] .'\').val($(\'.js_comment_feed_value\').html()).addClass(\'js_comment_feed_textarea_focus\').removeAttr(\'style\');');					
 							}	
 							
-							$this->call('$(\'#js_feed_comment_form_textarea_' . $aVals['is_via_feed'] .'\').parent().find(\'.js_feed_comment_process_form:first\').hide();');
-							$this->call('if (typeof($.scrollTo) == \'function\'){$.scrollTo(\'#' . $sId . '\', 800);}');
+							$this->call('$(\'#js_feed_comment_form_textarea_' . $aVals['is_via_feed'] .'\').parent().find(\'.js_feed_comment_process_form:first\').hide();');							
 						}
 					}					
 					else
@@ -335,6 +345,11 @@ class Comment_Component_Ajax_Ajax extends Phpfox_Ajax
 			{
 				$this->call("$('#js_quick_edit_id" . $this->get('id') . "').html('<div id=\"sJsEditorMenu\" class=\"editor_menu\" style=\"display:block;\">' + Editor.setId('js_quick_edit" . $this->get('id') . "').getEditor(true) + '</div><textarea style=\"width:98%;\" name=\"quick_edit_input\" cols=\"90\" rows=\"10\" id=\"js_quick_edit" . $this->get('id') . "\">" . Phpfox::getLib('parse.output')->ajax($aRow['text']) . "</textarea>');");
 			}
+			
+			if (Phpfox::getUserParam('comment.wysiwyg_on_comments') && Phpfox::getParam('core.wysiwyg') == 'tiny_mce')
+			{			
+				$this->call('customTinyMCE_init(\'js_quick_edit' . $this->get('id') . '\', \'comment\'); function js_quick_edit_callback(){$(\'#js_quick_edit' . $this->get('id') . '\').val(Editor.getContent());}');
+			}
 		}
 	}
 	
@@ -348,7 +363,10 @@ class Comment_Component_Ajax_Ajax extends Phpfox_Ajax
 		if (Phpfox::getService('comment.process')->deleteInline($this->get('comment_id'), $this->get('type_id')))
 		{
 			$this->slideUp('#js_comment_' . $this->get('comment_id'));
-			$this->alert(Phpfox::getPhrase('comment.comment_successfully_deleted'));
+			if (!$this->get('photo_theater'))
+			{
+				// $this->alert(Phpfox::getPhrase('comment.comment_successfully_deleted'));
+			}
 			/*
 			if ($this->get('type_id') == 'feed')
 			{
@@ -445,7 +463,7 @@ class Comment_Component_Ajax_Ajax extends Phpfox_Ajax
 		
 		foreach ($aComments as $aComment)
 		{
-			$this->template()->assign(array('aComment' => $aComment))->getTemplate('comment.block.mini');
+			$this->template()->assign(array('aComment' => $aComment, 'aFeed' => array('feed_id' => $this->get('item_id'))))->getTemplate('comment.block.mini');
 		}
 		
 		if ($this->get('append'))

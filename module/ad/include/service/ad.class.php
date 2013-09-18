@@ -12,7 +12,7 @@ defined('PHPFOX') or exit('NO DICE!');
  * @copyright		[PHPFOX_COPYRIGHT]
  * @author  		Raymond Benc
  * @package 		Module_Ad
- * @version 		$Id: ad.class.php 4528 2012-07-19 08:21:52Z Raymond_Benc $
+ * @version 		$Id: ad.class.php 5382 2013-02-18 09:48:39Z Miguel_Espinoza $
  */
 class Ad_Service_Ad extends Phpfox_Service 
 {
@@ -281,47 +281,41 @@ class Ad_Service_Ad extends Phpfox_Service
 		
 		if (!($aAds = $this->cache()->get($sCacheId, Phpfox::getParam('ad.ad_cache_limit'))))
 		{
-			$aAds = $this->database()->select('*')
-				->from($this->_sTable)
-				->where('is_active = 1 AND location = \'' . $this->database()->escape($iId) . '\'')
+			$aRows = $this->database()->select('a.*, ac.child_id, ac.country_id')
+				->from($this->_sTable, 'a')
+				->leftjoin(Phpfox::getT('ad_country'), 'ac', 'ac.ad_id = a.ad_id')
+				->where('a.is_active = 1 AND a.location = \'' . $this->database()->escape($iId) . '\'')
 				->execute('getRows');			
+			$aAds = array();
 			
 			$aIn = array();
-			foreach ($aAds as $aAd)
+			foreach ($aRows as $iKey => $aAd)
 			{
-				if (empty($aAd['country_iso']))
+				if (!isset($aAds[$aAd['ad_id']]))
 				{
-					$aIn[] = $aAd['ad_id'];
+					$aAds[$aAd['ad_id']] = $aAd;
+					$aAds[$aAd['ad_id']]['country_child_id'] = array();
+					$aAds[$aAd['ad_id']]['countries_list'] = array();
+					unset($aAds[$aAd['ad_id']]['country_id']);
+				}
+				if (isset($aAd['child_id']) && !empty($aAd['child_id']))
+				{
+					$aAds[$aAd['ad_id']]['country_child_id'][] = $aAd['child_id'];
+					unset($aAds[$aAd['ad_id']]['child_id']);
+				}
+				if (isset($aAd['country_id']) && !empty($aAd['country_id']))
+				{
+					$aAds[$aAd['ad_id']]['countries_list'][$aAd['country_id']] = $aAd['country_id'];
 				}
 			}
 			
-			if (!empty($aIn))
-			{
-				$aCountries = $this->database()
-				->select('*')
-				->from(Phpfox::getT('ad_country'))
-				->where('ad_id IN (' . implode(',',$aIn) . ')')
-				->execute('getSlaveRows');
-				
-				foreach ($aAds as $iKey => $aAd)
-				{
-					foreach ($aCountries as $aCountry)
-					{
-						if ($aAd['ad_id'] == $aCountry['ad_id'])
-						{
-							if (!isset($aAds[$iKey]['countries_list']))
-							{
-								$aAds[$iKey]['countries_list'] = array();
-							}
-							$aAds[$iKey]['countries_list'][] = $aCountry['country_id'];
-						}
-					}
-				}
-			}
+			
 			
 			$this->cache()->save($sCacheId, $aAds);
 		}		
 
+        if ($sPlugin = Phpfox_Plugin::get('ad.service_ad_getforblock__1')){eval($sPlugin);}
+        
 		if (!is_array($aAds) || (is_array($aAds) && !count($aAds)))
 		{
 			$aCacheAd[$iId] = array();
@@ -330,7 +324,23 @@ class Ad_Service_Ad extends Phpfox_Service
 		}
 		
 		foreach ($aAds as $iKey => $aAd)
-		{
+		{			
+			// Check for Postal Code and for City
+			if (Phpfox::getParam('ad.advanced_ad_filters') && !empty($aAd['postal_code']) && Phpfox::getUserBy('postal_code') != false && strpos($aAd['postal_code'], Phpfox::getUserBy('postal_code') === false))
+			{
+				unset($aAds[$iKey]);
+			}			
+			
+			if (Phpfox::getParam('ad.advanced_ad_filters') && 
+				(
+					(isset($aAd['city_location']) && !empty($aAd['city_location']) && Phpfox::getUserBy('city_location') != false && strpos($aAd['city_location'], Phpfox::getUserBy('city_location')) === false) ||
+					(isset($aAd['postal_code']) && !empty($aAd['postal_code']) && Phpfox::getUserBy('postal_code') != false && strpos($aAd['postal_code'], Phpfox::getUserBy('postal_code')) === false) 
+				)
+			)
+			{
+				unset($aAds[$iKey]);
+			}
+			
 			if ($aAd['is_cpm'] == 1 && $aAd['total_view'] > 0 && $aAd['count_view'] >= $aAd['total_view'])
 			{
 				unset($aAds[$iKey]);
@@ -346,17 +356,27 @@ class Ad_Service_Ad extends Phpfox_Service
 			}
 			
 			if (isset($aAd['countries_list']) && !empty($aAd['countries_list']) && Phpfox::isUser() && Phpfox::getUserBy('country_iso') != '')
-			{
+			{				
 				$bKeep = false;
+				$iCountryChildId = Phpfox::getUserBy('country_child_id');
 				foreach ($aAd['countries_list'] as $sCountry)
-				{
-					$bKeep = $bKeep || ($sCountry == Phpfox::getUserBy('country_iso'));
+				{					
+					if (
+						($sCountry == Phpfox::getUserBy('country_iso') && empty($iCountryChildId)) ||
+						(!empty($iCountryChildId) && Phpfox::getParam('ad.advanced_ad_filters') && in_array($iCountryChildId, $aAd['country_child_id']))
+					)
+					{
+						$bKeep = true;
+						break;
+					}				
 				}
+				
 				if ($bKeep != true)
 				{
 					unset($aAds[$iKey]);
 				}
 			}
+			
 			if (!empty($aAd['gender']) && Phpfox::isUser() && $aAd['gender'] != Phpfox::getUserBy('gender'))
 			{
 				unset($aAds[$iKey]);
@@ -393,7 +413,16 @@ class Ad_Service_Ad extends Phpfox_Service
 			{				
 				unset($aAds[$iKey]);
 			}
+			
+			// This requires more code so its best to be put at the end
+			$sCityInDB = strtolower($aAd['city_location']);
+			$sCityUser = strtolower(Phpfox::getUserBy('city_location'));
+			if (Phpfox::getParam('ad.advanced_ad_filters') && !empty($sCityInDB) && !empty($sCityUser) && strpos($sCityInDB, $sCityUser) === false)
+			{
+				unset($aAds[$iKey]);
+			}
 		}
+		
 		
 		if (!count($aAds))
 		{
@@ -518,6 +547,16 @@ class Ad_Service_Ad extends Phpfox_Service
 			return Phpfox_Error::set(Phpfox::getPhrase('ad.unable_to_find_this_ad'));
 		}	
 		
+		$aTemp = $this->database()->select('cc.child_id')
+			->from(Phpfox::getT('country_child'), 'cc')
+			->join(Phpfox::getT('ad_country'), 'a', 'a.child_id = cc.child_id')
+			->where('a.ad_id = ' . $aAd['ad_id'])
+			->execute('getSlaveRows');
+		foreach ($aTemp as $aState)
+		{
+			$aAd['province'][] = $aState['child_id'];
+		}
+		
 		if (empty($aAd['country_iso']))
 		{
 			$aCountries = $this->database()->select('country_id')->from(Phpfox::getT('ad_country'))->where('ad_id = ' . $aAd['ad_id'])->execute('getSlaveRows');
@@ -530,6 +569,11 @@ class Ad_Service_Ad extends Phpfox_Service
 				}
 			}
 		}
+		else
+		{
+			$aAd['countries_list'] = array($aAd['country_iso']);
+		}
+		
 		$aAd['start_date'] = Phpfox::getLib('date')->convertFromGmt($aAd['start_date'], $aAd['gmt_offset']);		
 				
 		$aAd['start_month'] = date('n', $aAd['start_date']);
@@ -576,7 +620,17 @@ class Ad_Service_Ad extends Phpfox_Service
 		}		
 		
 		(($sPlugin = Phpfox_Plugin::get('ad.service_ad_getforedit__end')) ? eval($sPlugin) : false);
-		
+        
+                    if (!empty($aAd['postal_code']))
+                    {
+			$aAd['postal_code'] = implode(',',json_decode($aAd['postal_code']));
+                    }
+                    
+		if (!empty($aAd['city_location']))
+		{
+			$aAd['city_location'] = implode(',',json_decode($aAd['city_location']));
+		}
+							
 		return $aAd;	
 	}
 	

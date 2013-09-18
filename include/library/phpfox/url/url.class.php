@@ -12,7 +12,7 @@ defined('PHPFOX') or exit('NO DICE!');
  * @copyright		[PHPFOX_COPYRIGHT]
  * @author			Raymond Benc
  * @package 		Phpfox
- * @version 		$Id: url.class.php 4074 2012-03-28 14:02:40Z Raymond_Benc $
+ * @version 		$Id: url.class.php 5348 2013-02-13 10:15:23Z Miguel_Espinoza $
  */
 class Phpfox_Url
 {
@@ -100,6 +100,15 @@ class Phpfox_Url
        504 => "HTTP/1.1 504 Gateway Time-out"
    );
 
+	public function getHeaderCode($iCode)
+	{
+		if (isset($this->_aHeaders[$iCode]))
+		{
+			return $this->_aHeaders[$iCode];
+		}
+		return null;
+	}
+	
 	/**
 	 * Class constructor is used to build the current URL and all the custom rewrite rules.
 	 *
@@ -471,7 +480,7 @@ class Phpfox_Url
 			}
 		}
 		
-		if (preg_match('/http:\/\//i', $sUrl))
+		if (preg_match('/https?:\/\//i', $sUrl))
 		{
 		    return $sUrl;
 		}		
@@ -617,6 +626,11 @@ class Phpfox_Url
 		}
 		
 		(($sPlugin = Phpfox_Plugin::get('check_url_is_array_return')) ? eval($sPlugin) : false);
+		
+		if (defined('PHPFOX_IS_HOSTED_SCRIPT') && defined('PHPFOX_IS_HOSTED_VERSION'))
+		{
+			$sUrls = str_replace('/' . PHPFOX_IS_HOSTED_VERSION . '/', '/', $sUrls);
+		}		
 		
 		return $sUrls;
 	}

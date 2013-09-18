@@ -11,7 +11,7 @@ defined('PHPFOX') or exit('NO DICE!');
  * @copyright		[PHPFOX_COPYRIGHT]
  * @author  		Raymond_Benc
  * @package 		Phpfox_Component
- * @version 		$Id: add.class.php 4234 2012-06-08 09:56:59Z Miguel_Espinoza $
+ * @version 		$Id: add.class.php 4913 2012-10-22 07:24:53Z Raymond_Benc $
  */
 class Ad_Component_Controller_Add extends Phpfox_Component
 {
@@ -22,6 +22,9 @@ class Ad_Component_Controller_Add extends Phpfox_Component
 	{
 		Phpfox::isUser(true);
 		Phpfox::getUserParam('ad.can_create_ad_campaigns', true);
+		// $aAllCountries = Phpfox::getService('core.country')->get();
+		$aAllCountries = Phpfox::getService('core.country')->getCountriesAndChildren();
+		
 		
 		$bIsEdit = false;
 		$bCompleted = ($this->request()->get('req3') == 'completed' ? true : false);		
@@ -38,11 +41,17 @@ class Ad_Component_Controller_Add extends Phpfox_Component
 			}
 			$aAd['country_iso_custom'] = $aAd['country_iso'];
 			
-			$this->template()->assign(array(
+			$this->template()
+				->assign(array(
 					'aForms' => $aAd,
-					'aAllCountries' => Phpfox::getService('core.country')->get()
+					'aAllCountries' => $aAllCountries
 				)
 			);
+			$this->template()->setHeader(array(
+						'add.js' => 'module_ad',
+						'<script type="text/javascript">$Core.Ad.isEdit = true; $Core.Ad.setCountries(\''. json_encode($aAllCountries) .'\');</script>'
+					)
+				);
 		}
 
 		if ($bIsEdit)
@@ -72,12 +81,12 @@ class Ad_Component_Controller_Add extends Phpfox_Component
 			{
 				if (isset($aVals['location']))
 				{
-					$aPlan = Phpfox::getService('ad')->getPlan($aVals['location'], true);
+					$aPlan = Phpfox::getService('ad')->getPlan($aVals['block_id'], false);
+
 					$aVals = array_merge($aPlan, $aVals);
 				}
 				if ($bIsEdit)
-				{
-					
+				{					
 					if (($iId = Phpfox::getService('ad.process')->updateCustom($aAd['ad_id'], $aVals)))
 					{
 						$this->url()->send('ad.manage', null, Phpfox::getPhrase('ad.ad_successfully_updated'));
@@ -108,7 +117,8 @@ class Ad_Component_Controller_Add extends Phpfox_Component
 			if ($iPlacementCount)
 			{
 				$this->template()->setHeader(array(
-						'add.js' => 'module_ad'
+						'add.js' => 'module_ad',
+						'<script type="text/javascript">$Core.Ad.setCountries(\''. json_encode($aAllCountries) .'\');</script>'
 					)
 				);
 			}		
@@ -163,7 +173,7 @@ class Ad_Component_Controller_Add extends Phpfox_Component
 					'bCompleted' => $bCompleted,
 					'bIsEdit' => $bIsEdit,
 					'iPlacementCount' => $iPlacementCount,
-					'aAllCountries' => Phpfox::getService('core.country')->get()
+					'aAllCountries' => $aAllCountries
 				)
 			)
 			->setPhrase(array(

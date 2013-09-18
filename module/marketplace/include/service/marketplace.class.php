@@ -11,7 +11,7 @@ defined('PHPFOX') or exit('NO DICE!');
  * @copyright		[PHPFOX_COPYRIGHT]
  * @author  		Raymond Benc
  * @package 		Phpfox_Service
- * @version 		$Id: marketplace.class.php 4242 2012-06-10 17:07:21Z Raymond_Benc $
+ * @version 		$Id: marketplace.class.php 5106 2013-01-08 13:02:25Z Raymond_Benc $
  */
 class Marketplace_Service_Marketplace extends Phpfox_Service 
 {
@@ -79,7 +79,12 @@ class Marketplace_Service_Marketplace extends Phpfox_Service
 			->join(Phpfox::getT('marketplace_text'), 'mt', 'mt.listing_id = l.listing_id')
 			->where('l.listing_id = ' . (int) $iId)
 			->execute('getSlaveRow');
-			
+		
+		if (Phpfox::isModule('input'))
+		{
+			Phpfox::getService('input')->getInputsFor($aListing, 'marketplace.add-listing', $iId);
+		}
+		
 		if ((($aListing['user_id'] == Phpfox::getUserId() && Phpfox::getUserParam('marketplace.can_edit_own_listing')) || Phpfox::getUserParam('marketplace.can_edit_other_listing')) || ($bForce === true))
 		{
 			$aListing['categories'] = Phpfox::getService('marketplace.category')->getCategoryIds($aListing['listing_id']);
@@ -172,16 +177,31 @@ class Marketplace_Service_Marketplace extends Phpfox_Service
 	public function getSponsorListings()
 	{
 	    $sCacheId = $this->cache()->set('marketplace_sponsored');
+	    $iExpireTime = (PHPFOX_TIME - (Phpfox::getParam('marketplace.days_to_expire_listing') * 86400));
+	    
 	    if (!($aListing = $this->cache()->get($sCacheId)))
 	    {
 			$aListing = $this->database()->select('s.sponsor_id, m.title, m.currency_id, m.price, m.time_stamp, m.image_path, m.server_id')
 				->from($this->_sTable, 'm')
 				->join(Phpfox::getT('ad_sponsor'), 's', 's.item_id = m.listing_id')
-				->where('m.view_id = 0 AND m.group_id = 0 AND is_sponsor = 1 AND s.module_id = "marketplace"')
+				->where('m.view_id = 0 AND m.group_id = 0 AND m.is_sponsor = 1 AND s.module_id = "marketplace" AND s.is_active = 1 AND m.time_stamp >= ' . $iExpireTime)
 				->execute('getSlaveRows');
 	
 			$this->cache()->save($sCacheId, $aListing);
 	    }
+	    else
+	    {
+	    	if (is_array($aListing))
+	    	{
+				foreach ($aListing as $iKey => $aRow)
+				{
+					if ( (Phpfox::getParam('marketplace.days_to_expire_listing') > 0) && ( $aRow['time_stamp'] < $iExpireTime ) )
+					{					
+						unset($aListing[$iKey]);					
+					}
+				}
+	    	}
+		}
 	    
 	    if ($aListing === true || (is_array($aListing) && !count($aListing)))
 	    {
@@ -373,6 +393,22 @@ class Marketplace_Service_Marketplace extends Phpfox_Service
 			->execute('getSlaveRows');
 			
 		return array($iCnt, $aRows);
+	}
+	
+	public function getInfoForAction($aItem)
+	{
+		if (is_numeric($aItem))
+		{
+			$aItem = array('item_id' => $aItem);
+		}
+		$aRow = $this->database()->select('m.listing_id, m.title, m.user_id, u.gender, u.full_name')	
+			->from(Phpfox::getT('marketplace'), 'm')
+			->join(Phpfox::getT('user'), 'u', 'u.user_id = m.user_id')
+			->where('m.listing_id = ' . (int) $aItem['item_id'])
+			->execute('getSlaveRow');
+				
+		$aRow['link'] = Phpfox::getLib('url')->permalink('forum.thread', $aRow['listing_id'], $aRow['title']);
+		return $aRow;
 	}
 	
 	/**

@@ -11,7 +11,7 @@ defined('PHPFOX') or exit('NO DICE!');
  * @copyright		[PHPFOX_COPYRIGHT]
  * @author  		Raymond Benc
  * @package  		Module_Log
- * @version 		$Id: session.class.php 4567 2012-07-31 08:04:47Z Raymond_Benc $
+ * @version 		$Id: session.class.php 4944 2012-10-24 05:24:29Z Raymond_Benc $
  */
 class Log_Service_Session extends Phpfox_Service
 {
@@ -326,10 +326,17 @@ class Log_Service_Session extends Phpfox_Service
 	
 	public function getOnlineMembers()
 	{
-		return $this->database()->select('COUNT(DISTINCT user_id)')
-			->from(Phpfox::getT('log_session'))
-			->where('user_id > 0')
-			->execute('getSlaveField');		
+		static $iTotal = null;
+		
+		if ($iTotal === null)
+		{
+			$iTotal = $this->database()->select('COUNT(DISTINCT user_id)')
+				->from(Phpfox::getT('log_session'))
+				->where('user_id > 0 AND last_activity > ' . (PHPFOX_TIME - (Phpfox::getParam('log.active_session')*60)))
+				->execute('getSlaveField');		
+		}
+		
+		return $iTotal;
 	}
 
 	/**

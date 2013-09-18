@@ -11,7 +11,7 @@ defined('PHPFOX') or exit('NO DICE!');
  * @copyright		[PHPFOX_COPYRIGHT]
  * @author  		Raymond Benc
  * @package  		Module_Music
- * @version 		$Id: process.class.php 4227 2012-06-07 14:23:09Z Miguel_Espinoza $
+ * @version 		$Id: process.class.php 5222 2013-01-28 12:51:22Z Raymond_Benc $
  */
 class Music_Service_Process extends Phpfox_Service 
 {
@@ -88,7 +88,7 @@ class Music_Service_Process extends Phpfox_Service
 			
 			if ($aVals['privacy'] == '4')
 			{
-				Phpfox::getService('privacy.process')->add('music_album', $iAlbumId, (isset($aVals['privacy_list']) ? $aVals['privacy_list'] : array()));			
+				// Phpfox::getService('privacy.process')->add('music_album', $iAlbumId, (isset($aVals['privacy_list']) ? $aVals['privacy_list'] : array()));			
 			}				
 		}
 		
@@ -223,7 +223,7 @@ class Music_Service_Process extends Phpfox_Service
 			
 			(($sPlugin = Phpfox_Plugin::get('music.service_process_delete__1')) ? eval($sPlugin) : false);
 			
-			@unlink(Phpfox::getParam('music.dir') . sprintf($aSong['song_path'], ''));
+			Phpfox::getLib('file')->unlink(Phpfox::getParam('music.dir') . sprintf($aSong['song_path'], ''));
 			
 			$this->database()->delete($this->_sTable, 'song_id = ' . $aSong['song_id']);
 			$this->database()->delete(Phpfox::getT('music_song_rating'), 'item_id = ' . $aSong['song_id']);
@@ -303,9 +303,14 @@ class Music_Service_Process extends Phpfox_Service
 		
 		$aUpdate['privacy'] = (isset($aVals['privacy']) ? $aVals['privacy'] : '0');
 		$aUpdate['privacy_comment'] = (isset($aVals['privacy_comment']) ? $aVals['privacy_comment'] : '0');
-				
-		$this->database()->update($this->_sTable, $aUpdate, 'song_id = ' . (int) $iId);
 
+		// Decrease the count for the old album
+		$this->database()->updateCounter('music_album', 'total_track', 'album_id', $aSong['album_id'], true);		
+		
+		$this->database()->update($this->_sTable, $aUpdate, 'song_id = ' . (int) $iId);
+		// Decrease the count for the old album
+		$this->database()->updateCounter('music_album', 'total_track', 'album_id', $aVals['album_id'], false);
+		
 		if (Phpfox::isModule('privacy'))
 		{
 			if ($aVals['privacy'] == '4')

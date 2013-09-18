@@ -11,7 +11,7 @@ defined('PHPFOX') or exit('NO DICE!');
  * @copyright		[PHPFOX_COPYRIGHT]
  * @author  		Raymond Benc
  * @package  		Module_Mail
- * @version 		$Id: index.class.php 4378 2012-06-27 08:44:47Z Raymond_Benc $
+ * @version 		$Id: index.class.php 5148 2013-01-16 10:11:28Z Miguel_Espinoza $
  */
 class Mail_Component_Controller_Index extends Phpfox_Component
 {
@@ -52,6 +52,13 @@ class Mail_Component_Controller_Index extends Phpfox_Component
 			
 			$this->url()->send('mail.trash', null, Phpfox::getPhrase('mail.message_successfully_archived'));
 		}
+		
+		if ($this->request()->get('action') == 'forcedelete')
+		{
+			Phpfox::getService('mail.process')->archiveThread($this->request()->getInt('id'), 2);
+				
+			$this->url()->send('mail.trash', null, 'Conversation successfully deleted.');
+		}		
 		
 		if ($this->request()->get('action') == 'unarchive')
 		{

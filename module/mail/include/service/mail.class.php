@@ -11,7 +11,7 @@ defined('PHPFOX') or exit('NO DICE!');
  * @copyright		[PHPFOX_COPYRIGHT]
  * @author  		Raymond Benc
  * @package  		Module_Mail
- * @version 		$Id: mail.class.php 4442 2012-07-02 08:42:46Z Raymond_Benc $
+ * @version 		$Id: mail.class.php 5155 2013-01-17 12:55:36Z Miguel_Espinoza $
  */
 class Mail_Service_Mail extends Phpfox_Service
 {
@@ -187,6 +187,7 @@ class Mail_Service_Mail extends Phpfox_Service
 						->from(Phpfox::getT('mail_thread_text'), 'mt')
 						->join(Phpfox::getT('mail_thread_user'), 'th', 'th.user_id = mt.user_id')	
 						->join(Phpfox::getT('mail_thread'), 't', 't.thread_id = mt.thread_id')
+						->join(Phpfox::getT('user'), 'u', 'u.user_id = mt.user_id')
 						// ->join(Phpfox::getT('mail_thread_text'), 'tt', 'tt.message_id = t.last_id')					
 						->limit($iPage, $iLimit, $iCnt)
 						->order('t.time_stamp DESC')
@@ -197,7 +198,8 @@ class Mail_Service_Mail extends Phpfox_Service
 					$aRows = $this->database()->select('th.*, tt.text AS preview, tt.time_stamp, tt.user_id AS last_user_id')
 						->from(Phpfox::getT('mail_thread_user'), 'th')	
 						->join(Phpfox::getT('mail_thread'), 't', 't.thread_id = th.thread_id')
-						->join(Phpfox::getT('mail_thread_text'), 'tt', 'tt.message_id = t.last_id')					
+						->join(Phpfox::getT('mail_thread_text'), 'tt', 'tt.message_id = t.last_id')
+						->join(Phpfox::getT('user'), 'u', 'u.user_id = tt.user_id')
 						->limit($iPage, $iLimit, $iCnt)
 						->order('t.time_stamp DESC')
 						->execute('getSlaveRows');
@@ -207,6 +209,11 @@ class Mail_Service_Mail extends Phpfox_Service
 				
 				foreach ($aRows as $iKey => $aRow)
 				{
+					if (Phpfox::getParam('mail.threaded_mail_conversation'))
+					{
+						$aRows[$iKey]['preview'] = strip_tags($aRow['preview']);
+					}
+					
 					$aRows[$iKey]['viewer_is_new'] = ($aRow['is_read'] ? false : true);
 					$aRows[$iKey]['users'] = $this->database()->select('th.is_read, ' . Phpfox::getUserField())
 						->from(Phpfox::getT('mail_thread_user'), 'th')
@@ -343,7 +350,7 @@ class Mail_Service_Mail extends Phpfox_Service
 		if (Phpfox::getParam('mail.threaded_mail_conversation') && !$bForce)
 		{
 			list($aThread, $aMessages) = $this->getThreadedMail($iId);
-			
+
 			return $aMessages;
 		}
 		
@@ -370,22 +377,20 @@ class Mail_Service_Mail extends Phpfox_Service
 		return $aMail;
 	}
 
-	public function getPrev($iTime, $bIsSentbox = false)
+	public function getPrev($iTime, $bIsSentbox = false, $bIsTrash = false)
 	{
-		//return array();
 		return $this->database()->select('m.mail_id')
 			->from($this->_sTable, 'm')
-			->where(($bIsSentbox ? 'm.owner_user_id = ' . Phpfox::getUserId() . ' AND m.time_updated > ' . (int) $iTime . '' : 'm.viewer_user_id = ' . Phpfox::getUserId() . ' AND m.time_updated > ' . (int) $iTime . ''))
+			->where(($bIsSentbox ? 'm.owner_user_id = ' . Phpfox::getUserId() . ' AND m.time_updated > ' . (int) $iTime . ' AND m.owner_type_id = ' . ($bIsTrash ? 1 : 0) . '' : 'm.viewer_user_id = ' . Phpfox::getUserId() . ' AND m.viewer_type_id = ' . ($bIsTrash ? 1 : 0) . ' AND m.time_updated > ' . (int) $iTime . ''))
 			->order('m.time_updated ASC')
 			->execute('getSlaveField');
 	}
 
-	public function getNext($iTime, $bIsSentbox = false)
+	public function getNext($iTime, $bIsSentbox = false, $bIsTrash = false)
 	{
-		//return array();
 		return $this->database()->select('m.mail_id')
 			->from($this->_sTable, 'm')
-			->where(($bIsSentbox ? 'm.owner_user_id = ' . Phpfox::getUserId() . ' AND m.time_updated < ' . (int) $iTime . '' : 'm.viewer_user_id = ' . Phpfox::getUserId() . ' AND m.time_updated < ' . (int) $iTime . ''))
+			->where(($bIsSentbox ? 'm.owner_user_id = ' . Phpfox::getUserId() . ' AND m.time_updated < ' . (int) $iTime . ' AND m.owner_type_id = ' . ($bIsTrash ? 1 : 0) . '' : 'm.viewer_user_id = ' . Phpfox::getUserId() . ' AND m.viewer_type_id = ' . ($bIsTrash ? 1 : 0) . ' AND m.time_updated < ' . (int) $iTime . ''))
 			->order('m.time_updated DESC')
 			->execute('getSlaveField');
 	}
@@ -470,6 +475,7 @@ class Mail_Service_Mail extends Phpfox_Service
 				->from(Phpfox::getT('mail_thread_user'), 'th')	
 				->join(Phpfox::getT('mail_thread'), 't', 't.thread_id = th.thread_id')
 				->join(Phpfox::getT('mail_thread_text'), 'tt', 'tt.message_id = t.last_id')					
+				->join(Phpfox::getT('user'), 'u', 'u.user_id = tt.user_id')
 				->where('th.user_id = ' . (int) Phpfox::getUserId() . ' AND th.is_archive = 0 AND th.is_sent_update = 0')
 				->limit(5)
 				->order('t.time_stamp DESC')
@@ -697,7 +703,7 @@ class Mail_Service_Mail extends Phpfox_Service
 		$aFilterMenu = array(
 			Phpfox::getPhrase('mail.inbox') . (isset($aCountFolders['iCountInbox']) ? ' (' . $aCountFolders['iCountInbox'] . ')' : '') => '',
 			Phpfox::getPhrase('mail.sent_messages') . (isset($aCountFolders['iCountSentbox']) ? ' (' . $aCountFolders['iCountSentbox'] . ')' : '') => 'sent',
-			(Phpfox::getParam('mail.threaded_mail_conversation') ? 'Archive' : Phpfox::getPhrase('mail.trash')) . (isset($aCountFolders['iCountDeleted']) ? ' (' . $aCountFolders['iCountDeleted'] . ')' : '') => 'trash'			
+			(Phpfox::getParam('mail.threaded_mail_conversation') ? Phpfox::getPhrase('mail.archive') : Phpfox::getPhrase('mail.trash')) . (isset($aCountFolders['iCountDeleted']) ? ' (' . $aCountFolders['iCountDeleted'] . ')' : '') => 'trash'			
 		);		
 		
 		if (!Phpfox::getParam('mail.threaded_mail_conversation'))
@@ -714,7 +720,7 @@ class Mail_Service_Mail extends Phpfox_Service
 		{
 			$iLegacyCount = Phpfox::getService('mail')->getLegacyCount();
 			$aFilterMenu[] = true;
-			$aFilterMenu['Legacy Inbox <span class="invited">' . $iLegacyCount . '</span>'] = Phpfox::getLib('url')->makeUrl('mail', array('legacy' => '1'));
+			$aFilterMenu[Phpfox::getPhrase('mail.legacy_inbox') . ' <span class="invited">' . $iLegacyCount . '</span>'] = 'mail.legacy_1';
 		}		
 		
 		Phpfox::getLib('template')->buildSectionMenu('mail', $aFilterMenu);	
@@ -724,7 +730,7 @@ class Mail_Service_Mail extends Phpfox_Service
 	{		
 		$aThread = $this->database()->select('mt.*, mtu.is_archive AS user_is_archive')
 			->from(Phpfox::getT('mail_thread'), 'mt')
-			->join(Phpfox::getT('mail_thread_user'), 'mtu', 'mtu.thread_id = mt.thread_id AND mtu.user_id = ' . Phpfox::getUserId())
+			->join(Phpfox::getT('mail_thread_user'), 'mtu', 'mtu.thread_id = mt.thread_id')
 			->where('mt.thread_id = ' . (int) $iThreadId)
 			->execute('getSlaveRow');
 

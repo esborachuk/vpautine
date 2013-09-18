@@ -86,6 +86,20 @@
 		<hook module_id="admincp" hook_type="controller" module="admincp" call_name="admincp.component_controller_foxporter_index_clean" added="1274286148" version_id="2.0.5dev1" />
 		<hook module_id="admincp" hook_type="controller" module="admincp" call_name="admincp.component_controller_sql_title_clean" added="1276177474" version_id="2.0.5" />
 		<hook module_id="admincp" hook_type="service" module="admincp" call_name="admincp.service_product_product_export" added="1286546859" version_id="2.0.7" />
+		<hook module_id="admincp" hook_type="service" module="admincp" call_name="admincp.service_module_process_updateactivity" added="1358258443" version_id="3.5.0beta1" />
+		<hook module_id="admincp" hook_type="service" module="admincp" call_name="admincp.service_module_process_delete" added="1358258443" version_id="3.5.0beta1" />
+		<hook module_id="admincp" hook_type="service" module="admincp" call_name="admincp.service_product_process_update" added="1358258443" version_id="3.5.0beta1" />
+		<hook module_id="admincp" hook_type="service" module="admincp" call_name="admincp.service_product_process_delete" added="1358258443" version_id="3.5.0beta1" />
+		<hook module_id="admincp" hook_type="controller" module="admincp" call_name="admincp.component_controller_seo_nofollow_clean" added="1358258443" version_id="3.5.0beta1" />
+		<hook module_id="admincp" hook_type="controller" module="admincp" call_name="admincp.component_controller_seo_meta_clean" added="1358258443" version_id="3.5.0beta1" />
+		<hook module_id="admincp" hook_type="controller" module="admincp" call_name="admincp.component_controller_product_file_1" added="1358258443" version_id="3.5.0beta1" />
+		<hook module_id="admincp" hook_type="controller" module="admincp" call_name="admincp.component_controller_product_file_2" added="1358258443" version_id="3.5.0beta1" />
+		<hook module_id="admincp" hook_type="controller" module="admincp" call_name="admincp.component_controller_product_file_3" added="1358258443" version_id="3.5.0beta1" />
+		<hook module_id="admincp" hook_type="controller" module="admincp" call_name="admincp.component_controller_product_index_3" added="1358258443" version_id="3.5.0beta1" />
+		<hook module_id="admincp" hook_type="controller" module="admincp" call_name="admincp.component_controller_product_index_1" added="1358258443" version_id="3.5.0beta1" />
+		<hook module_id="admincp" hook_type="controller" module="admincp" call_name="admincp.component_controller_product_index_2" added="1358258443" version_id="3.5.0beta1" />
+		<hook module_id="admincp" hook_type="controller" module="admincp" call_name="admincp.component_controller_limit_clean" added="1361175548" version_id="3.5.0rc1" />
+		<hook module_id="admincp" hook_type="component" module="admincp" call_name="admincp.component_block_oncloud_clean" added="1361175548" version_id="3.5.0rc1" />
 	</hooks>
 	<components>
 		<component module_id="admincp" component="index" m_connection="" module="admincp" is_controller="0" is_block="0" is_active="1" />
@@ -794,6 +808,20 @@ Note: This includes updating the status, editing or deleting modules.</phrase>
 		<phrase module_id="admincp" version_id="3.3.0beta1" var_name="seo" added="1336993044">SEO</phrase>
 		<phrase module_id="admincp" version_id="3.3.0beta2" var_name="to_your_left_you_will_find_all_the_available" added="1340288196"><![CDATA[To your left you will find all the available controllers that have blocks associated with them. Once you click on a controller it will list all the blocks and from there you can drag/drop	to order the positioning of each block. You can also "Enable DnD Mode", which will allow you to visually browse the site and drag/drop blocks as well as add new blocks on the spot.]]></phrase>
 		<phrase module_id="admincp" version_id="3.3.0rc1" var_name="enable_dnd_mode" added="1341561848">Enable DnD Mode</phrase>
+		<phrase module_id="admincp" version_id="3.4.0beta1" var_name="admincp_priacy_control" added="1347438116">AdminCP Privacy Control</phrase>
+		<phrase module_id="admincp" version_id="3.4.0beta1" var_name="add_new_privacy_rule" added="1347438128">Add New Privacy Rule</phrase>
+		<phrase module_id="admincp" version_id="3.4.0beta1" var_name="provide_full_path" added="1347438216">Provide the full path to the URL you wish to add this rule to. We will then convert it to work with our internal URL system.</phrase>
+		<phrase module_id="admincp" version_id="3.4.0beta1" var_name="user_groups" added="1347438225">User Groups</phrase>
+		<phrase module_id="admincp" version_id="3.4.0beta1" var_name="select_a_user_group_this_rule_should_apply_to" added="1347438264">Select a user group this rule should apply to.</phrase>
+		<phrase module_id="admincp" version_id="3.4.0beta1" var_name="wildcard" added="1347438272">Wildcard</phrase>
+		<phrase module_id="admincp" version_id="3.4.0beta1" var_name="option_sub_section" added="1347438334">Enable this option if you wish to apply this rule to all sub-sections.</phrase>
+		<phrase module_id="admincp" version_id="3.4.0beta1" var_name="rules" added="1347438350">Rules</phrase>
+		<phrase module_id="admincp" version_id="3.4.0beta1" var_name="there_are_no_privacy_rules_at_the_moment" added="1347438380">There are no privacy rules at the moment.</phrase>
+		<phrase module_id="admincp" version_id="3.4.0beta1" var_name="provide_atleast_one_user_group_for_this_rule" added="1347438411">Provide atleast one user group for this rule.</phrase>
+		<phrase module_id="admincp" version_id="3.4.0beta1" var_name="general" added="1347866416">General</phrase>
+		<phrase module_id="admincp" version_id="3.4.0beta1" var_name="admincp_privacy" added="1347866519">AdminCP Privacy</phrase>
+		<phrase module_id="admincp" version_id="3.4.0rc1" var_name="save_your_notes_here" added="1349851420">Save your notes here...</phrase>
+		<phrase module_id="admincp" version_id="3.4.0rc1" var_name="fix_birthdays" added="1349869890">Fix Birthdays</phrase>
 	</phrases>
 	<user_group_settings>
 		<setting is_admin_setting="0" module_id="admincp" type="boolean" admin="1" user="0" guest="0" staff="0" module="admincp" ordering="2">can_clear_site_cache</setting>
@@ -803,4 +831,5 @@ Note: This includes updating the status, editing or deleting modules.</phrase>
 		<setting is_admin_setting="0" module_id="admincp" type="boolean" admin="1" user="0" guest="0" staff="0" module="admincp" ordering="0">can_add_new_modules</setting>
 		<setting is_admin_setting="1" module_id="admincp" type="boolean" admin="1" user="0" guest="0" staff="1" module="admincp" ordering="0">has_admin_access</setting>
 	</user_group_settings>
+	<tables><![CDATA[a:1:{s:22:"phpfox_admincp_privacy";a:2:{s:7:"COLUMNS";a:6:{s:7:"rule_id";a:4:{i:0;s:7:"UINT:10";i:1;N;i:2;s:14:"auto_increment";i:3;s:2:"NO";}s:3:"url";a:4:{i:0;s:9:"VCHAR:255";i:1;N;i:2;s:0:"";i:3;s:2:"NO";}s:10:"time_stamp";a:4:{i:0;s:7:"UINT:10";i:1;s:1:"0";i:2;s:0:"";i:3;s:2:"NO";}s:7:"user_id";a:4:{i:0;s:7:"UINT:10";i:1;N;i:2;s:0:"";i:3;s:2:"NO";}s:10:"user_group";a:4:{i:0;s:9:"VCHAR:255";i:1;N;i:2;s:0:"";i:3;s:3:"YES";}s:8:"wildcard";a:4:{i:0;s:6:"TINT:1";i:1;s:1:"0";i:2;s:0:"";i:3;s:2:"NO";}}s:11:"PRIMARY_KEY";s:7:"rule_id";}}]]></tables>
 </module>

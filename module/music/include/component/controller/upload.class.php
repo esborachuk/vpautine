@@ -11,7 +11,7 @@ defined('PHPFOX') or exit('NO DICE!');
  * @copyright		[PHPFOX_COPYRIGHT]
  * @author  		Raymond Benc
  * @package 		Phpfox_Component
- * @version 		$Id: upload.class.php 4525 2012-07-19 07:28:39Z Raymond_Benc $
+ * @version 		$Id: upload.class.php 4642 2012-09-17 10:38:37Z Raymond_Benc $
  */
 class Music_Component_Controller_Upload extends Phpfox_Component
 {
@@ -112,7 +112,7 @@ class Music_Component_Controller_Upload extends Phpfox_Component
 							}
 							else 
 							{									
-								Phpfox::addMessage('Song successfully uploaded.');
+								Phpfox::addMessage(Phpfox::getPhrase('music.song_successfully_uploaded'));
 								
 								echo "<script type=\"text/javascript\">";								
 								echo 'window.parent.location.href = "' . $this->url()->makeUrl('music.album.track', array('id' => $aVals['album_id'],'method' => 'simple') ) . '";';
@@ -121,7 +121,7 @@ class Music_Component_Controller_Upload extends Phpfox_Component
 						}
 						else 
 						{
-							Phpfox::addMessage('Song successfully uploaded.');
+							Phpfox::addMessage(Phpfox::getPhrase('music.song_successfully_uploaded'));
 							
 							echo "<script type=\"text/javascript\">";		
 							echo 'window.parent.location.href = "' . $this->url()->permalink('music', $aSong['song_id'], $aSong['title']) . '";';
@@ -172,7 +172,8 @@ class Music_Component_Controller_Upload extends Phpfox_Component
 						
 						$sOutput = Phpfox::getLib('ajax')->getContent(false);
 	
-						Phpfox::addMessage('Song successfully uploaded.');
+						Phpfox::addMessage(Phpfox::getPhrase('music.song_successfully_uploaded'));
+						
 						echo 'window.location.href = "' . $this->url()->makeUrl('music.album.track', array('id' => $aVals['album_id'])) . '";';
 						
 						exit();

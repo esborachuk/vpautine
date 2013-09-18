@@ -13,7 +13,7 @@ defined('PHPFOX') or exit('NO DICE!');
  * @copyright		[PHPFOX_COPYRIGHT]
  * @author			Raymond Benc
  * @package 		Phpfox
- * @version 		$Id: export.class.php 3651 2011-12-05 06:56:14Z Raymond_Benc $
+ * @version 		$Id: export.class.php 5063 2012-12-03 15:01:22Z Miguel_Espinoza $
  */
 class Phpfox_Database_Export
 {
@@ -56,6 +56,7 @@ class Phpfox_Database_Export
 			'DECIMAL:'	=> 'decimal(%d,2)',
 			'PDECIMAL'	=> 'decimal(6,3)',
 			'PDECIMAL:'	=> 'decimal(%d,3)',
+			'MDECIMAL:' => 'decimal(30,27)',
 			'VCHAR_UNI'	=> 'varchar(255)',
 			'VCHAR_UNI:'=> 'varchar(%d)',
 			'VCHAR_CI'	=> 'varchar(255)',

@@ -11,7 +11,7 @@ defined('PHPFOX') or exit('NO DICE!');
  * @copyright		[PHPFOX_COPYRIGHT]
  * @author  		Raymond Benc
  * @package  		Module_Admincp
- * @version 		$Id: callback.class.php 4030 2012-03-20 12:28:59Z Miguel_Espinoza $
+ * @version 		$Id: callback.class.php 4940 2012-10-23 10:04:04Z Miguel_Espinoza $
  */
 class Admincp_Service_Callback extends Phpfox_Service
 {
@@ -100,6 +100,19 @@ class Admincp_Service_Callback extends Phpfox_Service
 				'location'
 			)					
 		);
+
+		$aList[] = array(
+			'name' => Phpfox::getPhrase('admincp.components'),
+			'key' => 'component_id',
+			'table' => 'component',
+			'search' => array(
+				'component',
+				'module_id',
+				'product_id',
+				'm_connection',
+				'is_block'
+			)
+		);
 		
 		$aList[] =	array(
 			'name' => Phpfox::getPhrase('admincp.global_settings'),
@@ -139,7 +152,7 @@ class Admincp_Service_Callback extends Phpfox_Service
 		);		
 		
 		$aList[] = array(
-			'name' => 'Fix Birthdays',
+			'name' => Phpfox::getPhrase('admincp.fix_birthdays'),
 			'id' => 'birthdays'
 		);
 		return $aList;

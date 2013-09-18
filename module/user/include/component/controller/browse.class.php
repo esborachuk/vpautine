@@ -11,7 +11,7 @@ defined('PHPFOX') or exit('NO DICE!');
  * @copyright		[PHPFOX_COPYRIGHT]
  * @author  		Raymond Benc
  * @package  		Module_User
- * @version 		$Id: browse.class.php 4548 2012-07-23 07:41:07Z Raymond_Benc $
+ * @version 		$Id: browse.class.php 5241 2013-01-29 10:11:05Z Raymond_Benc $
  */
 class User_Component_Controller_Browse extends Phpfox_Component
 {
@@ -19,7 +19,7 @@ class User_Component_Controller_Browse extends Phpfox_Component
      * Class process method wnich is used to execute this component.
      */
     public function process()
-    {		
+    {    	
 		$aCallback = $this->getParam('aCallback', false);
 		if ($aCallback !== false)
 		{
@@ -163,13 +163,14 @@ class User_Component_Controller_Browse extends Phpfox_Component
 			),
 		    'keyword' => array(
 			    'type' => 'input:text',
-			    'size' => 15
+			    'size' => 15,
+		    	'class' => 'txt_input'
 		    ),
 		    'type' => array(
 			    'type' => 'select',
 			    'options' => array(
 				    '0' => array(Phpfox::getPhrase('user.email_name'), 'AND ((u.full_name LIKE \'%[VALUE]%\' OR (u.email LIKE \'%[VALUE]@%\' OR u.email = \'[VALUE]\'))' . (defined('PHPFOX_IS_ADMIN_SEARCH') ? ' OR u.email LIKE \'%[VALUE]\'' : '') .')'),
-				    '1' => array(Phpfox::getPhrase('user.email'), 'AND ((u.email LIKE \'%[VALUE]@%\' OR u.email = \'[VALUE]\')' . (defined('PHPFOX_IS_ADMIN_SEARCH') ? ' OR u.email LIKE \'%[VALUE]\'' : '') .')'),
+			    	'1' => array(Phpfox::getPhrase('user.email'), 'AND ((u.email LIKE \'%[VALUE]@%\' OR u.email = \'[VALUE]\'' . (defined('PHPFOX_IS_ADMIN_SEARCH') ? ' OR u.email LIKE \'%[VALUE]%\'' : '') .'))'),
 				    '2' => array(Phpfox::getPhrase('user.name'), 'AND (u.full_name LIKE \'%[VALUE]%\')')
 		    	),
 		    	'depend' => 'keyword'
@@ -246,6 +247,10 @@ class User_Component_Controller_Browse extends Phpfox_Component
 		    )
 		);
 
+		if (!Phpfox::getUserParam('user.can_search_by_zip'))
+		{
+			unset ($aFilters['zip']);
+		}
 		if ($sPlugin = Phpfox_Plugin::get('user.component_controller_browse_filter'))
 		{
 		    eval($sPlugin);
@@ -275,30 +280,33 @@ class User_Component_Controller_Browse extends Phpfox_Component
 
 		switch ((int) $sStatus)
 		{
-		    case 1:
-			$mFeatured = true;
-			break;
-		    case 3:
-			$bPendingMail = true;
-			break;
-		    case 4:
-			$bIsOnline = true;
-			break;
-		    case 5:
-		    	if (defined('PHPFOX_IS_ADMIN_SEARCH'))
-		    	{
-		    		$oFilter->setCondition('u.view_id = 1');
-		    	}
-		    	break;
-		    case 6:
-		    	if (defined('PHPFOX_IS_ADMIN_SEARCH'))
-		    	{
-		    		$oFilter->setCondition('u.view_id = 2');
-		    	}
-		    	break;
-		    default:
-
-			break;
+		    case 1: 
+		    $mFeatured = true; 
+		    break; 
+		    case 3: 
+		        if (defined('PHPFOX_IS_ADMIN_SEARCH')) 
+		        { 
+		            $oFilter->setCondition('AND u.status_id = 1'); 
+		        } 
+		    break; 
+		    case 4: 
+		    $bIsOnline = true; 
+		    break; 
+		    case 5: 
+		        if (defined('PHPFOX_IS_ADMIN_SEARCH')) 
+		        { 
+		            $oFilter->setCondition('AND u.view_id = 1'); 
+		        } 
+		        break; 
+		    case 6: 
+		        if (defined('PHPFOX_IS_ADMIN_SEARCH')) 
+		        { 
+		            $oFilter->setCondition('AND u.view_id = 2'); 
+		        } 
+		        break; 
+		    default: 
+		
+		    break; 
 		}
 
 		$this->template()->setTitle(Phpfox::getPhrase('user.browse_members'))->setBreadcrumb(Phpfox::getPhrase('user.browse_members'), ($aCallback !== false ? $this->url()->makeUrl($aCallback['url_home']) : $this->url()->makeUrl((defined('PHPFOX_IS_ADMIN_SEARCH') ? 'admincp.' : '') . 'user.browse')));
@@ -429,7 +437,7 @@ class User_Component_Controller_Browse extends Phpfox_Component
 		{
 		    eval($sPlugin);
 		}		
-		
+
 		list($iCnt, $aUsers) = Phpfox::getService('user.browse')->conditions($oFilter->getConditions())
 		    ->callback($aCallback)
 		    ->sort($oFilter->getSort())
@@ -443,22 +451,39 @@ class User_Component_Controller_Browse extends Phpfox_Component
 		    ->gender($bIsGender)
 		    ->get();
 
+		/*
 		foreach ($aUsers as $iIndex => $aUser)
 		{
-			$aUsers[$iIndex]['full_name'] = substr($aUser['full_name'],0, Phpfox::getParam('user.maximum_length_for_full_name'));
+			$aUsers[$iIndex]['full_name'] = substr($aUser['full_name'], 0, Phpfox::getParam('user.maximum_length_for_full_name'));
 		}
+		*/
 		
 		$iCnt = $oFilter->getSearchTotal($iCnt);
+		$aNewCustomValues = array();
+		if ($aCustomValues = $this->request()->get('custom'))
+		{
+		    foreach ($aCustomValues as $iKey => $sCustomValue)
+		    {
+			$aNewCustomValues['custom[' . $iKey . ']'] = $sCustomValue;
+		    }
+		}
+		else
+		{
+		    $aCustomValues = array();
+		}
 
 		if (!(defined('PHPFOX_IS_ADMIN_SEARCH')))
 		{
-			Phpfox::getLib('pager')->set(array('page' => $iPage, 'size' => $iPageSize, 'count' => $iCnt, 'ajax' => 'user.mainBrowse'));
+			//Phpfox::getLib('pager')->set(array('page' => $iPage, 'size' => $iPageSize, 'count' => $iCnt, 'ajax' => 'user.mainBrowse'));
+			Phpfox::getLib('pager')->set(array('page' => $iPage, 'size' => $iPageSize, 'count' => $iCnt, 'ajax' => 'user.mainBrowse', 'aParams' => $aNewCustomValues));
 		}
 		else
 		{
 			Phpfox::getLib('pager')->set(array('page' => $iPage, 'size' => $iPageSize, 'count' => $iCnt));
-		}
-
+		    }
+		
+		Phpfox::getLib('url')->setParam('page', $iPage);
+		
 		if ($this->request()->get('featured') == 1)
 		{
 		    $this->template()->setHeader(array(

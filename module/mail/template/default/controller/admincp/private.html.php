@@ -11,7 +11,7 @@ defined('PHPFOX') or exit('NO DICE!');
  * @copyright		[PHPFOX_COPYRIGHT]
  * @author  		Miguel Espinoza
  * @package  		Module_Mail
- * @version 		$Id: private.html.php 4255 2012-06-13 07:24:53Z Raymond_Benc $
+ * @version 		$Id: private.html.php 4742 2012-09-24 10:38:10Z Raymond_Benc $
  */
 
 ?>
@@ -119,7 +119,7 @@ defined('PHPFOX') or exit('NO DICE!');
 		<td>
 			{foreach from=$aMessage.users name=mailusers item=aMailUser}{if count($aMessage.users) == $phpfox.iteration.mailusers && count($aMessage.users) > 1} &amp; {else}{if $phpfox.iteration.mailusers != 1 && count($aMessage.users) != 2}, {/if}{/if}{$aMailUser|user}{/foreach}
 			<div class="extra_info">
-				{$aMessage.preview|clean|shorten:40:'...'|cleanbb}
+				{$aMessage.preview|strip_tags|shorten:40:'...'}
 			</div>			
 		</td>
 		{/if}		

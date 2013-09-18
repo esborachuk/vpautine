@@ -50,6 +50,10 @@ if (Phpfox::getParam('facebook.enable_facebook_connect'))
 								{
 									Phpfox::getLib('database')->insert(Phpfox::getT('fbconnect'), array('user_id' => $aUserCache['user_id'], 'fb_user_id' => (int) $oObject->id));
 								}
+								else
+								{
+									Phpfox::getLib('database')->update(Phpfox::getT('fbconnect'), array('is_unlinked' => 0), 'user_id = ' . (int) $aUserCache['user_id']);
+								}
 								
 								list($bIsLoggedIn, $aPostUserInfo) = Phpfox::getService('user.auth')->login($aUserCache['user_name'], null, false, 'user_name', true);
 								if ($bIsLoggedIn)
@@ -61,6 +65,8 @@ if (Phpfox::getParam('facebook.enable_facebook_connect'))
 						
 						if (isset($aUser['user_id']))
 						{
+							Phpfox::getLib('database')->update(Phpfox::getT('fbconnect'), array('is_unlinked' => 0), 'user_id = ' . (int) $aUser['user_id']);
+							
 							list($bIsLoggedIn, $aPostUserInfo) = Phpfox::getService('user.auth')->login($aUser['user_name'], null, false, 'user_name', true);
 							if ($bIsLoggedIn)
 							{						
@@ -73,6 +79,15 @@ if (Phpfox::getParam('facebook.enable_facebook_connect'))
 						if (is_array($aUserInfo))
 						{
 							$aVals['full_name'] = $aUserInfo['name'];
+
+							if (isset($aUserInfo['first_name']))
+							{
+								$aVals['first_name'] = $aUserInfo['first_name'];
+							}
+							if (isset($aUserInfo['last_name']))
+							{
+								$aVals['last_name'] = $aUserInfo['last_name'];
+							}
 							
 							if (empty($aVals['full_name']))
 							{

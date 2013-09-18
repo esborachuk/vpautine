@@ -5,7 +5,7 @@
  * @copyright		[PHPFOX_COPYRIGHT]
  * @author  		Raymond Benc
  * @package  		Module_User
- * @version 		$Id: login-header.html.php 4253 2012-06-12 14:08:00Z Miguel_Espinoza $
+ * @version 		$Id: login-header.html.php 4774 2012-09-26 14:47:07Z Miguel_Espinoza $
  */
  
 defined('PHPFOX') or exit('NO DICE!'); 
@@ -38,33 +38,22 @@ defined('PHPFOX') or exit('NO DICE!');
 										</form>
 									{if isset($bCustomLogin)}
 									</div>									
-									<div id="header_menu_login_custom">										
-										{phrase var='user.or_login_with'}:										
-										{if Phpfox::isModule('facebook') && Phpfox::getParam('facebook.enable_facebook_connect')}
-										<div class="header_login_block">
-											<fb:login-button scope="publish_stream,email,user_birthday" v="2"></fb:login-button>
-										</div>
-										{/if}
-										{if Phpfox::isModule('janrain') && Phpfox::getParam('janrain.enable_janrain_login')}
-										<div class="header_login_block">
-											<a class="rpxnow" onclick="return false;" href="{$sJanrainUrl}">{img theme='layout/janrain-icons.png'}</a>
-										</div>
+									<div id="header_menu_login_custom">
+										{if !Phpfox::getParam('user.force_user_to_upload_on_sign_up')}
+											{phrase var='user.or_login_with'}:										
+											{if Phpfox::isModule('facebook') && Phpfox::getParam('facebook.enable_facebook_connect')}
+											<div class="header_login_block">
+												<fb:login-button scope="publish_stream,email,user_birthday" v="2"></fb:login-button>
+											</div>
+											{/if}
+											{if Phpfox::isModule('janrain') && Phpfox::getParam('janrain.enable_janrain_login')}
+											<div class="header_login_block">
+												<a class="rpxnow" onclick="return false;" href="{$sJanrainUrl}">{img theme='layout/janrain-icons.png'}</a>
+											</div>
+											{/if}
 										{/if}
 										{plugin call='user.template.login_header_custom'}
 									</div>
 									{/if}
-								</div>
-								<script type="text/javascript">
-								{literal}
-									
-										$Behavior.focusOnLogin = function()
-										{
-											if (window.location.href.indexOf('user/browse') < 0 )
-											{
-												$('.header_menu_login_input:first').focus();
-											}
-										}
-									
-								{/literal}
-								</script>
+								</div>								
 								{/if}

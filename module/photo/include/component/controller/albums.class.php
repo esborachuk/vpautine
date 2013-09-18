@@ -11,7 +11,7 @@ defined('PHPFOX') or exit('NO DICE!');
  * @copyright		[PHPFOX_COPYRIGHT]
  * @author  		Raymond_Benc
  * @package 		Phpfox_Component
- * @version 		$Id: albums.class.php 4562 2012-07-23 14:16:07Z Miguel_Espinoza $
+ * @version 		$Id: albums.class.php 5138 2013-01-15 09:10:05Z Miguel_Espinoza $
  */
 class Photo_Component_Controller_Albums extends Phpfox_Component
 {
@@ -21,7 +21,14 @@ class Photo_Component_Controller_Albums extends Phpfox_Component
 	public function process()
 	{
 		Phpfox::getUserParam('photo.can_view_photos', true);
-		
+		if (defined('PHPFOX_IS_USER_PROFILE') /*&& Phpfox::getParam('profile.display_submenu_for_photo') != true*/)
+		{
+		    $this->template()->assign(array('bSpecialMenu' => true));
+		}
+		else
+		{		    
+		    $this->template()->assign(array('bSpecialMenu' => false));
+		}
 		$aParentModule = $this->getParam('aParentModule');	
 		
 		if ($iDeleteId = $this->request()->getInt('delete'))
@@ -86,11 +93,11 @@ class Photo_Component_Controller_Albums extends Phpfox_Component
 			{
 				Phpfox::isUser(true);
 				
-				$this->search()->setCondition('AND pa.user_id = ' . Phpfox::getUserId());
+				$this->search()->setCondition('AND pa.user_id = ' . Phpfox::getUserId() . ' AND pa.profile_id = 0');
 			}
 			else
 			{
-				$this->search()->setCondition('AND pa.view_id = 0 AND pa.privacy IN(%PRIVACY%) AND pa.total_photo > 0');
+				$this->search()->setCondition('AND pa.view_id = 0 AND pa.privacy IN(%PRIVACY%) AND pa.total_photo > 0 AND pa.profile_id = 0');
 			}
 		}	
 		
@@ -127,9 +134,15 @@ class Photo_Component_Controller_Albums extends Phpfox_Component
 		}
 		Phpfox::getLib('pager')->set($aPager);
 		
+		if (Phpfox::getParam('photo.show_info_on_mouseover') && isset($aUser['use_timeline']) && $aUser['use_timeline'])
+		{
+		    $this->template()->setFullSite();
+		}
+		
 		$this->template()->setTitle(Phpfox::getPhrase('photo.photo_albums'))
 			->setHeader(array(
-					'pager.css' => 'style_css'
+					'pager.css' => 'style_css',
+					'albums.css' => 'module_photo'
 				)
 			)
 			->setBreadcrumb(Phpfox::getPhrase('photo.photos'), $this->url()->makeUrl('photo'))

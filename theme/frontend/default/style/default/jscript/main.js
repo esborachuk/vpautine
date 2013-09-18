@@ -3,6 +3,8 @@ var $aMailOldHistory = {};
 var $aNotificationOldHistory = {};
 var $bNoCloseNotify = false;
 var bCloseShareHolder = true;
+var bCloseChangeCover = true;
+var bCloseViewMoreFeed = true;
 
 $Behavior.globalThemeInit = function()
 {	
@@ -19,6 +21,10 @@ $Behavior.globalThemeInit = function()
 	$('.feed_share_on_item a').click(function()
 	{
 		bCloseShareHolder = false;		
+	});
+	
+	$('#js_change_cover_photo').click(function(){
+		bCloseChangeCover = false;
 	});
 	
 	// body clicks
@@ -57,7 +63,38 @@ $Behavior.globalThemeInit = function()
 		$('.moderation_holder ul').hide();
 		
 		$('#header_sub_menu_search_input').parent().find('.js_temp_friend_search_form:first').hide();		
+		
+		$('.feed_sort_holder').hide();
+		
+		if (bCloseChangeCover){
+			$('#cover_section_menu_drop').hide();
+		}
+		
+		if (bCloseViewMoreFeed){
+			$('.view_more_drop').hide();
+		}
+		
+		bCloseChangeCover = true;
+		bCloseViewMoreFeed = true;
 	});		
+	
+	$('.feed_sort_order_link').click(function(){
+		
+		$('.feed_sort_holder').toggle();
+		
+		return false;
+	});
+	
+	$('.feed_sort_holder ul li a').click(function(){
+		
+		$('.feed_sort_holder ul li a').removeClass('active');
+		$('.feed_sort_holder ul li a').removeClass('process');
+		$(this).addClass('active');
+		$(this).addClass('process');		
+		$.ajaxCall('user.updateFeedSort', 'order=' + $(this).attr('rel'));
+		
+		return false;
+	});
 	
 	$('.activity_feed_share_this_one_link').click(function(){
 		
@@ -182,7 +219,10 @@ $Behavior.globalThemeInit = function()
 		}
 		else
 		{
-			$('#content').addClass('content4');
+			if (typeof oParams['keepContent4'] == 'undefined' || oParams['keepContent4'] == true)
+			{
+				$('#content').addClass('content4');
+			}
 			$('#content').removeClass('content2');
 			$('#content').removeClass('content3');
 		}
@@ -213,6 +253,12 @@ $Behavior.globalThemeInit = function()
    $('#header_sub_menu_search_input').before('<div id="header_sub_menu_search_input_value" style="display:none;">' + $('#header_sub_menu_search_input').val() + '</div>');
 
 	$('#header_sub_menu_search_input').focus(function(){		
+		if (getParam('bJsIsMobile')){
+			$(this).parent().find('#header_sub_menu_search_input').addClass('focus');
+			$(this).val('');
+			return;
+		}
+		
 		$(this).parent().find('#header_sub_menu_search_input').addClass('focus');
 		if ($(this).val() == $('#header_sub_menu_search_input_value').html()){
 			$(this).val('');
@@ -244,7 +290,7 @@ $Behavior.globalThemeInit = function()
 	* Global section search tool
 	* ###############################
 	*/	
-	$('.header_bar_search input').focus(function()
+	$('.header_bar_search .txt_input').focus(function()
 	{
 		$(this).parent().find('.header_bar_search_input').addClass('focus');
 		$(this).addClass('input_focus');
@@ -253,9 +299,7 @@ $Behavior.globalThemeInit = function()
 		{
 			$(this).val('');			
 		}
-	});
-	
-	$('.header_bar_search input').blur(function()
+	}).blur(function()
 	{
 		$(this).parent().find('.header_bar_search_input').removeClass('focus');
 		

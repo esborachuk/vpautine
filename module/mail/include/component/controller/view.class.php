@@ -11,7 +11,7 @@ defined('PHPFOX') or exit('NO DICE!');
  * @copyright		[PHPFOX_COPYRIGHT]
  * @author  		Raymond Benc
  * @package  		Module_Mail
- * @version 		$Id: view.class.php 4406 2012-06-27 16:57:19Z Raymond_Benc $
+ * @version 		$Id: view.class.php 4937 2012-10-23 07:55:25Z Raymond_Benc $
  */
 class Mail_Component_Controller_View extends Phpfox_Component
 {
@@ -28,7 +28,7 @@ class Mail_Component_Controller_View extends Phpfox_Component
 		if (empty($iId))
 		{
 			$iId = $this->request()->get('req3');
-		}
+		}		
 			
 		$oParseOutput = Phpfox::getLib('parse.output');
 		$oMail = Phpfox::getService('mail');	
@@ -137,6 +137,7 @@ class Mail_Component_Controller_View extends Phpfox_Component
 				{
 					$sFolder = Phpfox::getPhrase('mail.trash');
 					$bIsTrash = true;
+					$bIsActualTrash = true;					
 					$sLink = $this->url()->makeUrl('mail', array('view' => 'trash'));
 				}
 				elseif ($aMail['owner_type_id'] == 3)
@@ -159,7 +160,7 @@ class Mail_Component_Controller_View extends Phpfox_Component
 			}
 		}
 		
-		if ($bIsSentbox)
+		if ($bIsSentbox && !isset($bIsActualTrash))
 		{
 			$this->request()->set('view', 'sent');
 		}
@@ -184,11 +185,14 @@ class Mail_Component_Controller_View extends Phpfox_Component
 				)
 			);
 		}
+		
+
+		$this->template()->setBreadcrumb(Phpfox::getPhrase('mail.mail'), $this->url()->makeUrl('mail'));					
 
 		Phpfox::getService('mail')->buildMenu();
 		
-		$this->template()->setBreadcrumb(Phpfox::getPhrase('mail.mail'), $this->url()->makeUrl('mail'))
-			->setBreadcrumb($oParseOutput->split($sTitle, 50), $this->url()->makeUrl('mail.view', array('id' => $aMail['mail_id'])), true)
+		$this->template()
+			->setBreadcrumb($oParseOutput->split($sTitle, 50), $this->url()->makeUrl('mail.view', array('id' => $aMail['mail_id'])), true)	
 			->setTitle(Phpfox::getPhrase('mail.message') . ': ' . $sTitle)
 			->setPhrase(array(
 					'mail.add_new_folder',
@@ -208,8 +212,8 @@ class Mail_Component_Controller_View extends Phpfox_Component
 				'sCreateJs' => $oValid->createJS(),
 				'sGetJsForm' => $oValid->getJsForm(),
 				'aMail' => $aMail,				
-				'iPrevId' => $oMail->getPrev($aMail['time_updated'],$bIsSentbox),
-				'iNextId' => $oMail->getNext($aMail['time_updated'],$bIsSentbox),
+				'iPrevId' => $oMail->getPrev($aMail['time_updated'], $bIsSentbox, $bIsTrash),
+				'iNextId' => $oMail->getNext($aMail['time_updated'], $bIsSentbox, $bIsTrash),
 				'sSite' => Phpfox::getParam('core.site_title')
 			)
 		); 

@@ -5,7 +5,7 @@
  * @copyright		[PHPFOX_COPYRIGHT]
  * @author  		Raymond Benc
  * @package  		Module_Friend
- * @version 		$Id: small.html.php 3990 2012-03-09 15:28:08Z Raymond_Benc $
+ * @version 		$Id: small.html.php 4856 2012-10-09 05:58:26Z Raymond_Benc $
  */
  
 defined('PHPFOX') or exit('NO DICE!'); 
@@ -18,7 +18,7 @@ defined('PHPFOX') or exit('NO DICE!');
 			{img user=$aFriend suffix='_50_square' max_width=50 max_height=50}
 		</div>
 		<div class="block_listing_title" style="padding-left:56px;">
-			{$aFriend|user:'':'':40|split:10}
+			{$aFriend|user:'':'':40}
 		</div>
 		<div class="clear"></div>
 	</li>

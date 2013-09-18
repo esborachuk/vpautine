@@ -11,7 +11,7 @@ defined('PHPFOX') or exit('NO DICE!');
  * @copyright		[PHPFOX_COPYRIGHT]
  * @author  		Raymond Benc
  * @package  		Module_Music
- * @version 		$Id: callback.class.php 4551 2012-07-23 08:34:47Z Raymond_Benc $
+ * @version 		$Id: callback.class.php 5255 2013-01-29 14:01:19Z Miguel_Espinoza $
  */
 class Music_Service_Callback extends Phpfox_Service 
 {
@@ -164,7 +164,7 @@ class Music_Service_Callback extends Phpfox_Service
 	
 	public function getCommentItemSong($iId)
 	{
-		$aRow = $this->database()->select('song_id AS comment_item_id, user_id AS comment_user_id')
+		$aRow = $this->database()->select('song_id AS comment_item_id, user_id AS comment_user_id, module_id AS parent_module_id')
 			->from(Phpfox::getT('music_song'))
 			->where('song_id = ' . (int) $iId)
 			->execute('getSlaveRow');
@@ -298,7 +298,7 @@ Phpfox::getPhrase('music.full_name_commented_on_other_full_names_song',array('fu
 	
 	public function getCommentItemAlbum($iId)
 	{
-		$aRow = $this->database()->select('album_id AS comment_item_id, user_id AS comment_user_id')
+		$aRow = $this->database()->select('album_id AS comment_item_id, user_id AS comment_user_id, module_id AS parent_module_id')
 			->from(Phpfox::getT('music_album'))
 			->where('album_id = ' . (int) $iId)
 			->execute('getSlaveRow');
@@ -1041,12 +1041,11 @@ Phpfox::getPhrase('music.full_name_commented_on_other_full_name_s_album_a_href_l
 	
 	public function getActivityFeedSong($aItem, $bIsAlbum = false, $bIsChildItem = false)
 	{				
-		if ($bIsAlbum)
-		{
-			$this->database()->select('ma.name AS album_name, ma.album_id, u.gender, ')
-				->leftJoin(Phpfox::getT('music_album'), 'ma', 'ma.album_id = ms.album_id')
-				->leftJoin(Phpfox::getT('user'), 'u', 'u.user_id = ma.user_id');
-		}
+		$bIsAlbum = false;
+		
+		$this->database()->select('ma.name AS album_name, ma.album_id, u.gender, ')
+			->leftJoin(Phpfox::getT('music_album'), 'ma', 'ma.album_id = ms.album_id')
+			->leftJoin(Phpfox::getT('user'), 'u', 'u.user_id = ma.user_id');
 		
 		$this->database()->select('mp.play_id AS is_on_profile, ')->leftJoin(Phpfox::getT('music_profile'), 'mp', 'mp.song_id = ms.song_id AND mp.user_id = ' . Phpfox::getUserId());
 		
@@ -1078,16 +1077,17 @@ Phpfox::getPhrase('music.full_name_commented_on_other_full_name_s_album_a_href_l
 			return false;
 		}			
 		
-		if ($bIsAlbum && empty($aRow['album_name']))
+		$bShowAlbumTitle = false;
+		if (!empty($aRow['album_name']))
 		{
-			$bIsAlbum = false;	
+			$bShowAlbumTitle = true;	
 		}
 		
 		$iTitleLength = (Phpfox::isModule('notification') ? (Phpfox::isModule('notification') ? Phpfox::getParam('notification.total_notification_title_length') : $this->_iFallbackLength ) : 50);
 		$aReturn = array(
 			'feed_title' => Phpfox::getLib('parse.output')->shorten($aRow['title'], $iTitleLength, '...'),
 			'feed_status' => $aRow['description'],
-			'feed_info' => ($bIsAlbum ? Phpfox::getPhrase('feed.shared_a_song_from_gender_album_a_href_album_link_album_name_a', array('gender' => Phpfox::getService('user')->gender($aRow['gender'], 1), 'album_link' => Phpfox::getLib('url')->permalink('music.album', $aRow['album_id'], $aRow['album_name']), 'album_name' => Phpfox::getLib('parse.output')->shorten($aRow['album_name'], (Phpfox::isModule('notification') ? Phpfox::getParam('notification.total_notification_title_length') : $this->_iFallbackLength ), '...'))) : Phpfox::getPhrase('feed.shared_a_song')),
+			'feed_info' => ($bShowAlbumTitle ? Phpfox::getPhrase('feed.shared_a_song_from_gender_album_a_href_album_link_album_name_a', array('gender' => Phpfox::getService('user')->gender($aRow['gender'], 1), 'album_link' => Phpfox::getLib('url')->permalink('music.album', $aRow['album_id'], $aRow['album_name']), 'album_name' => Phpfox::getLib('parse.output')->shorten($aRow['album_name'], (Phpfox::isModule('notification') ? Phpfox::getParam('notification.total_notification_title_length') : $this->_iFallbackLength ), '...'))) : Phpfox::getPhrase('feed.shared_a_song')),
 			'feed_link' => Phpfox::permalink('music', $aRow['song_id'], $aRow['title']),
 			'feed_content' => ($aRow['total_play'] > 1 ? $aRow['total_play'] . ' ' . Phpfox::getPhrase('music.plays_lowercase') : Phpfox::getPhrase('music.1_play')),
 			'total_comment' => $aRow['total_comment'],
@@ -1096,7 +1096,7 @@ Phpfox::getPhrase('music.full_name_commented_on_other_full_name_s_album_a_href_l
 			'feed_icon' => Phpfox::getLib('image.helper')->display(array('theme' => 'module/music.png', 'return_url' => true)),
 			'time_stamp' => $aRow['time_stamp'],			
 			'enable_like' => true,			
-			'comment_type_id' => 'music_song',
+			'comment_type_id' => ($bIsAlbum ? 'music_album' : 'music_song'),
 			'like_type_id' => 'music_song',
 			'feed_custom_width' => '38px',
 			'song' => array(
@@ -1107,7 +1107,8 @@ Phpfox::getPhrase('music.full_name_commented_on_other_full_name_s_album_a_href_l
 			)
 		);
 
-		if (!$bIsChildItem)
+		
+		if (!$bIsChildItem || (isset($aItem['feed_id']) && $aItem['feed_id'] > 0))
 		{
 			$aReturn['feed_image'] = Phpfox::getLib('image.helper')->display(array(
 					'theme' => 'misc/play_button.png',
@@ -1526,6 +1527,35 @@ Phpfox::getPhrase('music.full_name_commented_on_other_full_name_s_album_a_href_l
 			'link' => Phpfox::getLib('url')->permalink('music.album', $aRow['album_id'], $aRow['name']) . 'comment_' .$aNotification['item_id'],
 			'message' => $sPhrase,
 			'icon' => Phpfox::getLib('template')->getStyle('image', 'activity.png', 'blog')
+		);
+	}
+	
+	public function getActions()
+	{
+		return array(
+			'dislike' => array(
+				'enabled' => true,
+				'action_type_id' => 2, // 2 = dislike
+				'phrase' => 'Dislike',
+				'item_type_id' => 'music-song', // used to differentiate between photo albums and photos for example.
+				'phrase_in_past_tense' => 'disliked',
+				'table' => 'music_song',
+				'item_phrase' => Phpfox::getPhrase('music.item_phrase_song'),
+				'column_update' => 'total_dislike',
+				'column_find' => 'song_id',
+				'where_to_show' => array('music', 'music_song')
+				),
+			'dislike-on-main-page' => array(
+				'enabled' => true,
+				'action_type_id' => 2, // 2 = dislike
+				'phrase' => 'Dislike',
+				'item_type_id' => 'music-album', // used to differentiate between photo albums and photos for example. This checks the url
+				'phrase_in_past_tense' => 'disliked',
+				'table' => 'music_album',
+				'item_phrase' => Phpfox::getPhrase('music.item_phrase_album'),
+				'column_update' => 'total_dislike',
+				'column_find' => 'album_id'				
+				)
 		);
 	}
 	

@@ -1,0 +1,44 @@
+<phrases>
+	<phrase module_id="contact" version_id="2.0.0alpha1" var_name="module_contact" added="1232965280">Контакт</phrase>
+	<phrase module_id="contact" version_id="2.0.0alpha1" var_name="menu_contact" added="1232965307">Написать нам</phrase>
+	<phrase module_id="contact" version_id="2.0.0alpha1" var_name="admin_menu_categories" added="1233309828">Категории</phrase>
+	<phrase module_id="contact" version_id="2.0.0alpha1" var_name="category_succesfully_added" added="1233665594">Категория успешно добавлена</phrase>
+	<phrase module_id="contact" version_id="2.0.0alpha1" var_name="category_could_not_be_added" added="1233665700">Категория не была добавлена из-за ошибки</phrase>
+	<phrase module_id="contact" version_id="2.0.0alpha1" var_name="categories_successfully_deleted" added="1233668042">Категории успешно удалены</phrase>
+	<phrase module_id="contact" version_id="2.0.0alpha1" var_name="edit" added="1233669367">Редактировать</phrase>
+	<phrase module_id="contact" version_id="2.0.0alpha1" var_name="categories_successfully_edited" added="1233672243">Категории успешно отредактированы</phrase>
+	<phrase module_id="contact" version_id="2.0.0alpha1" var_name="setting_contact_enable_captcha" added="1233747823"><![CDATA[<title>Разрешить Captcha-проверку для Контакта</title><info>Если опция включена, при попытке пользователей связаться с вами через модуль «Контактировать с Нами», они должны будут пройти captcha-проверку перед добавлением своего сообщения.</info>]]></phrase>
+	<phrase module_id="contact" version_id="2.0.0alpha1" var_name="setting_is_email_required" added="1233749051"><![CDATA[<title>Требовать e-mail</title><info>Если опция включена, для отправки своего сообщения пользователи должны будут ввести корректный e-mail.</info>]]></phrase>
+	<phrase module_id="contact" version_id="2.0.0alpha1" var_name="setting_allow_html_in_contact" added="1236190859"><![CDATA[<title>Разрешить html в форме контакта</title><info>Эта настройка задает, будет ли сайт разрешать HTML в форме контакта.</info>]]></phrase>
+	<phrase module_id="contact" version_id="2.0.0alpha2" var_name="setting_contact_staff_emails" added="1237535242"><![CDATA[<title>E-mailы Персонала</title><info>Список адресов электронной почты, разделённых при помощи запятых, на которые будет выслано сообщение при использовании формы "Контактировать с Нами".</info>]]></phrase>
+	<phrase module_id="contact" version_id="2.0.0rc2" var_name="categories" added="1253022948">Категории</phrase>
+	<phrase module_id="contact" version_id="2.0.0rc2" var_name="fill_in_some_text_for_your_message" added="1253022992">Введите текст вашего сообщения.</phrase>
+	<phrase module_id="contact" version_id="2.0.0rc2" var_name="you_need_to_choose_a_category" added="1253023004">Вам нужно выбрать категорию.</phrase>
+	<phrase module_id="contact" version_id="2.0.0rc2" var_name="provide_a_subject" added="1253023017">Укажите тему.</phrase>
+	<phrase module_id="contact" version_id="2.0.0rc2" var_name="provide_your_full_name" added="1253023027">Укажите ваше Имя и Фамилию.</phrase>
+	<phrase module_id="contact" version_id="2.0.0rc2" var_name="provide_a_valid_email" added="1253023050">Укажите корректный e-mail.</phrase>
+	<phrase module_id="contact" version_id="2.0.0rc2" var_name="your_message_was_successfully_sent" added="1253023065">Ваше сообщение успешно отослано.</phrase>
+	<phrase module_id="contact" version_id="2.0.0rc2" var_name="contact_us" added="1253082677">Контактировать с Нами</phrase>
+	<phrase module_id="contact" version_id="2.0.0rc2" var_name="add_a_new_category" added="1253082767">Добавить Новую Категорию</phrase>
+	<phrase module_id="contact" version_id="2.0.0rc2" var_name="category" added="1253082775">Категория</phrase>
+	<phrase module_id="contact" version_id="2.0.0rc2" var_name="add" added="1253082784">Добавить</phrase>
+	<phrase module_id="contact" version_id="2.0.0rc2" var_name="manage_categories" added="1253082798">Управление Категориями</phrase>
+	<phrase module_id="contact" version_id="2.0.0rc2" var_name="order" added="1253082808">Порядок</phrase>
+	<phrase module_id="contact" version_id="2.0.0rc2" var_name="select" added="1253082841">Выбрать</phrase>
+	<phrase module_id="contact" version_id="2.0.0rc2" var_name="full_name" added="1253082855">Имя и Фамилия</phrase>
+	<phrase module_id="contact" version_id="2.0.0rc2" var_name="subject" added="1253082865">Тема</phrase>
+	<phrase module_id="contact" version_id="2.0.0rc2" var_name="email" added="1253082875">E-mail</phrase>
+	<phrase module_id="contact" version_id="2.0.0rc2" var_name="website" added="1253082883">Веб-сайт</phrase>
+	<phrase module_id="contact" version_id="2.0.0rc2" var_name="message" added="1253083188">Сообщение</phrase>
+	<phrase module_id="contact" version_id="2.0.0rc2" var_name="submit" added="1253083201">Добавить</phrase>
+	<phrase module_id="contact" version_id="2.0.0rc11" var_name="send_yourself_a_copy" added="1260370608">Послать Себе Копию</phrase>
+	<phrase module_id="contact" version_id="2.0.0rc11" var_name="user_id" added="1260371359">ID# пользователя</phrase>
+	<phrase module_id="contact" version_id="2.0.0rc11" var_name="profile" added="1260371389">Профиль</phrase>
+	<phrase module_id="contact" version_id="2.0.0rc12" var_name="currently_unavailable" added="1260794762">В настоящее время недоступен</phrase>
+	<phrase module_id="contact" version_id="2.0.3" var_name="delete_selected" added="1264424410">Удалить Выбранное</phrase>
+	<phrase module_id="contact" version_id="2.0.8" var_name="setting_enable_auto_responder" added="1297760186"><![CDATA[<title>Включить автоответчик</title><info>Когда этот параметр включён сообщение будет отправлено на электронную почту пользователя, который отправляет сообщение.</info>]]></phrase>
+	<phrase module_id="contact" version_id="2.0.8" var_name="auto_responder_subject" added="1297760326">Благодарим Вас за обращение к нам</phrase>
+	<phrase module_id="contact" version_id="2.0.8" var_name="setting_auto_responder_subject" added="1297761617"><![CDATA[<title>Автоответчик Тема</title><info>Это фраза, которая будет использоваться при отправке сообщений для автоматического ответа. Вы можете изменить текст здесь или в меню языков. По умолчанию фраза contact.auto_responder_subject</info>]]></phrase>
+	<phrase module_id="contact" version_id="2.0.8" var_name="auto_responder_message" added="1297761926">Мы получили Ваше сообщение и ответим Вам в кратчайшие сроки.  Приятного дня</phrase>
+	<phrase module_id="contact" version_id="2.0.8" var_name="setting_auto_responder_message" added="1297761991"><![CDATA[<title>Автоответчик сообщение</title><info>Это фраза, которая будет использоваться при отправке сообщений автоматического ответа. Вы можете изменить текст здесь или в меню языков. По умолчанию фраза contact.auto_responder_message</info>]]></phrase>
+</phrases>

@@ -11,7 +11,7 @@ defined('PHPFOX') or exit('NO DICE!');
  * @copyright		[PHPFOX_COPYRIGHT]
  * @author  		Raymond Benc
  * @package  		Module_Friend
- * @version 		$Id: list.class.php 4500 2012-07-11 13:05:52Z Miguel_Espinoza $
+ * @version 		$Id: list.class.php 5074 2012-12-06 10:37:26Z Raymond_Benc $
  */
 class Friend_Service_List_List extends Phpfox_Service 
 {
@@ -78,9 +78,9 @@ class Friend_Service_List_List extends Phpfox_Service
 			return $aRows;
 		}
 		
-		$aRows = $this->database()->select('fl.list_id, fl.name, COUNT(f.friend_id) AS used')
+		$aRows = $this->database()->select('fl.list_id, fl.name, COUNT(fld.friend_user_id) AS used')
 			->from($this->_sTable, 'fl')	
-			->leftJoin(Phpfox::getT('friend'), 'f', 'f.list_id = fl.list_id AND f.user_id = fl.user_id')
+			->leftJoin(Phpfox::getT('friend_list_data'), 'fld', 'fld.list_id = fl.list_id')
 			->where('fl.user_id = ' . (int) Phpfox::getUserId())
 			->group('fl.list_id')
 			->order('fl.name ASC')
@@ -91,7 +91,11 @@ class Friend_Service_List_List extends Phpfox_Service
 	
 	public function getUsersInAnyList()
 	{
-		Phpfox::isUser(true);
+		if (!Phpfox::isUser())
+		{
+			return array();
+		}		
+		
 		$aLists = $this->database()->select('list_id')->from($this->_sTable)->where('user_id = ' . Phpfox::getUserId())->execute('getSlaveRows');
 		if (empty($aLists))
 		{
@@ -104,7 +108,7 @@ class Friend_Service_List_List extends Phpfox_Service
 			$sIn .= $aList['list_id'] .',';
 		}
 		$sIn = rtrim($sIn, ',') .')';
-		$Users = $this->database()->select('friend_user_id')
+		$aUsers = $this->database()->select('friend_user_id')
 			->from(Phpfox::getT('friend_list_data'))
 			->group('friend_user_id')
 			->where('list_id IN ' . $sIn)
@@ -152,11 +156,13 @@ class Friend_Service_List_List extends Phpfox_Service
 		{
 			$aList['friends_total'] = $this->database()->select('COUNT(*)')
 				->from(Phpfox::getT('friend_list_data'), 'fld')
+				->join(Phpfox::getT('friend'), 'f', 'f.user_id = ' . (int) $iProfileId . ' AND f.friend_user_id = fld.friend_user_id')
 				->where('fld.list_id = ' . (int) $aList['list_id'])
 				->execute('getSlaveField');			
 			
 			$aList['friends'] = $this->database()->select(Phpfox::getUserField())
 				->from(Phpfox::getT('friend_list_data'), 'fld')
+				->join(Phpfox::getT('friend'), 'f', 'f.user_id = ' . (int) $iProfileId . ' AND f.friend_user_id = fld.friend_user_id')
 				->join(Phpfox::getT('user'), 'u', 'u.user_id = fld.friend_user_id')
 				->where('fld.list_id = ' . (int) $aList['list_id'])
 				->limit(5)

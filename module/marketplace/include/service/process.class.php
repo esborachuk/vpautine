@@ -11,7 +11,7 @@ defined('PHPFOX') or exit('NO DICE!');
  * @copyright		[PHPFOX_COPYRIGHT]
  * @author  		Raymond Benc
  * @package 		Phpfox_Service
- * @version 		$Id: process.class.php 4143 2012-05-02 09:56:53Z Miguel_Espinoza $
+ * @version 		$Id: process.class.php 5106 2013-01-08 13:02:25Z Raymond_Benc $
  */
 class Marketplace_Service_Process extends Phpfox_Service 
 {
@@ -68,6 +68,17 @@ class Marketplace_Service_Process extends Phpfox_Service
 		);
 		
 		$iId = $this->database()->insert($this->_sTable, $aSql);
+		
+		if (Phpfox::isModule('input'))
+		{
+			// This is how we add the values to the Inputs
+			Phpfox::getService('input.process')->addValue(array(
+				'module' => 'marketplace',
+				'action' => 'add-listing',
+				'item_id' => $iId,
+				'aVals' => $aVals
+			));
+		}		
 		
 		(($sPlugin = Phpfox_Plugin::get('marketplace.service_process_add')) ? eval($sPlugin) : false);
 		
@@ -149,6 +160,17 @@ class Marketplace_Service_Process extends Phpfox_Service
 		}		
 		
 		$this->database()->update($this->_sTable, $aSql, 'listing_id = ' . (int) $iId);
+
+		if (Phpfox::isModule('input'))
+		{
+			$bAdded = Phpfox::getService('input.process')->addValue(array(
+				'item_id' => $iId, // marketplace_id
+				'module' => 'marketplace', 
+				'action' => 'add-listing', 
+				'aVals' => $aVals
+			));
+			
+		}
 		
 		$this->database()->update(Phpfox::getT('marketplace_text'), array(				
 				'description' => (empty($aVals['description']) ? null : $oParseInput->clean($aVals['description'])),
@@ -414,7 +436,7 @@ class Marketplace_Service_Process extends Phpfox_Service
 				{
 					$iFileSizes += filesize($sImage);
 					
-					@unlink($sImage);
+					Phpfox::getLib('file')->unlink($sImage);
 				}
 			}
 			
@@ -437,6 +459,12 @@ class Marketplace_Service_Process extends Phpfox_Service
 		Phpfox::getService('user.activity')->update($aListing['user_id'], 'marketplace', '-');
 		
 		$this->cache()->remove('marketplace_sponsored');
+		Phpfox::massCallback('deleteItem', array(
+			'sModule' => 'marketplace',
+			'sTable' => Phpfox::getT('marketplace'),
+			'iItemId' => $iId
+		));
+
 		
 		(($sPlugin = Phpfox_Plugin::get('marketplace.service_process_delete__1')) ? eval($sPlugin) : false);
 		return true;
@@ -500,11 +528,17 @@ class Marketplace_Service_Process extends Phpfox_Service
 		foreach ($aSizes as $iSize)
 		{
 			$sImage = Phpfox::getParam('marketplace.dir_image') . sprintf($aListing['image_path'], (empty($iSize) ? '' : '_' ) . $iSize);
+			$sImageSquare = Phpfox::getParam('marketplace.dir_image') . sprintf($aListing['image_path'], (empty($iSize) ? '' : '_' ) . $iSize . '_square');
 			if (file_exists($sImage))
 			{
 				$iFileSizes += filesize($sImage);
 				
-				@unlink($sImage);
+				Phpfox::getLib('file')->unlink($sImage);
+				
+			}
+			if (file_exists($sImageSquare))
+			{
+				Phpfox::getLib('file')->unlink($sImageSquare);
 			}
 		}
 		
@@ -615,6 +649,61 @@ class Marketplace_Service_Process extends Phpfox_Service
 		return $iInvoiceId;	
 	}
 		
+		
+	public function sendExpireNotifications()
+	{
+		if (Phpfox::getParam('marketplace.days_to_expire_listing') < 1)
+		{
+			return true;
+		}
+		// Lets use caching to make sure we dont check too often
+		$sCacheId = $this->cache()->set('marketplace_notify_expired');
+		if (!($bCheck = $this->cache()->get($sCacheId, 86400)))
+		{
+			$iDaysToExpireSinceAdded = (Phpfox::getParam('marketplace.days_to_expire_listing') * 86400);
+			$iExpireDaysInSeconds = (Phpfox::getParam('marketplace.days_to_notify_expire') * 86400);
+			$iAddedAt = 'm.time_stamp';
+			/* We should notify them when it is 
+			 * 
+			 * I added the listing today at 13:00 and I set it to expire in 2 days and to notify in 1 day.
+			 * Right now it is 13:05, it should not send a notification
+			 * Right now it is 1 day and 2 minutes, it has not sent a notification, it should send a notification
+			 * */
+			// Get the listings to notify
+			$aNotify = $this->database()->select('m.listing_id, m.title, u.full_name, u.email, m.user_id')
+				->from(Phpfox::getT('marketplace'), 'm')
+				->join(Phpfox::getT('user'), 'u', 'u.user_id = m.user_id')
+				->where('(m.is_notified = 0) AND ((m.time_stamp + ' . $iExpireDaysInSeconds .') < ' . PHPFOX_TIME .') AND ((m.time_stamp + ' . $iDaysToExpireSinceAdded. ') <= ' . PHPFOX_TIME . ')')
+				->execute('getSlaveRows');
+			
+			if (!empty($aNotify))
+			{
+				$aUpdate = array();
+				foreach ($aNotify as $aRow)
+				{
+					Phpfox::getLib('mail')
+						->to($aRow['user_id'])
+						->sendToSelf(true)
+						->subject(array('marketplace.listing_expiring_subject', array(
+							'title' => $aRow['title'],
+							'site_title' => Phpfox::getParam('core.site_title'),
+							'days' => (Phpfox::getParam('marketplace.days_to_expire_listing') - Phpfox::getParam('marketplace.days_to_notify_expire'))
+							)))
+						->message(array('marketplace.listing_expiring_message', array(
+							'site_title' => Phpfox::getParam('core.site_title'), 
+							'link' => Phpfox::getLib('url')->permalink('marketplace', $aRow['listing_id'], $aRow['title']),
+							'days' => (Phpfox::getParam('marketplace.days_to_expire_listing') - Phpfox::getParam('marketplace.days_to_notify_expire'))
+							)))
+						->send();	
+						
+					$aUpdate[] = $aRow['listing_id'];
+				}
+				
+				$this->database()->update(Phpfox::getT('marketplace'), array('is_notified' => 1), 'listing_id IN ('. implode(',', $aUpdate).')');	
+			}					
+		}
+		
+	}
 	/**
 	 * If a call is made to an unknown method attempt to connect
 	 * it to a specific plug-in with the same name thus allowing 
@@ -671,6 +760,8 @@ class Marketplace_Service_Process extends Phpfox_Service
 		
 		foreach ($aVals['category'] as $iCategory)
 		{		
+			$iCategory = trim($iCategory);
+			
 			if (empty($iCategory))
 			{
 				continue;

@@ -51,16 +51,3 @@ else if (window.attachEvent)
 {
 	window.attachEvent("onload", initPage);
 }
-
-$(function()
-{
-	$('#header ul li').bgiframe();
-	if ($('#footer_bar_favorite').length > 0)
-	{
-		$('#footer_bar_favorite').bgiframe();
-	}
-	if ($('#footer_menu').length > 0)
-	{
-		$('#footer_menu').bgiframe();
-	}
-});

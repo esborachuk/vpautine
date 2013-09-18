@@ -4,14 +4,14 @@
  */
 
 defined('PHPFOX') or exit('NO DICE!');
-
+define('PHPFOX_IS_PAGES_ADD', true);
 /**
  * 
  * 
  * @copyright		[PHPFOX_COPYRIGHT]
  * @author  		Raymond_Benc
  * @package 		Phpfox_Component
- * @version 		$Id: add.class.php 3250 2011-10-07 12:45:48Z Raymond_Benc $
+ * @version 		$Id: add.class.php 5151 2013-01-17 11:32:57Z Miguel_Espinoza $
  */
 class Pages_Component_Controller_Add extends Phpfox_Component
 {
@@ -26,6 +26,8 @@ class Pages_Component_Controller_Add extends Phpfox_Component
 		Phpfox::getService('pages')->setIsInPage();
 		
 		$bIsEdit = false;
+		$bIsNewPage = $this->request()->getInt('new');
+		$sStep = $this->request()->get('req3');
 		if (($iEditId = $this->request()->getInt('id')) && ($aPage = Phpfox::getService('pages')->getForEdit($iEditId)))			
 		{
 			$bIsEdit = true;
@@ -33,7 +35,7 @@ class Pages_Component_Controller_Add extends Phpfox_Component
 			
 			$aMenus = array(
 				'detail' => Phpfox::getPhrase('pages.details'),
-				'info' => Phpfox::getPhrase('pages.information')
+				'info' => Phpfox::getPhrase('pages.information')				
 			);
 			
 			if (!$aPage['is_app'])
@@ -44,16 +46,34 @@ class Pages_Component_Controller_Add extends Phpfox_Component
 			if (Phpfox::isModule('friend'))
 			{
 				$aMenus['invite'] = Phpfox::getPhrase('pages.invite');
+			}			
+			if (!$bIsNewPage)
+			{
+				$aMenus['url'] = Phpfox::getPhrase('pages.url');
+				$aMenus['admins'] = Phpfox::getPhrase('pages.admins');
+				$aMenus['widget'] = Phpfox::getPhrase('pages.widgets');
 			}
-			$aMenus['url'] = Phpfox::getPhrase('pages.url');
-			$aMenus['admins'] = Phpfox::getPhrase('pages.admins');
-			$aMenus['widget'] = Phpfox::getPhrase('pages.widgets');			
+			
+			if ($bIsNewPage)
+			{
+				$iCnt = 0;
+				foreach ($aMenus as $sMenuName => $sMenuValue)
+				{
+					$iCnt++;
+					$aMenus[$sMenuName] = Phpfox::getPhrase('pages.step_count', array('count' => $iCnt)) . ': ' . $sMenuValue;
+				}
+			}
+			
+			if (Phpfox::getParam('core.google_api_key'))
+			{
+			    $aMenus['location'] = 'Location';
+			}
 			
 			$this->template()->buildPageMenu('js_pages_block', 
 				$aMenus,
 				array(
 					'link' => Phpfox::getService('pages')->getUrl($aPage['page_id'], $aPage['title'], $aPage['vanity_url']),
-					'phrase' => Phpfox::getPhrase('pages.view_this_page')
+					'phrase' => ($bIsNewPage ? Phpfox::getPhrase('pages.skip_view_this_page') : Phpfox::getPhrase('pages.view_this_page'))
 				)				
 			);					
 			
@@ -61,12 +81,53 @@ class Pages_Component_Controller_Add extends Phpfox_Component
 			{
 				if (Phpfox::getService('pages.process')->update($aPage['page_id'], $aVals, $aPage))
 				{
+					if ($bIsNewPage && $this->request()->getInt('action') == '1')
+					{
+						switch ($sStep)
+						{
+							case 'invite':
+								if (Phpfox::isModule('friend'))
+								{
+									$this->url()->send('pages.add.url', array('id' => $aPage['page_id'], 'new' => '1'));
+								}
+								break;							
+							case 'permissions':
+								$this->url()->send('pages.add.invite', array('id' => $aPage['page_id'], 'new' => '1'));
+								break;									
+							case 'photo':
+								$this->url()->send('pages.add.permissions', array('id' => $aPage['page_id'], 'new' => '1'));
+								break;						
+							case 'info':
+								$this->url()->send('pages.add.photo', array('id' => $aPage['page_id'], 'new' => '1'));
+								break;
+							default:
+								$this->url()->send('pages.add.info', array('id' => $aPage['page_id'], 'new' => '1'));
+								break;
+						}
+					}
+					
 					$aNewPage = Phpfox::getService('pages')->getForEdit($aPage['page_id']);
 					
 					$this->url()->forward(Phpfox::getService('pages')->getUrl($aNewPage['page_id'], $aNewPage['title'], $aNewPage['vanity_url']));
 				}
 			}
 		}		
+		
+		
+		if (Phpfox::getParam('core.google_api_key') != '' && $this->request()->get('id') != '')
+		{
+			$this->template()->setHeader(array(
+				'<script type="text/javascript">oParams["core.google_api_key"] = "'.Phpfox::getParam('core.google_api_key') .'";</script>',
+				'places.js' => 'module_pages',				
+			));
+			//d($aPage);
+			if (isset($aPage['location']) && ( (int)$aPage['location_latitude'] != 0 || (int)$aPage['location_longitude'] != 0))
+			{
+				$this->template()->setHeader(array(
+					'<script type="text/javascript">$Behavior.setLocation = function(){ $Core.PagesLocation.setLocation("'. $aPage['location_latitude'] .'","' . $aPage['location_longitude'] .'","'. $aPage['location']['name'] . '");};</script>'
+				));
+			}
+		}
 		
 		$this->template()->setTitle(($bIsEdit ? '' . Phpfox::getPhrase('pages.editing_page') . ': ' . $aPage['title']: Phpfox::getPhrase('pages.creating_a_page')))
 			->setBreadcrumb(Phpfox::getPhrase('pages.pages'), $this->url()->makeUrl('pages'))
@@ -90,7 +151,9 @@ class Pages_Component_Controller_Add extends Phpfox_Component
 					'aTypes' => Phpfox::getService('pages.type')->get(),
 					'bIsEdit' => $bIsEdit,
 					'iMaxFileSize' => Phpfox::getLib('phpfox.file')->filesize((Phpfox::getUserParam('pages.max_upload_size_pages') / 1024) * 1048576),
-					'aWidgetEdits' => Phpfox::getService('pages')->getWidgetsForEdit()
+					'aWidgetEdits' => Phpfox::getService('pages')->getWidgetsForEdit(),
+					'bIsNewPage' => $bIsNewPage,
+					'sStep' => $sStep
 				)
 			);
 	}

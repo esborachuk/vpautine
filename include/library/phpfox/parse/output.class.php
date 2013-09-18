@@ -17,7 +17,7 @@ defined('PHPFOX') or exit('NO DICE!');
  * @copyright		[PHPFOX_COPYRIGHT]
  * @author			Raymond Benc
  * @package 		Phpfox
- * @version 		$Id: output.class.php 4188 2012-05-31 09:37:56Z Miguel_Espinoza $
+ * @version 		$Id: output.class.php 5347 2013-02-13 10:04:41Z Miguel_Espinoza $
  */
 class Phpfox_Parse_Output
 {
@@ -141,6 +141,14 @@ class Phpfox_Parse_Output
 		
 		if (Phpfox::getParam('core.replace_url_with_links') || Phpfox::getParam('core.warn_on_external_links') || Phpfox::getParam('core.no_follow_on_external_links'))
 		{		
+            if (preg_match_all('#(<a\s*(?:href=[\'"]([^\'"]+)[\'"])?\s*(?:title=[\'"]([^\'"]+)[\'"])?.*?>((?:(?!</a>).)*)</a>)#i', $sTxt, $aMatches))
+            {
+                foreach ($aMatches[1] as $iKey => $sLink)
+                {
+                    $sNu = $this->_urlToLink(array(1 => '', 2 => $aMatches[2][$iKey]));
+                    $sTxt = str_replace($sLink, $sNu , $sTxt);
+                }
+            }
 			$sTxt = preg_replace_callback('#([\s>])([\w]+?://[\w\\x80-\\xff\#$%&~/.\-;:=,?@\[\]+]*)#is', array(&$this, '_urlToLink'), $sTxt);
 			$sTxt = preg_replace_callback('#([\s>])((www|ftp)\.[\w\\x80-\\xff\#$%&~/.\-;:=,?@\[\]+]*)#is', array(&$this, '_urlToLink'), $sTxt);	
 		}				
@@ -180,7 +188,10 @@ class Phpfox_Parse_Output
 			}
 			else
 			{
-				$sOut = '<a href="' . Phpfox::getLib('url')->makeUrl($aUser['user_name']) .'">' . $aUser['full_name'] .'</a>';
+				if (isset($aUser['user_name']))
+				{
+					$sOut = '<a href="' . Phpfox::getLib('url')->makeUrl($aUser['user_name']) .'">' . $aUser['full_name'] .'</a>';
+				}
 			}
 			
 			$aCache[$iUser] = $sOut;
@@ -223,7 +234,38 @@ class Phpfox_Parse_Output
 		$sStr = preg_replace_callback('/\[PHPFOX_PHRASE\](.*?)\[\/PHPFOX_PHRASE\]/i', array($this, '_getPhrase'), $sStr);
 		
 		$sStr = Phpfox::getService('ban.word')->clean($sStr);
-		
+		/*
+		$aLines = explode("<br />", $sStr);
+		if (count($aLines) > 5)
+		{
+			$sLines = '<div class="js_read_more_parent_main">';
+			$iLineCnt = 0;
+			foreach ($aLines as $sLine)
+			{
+				$iLineCnt++;
+				
+				if ($iLineCnt == 5)
+				{
+					$bHasLineBreak = true;
+					$sLines .= '<div class="js_read_more_parent" style="display:none;">';
+					$sLines .= $sLine;
+				}
+				else
+				{
+					$sLines .= '<br />' . $sLine;
+				}
+			}
+			
+			if (isset($bHasLineBreak))
+			{
+				$sLines .= '</div><div><a href="#" onclick="$(this).parents(\'.js_read_more_parent_main:first\').find(\'.js_read_more_parent:first\').show(); $(this).hide(); return false;">Read More</a></div>';
+			}
+			
+			$sLines .= '</div>';
+			
+			return $sLines;
+		}
+		*/
 		return $sStr;
 	}
 	
@@ -364,7 +406,7 @@ class Phpfox_Parse_Output
 	    {
 	    	return $html;
 	    }	    
-    	
+	        	
     	$printedLength = 0;
 	    $position = 0;
 	    $tags = array();
@@ -454,12 +496,24 @@ class Phpfox_Parse_Output
 				
 				if ($bHide === true)
 				{
-					$sNewString = '<span class="js_view_more_parent"><span class="js_view_more_part">' . $sNewString . '...<div class="item_view_more"><a href="#" onclick="$(this).parents(\'.js_view_more_parent:first\').find(\'.js_view_more_part\').hide(); $(this).parents(\'.js_view_more_parent:first\').find(\'.js_view_more_full\').show(); return false;">' . $sSuffix . '</a></div></span>';
-			    	$sNewString .= '<span class="js_view_more_full" style="display:none;">';
-			    	$sNewString .= $html;
-			    	$sNewString .= '<div class="item_view_more"><a href="#" onclick="$(this).parents(\'.js_view_more_parent:first\').find(\'.js_view_more_full\').hide(); $(this).parents(\'.js_view_more_parent:first\').find(\'.js_view_more_part\').show(); return false;">' . Phpfox::getPhrase('core.view_less'). '</a></div>';
-			    	$sNewString .= '</span>';
-			    	$sNewString .= '</span>';		    
+					if (defined('PHPFOX_IS_THEATER_MODE'))
+					{
+						$sNewString = '<span class="js_view_more_parent"><span class="js_view_more_part">' . $sNewString . '...<div class="item_view_more"><a href="#" onclick="$(this).parents(\'.js_view_more_parent:first\').find(\'.js_view_more_part\').hide(); $(this).parents(\'.js_view_more_parent:first\').find(\'.js_view_more_full\').show(); return false;">' . $sSuffix . '</a></div></span>';
+				    	$sNewString .= '<span class="js_view_more_full" style="display:none; position:absolute; z-index:10000; background:#fff; border:1px #dfdfdf solid;">';
+				    	$sNewString .= '<div style="max-height:200px; overflow:auto; padding:5px;">' . $html . '</div>';
+				    	$sNewString .= '<div class="item_view_more" style="padding:10px; text-align:center;"><a href="#" onclick="$(this).parents(\'.js_view_more_parent:first\').find(\'.js_view_more_full\').hide(); $(this).parents(\'.js_view_more_parent:first\').find(\'.js_view_more_part\').show(); return false;">' . Phpfox::getPhrase('core.view_less'). '</a></div>';
+				    	$sNewString .= '</span>';
+				    	$sNewString .= '</span>';
+					}
+					else
+					{
+						$sNewString = '<span class="js_view_more_parent"><span class="js_view_more_part">' . $sNewString . '...<div class="item_view_more"><a href="#" onclick="$(this).parents(\'.js_view_more_parent:first\').find(\'.js_view_more_part\').hide(); $(this).parents(\'.js_view_more_parent:first\').find(\'.js_view_more_full\').show(); return false;">' . $sSuffix . '</a></div></span>';
+				    	$sNewString .= '<span class="js_view_more_full" style="display:none;">';
+				    	$sNewString .= $html;
+				    	$sNewString .= '<div class="item_view_more"><a href="#" onclick="$(this).parents(\'.js_view_more_parent:first\').find(\'.js_view_more_full\').hide(); $(this).parents(\'.js_view_more_parent:first\').find(\'.js_view_more_part\').show(); return false;">' . Phpfox::getPhrase('core.view_less'). '</a></div>';
+				    	$sNewString .= '</span>';
+				    	$sNewString .= '</span>';		    
+					}
 				}
 				else 
 				{
@@ -467,7 +521,7 @@ class Phpfox_Parse_Output
 				}
 			}
 		}
-    	
+		
     	return $sNewString;    	
     }   
     
@@ -510,8 +564,8 @@ class Phpfox_Parse_Output
        		{	       			
        			if (preg_match('/&#?[a-zA-Z0-9]+;/', $aChar[0]))
        			{
-	       		 	$aChar[0] = str_replace('&lt;', '[', $aChar[0]);
-	       			$aChar[0] = str_replace('&gt;', ']', $aChar[0]);
+	       		 	$aChar[0] = str_replace('&lt;', '[PHPFOX_START]', $aChar[0]);
+	       			$aChar[0] = str_replace('&gt;', '[PHPFOX_END]', $aChar[0]);
        				$aChar[0] = html_entity_decode($aChar[0], null, 'UTF-8');
 	       					
 	       			$bHasNonAscii = true;
@@ -520,7 +574,7 @@ class Phpfox_Parse_Output
 				{
 					$iCount = 9999;
 				}
-       			$sNewString .= preg_replace('#([^\n\r ]{'. $iCount .'})#iu', '\\1 ' . ($bBreak ? '<br />' : ''), $aChar[0]);				
+       			$sNewString .= preg_replace('#([^\n\r(?!PHPFOX_) ]{'. $iCount .'})#iu', '\\1 ' . ($bBreak ? '<br />' : ''), $aChar[0]);
        		}
        	
        		if (!empty($aChar[1])) 
@@ -529,7 +583,7 @@ class Phpfox_Parse_Output
        		}
    		}   
 		
-   		$sOut = ($bHasNonAscii === true ? str_replace(array('[', ']'), array('&lt;', '&gt;'), Phpfox::getLib('parse.input')->convert($sNewString)) : $sNewString);
+   		$sOut = ($bHasNonAscii === true ? str_replace(array('[PHPFOX_START]', '[PHPFOX_END]'), array('&lt;', '&gt;'), Phpfox::getLib('parse.input')->convert($sNewString)) : $sNewString);
 		
    		return $sOut;
     }    

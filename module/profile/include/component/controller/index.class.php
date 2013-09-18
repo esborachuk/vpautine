@@ -11,7 +11,7 @@ defined('PHPFOX') or exit('NO DICE!');
  * @copyright		[PHPFOX_COPYRIGHT]
  * @author  		Raymond Benc
  * @package  		Module_Profile
- * @version 		$Id: index.class.php 4561 2012-07-23 10:59:10Z Raymond_Benc $
+ * @version 		$Id: index.class.php 5201 2013-01-28 07:05:48Z Raymond_Benc $
  */
 class Profile_Component_Controller_Index extends Phpfox_Component 
 {
@@ -165,6 +165,10 @@ class Profile_Component_Controller_Index extends Phpfox_Component
 		}	
 		$aRow['birthdate_display'] = Phpfox::getService('user')->getProfileBirthDate($aRow);
 		$aRow['is_user_birthday'] = ((empty($aRow['birthday_time_stamp']) ? false : (int) floor(Phpfox::getLib('date')->daysToDate($aRow['birthday_time_stamp'], null, false)) === 0 ? true : false));
+		if (empty($aRow['landing_page']))
+		{
+			$aRow['landing_page'] = Phpfox::getParam('profile.profile_default_landing_page');
+		}
 		
 		$this->setParam('aUser', $aRow);
 		define('PHPFOX_CURRENT_TIMELINE_PROFILE', $aRow['user_id']);
@@ -181,7 +185,7 @@ class Profile_Component_Controller_Index extends Phpfox_Component
 		);
 
 		if (Phpfox::getService('user.block')->isBlocked($aRow['user_id'], Phpfox::getUserId()) && !Phpfox::getUserParam('user.can_override_user_privacy'))
-		{			
+		{
 			return Phpfox::getLib('module')->setController('profile.private');			
 		}
 
@@ -224,7 +228,7 @@ class Profile_Component_Controller_Index extends Phpfox_Component
 		
 		(($sPlugin = Phpfox_Plugin::get('profile.component_controller_index_process_is_sub_section')) ? eval($sPlugin) : false);
 		
-		if ( ((Phpfox::isModule('friend') && Phpfox::getParam('friend.friends_only_profile')) || (!Phpfox::isModule('friend')))
+		if ( ((Phpfox::isModule('friend') && Phpfox::getParam('friend.friends_only_profile')) )
 			&& empty($aRow['is_friend'])
 			&& !Phpfox::getUserParam('user.can_override_user_privacy')
 			&& $aRow['user_id'] != Phpfox::getUserId()
@@ -241,7 +245,7 @@ class Profile_Component_Controller_Index extends Phpfox_Component
 		}
 		
 		if (!Phpfox::getService('user.privacy')->hasAccess($aRow['user_id'], 'profile.view_profile'))
-		{			
+		{
 			return Phpfox::getLib('module')->setController('profile.private');
 		}				
 		
@@ -305,9 +309,21 @@ class Profile_Component_Controller_Index extends Phpfox_Component
 			)
 		);
 		
-		if ($this->request()->get('req2') == 'info' || !Phpfox::getService('user.privacy')->hasAccess($aRow['user_id'], 'feed.view_wall'))
+		if ($this->request()->get('req2') == 'info' 
+			|| !Phpfox::getService('user.privacy')->hasAccess($aRow['user_id'], 'feed.view_wall')
+			|| ($aRow['landing_page'] == 'info' && empty($sSection))
+			)
 		{
-			return Phpfox::getLib('module')->setController('profile.info');
+			if (!$this->request()->get('status-id')
+				&& !$this->request()->get('comment-id')
+				&& !$this->request()->get('link-id')
+				&& !$this->request()->get('plink-id')
+				&& !$this->request()->get('poke-id')
+				&& !$this->request()->get('feed')
+				)
+			{
+				return Phpfox::getLib('module')->setController('profile.info');
+			}
 		}		
 		
 		$sPageTitle = Phpfox::getService('profile')->getProfileTitle($aRow);		
@@ -324,16 +340,24 @@ class Profile_Component_Controller_Index extends Phpfox_Component
 		
 		define('PHPFOX_CURRENT_USER_PROFILE', $aRow['user_id']);
 		
-		$this->template()->setTitle($sPageTitle)
-			->setMeta('description', Phpfox::getPhrase('profile.full_name_is_on_site_title', array(
+		$sDescription = Phpfox::getPhrase('profile.full_name_is_on_site_title', array(
 						'full_name' => $aRow['full_name'],
 						'location' => $aRow['location'] . (empty($aRow['location_child']) ? '' : ', ' . $aRow['location_child']),
 						'site_title' => Phpfox::getParam('core.site_title'),
 						'meta_description_profile' => Phpfox::getParam('core.meta_description_profile'),
 						'total_friend' => $aRow['total_friend']
 					)
-				)		
-			)
+				);
+		
+		if (($iLinkId = $this->request()->get('link-id')) && ($aLinkShare = Phpfox::getService('link')->getLinkById($iLinkId)) && isset($aLinkShare['link_id']))
+		{
+			$sPageTitle = $aLinkShare['title'];
+			$sDescription = $aLinkShare['description'];
+			$this->template()->setMeta('og:image', $aLinkShare['image']);			
+		}
+		
+		$this->template()->setTitle($sPageTitle)
+			->setMeta('description', $sDescription)
 			->setEditor(array(
 					'load' => 'simple',
 					'wysiwyg' => ((Phpfox::isModule('comment') && Phpfox::getParam('comment.wysiwyg_comments')) && Phpfox::getUserParam('comment.wysiwyg_on_comments'))
@@ -388,12 +412,15 @@ class Profile_Component_Controller_Index extends Phpfox_Component
 				
 				(($sCmd = Phpfox::getLib('template')->getXml('design_css')) ? eval($sCmd) : null);
 				
-				Phpfox::getService('theme')->getDesignValues($aAdvanced, array(
+				if (isset($aAdvanced))
+				{
+				    Phpfox::getService('theme')->getDesignValues($aAdvanced, array(
 						'table' => 'user_css',
 						'field' => 'user_id',
 						'value' => $aRow['user_id']						
-					)
-				);				
+					    )
+				    );
+				}								
 				
 				
 				$this->template()
@@ -406,7 +433,7 @@ class Profile_Component_Controller_Index extends Phpfox_Component
 							)
 						)
 						->setHeader('cache', array(
-							'jquery/plugin/jquery.bgiframe.js' => 'static_script',
+							// 'jquery/plugin/jquery.bgiframe.js' => 'static_script',
 							'jquery/ui.js' => 'static_script',							
 							'style.css' => 'style_css',
 							'select.js' => 'module_theme',
@@ -426,10 +453,15 @@ class Profile_Component_Controller_Index extends Phpfox_Component
 							'<script type="text/javascript">$Core.design.init({type_id: \'profile\'});</script>'					
 						)
 					)
-					->assign(array(
+					;			
+				
+				if (isset($aAdvanced))
+				{
+				    $this->template()->assign(array(
 						'aAdvanced' => $aAdvanced				
 					)		
-				);			
+				    );
+				}
 				
 				if (Phpfox::getParam('profile.can_drag_drop_blocks_on_profile'))
 				{					

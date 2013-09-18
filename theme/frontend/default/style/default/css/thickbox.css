@@ -14,7 +14,7 @@
 	height:100%;
 	background:url('../image/layout/thickbox_bg.png');
 	z-index:2000;
-	position: absolute;
+	position:fixed;
 }
 
 .js_box
@@ -214,12 +214,13 @@ a.photo_box_photo_detail:hover
 
 #photo_view_tag_photo
 {
-	position:absolute; text-align:left; left:0px; bottom:0px; 
+	position:absolute; text-align:left; left:0px; bottom:0px; z-index:10000001; 
 }
 
 #photo_view_tag_photo a,
 #photo_view_tag_photo a:hover
 {
+	background:#000;
 	text-decoration:none;
 	color:#fff;
 	padding:0px 5px 0px 5px;

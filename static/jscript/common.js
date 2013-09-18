@@ -571,6 +571,10 @@ function parse_url (str, component) {
 
 function isScrolledIntoView(elem)
 {
+	if (!$Core.exists(elem)){
+		return;
+	}
+	
     var docViewTop = $(window).scrollTop();
     var docViewBottom = docViewTop + $(window).height();
 

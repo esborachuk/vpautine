@@ -130,6 +130,11 @@ div.comment_mini
 	border-bottom:1px #fff solid;
 }
 
+.comment_mini_content_holder
+{
+     
+}
+
 div.comment_mini_end
 {
 	background:url('../image/layout/comment_mini_end.png') repeat-x bottom;
@@ -369,4 +374,82 @@ div.comment_mini_content
 	-moz-border-radius:4px;
 	-webkit-border-radius:4px;
   	border-radius:4px;		
+}
+
+.feed_sort_order
+{
+	border-bottom:1px #dfdfdf solid;
+	margin:12px 0px 12px 0px;
+	position:relative;
+}
+
+.feed_sort_order a.feed_sort_order_link,
+.feed_sort_order a.feed_sort_order_link:hover
+{
+	position:absolute;
+	right:12px;
+	display:block;
+	background:#fff url('../image/layout/feed_sort.png') no-repeat right center;
+	padding:0px 16px 0px 8px;
+	top:-6px;
+	color:#939393;
+	text-transform:uppercase;
+	font-size:9px;
+	font-weight:bold;
+}
+
+.feed_sort_holder
+{
+	width:150px;
+	position:absolute;
+	top:8px;
+	right:18px;
+	z-index:20000;
+	background:#fff;
+	border:1px #000 solid;
+	border-bottom:2px #000 solid;
+	display:none;
+}
+
+.feed_sort_holder ul
+{
+	margin:0px;
+	padding:0px;
+}
+
+.feed_sort_holder ul li
+{
+	display:inline;	
+}
+
+.feed_sort_holder ul li a,
+.feed_sort_holder ul li a:hover
+{
+	display:block;
+	height:22px;
+	line-height:22px;
+	padding-left:22px;
+	text-decoration:none;	
+}
+
+.feed_sort_holder ul li a:hover
+{
+	background:#333;
+	color:#fff;
+}
+
+.feed_sort_holder ul li a.active,
+.feed_sort_holder ul li a.active:hover
+{
+	background-image:url('../image/layout/friend_action_drop_down_active.png');
+	background-repeat:no-repeat;
+	background-position:6px center;
+}
+
+.feed_sort_holder ul li a.process,
+.feed_sort_holder ul li a.process:hover
+{
+	background-image:url('../image/ajax/add.gif');
+	background-repeat:no-repeat;
+	background-position:120px center;
 }

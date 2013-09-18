@@ -5,7 +5,7 @@
  * @copyright		[PHPFOX_COPYRIGHT]
  * @author  		Raymond Benc
  * @package  		Module_Friend
- * @version 		$Id: accept.html.php 4471 2012-07-05 10:17:46Z Miguel_Espinoza $
+ * @version 		$Id: accept.html.php 5382 2013-02-18 09:48:39Z Miguel_Espinoza $
  */
  
 defined('PHPFOX') or exit('NO DICE!'); 
@@ -29,7 +29,7 @@ defined('PHPFOX') or exit('NO DICE!');
 	{if !isset($bIsFriendController)}
 	<li id="js_new_friend_request_{$aFriend.request_id}" class="holder_notify_drop_data with_padding{if $phpfox.iteration.friends == 1} first{/if} js_friend_request_{$aFriend.request_id}{if !$aFriend.is_seen} is_new{/if}">
 	{else}
-	<div class="row1 js_friend_request_{$aFriend.request_id}">
+	<div class="row1 js_friend_request_{$aFriend.request_id} moderation_row">
 	{/if}
 			<div class="drop_data_image">
 				{img user=$aFriend max_width='50' max_height='50' suffix='_50_square'}
@@ -54,22 +54,24 @@ defined('PHPFOX') or exit('NO DICE!');
 					<div style="width:120px;">
 						{$aFriend|user}
 						{if $aFriend.relation_data_id > 0}
-						<div class="extra_info_link">
-							{img theme='misc/heart.png' class='v_middle'} {phrase var='friend.relationship_request'}
-						</div>
+                            <div class="extra_info_link">
+                                {img theme='misc/heart.png' class='v_middle'} {phrase var='friend.relationship_request'}
+                            </div>
 						{else}
-						{if isset($aFriend.mutual_friends) && $aFriend.mutual_friends.total > 0}
-						<div class="extra_info_link">				
-							<a href="#" onclick="$Core.box('friend.getMutualFriends', 300, 'user_id={$aFriend.friend_user_id}'); return false;">
-							{if $aFriend.mutual_friends.total == 1}
-							{phrase var='friend.1_mutual_friend'}
-							{else}
-							{phrase var='friend.total_mutual_friends' total=$aFriend.mutual_friends.total}
-							{/if}
-							</a>
-						</div>
+                            {if isset($aFriend.mutual_friends) && $aFriend.mutual_friends.total > 0}
+                                <div class="extra_info_link">				
+                                    <a href="#" onclick="$Core.box('friend.getMutualFriends', 300, 'user_id={$aFriend.friend_user_id}'); return false;">
+                                    {if $aFriend.mutual_friends.total == 1}
+                                    {phrase var='friend.1_mutual_friend'}
+                                    {else}
+                                    {phrase var='friend.total_mutual_friends' total=$aFriend.mutual_friends.total}
+                                    {/if}
+                                    </a>
+                                </div>
+                            {/if}
 						{/if}
-						{/if}
+                        {plugin call='friend.template_block_accept__1'}
+                        
 						{if !empty($aFriend.message)}
 						<div class="extra_info">
 							{$aFriend.message|clean|shorten:20:'friend.view_more':true}

@@ -30,7 +30,12 @@ class Pages_Component_Controller_View extends Phpfox_Component
 		{
 			return Phpfox_Error::display(Phpfox::getPhrase('pages.the_page_you_are_looking_for_cannot_be_found'));
 		}
-		
+		if (($this->request()->get('req3')) != '')
+		{
+			$this->template()->assign(array(
+				'bRefreshPhoto' => true
+			));
+		}
 		if (Phpfox::getUserParam('pages.can_moderate_pages') || $aPage['is_admin'])
 		{
 			
@@ -88,7 +93,7 @@ class Pages_Component_Controller_View extends Phpfox_Component
 		
 		(($sPlugin = Phpfox_Plugin::get('pages.component_controller_view_build')) ? eval($sPlugin) : false);
 		
-		$this->setParam('aPage', $aPage);
+		
 		$this->setParam('aParentModule', array(			
 				'module_id' => 'pages',
 				'item_id' => $aPage['page_id'],
@@ -110,7 +115,28 @@ class Pages_Component_Controller_View extends Phpfox_Component
 		
 		(($sPlugin = Phpfox_Plugin::get('pages.component_controller_view_assign')) ? eval($sPlugin) : false);
 		
-		$this->template()->assign(array(
+		if (isset($aPage['use_timeline']) && $aPage['use_timeline'])
+		{
+			$aPageMenus = Phpfox::getService('pages')->getMenu($aPage);
+			if (!defined('PAGE_TIME_LINE'))
+			{
+				define('PAGE_TIME_LINE', true);
+			}
+			$aPage['user_name'] = $aPage['title'];
+
+			$this->template()->setFullSite()
+				->assign(array(
+				    'aUser' => $aPage,
+				    'aProfileLinks' => $aPageMenus))
+				->setHeader(array(
+					'<script type="text/javascript">oParams["keepContent4"] = false;</script>'
+					));
+		}
+		
+		$this->setParam('aPage', $aPage);
+		
+		$this->template()			
+			->assign(array(
 					'aPage' => $aPage,
 					'sCurrentModule' => $sCurrentModule,
 					'bCanViewPage' => $bCanViewPage,
@@ -120,7 +146,8 @@ class Pages_Component_Controller_View extends Phpfox_Component
 			)
 			->setHeader('cache', array(				
 				'profile.css' => 'style_css',
-				'pages.css' => 'style_css'
+				'pages.css' => 'style_css',
+				'pages.js' => 'module_pages'
 			)
 		);
 		
@@ -191,6 +218,8 @@ class Pages_Component_Controller_View extends Phpfox_Component
 					$bCanPostComment = false;
 				}
 			}			
+			
+			define('PHPFOX_IS_PAGES_IS_INDEX', true);
 
 			$this->setParam('aFeedCallback', array(
 					'module' => 'pages',
@@ -257,7 +286,7 @@ class Pages_Component_Controller_View extends Phpfox_Component
 						->assign('sCustomDesignId', $aPage['page_id']
 					);				
 			}				
-		}	
+		}
 	}
 	
 	/**

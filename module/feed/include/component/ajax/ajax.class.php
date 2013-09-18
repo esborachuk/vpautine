@@ -11,7 +11,7 @@ defined('PHPFOX') or exit('NO DICE!');
  * @copyright		[PHPFOX_COPYRIGHT]
  * @author  		Raymond Benc
  * @package 		Phpfox_Ajax
- * @version 		$Id: ajax.class.php 4545 2012-07-20 10:40:35Z Raymond_Benc $
+ * @version 		$Id: ajax.class.php 5217 2013-01-28 10:33:07Z Raymond_Benc $
  */
 class Feed_Component_Ajax_Ajax extends Phpfox_Ajax
 {
@@ -27,6 +27,7 @@ class Feed_Component_Ajax_Ajax extends Phpfox_Ajax
 			}
 			else
 			{
+				$iCnt = 0;
 				foreach ($aPost['friends'] as $iFriendId)
 				{
 					$aVals = array(
@@ -35,11 +36,25 @@ class Feed_Component_Ajax_Ajax extends Phpfox_Ajax
 						'parent_feed_id' => $aPost['parent_feed_id'],
 						'parent_module_id' => $aPost['parent_module_id']
 					);
-
-					Phpfox::getService('feed.process')->addComment($aVals);
+					
+					if (Phpfox::getService('user.privacy')->hasAccess($iFriendId, 'feed.share_on_wall') && Phpfox::getUserParam('profile.can_post_comment_on_profile'))
+					{	
+						$iCnt++;
+						
+						Phpfox::getService('feed.process')->addComment($aVals);
+					}				
 				}			
 
-				$this->call('$(\'#\' + tb_get_active()).find(\'.js_box_content:first\').html(\'<div class="message">' . str_replace("'", "\\'", Phpfox::getPhrase('feed.successfully_shared_this_item_on_your_friends_wall')) . '</div>\'); setTimeout(\'tb_remove();\', 2000);');
+				$sMessage = '<div class="message">' . str_replace("'", "\\'", Phpfox::getPhrase('feed.successfully_shared_this_item_on_your_friends_wall')) . '</div>';
+				if (!$iCnt)
+				{
+					$sMessage = '<div class="error_message">' . str_replace("'", "\\'", Phpfox::getPhrase('user.unable_to_share_this_post_due_to_privacy_settings')) . '</div>';
+				}
+				$this->call('$(\'#\' + tb_get_active()).find(\'.js_box_content:first\').html(\'' . $sMessage . '\');');
+				if ($iCnt)
+				{
+					$this->call('setTimeout(\'tb_remove();\', 2000);');
+				}
 			}
 			
 			return;
@@ -142,6 +157,11 @@ class Feed_Component_Ajax_Ajax extends Phpfox_Ajax
 	
 	public function viewMore()
 	{
+		if ($this->get('callback_module_id') == 'pages' && Phpfox::getService('pages')->isTimelinePage($this->get('callback_item_id')))
+		{
+			define('PAGE_TIME_LINE', true);
+		}
+		
 		Phpfox::getBlock('feed.display');		
 		
 		$sYear = $this->get('year');
@@ -323,6 +343,35 @@ class Feed_Component_Ajax_Ajax extends Phpfox_Ajax
 		$this->slideDown('#' . $sIds);		
 		$this->call('$Core.loadInit();');        
     }
+    
+    /* Loads Pages and results from Google Places Autocomplete given a latitude and longitude
+     * This function populates $Core.Feed.aPlaces with new items by passing parameters in jSon format */
+     
+    public function loadEstablishments()
+    {
+		$aPages = array();
+		if (Phpfox::isModule('pages'))
+		{
+			$aPages = Phpfox::getService('pages')->getPagesByLocation( $this->get('latitude'), $this->get('longitude') );
+		}
+		
+		if (count($aPages))
+		{
+			foreach ($aPages as $iKey => $aPage)
+			{
+				$aPages[$iKey]['geometry'] = array('latitude' => $aPage['location_latitude'], 'longitude' => $aPage['location_longitude']);
+				$aPages[$iKey]['name'] = $aPage['title'];
+				unset($aPages[$iKey]['location_latitude']);
+				unset($aPages[$iKey]['location_longitude']);	
+			}
+		}
+		
+		if (!empty($aPages))
+		{
+			$jPages = json_encode($aPages);
+			$this->call('$Core.Feed.storePlaces(\'' . $jPages .'\');');
+		}		
+	}
 }
 
 ?>

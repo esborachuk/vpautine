@@ -13,7 +13,7 @@ defined('PHPFOX') or exit('NO DICE!');
  * @copyright		[PHPFOX_COPYRIGHT]
  * @author			Raymond Benc
  * @package 		Phpfox
- * @version 		$Id: module.class.php 4585 2012-08-01 10:02:21Z Miguel_Espinoza $
+ * @version 		$Id: module.class.php 5319 2013-02-04 12:53:36Z Miguel_Espinoza $
  */
 class Phpfox_Module
 {	
@@ -355,14 +355,14 @@ class Phpfox_Module
 		if (Phpfox::getParam('admincp.admin_cp') != 'admincp' && $oReq->get('req1') == Phpfox::getParam('admincp.admin_cp'))
 		{
 			$this->_sModule = 'admincp';			
-		}		
-
-		if (Phpfox::isMobile())
+		}	
+/*
+		if (Phpfox::isUser() && Phpfox::getParam('core.is_auto_hosted') && Phpfox::getService('log.session')->getOnlineMembers() > Phpfox::getParam('core.phpfox_max_users_online'))
 		{
-			// $this->_sController = $this->_sController . '-mobile';			
-			// $this->_sController = $this->_sController;
+			$this->_sModule = 'core';
+			$this->_sController = 'full';
 		}		
-		
+*/
 		(($sPlugin = Phpfox_Plugin::get('module_setcontroller_end')) ? eval($sPlugin) : false);
 		
 		// Set the language pack cache
@@ -371,8 +371,8 @@ class Phpfox_Module
 			Phpfox::getLib('locale')->setCache();
 		}		
 		$bCookie = Phpfox::getCookie('page_login');
-		// http://www.phpfox.com/tracker/view/11130/
-		if (Phpfox::isUser() && $bCookie != 1 && Phpfox::getUserParam('user.require_profile_image') && Phpfox::getUserBy('profile_page_id') == 0 && Phpfox::getUserBy('user_image') == '' && 
+		
+		if (Phpfox::isUser() && $bCookie != 1 && Phpfox::getUserParam('user.require_profile_image') && Phpfox::getUserBy('user_image') == '' && 
 			!(
 				($this->_sModule == 'user' && $this->_sController == 'photo') || 
 				($this->_sModule == 'user' && $this->_sController == 'logout') ||
@@ -466,7 +466,7 @@ class Phpfox_Module
 		static $aBlocks = array();	
 		static $bIsOrdered = false;
 		
-		if (Phpfox::getService('profile')->timeline() && $iId == '1')
+		if (Phpfox::getService('profile')->timeline() && $iId == '1' && !defined('PAGE_TIME_LINE'))
 		{
 			$aBlocks[$iId] = array();
 			
@@ -580,6 +580,7 @@ class Phpfox_Module
 				else 
 				{				
 					$aBlocks[$iId][] = $sKey;
+					if ($sPlugin = Phpfox_Plugin::get('library_module_getmoduleblocks_1')){eval($sPlugin);if (isset($bReturnFromPlugin)) return $bReturnFromPlugin;}
 				}			
 			}	
 		}		
@@ -716,7 +717,7 @@ class Phpfox_Module
 	{
 		(($sPlugin = Phpfox_Plugin::get('module_getcomponent_start')) ? eval($sPlugin) : false);
 
-		if ($sType == 'ajax' && !strpos($sClass, '.'))
+		if ($sType == 'ajax' && strpos($sClass, '.') === false)
 		{
 			$sClass = $sClass . '.ajax';
 		}	
@@ -1356,7 +1357,7 @@ class Phpfox_Module
 	 * Cache all the active modules based on the package the client is using.
 	 *
 	 */
-	private function _cacheModules()
+	public function _cacheModules()
 	{
 		$oCache = Phpfox::getLib('cache');
 		$iCachedId = $oCache->set('module');		
@@ -1369,8 +1370,23 @@ class Phpfox_Module
 				->where('m.is_active = 1')
 				->order('m.module_id')
 				->execute('getRows');
+			
 			foreach ($aRows as $aRow) 
 			{
+				if (Phpfox::getParam('core.is_auto_hosted'))
+				{
+					switch ($aRow['module_id'])
+					{
+						case 'im':
+						case 'music':
+						case 'shoutbox':
+						case 'rss':
+							Phpfox::getLib('database')->update(Phpfox::getT('module'), array('is_active' => '0'), 'module_id = \'' . $aRow['module_id'] . '\'');
+							continue 2;
+							break;
+					}
+				}
+				
 				switch ($aRow['module_id'])
 				{
 					case 'ad':			
@@ -1401,8 +1417,9 @@ class Phpfox_Module
 				
 				$this->_aModules[$aRow['module_id']] = $aRow['module_id'];
 			}
+
 			$oCache->save($iCachedId, $this->_aModules);
-		}		
+		}					
 	}
 	
 	/**

@@ -5,12 +5,16 @@
  * @copyright		[PHPFOX_COPYRIGHT]
  * @author  		Raymond Benc
  * @package 		Phpfox
- * @version 		$Id: index.html.php 2826 2011-08-11 19:41:03Z Raymond_Benc $
+ * @version 		$Id: index.html.php 4772 2012-09-26 13:13:32Z Miguel_Espinoza $
  */
  
 defined('PHPFOX') or exit('NO DICE!'); 
 
 ?>
+<div class="public_message" style="display:block;">
+	This will update the order of the custom fields in the Profile -> Edit Profile section. To update the order in which they are displayed please
+	<a href="{url link='admin.block'}">edit the blocks</a> from the controller profile.info
+</div>
 {if count($aGroups)}
 <div id="js_menu_drop_down" style="display:none;">
 	<div class="link_menu dropContent" style="display:block;">

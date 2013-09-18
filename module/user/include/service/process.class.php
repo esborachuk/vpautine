@@ -11,16 +11,82 @@ defined('PHPFOX') or exit('NO DICE!');
  * @copyright		[PHPFOX_COPYRIGHT]
  * @author  		Raymond Benc
  * @package  		Module_User
- * @version 		$Id: process.class.php 4581 2012-08-01 07:57:15Z Miguel_Espinoza $
+ * @version 		$Id: process.class.php 5373 2013-02-14 10:33:11Z Raymond_Benc $
  */
 class User_Service_Process extends Phpfox_Service 
 {	
+	private $_iStatusId = 0;
+	
 	/**
 	 * Class constructor
 	 */
 	public function __construct()
 	{
 		$this->_sTable = Phpfox::getT('user');
+	}
+	
+	public function updateFeedSort($sOrder)
+	{
+		$this->database()->update(Phpfox::getT('user'), array('feed_sort' => (int) $sOrder), 'user_id = ' . (int) Phpfox::getUserId());
+		
+		return true;
+	}
+	
+	public function addPointsPurchase($iTotal, $iTotalUpgrade)
+	{
+		$iId = $this->database()->insert(Phpfox::getT('point_purchase'), array(
+				'user_id' => Phpfox::getUserId(),
+				'currency_id' => Phpfox::getService('core.currency')->getDefault(),
+				'price' => $iTotal,
+				'status' => '0',
+				'time_stamp' => PHPFOX_TIME,
+				'total_point' => $iTotalUpgrade
+			)
+		);
+		
+		return $iId;
+	}
+	
+	public function purchaseWithPoints($sModule, $iItem, $iTotal, $sCurreny)
+	{
+		if (!Phpfox::isModule($sModule))
+		{
+			return Phpfox_Error::set('Not a valid module.');
+		}
+		
+		$iTotalPoints = (int) $this->database()->select('activity_points')
+				->from(Phpfox::getT('user_activity'))
+				->where('user_id = ' . (int) Phpfox::getUserId())
+				->execute('getSlaveField');
+				
+		$aSetting = Phpfox::getParam('user.points_conversion_rate');
+		if (isset($aSetting[$sCurreny]))
+		{
+			$iConversion = $iTotal / $aSetting[$sCurreny];
+			if ($iTotalPoints >= $iConversion)
+			{
+				$iNewPoints = ($iTotalPoints - $iConversion);				
+				
+				$bReturn = Phpfox::callback($sModule. '.paymentApiCallback', array(
+						'gateway' => 'activitypoints',
+						'status' => 'completed',
+						'item_number' => $iItem,
+						'total_paid' => $iTotal
+					)
+				);
+
+				if ($bReturn === false)
+				{
+					return false;
+				}
+				
+				$this->database()->update(Phpfox::getT('user_activity'), array('activity_points' => (int) $iNewPoints), 'user_id = ' . (int) Phpfox::getUserId());
+				
+				return true;
+			}
+		}
+		
+		return Phpfox_Error::set(Phpfox::getPhrase('user.not_enough_points', array('total' => (int) $iTotalPoints)));
 	}
 	
 	public function removeLogo($iUserId = null)
@@ -61,6 +127,28 @@ class User_Service_Process extends Phpfox_Service
 
 	public function add($aVals, $iUserGroupId = null)
 	{
+		if (!defined('PHPFOX_INSTALLER') && defined('PHPFOX_IS_HOSTED_SCRIPT'))
+		{
+			$iTotalMembersMax = (int) Phpfox::getParam('core.phpfox_grouply_members');
+			$iCurrentTotalMembers = $this->database()->select('COUNT(*)')
+				->from(Phpfox::getT('user'))
+				->where('view_id = 0')
+				->execute('getSlaveField');
+			
+			if ($iTotalMembersMax > 0 && $iCurrentTotalMembers >= $iTotalMembersMax)
+			{
+				Phpfox_Error::set('We are unable to setup an account for you at this time. This site has currently reached its limit on users.');	
+			}
+		}
+		
+		if (!defined('PHPFOX_INSTALLER') && Phpfox::getParam('user.split_full_name'))
+		{
+			if (empty($aVals['first_name']) || empty($aVals['last_name']))
+			{
+				Phpfox_Error::set(Phpfox::getPhrase('user.please_fill_in_both_your_first_and_last_name'));
+			}
+		}
+		
 		if (!defined('PHPFOX_INSTALLER') && !Phpfox::getParam('user.allow_user_registration'))
 		{
 			return Phpfox_Error::display(Phpfox::getPhrase('user.user_registration_has_been_disabled'));
@@ -80,11 +168,71 @@ class User_Service_Process extends Phpfox_Service
 			}
 		}
 		
+		/* Check if there should be a spam question answered */
+		$aSpamQuestions = $this->database()->select('*')->from(Phpfox::getT('user_spam'))->execute('getSlaveRows');
+		if (!defined('PHPFOX_INSTALLER') && !empty($aSpamQuestions) && (isset($aVals['spam'])))
+		{			
+			$oParse = Phpfox::getLib('parse.input');
+			// The visitor's current language is...
+			$sLangId = Phpfox::getLib('locale')->getLangId();
+			
+			foreach ($aVals['spam'] as $sHash => $sAnswer)
+			{
+				$aDbQuestion = $this->database()->select('ut.time_stamp, us.*')
+					->from(Phpfox::getT('upload_track'), 'ut')
+					->join(Phpfox::getT('user_spam'), 'us', 'us.question_id = ut.hash')
+					->where('ut.user_hash = "' . $oParse->clean($sHash) . '"')
+					->execute('getSlaveRow');
+					
+				if (!isset($aDbQuestion['answers_phrases']) || empty($aDbQuestion['answers_phrases']))
+				{
+					Phpfox_Error::set('That question does not exist. All hack attempts are forbidden and logged');
+					break;
+				}
+				// now to compare the answers
+				$aAnswers = json_decode($aDbQuestion['answers_phrases']);
+				$bValidAnswer = false;
+				
+				foreach ($aAnswers as $sDbAnswer)
+				{					
+					if (preg_match('/phrase var=&#039;([a-z\._0-9]+)/', $sDbAnswer, $aMatch))
+					{
+						$sDbAnswer = Phpfox::getPhrase($aMatch[1], array(), false, null, $sLangId);
+						$sDbAnswer = html_entity_decode($sDbAnswer, null, 'UTF-8');
+					}
+					if (strcmp($sAnswer, $sDbAnswer) == 0)
+					{
+						$bValidAnswer = true;
+						break;
+					}
+				}
+				
+				if ($bValidAnswer == false)
+				{
+					Phpfox_Error::set('CAPTCHA failed');
+					break;
+				}
+				$this->database()->delete(Phpfox::getT('upload_track'), 'user_hash = "' . $sHash . '" OR time_stamp < ' . (PHPFOX_TIME - (60*15)));
+			}
+			
+			
+		}
+		else if (!defined('PHPFOX_INSTALLER') && !empty($aSpamQuestions) && !isset($aVals['spam']))
+		{
+			Phpfox_Error::set('You forgot to answer the CAPTCHA questions');
+		}
+		
+		
 		if (!Phpfox_Error::isPassed())
 		{
 			return false;
 		}
 
+		if (!defined('PHPFOX_INSTALLER') && Phpfox::getParam('user.split_full_name'))
+		{
+			$aVals['full_name'] = $aVals['first_name'] . ' ' . $aVals['last_name'];
+		}
+		
 		if (!defined('PHPFOX_INSTALLER') && Phpfox::getParam('user.validate_full_name'))
 		{
 			if (!Phpfox::getLib('validator')->check($aVals['full_name'], array('html', 'url')))
@@ -184,12 +332,14 @@ class User_Service_Process extends Phpfox_Service
 			$aInsert['user_name'] = $oParseInput->clean($aVals['user_name']);					
 		}
 		
+		/*
 		if (!defined('PHPFOX_INSTALLER') && Phpfox::getParam('user.maximum_length_for_full_name') > 0 && strlen($aInsert['full_name']) > Phpfox::getParam('user.maximum_length_for_full_name'))
 		{
 			$aChange = array('iMax' => Phpfox::getParam('user.maximum_length_for_full_name'));
 			$sPhrase = Phpfox::getParam('user.display_or_full_name') == 'full_name' ? Phpfox::getPhrase('user.please_shorten_full_name', $aChange) : Phpfox::getPhrase('user.please_shorten_display_name', $aChange);
 			Phpfox_Error::set($sPhrase);
 		}
+		*/
 		
 		(($sPlugin = Phpfox_Plugin::get('user.service_process_add_start')) ? eval($sPlugin) : false);
 
@@ -234,6 +384,12 @@ class User_Service_Process extends Phpfox_Service
 			Phpfox::getService('user.field.process')->update($iId, 'country_child_id', $aVals['country_child_id']);
 		}
 		
+		if (!defined('PHPFOX_INSTALLER') && Phpfox::getParam('user.split_full_name'))
+		{
+			Phpfox::getService('user.field.process')->update($iId, 'first_name', (empty($aVals['first_name']) ? null :$aVals['first_name']));
+			Phpfox::getService('user.field.process')->update($iId, 'last_name', (empty($aVals['last_name']) ? null :$aVals['last_name']));
+		}		
+		
 		if (!defined('PHPFOX_INSTALLER') && Phpfox::getParam('core.registration_enable_dob'))
 		{
 			// Updating for the birthday range
@@ -245,24 +401,32 @@ class User_Service_Process extends Phpfox_Service
 			$iFriendId = (int) Phpfox::getParam('user.on_signup_new_friend');
 			if ($iFriendId > 0 && Phpfox::isModule('friend'))
 			{
-				$this->database()->insert(Phpfox::getT('friend'), array(
-						'list_id' => 0,
-						'user_id' => $iId,
-						'friend_user_id' => $iFriendId,
-						'time_stamp' => PHPFOX_TIME
-					)
-				);
+				$iCheckFriend = $this->database()->select('COUNT(*)')
+					->from(Phpfox::getT('friend'))
+					->where('user_id = ' . (int) $iId . ' AND friend_user_id = ' . (int) $iFriendId)
+					->execute('getSlaveField');
 				
-				$this->database()->insert(Phpfox::getT('friend'), array(
-						'list_id' => 0,
-						'user_id' => $iFriendId,
-						'friend_user_id' => $iId,
-						'time_stamp' => PHPFOX_TIME
-					)
-				);
-
-				Phpfox::getService('friend.process')->updateFriendCount($iId, $iFriendId);
-				Phpfox::getService('friend.process')->updateFriendCount($iFriendId, $iId);
+				if (!$iCheckFriend)
+				{
+					$this->database()->insert(Phpfox::getT('friend'), array(
+							'list_id' => 0,
+							'user_id' => $iId,
+							'friend_user_id' => $iFriendId,
+							'time_stamp' => PHPFOX_TIME
+						)
+					);
+					
+					$this->database()->insert(Phpfox::getT('friend'), array(
+							'list_id' => 0,
+							'user_id' => $iFriendId,
+							'friend_user_id' => $iId,
+							'time_stamp' => PHPFOX_TIME
+						)
+					);
+	
+					Phpfox::getService('friend.process')->updateFriendCount($iId, $iFriendId);
+					Phpfox::getService('friend.process')->updateFriendCount($iFriendId, $iId);
+				}
 			}
 			if ($sPlugin = Phpfox_Plugin::get('user.service_process_add_check_1'))
 			{
@@ -382,6 +546,16 @@ class User_Service_Process extends Phpfox_Service
 
 	public function update($iUserId, $aVals, $aSpecial = array(), $bIsAccount = false)
 	{
+		if (!defined('PHPFOX_IS_CUSTOM_FIELD_UPDATE') && Phpfox::getParam('user.split_full_name'))
+		{
+			if (empty($aVals['first_name']) || empty($aVals['last_name']))
+			{
+				return Phpfox_Error::set(Phpfox::getPhrase('user.please_fill_in_both_your_first_and_last_name'));
+			}
+			
+			$aVals['full_name'] = $aVals['first_name'] . ' ' . $aVals['last_name'];
+		}		
+		
 		if (!empty($aVals['city_location']))
 		{
 			if (!Phpfox::getLib('validator')->check($aVals['city_location'], array('html', 'url')))
@@ -403,6 +577,11 @@ class User_Service_Process extends Phpfox_Service
 				$sPhrase = Phpfox::getParam('user.display_or_full_name') == 'full_name' ? Phpfox::getPhrase('user.please_shorten_full_name', $aChange) : Phpfox::getPhrase('user.please_shorten_display_name', $aChange);
 				return Phpfox_Error::set($sPhrase);
 			}
+		}
+		
+		if (!$bIsAccount && (empty($aVals['day']) || empty($aVals['month']) || empty($aVals['year'])))
+		{
+			return Phpfox_Error::set(Phpfox::getPhrase('user.please_enter_your_date_of_birth'));	
 		}
 
 		if (isset($aVals['relation']) && Phpfox::getUserParam('custom.can_have_relationship') 
@@ -542,6 +721,17 @@ class User_Service_Process extends Phpfox_Service
 		if (isset($aVals['use_timeline']))
 		{
 			Phpfox::getService('user.field.process')->update($iUserId, 'use_timeline', (empty($aVals['use_timeline']) ? 0 :$aVals['use_timeline']));
+		}		
+		
+		if (isset($aVals['landing_page']))
+		{
+			Phpfox::getService('user.field.process')->update($iUserId, 'landing_page', (empty($aVals['landing_page']) ? 0 :$aVals['landing_page']));
+		}	
+		
+		if (Phpfox::getParam('user.split_full_name'))
+		{
+			Phpfox::getService('user.field.process')->update($iUserId, 'first_name', (empty($aVals['first_name']) ? null :$aVals['first_name']));
+			Phpfox::getService('user.field.process')->update($iUserId, 'last_name', (empty($aVals['last_name']) ? null :$aVals['last_name']));
 		}		
 		
 		if (!$bIsAccount)
@@ -687,8 +877,19 @@ class User_Service_Process extends Phpfox_Service
 				{
 					$oImage->createThumbnail(Phpfox::getParam('core.dir_user') . sprintf($sFileName, ''), Phpfox::getParam('core.dir_user') . sprintf($sFileName, '_' . $iSize), $iSize, $iSize);
 					$oImage->createThumbnail(Phpfox::getParam('core.dir_user') . sprintf($sFileName, ''), Phpfox::getParam('core.dir_user') . sprintf($sFileName, '_' . $iSize . '_square'), $iSize, $iSize, false);
+				
+					if (defined('PHPFOX_IS_HOSTED_SCRIPT'))
+					{
+						unlink(Phpfox::getParam('core.dir_user') . sprintf($sFileName, '_' . $iSize));
+						unlink(Phpfox::getParam('core.dir_user') . sprintf($sFileName, '_' . $iSize . '_square'));
+					}				
 				}				
 			
+				if (defined('PHPFOX_IS_HOSTED_SCRIPT'))
+				{
+					unlink(Phpfox::getParam('core.dir_user') . sprintf($sFileName, ''));
+				}
+				
 				$this->database()->update($this->_sTable, array('user_image' => $sFileName, 'server_id' => $iServerId), 'user_id = ' . (int) $iId);
 	
 				if (!Phpfox::getUserBy('profile_page_id') && !defined('PHPFOX_PAGES_IS_IN_UPDATE') && $iId == Phpfox::getUserId())
@@ -705,10 +906,10 @@ class User_Service_Process extends Phpfox_Service
 				return array('user_image' => $sFileName, 'server_id' => $iServerId);
 			}			
 			
-			if (!defined('PHPFOX_USER_PHOTO_IS_COPY') && Phpfox::isModule('photo'))
+			/*if (!defined('PHPFOX_USER_PHOTO_IS_COPY') && Phpfox::isModule('photo'))
 			{
 				Phpfox::getService('photo.album')->getForProfileView($iId, true);
-			}
+			}*/
 
 			return array('user_image' => $sFileName);
 		}
@@ -717,7 +918,7 @@ class User_Service_Process extends Phpfox_Service
 	}
 
 	public function updateStatus($aVals)
-	{
+	{		
 		if (Phpfox::getLib('parse.format')->isEmpty($aVals['user_status']))
 		{
 			return Phpfox_Error::set(Phpfox::getPhrase('user.add_some_text_to_share'));
@@ -761,26 +962,48 @@ class User_Service_Process extends Phpfox_Service
 			$aVals['privacy_comment'] = 0;
 		}
 		
-		$iStatusId = $this->database()->insert(Phpfox::getT('user_status'), array(
+		$aInsert = array(
 				'user_id' => (int) Phpfox::getUserId(),
 				'privacy' => $aVals['privacy'],
 				'privacy_comment' => $aVals['privacy_comment'],
 				'content' => $sStatus,
 				'time_stamp' => PHPFOX_TIME
-			)
-		);		
+			);
+			
+		if (isset($aVals['location']) && isset($aVals['location']['latlng']) && !empty($aVals['location']['latlng']))
+		{
+			$aMatch = explode(',',$aVals['location']['latlng']);
+			$aMatch['latitude'] = floatval($aMatch[0]);
+			$aMatch['longitude'] = floatval($aMatch[1]);
+			$aInsert['location_latlng'] = json_encode(array('latitude' => $aMatch['latitude'], 'longitude' => $aMatch['longitude']));
+		}
+		
+		if (isset($aInsert['location_latlng']) && !empty($aInsert['location_latlng']) && isset($aVals['location']) && isset($aVals['location']['name']) && !empty($aVals['location']['name']))
+		{
+			$aInsert['location_name'] = Phpfox::getLib('parse.input')->clean($aVals['location']['name']);
+		}
+		$iStatusId = $this->database()->insert(Phpfox::getT('user_status'), $aInsert);		
+		$this->_iStatusId = $iStatusId;
 		
 		if (isset($aVals['privacy']) && $aVals['privacy'] == '4')
 		{
 			Phpfox::getService('privacy.process')->add('user_status', $iStatusId, (isset($aVals['privacy_list']) ? $aVals['privacy_list'] : array()));
 		}		
 
-		Phpfox::getService('user.process')->notifyTagged($sStatus, $iStatusId, 'status');
-		
-		//Phpfox::getService('notification.process')->add('comment_' . $sModule, $iItemId, $aRow['user_id']);
+		Phpfox::getService('user.process')->notifyTagged($sStatus, $iStatusId, 'status');		
+
 		(($sPlugin = Phpfox_Plugin::get('user.service_process_add_updatestatus')) ? eval($sPlugin) : false);		
 		
-		return Phpfox::getService('feed.process')->add('user_status', $iStatusId, $aVals['privacy'], $aVals['privacy_comment'], 0, null, 0, (isset($aVals['parent_feed_id']) ? $aVals['parent_feed_id'] : 0), (isset($aVals['parent_module_id']) ? $aVals['parent_module_id'] : null));
+		$iReturnId = Phpfox::getService('feed.process')->add('user_status', $iStatusId, $aVals['privacy'], $aVals['privacy_comment'], 0, null, 0, (isset($aVals['parent_feed_id']) ? $aVals['parent_feed_id'] : 0), (isset($aVals['parent_module_id']) ? $aVals['parent_module_id'] : null));
+		
+		(($sPlugin = Phpfox_Plugin::get('user.service_process_add_updatestatus_end')) ? eval($sPlugin) : false);
+		
+		return $iReturnId;
+	}
+	
+	public function getLastStatusId()
+	{
+		return $this->_iStatusId;	
 	}
 
 	/*
@@ -793,7 +1016,18 @@ class User_Service_Process extends Phpfox_Service
 		{
 			return array();
 		}
-		return $aMatches[1];
+		/* Filter out non friends */
+		$oFriend = Phpfox::getService('friend');
+		$aOut = array();
+		foreach ($aMatches[1] as $iKey => $iUserId)
+		{
+		    if ($oFriend->isFriend(Phpfox::getUserId(), $iUserId))
+		    {
+			$aOut[] = $iUserId;
+		    }
+		}
+		
+		return $aOut;
 	}
 	
 	public function notifyTagged($sContent, $iItemId, $sType)
@@ -813,16 +1047,19 @@ class User_Service_Process extends Phpfox_Service
 			return;
 		}
 		$sUsers = implode(',', $aMatches);
-		$aPerms = $this->database()->select('user_id, user_value')->from(Phpfox::getT('user_privacy'))->where('user_id in (' . $sUsers . ' )')->execute('getSlaveRows');
+		$aPerms = $this->database()->select('user_id, user_value')->from(Phpfox::getT('user_privacy'))->where('user_id in (' . $sUsers . ' ) AND user_privacy = \'user.can_i_be_tagged\'')->execute('getSlaveRows');
 		$aUsers = array();
 		foreach ($aPerms as $aRow)
 		{
 			foreach ($aMatches as $iIndex => $iUserId)
 			{
 				if ($iUserId == $aRow['user_id'] && $aRow['user_value'] == 4)
-				unset($aMatches[$iIndex]);
+				{
+					unset($aMatches[$iIndex]);
+				}
 			}
 		}
+		
 		if ($sType == 'status')
 		{
 			foreach ($aMatches as $iIndex => $iUserId)
@@ -945,6 +1182,7 @@ class User_Service_Process extends Phpfox_Service
 		{
 			$sSignature = $aVals['signature'];
 		}
+		$aOrg = $aVals;
 		$aForms = array(
 			'full_name' => array(
 				'message' => Phpfox::getPhrase('user.fill_in_a_display_name'),
@@ -972,7 +1210,7 @@ class User_Service_Process extends Phpfox_Service
 			'time_zone' => 'string',
 			'status' => 'string',
 			'total_spam' => 'int',
-			'language_id' => 'string'
+			'language_id' => 'string'			
 		);
 		
 		$aUserFieldsForms = array(
@@ -988,7 +1226,7 @@ class User_Service_Process extends Phpfox_Service
 		);
 
 		if (!empty($aVals['day']) && !empty($aVals['month']) && !empty($aVals['year']))
-		{
+		{			
 			$aVals['birthday'] = Phpfox::getService('user')->buildAge($aVals['day'],$aVals['month'],$aVals['year']);
 			$aVals['birthday_search'] = Phpfox::getLib('date')->mktime(0, 0, 0, $aVals['month'], $aVals['day'], $aVals['year']);
 		}
@@ -1029,6 +1267,27 @@ class User_Service_Process extends Phpfox_Service
 			);
 		}
 		
+		if (defined('PHPFOX_IS_HOSTED_SCRIPT') && $aVals['user_group_id'] == ADMIN_USER_ID)
+		{
+			$iCurrentUserGroupId = $this->database()->select('user_group_id')
+				->from(Phpfox::getT('user'))
+				->where('user_id = ' . (int) $iUserid)
+				->execute('getSlaveField');
+			
+			if ($aVals['user_group_id'] != $iCurrentUserGroupId)
+			{
+				$iTotalAdmins = $this->database()->select('COUNT(*)')
+					->from(Phpfox::getT('user'))
+					->where('user_group_id = ' . (int) ADMIN_USER_ID)
+					->execute('getSlaveField');		
+
+				if ($iTotalAdmins >= Phpfox::getParam('core.phpfox_grouply_admins'))
+				{
+					Phpfox_Error::set('You have currently reached your Admin limit. (' . $iTotalAdmins . ' out of ' . Phpfox::getParam('core.phpfox_grouply_admins') . ')');
+				}
+			}
+		}
+		
 		(($sPlugin = Phpfox_Plugin::get('user.service_process_updateadvanced_start')) ? eval($sPlugin) : false);
 
 		$aUserFields = $this->validator()->process($aUserFieldsForms, $aVals);
@@ -1043,10 +1302,10 @@ class User_Service_Process extends Phpfox_Service
 
 		$this->database()->update($this->_sTable, $aVals, 'user_id = ' . (int) $iUserid);
 		$this->database()->update(Phpfox::getT('user_field'), $aUserFields, 'user_id = ' . (int) $iUserid);
-
-		if (!empty($aVals['day']) && !empty($aVals['month']))
+		
+		if (!empty($aOrg['day']) && !empty($aOrg['month']))
 		{
-			$this->database()->update(Phpfox::getT('user_field'), array('birthday_range' => '\''.Phpfox::getService('user')->buildAge($aVals['day'], $aVals['month']) .'\''), 'user_id = ' . (int) $iUserid, false);
+			$this->database()->update(Phpfox::getT('user_field'), array('birthday_range' => '\''.Phpfox::getService('user')->buildAge($aOrg['day'], $aOrg['month']) .'\''), 'user_id = ' . (int) $iUserid, false);
 		}
 				
 		if (count($aActivity))
@@ -1077,6 +1336,11 @@ class User_Service_Process extends Phpfox_Service
 	
 	public function cropPhoto($aVals)
 	{
+		if (isset($aVals['skip_croping']))
+		{
+			return true;
+		}
+		
 		Phpfox::getLib('image')->createThumbnail(Phpfox::getParam('core.dir_user') . sprintf(Phpfox::getUserBy('user_image'), ''), Phpfox::getParam('core.dir_user') . sprintf(Phpfox::getUserBy('user_image'), '') . '_temp', $aVals['image_width'], $aVals['image_height'], false);		
 		
 		if (empty($aVals['w']))
@@ -1113,6 +1377,12 @@ class User_Service_Process extends Phpfox_Service
 			
 			Phpfox::getLib('image')->createThumbnail(Phpfox::getParam('core.dir_user') . sprintf(Phpfox::getUserBy('user_image'), '_75_square'), Phpfox::getParam('core.dir_user') . sprintf(Phpfox::getUserBy('user_image'), '_' . $iSize), $iSize, $iSize);			
 			Phpfox::getLib('image')->createThumbnail(Phpfox::getParam('core.dir_user') . sprintf(Phpfox::getUserBy('user_image'), '_75_square'), Phpfox::getParam('core.dir_user') . sprintf(Phpfox::getUserBy('user_image'), '_' . $iSize . '_square'), $iSize, $iSize, false);
+			
+			if (defined('PHPFOX_IS_HOSTED_SCRIPT'))
+			{
+				unlink(Phpfox::getParam('core.dir_user') . sprintf(Phpfox::getUserBy('user_image'), '_' . $iSize));	
+				unlink(Phpfox::getParam('core.dir_user') . sprintf(Phpfox::getUserBy('user_image'), '_' . $iSize . '_square'));
+			}
 		}
 		
 		unlink(Phpfox::getParam('core.dir_user') . sprintf(Phpfox::getUserBy('user_image'), '') . '_temp');
@@ -1415,6 +1685,111 @@ class User_Service_Process extends Phpfox_Service
 		return false;
 	}
 
+	public function addSpamQuestion($aVals, $bReturnId = false)
+	{
+		$oParse = Phpfox::getLib('parse.input');
+		$oFile = Phpfox::getLib('file');
+		// Check that there is at least one answer
+		if (!isset($aVals['answer']) || count($aVals['answer']) < 1)
+		{
+			return Phpfox_Error::set('No answers received');
+		}
+		
+		foreach ($aVals['answer'] as $iKey => $sAnswer)
+		{
+			$aVals['answer'][$iKey] = $oParse->clean($sAnswer);
+		}
+		
+		$aInsert = array(
+			'question_phrase' => $oParse->clean($aVals['question']),
+			'answers_phrases' => json_encode($aVals['answer']),
+			'time_stamp' => PHPFOX_TIME,
+			//'case_sensitive' => (int)$aVals['case'],
+			'image_path' => (isset($aVals['image_path']) && !empty($aVals['image_path'])) ? $oParse->clean($aVals['image_path']) : ''
+		);
+		
+		if (isset($_FILES['file']['name']) && !empty($_FILES['file']['name']))
+		{
+			if (!$oFile->load('file', array('jpg', 'gif', 'png')))
+			{
+				return Phpfox_Error::set('Could not load file');
+			}
+			$aInsert['image_path'] = $oFile->upload('file', Phpfox::getParam('user.dir_user_spam'), '');
+			if ($aInsert['image_path'] == false)
+			{
+				return Phpfox_Error::set('Could not upload files');
+			}
+			$aInsert['image_path'] = sprintf($aInsert['image_path'], '');
+		}
+		
+		$iQuestionId = $this->database()->insert(Phpfox::getT('user_spam'), $aInsert);
+		if ($bReturnId)
+		{
+			return $iQuestionId;
+		}
+		
+		return true;
+	}
+	
+	public function editSpamQuestion($aVals)
+	{
+		if (!isset($aVals['question_id']) || !is_numeric($aVals['question_id']))
+		{
+			return Phpfox_Error::set('Invalid question id when editing.');
+		}
+		
+		if (isset($aVals['preserve_image']) && !empty($aVals['preserve_image']))
+		{
+			$aVals['image_path'] = $this->database()->select('image_path')
+				->from(Phpfox::getT('user_spam'))
+				->where('question_id = ' . (int)$aVals['question_id'])
+				->execute('getSlaveField');				
+		}
+		// add the new question
+		$iNewId = $this->addSpamQuestion($aVals, true);
+		
+		if ($this->deleteSpamQuestion($aVals['question_id'], (isset($aVals['preserve_image']) && !empty($aVals['preserve_image']))))
+		{
+			// Reset the question_id
+			$this->database()->update(Phpfox::getT('user_spam'), array('question_id' => (int)$aVals['question_id']), 'question_id = ' . $iNewId);
+		}
+		
+		return true;
+		
+	}
+	
+	public function deleteSpamQuestion($iQuestionId, $bPreserveImage = false)
+	{
+		// Check if the previous question had an image		
+		$sImagePath = $this->database()->select('image_path')->from(Phpfox::getT('user_spam'))->where('question_id = ' . (int)$iQuestionId)->execute('getSlaveField');
+		$sFilePath = Phpfox::getParam('user.dir_user_spam') . sprintf($sImagePath, '');
+		if ($bPreserveImage != true && !empty($sImagePath) && file_exists($sFilePath))
+		{
+			Phpfox::getLib('file')->unlink( $sFilePath );
+		}
+		
+		// Delete the previous question from the database
+		$this->database()->delete(Phpfox::getT('user_spam'), 'question_id = ' . (int)$iQuestionId);
+		
+		return true;
+	}
+	/* Stores a latitude and a longitude for the given user */
+	public function saveMyLatLng($aLocation)
+	{
+		$fLat = floatval($aLocation['latitude']);
+		$fLng = floatval($aLocation['longitude']);
+		
+		if ($fLat == 0 && $fLng == 0)
+		{
+			return false;
+		}
+		$aUpdate = array(
+			'latitude' => $fLat,
+			'longitude' => $fLng
+		);
+		$this->database()->update(Phpfox::getT('user_field'),array('location_latlng' => json_encode($aUpdate)), 'user_id = ' . Phpfox::getUserId());
+		return true;
+	}
 }
 
 ?>

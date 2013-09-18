@@ -22,14 +22,103 @@ class Apps_Service_Apps extends Phpfox_Service
 	{	
 		$this->_sTable = Phpfox::getT('app');
 	}
-
+	
+	public function buildUrl($sUrl, $sKey)
+	{		
+		$sReturn = $sUrl;
+		$sReturn .= (strpos($sUrl, '?') ? '&' : '?') . 'auth=1&key=' . $sKey;
+		
+		return $sReturn;
+	}
+	
+	public function export($aVals)
+	{
+		if (empty($aVals['title']))
+		{
+			Phpfox_Error::set('Provide a package name.');
+		}
+		
+		if (empty($aVals['url']))
+		{
+			Phpfox_Error::set('Provide a URL.');
+		}
+		
+		if (empty($aVals['apps']))
+		{
+			Phpfox_Error::set('Select apps to export.');
+		}
+		
+		if (Phpfox_Error::isPassed())
+		{
+			$aVals['title'] = strtolower($aVals['title']);
+			$aVals['title'] = preg_replace('/[^a-zA-Z0-9]+/', '', $aVals['title']);
+			$aVals['title'] = substr($aVals['title'], 0, 20);		
+			
+			define('PHPFOX_XML_SKIP_STAMP', true);
+		
+			$oXmlBuilder = Phpfox::getLib('xml.builder');
+			
+			$oXmlBuilder->addGroup('phpfoxapps');
+			$oXmlBuilder->addGroup('appsinfo');
+			$oXmlBuilder->addTag('url', $aVals['url']);
+			$oXmlBuilder->closeGroup();
+			
+			$oXmlBuilder->addGroup('apps');
+			$aApps = $this->getAllApps($aVals['apps']);
+			foreach ($aApps as $aApp)
+			{
+				$oXmlBuilder->addGroup('app');
+				$oXmlBuilder->addTag('app_title', $aApp['app_title']);
+				$oXmlBuilder->addTag('app_description', $aApp['app_description']);
+				$oXmlBuilder->addTag('app_url', $aApp['app_url']);
+				$oXmlBuilder->addTag('image_url', $aApp['image_url']);
+				$oXmlBuilder->addTag('time_stamp', $aApp['time_stamp']);
+				
+				if (!empty($aApp['image_path']))
+				{
+					$oXmlBuilder->addGroup('images');
+					$aSizes = array('', 50, 200, 'square');
+					foreach ($aSizes as $mSize)
+					{
+						$sImage = sprintf($aApp['image_path'], (empty($mSize) ? '' : '_' . $mSize));
+						$sContent = file_get_contents(PHPFOX_DIR . 'file' . PHPFOX_DS . 'pic' . PHPFOX_DS . 'app' . PHPFOX_DS . $sImage);
+						
+						$aExts = preg_split('/[\/\\.]/', $sImage);
+						$iCnt = count($aExts)-1;
+						$sExt = strtolower($aExts[$iCnt]);
+						
+						$oXmlBuilder->addTag('data', base64_encode($sContent), array('id' => md5($sContent), 'size' => (empty($mSize) ? '' : '_' . $mSize), 'ext' => $sExt));
+					}
+					$oXmlBuilder->closeGroup();
+				}
+				
+				$oXmlBuilder->closeGroup();
+			}
+			$oXmlBuilder->closeGroup();
+			$oXmlBuilder->closeGroup();
+			
+			$sNewHomeFolder = PHPFOX_DIR_CACHE . md5(uniqid() . Phpfox::getUserId());
+						
+			Phpfox::getLib('file')->write($sNewHomeFolder, $oXmlBuilder->output());
+	
+			Phpfox::getLib('file')->forceDownload($sNewHomeFolder, 'phpfox-' . $aVals['title'] . '.apps');
+		}
+		
+		return false;
+	}	
+	
 	/**
 	 * This function gets all the apps as an array, one of its sub-elements is an array
 	 * of permissions
 	 * @Todo cache apps
 	 */
-	public function getAllApps()
+	public function getAllApps($mIds = null)
 	{
+		if (is_array($mIds) && count($mIds))
+		{
+			$this->database()->where('app_id IN(' . implode(',', $mIds) . ')');
+		}
+		
 		$aApps = $this->database()->select('a.*')
 				->from($this->_sTable, 'a')
 				->execute('getSlaveRows');
@@ -105,7 +194,7 @@ class Apps_Service_Apps extends Phpfox_Service
 		
 			$aApps = $this->database()->select('a.*')
 				->from(Phpfox::getT('app_installed'), 'aa')
-				->join(Phpfox::getT('app'), 'a', 'a.app_id = aa.app_id')
+				->join(Phpfox::getT('app'), 'a', 'a.app_id = aa.app_id AND a.is_ext = 0')
 				->where('aa.user_id = ' . Phpfox::getUserId())
 				->execute('getSlaveRows');
 			
@@ -142,7 +231,7 @@ class Apps_Service_Apps extends Phpfox_Service
 	 * @param int $iId the app_id
 	 * @Todo cache
 	 */
-	public function getAppById($iId)
+	public function getAppById($iId, $bUseKey = false)
 	{
 		$aApp = $this->database()->select('a.*, p.page_id, p.total_like, au.install_id as is_installed, ac.category_id, ac.name as category_name, ' . Phpfox::getUserField())
 			->from(Phpfox::getT('app'),'a')
@@ -151,7 +240,7 @@ class Apps_Service_Apps extends Phpfox_Service
 			->leftjoin(Phpfox::getT('app_category_data'), 'acd', 'acd.app_id = a.app_id')
 			->leftjoin(Phpfox::getT('app_category'), 'ac', 'ac.category_id = acd.category_id')
 			->leftjoin(Phpfox::getT('pages'), 'p', 'p.app_id = a.app_id')
-			->where('a.app_id = ' . (int)$iId)
+			->where(($bUseKey ? 'a.public_key = \'' . $iId . '\'' : 'a.app_id = ' . (int) $iId))
 			->execute('getSlaveRow');
 		
 		if (empty($aApp))
@@ -271,6 +360,23 @@ class Apps_Service_Apps extends Phpfox_Service
 		);
 		
 		return $sKey;
+	}
+	
+	public function buildUser($aRow)
+	{
+		$sUserImage = Phpfox::getLib('image.helper')->display(array(
+				'user' => $aRow,
+				'suffix' => '_50_square',
+				'return_url' => true
+			)
+		);		
+		
+		return array(
+				'profile_user_id' => $aRow['user_id'],
+				'profile_user_name' => $aRow['user_name'],
+				'profile_full_name' => $aRow['full_name'],
+				'profile_image' => $sUserImage
+				);
 	}
 	
 	/**

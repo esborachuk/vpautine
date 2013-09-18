@@ -11,7 +11,7 @@ defined('PHPFOX') or exit('NO DICE!');
  * @copyright		[PHPFOX_COPYRIGHT]
  * @author  		Raymond_Benc
  * @package 		Phpfox_Component
- * @version 		$Id: link.class.php 3604 2011-11-29 09:10:05Z Raymond_Benc $
+ * @version 		$Id: link.class.php 5226 2013-01-28 14:10:06Z Miguel_Espinoza $
  */
 class Like_Component_Block_Link extends Phpfox_Component
 {
@@ -19,7 +19,104 @@ class Like_Component_Block_Link extends Phpfox_Component
 	 * Class process method wnich is used to execute this component.
 	 */
 	public function process()
-	{	
+	{
+		$sModule = $sItemTypeId = Phpfox::getLib('module')->getModuleName();
+		if ($sModule == 'apps' && Phpfox::isModule('pages'))
+		{
+			$sModule = 'pages';
+		}
+		if ($sModule == 'core')
+		{
+			
+			$sModule = $this->getParam('like_type_id');			
+			$sModule = explode('_', $sModule);
+			$sModule = $sModule[0];
+		}
+		else if ($sModule == 'profile' && ($this->getParam('like_type_id') == 'feed_comment' || $this->getParam('like_type_id') == 'user_status' || $this->getParam('like_type_id') == 'feed_mini'))
+		{
+		    $sModule = 'feed';
+		}
+		if (!$this->getParam('aFeed') && ($aVals = $this->request()->getArray('val')) && isset($aVals['is_via_feed']))
+		{		    
+		    $this->template()->assign(array('aFeed' => array('feed_id' => $aVals['is_via_feed'])));
+		}
+		if (Phpfox::getParam('like.allow_dislike') && Phpfox::hasCallback($sModule, 'getActions'))
+		{
+			static $iActionIteration = 0;
+			$iActionIteration++;
+			$aActions = Phpfox::callback($sModule . '.getActions');
+			
+			$mReq1 = $this->request()->get('req1');
+			$mReq2 = $this->request()->get('req2');
+			$mReq3 = $this->request()->get('req3');
+			
+			if (is_string($mReq2) )
+			{
+				if (is_numeric($mReq3))
+				{
+					switch($mReq2)
+					{
+						case 'thread':
+							$sItemTypeId .= '-post';
+							break;
+						default:
+							$sItemTypeId .= '-'.$mReq2;
+					}
+				}
+				else if (!is_numeric($mReq2) && !empty($mReq3))
+				{
+					
+					$sItemTypeId .= '-'.$mReq3;
+				}
+			}
+			
+			if (!empty($aActions))
+			{
+				$aOut = array();
+				$oServ = Phpfox::getService('like');
+				$iRound = 1;
+				foreach ($aActions as $sName => $aRow)
+				{
+					if (isset($aRow['is_enabled']) && $aRow['is_enabled'] != true)
+					{
+						continue;
+					}
+					
+					$bCheck1 = ($sItemTypeId != 'profile' && $sItemTypeId !='music' && $aRow['item_type_id'] != $sItemTypeId && $sItemTypeId != 'core');
+					$bCheck2 = (!empty($mReq1)) && ($this->getParam('like_type_id') != 'user_status' && $this->getParam('like_type_id') != 'feed_comment') && 						(!isset($aRow['where_to_show']) || !is_array($aRow['where_to_show']) || !in_array($mReq1, $aRow['where_to_show']));
+					$bCheck3 = ($sItemTypeId == 'core' && strpos($sName, '-') !== false);
+					$bCheck4 = $bCheck2 && (!Phpfox::getService('user')->isUser($mReq1) || $this->getParam('like_type_id') != 'feed_mini');
+					//d( ($bCheck1 ? '1':'0'). ($bCheck2 ? '1' : '0') . ($bCheck3 ? '1' :'0') . ($bCheck4 ? '1' : '0')); d($this->getParam('like_type_id') . '  -  ' . $mReq1);
+					if (/* Done to filter "albums" from "photos" (or music) */
+						$bCheck1
+						|| 
+						($bCheck2 && $bCheck4)
+						||
+						$bCheck3
+						)					
+					{
+						continue;
+					}
+					
+					$bIsMarked = $oServ->hasBeenMarked($aRow['action_type_id'], $aRow['item_type_id'], $this->getParam('like_item_id'), Phpfox::getUserId());
+					
+					
+					$aOut[] = array(
+						'item_type_id' => $aRow['item_type_id'],
+						'item_id' => $this->getParam('like_item_id'),
+						'is_marked' => $bIsMarked,
+						'phrase' => $aRow['phrase'],
+						'action_type_id' => $aRow['action_type_id'],
+						'module_name' => $sModule,
+						'iActionIteration' => $iActionIteration .''.$iRound
+					);
+					$iRound++;
+				}
+				
+				$this->template()->assign(array('aActions' => $aOut));
+			}
+		}
+		
 		$this->template()->assign(array(
 				'aLike' => array(
 					'like_type_id' => $this->getParam('like_type_id'),

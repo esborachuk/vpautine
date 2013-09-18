@@ -11,19 +11,17 @@ defined('PHPFOX') or exit('NO DICE!');
  * @copyright		[PHPFOX_COPYRIGHT]
  * @author  		Raymond Benc
  * @package  		Module_Video
- * @version 		$Id: video.class.php 4456 2012-07-03 07:39:33Z Raymond_Benc $
+ * @version 		$Id: video.class.php 5196 2013-01-25 12:35:36Z Raymond_Benc $
  */
 class Video_Service_Video extends Phpfox_Service
 {
 	private $_aExt = array(
 		'mpg' => 'video/mpeg',
-		'mpeg' => 'video/mpeg',
+		'mpeg' => 'video/mpeg',			
 		'wmv' => 'video/x-ms-wmv',
 		'avi' => 'video/avi',
 		'mov' => 'video/quicktime',
 		'flv' => 'video/x-flv'
-		// 'mp4' => 'video/mp4',
-		// '3gp' => 'video/3gpp'
 	);
 
 	private $_aCallback = false;
@@ -34,6 +32,22 @@ class Video_Service_Video extends Phpfox_Service
 	public function __construct()
 	{
 		$this->_sTable = Phpfox::getT('video');
+		if (Phpfox::getParam('video.vidly_support'))
+		{
+			$this->_aExt = array(
+					'mp4' => 'video/mp4',
+					'mov' => 'video/quicktime',
+					'flv' => 'video/x-flv',
+					'wmv' => 'video/x-ms-wmv',
+					'mpg' => 'video/mpeg',
+					'mpeg' => 'video/mpeg',
+					'm4v' => 'video/x-m4v',
+					'avi' => 'video/avi',
+					'webm' => 'video/webm',
+					'ogv' => 'video/ogg',
+					'mkv' => 'video/x-matroska'					 
+					);
+		}
 	}
 	
 	public function isNewVideoDone($iVideoId)
@@ -84,7 +98,7 @@ class Video_Service_Video extends Phpfox_Service
 		
 		$oXmlBuilder->closeGroup();				
 		
-		$aReturn = Phpfox::getLib('request')->send('http://m.vid.ly/api/', array('xml' => $oXmlBuilder->output()));		
+		$aReturn = Phpfox::getLib('request')->send('http://m.vid.ly/api/', array('xml' => $oXmlBuilder->output()));
 		
 		return $aReturn;
 	}
@@ -245,37 +259,59 @@ class Video_Service_Video extends Phpfox_Service
 				$this->database()->update(Phpfox::getT('video_embed'), array('embed_code' => $aEmbedVideo['embed_code']), 'video_id = ' . $aVideo['video_id']);
 			}
 
-			$aVideo['embed_code'] = $aEmbedVideo['embed_code'];			
+			$aVideo['embed_code'] = $aEmbedVideo['embed_code'];	
+			if (Phpfox::getParam('video.use_youtube_iframe') && isset($aEmbedVideo['video_url']) && !empty($aEmbedVideo['video_url']))
+			{
+				$sUrl = parse_url($aEmbedVideo['video_url'], PHP_URL_QUERY);
+				$aUrlParts = explode('&', $sUrl);
+				foreach ($aUrlParts as $sPart)
+				{
+					if (strpos($sPart, 'v=') !== false)
+					{
+						$aVideo['video_url'] = str_replace('v=', '', $sPart);
+						break;
+					}
+				}
+			}
+			
+			
 			if (preg_match('/youtube/i', $aEmbedVideo['video_url']) || preg_match('/youtu\.be/i', $aEmbedVideo['video_url']))
 			{
-				preg_match('/value="http:\/\/(.*?)"/i', $aVideo['embed_code'], $aMatches);
-				if (isset($aMatches[1]))
+				if (preg_match('/<iframe(.*)><\/iframe>/i', $aVideo['embed_code']))
 				{
-					$sTempUrl = trim($aMatches[1]);
-					$aUrlFind = array(
-						'&amp;fs=1',
-						'&amp;fs=0',
-						'&fs=1',
-						'&fs=0',
-
-						'&amp;rel=1',
-						'&amp;rel=0',
-						'&rel=1',
-						'&rel=0',
-
-						'&amp;autoplay=1',
-						'&amp;autoplay=0',
-						'&autoplay=1',
-						'&autoplay=0'						
-					);
-					$sNewTempUrl = str_replace($aUrlFind, '', $sTempUrl) . (Phpfox::getParam('video.embed_auto_play') ? '&amp;autoplay=1' : '') . (Phpfox::getParam('video.full_screen_with_youtube') ? '&amp;fs=1' : '') . (Phpfox::getParam('video.disable_youtube_related_videos') ? '&amp;rel=0' : '');
-					$aVideo['embed_code'] = str_replace($sTempUrl, $sNewTempUrl, $aVideo['embed_code']);
+					
 				}
-				elseif (preg_match('/src="http:\/\/(.*?)"/i', $aVideo['embed_code'], $aMatches))
+				else
 				{
-					$sTempUrl = trim($aMatches[1]);
-					$sNewTempUrl = $sTempUrl . '&wmode=transparent' . (Phpfox::getParam('video.disable_youtube_related_videos') ? '&rel=0' : '') . (Phpfox::getParam('video.embed_auto_play') ? '&autoplay=1' : '') . (Phpfox::getParam('video.full_screen_with_youtube') ? '&fs=1' : '');
-					$aVideo['embed_code'] = str_replace($sTempUrl, $sNewTempUrl, $aVideo['embed_code']);
+					preg_match('/value="http:\/\/(.*?)"/i', $aVideo['embed_code'], $aMatches);
+					if (isset($aMatches[1]))
+					{
+						$sTempUrl = trim($aMatches[1]);
+						$aUrlFind = array(
+							'&amp;fs=1',
+							'&amp;fs=0',
+							'&fs=1',
+							'&fs=0',
+	
+							'&amp;rel=1',
+							'&amp;rel=0',
+							'&rel=1',
+							'&rel=0',
+	
+							'&amp;autoplay=1',
+							'&amp;autoplay=0',
+							'&autoplay=1',
+							'&autoplay=0'						
+						);
+						$sNewTempUrl = str_replace($aUrlFind, '', $sTempUrl) . (Phpfox::getParam('video.embed_auto_play') ? '&amp;autoplay=1' : '') . (Phpfox::getParam('video.full_screen_with_youtube') ? '&amp;fs=1' : '') . (Phpfox::getParam('video.disable_youtube_related_videos') ? '&amp;rel=0' : '');
+						$aVideo['embed_code'] = str_replace($sTempUrl, $sNewTempUrl, $aVideo['embed_code']);
+					}
+					elseif (preg_match('/src="http:\/\/(.*?)"/i', $aVideo['embed_code'], $aMatches))
+					{
+						$sTempUrl = trim($aMatches[1]);
+						$sNewTempUrl = $sTempUrl . '&wmode=transparent' . (Phpfox::getParam('video.disable_youtube_related_videos') ? '&rel=0' : '') . (Phpfox::getParam('video.embed_auto_play') ? '&autoplay=1' : '') . (Phpfox::getParam('video.full_screen_with_youtube') ? '&fs=1' : '');
+						$aVideo['embed_code'] = str_replace($sTempUrl, $sNewTempUrl, $aVideo['embed_code']);
+					}
 				}
 			}
 			
@@ -432,9 +468,14 @@ class Video_Service_Video extends Phpfox_Service
 	{
 		if (!isset($aVals['ffmpeg_path']))
 		{
-			return Phpfox_Error::set('Must set the path to FFMPEG before enabling uploading of videos.');
+			return Phpfox_Error::set(Phpfox::getPhrase('video.must_set_the_path_to_ffmpeg_before_enabling_uploading_of_videos'));
 		}
 		$aOutput= '';
+		
+		if (!function_exists('exec'))
+		{
+			return Phpfox_Error::set(Phpfox::getPhrase('video.the_php_function_exec_is_disabled_and_needed_to_run_this_check_and_convert_uploaded_videos'));
+		}
 		exec($aVals['ffmpeg_path'] . ' 2>&1', $aOutput);
 	
 		$bPass = false;
@@ -666,6 +707,22 @@ class Video_Service_Video extends Phpfox_Service
 		return $aRows;
 	}
 
+	public function getInfoForAction($aItem)
+	{
+		if (is_numeric($aItem))
+		{
+			$aItem = array('item_id' => $aItem);
+		}
+		$aRow = $this->database()->select('v.video_id, v.title, v.user_id, u.gender, u.full_name')	
+			->from(Phpfox::getT('video'), 'v')
+			->join(Phpfox::getT('user'), 'u', 'u.user_id = v.user_id')
+			->where('v.video_id = ' . (int) $aItem['item_id'])
+			->execute('getSlaveRow');
+						
+		$aRow['link'] = Phpfox::getLib('url')->permalink('video', $aRow['video_id'], $aRow['title']);
+		return $aRow;
+	}
+	
 	/**
 	 * If a call is made to an unknown method attempt to connect
 	 * it to a specific plug-in with the same name thus allowing

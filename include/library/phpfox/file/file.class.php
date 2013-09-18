@@ -25,7 +25,7 @@ defined('PHPFOX') or exit('NO DICE!');
  * @copyright		[PHPFOX_COPYRIGHT]
  * @author			Raymond Benc
  * @package 		Phpfox
- * @version 		$Id: file.class.php 4316 2012-06-21 13:57:37Z Miguel_Espinoza $
+ * @version 		$Id: file.class.php 5382 2013-02-18 09:48:39Z Miguel_Espinoza $
  */
 class Phpfox_File
 {
@@ -150,11 +150,6 @@ class Phpfox_File
 			$this->_iMaxSize = $iMaxSize;
 		}
 		
-		if (!$this->_passLimit())
-		{
-			return false;
-		}			
-		
 		if (Phpfox::isUser())
 		{
 			if (!Phpfox::getService('user.space')->isAllowedToUpload(Phpfox::getUserId(), filesize($this->_aFile['tmp_name'])))
@@ -177,6 +172,11 @@ class Phpfox_File
 		{
 			return Phpfox_Error::set(Phpfox::getPhrase('core.not_a_valid_image_we_only_accept_the_following_file_extensions_support', array('support' => implode(', ', $aSupported))));
 		}	
+		
+		if (!$this->_passLimit())
+		{
+			return false;
+		}		
 
 		return $this->_aFile;
 	}	
@@ -197,6 +197,8 @@ class Phpfox_File
 	 */
     public function upload($sFormItem, $sDestination, $sFileName, $bModifyFileName = true, $iPerm = 0644, $buildDir = true, $bCdn = true)
     {
+        (($sPlugin = Phpfox_Plugin::get('file_upload_start')) ? eval($sPlugin) : false);
+        
 		if ($buildDir)
 		{
 			$this->_buildDir($sDestination);
@@ -205,9 +207,8 @@ class Phpfox_File
 		{
 			$this->_sDestination = $sDestination;
 		}
-
-    	(($sPlugin = Phpfox_Plugin::get('file_upload_start')) ? eval($sPlugin) : false);
 	
+        if ($sPlugin = Phpfox_Plugin::get('library_phpfox_file_file_upload_1')){eval($sPlugin);if (isset($mReturnFromPlugin)){return $mReturnFromPlugin;}}
     	if (!defined('PHPFOX_APP_USER_ID') && !is_uploaded_file($this->_aFile['tmp_name']))
         {
             return Phpfox_Error::set(Phpfox::getPhrase('core.unable_to_upload_the_image'));
@@ -233,16 +234,17 @@ class Phpfox_File
         
         $sDest = $this->_sDestination . $sFileName . '.' . $this->_sExt;
 		
-		if (defined('PHPFOX_APP_USER_ID'))
-		{
-			 @copy($this->_aFile['tmp_name'], $sDest);
-			 @unlink($this->_aFile['tmp_name']);
-		}
+	if ($sPlugin = Phpfox_Plugin::get('library_phpfox_file_file_upload_2')){eval($sPlugin);if (isset($mReturnFromPlugin)){return $mReturnFromPlugin;}}
+	if (defined('PHPFOX_APP_USER_ID'))
+	{
+		 @copy($this->_aFile['tmp_name'], $sDest);
+		 @unlink($this->_aFile['tmp_name']);
+	}
         else if (!@move_uploaded_file($this->_aFile['tmp_name'], $sDest))
         {
             return Phpfox_Error::set(Phpfox::getPhrase('core.unable_to_move_the_file'));
         }    
-        
+        if ($sPlugin = Phpfox_Plugin::get('library_phpfox_file_file_upload_3')){eval($sPlugin);if (isset($mReturnFromPlugin)){return $mReturnFromPlugin;}}
         // Windows permission problem???
         if (stristr(PHP_OS, "win"))
         {        
@@ -487,7 +489,7 @@ class Phpfox_File
 	     	}
 		}		
 		
-		if (Phpfox::getParam('core.allow_cdn'))
+		if (Phpfox::getParam('core.allow_cdn') && $iServerId > 0)
 		{
 			//$sFile = Phpfox::getLib('cdn')->getUrl(str_replace(PHPFOX_DIR, Phpfox::getParam('core.path'), $sFile), $iServerId);					
 			$sFileSize = $sFileSize ? $sFileSize : filesize($sFile);
@@ -625,7 +627,7 @@ class Phpfox_File
                 /**
                  * Trying to create a new file
                  */
-                $fp = @fopen($sPath . 'win-test.txt', 'w');                
+                $fp = @fopen($sPath . PHPFOX_DS . 'win-test.txt', 'w');                
                 if (!$fp)
                 {
                     if ($bForce === true)
@@ -749,12 +751,12 @@ class Phpfox_File
     	$iUploadMaxFileSize = (ini_get('upload_max_filesize') * 1048576);
     	$iPostMaxSize = (ini_get('post_max_size') * 1048576);
     	
-    	if ($iUploadMaxFileSize < ($iMaxSize * 1048576))
+    	if ( $iUploadMaxFileSize > 0 && $iUploadMaxFileSize < ($iMaxSize * 1048576))
     	{
     		return ini_get('upload_max_filesize');
     	}
     	
-    	if ($iPostMaxSize < ($iMaxSize * 1048576))
+    	if ($iPostMaxSize > 0 && $iPostMaxSize < ($iMaxSize * 1048576))
     	{
     		return ini_get('post_max_size');
     	}
@@ -847,6 +849,15 @@ class Phpfox_File
 	public function getFileDetails()
 	{
 		return $this->_aFile;
+	}
+	
+	public function getFileExt($sFileName)
+	{
+		$sFilename = strtolower($sFileName);
+		$aExts = preg_split("/[\/\\.]/", $sFileName);
+		$iCnt = count($aExts)-1;
+		
+		return strtolower($aExts[$iCnt]);		
 	}
 	
 	/**
@@ -951,7 +962,7 @@ class Phpfox_File
      */
     private function _buildFile($sFormItem)
     { 	
-    	if (!strpos($sFormItem, ']'))
+    	if (strpos($sFormItem, ']') === false)
         {
             $this->_aFile = $_FILES[$sFormItem];
         }

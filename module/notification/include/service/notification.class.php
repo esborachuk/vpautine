@@ -80,7 +80,7 @@ class Notification_Service_Notification extends Phpfox_Service
 				continue;				
 			}
 			
-			if (($aCallBack = Phpfox::callback($aRow['type_id'] . '.getNotification', $aRow)))
+			if ( Phpfox::hasCallback($aRow['type_id'], 'getNotification') && ($aCallBack = Phpfox::callback($aRow['type_id'] . '.getNotification', $aRow)))
 			{			
 				if (!isset($aCallBack['message']))
 				{
@@ -176,6 +176,7 @@ class Notification_Service_Notification extends Phpfox_Service
 				{
 					$aCallBack['link'] = '#';
 					$aCallBack['message'] = '2. Notification is missing a callback. [' . $aRow['type_id'] . '::getNotification]';										
+                    
 				}		
 				elseif (substr($aRow['type_id'], 0, 8) == 'comment_' && substr($aRow['type_id'], 0, 12) != 'comment_feed' && !Phpfox::hasCallback(substr_replace($aRow['type_id'], '', 0, 8), 'getCommentNotification'))
 				{

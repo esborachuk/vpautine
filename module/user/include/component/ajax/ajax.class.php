@@ -11,10 +11,58 @@ defined('PHPFOX') or exit('NO DICE!');
  * @copyright		[PHPFOX_COPYRIGHT]
  * @author  		Raymond Benc
  * @package  		Module_User
- * @version 		$Id: ajax.class.php 4413 2012-06-28 10:54:17Z Miguel_Espinoza $
+ * @version 		$Id: ajax.class.php 5289 2013-01-31 11:00:13Z Miguel_Espinoza $
  */
 class User_Component_Ajax_Ajax extends Phpfox_Ajax
 {
+	public function processPurchasePoints()
+	{
+		Phpfox::getBlock('user.processpoints');
+		
+		$this->html('#js_purchase_points', $this->getContent(false));
+	}
+	
+	public function purchasePoints()
+	{
+		$this->setTitle(Phpfox::getPhrase('user.purchase_activity_points'));
+		Phpfox::getBlock('user.purchasepoints');
+	}
+	
+	public function updateFeedSort()
+	{
+		if (Phpfox::getService('user.process')->updateFeedSort($this->get('order')))
+		{
+			$this->call('window.location.href = \'\';');
+		}
+	}
+	
+	public function confirmEmail()
+	{
+		$aVals = $this->get('val');
+		
+		$bFailed = false;
+		if (empty($aVals['email']) || empty($aVals['confirm_email']))
+		{
+			$bFailed = true;
+		}
+		else
+		{
+			if ($aVals['email'] != $aVals['confirm_email'])
+			{
+				$bFailed = true;
+			}
+		}
+		
+		if ($bFailed)
+		{
+			$this->show('#js_confirm_email_error');
+		}
+		else
+		{
+			$this->hide('#js_confirm_email_error');
+		}
+	}
+	
 	public function setCoverPhoto()
 	{
 		Phpfox::getService('user.process')->updateCoverPhoto($this->get('photo_id'));
@@ -585,10 +633,10 @@ class User_Component_Ajax_Ajax extends Phpfox_Ajax
 	{		
 		$aPostVals = $this->get('val');
 		
-		if (empty($aPostVals['w']))
+		if (empty($aPostVals['w']) && !isset($aPostVals['skip_croping']))
 		{			
 			$this->show('#js_photo_preview_ajax')->html('#js_photo_preview_ajax', '');
-			
+
 			return Phpfox_Error::set(Phpfox::getPhrase('photo.select_an_area_on_your_photo_to_crop'));
 		}		
 		
@@ -668,6 +716,10 @@ class User_Component_Ajax_Ajax extends Phpfox_Ajax
 				(Phpfox::isModule('feed') ? Phpfox::getService('feed.process')->add('user_photo', Phpfox::getUserId(), serialize(array('destination' => $sFileName, 'server_id' => $iServerId))) : null);				
 				
 				$this->call('$.ajaxCall(\'user.cropPhoto\', \'crop=true&js_disable_ajax_restart=true' . $sValues . '\');');
+				if (Phpfox::isModule('photo'))
+				{
+					Phpfox::getService('photo.album')->getForProfileView(Phpfox::getUserId(), true);
+				}
 			}
 			
 			return;
@@ -947,6 +999,25 @@ class User_Component_Ajax_Ajax extends Phpfox_Ajax
 		$iCount = Phpfox::getService('user')->getInactiveMembersCount($this->get('iDays'));
 		$this->html('#progress', Phpfox::getPhrase('user.there_are_a_total_of_icount_inactive_members', array('iCount' => $iCount)));
 	}	
+	
+	
+	public function deleteSpamQuestion()
+	{
+		if (Phpfox::getService('user.process')->deleteSpamQuestion($this->get('iQuestionId')) )
+		{
+			$this->softNotice(Phpfox::getPhrase('user.question_deleted_succesfully'));
+			$this->remove('#tr_new_question_' . $this->get('iQuestionId'));
+		}
+	}
+	
+	public function saveMyLatLng()
+	{
+		if ($this->get('lat') == '0' && $this->get('lng') == '0')
+		{
+			return;
+		}
+		Phpfox::getService('user.process')->saveMyLatLng(array('latitude' => $this->get('lat'), 'longitude' => $this->get('lng') ) );
+	}
 }
 
 ?>

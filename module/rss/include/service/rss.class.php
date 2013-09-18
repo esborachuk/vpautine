@@ -11,7 +11,7 @@ defined('PHPFOX') or exit('NO DICE!');
  * @copyright		[PHPFOX_COPYRIGHT]
  * @author  		Raymond Benc
  * @package  		Module_Rss
- * @version 		$Id: rss.class.php 4584 2012-08-01 10:02:08Z Miguel_Espinoza $
+ * @version 		$Id: rss.class.php 4956 2012-10-25 07:08:52Z Miguel_Espinoza $
  */
 class Rss_Service_Rss extends Phpfox_Service 
 {	
@@ -156,14 +156,11 @@ class Rss_Service_Rss extends Phpfox_Service
 		}			
 	
 		if (is_array($aFeeds) && count($aFeeds))
-		{			
+		{
 			foreach ($aFeeds as $aItem)
 			{
-				$sTitle = Phpfox::getLib('parse.output')->clean($aItem['full_name']) . ' ' . (!empty($aItem['feed_info']) ? $aItem['feed_info'] : (!empty($aItem['feed_content']) ? $aItem['feed_content'] : ''));
-				$sTitle = html_entity_decode(preg_replace("/U\+([0-9A-F]{4})/", "&#\\1;", $sTitle), ENT_NOQUOTES, 'UTF-8');
-				
 				$oXmlBuilder->addGroup('item');
-				$oXmlBuilder->addTag('title', $sTitle);
+				$oXmlBuilder->addTag('title', Phpfox::getLib('parse.output')->clean($aItem['full_name']) . ' ' . strip_tags(!empty($aItem['feed_info']) ? $aItem['feed_info'] : (!empty($aItem['feed_content']) ? $aItem['feed_content'] : '')));
 				$oXmlBuilder->addTag('link', $aItem['feed_link']);
 				$oXmlBuilder->addTag('description', (!empty($aItem['feed_content']) ? $aItem['feed_content'] : ''));
 				$oXmlBuilder->addTag('guid', $aItem['feed_link']);

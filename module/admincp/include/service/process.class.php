@@ -11,7 +11,7 @@ defined('PHPFOX') or exit('NO DICE!');
  * @copyright		[PHPFOX_COPYRIGHT]
  * @author  		Raymond Benc
  * @package 		Phpfox_Service
- * @version 		$Id: process.class.php 1496 2010-03-05 17:15:05Z Raymond_Benc $
+ * @version 		$Id: process.class.php 4854 2012-10-09 05:20:40Z Raymond_Benc $
  */
 class Admincp_Service_Process extends Phpfox_Service 
 {
@@ -20,7 +20,55 @@ class Admincp_Service_Process extends Phpfox_Service
 	 */	
 	public function __construct()
 	{	
+		        
+	}
+	
+	public function addNewPrivacyRule($aVals)
+	{
+		if (empty($aVals['url']))
+		{
+			Phpfox_Error::set(Phpfox::getPhrase('admincp.provide_a_url'));
+		}
 		
+		if (empty($aVals['user_group']))
+		{
+			Phpfox_Error::set(Phpfox::getPhrase('admincp.provide_atleast_one_user_group_for_this_rule'));
+		}
+		
+		if (!Phpfox_Error::isPassed())
+		{
+			return false;
+		}		
+		
+		$aFind = array(Phpfox::getParam('core.path'), 'index.php?do=', '/');
+		
+		$aReplace = array('', '', '.');
+				
+		$sUrl = $aVals['url'];
+		$sUrl = str_replace($aFind, $aReplace, $sUrl);
+		$sUrl = trim($sUrl, '.');
+		
+		$iId = $this->database()->insert(Phpfox::getT('admincp_privacy'), array(
+					'url' => $sUrl,
+					'time_stamp' => PHPFOX_TIME,
+					'user_id' => Phpfox::getUserId(),
+					'user_group' => json_encode($aVals['user_group']),
+					'wildcard' => (int) $aVals['wildcard']
+				)
+			);
+		
+		$this->cache()->remove();
+		
+		return $iId;
+	}
+	
+	public function deletePrivacyRule($iRuleId)
+	{
+		$this->database()->delete(Phpfox::getT('admincp_privacy'), 'rule_id = ' . (int) $iRuleId);
+		
+		$this->cache()->remove();
+		
+		return true;
 	}
 	
 	/**

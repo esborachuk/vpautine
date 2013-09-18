@@ -13,7 +13,7 @@ defined('PHPFOX') or exit('NO DICE!');
  * @copyright		[PHPFOX_COPYRIGHT]
  * @author			Raymond Benc
  * @package 		Phpfox
- * @version 		$Id: gd.class.php 4524 2012-07-19 07:28:19Z Raymond_Benc $
+ * @version 		$Id: gd.class.php 5375 2013-02-14 10:48:19Z Raymond_Benc $
  */
 class Phpfox_Image_Library_Gd extends Phpfox_Image_Abstract
 {	
@@ -140,10 +140,15 @@ class Phpfox_Image_Library_Gd extends Phpfox_Image_Abstract
 	 * @return mixed FALSE on failure, TRUE or NULL on success
 	 */
 	public function createThumbnail($sImage, $sDestination, $nMaxW, $nMaxH, $bRatio = true, $bSkipCdn = false)
-	{    	
+	{	
 		if (!$this->_load($sImage))
 		{
 			return false;
+		}
+
+		if (defined('PHPFOX_IS_HOSTED_SCRIPT'))
+		{
+			$sImage = str_replace(PHPFOX_DIR, rtrim(Phpfox::getParam('core.rackspace_url'), '/') . '/', $sImage);
 		}		
 		
 		if ($bRatio)
@@ -302,6 +307,11 @@ class Phpfox_Image_Library_Gd extends Phpfox_Image_Abstract
 	
 	public function createSquareThumbnail($sSrc, $sDestination, $iNewWIdth = 0, $iNewHeight = 0, $bSkipCdn = false, $iZoom = 1, $iQuality = 100)
 	{				
+		if (defined('PHPFOX_IS_HOSTED_SCRIPT'))
+		{
+			$sSrc = str_replace(PHPFOX_DIR, rtrim(Phpfox::getParam('core.rackspace_url'), '/') . '/', $sSrc);
+		}
+		
 		if ($iNewWIdth == 0 && $iNewHeight == 0) 
 		{
 		    $iNewWIdth = 100;
@@ -619,7 +629,7 @@ class Phpfox_Image_Library_Gd extends Phpfox_Image_Abstract
 	 			break;
 	 	}	 	
 
-        list($iRed, $iGreen, $iBlue) = $this->_hex2RGB($sTextColor);
+        list($iRed, $iBlue, $iGreen) = $this->_hex2RGB($sTextColor);
         
         $sTextColor = imagecolorallocate($hImg, $iRed, $iGreen, $iBlue);
         

@@ -5,7 +5,7 @@
  * @copyright		[PHPFOX_COPYRIGHT]
  * @author  		Raymond Benc
  * @package  		Module_Forum
- * @version 		$Id: forum.html.php 4337 2012-06-25 15:09:52Z Raymond_Benc $
+ * @version 		$Id: forum.html.php 4868 2012-10-09 08:57:09Z Raymond_Benc $
  */
  
 defined('PHPFOX') or exit('NO DICE!'); 
@@ -39,7 +39,7 @@ defined('PHPFOX') or exit('NO DICE!');
 			</div>
 			{if !Phpfox::isMobile() && !empty($aForum.thread_title)}
 			<div class="forum_last_post">
-				<a href="{if $aForum.post_id}{permalink module='forum.thread' id=$aForum.thread_id title=$aForum.thread_title_url}post_{$aForum.post_id}/{else}{permalink module='forum.thread' id=$aForum.thread_id title=$aForum.thread_title_url}{/if}" title="{$aForum.thread_title|clean}">{$aForum.thread_title|clean|split:20|shorten:50:'...'}
+				<a href="{if $aForum.post_id}{permalink module='forum.thread' id=$aForum.thread_id title=$aForum.thread_title_url}post_{$aForum.post_id}/{else}{permalink module='forum.thread' id=$aForum.thread_id title=$aForum.thread_title_url}{/if}" title="{$aForum.thread_title|clean}">{$aForum.thread_title|clean|shorten:50:'...'}
 				</a>
 				<div class="extra_info">
 					{phrase var='forum.by_full_name_on_time' full_name=$aForum|user:'':'':30 time=$aForum.thread_time_stamp|convert_time}

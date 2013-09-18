@@ -20,7 +20,12 @@ class Forum_Component_Block_Jump extends Phpfox_Component
 	 */
 	public function process()
 	{
-		if (Phpfox::getService('pages')->isInPage())
+		if (Phpfox::isModule('pages') && Phpfox::getService('pages')->isInPage())
+		{
+			return false;
+		}
+		
+		if (Phpfox::isModule('pages') && $this->request()->get('module') == 'pages')
 		{
 			return false;
 		}

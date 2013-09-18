@@ -11,7 +11,7 @@ defined('PHPFOX') or exit('NO DICE!');
  * @copyright		[PHPFOX_COPYRIGHT]
  * @author  		Raymond Benc
  * @package  		Module_Video
- * @version 		$Id: ajax.class.php 4456 2012-07-03 07:39:33Z Raymond_Benc $
+ * @version 		$Id: ajax.class.php 4610 2012-08-28 07:58:49Z Raymond_Benc $
  */
 class Video_Component_Ajax_Ajax extends Phpfox_Ajax
 {
@@ -25,6 +25,7 @@ class Video_Component_Ajax_Ajax extends Phpfox_Ajax
 	
 	public function checkOnVideo()
 	{		
+		/*
 		if (($aVidlyVideo = Phpfox::getService('video')->isVidlyDone()))
 		{
 			$iId = Phpfox::getService('video.process')->add($_POST['val'], $aVidlyVideo);
@@ -35,6 +36,8 @@ class Video_Component_Ajax_Ajax extends Phpfox_Ajax
 			
 			$this->call('window.location.href = \'' . Phpfox::permalink('video', $aVideo['video_id'], $aVideo['title']) . '\'');
 		}
+		 * 
+		 */
 	}
 	
 	public function addShare()

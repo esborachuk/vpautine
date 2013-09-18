@@ -11,7 +11,7 @@ defined('PHPFOX') or exit('NO DICE!');
  * @copyright		[PHPFOX_COPYRIGHT]
  * @author  		Raymond Benc
  * @package  		Module_Feed
- * @version 		$Id: birth.class.php 4189 2012-05-31 10:16:13Z Raymond_Benc $
+ * @version 		$Id: birth.class.php 5022 2012-11-13 08:05:06Z Raymond_Benc $
  */
 class User_Component_Block_Birth extends Phpfox_Component 
 {
@@ -21,7 +21,7 @@ class User_Component_Block_Birth extends Phpfox_Component
 	public function process()
 	{
 		$aUser = (PHPFOX_IS_AJAX ? Phpfox::getService('user')->get($this->request()->getInt('profile_user_id'), true) : $this->getParam('aUser'));
-		$aBirthDay = Phpfox::getService('user')->getAgeArray($aUser['birthday']);
+		$aBirthDay = Phpfox::getService('user')->getAgeArray((PHPFOX_IS_AJAX ? $aUser['birthday'] : $aUser['birthday_time_stamp']));
 		
 		$this->template()->assign(array(
 				'aUser' => $aUser,

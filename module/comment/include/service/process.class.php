@@ -11,7 +11,7 @@ defined('PHPFOX') or exit('NO DICE!');
  * @copyright		[PHPFOX_COPYRIGHT]
  * @author  		Raymond Benc
  * @package  		Module_Comment
- * @version 		$Id: process.class.php 4542 2012-07-19 14:53:53Z Miguel_Espinoza $
+ * @version 		$Id: process.class.php 4621 2012-09-12 05:34:34Z Raymond_Benc $
  */
 class Comment_Service_Process extends Phpfox_Service
 {
@@ -47,7 +47,7 @@ class Comment_Service_Process extends Phpfox_Service
 			}
 		}
 		
-		$aItem = Phpfox::callback($aVals['type'] . '.getCommentItem', $aVals['item_id']);		
+		$aItem = Phpfox::callback($aVals['type'] . '.getCommentItem', $aVals['item_id']);
 		
 		if (!isset($aItem['comment_item_id']))
 		{
@@ -156,6 +156,30 @@ class Comment_Service_Process extends Phpfox_Service
 		
 		// Update user activity
 		Phpfox::getService('user.activity')->update(Phpfox::getUserId(), 'comment');
+		
+		$sFeedPrefix = '';
+		$sNewTypeId = $aVals['type'];
+		if (!empty($aItem['parent_module_id']) && ($aItem['parent_module_id'] == 'pages' || $aItem['parent_module_id'] == 'event'))
+		{
+			$sFeedPrefix = $aItem['parent_module_id'] . '_';
+			if ($sNewTypeId == 'pages')
+			{
+				$sNewTypeId = 'pages_comment';
+			}
+			
+			if ($sNewTypeId == 'event')
+			{
+				$sNewTypeId = 'event_comment';
+			}			
+		}
+		
+		/*
+		p($sFeedPrefix);
+		p('type_id = \'' . $this->database()->escape($aVals['type']) . '\' AND item_id = ' . (int) $aVals['item_id']);
+		exit;
+		*/
+		
+		$this->database()->update(Phpfox::getT($sFeedPrefix . 'feed'), array('time_update' => PHPFOX_TIME), 'type_id = \'' . $this->database()->escape($sNewTypeId) . '\' AND item_id = ' . (int) $aVals['item_id']);
 		
 		(($sPlugin = Phpfox_Plugin::get('comment.service_process_add_end')) ? eval($sPlugin) : false);
 

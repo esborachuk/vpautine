@@ -12,7 +12,7 @@ defined('PHPFOX') or exit('NO DICE!');
  * @copyright		[PHPFOX_COPYRIGHT]
  * @author			Raymond Benc
  * @package 		Phpfox
- * @version 		$Id: locale.class.php 3987 2012-03-08 17:07:25Z Miguel_Espinoza $
+ * @version 		$Id: locale.class.php 5319 2013-02-04 12:53:36Z Miguel_Espinoza $
  */
 class Phpfox_Locale
 {
@@ -94,6 +94,8 @@ class Phpfox_Locale
 	 * @var unknown_type
 	 */
 	private $_sOverride = '';
+	
+	private $_aPhraseHistory = array();
 	
 	/**
 	 * Class constructor used to load the default language package and all the phrases that are part
@@ -315,7 +317,7 @@ class Phpfox_Locale
 	 */
 	public function isPhrase($sParam)
 	{
-		if (!strpos($sParam, '.'))
+		if (strpos($sParam, '.') === false)
 		{
 			return '';
 		}		
@@ -355,7 +357,7 @@ class Phpfox_Locale
 	 */
 	public function getPhrase($sParam, $aParams = array(), $bNoDebug = false, $sDefault = null, $sLang = '')
 	{
-		if (!strpos($sParam, '.'))
+		if (strpos($sParam, '.') === false)
 		{
 			if ((Phpfox::getParam('language.lang_pack_helper') && !$bNoDebug))
 			{
@@ -484,8 +486,47 @@ class Phpfox_Locale
 			return Phpfox::getPhrase('user.display_name');
 		}
 		
+		$this->_aPhraseHistory[md5($sPhrase)] = array('var_name' => $sParam, 'params' => $aParams);
+		
 		return $sPhrase;
 	}
+	
+	public function getPhraseHistory($sPhraseValue, $sLanguageId = null)
+	{
+		if (!isset($this->_aPhraseHistory[md5($sPhraseValue)]))
+		{
+			return $sPhraseValue;
+		}
+		
+		$aPhrase = $this->_aPhraseHistory[md5($sPhraseValue)];		
+	
+		$aParts = explode('.', $aPhrase['var_name']);
+		$aRow = Phpfox::getLib('database')->select('text')
+			->from(Phpfox::getT('language_phrase'))
+			->where('language_id = \'' . Phpfox::getLib('database')->escape($sLanguageId) . '\' AND var_name = \'' . $aParts[1] . '\'')
+			->execute('getSlaveRow');
+		
+		if (!empty($aRow['text']))
+		{
+			$sPhrase = $aRow['text'];			
+			if (!empty($aPhrase['params']))
+			{
+				$aFind = array();
+				$aReplace = array();
+				foreach ($aPhrase['params'] as $sKey => $sValue)
+				{
+					$aFind[] = '{' . $sKey . '}';
+					$aReplace[] = '' . $sValue . '';
+				}
+					
+				$sPhrase = str_replace($aFind, $aReplace, $sPhrase);
+			}			
+			
+			return $sPhrase;
+		}
+		
+		return $sPhraseValue;
+	}	
 	
 	/**
 	 * Sets the cache ID when caching phrases for a specific page.

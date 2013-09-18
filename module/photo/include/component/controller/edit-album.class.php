@@ -11,7 +11,7 @@ defined('PHPFOX') or exit('NO DICE!');
  * @copyright		[PHPFOX_COPYRIGHT]
  * @author  		Raymond_Benc
  * @package 		Phpfox_Component
- * @version 		$Id: edit-album.class.php 3395 2011-10-31 15:34:08Z Raymond_Benc $
+ * @version 		$Id: edit-album.class.php 4699 2012-09-20 10:30:04Z Raymond_Benc $
  */
 class Photo_Component_Controller_Edit_Album extends Phpfox_Component
 {
@@ -45,7 +45,7 @@ class Photo_Component_Controller_Edit_Album extends Phpfox_Component
 			{
 				if (Phpfox::getService('photo.album.process')->update($aAlbum['album_id'], $aVals))
 				{
-					$this->url()->send('photo.edit-album', array('id' => $aAlbum['album_id']), Phpfox::getPhrase('photo.album_successfully_updated'));
+					$this->url()->permalink('photo.album', $aAlbum['album_id'], $aAlbum['name'], true, Phpfox::getPhrase('photo.album_successfully_updated'));
 				}
 			}
 		}

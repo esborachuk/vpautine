@@ -19,9 +19,16 @@ class Poll_Component_Block_Votes extends Phpfox_Component
 	public function process()
 	{
 		(($sPlugin = Phpfox_Plugin::get('poll.component_block_votes_start')) ? eval($sPlugin) : false);
-		
-		$aVotes = Phpfox::getService('poll')->getVotes($this->request()->getInt('poll_id'));	
-		
+
+		if ( ($iPollId = $this->request()->get('req2') ) )
+		{
+			$aVotes = Phpfox::getService('poll')->getVotes($this->request()->get('req2'));
+		}
+		else
+		{
+			$aVotes = Phpfox::getService('poll')->getVotes($this->request()->get('poll_id'));
+		}
+
 		$this->template()->assign(array(
 				'aVotes' => $aVotes				
 			)

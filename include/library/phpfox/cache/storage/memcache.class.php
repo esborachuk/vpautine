@@ -13,7 +13,7 @@ defined('PHPFOX') or exit('NO DICE!');
  * @copyright		[PHPFOX_COPYRIGHT]
  * @author			Raymond Benc
  * @package 		Phpfox
- * @version 		$Id: memcache.class.php 4289 2012-06-18 14:25:24Z Raymond_Benc $
+ * @version 		$Id: memcache.class.php 5362 2013-02-14 08:10:50Z Raymond_Benc $
  */
 class Phpfox_Cache_Storage_Memcache extends Phpfox_Cache_Abstract
 {
@@ -60,14 +60,19 @@ class Phpfox_Cache_Storage_Memcache extends Phpfox_Cache_Abstract
 	 *
 	 */
 	public function __construct()
-	{
+	{			
 		$this->_oDb = new Memcache;
 		$aHosts = Phpfox::getParam('core.memcache_hosts');
 		$bPersistent = Phpfox::getParam('core.memcache_persistent');
 		foreach ($aHosts as $aHost)
 		{
 			$this->_oDb->addServer($aHost['host'], $aHost['port'], $bPersistent);
-		}		
+		}
+	}
+	
+	public function memcache()
+	{
+		return $this->_oDb;
 	}
 	
 	/**
@@ -155,7 +160,7 @@ class Phpfox_Cache_Storage_Memcache extends Phpfox_Cache_Abstract
 		$aContent = unserialize($sContent);
 		if (is_array($aContent) && isset($aContent['data']))
 		{
-			$aContent = $aContent['data'];			
+			$aContent = $aContent['data'];
 			if (isset($aContent['time_stamp']) && (int) $iTime > 0)
 			{			
 				if ((PHPFOX_TIME - $iTime * 60) > $aContent['time_stamp'])
@@ -165,7 +170,7 @@ class Phpfox_Cache_Storage_Memcache extends Phpfox_Cache_Abstract
 					return false;
 				}
 			}
-		}
+		}		
 		
 		(PHPFOX_DEBUG ? Phpfox_Debug::end('cache', array('namefile' => $this->_getName($this->_aName[$sId]))) : false);
 		
@@ -222,11 +227,13 @@ class Phpfox_Cache_Storage_Memcache extends Phpfox_Cache_Abstract
 		
 		// Cache the data only for the first time, Memcache will take over after	
 		$this->_aCached[$sId] = $mContent;		
-		/*
-		$rOpen = @fopen(PHPFOX_DIR_CACHE . $this->_getName($this->_aName[$sId]), 'w+');
-		fwrite($rOpen, '');
-		fclose($rOpen);		
-		*/
+		
+		if (defined('PHPFOX_IS_HOSTED_SCRIPT'))
+		{
+			$aCacheData = $this->_oDb->get(md5('grouplysite' . PHPFOX_IS_HOSTED_SCRIPT));
+			$this->_oDb->set(md5('grouplysite' . PHPFOX_IS_HOSTED_SCRIPT), array_merge((array) $aCacheData , array($this->_getName($this->_aName[$sId]))));
+		}		
+		
 		return $this->_oDb->set($this->_getName($this->_aName[$sId]), $mContent, MEMCACHE_COMPRESSED, 0);
 	}
 	
@@ -255,10 +262,29 @@ class Phpfox_Cache_Storage_Memcache extends Phpfox_Cache_Abstract
 			return false;
 		}		
 		
-		$this->_oDb->flush();
-		
 		if ($sName === null)
 		{
+			if (defined('PHPFOX_IS_HOSTED_SCRIPT'))
+			{				
+				$aCacheData = $this->_oDb->get(md5('grouplysite' . PHPFOX_IS_HOSTED_SCRIPT));
+				if (is_array($aCacheData))
+				{
+					foreach ($aCacheData as $sCacheId)
+					{
+						if (empty($sCacheId))
+						{
+							continue;
+						}
+
+						$this->_oDb->delete($sCacheId);
+					}
+				}
+			}
+			else
+			{
+				$this->_oDb->flush();
+			}
+			
 			foreach ($this->getAll() as $aFile)
 			{
 				if (file_exists(PHPFOX_DIR_CACHE . $aFile['name']))
@@ -278,6 +304,14 @@ class Phpfox_Cache_Storage_Memcache extends Phpfox_Cache_Abstract
 			
 			return true;
 		}		
+		else
+		{			
+			if (is_array($sName))
+			{				
+				$sName = $sName[0] . $sName[1];
+			}			
+			$this->_oDb->delete($this->_getName($sName));
+		}
 		
 		return true;
 	}
@@ -348,6 +382,11 @@ class Phpfox_Cache_Storage_Memcache extends Phpfox_Cache_Abstract
 	 */	
 	private function _getName($sFile)
 	{
+		if (defined('PHPFOX_IS_HOSTED_SCRIPT'))
+		{
+			$sFile = md5(PHPFOX_IS_HOSTED_SCRIPT . $sFile);						
+		}		
+		
 		return $sFile;
 	}
 }

@@ -11,7 +11,7 @@ defined('PHPFOX') or exit('NO DICE!');
  * @copyright		[PHPFOX_COPYRIGHT]
  * @author  		Raymond Benc
  * @package  		Module_Theme
- * @version 		$Id: template.class.php 2125 2010-11-11 10:16:49Z Raymond_Benc $
+ * @version 		$Id: template.class.php 4944 2012-10-24 05:24:29Z Raymond_Benc $
  */
 class Theme_Service_Template_Template extends Phpfox_Service 
 {
@@ -183,7 +183,7 @@ class Theme_Service_Template_Template extends Phpfox_Service
 				$sFile = PHPFOX_DIR_MODULE . $sModule . PHPFOX_DS . 'template' . PHPFOX_DS . 'default' . PHPFOX_DS . 'block' . PHPFOX_DS . $sName;
 			}
 		}
-		
+
 		$sContent = file_get_contents($sFile);
 		$sContent = str_replace("\r\n", "\n", $sContent);
 		
@@ -254,6 +254,11 @@ class Theme_Service_Template_Template extends Phpfox_Service
 			while ($sFile = readdir($hDir))
 			{
 				if (substr($sFile, -9) != '.html.php')
+				{
+					continue;
+				}
+				
+				if (defined('PHPFOX_IS_HOSTED_SCRIPT') && $sFile == 'blank.html.php')
 				{
 					continue;
 				}

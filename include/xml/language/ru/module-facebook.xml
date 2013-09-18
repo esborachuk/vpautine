@@ -1,0 +1,32 @@
+<phrases>
+	<phrase module_id="facebook" version_id="2.0.4" var_name="module_facebook" added="1264688556">Facebook модуль</phrase>
+	<phrase module_id="facebook" version_id="2.0.4" var_name="setting_group_facebook_connect" added="1264689344"><![CDATA[<title>Facebook Connect</title><info>Facebook Connect</info>]]></phrase>
+	<phrase module_id="facebook" version_id="2.0.4" var_name="setting_facebook_api_key" added="1264689434"><![CDATA[<title>Facebook API Key</title><info>Используйте API ключ для вашего приложения Facebook.</info>]]></phrase>
+	<phrase module_id="facebook" version_id="2.0.4" var_name="setting_facebook_secret" added="1264689485"><![CDATA[<title>Facebook Secret</title><info>Используйте секретный ключ для вашего приложения Facebook.</info>]]></phrase>
+	<phrase module_id="facebook" version_id="2.0.4" var_name="setting_enable_facebook_connect" added="1265987360"><![CDATA[<title>Включить Facebook Connect</title><info>Установите <b>Да</b> для включения Facebook connect.</info>]]></phrase>
+	<phrase module_id="facebook" version_id="2.0.4" var_name="please_hold_while_you_are_redirected" added="1266261674">Пожалуйста, подождите. Сейчас вы будете перенаправлены.</phrase>
+	<phrase module_id="facebook" version_id="2.0.5" var_name="setting_facebook_app_id" added="1272970806"><![CDATA[<title>Application ID</title><info>Используйте Application ID для вашего приложения Facebook.</info>]]></phrase>
+	<phrase module_id="facebook" version_id="2.0.5" var_name="facebook_connect" added="1273144993">Соединение с Facebook</phrase>
+	<phrase module_id="facebook" version_id="2.0.5" var_name="the_email_you_have_associated_with_facebook_is_already_in_use" added="1273145141">Email, ассоциированный Вами с Facebook уже используется на нашем сайте и не может быть использован с этой учетной записи.</phrase>
+	<phrase module_id="facebook" version_id="2.0.5dev1" var_name="setting_facebook_like_blog" added="1274191742"><![CDATA[<title>Включить показ кнопки Facebook Like(Блог)</title><info>Разрешить использование кнопки Facebook Like для рекомендации.</info>]]></phrase>
+	<phrase module_id="facebook" version_id="2.0.5dev1" var_name="setting_facebook_like_photo" added="1274192408"><![CDATA[<title>Включить показ кнопки Facebook Like(Фото)</title><info>Разрешить использование кнопки Facebook Like для рекомендации.</info>]]></phrase>
+	<phrase module_id="facebook" version_id="2.0.5dev1" var_name="setting_facebook_like_video" added="1274193338"><![CDATA[<title>Включить показ кнопки Facebook Like (Видео)</title><info>Разрешить использование кнопки Facebook Like для рекомендации.</info>]]></phrase>
+	<phrase module_id="facebook" version_id="2.0.5dev1" var_name="setting_facebook_like_group" added="1274193550"><![CDATA[<title>Включить показ кнопки Facebook Like(Группы)</title><info>Разрешить использование кнопки Facebook Like для рекомендации.</info>]]></phrase>
+	<phrase module_id="facebook" version_id="2.0.5dev1" var_name="setting_facebook_like_event" added="1274278715"><![CDATA[<title>Включить показ кнопки Facebook Like(События)</title><info>Разрешить использование кнопки Facebook Like для рекомендации.</info>]]></phrase>
+	<phrase module_id="facebook" version_id="2.0.5dev1" var_name="setting_facebook_like_marketplace" added="1274278840"><![CDATA[<title>Включить показ кнопки Facebook Like(Магазин)</title><info>Разрешить использование кнопки Facebook Like для рекомендации.</info>]]></phrase>
+	<phrase module_id="facebook" version_id="2.0.5" var_name="facebook_sync" added="1276427364">Facebook синхронизация</phrase>
+	<phrase module_id="facebook" version_id="2.0.5" var_name="Пожалуйста подождите пока аккаунт FaceBook синхронизируется с аккаунтом вашей группы" added="1276427380">Пожалуйста, не упустите момент для синхронизации Вашего аккаунта на Facebook с аккаунтом в сообществе.</phrase>
+	<phrase module_id="facebook" version_id="2.0.7" var_name="or_login_with" added="1287493443">Или зайдите как:</phrase>
+	<phrase module_id="facebook" version_id="2.0.7" var_name="facebook_connect_account_issues" added="1289310719">Вопросы соединения с аккаунтом FaceBook</phrase>
+	<phrase module_id="facebook" version_id="2.0.7" var_name="we_already_have_an_account_created_with_us" added="1289310877">Мы уже имеем аккаунт с данным e-mail на FaceBook. Вы хотите синхронизировать оба аккаунта?</phrase>
+	<phrase module_id="facebook" version_id="2.0.7" var_name="note_that_if_you_sync_both_accounts" added="1289314457">Учтите, что если Вы синхронизируете оба аккаунта тут, то вы не сможете зайти сюда, пока не активируете аккаунт на FaceBook.</phrase>
+	<phrase module_id="facebook" version_id="2.0.7" var_name="yes_sync_both_accounts" added="1289314465">Да, синхронизировать оба аккаунта.</phrase>
+	<phrase module_id="facebook" version_id="2.0.7" var_name="no_do_not_sync_both_accounts" added="1289314474">Нет, не синхронизировать оба аккаунта.</phrase>
+	<phrase module_id="facebook" version_id="2.0.7" var_name="you_have_chosen_to_not_sync_both_accounts" added="1289314492">Вы выбрали не синхронизировать оба аккаунта. Чтобы завершит этот процесс удалите соединение с FaceBook здесь:</phrase>
+	<phrase module_id="facebook" version_id="2.0.7" var_name="unable_to_login" added="1289314532">Невозможно войти под данным именем или паролем.</phrase>
+	<phrase module_id="facebook" version_id="2.0.7" var_name="unable_to_fetch_your_facebook_account" added="1289314557">Невозможно получить ваш FaceBook аккаунт.</phrase>
+	<phrase module_id="facebook" version_id="2.0.7" var_name="unable_to_fetch_your_full_name_from_facebook" added="1289314585">Невозможно получить Ваше полное имя с FaceBook.</phrase>
+	<phrase module_id="facebook" version_id="2.0.5" var_name="please_take_a_moment_to_sync_your_facebook_account_with_our_community" added="1276427380">Пожалуйста, найдите время, чтобы синхронизировать Facebook профиль в нашем сообществе.</phrase>
+	<phrase module_id="facebook" version_id="2.1.0beta2" var_name="your_account_is_synced_with_your_facebook_account" added="1301391778">Ваша учетная запись синхронизирована с вашей учетной записью Facebook. Пожалуйста, Войдите с помощью Facebook.</phrase>
+	<phrase module_id="facebook" version_id="3.3.0rc1" var_name="connecting_to_facebook_please_hold" added="1341397384">Подключение к Facebook. Пожалуйста, подождите...</phrase>
+</phrases>

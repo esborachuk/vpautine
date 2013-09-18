@@ -17,7 +17,7 @@ defined('PHPFOX') or exit('NO DICE!');
  * @copyright		[PHPFOX_COPYRIGHT]
  * @author			Raymond Benc
  * @package 		Phpfox
- * @version 		$Id: ajax.class.php 4479 2012-07-06 07:50:02Z Raymond_Benc $
+ * @version 		$Id: ajax.class.php 5022 2012-11-13 08:05:06Z Raymond_Benc $
  */
 class Phpfox_Ajax
 {
@@ -94,7 +94,9 @@ class Phpfox_Ajax
 	 * @var array
 	 */
 	private $_aRequest = array();	
-	
+
+	/* Used to http://www.phpfox.com/tracker/view/11874/ */
+	public $bIsModeration = false;
 	/**
 	 * Class Constructor
 	 *
@@ -135,6 +137,14 @@ class Phpfox_Ajax
 		foreach ($this->_oReq->getRequests() as $sKey => $mValue)
 		{
 			self::$_aParams[$sKey] = $mValue;
+			if (isset($mValue['call']) && strpos($mValue['call'],'.') !== false)
+			{
+				$aParts = explode('.', $mValue['call']);
+				if (isset($aParts[1]) && $aParts[1] == 'moderation')
+				{
+					$this->bIsModeration = true;
+				}
+			}
 		}		
 		
 		if ($sModule == 'im' && ($sMethod == 'getRooms' || $sMethod == 'getMessages'))
@@ -525,6 +535,21 @@ class Phpfox_Ajax
 	 */
 	public static function alert($sMessage, $sTitle = null, $iWidth = 300, $iHeight = 150, $bClose = false, $bReturn = false)
 	{
+		if (isset(self::$_aParams['ajax_post_photo_theater']))
+		{
+			$sNewMessage = "<div class=\"error_message\">" . str_replace("'", "\'", $sMessage) . "</div>";
+			if (!empty(self::$_aParams['val']['parent_id']))
+			{
+				echo "$('.js_feed_comment_parent_id').each(function(){ if ($(this).val() == " . self::$_aParams['val']['parent_id'] . "){ $(this).parents('form:first').find('.js_feed_add_comment_button:first').prepend('" . $sNewMessage . "'); }});";	
+			}
+			else
+			{
+				$iId = 'js_feed_comment_form_' . self::$_aParams['val']['is_via_feed'];
+				echo "$('.js_feed_add_comment_button .error_message').remove(); $('#" . $iId . "').find('.js_feed_add_comment_button:first').prepend('" . $sNewMessage . "');";
+			}
+			return;
+		}
+		
 		if (isset(self::$_aParams['tb']))
 		{
 			ob_clean();

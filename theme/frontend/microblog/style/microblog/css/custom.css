@@ -1,0 +1,486 @@
+
+body
+{
+	background:#8EC1DA;
+}
+
+#mb_header
+{
+	position:fixed;
+	height:50px;	
+	background:#333;
+	width:100%;
+	color:#fff;
+	z-index:1000;
+}
+
+#mb_header .holder
+{
+	position:relative;
+}
+/*
+#mb_logo
+{	
+	position:absolute;
+	left:0px;
+	top:4px;
+	z-index:2000;
+}
+*/
+
+#logo,
+#logo:hover
+{
+	width:auto;
+}
+
+#mb_menu
+{
+	
+}
+
+#mb_menu ul li
+{
+	float:left;
+}
+
+#mb_menu ul li a,
+#mb_menu ul li a:hover
+{
+	display:block;
+	height:50px;
+	line-height:50px;
+	padding:0px 10px 0px 10px;
+	color:#CFCFCF;
+	font-size:13px;
+	text-decoration:none;
+}
+
+#mb_search_menu
+{
+	position:absolute;
+	z-index:2000;
+	right:0px;
+	top:5px;
+}
+
+.mb_search_div
+{
+	float:left;
+	padding-left:10px;	
+	position:relative;
+}
+
+a.actions_link,
+a.actions_link:hover,
+a.post_new_update,
+a.post_new_update:hover
+{
+	display:block;
+	width:50px;
+	height:50px;
+	overflow:hidden;
+}
+
+#mb_menu ul li a:hover
+{
+	color:#fff;
+	background:#3F3F3F;
+}
+
+#mb_main_holder
+{
+	padding-top:50px;
+}
+
+#mb_sub_menu ul
+{
+	position:absolute;
+	background:#fff;
+	border:1px #ccc solid;
+	width:200px;
+	display:none;
+	right:0px;
+}
+
+#mb_sub_menu ul li a,
+#mb_sub_menu ul li a:hover
+{
+	color:#333;
+	font-weight:bold;
+	text-decoration:none;
+	text-transform:uppercase;
+	font-size:10px;
+	border-bottom:1px #dfdfdf solid;
+	display:block;
+	cursor:default;
+	padding:10px;	
+}
+
+#mb_sub_menu ul li ul
+{
+	position:static;
+	border:0px;	
+}
+
+#mb_sub_menu ul li ul li a,
+#mb_sub_menu ul li ul li a:hover
+{
+	display:block;
+	font-weight:normal;
+	text-transform:none;
+	font-size:12px;
+	height:30px;
+	line-height:30px;
+	padding:0px;
+	padding-left:10px;
+	cursor:pointer;
+	border:0px;
+}
+
+#mb_sub_menu ul li ul li a:hover
+{
+	background:#2473AB;
+	color:#fff;
+}
+
+#mb_sub_menu ul li ul li.header_menu_user_link a,
+#mb_sub_menu ul li ul li.header_menu_user_link a:hover
+{
+	border:0px;
+	background:transparent;
+	padding:0px;
+}
+
+#mb_sub_menu ul li ul li.header_menu_user_link
+{
+	border-bottom:1px #dfdfdf solid;
+}
+
+#mb_content_holder
+{
+	background:#D3E8F2;
+	padding:10px 20px 10px 20px;	
+	min-height:1000px;	
+}
+
+#mb_inner_holder
+{
+	position:relative;
+}
+
+#content
+{
+	background:#fff;
+	padding:4px;
+	min-height:1000px;
+}
+
+#mb_content_left
+{
+	position:absolute;
+	left:-10px;
+	top:0px;
+	width:300px;	
+}
+
+#mb_content_left .block
+{
+	background:#fff;
+	padding:8px;
+	margin-bottom:12px;
+}
+
+#mb_content_left .block .title
+{
+	color:#616161;
+	font-size:14px;
+}
+
+#mb_content_right
+{
+	margin-left:305px;	
+}
+
+#mb_footer,
+#mb_footer a,
+#mb_footer a:hover
+{
+	color:#9F9F9F;
+}
+
+#mb_footer ul li
+{
+	display:inline;
+	padding-right:8px;
+}
+
+#mb_footer:hover ul li a,
+#mb_footer:hover ul li a:hover
+{
+	color:#6F6F6F;
+}
+
+#mb_copyright
+{
+	padding-top:5px;
+	margin-top:5px;
+	border-top:1px #dfdfdf solid;
+}
+
+#mb_content_left .block,
+#content,
+#mb_profile_header
+{
+	-moz-border-radius:6px;
+	-webkit-border-radius:6px;
+  	border-radius:6px;	
+}
+
+#mb_profile_header
+{
+	background:#fff;
+	padding:10px;
+	margin-bottom:20px;
+	position:relative;
+	min-height:120px;
+}
+
+#mb_profile_image
+{
+	position:absolute;
+	left:8px;
+}
+
+#mb_profile_main
+{
+	margin-left:130px;
+	color:#9F9F9F;
+	font-size:13px;
+}
+
+#mb_profile_main h1
+{
+	margin:0px;
+	padding:0px;
+	font-size:26px;
+}
+
+.mb_profile_username
+{	
+	font-size:18px;
+	padding-bottom:4px;
+}
+
+#mb_profile_follow
+{
+	position:absolute;
+	right:8px;
+	top:8px;	
+}
+
+#mb_profile_follow ul.mb_follow_count li a,
+#mb_profile_follow ul.mb_follow_count li a:hover
+{
+	display:block;
+	height:30px;
+	line-height:30px;
+	font-weight:bold;
+	font-size:13px;
+	border-bottom:1px #dfdfdf solid;
+	color:#333;
+	text-decoration:none;
+	padding-right:8px;
+}
+
+#mb_profile_follow ul.mb_follow_count li a span
+{
+	font-size:10px;
+	font-weight:normal;
+	text-transform:uppercase;
+	color:#9f9f9f;
+}
+
+#mb_profile_follow ul.mb_follow_count li a:hover span
+{
+	color:#333;
+}
+
+#mb_profile_follow ul.mb_follow_count li a.last
+{
+	border-bottom:0px;
+}
+
+.mb_follow_link li
+{
+	display:block;
+	float:right;
+}
+
+.mb_follow_link li a,
+.mb_follow_link li a:hover,
+a.mb_follow_user,
+a.mb_follow_user:hover
+{
+	display:block;	
+	background:green;
+	border:1px #ccc solid;
+	height:30px;
+	line-height:30px;
+	padding:0px 12px 0px 12px;
+	text-align:center;
+	font-size:14px;
+	font-weight:bold;
+	color:#fff;
+	text-decoration:none;
+	margin-left:10px;
+}
+
+.mb_follow_link li.actions
+{
+	position:relative;
+}
+
+.mb_follow_link li.actions a.first,
+.mb_follow_link li.actions a.first:hover
+{
+	background:#f1f1f1;
+	color:#333;
+	width:18px;
+	overflow:hidden;
+	text-indent:-1000px;	
+}
+
+.mb_follow_link li.actions ul
+{
+	position:absolute;	
+	display:none;
+	top:35px;
+	right:0px;
+	border:1px #ccc solid;
+}
+
+.mb_follow_link li.actions ul li a,
+.mb_follow_link li.actions ul li a:hover
+{ 
+	float:none;
+	width:200px;
+	margin:0px;
+	padding:0px 0px 0px 20px;
+	display:block;
+	background:#fff;
+	color:#333;
+	font-weight:normal;
+	font-size:12px;
+	border:0px;
+	text-align:left;
+}
+
+.mb_follow_link li.actions ul li a:hover
+{
+	background:#2473AB;
+	color:#fff;
+}
+
+.mb_row
+{
+	position:relative;
+	border-bottom:1px #dfdfdf solid;
+	min-height:58px;
+	margin-bottom:5px;
+}
+
+.mb_row_user
+{
+	margin-left:58px;
+}
+
+.mb_row_user .user_profile_link_span a
+{
+	font-weight:bold;
+	color:#333;
+	font-size:15px;
+}
+
+.mb_row_image
+{
+	position:absolute;
+	left:2px;
+	top:0px;
+}
+
+.mb_row_username
+{
+	color:#808080;
+}
+
+.mb_row_about
+{
+	padding-top:5px;
+	color:#808080;
+}
+
+.mb_row_follow
+{
+	position:absolute;
+	right:0px;
+	top:0px;
+}
+
+.sub_section_menu
+{
+	margin:0px;
+}
+
+.sub_section_menu ul li a,
+.sub_section_menu ul li a:hover
+{
+	background:#fff;
+}
+
+.sub_section_menu ul li.active a,
+.sub_section_menu ul li.active a:hover
+{
+	background:#fff;
+	color:#333;
+	font-weight:bold;
+}
+
+#breadcrumb_holder
+{
+	margin-bottom:10px;
+}
+
+#breadcrumb_content h1
+{
+	padding:0px 0px 5px 0px;
+}
+
+#section_menu
+{
+	right:5px;
+	top:7px;
+}
+
+.mb_feed_header
+{
+	font-size:16px;
+	font-weight:bold;
+	border-bottom:1px #dfdfdf solid;
+	padding:6px 0px 10px 10px;
+}
+
+#js_main_feed_holder
+{
+	padding:0px 10px 0px 10px;
+}
+
+.activity_feed_image
+{
+	left:10px;	
+}
+
+.activity_feed_content
+{
+	margin-left:66px;
+}

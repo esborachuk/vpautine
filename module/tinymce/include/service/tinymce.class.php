@@ -105,8 +105,9 @@ class Tinymce_Service_Tinymce extends Phpfox_Service
 		
 			$sScript = '		
 				<script type="text/javascript">
-				var sButton2 = null;
-				function customTinyMCE_init(sName)
+				var sButton1 = null;
+				var sButton2 = null;				
+				function customTinyMCE_init(sName, sEditorType)
 				{			
 					if (!sName)
 				    {
@@ -115,24 +116,29 @@ class Tinymce_Service_Tinymce extends Phpfox_Service
 									    
 				    p(\'Loading TinyMCE for: \' + sName);
 				    
+					sButton1 = "' . Phpfox::getParam('tinymce.tinymce_button_1') . '";
 				    sButton2 = "' . $sButton2 . '";
 						
 					if (!isModule(\'emoticon\'))
 					{			
-						sButton2 = sButton2.replace("phpfoxemoticon,", "");							
+						sButton2 = sButton2.replace("phpfoxemoticon,", "");					
 					}										
 
+				    	
+				    if (sName.match(/js_feed_comment_form_textarea_/g) || sEditorType == \'comment\'){
+						sButton1 = sButton1.replace("fontsizeselect,", "");
+				    }		
+				    		
 					tinyMCE.init({
 						mode : \'exact\',
 						elements : sName,
 						theme : "advanced",
 						skin: "cirkuit",
-						theme_advanced_buttons1 : "' . Phpfox::getParam('tinymce.tinymce_button_1') . '",
+						theme_advanced_buttons1 : sButton1,
 						theme_advanced_buttons2 : sButton2,
 						theme_advanced_buttons3 : "' . Phpfox::getParam('tinymce.tinymce_button_3') . '",
 					    theme_advanced_toolbar_location : "' . Phpfox::getParam('tinymce.tinymce_toolbar_location') . '",
 					    theme_advanced_toolbar_align : "' . Phpfox::getParam('tinymce.tinymce_toolbar_alignment') . '",
-					    theme_advanced_statusbar_location : "bottom",
 					    cleanup : false,
 					    plugins : "' . $sPlugins . '",
 					    theme_advanced_resizing : false,

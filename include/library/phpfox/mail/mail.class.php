@@ -22,7 +22,7 @@ Phpfox::getLibClass('phpfox.mail.interface');
  * @copyright		[PHPFOX_COPYRIGHT]
  * @author			Raymond Benc
  * @package 		Phpfox
- * @version 		$Id: mail.class.php 4578 2012-07-31 13:07:50Z Miguel_Espinoza $
+ * @version 		$Id: mail.class.php 4974 2012-10-31 07:30:42Z Raymond_Benc $
  */
 class Phpfox_Mail
 {
@@ -381,7 +381,7 @@ class Phpfox_Mail
 		$sEmails = rtrim($sEmails, ',');
 		
 		$bIsSent = true;		
-		
+
 		if (!empty($sIds))
 		{
 			if ($this->_sNotification !== null)
@@ -428,14 +428,14 @@ class Phpfox_Mail
 					{						
 						// load the messages in their language						
 						$aUser['language_id'] = ($aUser['language_id'] == null || empty($aUser['language_id'])) ?  Phpfox::getParam('core.default_lang_id') : $aUser['language_id'];
-						
+		
 						if (is_array($this->_aMessage))
 						{
 							$sMessage = Phpfox::getPhrase($this->_aMessage[0], isset($this->_aMessage[1]) ? array_merge($aUser, $this->_aMessage[1]) : $aUser, false, null, $aUser['language_id']);
 						}
 						else
 						{
-							$sMessage = $this->_aMessage;
+							$sMessage = Phpfox::getLib('locale')->getPhraseHistory($this->_aMessage, $aUser['language_id']);
 						} 
 						
 						if (is_array($this->_aMessagePlain))
@@ -444,7 +444,7 @@ class Phpfox_Mail
 						}
 						else
 						{
-							$sMessagePlain = $this->_aMessagePlain;
+							$sMessagePlain = Phpfox::getLib('locale')->getPhraseHistory($this->_aMessagePlain, $aUser['language_id']);
 						}
 
 						$sMessage = preg_replace('/' . preg_quote(Phpfox::getLib('url')->makeUrl(''), '/') . '/is', str_replace('mobile/', '', Phpfox::getLib('url')->makeUrl('')), $sMessage);
@@ -456,7 +456,7 @@ class Phpfox_Mail
 						}
 						else
 						{
-							$sSubject = $this->_aSubject;
+							$sSubject = Phpfox::getLib('locale')->getPhraseHistory($this->_aSubject, $aUser['language_id']);
 						}
 
 						$sMessage = preg_replace('/\{setting var=\'(.*)\'\}/ise', "'' . Phpfox::getParam('\\1') . ''", $sMessage);
@@ -465,16 +465,17 @@ class Phpfox_Mail
 						$sMessagePlain = preg_replace('/\{setting var=\'(.*)\'\}/ise', "'' . Phpfox::getParam('\\1') . ''", $sMessagePlain);
 						$sSubject = preg_replace('/\{setting var=\'(.*)\'\}/ise', "'' . Phpfox::getParam('\\1') . ''", $sSubject);
 						$sSubject = preg_replace('/\{phrase var=\'(.*)\'\}/ise', "'' . Phpfox::getPhrase('\\1',{$this->_sArray}, false, null, '".$aUser['language_id']."') . ''", $sSubject);
-						// $sSubject = html_entity_decode($sSubject, null, 'UTF-8'); // http://www.phpfox.com/tracker/view/10392/
+						$sSubject = html_entity_decode($sSubject, null, 'UTF-8'); // http://www.phpfox.com/tracker/view/10392/
 						$sEmailSig = preg_replace('/\{phrase var=\'(.*)\'\}/ise', "'' . Phpfox::getPhrase('\\1',{$this->_sArray}, false, null, '".$aUser['language_id']."') . ''", Phpfox::getParam('core.mail_signature'));
-						
+				
 						// Load plain text template
 						$sTextPlain = Phpfox::getLib('template')->assign(array(
 									'sName' => $aUser['full_name'],
 									'bHtml' => false,
 									'sMessage' => $this->_aMessagePlain !== null ? $sMessagePlain : $sMessage,
 									'sEmailSig' => $sEmailSig,
-									'bMessageHeader' => $this->_bMessageHeader
+									'bMessageHeader' => $this->_bMessageHeader,
+									'sMessageHello' => Phpfox::getPhrase('core.hello_name', array('name' => $aUser['full_name']), false, null, $aUser['language_id'])
 								)
 							)->getLayout('email', true);
 
@@ -484,7 +485,8 @@ class Phpfox_Mail
 									'bHtml' => true,
 									'sMessage' => str_replace("\n", "<br />", $sMessage),
 									'sEmailSig' => str_replace("\n", "<br />", $sEmailSig),
-									'bMessageHeader' => $this->_bMessageHeader
+									'bMessageHeader' => $this->_bMessageHeader,
+									'sMessageHello' => Phpfox::getPhrase('core.hello_name', array('name' => $aUser['full_name']), false, null, $aUser['language_id'])
 								)
 							)->getLayout('email', true);
 						
@@ -545,6 +547,7 @@ class Phpfox_Mail
 				$sMessagePlain = preg_replace('/\{phrase var=\'(.*)\'\}/ise', "'' . Phpfox::getPhrase('\\1', {$this->_sArray}, false, null, '". Phpfox::getParam('core.default_lang_id')."') . ''", $sMessagePlain);
 				$sMessage = preg_replace('/\{phrase var=\'(.*)\'\}/ise', "'' . Phpfox::getPhrase('\\1', {$this->_sArray}, false, null, '". Phpfox::getParam('core.default_lang_id')."') . ''", $sMessage);
 				$sSubject = preg_replace('/\{phrase var=\'(.*)\'\}/ise', "'' . Phpfox::getPhrase('\\1', {$this->_sArray}, false, null, '". Phpfox::getParam('core.default_lang_id')."') . ''", $sSubject);
+				$sSubject = html_entity_decode($sSubject, null, 'UTF-8');
 				
 				// Load plain text template
 				$sTextPlain = Phpfox::getLib('template')->assign(array(				
@@ -578,7 +581,7 @@ class Phpfox_Mail
     
     private function _cache($sEmail, $sSubject, $sTexPlain, $sTextHtml, $sFromName, $sFromEmail)
     {    	
-    	Phpfox::getLib('file')->write(PHPFOX_DIR_FILE . 'log' . PHPFOX_DS . 'email_' . md5(str_replace(' ', '_', $this->_aSubject) . PHPFOX_TIME . uniqid()) . '.html', "<b>Email:</b> {$sEmail}<br />\n<b>Subject:</b> {$sSubject}\n<br /><b>Text Plan:</b>{$sTexPlain}\n<br /><b>Text HTML:</b> {$sTextHtml}\n<br /><b>From Name:</b> {$sFromName}\n<br /><b>From Email:</b> {$sFromEmail}");
+    	Phpfox::getLib('file')->write(PHPFOX_DIR_FILE . 'log' . PHPFOX_DS . 'email_' . md5(str_replace(' ', '_', $sSubject) . PHPFOX_TIME . uniqid()) . '.html', "<b>Email:</b> {$sEmail}<br />\n<b>Subject:</b> {$sSubject}\n<br /><b>Text Plan:</b>{$sTexPlain}\n<br /><b>Text HTML:</b> {$sTextHtml}\n<br /><b>From Name:</b> {$sFromName}\n<br /><b>From Email:</b> {$sFromEmail}");
     	
     	return true;
     }

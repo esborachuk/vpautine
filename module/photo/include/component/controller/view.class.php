@@ -11,7 +11,7 @@ defined('PHPFOX') or exit('NO DICE!');
  * @copyright		[PHPFOX_COPYRIGHT]
  * @author  		Raymond Benc
  * @package  		Module_Photo
- * @version 		$Id: view.class.php 4532 2012-07-19 10:03:18Z Miguel_Espinoza $
+ * @version 		$Id: view.class.php 5170 2013-01-22 09:27:37Z Raymond_Benc $
  */
 class Photo_Component_Controller_View extends Phpfox_Component
 {
@@ -46,7 +46,8 @@ class Photo_Component_Controller_View extends Phpfox_Component
 		{			
 			if ($aCallback = Phpfox::callback($aPhoto['module_id'] . '.getPhotoDetails', $aPhoto))
 			{
-				$this->template()->setBreadcrumb($aCallback['breadcrumb_title'], $aCallback['breadcrumb_home']);
+				$this->template()->setBreadcrumb($aCallback['breadcrumb_title'], $aCallback['breadcrumb_home'])
+					->assign(array('aCallback' => $aCallback));
 				$this->template()->setBreadcrumb($aCallback['title'], $aCallback['url_home']);
 				if ($aPhoto['module_id'] == 'pages' && !Phpfox::getService('pages')->hasPerm($aCallback['item_id'], 'photo.view_browse_photos'))
 				{
@@ -202,8 +203,33 @@ class Photo_Component_Controller_View extends Phpfox_Component
 		}
 		
 		$iCategory = ($this->request()->getInt('category') ? $this->request()->getInt('category') : null);		
+		if ($this->request()->get('theater'))
+		{
+			define('PHPFOX_IS_THEATER_MODE', true);
+		}
+		
+		if (defined('PHPFOX_IS_HOSTED_SCRIPT'))
+		{
+			$sImageUrl = Phpfox::getLib('image.helper')->display(array(
+				'server_id' => $aPhoto['server_id'],
+				'path' => 'photo.url_photo',
+				'file' => $aPhoto['destination'],
+				'suffix' => '_1024',
+				'return_url' => true
+				)
+			);
+			
+			list($iNewImageHeight, $iNewImageWidth) = Phpfox::getLib('image.helper')->getNewSize(array($sImageUrl), 1024, 1024);	
+
+			$this->template()->assign(array(
+					'iNewImageHeight' => $iNewImageHeight,
+					'iNewImageWidth' => $iNewImageWidth
+					)
+				);
+		}
 		
 		$this->template()
+				->setFullSite()
 				->setBreadcrumb(Phpfox::getPhrase('photo.photos'), ($aCallback === null ? $this->url()->makeUrl('photo') : $this->url()->makeUrl($aCallback['url_home_photo'])))
 				->setBreadcrumb($aPhoto['title'], $this->url()->permalink('photo', $aPhoto['photo_id'], $aPhoto['title']), true)
 				->setMeta('description',  Phpfox::getPhrase('photo.full_name_s_photo_from_time_stamp', array('full_name' => $aPhoto['full_name'], 'time_stamp' => Phpfox::getTime(Phpfox::getParam('core.description_time_stamp'), $aPhoto['time_stamp']))) . ': ' . (empty($aPhoto['description']) ? $aPhoto['title'] : $aPhoto['title'] . '.' . $aPhoto['description']))
@@ -240,7 +266,8 @@ class Photo_Component_Controller_View extends Phpfox_Component
 						'switch_menu.js' => 'static_script',
 						'view.css' => 'module_photo',
 						'feed.js' => 'module_feed',
-						'edit.css' => 'module_photo'
+						'edit.css' => 'module_photo',
+						'index.js' => 'module_photo'
 					)
 				)
 				->setEditor(array(
@@ -249,10 +276,11 @@ class Photo_Component_Controller_View extends Phpfox_Component
 				)->assign(array(
 					'aForms' => $aPhoto,
 					'aCallback' => $aCallback,
-					'aPhotoStream' => Phpfox::getService('photo')->getPhotoStream($aPhoto['photo_id'], ($this->request()->getInt('albumid') ? $this->request()->getInt('albumid') : '0'), $aCallback, $iUserId, $iCategory),
+					'aPhotoStream' => Phpfox::getService('photo')->getPhotoStream($aPhoto['photo_id'], ($this->request()->getInt('albumid') ? $this->request()->getInt('albumid') : '0'), $aCallback, $iUserId, $iCategory, $aPhoto['user_id']),
 					'bIsTheater' => ($this->request()->get('theater') ? true : false),
 					'sPhotoJsContent' => Phpfox::getService('photo.tag')->getJs($aPhoto['photo_id']),
-					'iForceAlbumId' => ($this->request()->getInt('albumid') > 0 ? $this->request()->getInt('albumid') : 0)
+					'iForceAlbumId' => ($this->request()->getInt('albumid') > 0 ? $this->request()->getInt('albumid') : 0),
+					'sCurrentPhotoUrl' => Phpfox::getLib('url')->makeUrl('current')
 				)
 			);		
 			

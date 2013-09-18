@@ -11,7 +11,7 @@ defined('PHPFOX') or exit('NO DICE!');
  * @copyright		[PHPFOX_COPYRIGHT]
  * @author  		Raymond Benc
  * @package  		Module_Music
- * @version 		$Id: music.class.php 3956 2012-03-01 12:28:26Z Raymond_Benc $
+ * @version 		$Id: music.class.php 5016 2012-11-12 15:18:29Z Miguel_Espinoza $
  */
 class Music_Service_Music extends Phpfox_Service 
 {
@@ -298,6 +298,31 @@ class Music_Service_Music extends Phpfox_Service
 		}		
 		
 		Phpfox::getLib('template')->buildSectionMenu('music', $aFilterMenu);					
+	}
+	
+	public function getInfoForAction($aItem)
+	{		
+		// now we check if its a music-album or a music-song
+		if ($aItem['item_type_id'] == 'music-song')
+		{			
+			$aRow = $this->database()->select('ms.song_id, ms.title, ms.user_id, u.gender, u.full_name')	
+				->from(PHpfox::getT('music_song'), 'ms')
+				->join(Phpfox::getT('user'), 'u', 'u.user_id = ms.user_id')
+				->where('ms.song_id = ' . (int) $aItem['item_id'])
+				->execute('getSlaveRow');
+			$aRow['link'] = Phpfox::getLib('url')->permalink('music', $aRow['song_id'], $aRow['title']);
+			return $aRow;
+		}
+		
+		// else its a music-album
+		$aRow = $this->database()->select('ma.album_id, ma.name as title, ma.user_id, u.gender, u.full_name')	
+			->from(PHpfox::getT('music_album'), 'ma')
+			->join(Phpfox::getT('user'), 'u', 'u.user_id = ma.user_id')
+			->where('ma.album_id = ' . (int) $aItem['item_id'])
+			->execute('getSlaveRow');
+		$aRow['link'] = Phpfox::getLib('url')->permalink('music.album', $aRow['album_id'], $aRow['title']);
+		return $aRow;
+			
 	}
 	
 	/**

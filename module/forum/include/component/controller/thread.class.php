@@ -89,7 +89,15 @@ class Forum_Component_Controller_Thread extends Phpfox_Component
 		
 		if ($aCallback === null && !Phpfox::getService('forum')->hasAccess($aThread['forum_id'], 'can_view_forum'))
 		{
-			return Phpfox_Error::display(Phpfox::getPhrase('forum.not_a_valid_thread'));	
+            if (Phpfox::isUser())
+            {
+                return Phpfox_Error::display(Phpfox::getPhrase('forum.you_do_not_have_the_proper_permission_to_view_this_thread'));
+            }
+            else
+            {
+                return Phpfox_Error::display(Phpfox::getPhrase('forum.log_in_to_view_thread'));
+            }
+			
 		}
 		
 		if ($aCallback === null && !Phpfox::getService('forum')->hasAccess($aThread['forum_id'], 'can_view_thread_content'))

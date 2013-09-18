@@ -5,7 +5,7 @@
  * @copyright		[PHPFOX_COPYRIGHT]
  * @author  		Raymond Benc
  * @package  		Module_Feed
- * @version 		$Id: content.html.php 4545 2012-07-20 10:40:35Z Raymond_Benc $
+ * @version 		$Id: content.html.php 5336 2013-02-11 12:54:16Z Miguel_Espinoza $
  */
  
 defined('PHPFOX') or exit('NO DICE!'); 
@@ -34,12 +34,15 @@ defined('PHPFOX') or exit('NO DICE!');
 
 			{if isset($aFeed.feed_status) && (!empty($aFeed.feed_status) || $aFeed.feed_status == '0')}
 			<div class="activity_feed_content_status">
-				{$aFeed.feed_status|feed_strip|shorten:200:'feed.view_more':true|split:55}				
+				{$aFeed.feed_status|feed_strip|shorten:200:'feed.view_more':true|split:55}	
+				{if Phpfox::getParam('feed.enable_check_in') && Phpfox::getParam('core.google_api_key') != '' && isset($aFeed.location_name)} 
+					<span class="js_location_name_hover" {if isset($aFeed.location_latlng) && isset($aFeed.location_latlng.latitude)}onmouseover="$Core.Feed.showHoverMap('{$aFeed.location_latlng.latitude}','{$aFeed.location_latlng.longitude}', this);"{/if}> - <a href="http://maps.google.com/maps?daddr={$aFeed.location_latlng.latitude},{$aFeed.location_latlng.longitude}">{phrase var='feed.at_location' location=$aFeed.location_name}</a>
+					</span> 
+				{/if}
 			</div>
 			{/if}
 			
-			<div class="activity_feed_content_link">
-				
+			<div class="activity_feed_content_link">				
 				{if $aFeed.type_id == 'friend' && isset($aFeed.more_feed_rows) && is_array($aFeed.more_feed_rows) && count($aFeed.more_feed_rows)}
 					{foreach from=$aFeed.more_feed_rows item=aFriends}
 						{$aFriends.feed_image}
@@ -56,7 +59,7 @@ defined('PHPFOX') or exit('NO DICE!');
 						</ul>
 						<div class="clear"></div>
 					{else}
-						<a href="{$aFeed.feed_link}"{if !isset($aFeed.no_target_blank)} target="_blank"{/if} class="{if isset($aFeed.custom_css)} {$aFeed.custom_css} {/if}{if !empty($aFeed.feed_image_onclick)}{if !isset($aFeed.feed_image_onclick_no_image)}play_link {/if} no_ajax_link{/if}"{if !empty($aFeed.feed_image_onclick)} onclick="{$aFeed.feed_image_onclick}"{/if}{if !empty($aFeed.custom_rel)} rel="{$aFeed.custom_rel}"{/if}{if isset($aFeed.custom_js)} {$aFeed.custom_js} {/if}>{if !empty($aFeed.feed_image_onclick)}{if !isset($aFeed.feed_image_onclick_no_image)}<span class="play_link_img">{phrase var='feed.play'}</span>{/if}{/if}{$aFeed.feed_image}</a>						
+						<a href="{if isset($aFeed.feed_link_actual)}{$aFeed.feed_link_actual}{else}{$aFeed.feed_link}{/if}"{if !isset($aFeed.no_target_blank)} target="_blank"{/if} class="{if isset($aFeed.custom_css)} {$aFeed.custom_css} {/if}{if !empty($aFeed.feed_image_onclick)}{if !isset($aFeed.feed_image_onclick_no_image)}play_link {/if} no_ajax_link{/if}"{if !empty($aFeed.feed_image_onclick)} onclick="{$aFeed.feed_image_onclick}"{/if}{if !empty($aFeed.custom_rel)} rel="{$aFeed.custom_rel}"{/if}{if isset($aFeed.custom_js)} {$aFeed.custom_js} {/if}{if Phpfox::getParam('core.no_follow_on_external_links')} rel="nofollow"{/if}>{if !empty($aFeed.feed_image_onclick)}{if !isset($aFeed.feed_image_onclick_no_image)}<span class="play_link_img">{phrase var='feed.play'}</span>{/if}{/if}{$aFeed.feed_image}</a>						
 					{/if}
 				</div>
 				{/if}
@@ -65,13 +68,13 @@ defined('PHPFOX') or exit('NO DICE!');
 					{if isset($aFeed.feed_title_sub)}
 					<span class="user_profile_link_span" id="js_user_name_link_{$aFeed.feed_title_sub|clean}">
 					{/if}
-					<a href="{$aFeed.feed_link}" class="activity_feed_content_link_title"{if isset($aFeed.feed_title_extra_link)} target="_blank"{/if}>{$aFeed.feed_title|clean|split:30}</a>
+					<a href="{if isset($aFeed.feed_link_actual)}{$aFeed.feed_link_actual}{else}{$aFeed.feed_link}{/if}" class="activity_feed_content_link_title"{if isset($aFeed.feed_title_extra_link)} target="_blank"{/if}{if Phpfox::getParam('core.no_follow_on_external_links')} rel="nofollow"{/if}>{$aFeed.feed_title|clean|split:30}</a>
 					{if isset($aFeed.feed_title_sub)}
 					</span>
 					{/if}
 					{if !empty($aFeed.feed_title_extra)}
 					<div class="activity_feed_content_link_title_link">
-						<a href="{$aFeed.feed_title_extra_link}" target="_blank">{$aFeed.feed_title_extra|clean}</a>
+						<a href="{$aFeed.feed_title_extra_link}" target="_blank"{if Phpfox::getParam('core.no_follow_on_external_links')} rel="nofollow"{/if}>{$aFeed.feed_title_extra|clean}</a>
 					</div>
 					{/if}
 					{/if}			
@@ -106,7 +109,7 @@ defined('PHPFOX') or exit('NO DICE!');
 		{if $aFeed.type_id != 'friend'}
 		{if isset($aFeed.more_feed_rows) && is_array($aFeed.more_feed_rows) && count($aFeed.more_feed_rows)}
 		{if $iTotalExtraFeedsToShow = count($aFeed.more_feed_rows)}{/if}
-		<a href="#" class="activity_feed_content_view_more" onclick="$(this).parents('.js_feed_view_more_entry_holder:first').find('.js_feed_view_more_entry').show(); $(this).remove(); return false;">{phrase var='feed.see_total_more_posts_from_full_name' total=$iTotalExtraFeedsToShow full_name=$aFeed.full_name|first_name|shorten:40:'...'}</a>			
+		<a href="#" class="activity_feed_content_view_more" onclick="$(this).parents('.js_feed_view_more_entry_holder:first').find('.js_feed_view_more_entry').show(); $(this).remove(); return false;">{phrase var='feed.see_total_more_posts_from_full_name' total=$iTotalExtraFeedsToShow full_name=$aFeed.full_name|shorten:40:'...'}</a>			
 		{/if}			
 		{/if}
 	{if !Phpfox::getService('profile')->timeline()}

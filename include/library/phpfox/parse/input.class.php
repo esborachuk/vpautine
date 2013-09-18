@@ -14,7 +14,7 @@ defined('PHPFOX') or exit('NO DICE!');
  * @copyright		[PHPFOX_COPYRIGHT]
  * @author			Raymond Benc
  * @package 		Phpfox
- * @version 		$Id: input.class.php 4407 2012-06-28 08:30:19Z Miguel_Espinoza $
+ * @version 		$Id: input.class.php 5351 2013-02-13 13:42:56Z Miguel_Espinoza $
  */
 class Phpfox_Parse_Input
 {
@@ -157,7 +157,7 @@ class Phpfox_Parse_Input
 	 * @return string Returns the new parsed string.
 	 */
 	public function clean($sTxt, $iShorten = null)
-	{		
+	{
 		$sTxt = Phpfox::getLib('parse.output')->htmlspecialchars($sTxt);
 
 		// Parse for language package
@@ -304,7 +304,7 @@ class Phpfox_Parse_Input
 		$aRewrites = Phpfox::getLib('url')->getRewrite();		
 		foreach ($aRewrites as $sUrl => $aRow)
 		{		    
-		    if (strtolower($sUrl) == strtolower($sTitle) || strtolower($aRow['module']) == strtolower($sTitle))
+		    if (strtolower($sUrl) == strtolower($sTitle) || (isset($aRow['module']) && strtolower($aRow['module']) == strtolower($sTitle)))
 		    {
 				$bIsOk = false;
 				break;
@@ -365,6 +365,18 @@ class Phpfox_Parse_Input
 		
 		return $this->prepare($sTxt);
 	}
+	
+	private function _replaceUsernames($aMatches)
+	{
+		$oDb = Phpfox::getLib('database');
+		$aRow = $oDb->select(Phpfox::getUserField())->from(Phpfox::getT('user'), 'u')->where('u.user_name = \'' . $oDb->escape($aMatches[1]) . '\'')->execute('getSlaveRow');
+		if (isset($aRow['user_id']))
+		{			
+			return '<a href="' . Phpfox::getLib('url')->makeUrl($aRow['user_name']) . '">@' . $aRow['user_name'] . '</a>';
+		}	
+		
+		return $aMatches[0];
+	}
 
 	/**
 	 * Prepare text strings. Used to prepare all data that can contain HTML. Not only does
@@ -375,12 +387,23 @@ class Phpfox_Parse_Input
 	 */
 	public function prepare($sTxt, $bNoClean = false)
 	{
+		if (Phpfox::isModule('microblog') && Phpfox::getParam('microblog.enable_microblog_site'))
+		{
+			$sTxt = $this->clean($sTxt);
+
+			// $sTxt = preg_replace($pattern, $replace, $sTxt);
+			$sTxt = preg_replace_callback('/@([a-zA-Z0-9\-]+)/', array($this, '_replaceUsernames'), $sTxt);
+			
+			return $sTxt;
+		}
+		
 		// Parse Emoticons
 		if (Phpfox::isModule('emoticon'))
 		{		
 			$sTxt = Phpfox::getService('emoticon')->parse($sTxt);
-		}		
+		}
 		
+		$sTxt = str_replace('\\', '&#92;', $sTxt);
 		$sTxt = str_replace(array('&lt;', '&gt;'), array('<', '>'), $sTxt);
 		$sTxt = str_replace('[*]', '<li>', $sTxt);
 		
@@ -813,56 +836,59 @@ class Phpfox_Parse_Input
 		/* Allow iframe from youtube*/
 		if ( (Phpfox::isModule('video') && Phpfox::getParam('video.allow_youtube_iframe')) || defined('PHPFOX_FORCE_IFRAME'))
 		{
-			/* get all the iframes in text*/
+			/* get all the iframes in text*/			
 			if (preg_match_all('/(&lt;iframe [a-z0-9=_\-\.:&\/\?; \"]*&gt;&lt;\/iframe&gt;)/i', $sTxt, $aIframes))
-			{	
+			{
 				/* for each iframe get the params */
-				foreach ($aIframes as $iKey => $aFrame)
+				foreach ($aIframes as $iKey => $aSubFrames)
 				{
-					$sReplace = '<iframe ';					
-					$aFrame = reset($aFrame);
-					if (preg_match_all('/(title|width|height|src|frameborder)="([^"]*)/i',$aFrame,$aMatch,PREG_SET_ORDER))
-					{
-						foreach ($aMatch as $aSub)
+					foreach ($aSubFrames as $aFrame)
+					{					
+						$sReplace = '<iframe ';					
+						// $aFrame = reset($aFrame);
+						if (preg_match_all('/(title|width|height|src|frameborder)="([^"]*)/i',$aFrame,$aMatch,PREG_SET_ORDER))
 						{
-							switch($aSub[1])
+							foreach ($aMatch as $aSub)
 							{
-								case 'width':
-								case 'height':
-								case 'frameborder':
-									$sReplace .= $aSub[1] .'="' . ((int)$aSub[2]) .'" ';
-									break;
-								case 'title':
-									$sReplace .= 'title="' . $this->clean($aSub[2]).'" ';
-									break;
-								case 'src':
-									if (defined('PHPFOX_FORCE_IFRAME'))
-									{
-										$sReplace .= 'src="' . $aSub[2] . '" ';
-									}
-									else
-									{
-										$sLink = preg_match('/http:\/\/www\.youtube.com\/embed\/([a-z0-9\-_]*)/i',$aSub[2],$aVal);
-										if (isset($aVal[1]))
+								switch($aSub[1])
+								{
+									case 'width':
+									case 'height':
+									case 'frameborder':
+										$sReplace .= $aSub[1] .'="' . ((int)$aSub[2]) .'" ';
+										break;
+									case 'title':
+										$sReplace .= 'title="' . $this->clean($aSub[2]).'" ';
+										break;
+									case 'src':
+										if (defined('PHPFOX_FORCE_IFRAME'))
 										{
-											$sReplace .= 'src="http://www.youtube.com/embed/' . $this->clean($aVal[1]) .'?wmode=transparent" wmode="Opaque"';
+											$sReplace .= 'src="' . $aSub[2] . '" ';
 										}
 										else
 										{
-											$sReplace = '';
+											$sLink = preg_match('/http:\/\/www\.youtube.com\/embed\/([a-z0-9\-_]*)/i',$aSub[2],$aVal);
+											if (isset($aVal[1]))
+											{
+												$sReplace .= 'src="http://www.youtube.com/embed/' . $this->clean($aVal[1]) .'?wmode=transparent" wmode="Opaque"';
+											}
+											else
+											{
+												$sReplace = '';
+											}
 										}
-									}
+								}
+							}
+							if (strpos($aFrame,'allowfullscreen'))
+							{
+								$sReplace .='allowfullscreen ';
 							}
 						}
-						if (strpos($aFrame,'allowfullscreen'))
-						{
-							$sReplace .='allowfullscreen ';
-						}
+						$sReplace = rtrim($sReplace);
+						$sReplace .='></iframe>';
+						$sTxt = str_replace($aFrame,$sReplace,$sTxt);
 					}
-					$sReplace = rtrim($sReplace);
-					$sReplace .='></iframe>';
-					$sTxt = str_replace($aFrame,$sReplace,$sTxt);
-				}
+				}				
 			}
 		}
 		return $sTxt;
@@ -954,6 +980,11 @@ class Phpfox_Parse_Input
         {
 			if ($sKey == 'src')
 			{
+                /* http://www.phpfox.com/tracker/view/12793/ */
+                if (substr($mValue, 1, strlen('//www.')) == '//www.')
+                {
+                    $mValue = substr($mValue,0,1) . 'http:' . substr($mValue,1);
+                }
 				if (!preg_match('/(http|https):\/\//is', $mValue))
 				{
 					$sTxt = preg_replace('/'. $sKey .'=' . preg_quote($mValue, '/')  . '/is', 'replaced=""', $sTxt);

@@ -11,7 +11,7 @@ defined('PHPFOX') or exit('NO DICE!');
  * @copyright		[PHPFOX_COPYRIGHT]
  * @author  		Raymond Benc
  * @package  		Module_Feed
- * @version 		$Id: process.class.php 4572 2012-07-31 08:51:10Z Miguel_Espinoza $
+ * @version 		$Id: process.class.php 5304 2013-02-01 10:51:59Z Miguel_Espinoza $
  */
 class Feed_Service_Process extends Phpfox_Service 
 {	
@@ -48,17 +48,17 @@ class Feed_Service_Process extends Phpfox_Service
 	}			
 	
 	public function add($sType, $iItemId, $iPrivacy = 0, $iPrivacyComment = 0, $iParentUserId = 0, $iOwnerUserId = null, $bIsTag = 0, $iParentFeedId = 0, $sParentModuleName = null)
-	{	
+	{			
 		//Plugin call
 		if (($sPlugin = Phpfox_Plugin::get('feed.service_process_add__start')))
 		{
 			eval($sPlugin);
 		}
-
+		
 		if ((!Phpfox::isUser() && $this->_bAllowGuest === false) || (defined('PHPFOX_SKIP_FEED') && PHPFOX_SKIP_FEED))
 		{
 			return false;
-		}
+		}		
 		
 		if ($iParentUserId === null)
         {
@@ -66,23 +66,33 @@ class Feed_Service_Process extends Phpfox_Service
 		}
 		
 		$iNewTimeStamp = PHPFOX_TIME;
-		$iNewTimeStampCheck = mktime(0, 0, 0, date('n', PHPFOX_TIME), date('j', PHPFOX_TIME), date('Y', PHPFOX_TIME));
+		$iNewTimeStampCheck = Phpfox::getLib('date')->mktime(0, 0, 0, date('n', PHPFOX_TIME), date('j', PHPFOX_TIME), date('Y', PHPFOX_TIME));
 		if (Phpfox::getParam('feed.can_add_past_dates'))
 		{
-			$aVals = Phpfox::getLib('request')->getArray('val');		
+			$aVals = (array) Phpfox::getLib('request')->getArray('val');	
+			if (PHPFOX_IS_AJAX)
+			{
+				$oReq = Phpfox::getLib('request');
+				if ($oReq->get('start_year') && $oReq->get('start_month') && $oReq->get('start_day'))
+				{
+					$aVals['start_year'] = $oReq->get('start_year');
+					$aVals['start_month'] = $oReq->get('start_month');
+					$aVals['start_day'] = $oReq->get('start_day');
+				}	
+			}	
 			if (!empty($aVals['start_year']) && !empty($aVals['start_month']) && !empty($aVals['start_day']))
 			{
-				$iMakeNewTimeStamp = mktime(0, 0, 0, $aVals['start_month'], $aVals['start_day'], $aVals['start_year']);	
+				$iMakeNewTimeStamp = Phpfox::getLib('date')->mktime(0, 0, 0, $aVals['start_month'], $aVals['start_day'], $aVals['start_year']);	
 				if ($iMakeNewTimeStamp < $iNewTimeStampCheck)
 				{
 					$iNewTimeStamp = $iMakeNewTimeStamp;
 					$this->cache()->remove(array('timeline', Phpfox::getUserId()));
 				}
 			}		
-		}
+		}		
 		
 		$aParentModuleName = explode('_', $sParentModuleName);
-
+		
 		$aInsert = array(
 			'privacy' => (int) $iPrivacy,
 			'privacy_comment' => (int) $iPrivacyComment,
@@ -92,8 +102,15 @@ class Feed_Service_Process extends Phpfox_Service
 			'item_id' => $iItemId,
 			'time_stamp' => $iNewTimeStamp,
 			'parent_feed_id' => (int) $iParentFeedId,
-			'parent_module_id' => (Phpfox::isModule($aParentModuleName[0]) ? $this->database()->escape($sParentModuleName) : null)
+			'parent_module_id' => (Phpfox::isModule($aParentModuleName[0]) ? $this->database()->escape($sParentModuleName) : null),
+			'time_update' => $iNewTimeStamp,
 		);
+		
+		if (!$this->_bIsCallback && !Phpfox::getParam('feed.add_feed_for_comments') && preg_match('/^(.*)_comment$/i', $sType))
+		{
+			$aInsert['feed_reference'] = true;
+		}		
+		
 		if (empty($aInsert['parent_module_id']))
 		{
 			unset($aInsert['parent_module_id']);
@@ -242,8 +259,12 @@ class Feed_Service_Process extends Phpfox_Service
 				$this->database()->delete(Phpfox::getT($aCallback['table_prefix']  . 'feed'), 'feed_id = ' . (int) $iId);				
 			}
 			
-			$this->database()->delete(Phpfox::getT('feed'), 'feed_id = ' . $aFeed['feed_id'] . ' AND user_id = ' . $aFeed['user_id'] .' AND time_stamp = ' . $aFeed['time_stamp']);			
+			//$this->database()->delete(Phpfox::getT('feed'), 'feed_id = ' . $aFeed['feed_id'] . ' AND user_id = ' . $aFeed['user_id'] .' AND time_stamp = ' . $aFeed['time_stamp']);
+			$this->database()->delete(Phpfox::getT('feed'), 'user_id = ' . $aFeed['user_id'] .' AND time_stamp = ' . $aFeed['time_stamp']);			
 			
+			// Delete likes that belonged to this feed
+			$this->database()->delete(Phpfox::getT('like'), 'type_id = "'. $aFeed['type_id'] .'" AND item_id = ' . $aFeed['item_id']);
+				
 			if (!empty($sModule))
 			{
 				if (Phpfox::hasCallback($sModule, 'deleteFeedItem'))
@@ -307,6 +328,7 @@ class Feed_Service_Process extends Phpfox_Service
 				Phpfox::getLib('mail')->to($this->_aCallback['email_user_id'])
 					->subject($this->_aCallback['subject'])
 					->message(sprintf($this->_aCallback['message'], $sLink))
+                    ->notification( ($this->_aCallback['notification'] == 'pages_comment' ? 'comment.add_new_comment' : $this->_aCallback['notification']))
 					->send();			
 				if (Phpfox::isModule('notification'))
 				{

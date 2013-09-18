@@ -11,7 +11,7 @@ defined('PHPFOX') or exit('NO DICE!');
  * @copyright		[PHPFOX_COPYRIGHT]
  * @author  		Raymond_Benc
  * @package 		Phpfox_Component
- * @version 		$Id: connect.class.php 2792 2011-08-03 17:11:30Z Raymond_Benc $
+ * @version 		$Id: connect.class.php 5074 2012-12-06 10:37:26Z Raymond_Benc $
  */
 class Share_Component_Controller_Connect extends Phpfox_Component
 {
@@ -22,7 +22,7 @@ class Share_Component_Controller_Connect extends Phpfox_Component
 	{
 		Phpfox::isUser(true);
 		
-		if ($_GET['connect-id'] == 'facebook')
+		if (isset($_GET['connect-id']) && $_GET['connect-id'] == 'facebook')
 		{
 			$aReturn = (array) Phpfox::getService('facebook')->get('/me', urlencode(Phpfox::getParam('core.path') . '?share-connect=1&connect-id=facebook'));
 			if (isset($aReturn['id']))
@@ -32,7 +32,8 @@ class Share_Component_Controller_Connect extends Phpfox_Component
 		}
 		else
 		{
-			$aReturn = Phpfox::getLib('twitter')->getUser($_GET['oauth_token']);		
+			$aReturn = Phpfox::getLib('twitter')->getUser($_GET['oauth_token']);
+			
 			if (isset($aReturn['id']))
 			{
 				Phpfox::getService('share.process')->addConnect('twitter', Phpfox::getLib('twitter')->getToken(), Phpfox::getLib('twitter')->getSecret());

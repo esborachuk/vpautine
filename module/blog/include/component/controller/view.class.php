@@ -11,7 +11,7 @@ defined('PHPFOX') or exit('NO DICE!');
  * @copyright		[PHPFOX_COPYRIGHT]
  * @author  		Raymond Benc
  * @package  		Module_Blog
- * @version 		$Id: view.class.php 3342 2011-10-21 12:59:32Z Raymond_Benc $
+ * @version 		$Id: view.class.php 5153 2013-01-17 11:46:53Z Miguel_Espinoza $
  */
 class Blog_Component_Controller_View extends Phpfox_Component 
 {
@@ -68,7 +68,7 @@ class Blog_Component_Controller_View extends Phpfox_Component
 		{
 			if ($aItem['is_approved'] != '1' && $aItem['user_id'] != Phpfox::getUserId())
 			{
-				return Phpfox_Error::display(Phpfox::getPhrase('blog.blog_not_found'));
+				return Phpfox_Error::display(Phpfox::getPhrase('blog.blog_not_found'), 404);
 			}
 		}
 		
@@ -156,6 +156,15 @@ class Blog_Component_Controller_View extends Phpfox_Component
 			$this->template()->setMeta('keywords', Phpfox::getService('tag')->getKeywords($aItem['tag_list']));
 		}	
 		
+		if (isset($aItem['module_id']) && Phpfox::hasCallback($aItem['module_id'], 'getVideoDetails'))
+		{
+		    if ($aCallback = Phpfox::callback($aItem['module_id'] . '.getVideoDetails', $aItem))
+			{
+				$this->template()->setBreadcrumb($aCallback['breadcrumb_title'], $aCallback['breadcrumb_home']);
+				$this->template()->setBreadcrumb($aCallback['title'], $aCallback['url_home']);	
+				//$this->template()->setBreadcrumb()
+			}
+		}
 		$this->setParam('aFeed', array(				
 				'comment_type_id' => 'blog',
 				'privacy' => $aItem['privacy'],
@@ -176,9 +185,13 @@ class Blog_Component_Controller_View extends Phpfox_Component
 				'time_stamp' => $aItem['time_stamp']
 			)
 		);		
-		
+		$sBreadcrumb = $this->url()->makeUrl('blog');
+		if (isset($aCallback) && isset($aCallback['item_id']))
+		{
+		    $sBreadcrumb = $this->url()->makeUrl('pages.' . $aCallback['item_id'] .'.blog');
+		}
 		$this->template()->setTitle($aItem['title'])
-		 	->setBreadCrumb(Phpfox::getPhrase('blog.blogs_title'), $this->url()->makeUrl('blog'))			
+		 	->setBreadCrumb(Phpfox::getPhrase('blog.blogs_title'), $sBreadcrumb)			
 		 	->setBreadCrumb($aItem['title'], $this->url()->permalink('blog', $aItem['blog_id'], $aItem['title']), true)
 			->setMeta('description', $aItem['title'] . '.')
 			->setMeta('description', $aItem['text'] . '.')

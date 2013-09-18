@@ -21,7 +21,7 @@ defined('PHPFOX') or exit('NO DICE!');
  * @copyright		[PHPFOX_COPYRIGHT]
  * @author			Raymond Benc
  * @package 		Phpfox
- * @version 		$Id: date.class.php 4175 2012-05-16 10:17:50Z Raymond_Benc $
+ * @version 		$Id: date.class.php 5074 2012-12-06 10:37:26Z Raymond_Benc $
  */
 class Phpfox_Date
 {
@@ -140,9 +140,9 @@ class Phpfox_Date
 		// Starting date values
 		if ($iTimeStart !== null)
 		{
-			$iMonthStart = intval(substr($iTimeStart, 0, 2));
-			$iDayStart = intval(substr($iTimeStart, 2, 2));
-			$iYearStart = intval(substr($iTimeStart, 4, 4));
+			$iMonthStart = substr($iTimeStart, 0, 2);
+			$iDayStart = substr($iTimeStart, 2, 2);
+			$iYearStart = substr($iTimeStart, 4, 4);
 			$iTimeStart = $this->mktime(0, 0, 0, $iMonthStart, $iDayStart, $iYearStart);
 		}
 		else
@@ -155,9 +155,13 @@ class Phpfox_Date
 		$iMonthEnd = intval(substr($iTimeEnd, 0, 2));
 		$iDayEnd = intval(substr($iTimeEnd, 2, 2));
 		$iYearEnd = (date('Y', Phpfox::getTime()) > date('Y', $iTimeEnd)) ? date('Y', Phpfox::getTime()) : date('Y', $iTimeEnd);
+		if (date('m', Phpfox::getTime()) > $iMonthEnd)
+		{
+			$iYearEnd++;
+		}
 		
 		$iTimeEnd = $this->mktime(24, 0, 0, $iMonthEnd, $iDayEnd, $iYearEnd);
-		
+				
 		if ($bRound == true)
 		{
 			if ($iMonthStart == $iMonthEnd && $iDayStart == $iDayEnd) // compare day to day (iDayStart and iDayEnd) and months iMonthStart and iMonthEnd
