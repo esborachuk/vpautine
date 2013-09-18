@@ -1,0 +1,30 @@
+<product>
+    ПРИМЕР!!!
+    <data>
+        <product_id>pg_radio</product_id>
+        <is_core>0</is_core>
+        <title>phpFoxGuru Radio</title>
+        <description>radio for phpfox</description>
+        <version>1.04</version>
+        <latest_version>1.04</latest_version>
+        <last_check>1298918658</last_check>
+        <is_active>1</is_active>
+        <url>http://www.phpfoxguru.com/v2/guru/product/p_pg_radio</url>
+        <url_version_check>http://www.phpfoxguru.com/v2/guru/version/p_pg_radio</url_version_check>
+    </data>
+    <installs>
+        <install>
+            <version>1.01</version>
+            <install_code><![CDATA[$this->database()->query("CREATE TABLE IF NOT EXISTS `" . Phpfox::getT('radio_station') . "` (
+  `radio_id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `station_id` varchar(255) NOT NULL DEFAULT '',
+  `title` mediumtext,
+  PRIMARY KEY (`radio_id`)
+);"); ]]></install_code>
+            <uninstall_code></uninstall_code>
+        </install>
+    </installs>
+    <modules>
+        <module_id>radio</module_id>
+    </modules>
+</product>
