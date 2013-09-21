@@ -13,11 +13,17 @@ BODY {
   transition: transform .2s linear;
   z-index: 1; }
 
+.user_register_holder .user_register_form {
+  margin-left: 560px;
+  width: 340px; }
+  .user_register_holder .user_register_form #js_signup_block {
+    display: none; }
 .user_register_holder .register_bottom_message {
   background: url("../image/welcome_page/strip.jpg") repeat-x;
   display: inline-block;
   width: 100%;
-  height: 187px; }
+  height: 187px;
+  margin-top: 60px; }
   .user_register_holder .register_bottom_message .message_wrapper {
     margin: 0 auto;
     width: 864px;
@@ -65,6 +71,64 @@ BODY {
     background-image: -moz-linear-gradient(bottom, #444e5e 17%, #353f50 72%);
     background-image: -webkit-linear-gradient(bottom, #444e5e 17%, #353f50 72%);
     background-image: -ms-linear-gradient(bottom, #444e5e 17%, #353f50 72%); }
+
+.user_register_form {
+  border: #d6d6d6 1px solid;
+  border-radius: 3px;
+  -moz-border-radius: 3px;
+  background: #fdfdfd; }
+
+.user_register_holder .user_register_form .table_right input {
+  width: 263px; }
+
+.user_register_form #header_menu_login_form .login_form_wrapper {
+  width: 262px;
+  margin: auto; }
+  .user_register_form #header_menu_login_form .login_form_wrapper input[type="submit"] {
+    background: #4f9cc4;
+    color: #FFF;
+    margin: auto;
+    display: block;
+    padding: 8px 40px 8px 40px;
+    cursor: pointer; }
+  .user_register_form #header_menu_login_form .login_form_wrapper div {
+    margin-bottom: 13px !important; }
+  .user_register_form #header_menu_login_form .login_form_wrapper .login_or_separator {
+    margin: 25px 0 !important;
+    height: 10px;
+    background: url("../image/welcome_page/welcome_login_separator.png") no-repeat; }
+.user_register_form #header_menu_login_form input.header_menu_login_input {
+  width: 263px;
+  font-size: 16px;
+  padding: 8px 0px 8px 4px; }
+.user_register_form .table_right {
+  width: 262px;
+  margin: auto; }
+.user_register_form .table_left {
+  display: none; }
+.user_register_form #js_registration_submit {
+  position: relative;
+  background-image: linear-gradient(bottom, #69af33 17%, #80c73d 40%);
+  background-image: -o-linear-gradient(bottom, #69af33 17%, #80c73d 40%);
+  background-image: -moz-linear-gradient(bottom, #69af33 17%, #80c73d 40%);
+  background-image: -webkit-linear-gradient(bottom, #69af33 17%, #80c73d 40%);
+  background-image: -ms-linear-gradient(bottom, #69af33 17%, #80c73d 40%);
+  border: #efefef 1px solid;
+  padding: 8px 40px 8px 40px; }
+  .user_register_form #js_registration_submit:after {
+    border: inset 1px black;
+    width: 171px;
+    height: 25px;
+    left: 1px;
+    top: 1px;
+    position: absolute;
+    content: ''; }
+  .user_register_form #js_registration_submit:before {
+    border: inset 1px rgba(0, 0, 0, 0.65);
+    width: 173px;
+    height: 27px;
+    position: absolute;
+    content: ''; }
 
 /* Большой дисплей */
 /* От портретного планшета до ландшафтного экрана и настольных дисплеев */

@@ -7,6 +7,7 @@ defined('PHPFOX') or exit('NO DICE!');
 
 $oTpl->setHeader('cache', array(
 		'main.js'                                               => 'style_script',
+		'pautina.js'                                            => 'style_script',
         /*'../bootstrap/css/bootstrap.min.css'                    => 'style_css',
         '../bootstrap/css/bootstrap-responsive.min.css'         => 'style_css',*/
         'den.css'                                               => 'style_css',
