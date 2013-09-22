@@ -1,0 +1,19 @@
+
+@import "compass/css3"; // COMPASS css3 mixines
+@import "compass/typography/links"; // COMPASS link style mixines
+
+
+$global-text-color: #5b5b5b;
+$global-page-bg-color: #fff;
+
+body {
+  background: url("../image/base-design/mainpage-background.png") repeat;
+  color: $global-text-color;
+  position: relative;
+}
+
+/*Links colors*/
+a {
+  @include link-colors(#4a86a6, #0cc, #c0c, #ccc, #0cc); // Order of arguments is: (normal, hover, active, visited, focus)
+}
+

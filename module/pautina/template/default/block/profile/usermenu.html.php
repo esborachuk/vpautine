@@ -1,4 +1,4 @@
-<div id="user-menu">
+<div id="user-menu" class="left-quick-menu">
     <ul>
         <li class="user">{$sUserProfileImage}</li>
         <?php foreach($this->getVar('menu') as $key => $item): ?>
