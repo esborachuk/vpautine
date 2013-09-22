@@ -6,10 +6,11 @@
 defined('PHPFOX') or exit('NO DICE!');
 
 $oTpl->setHeader('cache', array(
-		'main.js'                                                 => 'style_script',
-        /*'../bootstrap/css/bootstrap.min.css'                      => 'style_css',
-        '../bootstrap/css/bootstrap-responsive.min.css'           => 'style_css',*/
-//        'den.css'                                                 => 'style_css',
+		'main.js'                                               => 'style_script',
+		'pautina.js'                                            => 'style_script',
+        /*'../bootstrap/css/bootstrap.min.css'                    => 'style_css',
+        '../bootstrap/css/bootstrap-responsive.min.css'         => 'style_css',*/
+//        'den.css'                                               => 'style_css',
         'dima.css'                                                => 'style_css',
         'base-styles.css'                                         => 'style_css',
         'andrew.css'                                              => 'style_css',
