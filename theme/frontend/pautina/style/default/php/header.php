@@ -10,9 +10,12 @@ $oTpl->setHeader('cache', array(
 		'pautina.js'                                            => 'style_script',
         /*'../bootstrap/css/bootstrap.min.css'                    => 'style_css',
         '../bootstrap/css/bootstrap-responsive.min.css'         => 'style_css',*/
-        'den.css'                                               => 'style_css',
-        'responsive-main.css'                                   => 'style_css',
-        'responsive-main.scss'                                  => 'style_css'
+//        'den.css'                                               => 'style_css',
+        'dima.css'                                                => 'style_css',
+        'base-styles.css'                                         => 'style_css',
+        'andrew.css'                                              => 'style_css',
+        'responsive-main.css'                                     => 'style_css',
+        'responsive-main.scss'                                    => 'style_css'
 	)
 );
 
