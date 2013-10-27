@@ -39,7 +39,7 @@ defined('PHPFOX') or exit('NO DICE!');
 
     <h1>{phrase var='user.sign_up_for_ssitetitle' sSiteTitle=$sSiteTitle}</h1>
     <div class="extra_info">
-        {phrase var='user.join_ssitetitle_to_connect_with_friends_share_photos_and_create_your_own_profile' sSiteTitle=$sSiteTitle}
+       <span>{phrase var='user.join_ssitetitle_to_connect_with_friends_share_photos_and_create_your_own_profile' sSiteTitle=$sSiteTitle}</span>
     </div>
     <div id="main_registration_form_holder">
         {if ((Phpfox::isModule('facebook') && Phpfox::getParam('facebook.enable_facebook_connect')) || (Phpfox::isModule('janrain') && Phpfox::getParam('janrain.enable_janrain_login'))) && !Phpfox::getService('invite')->isInviteOnly()}
@@ -70,7 +70,7 @@ defined('PHPFOX') or exit('NO DICE!');
                     <div class="user_register_title">
                         {phrase var='user.sign_up'}
                         <div class="extra_info">
-                            {phrase var='user.it_s_free_and_always_will_be'}
+                            <span>{phrase var='user.it_s_free_and_always_will_be'}</span>
                         </div>
                     </div>
                     {/if}

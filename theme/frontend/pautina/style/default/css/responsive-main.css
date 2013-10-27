@@ -14,8 +14,10 @@ BODY {
   z-index: 1; }
 
 .user_register_holder .user_register_form {
-  margin-left: 560px;
-  width: 340px; }
+  margin-left: 650px;
+  width: 340px;
+  z-index: 10;
+  position: relative; }
   .user_register_holder .user_register_form #js_signup_block {
     display: none; }
 .user_register_holder .register_bottom_message {
@@ -71,6 +73,19 @@ BODY {
     background-image: -moz-linear-gradient(bottom, #444e5e 17%, #353f50 72%);
     background-image: -webkit-linear-gradient(bottom, #444e5e 17%, #353f50 72%);
     background-image: -ms-linear-gradient(bottom, #444e5e 17%, #353f50 72%); }
+.user_register_holder .extra_info {
+  background: url(../image/welcome_page/enter_in_acc.png) no-repeat;
+  color: #fff;
+  position: relative;
+  height: 37px;
+  left: -7px; }
+  .user_register_holder .extra_info span {
+    margin: 5px 0 0 15px;
+    display: inline-block; }
+.user_register_holder .welcome_img {
+  background: url(../image/welcome_page/map.png) no-repeat;
+  width: 700px;
+  height: 244px; }
 
 .user_register_form {
   border: #d6d6d6 1px solid;

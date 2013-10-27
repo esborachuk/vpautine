@@ -14,8 +14,10 @@ BODY{
 }
 .user_register_holder {
   .user_register_form {
-    margin-left: 560px;
+    margin-left: 650px;
     width:340px;
+    z-index: 10;
+    position: relative;
     #js_signup_block{
       display: none;
     }
@@ -77,6 +79,22 @@ BODY{
       @include border(#242424);
       @include gradient(bottom,rgb(68,78,94), 17% , rgb(53,63,80), 72%);
     }
+  }
+  .extra_info{
+    background: url(../image/welcome_page/enter_in_acc.png) no-repeat;
+    color:#fff;
+    position: relative;
+    height: 37px;
+    left:-7px;
+    span{
+      margin:5px 0 0 15px;
+      display: inline-block;
+    }
+  }
+  .welcome_img{
+    background: url(../image/welcome_page/map.png) no-repeat;
+    width:700px;
+    height: 244px;
   }
 }
 
