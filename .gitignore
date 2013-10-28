@@ -1,5 +1,10 @@
 include/setting/server.sett.php
 file/*
-.idea/*
+.idea/*.DS_Store
+
+#ide
+.idea
+.project
 .htaccess
-robot.txt
+index.php
+include/setting/server.sett.php

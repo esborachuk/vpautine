@@ -2,27 +2,150 @@
 author Andrew Sirik
 
 */
+/*
+* mixin
+*/
+BODY {
+  -webkit-transition: -webkit-transform .2s linear;
+  -moz-transition: -moz-transform .2s linear;
+  -ms-transition: -ms-transform .2s linear;
+  -o-transition: -o-transform .2s linear;
+  transition: transform .2s linear;
+  z-index: 1; }
 
+.user_register_holder .user_register_form {
+  margin-left: 650px;
+  width: 340px;
+  z-index: 10;
+  position: relative; }
+  .user_register_holder .user_register_form #js_signup_block {
+    display: none; }
+.user_register_holder .register_bottom_message {
+  background: url("../image/welcome_page/strip.jpg") repeat-x;
+  display: inline-block;
+  width: 100%;
+  height: 187px;
+  margin-top: 60px; }
+  .user_register_holder .register_bottom_message .message_wrapper {
+    margin: 0 auto;
+    width: 864px;
+    margin-top: -22px; }
+  .user_register_holder .register_bottom_message .message_container {
+    width: 220px;
+    float: left;
+    margin-right: 65px; }
+    .user_register_holder .register_bottom_message .message_container:first-child {
+      margin-left: 66px; }
+    .user_register_holder .register_bottom_message .message_container:last-child {
+      margin-right: 0; }
+  .user_register_holder .register_bottom_message .message_content {
+    background-color: #e9e9e9;
+    border-radius: 0 0 6px 6px;
+    -moz-border-radius: 0 0 6px 6px;
+    padding: 14px 22px 80px 10px; }
+    .user_register_holder .register_bottom_message .message_content p {
+      font: italic 12px Arial,'arial',verdana, 'sans serif';
+      color: #525252;
+      text-align: left;
+      line-height: 20px; }
+  .user_register_holder .register_bottom_message .people {
+    background: #e9e9e9 url(../image/welcome_page/people.png) no-repeat 50% 95%; }
+  .user_register_holder .register_bottom_message .info-block {
+    background: #e9e9e9 url(../image/welcome_page/photo.png) no-repeat 50% 95%; }
+  .user_register_holder .register_bottom_message .talk {
+    background: #e9e9e9 url(../image/welcome_page/tablet.png) no-repeat 50% 95%; }
+  .user_register_holder .register_bottom_message .message_header {
+    background: #3c4757;
+    color: #FFFFFF;
+    font: 13px arial, verdana, sans-serif;
+    text-align: center;
+    border-radius: 3px;
+    -moz-border-radius: 3px;
+    padding: 10px 0 10px 0;
+    position: relative;
+    top: 7px;
+    -webkit-box-shadow: 0px 1px 5px rgba(50, 50, 50, 0.78);
+    -moz-box-shadow: 0px 1px 5px rgba(50, 50, 50, 0.78);
+    box-shadow: 0px 1px 5px rgba(50, 50, 50, 0.78);
+    border: #242424 1px solid;
+    background-image: linear-gradient(bottom, #444e5e 17%, #353f50 72%);
+    background-image: -o-linear-gradient(bottom, #444e5e 17%, #353f50 72%);
+    background-image: -moz-linear-gradient(bottom, #444e5e 17%, #353f50 72%);
+    background-image: -webkit-linear-gradient(bottom, #444e5e 17%, #353f50 72%);
+    background-image: -ms-linear-gradient(bottom, #444e5e 17%, #353f50 72%); }
+.user_register_holder .extra_info {
+  background: url(../image/welcome_page/enter_in_acc.png) no-repeat;
+  color: #fff;
+  position: relative;
+  height: 37px;
+  left: -7px; }
+  .user_register_holder .extra_info span {
+    margin: 5px 0 0 15px;
+    display: inline-block; }
+.user_register_holder .welcome_img {
+  background: url(../image/welcome_page/map.png) no-repeat;
+  width: 700px;
+  height: 244px; }
+
+.user_register_form {
+  border: #d6d6d6 1px solid;
+  border-radius: 3px;
+  -moz-border-radius: 3px;
+  background: #fdfdfd; }
+
+.user_register_holder .user_register_form .table_right input {
+  width: 263px; }
+
+.user_register_form #header_menu_login_form .login_form_wrapper {
+  width: 262px;
+  margin: auto; }
+  .user_register_form #header_menu_login_form .login_form_wrapper input[type="submit"] {
+    background: #4f9cc4;
+    color: #FFF;
+    margin: auto;
+    display: block;
+    padding: 8px 40px 8px 40px;
+    cursor: pointer; }
+  .user_register_form #header_menu_login_form .login_form_wrapper div {
+    margin-bottom: 13px !important; }
+  .user_register_form #header_menu_login_form .login_form_wrapper .login_or_separator {
+    margin: 25px 0 !important;
+    height: 10px;
+    background: url("../image/welcome_page/welcome_login_separator.png") no-repeat; }
+.user_register_form #header_menu_login_form input.header_menu_login_input {
+  width: 263px;
+  font-size: 16px;
+  padding: 8px 0px 8px 4px; }
+.user_register_form .table_right {
+  width: 262px;
+  margin: auto; }
+.user_register_form .table_left {
+  display: none; }
+.user_register_form #js_registration_submit {
+  position: relative;
+  background-image: linear-gradient(bottom, #69af33 17%, #80c73d 40%);
+  background-image: -o-linear-gradient(bottom, #69af33 17%, #80c73d 40%);
+  background-image: -moz-linear-gradient(bottom, #69af33 17%, #80c73d 40%);
+  background-image: -webkit-linear-gradient(bottom, #69af33 17%, #80c73d 40%);
+  background-image: -ms-linear-gradient(bottom, #69af33 17%, #80c73d 40%);
+  border: #efefef 1px solid;
+  padding: 8px 40px 8px 40px; }
+  .user_register_form #js_registration_submit:after {
+    border: inset 1px black;
+    width: 171px;
+    height: 25px;
+    left: 1px;
+    top: 1px;
+    position: absolute;
+    content: ''; }
+  .user_register_form #js_registration_submit:before {
+    border: inset 1px rgba(0, 0, 0, 0.65);
+    width: 173px;
+    height: 27px;
+    position: absolute;
+    content: ''; }
 
 /* Большой дисплей */
-@media (min-width: 1200px) {
-
-}
-
 /* От портретного планшета до ландшафтного экрана и настольных дисплеев */
-@media (min-width: 768px) and (max-width: 979px) {
-
-}
-
-
 /* Landscape - телефоны */
-@media (max-width: 480px) {
-
-}
-
 /* От ландшафтного экрана телефона до потретного планшета */
-@media (max-width: 767px) {
-
-}
-
-
