@@ -1,3 +1,5 @@
 include/setting/server.sett.php
 file/*
 .idea/*
+.htaccess
+robot.txt
