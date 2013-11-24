@@ -171,23 +171,23 @@ BODY{
 
 
 
-/* Большой дисплей */
+/* large display */
 @media (min-width: 1200px) {
 
 }
 
-/* От портретного планшета до ландшафтного экрана и настольных дисплеев */
+/* portrait */
 @media (min-width: 768px) and (max-width: 979px) {
 
 }
 
 
-/* Landscape - телефоны */
+/* Landscape  */
 @media (max-width: 480px) {
 
 }
 
-/* От ландшафтного экрана телефона до потретного планшета */
+/* tablet*/
 @media (max-width: 767px) {
 
 }
