@@ -5,7 +5,7 @@
  * @copyright		[PHPFOX_COPYRIGHT]
  * @author  		Raymond Benc
  * @package  		Module_Admincp
- * @version 		$Id: cache.html.php 5332 2013-02-11 08:27:54Z Raymond_Benc $
+ * @version 		$Id: cache.html.php 1519 2010-03-10 15:42:56Z Raymond_Benc $
  */
  
 defined('PHPFOX') or exit('NO DICE!'); 
@@ -20,7 +20,6 @@ defined('PHPFOX') or exit('NO DICE!');
 </div>
 {else}
 {if $iCacheCnt > 0}
-{if !defined('PHPFOX_IS_HOSTED_SCRIPT')}
 <div class="table_header">
 	{phrase var='admincp.cache_stats'}
 </div>
@@ -53,8 +52,7 @@ defined('PHPFOX') or exit('NO DICE!');
 	<div class="clear"></div>
 </div>
 {/if}
-{/if}
-<div class="{if !defined('PHPFOX_IS_HOSTED_SCRIPT')}table_clear{else}t_center{/if}">
+<div class="table_clear">
 	<input type="button" value="{phrase var='admincp.clear_all'}" class="button" onclick="window.location.href = '{url link='admincp.maintain.cache' all=true}';" />
 </div>
 {else}

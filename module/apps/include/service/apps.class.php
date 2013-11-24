@@ -22,15 +22,7 @@ class Apps_Service_Apps extends Phpfox_Service
 	{	
 		$this->_sTable = Phpfox::getT('app');
 	}
-	
-	public function buildUrl($sUrl, $sKey)
-	{		
-		$sReturn = $sUrl;
-		$sReturn .= (strpos($sUrl, '?') ? '&' : '?') . 'auth=1&key=' . $sKey;
-		
-		return $sReturn;
-	}
-	
+
 	public function export($aVals)
 	{
 		if (empty($aVals['title']))
@@ -194,7 +186,7 @@ class Apps_Service_Apps extends Phpfox_Service
 		
 			$aApps = $this->database()->select('a.*')
 				->from(Phpfox::getT('app_installed'), 'aa')
-				->join(Phpfox::getT('app'), 'a', 'a.app_id = aa.app_id AND a.is_ext = 0')
+				->join(Phpfox::getT('app'), 'a', 'a.app_id = aa.app_id')
 				->where('aa.user_id = ' . Phpfox::getUserId())
 				->execute('getSlaveRows');
 			
@@ -231,7 +223,7 @@ class Apps_Service_Apps extends Phpfox_Service
 	 * @param int $iId the app_id
 	 * @Todo cache
 	 */
-	public function getAppById($iId, $bUseKey = false)
+	public function getAppById($iId)
 	{
 		$aApp = $this->database()->select('a.*, p.page_id, p.total_like, au.install_id as is_installed, ac.category_id, ac.name as category_name, ' . Phpfox::getUserField())
 			->from(Phpfox::getT('app'),'a')
@@ -240,7 +232,7 @@ class Apps_Service_Apps extends Phpfox_Service
 			->leftjoin(Phpfox::getT('app_category_data'), 'acd', 'acd.app_id = a.app_id')
 			->leftjoin(Phpfox::getT('app_category'), 'ac', 'ac.category_id = acd.category_id')
 			->leftjoin(Phpfox::getT('pages'), 'p', 'p.app_id = a.app_id')
-			->where(($bUseKey ? 'a.public_key = \'' . $iId . '\'' : 'a.app_id = ' . (int) $iId))
+			->where('a.app_id = ' . (int)$iId)
 			->execute('getSlaveRow');
 		
 		if (empty($aApp))
@@ -360,23 +352,6 @@ class Apps_Service_Apps extends Phpfox_Service
 		);
 		
 		return $sKey;
-	}
-	
-	public function buildUser($aRow)
-	{
-		$sUserImage = Phpfox::getLib('image.helper')->display(array(
-				'user' => $aRow,
-				'suffix' => '_50_square',
-				'return_url' => true
-			)
-		);		
-		
-		return array(
-				'profile_user_id' => $aRow['user_id'],
-				'profile_user_name' => $aRow['user_name'],
-				'profile_full_name' => $aRow['full_name'],
-				'profile_image' => $sUserImage
-				);
 	}
 	
 	/**

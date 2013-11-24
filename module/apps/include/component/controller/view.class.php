@@ -19,8 +19,9 @@ class Apps_Component_Controller_View extends Phpfox_Component
 	 * Class process method which is used to execute this component.
 	 */
 	public function process()
-	{	
-		$bIsRedirect = false;
+	{
+		Phpfox::getUserParam('apps.can_view_app', true);
+		
 		if ($this->request()->get('req2') == 'view')
 		{
 			$this->url()->forward($this->url()->makeUrl('apps', array($this->request()->get('req3'), $this->request()->get('req4'))));
@@ -32,29 +33,15 @@ class Apps_Component_Controller_View extends Phpfox_Component
 		}
 		else
 		{
-			if ($this->request()->get('key'))
-			{
-				$bIsRedirect = true;
-				$aApp = Phpfox::getService('apps')->getAppById($this->request()->get('key'), true);				
-			}
-			else
-			{			
-				$aApp = Phpfox::getService('apps')->getAppById($this->request()->get('req2'));
-			}
-		}		
-					
+			$aApp = Phpfox::getService('apps')->getAppById($this->request()->get('req2'));
+		}
+		
+		
 		/* if there is no app */
 		if (empty($aApp))
 		{
 			return Phpfox_Error::display(Phpfox::getPhrase('apps.that_app_was_not_found_check'));
 		}
-		
-		if (!Phpfox::isUser())
-		{
-			$this->url()->send('apps.install.' . $aApp['app_id']);
-		}
-		
-		Phpfox::getUserParam('apps.can_view_app', true);		
 		
 		if (empty($aApp['is_installed']))
 		{
@@ -67,18 +54,11 @@ class Apps_Component_Controller_View extends Phpfox_Component
 				$this->setParam('aApp', $aApp);
 				/* loading another controller as a safety measure vs loading the app and 
 				 * a hovering block*/
-				// return Phpfox::getLib('module')->setController('apps.install');
-				$this->url()->send('apps.install.' . $aApp['app_id']);
+				return Phpfox::getLib('module')->setController('apps.install');
 			}
 		}
 		
 		$sKey = Phpfox::getService('apps')->getKey($aApp['app_id']);
-		
-		if ($bIsRedirect || $aApp['is_ext'])
-		{			
-			header('Location: ' . Phpfox::getService('apps')->buildUrl($aApp['return_url'], $sKey));			
-			exit;
-		}
 		
 		$sFrameUrl = '' . $aApp['app_url'] . '?key=' . $sKey . '&site=' . urlencode(Phpfox::getParam('core.path'));
 		

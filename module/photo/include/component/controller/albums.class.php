@@ -11,7 +11,7 @@ defined('PHPFOX') or exit('NO DICE!');
  * @copyright		[PHPFOX_COPYRIGHT]
  * @author  		Raymond_Benc
  * @package 		Phpfox_Component
- * @version 		$Id: albums.class.php 5138 2013-01-15 09:10:05Z Miguel_Espinoza $
+ * @version 		$Id: albums.class.php 4924 2012-10-23 04:49:01Z Raymond_Benc $
  */
 class Photo_Component_Controller_Albums extends Phpfox_Component
 {
@@ -21,14 +21,7 @@ class Photo_Component_Controller_Albums extends Phpfox_Component
 	public function process()
 	{
 		Phpfox::getUserParam('photo.can_view_photos', true);
-		if (defined('PHPFOX_IS_USER_PROFILE') /*&& Phpfox::getParam('profile.display_submenu_for_photo') != true*/)
-		{
-		    $this->template()->assign(array('bSpecialMenu' => true));
-		}
-		else
-		{		    
-		    $this->template()->assign(array('bSpecialMenu' => false));
-		}
+		
 		$aParentModule = $this->getParam('aParentModule');	
 		
 		if ($iDeleteId = $this->request()->getInt('delete'))
@@ -134,15 +127,9 @@ class Photo_Component_Controller_Albums extends Phpfox_Component
 		}
 		Phpfox::getLib('pager')->set($aPager);
 		
-		if (Phpfox::getParam('photo.show_info_on_mouseover') && isset($aUser['use_timeline']) && $aUser['use_timeline'])
-		{
-		    $this->template()->setFullSite();
-		}
-		
 		$this->template()->setTitle(Phpfox::getPhrase('photo.photo_albums'))
 			->setHeader(array(
-					'pager.css' => 'style_css',
-					'albums.css' => 'module_photo'
+					'pager.css' => 'style_css'
 				)
 			)
 			->setBreadcrumb(Phpfox::getPhrase('photo.photos'), $this->url()->makeUrl('photo'))

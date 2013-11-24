@@ -19,7 +19,7 @@ defined('PHPFOX') or exit('NO DICE!');
  * @copyright		[PHPFOX_COPYRIGHT]
  * @author			Raymond Benc
  * @package 		Phpfox
- * @version 		$Id: template.class.php 5382 2013-02-18 09:48:39Z Miguel_Espinoza $
+ * @version 		$Id: template.class.php 5028 2012-11-19 09:57:54Z Raymond_Benc $
  */
 class Phpfox_Template
 {	
@@ -1138,8 +1138,7 @@ class Phpfox_Template
 				'sGlobalTokenName' => Phpfox::getTokenName(),
 				'sController' => Phpfox::getLib('module')->getFullControllerName(),
 				'bJsIsMobile' => (Phpfox::isMobile() ? true : false),
-				'sProgressCssFile' => $sProgressCssFile,
-				'sHostedVersionId' => (defined('PHPFOX_IS_HOSTED_VERSION') ? PHPFOX_IS_HOSTED_VERSION : '')
+				'sProgressCssFile' => $sProgressCssFile
 			);	
 			
 			if (!defined('PHPFOX_INSTALLER'))
@@ -1184,14 +1183,6 @@ class Phpfox_Template
 					$sFile = str_replace(PHPFOX_STATIC . 'jscript/', '', $sLocalDatepicker);
 					$this->setHeader(array($sFile => 'static_script'));					
 				}
-				
-				/* Only in a few cases will we want to add the visitor's IP */
-				if (Phpfox::getParam('core.google_api_key') != '' && Phpfox::getParam('core.ip_infodb_api_key'))
-				{
-					// $aJsVars['sIP'] = Phpfox::getLib('request')->getIp();
-				}
-				
-				$aJsVars['bEnableMicroblogSite'] = (Phpfox::isModule('microblog') ? Phpfox::getParam('microblog.enable_microblog_site') : false);		
 			}
 			
 			(($sPlugin = Phpfox_Plugin::get('template_getheader_setting')) ? eval($sPlugin) : false);
@@ -1450,9 +1441,9 @@ class Phpfox_Template
 												->from(Phpfox::getT('theme_css'), 'tc')
 												->where('style_id = ' . (int) $this->_aTheme['style_id'] . ' AND file_name = \'' . $oDb->escape($mKey) . '\'')		
 												->execute('getRow');
-
+												
 											if (isset($aCss['css_id']))
-											{								
+											{
 												$oCache->save($sCssCustomCacheId, (defined('PHPFOX_IS_HOSTED_SCRIPT') ? $aCss : Phpfox::getLib('file.minimize')->css($aCss['css_data'])));												
 												
 												$bCustomStyle = true;
@@ -1895,7 +1886,7 @@ class Phpfox_Template
 		else
 		{				
 			$sPath = (defined('PHPFOX_INSTALLER') ? Phpfox_Installer::getHostPath() : Phpfox::getParam('core.path')) . 'theme/' . $this->_sThemeLayout . '/' . $this->_sThemeFolder . '/style/' . $this->_sStyleFolder . '/' . $sType . '/';
-			if ($sPlugin = Phpfox_Plugin::get('library_template_getstyle_1')){eval($sPlugin);if (isset($bReturnFromPlugin)) return $bReturnFromPlugin;}
+			
 			if ($sValue !== null)
 			{			
 				$bPass = false;
@@ -2065,7 +2056,7 @@ class Phpfox_Template
 	public function getLayoutFile($sName)
 	{		
 		$sFile = PHPFOX_DIR_THEME . $this->_sThemeLayout . PHPFOX_DS . $this->_sThemeFolder . PHPFOX_DS . 'template' . PHPFOX_DS . $sName . PHPFOX_TPL_SUFFIX;
-		if ($sPlugin = Phpfox_Plugin::get('library_template_getlayoutfile_1')){eval($sPlugin);if (isset($bReturnFromPlugin)) return $bReturnFromPlugin;}
+		
 		if (!file_exists($sFile))
 		{				
 			if ($this->_aTheme['theme_parent_id'] > 0 && !empty($this->_aTheme['parent_theme_folder']))
@@ -2354,8 +2345,7 @@ class Phpfox_Template
 		$oCache = Phpfox::getLib('cache');
 		$oDb = Phpfox::getLib('database');
 		$oReq = Phpfox::getLib('request');
-		
-		(($sPlugin = Phpfox_Plugin::get('template_template_getmenu_1')) ? eval($sPlugin) : false);
+
 		$aMenus = array();		
 		
 		$bIsModulePage = false;
@@ -2459,29 +2449,13 @@ class Phpfox_Template
 				}
 			}
 
-            if ($sPlugin = Phpfox_Plugin::get('template_template_getmenu_2')){eval($sPlugin);}
 			$oCache->save($sCachedId, $aMenus);
 		}				
 
 		if (!is_array($aMenus))
 		{
 			return array();
-		}			
-
-		if ($sConnection == 'main' && Phpfox::isUser())
-		{
-			$aUserMenusCache = array();
-			$sUserMenuCache = Phpfox::getLib('cache')->set(array('user', 'nbselectname_' . Phpfox::getUserId()));
-			if (!($aUserMenusCache = Phpfox::getLib('cache')->get($sUserMenuCache)))
-			{
-				$aUserMenus = Phpfox::getLib('database')->select('*')->from(Phpfox::getT('theme_umenu'))->where('user_id = ' . (int) Phpfox::getUserId())->execute('getSlaveRows');
-				foreach ((array) $aUserMenus as $aUserMenu)
-				{
-					$aUserMenusCache[$aUserMenu['menu_id']] = true;
-				}			
-				Phpfox::getLib('cache')->save($sUserMenuCache, $aUserMenusCache);
-			}
-		}
+		}				
 		
 		foreach ($aMenus as $iKey => $aMenu)
 		{	
@@ -2519,11 +2493,6 @@ class Phpfox_Template
 				unset($aMenus[$iKey]);
 				
 				continue;									
-			}
-			
-			if (isset($aUserMenusCache[$aMenu['menu_id']]))
-			{
-				$aMenus[$iKey]['is_force_hidden'] = true;
 			}
 			
 			if (Phpfox::isModule('pages') && Phpfox::getService('pages')->isViewMode() && $aMenu['url'] == 'photo.add')
@@ -2953,7 +2922,7 @@ class Phpfox_Template
 			}
 		}
 		
-		return (defined('PHPFOX_IS_HOSTED_SCRIPT') ? PHPFOX_IS_HOSTED_SCRIPT . Phpfox::getCleanVersion() . '' : '') . (defined('PHPFOX_TMP_DIR') ? PHPFOX_TMP_DIR : PHPFOX_DIR_CACHE) . ((defined('PHPFOX_TMP_DIR') || PHPFOX_SAFE_MODE) ? 'template_' : 'template/') . str_replace(array(PHPFOX_DIR_THEME, PHPFOX_DIR_MODULE, PHPFOX_DS), array('', '', '_'), $sName) . (Phpfox::isAdminPanel() ? '_admincp' : '') . (PHPFOX_IS_AJAX ? '_ajax' : '') . '.php';
+		return (defined('PHPFOX_IS_HOSTED_SCRIPT') ? PHPFOX_IS_HOSTED_SCRIPT . '' : '') . (defined('PHPFOX_TMP_DIR') ? PHPFOX_TMP_DIR : PHPFOX_DIR_CACHE) . ((defined('PHPFOX_TMP_DIR') || PHPFOX_SAFE_MODE) ? 'template_' : 'template/') . str_replace(array(PHPFOX_DIR_THEME, PHPFOX_DIR_MODULE, PHPFOX_DS), array('', '', '_'), $sName) . (Phpfox::isAdminPanel() ? '_admincp' : '') . (PHPFOX_IS_AJAX ? '_ajax' : '') . '.php';
 	}	
 	
 	private function _register($sType, $sFunction, $sImplementation)

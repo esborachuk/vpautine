@@ -5,7 +5,7 @@
  * @copyright		[PHPFOX_COPYRIGHT]
  * @author  		Raymond Benc
  * @package  		Module_Poll
- * @version 		$Id: entry.html.php 5074 2012-12-06 10:37:26Z Raymond_Benc $
+ * @version 		$Id: entry.html.php 5042 2012-11-26 08:19:29Z Raymond_Benc $
  */
  
 defined('PHPFOX') or exit('NO DICE!'); 

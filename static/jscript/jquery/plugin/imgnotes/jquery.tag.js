@@ -13,17 +13,11 @@ $Core.photo_tag =
 	init: function(aParams)
 	{		
 		this.aParams = aParams;
-				
+		
 		notes = aParams['js_notes'];
 		
 		$(function() 
 		{
-			if ($Core.photo_tag.aParams['id'] == '#js_photo_view_image'){
-				if ($($Core.photo_tag.aParams['id']).is(':hidden')){
-					$Core.photo_tag.aParams['id'] = '#js_photo_view_image_small';
-				}
-			}
-			
 			if ($($Core.photo_tag.aParams['id']).length <= 0)
 			{
 				return;

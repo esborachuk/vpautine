@@ -12,7 +12,7 @@ defined('PHPFOX') or exit('NO DICE!');
  * @copyright		[PHPFOX_COPYRIGHT]
  * @author			Raymond Benc
  * @package 		Phpfox
- * @version 		$Id: url.class.php 5348 2013-02-13 10:15:23Z Miguel_Espinoza $
+ * @version 		$Id: url.class.php 5958 2013-05-27 09:55:14Z Raymond_Benc $
  */
 class Phpfox_Url
 {
@@ -480,7 +480,7 @@ class Phpfox_Url
 			}
 		}
 		
-		if (preg_match('/https?:\/\//i', $sUrl))
+		if (preg_match('/http:\/\//i', $sUrl))
 		{
 		    return $sUrl;
 		}		
@@ -615,22 +615,27 @@ class Phpfox_Url
 		
 		if (!defined('PHPFOX_INSTALLER') && Phpfox::getParam('core.force_https_secure_pages'))
 		{
-			if (in_array(str_replace('mobile.', '', $sUrl), Phpfox::getService('core')->getSecurePages()))
+			if (Phpfox::getParam('core.force_secure_site'))
 			{
-				$sUrls = str_replace('http://', 'https://', $sUrls);
+				if (Phpfox::isUser() || in_array(str_replace('mobile.', '', $sUrl), Phpfox::getService('core')->getSecurePages()))
+				{
+					$sUrls = str_replace('http://', 'https://', $sUrls);
+				}
 			}
-			else 
+			else
 			{
-				$sUrls = str_replace('https://', 'http://', $sUrls);
+				if (in_array(str_replace('mobile.', '', $sUrl), Phpfox::getService('core')->getSecurePages()))
+				{
+					$sUrls = str_replace('http://', 'https://', $sUrls);
+				}
+				else
+				{
+					$sUrls = str_replace('https://', 'http://', $sUrls);
+				}
 			}
 		}
 		
 		(($sPlugin = Phpfox_Plugin::get('check_url_is_array_return')) ? eval($sPlugin) : false);
-		
-		if (defined('PHPFOX_IS_HOSTED_SCRIPT') && defined('PHPFOX_IS_HOSTED_VERSION'))
-		{
-			$sUrls = str_replace('/' . PHPFOX_IS_HOSTED_VERSION . '/', '/', $sUrls);
-		}		
 		
 		return $sUrls;
 	}

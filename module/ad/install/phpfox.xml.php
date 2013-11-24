@@ -3,7 +3,7 @@
 		<module_id>ad</module_id>
 		<product_id>phpfox</product_id>
 		<is_core>0</is_core>
-		<is_active>0</is_active>
+		<is_active>1</is_active>
 		<is_menu>1</is_menu>
 		<menu><![CDATA[a:6:{s:33:"ad.admin_menu_create_new_campaign";a:1:{s:3:"url";a:2:{i:0;s:2:"ad";i:1;s:3:"add";}}s:30:"ad.admin_menu_manage_campaigns";a:1:{s:3:"url";a:1:{i:0;s:2:"ad";}}s:31:"ad.admin_menu_manage_placements";a:1:{s:3:"url";a:2:{i:0;s:2:"ad";i:1;s:9:"placement";}}s:26:"ad.admin_menu_ad_placement";a:1:{s:3:"url";a:3:{i:0;s:2:"ad";i:1;s:9:"placement";i:2;s:3:"add";}}s:22:"ad.admin_menu_invoices";a:1:{s:3:"url";a:2:{i:0;s:2:"ad";i:1;s:7:"invoice";}}s:33:"ad.admin_menu_manage_sponsorships";a:1:{s:3:"url";a:2:{i:0;s:2:"ad";i:1;s:7:"sponsor";}}}]]></menu>
 		<phrase_var_name>module_ad</phrase_var_name>
@@ -83,7 +83,6 @@
 		<hook module_id="ad" hook_type="service" module="ad" call_name="ad.service_process_addcustom_before_insert_invoice" added="1286546859" version_id="2.0.7" />
 		<hook module_id="ad" hook_type="component" module="ad" call_name="ad.component_block_inner_process__start" added="1319729453" version_id="3.0.0rc1" />
 		<hook module_id="ad" hook_type="component" module="ad" call_name="ad.component_block_inner_process__end" added="1319729453" version_id="3.0.0rc1" />
-		<hook module_id="ad" hook_type="service" module="ad" call_name="ad.service_ad_getforblock__1" added="1361180401" version_id="3.5.0rc1" />
 	</hooks>
 	<components>
 		<component module_id="ad" component="sponsored" m_connection="" module="ad" is_controller="0" is_block="1" is_active="1" />
@@ -326,7 +325,6 @@ The default is 1</info> ]]></phrase>
 		<phrase module_id="ad" version_id="3.4.0" var_name="separate_multiple_postal_codes_by_a_comma" added="1350910172">Separate multiple postal codes by a comma.</phrase>
 		<phrase module_id="ad" version_id="3.4.0" var_name="city" added="1350910183">City</phrase>
 		<phrase module_id="ad" version_id="3.4.0" var_name="separate_multiple_cities_by_a_comma" added="1350910195">Separate multiple cities by a comma.</phrase>
-		<phrase module_id="ad" version_id="3.5.0beta2" var_name="this_item_has_successfully_been_submitted" added="1359358139">This item has successfully been submitted. Before it can be displayed it will have to first be approved by a site Admin.</phrase>
 	</phrases>
 	<user_group_settings>
 		<setting is_admin_setting="0" module_id="ad" type="boolean" admin="true" user="true" guest="true" staff="true" module="ad" ordering="0">show_ads</setting>

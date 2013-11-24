@@ -15,7 +15,7 @@ defined('PHPFOX') or exit('NO DICE!');
  * @copyright		[PHPFOX_COPYRIGHT]
  * @author			Raymond Benc
  * @package 		Phpfox
- * @version 		$Id: support.class.php 5063 2012-12-03 15:01:22Z Miguel_Espinoza $
+ * @version 		$Id: support.class.php 4520 2012-07-18 14:08:39Z Miguel_Espinoza $
  */
 class Phpfox_Database_Support
 {
@@ -463,7 +463,6 @@ class Phpfox_Database_Support
 				$sType = preg_replace("/^char\((.*?)\)(.*)/i", "CHAR:$1", $sType);
 				$sType = preg_replace("/^text$/i", "TEXT", $sType);
 				$sType = preg_replace("/^mediumtext$/i", "MTEXT", $sType);
-				$sType = preg_replace("/^decimal\(30,27\)(.*)/i", "MDECIMAL:", $sType);
 				$sType = preg_replace("/^decimal\((.*?),2\)(.*)/i", "DECIMAL:$1", $sType);
 				$sType = preg_replace("/^bigint\((.*?)\)(.*)/i", "BINT", $sType);
 				

@@ -11,7 +11,7 @@ defined('PHPFOX') or exit('NO DICE!');
  * @copyright		[PHPFOX_COPYRIGHT]
  * @author  		Raymond Benc
  * @package 		Phpfox_Service
- * @version 		$Id: core.class.php 5024 2012-11-14 16:02:47Z Miguel_Espinoza $
+ * @version 		$Id: core.class.php 3826 2011-12-16 12:30:19Z Raymond_Benc $
  */
 class Core_Service_Core extends Phpfox_Service 
 {
@@ -571,23 +571,6 @@ class Core_Service_Core extends Phpfox_Service
 		return $sHash;
 	}
 
-	/* This function is used to get the hash for an image in the Spam Questions feature */
-	public function getHashForImage($sUrl)
-	{
-		$sHash = md5(rand(100,999) . $sUrl . rand(100,999));
-		$this->database()->insert(Phpfox::getT('upload_track'), array(
-			'hash' => $sUrl,
-			'user_hash' => $sHash,
-			'time_stamp' => PHPFOX_TIME,
-			'ip_address' => $_SERVER['REMOTE_ADDR']
-		));
-		
-		// Delete tracks from last 15 minutes to avoid 
-		$this->database()->delete(Phpfox::getT('upload_track'), 'time_stamp < ' . (PHPFOX_TIME - (60*15)));
-		
-		return $sHash;
-	}
-
 	/**
 	 * This function returns an array with the most likely latitude and longitud.
 	 * We can get the Lat and Lng from Php's TimeZone object. We can also get it
@@ -670,12 +653,6 @@ class Core_Service_Core extends Phpfox_Service
 		
 		return $sPrivacy;
 	}	
-	
-	/* This function scrambles a url
-	public function scrambleUrl($sUrl)
-	{
-		
-	}
 	
 	/**
 	 * If a call is made to an unknown method attempt to connect

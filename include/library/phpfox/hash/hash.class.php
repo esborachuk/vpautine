@@ -18,7 +18,7 @@ defined('PHPFOX') or exit('NO DICE!');
  * @copyright		[PHPFOX_COPYRIGHT]
  * @author			Raymond Benc
  * @package 		Phpfox
- * @version 		$Id: hash.class.php 1666 2010-07-07 08:17:00Z Raymond_Benc $
+ * @version 		$Id: hash.class.php 5958 2013-05-27 09:55:14Z Raymond_Benc $
  */
 final class Phpfox_Hash
 {
@@ -46,6 +46,7 @@ final class Phpfox_Hash
 			$sSalt = Phpfox::getParam('core.salt');
 		}
 		if ($sPlugin = Phpfox_Plugin::get('hash_sethash__end')){eval($sPlugin);}
+
 		return md5(md5($sPassword) . md5($sSalt));
 	}
 	
@@ -60,6 +61,11 @@ final class Phpfox_Hash
 	 */
 	public function setRandomHash($sPassword)
 	{
+		if (Phpfox::getParam('core.use_custom_hash_salt'))
+		{
+			$sPassword = $sPassword . Phpfox::getParam('core.custom_hash_salt');
+		}
+
 	   	$sSeed = '';
 		for ($i = 1; $i <= 10; $i++)
 	   	{
@@ -79,6 +85,11 @@ final class Phpfox_Hash
 	 */
 	public function getRandomHash($sPassword, $sStoredValue)
 	{
+		if (Phpfox::getParam('core.use_custom_hash_salt'))
+		{
+			$sPassword = $sPassword . Phpfox::getParam('core.custom_hash_salt');
+		}
+
 		if (strlen($sStoredValue) != 50)
 		{
 			return false;

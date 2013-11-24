@@ -11,7 +11,7 @@ defined('PHPFOX') or exit('NO DICE!');
  * @copyright		[PHPFOX_COPYRIGHT]
  * @author  		Raymond Benc
  * @package  		Module_Forum
- * @version 		$Id: forum.class.php 5112 2013-01-11 06:56:25Z Raymond_Benc $
+ * @version 		$Id: forum.class.php 4337 2012-06-25 15:09:52Z Raymond_Benc $
  */
 class Forum_Service_Forum extends Phpfox_Service 
 {
@@ -664,16 +664,13 @@ class Forum_Service_Forum extends Phpfox_Service
 				}
 			}
 			
-			if (isset($aForum['post_id']) && $aForum['post_id'])
+			if ($aForum['post_id'])
 			{
 				$sLink = $oUrl->makeUrl('forum', array($aForum['name_url'] . '-' . $aForum['forum_id'], $aForum['thread_title_url'], 'post' => $aForum['post_id']));
 			}
 			else 
 			{
-				if (isset($aForum['thread_title_url']))
-				{
-					$sLink = $oUrl->makeUrl('forum', array($aForum['name_url'] . '-' . $aForum['forum_id'], $aForum['thread_title_url']));
-				}
+				$sLink = $oUrl->makeUrl('forum', array($aForum['name_url'] . '-' . $aForum['forum_id'], $aForum['thread_title_url']));
 			}
 			/*
 			$aForum['last_posted_phrase'] = Phpfox::getPhrase('forum.by_user_link_on_time_stamp_phrase', array(
@@ -759,28 +756,6 @@ class Forum_Service_Forum extends Phpfox_Service
 				}
 			}
 		}
-	}
-	
-	public function getInfoForAction($aItem)
-	{
-		if (is_numeric($aItem))
-		{
-			$aItem = array('item_id' => $aItem);
-		}
-		$aRow = $this->database()->select('p.post_id, p.thread_id, p.title, pt.text_parsed, p.user_id, u.gender, u.full_name')	
-			->from(PHpfox::getT('forum_post'), 'p')
-			->join(Phpfox::getT('forum_post_text'), 'pt', 'pt.post_id = p.post_id')
-			->join(Phpfox::getT('user'), 'u', 'u.user_id = p.user_id')
-			->where('p.post_id = ' . (int) $aItem['item_id'])
-			->execute('getSlaveRow');
-		
-		if (empty($aRow['title']))
-		{
-			$aRow['title'] = $aRow['text_parsed'];
-		}
-		
-		$aRow['link'] = Phpfox::getLib('url')->permalink('forum.thread', $aRow['thread_id'], $aRow['title']);
-		return $aRow;
 	}
 	
 	/**

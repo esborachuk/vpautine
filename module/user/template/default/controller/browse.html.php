@@ -5,7 +5,7 @@
  * @copyright		[PHPFOX_COPYRIGHT]
  * @author  		Raymond Benc
  * @package  		Module_User
- * @version 		$Id: browse.html.php 5194 2013-01-25 09:54:21Z Miguel_Espinoza $
+ * @version 		$Id: browse.html.php 5045 2012-11-26 09:10:27Z Raymond_Benc $
  * {* *}
  */
 
@@ -205,17 +205,14 @@ defined('PHPFOX') or exit('NO DICE!');
 						</li>
 						{/if}
 						{if Phpfox::getUserParam('user.can_delete_others_account')}
-						    {if $aUser.user_group_id == ADMIN_USER_ID && Phpfox::getUserBy('user_group_id') != ADMIN_USER_ID}
+						{if $aUser.user_group_id == ADMIN_USER_ID && Phpfox::getUserBy('user_group_id') != ADMIN_USER_ID}
 
-						    {else}
-						    <li>
-							<div class="user_delete">
-							    <a href="#" onclick="tb_show('{phrase var='user.delete_user' phpfox_squote=true}', $.ajaxBox('user.deleteUser', 'height=240&amp;width=400&amp;iUser={$aUser.user_id}'));return false;" title="{phrase var='user.delete_user_full_name' full_name=$aUser.full_name|clean}">{phrase var='user.delete_user'}</a></div></li>
-						    {/if}
-						
+						{else}
+						<li><div class="user_delete"><a href="#" onclick="tb_show('{phrase var='user.delete_user' phpfox_squote=true}', $.ajaxBox('user.deleteUser', 'height=240&amp;width=400&amp;iUser={$aUser.user_id}'));return false;" title="{phrase var='user.delete_user_full_name' full_name=$aUser.full_name|clean}">{phrase var='user.delete_user'}</a></div></li>
 						{/if}
 						{if Phpfox::getUserParam('user.can_member_snoop')}
 							<li><div class="user_delete"><a href="{url link='admincp.user.snoop' user=$aUser.user_id}" >{phrase var='user.log_in_as_this_user'}</a></div></li>
+						{/if}
 						{/if}
 					</ul>
 				</div>

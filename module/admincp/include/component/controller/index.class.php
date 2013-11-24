@@ -11,7 +11,7 @@ defined('PHPFOX') or exit('NO DICE!');
  * @copyright		[PHPFOX_COPYRIGHT]
  * @author  		Raymond Benc
  * @package  		Module_Admincp
- * @version 		$Id: index.class.php 5332 2013-02-11 08:27:54Z Raymond_Benc $
+ * @version 		$Id: index.class.php 5958 2013-05-27 09:55:14Z Raymond_Benc $
  */
 class Admincp_Component_Controller_Index extends Phpfox_Component 
 {
@@ -23,8 +23,25 @@ class Admincp_Component_Controller_Index extends Phpfox_Component
 	 */
 	public function process()
 	{
+		Phpfox::isUser(true);
 		Phpfox::getUserParam('admincp.has_admin_access', true);
-	
+
+		if (Phpfox::getParam('core.admincp_http_auth'))
+		{
+			$aAuthUsers = Phpfox::getParam('core.admincp_http_auth_users');
+
+			if((isset($_SERVER['PHP_AUTH_USER']) && isset($_SERVER['PHP_AUTH_PW']) && isset($aAuthUsers[Phpfox::getUserId()])) && (($_SERVER['PHP_AUTH_USER'] == $aAuthUsers[Phpfox::getUserId()]['name']) && ($_SERVER['PHP_AUTH_PW'] == $aAuthUsers[Phpfox::getUserId()]['password'])))
+			{
+
+			}
+			else
+			{
+				header("WWW-Authenticate: Basic realm=\"AdminCP\"");
+				header("HTTP/1.0 401 Unauthorized");
+				exit("NO DICE!");
+			}
+		}
+
 		if (Phpfox::getParam('admincp.admin_cp') != $this->request()->get('req1'))
 		{
 			return Phpfox::getLib('module')->setController('error.404');	
@@ -35,15 +52,6 @@ class Admincp_Component_Controller_Index extends Phpfox_Component
 			return Phpfox::getLib('module')->setController('admincp.login');
 		}	
 		
-		if ($this->request()->get('upgraded'))
-		{
-			Phpfox::getLib('cache')->remove();
-			Phpfox::getLib('template.cache')->remove();
-			
-			$this->url()->send('admincp');
-		}
-		
-		/*
 		if (Phpfox::getParam('core.phpfox_is_hosted'))
 		{
 			$sMaxHistory = Phpfox::getParam('core.phpfox_total_users_online_history');
@@ -56,7 +64,7 @@ class Admincp_Component_Controller_Index extends Phpfox_Component
 				);				
 			}
 		}
-		*/
+		
 		$this->_sModule = (($sReq2 = $this->request()->get('req2')) ? strtolower($sReq2) : Phpfox::getParam('admincp.admin_cp'));
 		if ($this->_sModule == 'logout')
 		{
@@ -520,15 +528,6 @@ class Admincp_Component_Controller_Index extends Phpfox_Component
 				);
 			}
 		}	
-		
-		if (defined('PHPFOX_IS_HOSTED_SCRIPT'))
-		{
-			$iTotalSpaceUsed = Phpfox::getLib('cdn')->getUsage();
-			if ($iTotalSpaceUsed > Phpfox::getParam('core.phpfox_grouply_space'))
-			{
-				return Phpfox::getLib('module')->setController('admincp.limit');
-			}		
-		}
 	}
 	
 	/**

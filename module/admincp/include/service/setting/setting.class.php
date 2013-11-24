@@ -11,7 +11,7 @@ defined('PHPFOX') or exit('NO DICE!');
  * @copyright		[PHPFOX_COPYRIGHT]
  * @author  		Raymond Benc
  * @package  		Module_Admincp
- * @version 		$Id: setting.class.php 5196 2013-01-25 12:35:36Z Raymond_Benc $
+ * @version 		$Id: setting.class.php 4953 2012-10-24 10:05:25Z Raymond_Benc $
  */
 class Admincp_Service_Setting_Setting extends Phpfox_Service 
 {
@@ -214,16 +214,7 @@ class Admincp_Service_Setting_Setting extends Phpfox_Service
 					'core.enable_getid3_check',
 					'core.force_https_secure_pages',
 					'core.disable_hash_bang_support',
-					'core.site_wide_ajax_browsing',
-					'core.mail_smtp_password',
-					'core.use_dnscheck',
-					'core.mail_smtp_port',
-					'core.mail_smtp_username',
-					'core.mail_smtp_authentication',
-					'core.mailsmtphost',
-					'core.method',
-					'apps.openssl_config_path',
-					'apps.token_keep_alive'
+					'core.site_wide_ajax_browsing'		
 				);
 		}
 		

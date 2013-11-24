@@ -11,7 +11,7 @@ defined('PHPFOX') or exit('NO DICE!');
  * @copyright		[PHPFOX_COPYRIGHT]
  * @author			Raymond Benc
  * @package 		Phpfox
- * @version 		$Id: phpfox.class.php 5038 2012-11-21 15:40:59Z Miguel_Espinoza $
+ * @version 		$Id: phpfox.class.php 4784 2012-09-27 09:02:08Z Miguel_Espinoza $
  */
 class Phpfox_Cdn_Module_Phpfox extends Phpfox_Cdn_Abstract
 {	
@@ -88,28 +88,16 @@ class Phpfox_Cdn_Module_Phpfox extends Phpfox_Cdn_Abstract
 		 */
 		
 		$mReturn = (array) $mReturn;	
-		if (Phpfox::getParam('core.keep_files_in_server') == false)
-		{
-			$oSess = Phpfox::getLib('session');
-			$aFiles = $oSess->get('deleteFiles');
-			if (is_array($aFiles))
-			{
-				$aFiles[] = $sFile;
-			}
-			else
-			{
-				$aFiles = array($sFile);
-			}
-			$oSess->set('deleteFiles',$aFiles);
-		}
 		
 		if (!$mReturn['pass'])
 		{
 			return false;
 		}
-		
-		
-		
+		$bDelete = false; // turn this into a setting
+		if ($bDelete)
+		{
+			unlink($sFile);
+		}
 		return true;		
 	}
 	

@@ -552,12 +552,11 @@ $Core.im =
 		});
 		
 		eleOffset = $Core.getObjectPosition('js_temp_im_extra_position');
-		/*
+		
      	if ($.browser.msie && $.browser.version.substr(0,1) < 7)
      	{
      		$('#js_cache_extra_rooms').bgiframe();
-     	}
-     	*/		
+     	}		
 		
      	if (!$.browser.msie || ($.browser.msie && $.browser.version.substr(0,1) >= 7)) 
      	{
@@ -635,12 +634,12 @@ $Core.im =
     	$('#' + sId).find('a').addClass('focus');    	
 		
      	$('body').prepend('<div class="js_temp_image_block im_block" id="js_temp_image_block" style="z-index:999; width:200px; position:absolute; right: 1px' + /*(oPosition.left - (250 - $('#' + sId).width()) + 1) +*/ '"><span style="display:none;">' + sId + '</span>' + sHtml + '</div>');
-     	/*
+     	
      	if ($.browser.msie && $.browser.version.substr(0,1) < 7)
      	{
      		$('#js_temp_image_block').bgiframe();
      	}
-    	*/
+    	
      	if (!$.browser.msie || ($.browser.msie && $.browser.version.substr(0,1) >= 7)) 
      	{
     		$('#js_temp_image_block').css('top', '' + (oPosition.top - 400) + 'px');    		

@@ -11,7 +11,7 @@ defined('PHPFOX') or exit('NO DICE!');
  * @copyright		[PHPFOX_COPYRIGHT]
  * @author  		Raymond Benc
  * @package  		Module_Mail
- * @version 		$Id: process.class.php 5112 2013-01-11 06:56:25Z Raymond_Benc $
+ * @version 		$Id: process.class.php 4857 2012-10-09 06:32:38Z Raymond_Benc $
  */
 class Mail_Service_Process extends Phpfox_Service 
 {
@@ -110,7 +110,7 @@ class Mail_Service_Process extends Phpfox_Service
 					
 					// Make sure we found a user
 					if (($iTemp = $this->add($aVals, true)) && is_numeric($iTemp))
-					{						
+					{
 						$aCache[] = $iTemp;	
 					}
 				}
@@ -125,11 +125,6 @@ class Mail_Service_Process extends Phpfox_Service
 				{
 					$this->database()->update($this->_sTable, array('mass_id' => $aLastCache[0]), 'mail_id = ' . (int) $iMailId);	
 				}
-			}
-
-			if (empty($aCache))
-			{
-				return false;
 			}
 			
 			return $aCache;	
@@ -154,7 +149,7 @@ class Mail_Service_Process extends Phpfox_Service
 			{
 				return Phpfox_Error::set(Phpfox::getPhrase('mail.unable_to_send_a_private_message_to_full_name_as_they_have_disabled_this_option_for_the_moment', array('full_name' => $aDetails['full_name'])));
 			}		
-			
+
 			// Check if user is allowed to receive messages: http://forums.phpfox.com/project.php?issueid=2216
 			if (Phpfox::getService('user.group.setting')->getGroupParam($aDetails['user_group_id'], 'mail.override_mail_box_limit') == false)
 			{
@@ -175,7 +170,6 @@ class Mail_Service_Process extends Phpfox_Service
 			{
 				return Phpfox_Error::set(Phpfox::getPhrase('mail.you_cannot_message_yourself'));
 			}
-			
 			// check if user can send message to non friends: http://forums.phpfox.com/project.php?issueid=2216
 			if (Phpfox::getUserParam('mail.restrict_message_to_friends') && !(Phpfox::getService('user.group.setting')->getGroupParam($aDetails['user_group_id'],'mail.override_restrict_message_to_friends')))
 			{

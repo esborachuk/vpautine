@@ -2241,20 +2241,6 @@ div.info_right
 	text-indent:-1000px;
 	border-right:1px #ccc solid;
 }
-
-#activity_feed_share_this_one ul li div.parent
-{
-	float:left;
-	height:29px;
-	line-height:29px;
-	padding-left:10px;	
-}
-
-#activity_feed_share_this_one ul li div.parent select
-{
-	padding:2px 0px 2px 0px;
-}
-
 /*
 a#activity_feed_share_this_one_link,
 a#activity_feed_share_this_one_link:hover
@@ -2306,19 +2292,6 @@ a#activity_feed_share_this_one_link:hover
 	background:#f1f1f1;
 }
 
-/* Hides the input in the feed, used in check-ins */
-#js_add_location_input
-{
-	display: none;
-}
-
-/* Displays a little map on the feed, used for check-ins*/
-a.feed_share_map,
-a.feed_share_map:hover
-{
-	background:url('../image/layout/feed_map.png') no-repeat center center;	
-}
-
 a.feed_share_site,
 a.feed_share_site:hover
 {
@@ -2357,7 +2330,7 @@ a.feed_share_watch:hover
 {
 	position:absolute;
 	left:5px;
-	top:-4px;	
+	top:-4px;
 }
 
 .activity_feed_pages_post_as_page select
@@ -3064,19 +3037,10 @@ ul.block_listing_hover li:hover
 /**
  Photo
  */
-.albums_container
-{
-    height: 226px;
-}
- .photo_holder
+.photo_holder
 {
 	border:1px #DFDFDF solid;
 	background:#fff;
-}
-.photo_holder_square
-{
-	width: 150px;
-	height: 150px;
 }
 
 .photo_rotate
@@ -3290,71 +3254,30 @@ ul.block_listing_hover li:hover
 .photo_clip_holder_main
 {
 	height:120px;
-	width:130px;
-	position:relative;			
-}
-.photo_clip_holder_main_big, .photo_with_info
-{
-	height:196px;
-	width:196px;
+	width:150px;
 	position:relative;			
 }
 
 .photo_clip_holder_border
 {
+	width:148px;
 	height:120px;
-	width:128px;
 	border:1px #DFDFDF solid;
 	background:#fff;
 	-moz-box-shadow: 3px 3px 3px #ccc;
 	-webkit-box-shadow: 3px 3px 3px #ccc;
 	box-shadow: 3px 3px 3px #ccc;		
 }
-.photo_clip_holder_border_big
-{
-	height:196px;
-	width:196px;
-	border:1px #DFDFDF solid;
-	background:#fff;
-	-moz-box-shadow: 3px 3px 3px #ccc;
-	-webkit-box-shadow: 3px 3px 3px #ccc;
-	box-shadow: 3px 3px 3px #ccc;
-}
 
-/* Used when auto_crop is enabled and dynamic view is disabled */
 a.photo_clip_holder,
 a.photo_clip_holder:hover
 {
 	position:absolute;
 	top:-4px;
-	left:1px;
+	left:6px;
 	height:120px;
-	width:128px;
-	padding-top: 5px;
-	overflow: hidden;	
-	display:block;
-	text-decoration:none;
-	
-}
-
-a.photo_clip_holder img,
-a.photo_clip_holder:hover img
-{
-    clip: rect(10px, 148px, 120px, 0px);	
-}
-
-a.photo_clip_holder_big,
-a.photo_clip_holder_big:hover
-{
-	position:absolute;
-	top:0px;
-	/*left:6px;*/
-	height:190px;
-	width:190px;
-	background-position: 50% 25%;
-	background-size: cover;
-	transition-duration: 500ms;
-	transition-property: width, height;		
+	width:140px;
+	clip: rect(10px, 148px, 120px, 0px);	
 	overflow: hidden;	
 	display:block;
 	text-decoration:none;
@@ -3363,15 +3286,12 @@ a.photo_clip_holder_big:hover
 
 .photo_row
 {
-	width:150px; margin-bottom:10px; float:left; padding-top:5px; z-index:1;
+	width:33%; margin-bottom:10px; float:left; padding-top:5px; z-index:1;
 }
 
 .photo_row_holder
 {
-	width:100% 
-	min-height:90px; 
-	height:auto !important; 
-	height:196px;
+	width:150px; min-height:90px; height:auto !important; height:90px;
 }
 
 .photo_row_info
@@ -3382,14 +3302,13 @@ a.photo_clip_holder_big:hover
 
 .photo_row_info_album
 {
-	padding-top:8px;
-	text-align: center;
+	padding-top:8px;	
 }
 
 .photo_row_height
 {
 	position:relative;
-	/*display:inline;*/
+	display:inline;
 }
 
 #photo_battle_full_mode
@@ -4173,8 +4092,8 @@ a#pages_like_join:hover
 	background:#fff url('../image/layout/section_menu.png') repeat-x center bottom;	
 	border:1px solid #BFBFBF;
 	position:absolute;
-	left:0px;
-	top:13px;
+	left:12px;
+	top:3px;
 	font-size:12px;
 	font-weight:bold;
 	text-decoration:none;
@@ -4480,59 +4399,4 @@ a.like_count_link:hover
 	font-weight: bold;
 	font-size: 12px;
 	width: 290px;
-}
-
-/* Wrapper for locations in the feed*/
-.js_div_place
-{
-	background-color: white;
-	color: blue;
-}
-
-.js_div_place:hover
-{
-	background-color: green;
-	color: white;
-	cursor: pointer;
-}
-
-.js_div_place_name
-{
-	float: left;
-}
-.js_div_place_vicinity
-{
-	float: left;
-}
-.js_div_place
-{
-	width: 100%;
-	height: 15px;
-}
-
-/* This is the map showing on hover */
-.js_location_map
-{
-	position: absolute; 
-	height: 200px; 
-	width: 200px; 
-	margin-top: -220px; 
-	border:1px solid; 
-	left: 150px;
-}
-
-.js_location_name_hover
-{
-	color: #63799F;
-	cursor: pointer;
-}
-
-.comment_mini_text,
-.activity_feed_content_status,
-.row_title_info,
-#content_load_data h1,
-.activity_feed_content_float,
-.activity_feed_content_no_image
-{
-	word-wrap:break-word;
 }

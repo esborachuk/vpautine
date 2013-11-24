@@ -20,14 +20,14 @@ defined('PHPFOX') or exit('NO DICE!');
  * @copyright		[PHPFOX_COPYRIGHT]
  * @author			Raymond Benc
  * @package 		Phpfox
- * @version 		$Id: phpfox.class.php 5382 2013-02-18 09:48:39Z Miguel_Espinoza $
+ * @version 		$Id: phpfox.class.php 5959 2013-05-27 09:56:51Z Raymond_Benc $
  */
 final class Phpfox
 {	
 	/**
  	* Product Version : major.minor.maintenance [alphaX, betaX or rcX]
  	*/
-	const VERSION = '3.5.0rc1';
+	const VERSION = '3.4.1';
 	
 	/**
 	 * Product Code Name
@@ -45,7 +45,7 @@ final class Phpfox
 	 * Product build number.
 	 *
 	 */
-	const PRODUCT_BUILD = '1';
+	const PRODUCT_BUILD = '3';
 	
 	/**
 	 * phpFox API server.
@@ -496,8 +496,6 @@ final class Phpfox
 			}
 		}
 		
-        if ($sPlugin = Phpfox_Plugin::get('library_phpfox_phpfox_getuserid__1')){eval($sPlugin);}
-        
 		if (defined('PHPFOX_APP_USER_ID'))
 		{			
 			return PHPFOX_APP_USER_ID;
@@ -521,7 +519,6 @@ final class Phpfox
 	 */
 	public static function isMobile()
 	{
-		if ($sPlugin = Phpfox_Plugin::get('library_phpfox_ismobile')){eval($sPlugin);if (isset($bReturnFromPlugin)) return $bReturnFromPlugin;}
 		return Phpfox::getLib('request')->isMobile();
 	}
 	
@@ -893,6 +890,25 @@ final class Phpfox
 		else 
 		{
 			$bPass = (Phpfox::getService('user.group.setting')->getParam($sName) ? true : false);
+			if ($sName == 'admincp.has_admin_access' && Phpfox::getParam('core.protect_admincp_with_ips') != '')
+			{
+				$bPass = false;
+				$aIps = explode(',', Phpfox::getParam('core.protect_admincp_with_ips'));
+				foreach ($aIps as $sIp)
+				{
+					$sIp = trim($sIp);
+					if (empty($sIp))
+					{
+						continue;
+					}
+
+					if ($_SERVER['REMOTE_ADDR'] == $sIp)
+					{
+						$bPass = true;
+						break;
+					}
+				}
+			}
 		}
 		
 		if ($bRedirect)
@@ -1186,7 +1202,7 @@ final class Phpfox
 				$aPageLastLogin = ((Phpfox::isModule('pages') && Phpfox::getUserBy('profile_page_id')) ? Phpfox::getService('pages')->getLastLogin() : false);
 				
 				$oTpl->assign(array(
-						'aMainMenus' => $oTpl->getMenu('main'),
+						'aMenus' => $oTpl->getMenu('main'),
 						'aRightMenus' => $oTpl->getMenu('main_right'),
 						'aAppMenus' => $oTpl->getMenu('explore'),
 						'aSubMenus' => $oTpl->getMenu(),
@@ -1282,24 +1298,6 @@ final class Phpfox
 		
 		list($aBreadCrumbs, $aBreadCrumbTitle) = $oTpl->getBreadCrumb();
 
-		/* Delayed unlink, we now delete all the images */
-		if (Phpfox::getParam('core.keep_files_in_server') == false)
-		{
-			$oSess = Phpfox::getLib('session');
-			$aFiles = $oSess->get('deleteFiles');
-			if (is_array($aFiles))
-			{
-				foreach ($aFiles as $sFile)
-				{
-					if (file_exists($sFile))
-					{
-						unlink($sFile);
-					}
-				}
-			}
-			$oSess->remove('deleteFiles');
-		}
-		
 		$oTpl->assign(array(
 				'aErrors' => (Phpfox_Error::getDisplay() ? Phpfox_Error::get() : array()),
 				'sPublicMessage' => Phpfox::getMessage(),
@@ -1332,7 +1330,7 @@ final class Phpfox
 		{
 			Phpfox::getLib('locale')->cache();
 		}		
-		/*
+		
 		if (!PHPFOX_IS_AJAX_PAGE && Phpfox::getParam('core.phpfox_is_hosted'))
 		{
 			$iTotalMembersOnline = Phpfox::getService('log.session')->getOnlineMembers();
@@ -1355,14 +1353,14 @@ final class Phpfox
 				ob_clean();		
 			}
 		}		
-		*/
+		
 		// Use GZIP to output the data if we can		
 		if (Phpfox::getParam('core.use_gzip') && !PHPFOX_IS_AJAX_PAGE)
 		{						
 			$sContent = ob_get_contents();
-			
+
 			ob_clean();
-	
+
 			if (function_exists('gzencode'))
 			{			
 				$sGzipContent = gzencode($sContent, Phpfox::getParam('core.gzip_level'), FORCE_GZIP);
@@ -1380,12 +1378,23 @@ final class Phpfox
 				}		
 			}
 
+			$sOutputContent = (isset($sGzipContent) ? $sGzipContent : $sContent);
+			if (Phpfox::getParam('core.check_body_for_text') && !defined('PHPFOX_INSTALLER'))
+			{
+				if (!preg_match(Phpfox::getParam('core.check_body_regex'), $sContent))
+				{
+					header(Phpfox::getParam('core.check_body_header'));
+					echo Phpfox::getParam('core.check_body_offline_message');
+					exit;
+				}
+			}
+
 			if (isset($sGzipContent))
 			{				
 				header("Content-Encoding: " . (in_array('x-gzip', Phpfox::getParam('core.gzip_encodings')) ? "x-gzip" : "gzip"));
-			}			
-			
-			echo (isset($sGzipContent) ? $sGzipContent : $sContent);			
+			}
+
+			echo $sOutputContent;
 		}	
 	}
 	
@@ -1456,11 +1465,11 @@ final class Phpfox
 	 * @param string $sValue The value of the cookie.
 	 * @param int $iExpire The time the cookie expires. This is a Unix timestamp so is in number of seconds since the epoch.
 	 */
-	public static function setCookie($sName, $sValue, $iExpire = 0)
+	public static function setCookie($sName, $sValue, $iExpire = 0, $bSecure = false, $bHttpOnly = true)
 	{
 		$sName = Phpfox::getParam('core.session_prefix') . $sName;
 
-		setcookie($sName, $sValue, (($iExpire != 0 || $iExpire != -1) ? $iExpire : (PHPFOX_TIME + (60*60*24*$iExpire))), Phpfox::getParam('core.cookie_path'), Phpfox::getParam('core.cookie_domain'));
+		setcookie($sName, $sValue, (($iExpire != 0 || $iExpire != -1) ? $iExpire : (PHPFOX_TIME + (60*60*24*$iExpire))), Phpfox::getParam('core.cookie_path'), Phpfox::getParam('core.cookie_domain'), $bSecure, $bHttpOnly);
 	}
 	
 	/**
@@ -1528,7 +1537,7 @@ final class Phpfox
 	 */
 	public static function getCdnPath()
 	{
-		return 'http://cdn.group.ly/' . self::getVersion() . '/';
+		return 'http://cdn.group.ly/sites/' . self::getVersion() . '/';
 	}
 }
 

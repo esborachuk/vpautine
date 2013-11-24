@@ -5,18 +5,12 @@
  * @copyright		[PHPFOX_COPYRIGHT]
  * @author  		Raymond Benc
  * @package 		Phpfox
- * @version 		$Id: view.html.php 5032 2012-11-19 13:58:57Z Miguel_Espinoza $
+ * @version 		$Id: view.html.php 3346 2011-10-24 15:20:05Z Raymond_Benc $
  */
  
 defined('PHPFOX') or exit('NO DICE!'); 
 
 ?>
-
-{if (Phpfox::getParam('marketplace.days_to_expire_listing') > 0) && ( $aListing.time_stamp < (PHPFOX_TIME - (Phpfox::getParam('marketplace.days_to_expire_listing') * 86400)) )}
-	<div class="error_message">
-		{phrase var='marketplace.listing_expired_and_not_available_main_section'}
-	</div>
-{/if}
 {if $aListing.view_id == '1'}
 <div class="message js_moderation_off">
 	{phrase var='marketplace.listing_is_pending_approval'}

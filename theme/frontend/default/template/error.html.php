@@ -13,7 +13,7 @@
 {/if}
 {section_menu_js}
 
-{if $sPublicMessage && !is_bool($sPublicMessage)}
+{if $sPublicMessage}
 <div class="public_message" id="public_message">
 	{$sPublicMessage}
 </div>

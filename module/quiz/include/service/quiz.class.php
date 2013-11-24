@@ -11,7 +11,7 @@ defined('PHPFOX') or exit('NO DICE!');
  * @copyright		[PHPFOX_COPYRIGHT]
  * @author  		Raymond Benc
  * @package  		Module_Quiz
- * @version 		$Id: quiz.class.php 5016 2012-11-12 15:18:29Z Miguel_Espinoza $
+ * @version 		$Id: quiz.class.php 3826 2011-12-16 12:30:19Z Raymond_Benc $
  */
 class Quiz_Service_Quiz extends Phpfox_Service 
 {
@@ -605,29 +605,6 @@ class Quiz_Service_Quiz extends Phpfox_Service
 			->where('view_id = 1')
 			->execute('getSlaveField');
 	}		
-	
-	public function getInfoForAction($aItem)
-	{
-		if (is_numeric($aItem))
-		{
-			$aItem = array('item_id' => $aItem);
-		}
-		$aRow = $this->database()->select('q.quiz_id, q.title, q.user_id, u.gender, u.full_name')	
-			->from(Phpfox::getT('quiz'), 'q')
-			->join(Phpfox::getT('user'), 'u', 'u.user_id = q.user_id')
-			->where('q.quiz_id = ' . (int) $aItem['item_id'])
-			->execute('getSlaveRow');
-			
-		if (empty($aRow))
-		{
-			d($aRow);
-			d($aItem);
-			d(__FILE__ . ':' . __LINE__);
-		}
-		
-		$aRow['link'] = Phpfox::getLib('url')->permalink('quiz', $aRow['quiz_id'], $aRow['title']);
-		return $aRow;
-	}
 	
 	/**
 	 * If a call is made to an unknown method attempt to connect

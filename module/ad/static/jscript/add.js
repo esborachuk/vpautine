@@ -10,7 +10,7 @@ $Behavior.creatingAnAd = function()
 		$('#country_iso_custom').change($Core.Ad.handleStates);
 	}
 	
-	
+	// console.log('Test: ' + $('#country_iso_custom').length);
 	
 	if (!$Core.exists('#js_image_holder')){ console.log('exiting');
 		return;

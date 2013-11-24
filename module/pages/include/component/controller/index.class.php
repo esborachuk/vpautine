@@ -11,7 +11,7 @@ defined('PHPFOX') or exit('NO DICE!');
  * @copyright		[PHPFOX_COPYRIGHT]
  * @author  		Raymond_Benc
  * @package 		Phpfox_Component
- * @version 		$Id: index.class.php 5327 2013-02-07 10:19:03Z Miguel_Espinoza $
+ * @version 		$Id: index.class.php 4616 2012-08-31 06:24:56Z Miguel_Espinoza $
  */
 class Pages_Component_Controller_Index extends Phpfox_Component
 {
@@ -62,19 +62,8 @@ class Pages_Component_Controller_Index extends Phpfox_Component
 			}
 		}		
 		
-        if ($bIsProfile)
-        {
-            $this->template()
-                    ->setTitle(Phpfox::getPhrase('pages.full_name_s_pages', array('full_name' => $aUser['full_name'])))
-                    ->setBreadcrumb(Phpfox::getPhrase('pages.pages'), $this->url()->makeUrl($aUser['user_name'], array('pages')) );
-        }
-        else
-        {
-            $this->template()
-                    ->setTitle(Phpfox::getPhrase('pages.pages'))
-                    ->setBreadcrumb(Phpfox::getPhrase('pages.pages'), $this->url()->makeUrl('pages'));
-        }
-            
+		$this->template()->setTitle(($bIsProfile ? Phpfox::getPhrase('pages.full_name_s_pages', array('full_name' => $aUser['full_name'])) : Phpfox::getPhrase('pages.pages')))->setBreadcrumb(Phpfox::getPhrase('pages.pages'), ($bIsProfile ? $this->url()->makeUrl($aUser['user_name'], array('pages')) : $this->url()->makeUrl('pages')));
+
 		$this->search()->set(array(
 				'type' => 'pages',
 				'field' => 'pages.page_id',				
@@ -141,14 +130,7 @@ class Pages_Component_Controller_Index extends Phpfox_Component
 				}				
 				break;			
 			default:
-				if (Phpfox::getUserParam('privacy.can_view_all_items'))
-				{
-					$this->search()->setCondition('AND pages.app_id = 0 ');  
-				}
-				else
-				{
-				    $this->search()->setCondition('AND pages.app_id = 0 AND pages.view_id = 0 AND pages.privacy IN(%PRIVACY%)');
-				}
+				$this->search()->setCondition('AND pages.app_id = 0 AND pages.view_id = 0 AND pages.privacy IN(%PRIVACY%)');
 				break;
 		}		
 		

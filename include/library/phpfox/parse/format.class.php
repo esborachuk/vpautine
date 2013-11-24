@@ -12,7 +12,7 @@ defined('PHPFOX') or exit('NO DICE!');
  * @copyright		[PHPFOX_COPYRIGHT]
  * @author			Raymond Benc
  * @package 		Phpfox
- * @version 		$Id: format.class.php 5319 2013-02-04 12:53:36Z Miguel_Espinoza $
+ * @version 		$Id: format.class.php 1879 2010-09-30 09:56:12Z Raymond_Benc $
  */
 class Phpfox_Parse_Format
 {
@@ -150,7 +150,7 @@ class Phpfox_Parse_Format
 	 */
 	public function hideEmail($sEmail)
 	{
-		if (strpos($sEmail, '@') === false)
+		if (!strpos($sEmail, '@'))
 		{
 			return $sEmail;
 		}

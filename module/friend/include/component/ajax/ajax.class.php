@@ -11,7 +11,7 @@ defined('PHPFOX') or exit('NO DICE!');
  * @copyright		[PHPFOX_COPYRIGHT]
  * @author  		Raymond Benc
  * @package  		Module_Friend
- * @version 		$Id: ajax.class.php 5209 2013-01-28 08:28:36Z Raymond_Benc $
+ * @version 		$Id: ajax.class.php 4767 2012-09-26 05:41:30Z Raymond_Benc $
  */
 class Friend_Component_Ajax_Ajax extends Phpfox_Ajax
 {
@@ -179,7 +179,7 @@ class Friend_Component_Ajax_Ajax extends Phpfox_Ajax
 				)
 		{
 			$this->call('tb_remove();');
-			return Phpfox_Error::set(Phpfox::getPhrase('friend.unable_to_send_a_friend_request_to_this_user_at_this_moment'));
+			return Phpfox_Error::set('Unable to send a friend request to this user at this moment.');
 		}
 		
 		if (Phpfox::getService('friend.request.process')->add(Phpfox::getUserId(), $aVals['user_id'], (isset($aVals['list_id']) ? $aVals['list_id'] : 0), $aVals['text']))
@@ -375,19 +375,12 @@ class Friend_Component_Ajax_Ajax extends Phpfox_Ajax
 	}
 	
 	public function delete()
-	{
-		$bDeleted = $this->get('id') ? Phpfox::getService('friend.process')->delete($this->get('id')) : Phpfox::getService('friend.process')->delete($this->get('friend_user_id'), false);
-		
-		if ($bDeleted)
-		{
-			if ($this->get('reload'))
-			{				
-				$this->call('window.location.href=window.location.href');
-				return;
-			}
+	{		
+		if (Phpfox::getService('friend.process')->delete($this->get('id')))
+		{			
 			$this->call('$("#js_friend_' . $this->get('id') . '").remove();');
 			$this->alert(Phpfox::getPhrase('friend.friend_successfully_removed'), Phpfox::getPhrase('friend.remove_friend'), 300, 150, true);
-		}
+		}	
 	}
 	
 	public function search()

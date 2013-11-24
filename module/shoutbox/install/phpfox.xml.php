@@ -29,7 +29,7 @@
 			<source_code />
 			<source_parsed />
 		</block>
-		<block type_id="0" m_connection="pages.view" module_id="shoutbox" component="display" location="3" is_active="1" ordering="7" disallow_access="" can_move="1">
+		<block type_id="0" m_connection="pages.view" module_id="shoutbox" component="display" location="3" is_active="1" ordering="6" disallow_access="" can_move="1">
 			<title>Shoutbox</title>
 			<source_code />
 			<source_parsed />

@@ -54,17 +54,10 @@ class Phpfox_Cdn_Module_Rackspace extends Phpfox_Cdn_Abstract
 		require_once(PHPFOX_DIR_LIB . 'rackspace/cloudfiles.php');
 		
 		$oAuth = new CF_Authentication(Phpfox::getParam('core.rackspace_username'), Phpfox::getParam('core.rackspace_key'));
-		try  
-		{ 
-		    $oAuth->authenticate(); 
-		}  
-		catch (Exception $e)  
-		{ 
-		    Phpfox_Error::trigger('Rackspace error: ' . $e->getMessage(), E_USER_ERROR); 
-		} 
+		$oAuth->authenticate();
 		$this->_oObject = new CF_Connection($oAuth);
 		$this->_sBucket = Phpfox::getParam('core.rackspace_container');	
-
+		
 		$this->_oContainer = $this->_oObject->get_container($this->_sBucket);		
 	}
 	
@@ -94,28 +87,13 @@ class Phpfox_Cdn_Module_Rackspace extends Phpfox_Cdn_Abstract
 		$object->load_from_filename($sFile);
 		
 		$this->_bIsUploaded = true;
-		
-		if (Phpfox::getParam('core.keep_files_in_server') == false)
+		$bDelete = false;
+		if ($bDelete)
 		{
-			$oSess = Phpfox::getLib('session');
-			$aFiles = $oSess->get('deleteFiles');
-			if (is_array($aFiles))
-			{
-				$aFiles[] = $sFile;
-			}
-			else
-			{
-				$aFiles = array($sFile);
-			}
-			$oSess->set('deleteFiles',$aFiles);
+			unlink($sFile);
 		}
 		
 		return true;
-	}
-	
-	public function getUsage()
-	{
-		return $this->_oContainer->bytes_used;
 	}
 	
 	/**

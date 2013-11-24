@@ -11,7 +11,7 @@ defined('PHPFOX') or exit('NO DICE!');
  * @copyright		[PHPFOX_COPYRIGHT]
  * @author  		Raymond Benc
  * @package  		Module_Share
- * @version 		$Id: link.class.php 5074 2012-12-06 10:37:26Z Raymond_Benc $
+ * @version 		$Id: link.class.php 5056 2012-11-30 10:39:19Z Raymond_Benc $
  */
 class Share_Component_Block_Link extends Phpfox_Component
 {

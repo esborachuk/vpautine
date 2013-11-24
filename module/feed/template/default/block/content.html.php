@@ -5,7 +5,7 @@
  * @copyright		[PHPFOX_COPYRIGHT]
  * @author  		Raymond Benc
  * @package  		Module_Feed
- * @version 		$Id: content.html.php 5336 2013-02-11 12:54:16Z Miguel_Espinoza $
+ * @version 		$Id: content.html.php 4909 2012-10-22 05:56:49Z Raymond_Benc $
  */
  
 defined('PHPFOX') or exit('NO DICE!'); 
@@ -34,15 +34,12 @@ defined('PHPFOX') or exit('NO DICE!');
 
 			{if isset($aFeed.feed_status) && (!empty($aFeed.feed_status) || $aFeed.feed_status == '0')}
 			<div class="activity_feed_content_status">
-				{$aFeed.feed_status|feed_strip|shorten:200:'feed.view_more':true|split:55}	
-				{if Phpfox::getParam('feed.enable_check_in') && Phpfox::getParam('core.google_api_key') != '' && isset($aFeed.location_name)} 
-					<span class="js_location_name_hover" {if isset($aFeed.location_latlng) && isset($aFeed.location_latlng.latitude)}onmouseover="$Core.Feed.showHoverMap('{$aFeed.location_latlng.latitude}','{$aFeed.location_latlng.longitude}', this);"{/if}> - <a href="http://maps.google.com/maps?daddr={$aFeed.location_latlng.latitude},{$aFeed.location_latlng.longitude}">{phrase var='feed.at_location' location=$aFeed.location_name}</a>
-					</span> 
-				{/if}
+				{$aFeed.feed_status|feed_strip|shorten:200:'feed.view_more':true|split:55}				
 			</div>
 			{/if}
 			
-			<div class="activity_feed_content_link">				
+			<div class="activity_feed_content_link">
+				
 				{if $aFeed.type_id == 'friend' && isset($aFeed.more_feed_rows) && is_array($aFeed.more_feed_rows) && count($aFeed.more_feed_rows)}
 					{foreach from=$aFeed.more_feed_rows item=aFriends}
 						{$aFriends.feed_image}
@@ -109,7 +106,7 @@ defined('PHPFOX') or exit('NO DICE!');
 		{if $aFeed.type_id != 'friend'}
 		{if isset($aFeed.more_feed_rows) && is_array($aFeed.more_feed_rows) && count($aFeed.more_feed_rows)}
 		{if $iTotalExtraFeedsToShow = count($aFeed.more_feed_rows)}{/if}
-		<a href="#" class="activity_feed_content_view_more" onclick="$(this).parents('.js_feed_view_more_entry_holder:first').find('.js_feed_view_more_entry').show(); $(this).remove(); return false;">{phrase var='feed.see_total_more_posts_from_full_name' total=$iTotalExtraFeedsToShow full_name=$aFeed.full_name|shorten:40:'...'}</a>			
+		<a href="#" class="activity_feed_content_view_more" onclick="$(this).parents('.js_feed_view_more_entry_holder:first').find('.js_feed_view_more_entry').show(); $(this).remove(); return false;">{phrase var='feed.see_total_more_posts_from_full_name' total=$iTotalExtraFeedsToShow full_name=$aFeed.full_name|first_name|shorten:40:'...'}</a>			
 		{/if}			
 		{/if}
 	{if !Phpfox::getService('profile')->timeline()}

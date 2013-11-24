@@ -11,7 +11,7 @@ defined('PHPFOX') or exit('NO DICE!');
  * @copyright		[PHPFOX_COPYRIGHT]
  * @author  		Raymond Benc
  * @package  		Module_Core
- * @version 		$Id: ajax.class.php 5379 2013-02-18 07:16:06Z Raymond_Benc $
+ * @version 		$Id: ajax.class.php 4874 2012-10-10 08:26:35Z Raymond_Benc $
  */
 class Core_Component_Ajax_Ajax extends Phpfox_Ajax
 {	
@@ -26,7 +26,7 @@ class Core_Component_Ajax_Ajax extends Phpfox_Ajax
 	public function message()
 	{
 		Phpfox::getBlock('core.message', array(
-				'sMessage' => strip_tags($this->get('message'))
+				'sMessage' => $this->get('message')
 			)
 		);
 	}
@@ -404,37 +404,6 @@ class Core_Component_Ajax_Ajax extends Phpfox_Ajax
 		{
 			$sError = Phpfox_Error::get();
 			$this->html('#div_show_gift_points', 'An error occurred: ' . array_pop($sError));
-		}
-	}
-	
-	
-	public function getMyCity()
-	{
-		$sInfo = Phpfox::getLib('request')->send('http://smart-ip.net/geoip-json/' . $_SERVER['REMOTE_ADDR'], array(), 'GET');
-		$oInfo = json_decode($sInfo);
-		if ($this->get('section') == 'feed')
-		{
-			// during testing latlng wont work
-			if (empty($oInfo->latitude))
-			{
-				$oInfo->latitude = '55.6';
-				$oInfo->longitude = '13';
-			}
-			$this->call('$Core.Feed.gMyLatLng = new google.maps.LatLng("' . $oInfo->latitude . '","' . $oInfo->longitude .'");');
-			$this->call('setCookie("core_places_location", "' . $oInfo->latitude .',' . $oInfo->longitude . '");');
-			$this->call('$("#hdn_location_name, #val_location_name").val("' . $oInfo->city . ', ' . $oInfo->countryName . '"); ');
-			$this->call('$Core.Feed.getNewLocations();');
-			$this->call('$Core.Feed.createMap();');
-		}
-		
-		if ($this->get('saveLocation'))
-		{
-			Phpfox::getService('user.process')->saveMyLatLng(array('latitude' => $oInfo->latitude, 'longitude' => $oInfo->longitude));
-		}
-		
-		if ($this->get('callback') == '$Core.Feed.showMap')
-		{
-			/*$this->call('$Core.Feed.showMap();');*/
 		}
 	}
 }

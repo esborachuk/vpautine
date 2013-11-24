@@ -5,7 +5,7 @@
  * @copyright		[PHPFOX_COPYRIGHT]
  * @author			Raymond Benc
  * @package 		Phpfox
- * @version 		$Id: template.html.php 5380 2013-02-18 08:06:37Z Raymond_Benc $
+ * @version 		$Id: template.html.php 2823 2011-08-09 12:52:04Z Raymond_Benc $
  */
  
 defined('PHPFOX') or exit('NO DICE!'); 
@@ -50,28 +50,27 @@ defined('PHPFOX') or exit('NO DICE!');
 				
 				return true;
 			});			
-			/*
+			
 			$(window).bind('resize', function() 
 			{
 				$Core.installer.resize();	
 			});
 			
 			$Core.installer.resize();
-			*/
 		});		
 		</script>
 	{/literal}
 	</head>
 	<body>
-		<div id="container">				
+		<div id="container" style="display:none;">				
 			<div id="main">
 				<div class="left">
 					<div class="logo">
-						<a href="http://www.phpfox.com/" target="_blank">{img theme='layout/phpfox-logo-dark.png' alt=''}</a>
+						<a href="http://www.phpfox.com/" target="_blank">{img theme='layout/logo.png' alt=''}</a>
 					</div>				
 					<ul class="step">
 						{foreach from=$aSteps item=aStep}
-						<li{if $aStep.is_active} class="active"{/if}>{$aStep.count}. {$aStep.name}</li>
+						<li{if $aStep.is_active} class="active"{/if}>{$aStep.count}) {$aStep.name}</li>
 						{/foreach}
 					</ul>
 				</div>
@@ -97,7 +96,7 @@ defined('PHPFOX') or exit('NO DICE!');
 				<div class="clear"></div>
 			</div>
 			<div id="copyright">
-				<!-- {img theme='layout/phpfox-emblem.png' style='vertical-align:middle;'}  -->{product_branding}
+				 {product_branding}
 			</div>
 		</div>
 		<script type="text/javascript">

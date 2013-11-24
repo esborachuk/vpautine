@@ -11,7 +11,7 @@ defined('PHPFOX') or exit('NO DICE!');
  * @copyright		[PHPFOX_COPYRIGHT]
  * @author  		Raymond Benc
  * @package  		Module_Poll
- * @version 		$Id: design.class.php 5201 2013-01-28 07:05:48Z Raymond_Benc $
+ * @version 		$Id: design.class.php 3443 2011-11-03 12:22:30Z Miguel_Espinoza $
  */
 class Poll_Component_Controller_Design extends Phpfox_Component
 {
@@ -109,7 +109,7 @@ class Poll_Component_Controller_Design extends Phpfox_Component
 						'design.js' => 'module_poll',
 						'poll.css' => 'module_poll',
 						'poll.js' => 'module_poll',
-						// 'jquery/plugin/jquery.bgiframe.js' => 'static_script'
+						'jquery/plugin/jquery.bgiframe.js' => 'static_script'
 					)
 				)
 				->setPhrase(array(

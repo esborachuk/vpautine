@@ -11,7 +11,7 @@ defined('PHPFOX') or exit('NO DICE!');
  * @copyright		[PHPFOX_COPYRIGHT]
  * @author  		Raymond Benc
  * @package  		Module_Profile
- * @version 		$Id: header.class.php 5345 2013-02-13 09:44:03Z Raymond_Benc $
+ * @version 		$Id: header.class.php 3143 2011-09-20 14:08:51Z Miguel_Espinoza $
  */
 class Profile_Component_Block_Header extends Phpfox_Component
 {
@@ -21,73 +21,19 @@ class Profile_Component_Block_Header extends Phpfox_Component
 	public function process()
 	{	
 		(($sPlugin = Phpfox_Plugin::get('profile.component_block_header_process')) ? eval($sPlugin) : false);
-		if (defined('PHPFOX_IS_PAGES_ADD'))
-		{
-		    return false;
-		}
+		
 		$aUser = $this->getParam('aUser');
-		if ($aUser === null)
-		{
-			$aUser = $this->getParam('aPage');
-		}
-		
 		$aUser['is_header'] = true;
-		$aUser['is_liked'] = (!isset($aUser['is_liked']) || $aUser['is_liked'] === null || ($aUser['is_liked'] < 1) ) ? false : true;
-		if (!isset($aUser['user_id']))
-		{
-		    return false;
-		}
-		if (!defined('PAGE_TIME_LINE') && !defined('PHPFOX_IS_PAGES_VIEW'))
-		{
-			$sRelationship = Phpfox::getService('custom')->getRelationshipPhrase($aUser);
-			$bCanSendPoke = Phpfox::isModule('poke') && Phpfox::getService('poke')->canSendPoke($aUser['user_id']);
-			$this->template()->assign(array(
-				'bCanPoke' => $bCanSendPoke,
-				'sRelationship' => $sRelationship,
-				
-				)
-			);
-		}
-		else if (isset($aUser['use_timeline']) && $aUser['use_timeline'])
-		{
-		    $sModule = $this->request()->get('req3');
-		    if (Phpfox::isModule($sModule) && Phpfox::hasCallback($sModule, 'getPageSubMenu'))
-		    {
-			$aMenu = Phpfox::callback($sModule .'.getPageSubmenu', $aUser);
-			foreach ($aMenu as $iKey => $aSubMenu)
-			{
-			    $aMenu[$iKey]['module'] = $sModule;
-			    switch ($sModule)
-			    {
-				case 'event': 
-				    $aMenu[$iKey]['var_name'] = 'menu_create_new_'.$sModule;
-				    break;
-				case 'forum':
-				    $aMenu[$iKey]['var_name'] = 'post_a_new_thread';
-				    break;
-				case 'music':
-				    $aMenu[$iKey]['var_name'] = 'menu_upload_a_song';
-				    break;
-				case 'photo':
-				    $aMenu[$iKey]['var_name'] = 'upload_a_new_image';
-				    break;
-				case 'video':
-				    $aMenu[$iKey]['var_name'] = 'menu_upload_a_new_video';
-				    break;
-				default:
-				    $aMenu[$iKey]['var_name'] = 'menu_add_new_'.$sModule;
-			    }			    
-			}
-			
-			$this->template()->assign(array(
-			    'aSubMenus' => $aMenu
-			));
-		    }
-		    
-		}
-
+		$sRelationship = Phpfox::getService('custom')->getRelationshipPhrase($aUser);
+		//d($sRelationship, true);
+		$bCanSendPoke = Phpfox::isModule('poke') && Phpfox::getService('poke')->canSendPoke($aUser['user_id']);
 		
-		$this->template()->assign(array('aUser' => $aUser));
+		$this->template()->assign(array(
+				'bCanPoke' => $bCanSendPoke,
+				'sRelationship' => $sRelationship
+			)
+		);
+		
 		if (isset($bHideProfileBlockHeader))
 		{
 			return false;

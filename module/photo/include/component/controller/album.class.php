@@ -11,7 +11,7 @@ defined('PHPFOX') or exit('NO DICE!');
  * @copyright		[PHPFOX_COPYRIGHT]
  * @author  		Raymond Benc
  * @package  		Module_Photo
- * @version 		$Id: album.class.php 5126 2013-01-14 10:01:49Z Miguel_Espinoza $
+ * @version 		$Id: album.class.php 4139 2012-05-02 09:50:43Z Miguel_Espinoza $
  */
 class Photo_Component_Controller_Album extends Phpfox_Component
 {
@@ -170,9 +170,7 @@ class Photo_Component_Controller_Album extends Phpfox_Component
 					'view.css' => 'module_photo',
 					'feed.js' => 'module_feed',
 					'browse.css' => 'module_photo',
-					'edit.css' => 'module_photo',
-					'index.js' => 'module_photo',
-					'index.css' => 'module_photo'
+					'edit.css' => 'module_photo'
 				)
 			)
 			->assign(array(
@@ -181,8 +179,7 @@ class Photo_Component_Controller_Album extends Phpfox_Component
 				'aAlbum' => $aAlbum,
 				'aCallback' => null,
 				'bIsInAlbumMode' => true,
-				'iForceAlbumId' => $aAlbum['album_id'],
-				'iPhotosPerRow' => 5
+				'iForceAlbumId' => $aAlbum['album_id']
 			)
 		);
 		

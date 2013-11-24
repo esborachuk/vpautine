@@ -11,7 +11,7 @@ defined('PHPFOX') or exit('NO DICE!');
  * @copyright		[PHPFOX_COPYRIGHT]
  * @author  		Raymond Benc
  * @package  		Module_Photo
- * @version 		$Id: callback.class.php 5220 2013-01-28 12:31:50Z Raymond_Benc $
+ * @version 		$Id: callback.class.php 4947 2012-10-24 06:02:30Z Raymond_Benc $
  */
 class Photo_Service_Callback extends Phpfox_Service 
 {
@@ -771,41 +771,6 @@ class Photo_Service_Callback extends Phpfox_Service
 	{
 		return 'photo';
 	}	
-	
-	public function getNotificationFeed_Profile($aNotification)
-	{
-	    
-		
-		$aRow = $this->database()->select('p.photo_id, u.user_id, u.gender, u.user_name, u.full_name')
-			->from(Phpfox::getT('photo'), 'p')
-			->join(Phpfox::getT('user'), 'u', 'u.user_id = ' . Phpfox::getUserId())
-			->where('p.photo_id = ' . (int) $aNotification['item_id'])
-			->execute('getSlaveRow');	
-		
-		
-		$sUsers = Phpfox::getService('notification')->getUsers($aNotification);		
-		
-		$sPhrase = '';		
-		if ($aNotification['user_id'] == $aRow['user_id'])
-		{
-			$sPhrase = Phpfox::getPhrase('feed.users_commented_on_gender_wall', array('users' => $sUsers, 'gender' => Phpfox::getService('user')->gender($aRow['gender'], 1)));	
-		}
-		elseif ($aRow['user_id'] == Phpfox::getUserId())		
-		{
-			$sPhrase = Phpfox::getPhrase('feed.users_commented_on_your_wall', array('users' => $sUsers));
-		}
-		else 
-		{
-			$sPhrase = Phpfox::getPhrase('feed.users_commented_on_one_span_class_drop_data_user_row_full_name_span_wall', array('users' => $sUsers, 'row_full_name' => $aRow['full_name']));
-		}			
-		
-		return array(
-			'link' => Phpfox::getLib('url')->makeUrl('photo', array($aRow['photo_id'],)),
-			'message' => $sPhrase,
-			'icon' => Phpfox::getLib('template')->getStyle('image', 'activity.png', 'blog')
-		);		
-	}
-	
 	
 	public function processCommentModeration($sAction, $iId)
 	{
@@ -1572,11 +1537,6 @@ class Photo_Service_Callback extends Phpfox_Service
 			return false;
 		}
 		
-		if (Phpfox::getUserParam('photo.can_view_photos'))
-		{
-			$sThickbox .= ' js_photo_item_' . $aRow['photo_id'] . ' ';
-		}		
-		
 		if ((defined('PHPFOX_IS_PAGES_VIEW') && !Phpfox::getService('pages')->hasPerm(null, 'photo.view_browse_photos'))
 			|| (!defined('PHPFOX_IS_PAGES_VIEW') && $aRow['module_id'] == 'pages' && !Phpfox::getService('pages')->hasPerm($aRow['group_id'], 'photo.view_browse_photos'))	
 			)
@@ -2047,10 +2007,6 @@ class Photo_Service_Callback extends Phpfox_Service
 	
 	public function getProfileMenu($aUser)
 	{
-	    if (!empty($aUser['user_image']))
-	    {
-		$aUser['total_photo']++;
-	    }
 		if (!Phpfox::getParam('profile.show_empty_tabs'))
 		{		
 			if (!isset($aUser['total_photo']))
@@ -2064,16 +2020,15 @@ class Photo_Service_Callback extends Phpfox_Service
 			}
 		}
 		
-		if ($sPlugin = Phpfox_Plugin::get('photo.service_callback_getprofilemenu_1')){eval($sPlugin);if (isset($mReturnFromPlugin)){return $mReturnFromPlugin;}}
 		$aSubMenu = array();
-		/*if (Phpfox::getParam('profile.display_submenu_for_photo') && ($this->request()->get('req2') == 'photo' || Phpfox::getParam('photo.in_main_photo_section_show') == 'albums'))
+		if ($this->request()->get('req2') == 'photo')
 		{
 			$aSubMenu[] = array(
 				'phrase' => Phpfox::getPhrase('profile.albums'),
 				'url' => Phpfox::getLib('url')->makeUrl($aUser['user_name'].'.photo.albums'),
 				'total' => Phpfox::getService('photo.album')->getAlbumCount($aUser['user_id'])
-			);
-		}*/
+			);		
+		}
 		
 		$aMenus[] = array(
 			'phrase' => Phpfox::getPhrase('profile.photos'),
@@ -2256,35 +2211,6 @@ class Photo_Service_Callback extends Phpfox_Service
 			'no_profile_image' => true
 		);			
 	}	
-	
-	public function getActions()
-	{
-		return array(
-			'dislike' => array(
-				'enabled' => true,
-				'action_type_id' => 2, // 2 = dislike
-				'phrase' => 'Dislike',
-				'phrase_in_past_tense' => 'disliked',
-				'item_phrase' => Phpfox::getPhrase('photo.item_phrase'),
-				'item_type_id' => 'photo', // used to differentiate between photo albums and photos for example.
-				'table' => 'photo',
-				'column_update' => 'total_dislike',
-				'column_find' => 'photo_id',
-				'where_to_show' => array('', 'photo')			
-				),
-			'dislike-album' => array(
-				'enabled' => true,
-				'action_type_id' => 2,
-				'phrase' => 'Dislike',
-				'item_type_id' => 'photo-album',
-				'item_phrase' => Phpfox::getPhrase('photo.item_phrase_album'), // This will be used in email sent in notifications and displaying 
-				'table' => 'photo-album',
-				'column_update' => 'total_dislike',
-				'column_find' => 'album_id',
-				'where_to_show' => array('photo-album', 'photo')
-			)
-		);
-	}
 	
 	/**
 	 * If a call is made to an unknown method attempt to connect

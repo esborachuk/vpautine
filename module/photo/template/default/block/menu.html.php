@@ -5,7 +5,7 @@
  * @copyright		[PHPFOX_COPYRIGHT]
  * @author  		Raymond Benc
  * @package  		Module_Photo
- * @version 		$Id: menu.html.php 5223 2013-01-28 12:53:44Z Raymond_Benc $
+ * @version 		$Id: menu.html.php 4780 2012-09-27 08:11:52Z Raymond_Benc $
  */
  
 defined('PHPFOX') or exit('NO DICE!'); 
@@ -72,17 +72,13 @@ defined('PHPFOX') or exit('NO DICE!');
 		{plugin call='photo.template_block_menu'}
 		
 		{if (Phpfox::getUserParam('photo.can_delete_own_photo') && $aForms.user_id == Phpfox::getUserId()) || Phpfox::getUserParam('photo.can_delete_other_photos')}
-		{if defined('PHPFOX_IS_THEATER_MODE')}
-		<li class="item_delete"><a href="#" onclick="if (confirm('Are you sure?')) {l} $.ajaxCall('photo.deleteTheaterPhoto', 'photo_id={$aForms.photo_id}'); {r} return false;">{phrase var='photo.delete_this_photo'}</a></li>
-		{else}
 		<li class="item_delete"><a href="{url link='photo' delete=$aForms.photo_id}" class="sJsConfirm">{phrase var='photo.delete_this_photo'}</a></li>
-		{/if}
 		{/if}		
 		
 		{if isset($aCallback)}
 			<li>
 				<a href="#" onclick="$Core.Photo.setCoverPhoto({$aForms.photo_id},{$aCallback.item_id}); return false;" >
-					{phrase var='photo.set_as_page_s_cover_photo'}
+					Set as Page's Cover Photo
 				</a>
 			</li>
 		{/if}

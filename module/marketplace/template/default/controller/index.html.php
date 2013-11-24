@@ -5,7 +5,7 @@
  * @copyright		[PHPFOX_COPYRIGHT]
  * @author  		Raymond Benc
  * @package 		Phpfox
- * @version 		$Id: index.html.php 5032 2012-11-19 13:58:57Z Miguel_Espinoza $
+ * @version 		$Id: index.html.php 3992 2012-03-12 13:40:21Z Raymond_Benc $
  */
  
 defined('PHPFOX') or exit('NO DICE!'); 
@@ -29,26 +29,18 @@ defined('PHPFOX') or exit('NO DICE!');
 	{if !Phpfox::isMobile()}
 				<div class="row_title_image_header">
 					
-					{if isset($aListing.is_expired)}
-						<div class="row_featured_link">
-							{phrase var='marketplace.expired'}
-						</div>
+					{if isset($sView) && $sView == 'featured'}
 					{else}
-						{if isset($sView) && $sView == 'featured'}
-						{else}
-							<div id="js_featured_phrase_{$aListing.listing_id}" class="row_featured_link"{if !$aListing.is_featured} style="display:none;"{/if}>
-								{phrase var='marketplace.featured'}
-							</div>					
-						{/if}	
-						<div id="js_sponsor_phrase_{$aListing.listing_id}" class="js_sponsor_event row_sponsored_link"{if !$aListing.is_sponsor} style="display:none;"{/if}>
-							{phrase var='marketplace.sponsored'}
-						</div>					
-					{/if}
+					<div id="js_featured_phrase_{$aListing.listing_id}" class="row_featured_link"{if !$aListing.is_featured} style="display:none;"{/if}>
+						{phrase var='marketplace.featured'}
+					</div>					
+					{/if}	
+					<div id="js_sponsor_phrase_{$aListing.listing_id}" class="js_sponsor_event row_sponsored_link"{if !$aListing.is_sponsor} style="display:none;"{/if}>
+						{phrase var='marketplace.sponsored'}
+					</div>					
 					
-					<a href="{$aListing.url}">
-						{img server_id=$aListing.server_id title=$aListing.title path='marketplace.url_image' file=$aListing.image_path suffix='_120' max_width='120' max_height='120'}
-					</a>
-				</div>				
+						<a href="{$aListing.url}">{img server_id=$aListing.server_id title=$aListing.title path='marketplace.url_image' file=$aListing.image_path suffix='_120' max_width='120' max_height='120'}</a>
+					</div>				
 					
 					<div class="row_title_image_header_body">				
 {/if}

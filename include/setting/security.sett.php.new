@@ -1,0 +1,94 @@
+<?php
+
+#######################################
+## USAGE OF HTML PURIFIER http://htmlpurifier.org/
+## EDIT ADDITIONAL SETTINGS: include/setting/htmlpurifier.sett.php
+#######################################
+
+// Enable to add extra checks to HTML
+$_CONF['core.enable_html_purifier'] = false;
+
+#######################################
+## HTTPS SITE BROWSING
+#######################################
+
+// Enable to make all connections secure when a user is logged in
+$_CONF['core.force_secure_site'] = false;
+
+#######################################
+## CREATE UNIQUE COOKIE NAMES
+#######################################
+
+// Enable to use custom cookie names
+$_CONF['core.use_custom_cookie_names'] = false;
+
+// Add your unique cookie name
+$_CONF['core.custom_cookie_names_hash'] = 's6ks763s5h3)s';
+
+#######################################
+## PROTECT ADMINCP WITH IP CHECKS
+#######################################
+
+// Allow access to the AdminCP if IP is added to this list. Comma separated.
+$_CONF['core.protect_admincp_with_ips'] = '';
+
+#######################################
+## ADD CUSTOM SALTS TO SESSION COOKIE VALUES
+#######################################
+
+// Add a custom salt to cookie values
+$_CONF['core.use_custom_hash_salt'] = false;
+
+// Create your custom cookie salt.
+$_CONF['core.custom_hash_salt'] = $_SERVER['HTTP_USER_AGENT'] . '8f3f3/83hsWl2';
+
+#######################################
+## ENABLE BASIC HTTP AUTH FOR THE ADMINCP
+#######################################
+
+// Enable HTTP authentication in order to access the AdminCP
+$_CONF['core.admincp_http_auth'] = false;
+
+// Array of users that can access the AdminCP. The key "1" represents the users ID#. The "name" and "password" are unique for this user.
+$_CONF['core.admincp_http_auth_users'] = array(
+	'1' => array('name' => '', 'password' => '')
+);
+
+#######################################
+## UNIQUE AND SECURE SESSIONS
+#######################################
+
+// Authenticate users via database session log.
+$_CONF['core.auth_user_via_session'] = false;
+
+// Include users IP substring in ID hash
+$_CONF['core.include_ip_sub_id_hash'] = true;
+
+// Unique salt for ID hash
+$_CONF['core.id_hash_salt'] = 'iysduyt623rts';
+
+#######################################
+## BODY REGEX CHECK
+## CAN BE USED TO CHECK IF SITE HAS BEEN DEFACED
+#######################################
+
+// Enable to check HTML body for specific text
+$_CONF['core.check_body_for_text'] = false;
+
+// Custom regex to check
+$_CONF['core.check_body_regex'] = '/oParams/i';
+
+// Message if regex fails
+$_CONF['core.check_body_offline_message'] = 'Site is under maintenance.';
+
+// Custom header to send the browser in case regex fails
+$_CONF['core.check_body_header'] = 'HTTP/1.0 500 Internal Server Error';
+
+#######################################
+## Tips
+#######################################
+// Enable $_CONF['core.admincp_do_timeout'] from server.sett.php
+// Enable "Brute Force Prevention: Time Limit" from the AdminCP
+// Member snoop disable
+
+?>

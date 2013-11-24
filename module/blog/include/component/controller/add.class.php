@@ -11,7 +11,7 @@ defined('PHPFOX') or exit('NO DICE!');
  * @copyright		[PHPFOX_COPYRIGHT]
  * @author  		Raymond Benc
  * @package  		Module_Blog
- * @version 		$Id: add.class.php 5234 2013-01-29 09:11:58Z Raymond_Benc $
+ * @version 		$Id: add.class.php 3667 2011-12-06 07:08:52Z Raymond_Benc $
  */
 class Blog_Component_Controller_Add extends Phpfox_Component
 {
@@ -19,25 +19,10 @@ class Blog_Component_Controller_Add extends Phpfox_Component
 	 * Class process method wnich is used to execute this component.
 	 */
 	public function process()
-	{
+	{		
 		Phpfox::isUser(true);
 		$bIsEdit = false;
 		$bCanEditPersonalData = true;
-		
-		$sModule = $this->request()->get('module');
-		$iItemId = $this->request()->getInt('item');
-		if (($aVals = $this->request()->getArray('val')) && !empty($aVals['module_id']) && !empty($aVals['item_id']))
-		{
-			$sModule = $aVals['module_id'];
-			$iItemId = $aVals['item_id'];
-		}
-		if (!empty($sModule) && !empty($iItemId))
-		{
-			$this->template()->assign(array(
-				'sModule' => $sModule,
-				'iItem' => $iItemId
-			));
-		}
 		
 		if (($iEditId = $this->request()->getInt('id')))
 		{	
@@ -116,38 +101,7 @@ class Blog_Component_Controller_Add extends Phpfox_Component
 				'sFormName' => 'core_js_blog_form', 
 				'aParams' => $aValidation
 			)
-		);			
-
-		if (!empty($sModule) && Phpfox::hasCallback($sModule, 'getItem'))
-		{
-			$aCallback = Phpfox::callback($sModule . '.getItem' , $iItemId);
-			$sUrl = $sCrumb = '';
-				
-			if ($bIsEdit)
-			{
-				$sUrl = $this->url()->makeUrl('blog', array('add', 'id' => $iEditId, 'item' => $aRow['page_id']));
-				$sCrumb = Phpfox::getPhrase('blog.editing_blog') . ': ' . Phpfox::getLib('parse.output')->shorten($aRow['title'], Phpfox::getService('core')->getEditTitleSize(), '...');
-			}
-			else
-			{
-				$sUrl = $this->url()->makeUrl('blog', array('add', 'module' => $aCallback['module'], 'item' => $iItemId));
-				$sCrumb = Phpfox::getPhrase('blog.adding_a_new_blog');
-			}
-				
-			$this->template()
-			->setBreadcrumb(Phpfox::getPhrase($sModule .'.'.$sModule), $this->url()->makeUrl($sModule))
-			->setBreadCrumb($aCallback['title'], Phpfox::permalink($sModule, $iItemId))
-			->setBreadCrumb(Phpfox::getPhrase('blog.blogs'), $this->url()->makeUrl('pages', array($iItemId, 'blog')))
-			->setBreadcrumb($sCrumb, $sUrl, true)
-			;
-		}
-		else
-		{
-			$this->template()
-			->setBreadcrumb(Phpfox::getPhrase('blog.blogs'), $this->url()->makeUrl('blog'))
-			->setBreadcrumb((!empty($iEditId) ? Phpfox::getPhrase('blog.editing_blog') . ': ' . Phpfox::getLib('parse.output')->shorten($aRow['title'], Phpfox::getService('core')->getEditTitleSize(), '...') : Phpfox::getPhrase('blog.adding_a_new_blog')), ($iEditId > 0 ? $this->url()->makeUrl('blog', array('add', 'id' => $iEditId)) : $this->url()->makeUrl('blog', array('add'))), true);
-		
-		}		
+		);				
 
 		if ($aVals = $this->request()->getArray('val'))
 		{							
@@ -205,14 +159,15 @@ class Blog_Component_Controller_Add extends Phpfox_Component
 				}				
 				
 				if (isset($iId) && $iId)
-				{		
+				{				
 					Phpfox::permalink('blog', $iId, $aVals['title'], true, $sMessage);
 				}
 			}
-		}
+		}		
 		
-		$this->template()
-			->setTitle((!empty($iEditId) ? Phpfox::getPhrase('blog.editing_blog') . ': ' . $aRow['title'] : Phpfox::getPhrase('blog.adding_a_new_blog')))			
+		$this->template()->setTitle((!empty($iEditId) ? Phpfox::getPhrase('blog.editing_blog') . ': ' . $aRow['title'] : Phpfox::getPhrase('blog.adding_a_new_blog')))
+			->setBreadcrumb(Phpfox::getPhrase('blog.blogs'), $this->url()->makeUrl('blog'))
+			->setBreadcrumb((!empty($iEditId) ? Phpfox::getPhrase('blog.editing_blog') . ': ' . Phpfox::getLib('parse.output')->shorten($aRow['title'], Phpfox::getService('core')->getEditTitleSize(), '...') : Phpfox::getPhrase('blog.adding_a_new_blog')), ($iEditId > 0 ? $this->url()->makeUrl('blog', array('add', 'id' => $iEditId)) : $this->url()->makeUrl('blog', array('add'))), true)
 			->setFullSite()	
 			->assign(array(
 					'sCreateJs' => $oValid->createJS(),

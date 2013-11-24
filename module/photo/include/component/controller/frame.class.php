@@ -12,7 +12,7 @@ defined('PHPFOX') or exit('NO DICE!');
  * @copyright		[PHPFOX_COPYRIGHT]
  * @author  		Raymond Benc
  * @package  		Module_Photo
- * @version 		$Id: frame.class.php 5366 2013-02-14 10:02:27Z Raymond_Benc $
+ * @version 		$Id: frame.class.php 4692 2012-09-20 08:22:57Z Raymond_Benc $
  */
 class Photo_Component_Controller_Frame extends Phpfox_Component
 {
@@ -197,7 +197,9 @@ class Photo_Component_Controller_Frame extends Phpfox_Component
 				{
 					
 				}
+				
 			}
+			
 		}		
 		
 		
@@ -206,11 +208,6 @@ class Photo_Component_Controller_Frame extends Phpfox_Component
 		// Make sure we were able to upload some images
 		if (count($aImages))
 		{
-			if (defined('PHPFOX_IS_HOSTED_SCRIPT'))
-			{
-				unlink(Phpfox::getParam('photo.dir_photo') . sprintf($sFileName, ''));
-			}
-			
 			$aCallback = (!empty($aVals['callback_module']) ? Phpfox::callback($aVals['callback_module'] . '.addPhoto', $aVals['callback_item_id']) : null);
 			
 			$sAction = (isset($aVals['action']) ? $aVals['action'] : 'view_photo');
@@ -290,7 +287,7 @@ class Photo_Component_Controller_Frame extends Phpfox_Component
 				}
 				
 				echo '<script type="text/javascript">';
-				echo 'window.parent.$.ajaxCall(\'photo.process\', \''. ((isset($aVals['page_id']) && !empty($aVals['page_id'])) ? 'is_page=1&' : '') .'js_disable_ajax_restart=true' . $sExtra . '&twitter_connection=' . ((isset($aVals['connection']) && isset($aVals['connection']['twitter'])) ? $aVals['connection']['twitter'] : '0') . '&facebook_connection=' . (isset($aVals['connection']['facebook']) ? $aVals['connection']['facebook'] : '0') . '&custom_pages_post_as_page=' . $this->request()->get('custom_pages_post_as_page') . '&photos=' . urlencode(base64_encode(json_encode($aImages))) . '&action=' . $sAction . '' . (isset($iFeedId) ? '&feed_id=' . $iFeedId : '') . '' . ($aCallback !== null ? '&callback_module=' . $aCallback['module'] . '&callback_item_id=' . $aCallback['item_id'] : '') . '&parent_user_id=' . (isset($aVals['parent_user_id']) ? (int) $aVals['parent_user_id'] : 0) . '&is_cover_photo=' . (isset($aVals['is_cover_photo']) ? '1' : '0') . ((isset($aVals['page_id']) && $aVals['page_id'] > 0) ? '&page_id='.$aVals['page_id'] : '') . '\');';
+				echo 'window.parent.$.ajaxCall(\'photo.process\', \'js_disable_ajax_restart=true' . $sExtra . '&twitter_connection=' . ((isset($aVals['connection']) && isset($aVals['connection']['twitter'])) ? $aVals['connection']['twitter'] : '0') . '&facebook_connection=' . (isset($aVals['connection']['facebook']) ? $aVals['connection']['facebook'] : '0') . '&custom_pages_post_as_page=' . $this->request()->get('custom_pages_post_as_page') . '&photos=' . urlencode(base64_encode(json_encode($aImages))) . '&action=' . $sAction . '' . (isset($iFeedId) ? '&feed_id=' . $iFeedId : '') . '' . ($aCallback !== null ? '&callback_module=' . $aCallback['module'] . '&callback_item_id=' . $aCallback['item_id'] : '') . '&parent_user_id=' . (isset($aVals['parent_user_id']) ? (int) $aVals['parent_user_id'] : 0) . '&is_cover_photo=' . (isset($aVals['is_cover_photo']) ? '1' : '0') . ((isset($aVals['page_id']) && $aVals['page_id'] > 0) ? '&page_id='.$aVals['page_id'] : '') . '\');';
 				echo '</script>';
 			}
 			

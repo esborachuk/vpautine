@@ -5,7 +5,7 @@
  * @copyright		[PHPFOX_COPYRIGHT]
  * @author  		Raymond Benc
  * @package  		Module_Blog
- * @version 		$Id: add.html.php 5315 2013-02-04 09:45:00Z Miguel_Espinoza $
+ * @version 		$Id: add.html.php 3630 2011-12-01 07:32:45Z Raymond_Benc $
  */
  
 defined('PHPFOX') or exit('NO DICE!'); 
@@ -28,10 +28,6 @@ defined('PHPFOX') or exit('NO DICE!');
 <div class="main_break">
 	{$sCreateJs}
 	<form method="post" action="{url link='blog.add'}" id="core_js_blog_form" onsubmit="{$sGetJsForm}" enctype="multipart/form-data">
-		{if isset($iItem) && isset($sModule)}
-			<div><input type="hidden" name="val[module_id]" value="{$sModule|htmlspecialchars}"></div>
-			<div><input type="hidden" name="val[item_id]" value="{$iItem|htmlspecialchars}</div>
-		{/if}
 		<div id="js_custom_privacy_input_holder">
 		{if $bIsEdit}
 			{module name='privacy.build' privacy_item_id=$aForms.blog_id privacy_module_id='blog'}
@@ -163,7 +159,7 @@ defined('PHPFOX') or exit('NO DICE!');
 				<li><input type="submit" name="val[{if $bIsEdit}update{else}publish{/if}]" value="{if $bIsEdit}{phrase var='blog.update'}{else}{phrase var='blog.publish'}{/if}" class="button" /></li>
 				{/if}			
 				{if !$bIsEdit}<li><input type="submit" name="val[draft]" value="{phrase var='blog.save_as_draft'}" class="button button_off" /></li>{/if}
-				<li><input type="button" name="val[preview]" value="{phrase var='blog.preview'}" class="button button_off" onclick="tb_show('{phrase var='blog.blog_preview' phpfox_squote=true}', $.ajaxBox('blog.preview', 'height=400&amp;width=600&amp;text=' + encodeURIComponent(Editor.getContent())), null, '', false,'POST');" /></li>
+				<li><input type="button" name="val[preview]" value="{phrase var='blog.preview'}" class="button button_off" onclick="tb_show('{phrase var='blog.blog_preview' phpfox_squote=true}', $.ajaxBox('blog.preview', 'height=400&amp;width=600&amp;text=' + encodeURIComponent(Editor.getContent())));" /></li>
 			</ul>
 			<div class="clear"></div>
 		</div>		

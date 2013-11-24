@@ -11,7 +11,7 @@ defined('PHPFOX') or exit('NO DICE!');
  * @copyright		[PHPFOX_COPYRIGHT]
  * @author  		Raymond Benc
  * @package  		Module_Blog
- * @version 		$Id: blog.class.php 5016 2012-11-12 15:18:29Z Miguel_Espinoza $
+ * @version 		$Id: blog.class.php 4545 2012-07-20 10:40:35Z Raymond_Benc $
  */
 class Blog_Service_Blog extends Phpfox_Service
 {	
@@ -308,17 +308,6 @@ class Blog_Service_Blog extends Phpfox_Service
 			->where('user_id = ' . (int) $iUserId . ' AND post_status = 2')
 			->execute('getSlaveField');		
 	}		
-	
-	public function getInfoForAction($aItem)
-	{
-		$aRow = $this->database()->select('b.blog_id, b.title, b.user_id, u.gender, u.full_name')	
-			->from(Phpfox::getT('blog'), 'b')
-			->join(Phpfox::getT('user'), 'u', 'u.user_id = b.user_id')
-			->where('b.blog_id = ' . (int) $aItem['item_id'])
-			->execute('getSlaveRow');
-		$aRow['link'] = Phpfox::getLib('url')->permalink('blog', $aRow['blog_id'], $aRow['title']);
-		return $aRow;
-	}
 	
 	public function __call($sMethod, $aArguments)
 	{

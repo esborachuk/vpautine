@@ -5,7 +5,7 @@
  * @copyright		[PHPFOX_COPYRIGHT]
  * @author			Raymond Benc
  * @package 		Phpfox
- * @version 		$Id: init.inc.php 5338 2013-02-11 13:39:29Z Miguel_Espinoza $
+ * @version 		$Id: init.inc.php 3917 2012-02-20 18:21:08Z Raymond_Benc $
  */
 
 defined('PHPFOX') or exit('NO DICE!');
@@ -120,12 +120,7 @@ if (!function_exists('json_encode'))
 		function json_decode($mData) 
 		{
 			$json = new Services_JSON();
-			/*
-			$aArgs = func_get_args();
-			if (isset($aArgs[1]) && $aArgs[1] == true)
-			{
-				return (array)($json->decode($mData));
-			}*/
+			
 			return ($json->decode($mData));
 		}
 	}

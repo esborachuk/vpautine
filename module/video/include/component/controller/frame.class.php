@@ -129,7 +129,7 @@ class Video_Component_Controller_Frame extends Phpfox_Component
 				
 				$mReturn = Phpfox::getService('video')->vidlyPost('AddMedia', array('Source' => array(
 							'SourceFile' => Phpfox::getParam('video.url') . sprintf($aVideo['destination'], ''),
-							'CDN' => 'RS'
+							'CDN' => 'S3'
 						)
 					), 'vidid_' . $aVideo['video_id'] . '/'
 				);							

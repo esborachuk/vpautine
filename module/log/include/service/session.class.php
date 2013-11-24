@@ -11,7 +11,7 @@ defined('PHPFOX') or exit('NO DICE!');
  * @copyright		[PHPFOX_COPYRIGHT]
  * @author  		Raymond Benc
  * @package  		Module_Log
- * @version 		$Id: session.class.php 4944 2012-10-24 05:24:29Z Raymond_Benc $
+ * @version 		$Id: session.class.php 5958 2013-05-27 09:55:14Z Raymond_Benc $
  */
 class Log_Service_Session extends Phpfox_Service
 {
@@ -132,7 +132,7 @@ class Log_Service_Session extends Phpfox_Service
 		
 		$sSessionHash = $oSession->get('session');		
 
-		if ($sSessionHash)
+		if ($sSessionHash && !Phpfox::getParam('core.auth_user_via_session'))
 		{
 			$this->_aSession = Phpfox::getService('user.auth')->getUserSession();
 			
@@ -200,41 +200,60 @@ class Log_Service_Session extends Phpfox_Service
 				$iIsHidden = 1;	
 			}			
 		}
-		
-		if (!isset($this->_aSession['session_hash']))
+
+		if (Phpfox::getParam('core.auth_user_via_session'))
 		{
-			$sSessionHash = $oRequest->getSessionHash();
-			if(Phpfox::getUserId() > 0) 
+			if (Phpfox::isUser())
 			{
-				$this->database()->delete($this->_sTable, 'user_id = ' . Phpfox::getUserId());
-			}
-			$this->database()->insert($this->_sTable, array(
-					'session_hash' => $sSessionHash,
-					'id_hash' => $oRequest->getIdHash(),
-					'user_id' => Phpfox::getUserId(),
+				$this->database()->update($this->_sTable, array(
 					'last_activity' => PHPFOX_TIME,
-					'location' => $sLocation,
-					'is_forum' => ($bIsForum ? '1' : '0'),
-					'forum_id' => $iForumId,
+					'user_id' => Phpfox::getUserId(),
+					"location" => $sLocation,
+					"is_forum" => ($bIsForum ? "1" : "0"),
+					"forum_id" => $iForumId,
 					'im_hide' => $iIsHidden,
-					'ip_address' => $sIp,
-					'user_agent' => $sBrowser
-				)
-			);
-			$oSession->set('session', $sSessionHash);
+					"ip_address" => $sIp,
+					"user_agent" => $sBrowser
+				),"user_id = " . (int) Phpfox::getUserId());
+			}
 		}
-		else 
+		else
 		{
-			$this->database()->update($this->_sTable, array(
-				'last_activity' => PHPFOX_TIME, 
-				'user_id' => Phpfox::getUserId(),
-				"location" => $sLocation,
-				"is_forum" => ($bIsForum ? "1" : "0"),
-				"forum_id" => $iForumId,
-				'im_hide' => $iIsHidden,
-				"ip_address" => $sIp,
-				"user_agent" => $sBrowser
-			),"session_hash = '" . $this->_aSession["session_hash"] . "'");	
+			if (!isset($this->_aSession['session_hash']))
+			{
+				$sSessionHash = $oRequest->getSessionHash();
+				if(Phpfox::getUserId() > 0)
+				{
+					$this->database()->delete($this->_sTable, 'user_id = ' . Phpfox::getUserId());
+				}
+				$this->database()->insert($this->_sTable, array(
+						'session_hash' => $sSessionHash,
+						'id_hash' => $oRequest->getIdHash(),
+						'user_id' => Phpfox::getUserId(),
+						'last_activity' => PHPFOX_TIME,
+						'location' => $sLocation,
+						'is_forum' => ($bIsForum ? '1' : '0'),
+						'forum_id' => $iForumId,
+						'im_hide' => $iIsHidden,
+						'ip_address' => $sIp,
+						'user_agent' => $sBrowser
+					)
+				);
+				$oSession->set('session', $sSessionHash);
+			}
+			else if (isset($this->_aSession['session_hash']))
+			{
+				$this->database()->update($this->_sTable, array(
+					'last_activity' => PHPFOX_TIME,
+					'user_id' => Phpfox::getUserId(),
+					"location" => $sLocation,
+					"is_forum" => ($bIsForum ? "1" : "0"),
+					"forum_id" => $iForumId,
+					'im_hide' => $iIsHidden,
+					"ip_address" => $sIp,
+					"user_agent" => $sBrowser
+				),"session_hash = '" . $this->_aSession["session_hash"] . "'");
+			}
 		}
 		
 		if (!Phpfox::getCookie('visit'))

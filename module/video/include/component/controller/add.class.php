@@ -11,7 +11,7 @@ defined('PHPFOX') or exit('NO DICE!');
  * @copyright		[PHPFOX_COPYRIGHT]
  * @author  		Raymond_Benc
  * @package 		Phpfox_Component
- * @version 		$Id: add.class.php 5143 2013-01-15 14:16:21Z Miguel_Espinoza $
+ * @version 		$Id: add.class.php 5015 2012-11-12 13:00:16Z Raymond_Benc $
  */
 class Video_Component_Controller_Add extends Phpfox_Component
 {
@@ -23,15 +23,12 @@ class Video_Component_Controller_Add extends Phpfox_Component
 		Phpfox::isUser(true);
 		Phpfox::getUserParam('video.can_upload_videos', true);
 		
-		if ($sPlugin = Phpfox_Plugin::get('video.component_controller_add_1')){eval($sPlugin);if (isset($mReturnFromPlugin)){return $mReturnFromPlugin;}}
-		
 		$sModule = $this->request()->get('module', false);
 		$iItem =  $this->request()->getInt('item', false);		
 		
 		$aCallback = false;
 		if ($sModule !== false && $iItem !== false && Phpfox::hasCallback($sModule, 'getVideoDetails'))
 		{			
-			if ($sPlugin = Phpfox_Plugin::get('video.component_controller_add_2')){eval($sPlugin);if (isset($mReturnFromPlugin)){return $mReturnFromPlugin;}}
 			if (($aCallback = Phpfox::callback($sModule . '.getVideoDetails', array('item_id' => $iItem))))
 			{			
 				$this->template()->setBreadcrumb($aCallback['breadcrumb_title'], $aCallback['breadcrumb_home']);
@@ -56,7 +53,6 @@ class Video_Component_Controller_Add extends Phpfox_Component
 		
 		if (($aVals = $this->request()->get('val')))
 		{
-			if ($sPlugin = Phpfox_Plugin::get('video.component_controller_add_3')){eval($sPlugin);if (isset($mReturnFromPlugin)){return $mReturnFromPlugin;}}
 			if (($iFlood = Phpfox::getUserParam('video.flood_control_videos')) !== 0)
 			{
 				$aFlood = array(
@@ -78,7 +74,6 @@ class Video_Component_Controller_Add extends Phpfox_Component
 					
 			if (Phpfox_Error::isPassed())
 			{			
-				if ($sPlugin = Phpfox_Plugin::get('video.component_controller_add_4')){eval($sPlugin);if (isset($mReturnFromPlugin)){return $mReturnFromPlugin;}}
 				if (Phpfox::getService('video.grab')->get($aVals['url']))
 				{			
 					if ($iId = Phpfox::getService('video.process')->addShareVideo($aVals))

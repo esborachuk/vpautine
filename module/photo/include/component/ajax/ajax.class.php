@@ -11,7 +11,7 @@ defined('PHPFOX') or exit('NO DICE!');
  * @copyright		[PHPFOX_COPYRIGHT]
  * @author  		Raymond Benc
  * @package  		Module_Photo
- * @version 		$Id: ajax.class.php 5365 2013-02-14 10:00:13Z Raymond_Benc $
+ * @version 		$Id: ajax.class.php 5053 2012-11-29 12:32:11Z Raymond_Benc $
  */
 class Photo_Component_Ajax_Ajax extends Phpfox_Ajax
 {
@@ -95,11 +95,9 @@ class Photo_Component_Ajax_Ajax extends Phpfox_Ajax
      */
     public function browse()
     {
-		if (!defined('PHPFOX_IS_AJAX_CONTROLLER')) define('PHPFOX_IS_AJAX_CONTROLLER', true);
 		Phpfox::getLib('module')->getComponent('photo.index', $this->getAll(), 'controller');
-		$this->call('$(".pager_container, .moderation_holder").remove();');
-		$this->call('$(\'#js_ajax_browse_content\').append(\'' . $this->getContent() . '\'); ');
-		$this->call('$Core.loadInit();');
+	
+		$this->call('$(\'#site_content\').html(\'' . $this->getContent() . '\'); $.scrollTo(\'#site_content\', 340); $Behavior.hoverAction(); $Behavior.imageHoverHolder();');
     }
 
     /**
@@ -255,18 +253,6 @@ class Photo_Component_Ajax_Ajax extends Phpfox_Ajax
 		{
 	
 		}
-    }
-    
-    public function deleteTheaterPhoto()
-    {
-    	Phpfox::isUser(true);
-    	
-    	if (Phpfox::getService('photo.process')->delete($this->get('photo_id')))
-    	{
-	    	$this->call("js_box_remove($('.js_box_image_holder_full').find('.js_box_content:first'));");
-	    	$this->call("$('.js_photo_item_" . $this->get('photo_id') . "').parents('.js_parent_feed_entry:first').remove();");
-	    	$this->call("$('#js_photo_id_" . $this->get('photo_id') . "').remove();");
-    	}
     }
 
     public function deletePhoto()
@@ -563,18 +549,9 @@ class Photo_Component_Ajax_Ajax extends Phpfox_Ajax
 		
 						// Add the new file size to the total file size variable
 						$iFileSizes += filesize(Phpfox::getParam('photo.dir_photo') . sprintf($sFileName, '_' . $iSize));
-						
-						if (defined('PHPFOX_IS_HOSTED_SCRIPT'))
-						{
-							unlink(Phpfox::getParam('photo.dir_photo') . sprintf($sFileName, '_' . $iSize));
-						}
 				    }
-
-				    if (Phpfox::getParam('photo.delete_original_after_resize') && $this->get('is_page') != 1)
-				    {
-						Phpfox::getLib('file')->unlink(Phpfox::getParam('photo.dir_photo') . sprintf($sFileName, ''));
-					}
-				    else if (Phpfox::getParam('photo.enabled_watermark_on_photos'))
+		
+				    if (Phpfox::getParam('photo.enabled_watermark_on_photos'))
 				    {
 						$oImage->addMark(Phpfox::getParam('photo.dir_photo') . sprintf($sFileName, ''));
 				    }
@@ -717,13 +694,6 @@ class Photo_Component_Ajax_Ajax extends Phpfox_Ajax
 			$sExtra .= '&is_cover_photo=' . $this->get('is_cover_photo');
 			
 		    $this->call('$.ajaxCall(\'photo.process\', \'&action=' . $this->get('action') . '&js_disable_ajax_restart=true&photos=' . urlencode(base64_encode(json_encode($aImages))) . $sExtra . '\');');
-		}
-		
-		$aVals = $this->get('core');
-		
-		if (isset($aVals['profile_user_id']) && !empty($aVals['profile_user_id']) && $aVals['profile_user_id'] != Phpfox::getUserId() && Phpfox::isModule('notification'))
-		{
-			Phpfox::getService('notification.process')->add('feed_comment_profile', $aPhoto['photo_id'], $aVals['profile_user_id']);
 		}
     }
 

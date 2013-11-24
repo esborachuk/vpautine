@@ -11,7 +11,7 @@ defined('PHPFOX') or exit('NO DICE!');
  * @copyright		[PHPFOX_COPYRIGHT]
  * @author  		Raymond_Benc
  * @package 		Phpfox_Service
- * @version 		$Id: link.class.php 5106 2013-01-08 13:02:25Z Raymond_Benc $
+ * @version 		$Id: link.class.php 4909 2012-10-22 05:56:49Z Raymond_Benc $
  */
 class Link_Service_Link extends Phpfox_Service 
 {
@@ -36,7 +36,7 @@ class Link_Service_Link extends Phpfox_Service
 		{
 			return Phpfox_Error::set(Phpfox::getPhrase('link.not_a_valid_link'));
 		}
-				
+		
 		$aReturn = array();		
 		$oVideo = json_decode(Phpfox::getLib('request')->send('http://api.embed.ly/1/oembed?format=json&maxwidth=400&url=' . urlencode($sUrl), array(), 'GET', $_SERVER['HTTP_USER_AGENT']));
 

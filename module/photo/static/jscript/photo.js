@@ -160,7 +160,12 @@ $Behavior.photoCategoryDropDown = function()
 	});
 	
 	$('#js_photo_album_select').change(function()
-	{		
+	{
+		if ($('#js_is_photo_callback').length > 0)
+		{
+			alert('test');
+		}
+		
 		if (empty(this.value))
 		{
 			$('#js_photo_view_this_album').remove();	

@@ -5,7 +5,7 @@
  * @copyright		[PHPFOX_COPYRIGHT]
  * @author  		Raymond Benc
  * @package 		Phpfox
- * @version 		$Id: entry.html.php 5238 2013-01-29 09:58:54Z Raymond_Benc $
+ * @version 		$Id: entry.html.php 3990 2012-03-09 15:28:08Z Raymond_Benc $
  */
  
 defined('PHPFOX') or exit('NO DICE!'); 
@@ -59,7 +59,7 @@ defined('PHPFOX') or exit('NO DICE!');
 					<a href="#" onclick="$.ajaxCall('music.playInFeed', 'id={$aSong.song_id}', 'GET'); return false;" title="{phrase var='music.play'}: {$aSong.title|clean phpfox_squote=true}">{img theme='misc/play_button.png' class='v_middle'}</a>
 				</div>
 				<div class="music_title_link">
-					<a href="{permalink module='music' id=$aSong.song_id title=$aSong.title}" class="link" title="{$aSong.title|clean}" {if defined('PHPFOX_IS_POPUP')} onclick="window.opener.location.href=this.href; return false;"{/if}>{$aSong.title|clean|shorten:35:'...'|split:20}</a>
+					<a href="{permalink module='music' id=$aSong.song_id title=$aSong.title}" class="link" title="{$aSong.title|clean}" {if defined('PHPFOX_IS_POPUP')} onclick="window.opener.location.href=this.href; return false;"{/if}>{$aSong.title|clean|shorten:50:'...'|split:40}</a>
 					{if !empty($aSong.album_name)}
 					<div class="extra_info">
 						<a href="{permalink module='music.album' id=$aSong.album_id title=$aSong.album_name}" title="{$aSong.album_name|clean}">{$aSong.album_name|clean|shorten:55:'...'|split:40}</a>

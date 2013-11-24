@@ -11,7 +11,7 @@ defined('PHPFOX') or exit('NO DICE!');
  * @copyright		[PHPFOX_COPYRIGHT]
  * @author  		Raymond Benc
  * @package 		Phpfox_Component
- * @version 		$Id: index.class.php 5206 2013-01-28 08:13:23Z Miguel_Espinoza $
+ * @version 		$Id: index.class.php 4074 2012-03-28 14:02:40Z Raymond_Benc $
  */
 class Marketplace_Component_Controller_Index extends Phpfox_Component
 {
@@ -21,7 +21,6 @@ class Marketplace_Component_Controller_Index extends Phpfox_Component
 	public function process()
 	{
 		Phpfox::getUserParam('marketplace.can_access_marketplace', true);
-		Phpfox::getService('marketplace.process')->sendExpireNotifications();
 		
 		if ($this->request()->getInt('req2') > 0)
 		{
@@ -183,16 +182,6 @@ class Marketplace_Component_Controller_Index extends Phpfox_Component
 					$this->template()->assign('bIsInPendingMode', true);
 				}
 				break;
-			case 'expired':
-				if (Phpfox::getParam('marketplace.days_to_expire_listing') > 0 && Phpfox::getUserParam('marketplace.can_view_expired'))
-				{
-					$iExpireTime = (PHPFOX_TIME - (Phpfox::getParam('marketplace.days_to_expire_listing') * 86400));
-					$this->search()->setCondition('AND l.time_stamp < ' . $iExpireTime);
-					break;
-				}
-			case 'invoice':
-				$this->url()->send('marketplace.invoice');
-				break;
 			default:
 				if ($bIsProfile === true)
 				{
@@ -228,12 +217,6 @@ class Marketplace_Component_Controller_Index extends Phpfox_Component
 		
 		$oServiceMarketplaceBrowse->category($sCategoryUrl);	
 			
-		if (Phpfox::getParam('marketplace.days_to_expire_listing') > 0 && $sView != 'my' && $sView != 'expired')
-		{
-			$iExpireTime = (PHPFOX_TIME - (Phpfox::getParam('marketplace.days_to_expire_listing') * 86400));
-			$this->search()->setCondition(' AND l.time_stamp >=' . $iExpireTime );
-		}	
-		
 		$this->search()->browse()->params($aBrowseParams)->execute();		
 		
 		// if its a user trying to buy sponsor space he should get only his own listings
@@ -256,14 +239,9 @@ class Marketplace_Component_Controller_Index extends Phpfox_Component
 			$aFilterMenu = array(
 				Phpfox::getPhrase('marketplace.all_listings') => '',
 				Phpfox::getPhrase('marketplace.my_listings') => 'my',
-				Phpfox::getPhrase('marketplace.listing_invites') . $sInviteTotal => 'invites',
-				Phpfox::getPhrase('marketplace.invoices') => 'invoice'
+				Phpfox::getPhrase('marketplace.listing_invites') . $sInviteTotal => 'invites'
 			);							
-			
-			if (Phpfox::getUserParam('marketplace.can_view_expired'))
-			{
-				$aFilterMenu[Phpfox::getPhrase('marketplace.expired')] = 'expired';
-			}
+				
 			if (Phpfox::isModule('friend') && !Phpfox::getParam('core.friends_only_community'))
 			{
 				$aFilterMenu[Phpfox::getPhrase('marketplace.friends_listings')] = 'friend';	

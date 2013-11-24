@@ -11,7 +11,7 @@ defined('PHPFOX') or exit('NO DICE!');
  * @copyright		[PHPFOX_COPYRIGHT]
  * @author  		Raymond Benc
  * @package  		Module_Poll
- * @version 		$Id: index.class.php 5074 2012-12-06 10:37:26Z Raymond_Benc $
+ * @version 		$Id: index.class.php 5058 2012-11-30 12:57:15Z Raymond_Benc $
  */
 class Poll_Component_Controller_Index extends Phpfox_Component
 {

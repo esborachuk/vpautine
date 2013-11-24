@@ -11,7 +11,7 @@ defined('PHPFOX') or exit('NO DICE!');
  * @copyright		[PHPFOX_COPYRIGHT]
  * @author  		Raymond Benc
  * @package  		Module_User
- * @version 		$Id: auth.class.php 5305 2013-02-01 11:55:29Z Miguel_Espinoza $
+ * @version 		$Id: auth.class.php 5958 2013-05-27 09:55:14Z Raymond_Benc $
  */
 class User_Service_Auth extends Phpfox_Service
 {
@@ -19,14 +19,23 @@ class User_Service_Auth extends Phpfox_Service
 	
 	private $_iOverrideUserId = null;
 
+	private $_sNameCookieUserId = 'user_id';
+	private $_sNameCookieHash = 'user_hash';
+
 	/**
 	 * Class constructor
 	 */
 	public function __construct()
 	{
+		if (Phpfox::getParam('core.use_custom_cookie_names'))
+		{
+			$this->_sNameCookieUserId = md5(Phpfox::getParam('core.custom_cookie_names_hash') . $this->_sNameCookieUserId);
+			$this->_sNameCookieHash = md5(Phpfox::getParam('core.custom_cookie_names_hash') . $this->_sNameCookieHash);
+		}
+
 		$this->_sTable = Phpfox::getT('user');
-		$iUserId = (int) Phpfox::getCookie('user_id');
-		$sPasswordHash = Phpfox::getCookie('user_hash');
+		$iUserId = (int) Phpfox::getCookie($this->_sNameCookieUserId);
+		$sPasswordHash = Phpfox::getCookie($this->_sNameCookieHash);
 
 		if (isset($_POST['flash_user_id']) && isset($_POST['sHash']))
 		{
@@ -70,9 +79,16 @@ class User_Service_Auth extends Phpfox_Service
 
 				(($sPlugin = Phpfox_Plugin::get('user.service_auth___construct_query')) ? eval($sPlugin) : false);
 
-				if ($oSession->get('session'))
+				if (Phpfox::getParam('core.auth_user_via_session'))
 				{
-					$this->database()->select('ls.session_hash, ls.id_hash, ls.captcha_hash, ls.user_id, ls.im_status, ')->leftJoin(Phpfox::getT('log_session'), 'ls', "ls.session_hash = '" . $this->database()->escape($oSession->get('session')) . "' AND ls.id_hash = '" . $this->database()->escape($oRequest->getIdHash()) . "'");
+					$this->database()->select('ls.session_hash, ls.id_hash, ls.captcha_hash, ls.user_id, ls.im_status, ')->join(Phpfox::getT('log_session'), 'ls', "ls.user_id = u.user_id");
+				}
+				else
+				{
+					if ($oSession->get('session'))
+					{
+						$this->database()->select('ls.session_hash, ls.id_hash, ls.captcha_hash, ls.user_id, ls.im_status, ')->leftJoin(Phpfox::getT('log_session'), 'ls', "ls.session_hash = '" . $this->database()->escape($oSession->get('session')) . "' AND ls.id_hash = '" . $this->database()->escape($oRequest->getIdHash()) . "'");
+					}
 				}
 
 				if ((Phpfox::getLib('request')->get('req1') == ''
@@ -86,7 +102,7 @@ class User_Service_Auth extends Phpfox_Service
 				if ((Phpfox::getLib('request')->get('req1') == '') || (Phpfox::getLib('request')->get('req1') == 'core'))
 				{
 					$bLoadUserField = true;
-					$sUserFieldSelect .= 'uf.total_view, u.last_login, uf.location_latlng, ';
+					$sUserFieldSelect .= 'uf.total_view, u.last_login, ';
 				}
 					
 				if (strtolower(Phpfox::getLib('request')->get('req1')) == Phpfox::getParam('admincp.admin_cp'))
@@ -95,7 +111,7 @@ class User_Service_Auth extends Phpfox_Service
 					$sUserFieldSelect .= 'uf.in_admincp, ';						
 				}
 				
-				if (Phpfox::isModule('ad') && Phpfox::getParam('ad.advanced_ad_filters'))
+				if (Phpfox::getParam('ad.advanced_ad_filters'))
 				{
 					$bLoadUserField = true;
 					$sUserFieldSelect .= 'uf.postal_code, uf.city_location, uf.country_child_id, ';
@@ -132,11 +148,17 @@ class User_Service_Auth extends Phpfox_Service
 					$this->_setDefault();
 					$this->logout();
 				}		
-				
+
 				if (isset($this->_aUser['user_id']))
 				{
 					$this->_aUser['age'] = Phpfox::getService('user')->age(isset($this->_aUser['birthday']) ? $this->_aUser['birthday'] : '');
 					$this->_aUser['im_hide'] = ((isset($this->_aUser['is_invisible']) && $this->_aUser['is_invisible']) ? 1 : (isset($this->_aUser['im_hide']) ? $this->_aUser['im_hide'] : 1));
+
+					if (Phpfox::getParam('core.auth_user_via_session') && isset($this->_aUser['id_hash']) && $oRequest->getIdHash() != $this->_aUser['id_hash'])
+					{
+						$this->_setDefault();
+						$this->logout();
+					}
 				}
 
 				(($sPlugin = Phpfox_Plugin::get('user.service_auth___construct_end')) ? eval($sPlugin) : false);
@@ -153,6 +175,11 @@ class User_Service_Auth extends Phpfox_Service
 				$this->_setDefault();
 			}
 		}		
+	}
+
+	public function getCookieNames()
+	{
+		return array($this->_sNameCookieUserId, $this->_sNameCookieHash);
 	}
 
 	public function getUserSession()
@@ -418,8 +445,8 @@ class User_Service_Auth extends Phpfox_Service
 
 			// Set cookie (yummy)
 			$iTime = ($bRemember ? (PHPFOX_TIME + 3600 * 24 * 365) : 0);
-			Phpfox::setCookie('user_id', $aRow['user_id'], $iTime);
-			Phpfox::setCookie('user_hash', $sPasswordHash, $iTime);
+			Phpfox::setCookie($this->_sNameCookieUserId, $aRow['user_id'], $iTime, (Phpfox::getParam('core.force_secure_site') ? true : false));
+			Phpfox::setCookie($this->_sNameCookieHash, $sPasswordHash, $iTime, (Phpfox::getParam('core.force_secure_site') ? true : false));
 			if (!defined('PHPFOX_INSTALLER'))
 			{
 				Phpfox::getLib('session')->remove(Phpfox::getParam('core.theme_session_prefix') . 'theme');
@@ -432,7 +459,20 @@ class User_Service_Auth extends Phpfox_Service
 					'ip_address' => Phpfox::getIp(),
 					'time_stamp' => PHPFOX_TIME
 				)
-			);	
+			);
+
+			if (Phpfox::getParam('core.auth_user_via_session'))
+			{
+				$this->database()->delete(Phpfox::getT('log_session'), 'user_id = ' . (int) $aRow['user_id']);
+				$this->database()->insert(Phpfox::getT('log_session'), array(
+						'session_hash' => Phpfox::getLib('request')->getSessionHash(),
+						'id_hash' => Phpfox::getLib('request')->getIdHash(),
+						'user_id' => $aRow['user_id'],
+						'last_activity' => PHPFOX_TIME
+					)
+				);
+			}
+
 			if ($sPlugin = Phpfox_Plugin::get('user.service_auth_login__cookie_end')){eval($sPlugin);}
 			return array(true, $aRow);
 		}
@@ -451,11 +491,16 @@ class User_Service_Auth extends Phpfox_Service
 					'ip_address' => Phpfox::getIp(),
 					'time_stamp' => PHPFOX_TIME
 				)
-			);		
+			);
+
+			if (Phpfox::getParam('core.auth_user_via_session'))
+			{
+				$this->database()->delete(Phpfox::getT('log_session'), 'user_id = ' . (int) $this->_aUser['user_id']);
+			}
 		}
 
-		Phpfox::setCookie('user_id', '', -1);
-		Phpfox::setCookie('user_hash', '', -1);
+		Phpfox::setCookie($this->_sNameCookieUserId, '', -1);
+		Phpfox::setCookie($this->_sNameCookieHash, '', -1);
 		Phpfox::getLib('session')->remove(Phpfox::getParam('core.theme_session_prefix') . 'theme');
 		if ($sPlugin = Phpfox_Plugin::get('user.service_auth_logout__end')){eval($sPlugin);}
 	}
@@ -594,7 +639,7 @@ class User_Service_Auth extends Phpfox_Service
 		}
 		
 		// user needs to be approved first
-		if (Phpfox::isUser() && Phpfox::getUserBy('view_id') == '1')
+		if (Phpfox::isUser() && Phpfox::getUserBy('view_id') == '1' && Phpfox::getParam('user.approve_users'))
 		{			
 			$this->_setDefault();
 			$this->logout();			
@@ -688,8 +733,8 @@ class User_Service_Auth extends Phpfox_Service
 			'logging_in_as' => $aUser['user_id']
 		));
 
-		Phpfox::setCookie('user_id', $aUser['user_id'], $iTime);
-		Phpfox::setCookie('user_hash', $sPasswordHash, $iTime);
+		Phpfox::setCookie($this->_sNameCookieUserId, $aUser['user_id'], $iTime);
+		Phpfox::setCookie($this->_sNameCookieHash, $sPasswordHash, $iTime);
 		if (!defined('PHPFOX_INSTALLER'))
 		{
 			Phpfox::getLib('session')->remove(Phpfox::getParam('core.theme_session_prefix') . 'theme');

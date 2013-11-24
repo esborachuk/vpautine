@@ -11,7 +11,7 @@ defined('PHPFOX') or exit('NO DICE!');
  * @copyright		[PHPFOX_COPYRIGHT]
  * @author  		Raymond Benc
  * @package  		Module_User
- * @version 		$Id: register.class.php 5147 2013-01-16 09:43:00Z Raymond_Benc $
+ * @version 		$Id: register.class.php 4588 2012-08-09 10:18:00Z Raymond_Benc $
  */
 class User_Component_Controller_Register extends Phpfox_Component
 {
@@ -33,6 +33,7 @@ class User_Component_Controller_Register extends Phpfox_Component
 		}
 
 		$oValid = Phpfox::getLib('validator')->set(array('sFormName' => 'js_form', 'aParams' => Phpfox::getService('user.register')->getValidation()));
+
 		if ($aVals = $this->request()->getArray('val'))
 		{
 			if (Phpfox::getService('invite')->isInviteOnly())
@@ -70,8 +71,8 @@ class User_Component_Controller_Register extends Phpfox_Component
 							Phpfox_Error::set(Phpfox::getPhrase('user.email_s_do_not_match'));
 						}
 					}
-				}	
-				
+				}
+	
 				(($sPlugin = Phpfox_Plugin::get('user.component_controller_register_2')) ? eval($sPlugin) : false);
 				if ($oValid->isValid($aVals))
 				{
@@ -104,14 +105,7 @@ class User_Component_Controller_Register extends Phpfox_Component
 								else 
 								{
 									(($sPlugin = Phpfox_Plugin::get('user.component_controller_register_6')) ? eval($sPlugin) : false);
-									if (Phpfox::getLib('session')->get('appinstall') != '')
-									{
-										$this->url()->send('apps.install.' . Phpfox::getLib('session')->get('appinstall'));
-									}
-									else
-									{
-										$this->url()->send('');
-									}
+									$this->url()->send('');
 								}
 							}
 						}

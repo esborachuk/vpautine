@@ -21,7 +21,7 @@ defined('PHPFOX') or exit('NO DICE!');
  * @copyright		[PHPFOX_COPYRIGHT]
  * @author			Raymond Benc
  * @package 		Phpfox
- * @version 		$Id: setting.class.php 5186 2013-01-23 10:53:04Z Raymond_Benc $
+ * @version 		$Id: setting.class.php 5958 2013-05-27 09:55:14Z Raymond_Benc $
  */
 class Phpfox_Setting
 {
@@ -82,7 +82,9 @@ class Phpfox_Setting
 		'core.date_field_order' => 'MDY',
 		'core.cache_storage' => 'file',
 		'core.allow_cdn' => false,
-		'core.is_auto_hosted' => false
+		'core.is_auto_hosted' => false,
+		'core.store_only_users_in_session' => false,
+		'core.ip_check' => 1
 	);
 	
 	/**
@@ -151,8 +153,17 @@ class Phpfox_Setting
 		{
 			$_CONF['core.path'] = '../';	
 			$_CONF['core.url_file'] = '../file/';
-		}			
-				
+		}
+
+		if (file_exists(PHPFOX_DIR_SETTING . 'security.sett.php'))
+		{
+			require_once(PHPFOX_DIR_SETTING . 'security.sett.php');
+		}
+		else
+		{
+			require_once(PHPFOX_DIR_SETTING . 'security.sett.php.new');
+		}
+
 		$this->_aParams =& $_CONF;
 		
 		if (defined('PHPFOX_INSTALLER'))

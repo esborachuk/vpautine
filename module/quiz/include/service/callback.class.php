@@ -10,7 +10,7 @@ defined('PHPFOX') or exit('NO DICE!');
  * @copyright		[PHPFOX_COPYRIGHT]
  * @author  		Raymond Benc
  * @package  		Module_Quiz
- * @version 		$Id: callback.class.php 5225 2013-01-28 13:08:46Z Miguel_Espinoza $
+ * @version 		$Id: callback.class.php 4545 2012-07-20 10:40:35Z Raymond_Benc $
  */
 class Quiz_Service_Callback extends Phpfox_Service 
 {
@@ -787,24 +787,6 @@ Phpfox::getPhrase('quiz.full_name_commented_on_gender_quiz',array('full_name' =>
 			'link' => Phpfox::getLib('url')->permalink('quiz', $aRow['quiz_id'], $aRow['title'])  . 'comment_'.$aNotification['item_id'],
 			'message' => $sPhrase,
 			'icon' => Phpfox::getLib('template')->getStyle('image', 'activity.png', 'blog')
-		);
-	}
-	
-	public function getActions()
-	{
-		return array(
-			'dislike' => array(
-				'enabled' => true,
-				'action_type_id' => 2, // 2 = dislike
-				'phrase' => 'Dislike',
-				'phrase_in_past_tense' => 'disliked',
-				'item_type_id' => 'quiz', // used to differentiate between photo albums and photos for example.
-				'table' => 'quiz',
-				'item_phrase' => Phpfox::getPhrase('quiz.item_phrase'),
-				'column_update' => 'total_dislike',
-				'column_find' => 'quiz_id',
-				'where_to_show' => array('quiz')
-				)
 		);
 	}
 	

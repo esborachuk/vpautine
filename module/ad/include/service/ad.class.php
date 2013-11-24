@@ -12,7 +12,7 @@ defined('PHPFOX') or exit('NO DICE!');
  * @copyright		[PHPFOX_COPYRIGHT]
  * @author  		Raymond Benc
  * @package 		Module_Ad
- * @version 		$Id: ad.class.php 5382 2013-02-18 09:48:39Z Miguel_Espinoza $
+ * @version 		$Id: ad.class.php 4632 2012-09-14 12:55:28Z Miguel_Espinoza $
  */
 class Ad_Service_Ad extends Phpfox_Service 
 {
@@ -314,8 +314,6 @@ class Ad_Service_Ad extends Phpfox_Service
 			$this->cache()->save($sCacheId, $aAds);
 		}		
 
-        if ($sPlugin = Phpfox_Plugin::get('ad.service_ad_getforblock__1')){eval($sPlugin);}
-        
 		if (!is_array($aAds) || (is_array($aAds) && !count($aAds)))
 		{
 			$aCacheAd[$iId] = array();

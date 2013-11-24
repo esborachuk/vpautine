@@ -11,7 +11,7 @@ defined('PHPFOX') or exit('NO DICE!');
  * @copyright		[PHPFOX_COPYRIGHT]
  * @author  		Raymond Benc
  * @package  		Module_Photo
- * @version 		$Id: index.class.php 5316 2013-02-04 10:10:18Z Miguel_Espinoza $
+ * @version 		$Id: index.class.php 4770 2012-09-26 07:59:38Z Raymond_Benc $
  */
 class Photo_Component_Controller_Index extends Phpfox_Component
 {
@@ -20,80 +20,14 @@ class Photo_Component_Controller_Index extends Phpfox_Component
 	 */
 	public function process()
 	{		
-		if (Phpfox::getParam('photo.show_info_on_mouseover'))
-		{
-		    $this->template()->setHeader(array(
-			'index.css' => 'module_photo',
-			'index.js' => 'module_photo'			
-			));		
-		}
-		
-		if (defined('PHPFOX_IS_USER_PROFILE') )//&& Phpfox::getParam('profile.display_submenu_for_photo') != true)
-		{
-		    $aUser = $this->getParam('aUser');
-		    $bShowPhotos = $this->request()->get('req3') != 'albums';
-		    
-		    if ($this->request()->get('req3') == '')
-		    {
-			$bShowPhotos = Phpfox::getParam('photo.in_main_photo_section_show') != 'albums';
-		    }
-		    $aInfo = array(
-			'total_albums' => Phpfox::getService('photo.album')->getAlbumCount($aUser['user_id']),
-			'total_photos' => $aUser['total_photo']
-		    );
-		    $bSpecialMenu = (!defined('PHPFOX_IS_AJAX_CONTROLLER'));
-		    
-		    $this->template()->assign(array(
-			'bSpecialMenu' => $bSpecialMenu,
-			'aInfo' => $aInfo,
-			'bShowPhotos' => $bShowPhotos,
-			'sLinkPhotos' => $this->url()->makeUrl($aUser['user_name'] . '.photo.photos'),
-			'sLinkAlbums' => $this->url()->makeUrl($aUser['user_name'] . '.photo.albums'))
-		    );
-			    
-		}
-		else
-		{		    
-		    $this->template()->assign(array('bSpecialMenu' => false))
-			    ->setFullSite();
-		}
-		
-		
-		if (Phpfox::getParam('photo.show_info_on_mouseover') && isset($aUser['use_timeline']) && $aUser['use_timeline'])
-		{
-		    $this->template()->setFullSite();
-		}
-		if (!$this->request()->get('delete') && defined('PHPFOX_IS_PAGES_VIEW') && ($this->request()->get('req3') == 'albums' || $this->request()->get('req4') == 'albums'))
+		if (defined('PHPFOX_IS_PAGES_VIEW') && ($this->request()->get('req3') == 'albums' || $this->request()->get('req4') == 'albums'))
 		{
 			Phpfox::getComponent('photo.albums', array('bNoTemplate' => true), 'controller');
 			
 			return;
 		}
 		
-		
-		
-		if (
-			( (defined('PHPFOX_IS_USER_PROFILE') /*&& Phpfox::getParam('profile.display_submenu_for_photo') != true*/)
-			    || !defined('PHPFOX_IS_USER_PROFILE'))
-			&& $this->request()->get('req3') != 'photos' && !in_array($this->request()->get('view'), array('my','photos', 'pending')) && !is_numeric($this->request()->get('req2'))
-			&& Phpfox::getParam('photo.in_main_photo_section_show') == 'albums'
-			&& !$this->request()->get('delete')
-            && !$this->request()->get('search-id')
-		    )
-		{
-		    
-		    Phpfox::getComponent('photo.albums', array('bNoTemplate' => true), 'controller');
-		    return;
-		}
-		
-		$sAssert = $this->request()->get('req4', false);		
-		if (/*Phpfox::getParam('profile.display_submenu_for_photo') != true
-			&&*/ ($this->request()->get('req3') == 'photos' || $this->request()->get('req3') == 'albums')
-			&& $sAssert == false)
-		{
-		    
-		}
-		else if (defined('PHPFOX_IS_USER_PROFILE') && ($sLegacyTitle = $this->request()->get('req3')) && !empty($sLegacyTitle))
+		if (defined('PHPFOX_IS_USER_PROFILE') && ($sLegacyTitle = $this->request()->get('req3')) && !empty($sLegacyTitle))
 		{
 			if (($sLegacyPhoto = $this->request()->get('req4')) && !empty($sLegacyPhoto))
 			{
@@ -190,20 +124,9 @@ class Photo_Component_Controller_Index extends Phpfox_Component
 		$bIsUserProfile = false;
 		if (defined('PHPFOX_IS_AJAX_CONTROLLER'))
 		{
-			if ($this->request()->get('profile_id', null) !== null)
-			{
-			    $aUser = Phpfox::getService('user')->get($this->request()->get('profile_id'));
-			    $bIsUserProfile = true;
-			    $this->setParam('aUser', $aUser);
-			}
-			else if ($this->request()->get('req1', null) !== null)
-			{
-			    if (($aUser = Phpfox::getService('user')->get($this->request()->get('req1'), false)))			    
-			    {
-				$bIsUserProfile = true;
-				$this->setParam('aUser', $aUser);
-			    }
-			}
+			$bIsUserProfile = true;
+			$aUser = Phpfox::getService('user')->get($this->request()->get('profile_id'));
+			$this->setParam('aUser', $aUser);
 		}		
 		
 		// Used to control privacy 
@@ -271,8 +194,6 @@ class Photo_Component_Controller_Index extends Phpfox_Component
 			$aSort['top-battle'] = array('photo.total_battle', Phpfox::getPhrase('photo.top_battle'));
 		}
 		
-		$aPhotoDisplays = Phpfox::getUserParam('photo.total_photos_displays');
-		
 		$this->search()->set(array(
 				'type' => 'photo',
 				'field' => 'photo.photo_id',				
@@ -285,7 +206,7 @@ class Photo_Component_Controller_Index extends Phpfox_Component
 						'field' => 'photo.title'
 					),
 					'sort' => $aSort,
-					'show' => (array) $aPhotoDisplays
+					'show' => (array) Phpfox::getUserParam('photo.total_photos_displays')
 				)
 			)
 		);		
@@ -417,12 +338,8 @@ class Photo_Component_Controller_Index extends Phpfox_Component
 		$aPager = array(
 				'page' => $this->search()->getPage(), 
 				'size' => $this->search()->getDisplay(), 
-				'count' => $this->search()->browse()->getCount()				
+				'count' => $this->search()->browse()->getCount()
 			);
-		if (Phpfox::getParam('photo.show_info_on_mouseover'))
-		{
-		    $aPager['ajax'] = 'photo.browse';    
-		}
 		
 		if ($aPager['size'] > Phpfox::getUserParam('photo.max_photo_display_limit'))
 		{
@@ -430,7 +347,6 @@ class Photo_Component_Controller_Index extends Phpfox_Component
 		}
 		Phpfox::getLib('pager')->set($aPager);
 				
-		
 		$this->template()->setTitle(($bIsUserProfile ? Phpfox::getPhrase('photo.full_name_s_photos', array('full_name' => $aUser['full_name'])) : Phpfox::getPhrase('photo.photos')))
 			->setBreadcrumb(Phpfox::getPhrase('photo.photos'), $sPhotoUrl)
 			->setMeta('keywords', Phpfox::getParam('photo.photo_meta_keywords'))
@@ -453,8 +369,7 @@ class Photo_Component_Controller_Index extends Phpfox_Component
 					'view.css' => 'module_photo',
 					'feed.js' => 'module_feed',
 					'browse.css' => 'module_photo',
-					'edit.css' => 'module_photo',
-					'index.js' => 'module_photo'
+					'edit.css' => 'module_photo'
 				)
 			)
 			->assign(array(
@@ -462,8 +377,7 @@ class Photo_Component_Controller_Index extends Phpfox_Component
 					'bIsAjax' => PHPFOX_IS_AJAX,
 					'sPhotoUrl' => $sPhotoUrl,				
 					'sView' => $sView,
-					'bIsMassEditUpload' => $bIsMassEditUpload,
-					'iPhotosPerRow' => 4
+					'bIsMassEditUpload' => $bIsMassEditUpload
 				)
 			);	
 		

@@ -11,7 +11,7 @@ defined('PHPFOX') or exit('NO DICE!');
  * @copyright		[PHPFOX_COPYRIGHT]
  * @author  		Raymond Benc
  * @package 		Phpfox_Service
- * @version 		$Id: process.class.php 5112 2013-01-11 06:56:25Z Raymond_Benc $
+ * @version 		$Id: process.class.php 4397 2012-06-27 14:54:23Z Miguel_Espinoza $
  */
 class Forum_Service_Post_Process extends Phpfox_Service 
 {
@@ -65,11 +65,6 @@ class Forum_Service_Post_Process extends Phpfox_Service
 		{
 			if ($aCallback === false)
 			{
-				if (empty($aVals['forum_id']))
-				{
-					$aVals['forum_id'] = $aThread['forum_id'];
-				}
-				
 				foreach (Phpfox::getService('forum')->id($aVals['forum_id'])->getParents() as $iForumid)
 				{
 					$this->database()->update(Phpfox::getT('forum'), array('thread_id' => $aVals['thread_id'], 'post_id' => $iId, 'last_user_id' => (isset($aExtra['user_id']) ? $aExtra['user_id'] : Phpfox::getUserId())), 'forum_id = ' . $iForumid);

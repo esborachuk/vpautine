@@ -13,7 +13,7 @@ defined('PHPFOX') or exit('NO DICE!');
  * @copyright		[PHPFOX_COPYRIGHT]
  * @author			Raymond Benc
  * @package 		Phpfox
- * @version 		$Id: module.class.php 5319 2013-02-04 12:53:36Z Miguel_Espinoza $
+ * @version 		$Id: module.class.php 5958 2013-05-27 09:55:14Z Raymond_Benc $
  */
 class Phpfox_Module
 {	
@@ -356,13 +356,13 @@ class Phpfox_Module
 		{
 			$this->_sModule = 'admincp';			
 		}	
-/*
+
 		if (Phpfox::isUser() && Phpfox::getParam('core.is_auto_hosted') && Phpfox::getService('log.session')->getOnlineMembers() > Phpfox::getParam('core.phpfox_max_users_online'))
 		{
 			$this->_sModule = 'core';
 			$this->_sController = 'full';
 		}		
-*/
+		
 		(($sPlugin = Phpfox_Plugin::get('module_setcontroller_end')) ? eval($sPlugin) : false);
 		
 		// Set the language pack cache
@@ -390,6 +390,16 @@ class Phpfox_Module
 				if (!isset($_SERVER['HTTPS']))
 				{
 					Phpfox::getLib('url')->send(str_replace('mobile.', '', $this->getFullControllerName()));
+				}
+			}
+			else
+			{
+				if (Phpfox::getParam('core.force_secure_site') && Phpfox::isUser())
+				{
+					if (!isset($_SERVER['HTTPS']))
+					{
+						Phpfox::getLib('url')->send(str_replace('mobile.', '', $this->getFullControllerName()));
+					}
 				}
 			}
 		}
@@ -466,7 +476,7 @@ class Phpfox_Module
 		static $aBlocks = array();	
 		static $bIsOrdered = false;
 		
-		if (Phpfox::getService('profile')->timeline() && $iId == '1' && !defined('PAGE_TIME_LINE'))
+		if (Phpfox::getService('profile')->timeline() && $iId == '1')
 		{
 			$aBlocks[$iId] = array();
 			
@@ -580,7 +590,6 @@ class Phpfox_Module
 				else 
 				{				
 					$aBlocks[$iId][] = $sKey;
-					if ($sPlugin = Phpfox_Plugin::get('library_module_getmoduleblocks_1')){eval($sPlugin);if (isset($bReturnFromPlugin)) return $bReturnFromPlugin;}
 				}			
 			}	
 		}		
@@ -717,7 +726,7 @@ class Phpfox_Module
 	{
 		(($sPlugin = Phpfox_Plugin::get('module_getcomponent_start')) ? eval($sPlugin) : false);
 
-		if ($sType == 'ajax' && strpos($sClass, '.') === false)
+		if ($sType == 'ajax' && !strpos($sClass, '.'))
 		{
 			$sClass = $sClass . '.ajax';
 		}	
@@ -1357,7 +1366,7 @@ class Phpfox_Module
 	 * Cache all the active modules based on the package the client is using.
 	 *
 	 */
-	public function _cacheModules()
+	private function _cacheModules()
 	{
 		$oCache = Phpfox::getLib('cache');
 		$iCachedId = $oCache->set('module');		

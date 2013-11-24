@@ -11,17 +11,19 @@ defined('PHPFOX') or exit('NO DICE!');
  * @copyright		[PHPFOX_COPYRIGHT]
  * @author  		Raymond Benc
  * @package  		Module_Video
- * @version 		$Id: video.class.php 5196 2013-01-25 12:35:36Z Raymond_Benc $
+ * @version 		$Id: video.class.php 5005 2012-11-09 06:27:27Z Raymond_Benc $
  */
 class Video_Service_Video extends Phpfox_Service
 {
 	private $_aExt = array(
 		'mpg' => 'video/mpeg',
-		'mpeg' => 'video/mpeg',			
+		'mpeg' => 'video/mpeg',
 		'wmv' => 'video/x-ms-wmv',
 		'avi' => 'video/avi',
 		'mov' => 'video/quicktime',
 		'flv' => 'video/x-flv'
+		// 'mp4' => 'video/mp4',
+		// '3gp' => 'video/3gpp'
 	);
 
 	private $_aCallback = false;
@@ -32,22 +34,6 @@ class Video_Service_Video extends Phpfox_Service
 	public function __construct()
 	{
 		$this->_sTable = Phpfox::getT('video');
-		if (Phpfox::getParam('video.vidly_support'))
-		{
-			$this->_aExt = array(
-					'mp4' => 'video/mp4',
-					'mov' => 'video/quicktime',
-					'flv' => 'video/x-flv',
-					'wmv' => 'video/x-ms-wmv',
-					'mpg' => 'video/mpeg',
-					'mpeg' => 'video/mpeg',
-					'm4v' => 'video/x-m4v',
-					'avi' => 'video/avi',
-					'webm' => 'video/webm',
-					'ogv' => 'video/ogg',
-					'mkv' => 'video/x-matroska'					 
-					);
-		}
 	}
 	
 	public function isNewVideoDone($iVideoId)
@@ -98,7 +84,7 @@ class Video_Service_Video extends Phpfox_Service
 		
 		$oXmlBuilder->closeGroup();				
 		
-		$aReturn = Phpfox::getLib('request')->send('http://m.vid.ly/api/', array('xml' => $oXmlBuilder->output()));
+		$aReturn = Phpfox::getLib('request')->send('http://m.vid.ly/api/', array('xml' => $oXmlBuilder->output()));		
 		
 		return $aReturn;
 	}
@@ -259,22 +245,7 @@ class Video_Service_Video extends Phpfox_Service
 				$this->database()->update(Phpfox::getT('video_embed'), array('embed_code' => $aEmbedVideo['embed_code']), 'video_id = ' . $aVideo['video_id']);
 			}
 
-			$aVideo['embed_code'] = $aEmbedVideo['embed_code'];	
-			if (Phpfox::getParam('video.use_youtube_iframe') && isset($aEmbedVideo['video_url']) && !empty($aEmbedVideo['video_url']))
-			{
-				$sUrl = parse_url($aEmbedVideo['video_url'], PHP_URL_QUERY);
-				$aUrlParts = explode('&', $sUrl);
-				foreach ($aUrlParts as $sPart)
-				{
-					if (strpos($sPart, 'v=') !== false)
-					{
-						$aVideo['video_url'] = str_replace('v=', '', $sPart);
-						break;
-					}
-				}
-			}
-			
-			
+			$aVideo['embed_code'] = $aEmbedVideo['embed_code'];			
 			if (preg_match('/youtube/i', $aEmbedVideo['video_url']) || preg_match('/youtu\.be/i', $aEmbedVideo['video_url']))
 			{
 				if (preg_match('/<iframe(.*)><\/iframe>/i', $aVideo['embed_code']))
@@ -707,22 +678,6 @@ class Video_Service_Video extends Phpfox_Service
 		return $aRows;
 	}
 
-	public function getInfoForAction($aItem)
-	{
-		if (is_numeric($aItem))
-		{
-			$aItem = array('item_id' => $aItem);
-		}
-		$aRow = $this->database()->select('v.video_id, v.title, v.user_id, u.gender, u.full_name')	
-			->from(Phpfox::getT('video'), 'v')
-			->join(Phpfox::getT('user'), 'u', 'u.user_id = v.user_id')
-			->where('v.video_id = ' . (int) $aItem['item_id'])
-			->execute('getSlaveRow');
-						
-		$aRow['link'] = Phpfox::getLib('url')->permalink('video', $aRow['video_id'], $aRow['title']);
-		return $aRow;
-	}
-	
 	/**
 	 * If a call is made to an unknown method attempt to connect
 	 * it to a specific plug-in with the same name thus allowing

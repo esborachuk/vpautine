@@ -22,10 +22,7 @@ if (Phpfox::getParam('core.default_music_player') == 'flowplayer' && empty($aVid
 	{
 		if ($aVideo['server_id'] && Phpfox::getParam('core.allow_cdn'))
 		{
-			//$sConfig .= '\'baseUrl\': \'' . Phpfox::getLib('cdn')->getUrl(Phpfox::getParam('video.url'), $aVideo['server_id'], true) . '\',';
-		    $sTempVideoPath = Phpfox::getLib('cdn')->getUrl(Phpfox::getParam('video.url') . $aVideo['destination'], $aVideo['server_id']); 
-		    $aVideo['destination'] = str_replace(Phpfox::getLib('cdn')->getUrl(Phpfox::getParam('video.url'), $aVideo['server_id'], true), '', $sTempVideoPath);
-		    $sConfig .= '\'baseUrl\': \'' . Phpfox::getLib('cdn')->getUrl(Phpfox::getParam('video.url'), $aVideo['server_id'], true) . '\','; 
+			$sConfig .= '\'baseUrl\': \'' . Phpfox::getLib('cdn')->getUrl(Phpfox::getParam('video.url'), $aVideo['server_id'], true) . '\',';
 		}
 		else
 		{

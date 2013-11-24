@@ -11,7 +11,7 @@ defined('PHPFOX') or exit('NO DICE!');
  * @copyright		[PHPFOX_COPYRIGHT]
  * @author  		Raymond Benc
  * @package 		Phpfox_Service
- * @version 		$Id: browse.class.php 5032 2012-11-19 13:58:57Z Miguel_Espinoza $
+ * @version 		$Id: browse.class.php 4545 2012-07-20 10:40:35Z Raymond_Benc $
  */
 class Marketplace_Service_Browse extends Phpfox_Service 
 {
@@ -140,11 +140,7 @@ class Marketplace_Service_Browse extends Phpfox_Service
 				'feed_title' => $aListing['title'],
 				'type_id' => 'marketplace'
 			);				
-			// Mark expired items here so its easier to display them in the template
-			if ( (Phpfox::getParam('marketplace.days_to_expire_listing') > 0) && ( $aListing['time_stamp'] < (PHPFOX_TIME - (Phpfox::getParam('marketplace.days_to_expire_listing') * 86400)) ) )
-			{
-				$aRows[$iKey]['is_expired'] = true;
-			}
+				
 			$aRows[$iKey]['url'] = Phpfox::getLib('url')->permalink('marketplace', $aListing['listing_id'], $aListing['title']);			
 		}
 	}	

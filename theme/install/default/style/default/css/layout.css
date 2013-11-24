@@ -3,12 +3,12 @@ body
 {
 	text-align:center;
 	padding:0px;
-	background:#F1F1F1 url('../image/layout/install_bg.png') repeat-x;
+	background:#F1F1F1;
 	font-family:Arial,sans-serif;
 	color:#2D2E30;
 	font-size:10pt;
 	text-align:center;
-	margin:0px;
+	margin:5px 0 0 0;
 }
 
 a
@@ -72,9 +72,9 @@ textarea
 
 div#container
 {
+	text-align:left;
 	width:980px;
-	margin:auto;
-	position:relative;	
+	position:absolute;	
 }
 
 .button
@@ -83,21 +83,22 @@ div#container
 	border:none;
 	font-size:12px;
 	margin:0px;
-	padding:12px;
+	padding:8px;
 	vertical-align:middle;
 	font-weight:bold;
 	overflow: visible;	
 	color:#fff;	
-	background:#009AEF;
-	text-transform:uppercase;
+	background:url('../image/layout/install_button.png') repeat-x;
+	border:1px #00437F solid;
+	
+  	-moz-box-shadow:3px 3px 3px #CFCFCF;
+  	-webkit-box-shadow:3px 3px 3px #CFCFCF;
+  	box-shadow:3px 3px 3px #CFCFCF;
 }
 
-.button:hover
+.button:focus
 {
-	background:#007BBF;
-	-webkit-transition: all 0.50s ease;
-	-moz-transition: all 0.50s ease;
-	-o-transition: all 0.50s ease;		
+	border:1px #00437F solid;
 }
 
 .warning
@@ -113,38 +114,54 @@ div#container
 
 #main
 {
+	background:#FFFFFF;
+	padding:10px;
 	text-align:left;	
+	border:1px #E7E7E7 solid;
+	
+  	-moz-box-shadow:6px 6px 6px #CFCFCF;
+  	-webkit-box-shadow:6px 6px 6px #CFCFCF;
+  	box-shadow:6px 6px 6px #CFCFCF;		
+	
+	-moz-border-radius:20px;
+	-webkit-border-radius:20px;		
+	border-radius:20px;
 }
 
 #main .left
 {
 	position:absolute;
-	width:200px;
+	width:195px;
+	background:#333 url('../image/layout/install_left.png') repeat-x bottom;
+	height:400px;
 	left:0;
-	top:0px;
-	color:#6F6F6F;
-		
+	margin-left:10px;
+	color:#7F7F7F;
+	
+	-moz-border-radius:20px;
+	-webkit-border-radius:20px;	
+	border-radius:20px;
+	
+  	-moz-box-shadow:3px 3px 3px #CFCFCF;
+  	-webkit-box-shadow:3px 3px 3px #CFCFCF;
+  	box-shadow:3px 3px 3px #CFCFCF;		
 }
 
 #main .logo
 {
-	height:50px;
-	line-height:50px;
+	padding:10px 0px 5px 0px;
 	margin-bottom:5px;
-	text-align:center;
-	padding-left:30px;
+	text-align:center;	
+	border-bottom:1px #5F5F5F solid;		
 }
 
 #main .right
 {
-	margin-left:200px;	
-	min-height:500px;
+	margin-left:210px;	
+	min-height:400px;
 	height:auto !important;
-	height:500px;	
-	background:#fff;
-	padding:20px 20px 20px 20px;
-	border:1px #dfdfdf solid;
-	border-top:0px;	
+	height:400px;
+	padding-bottom:30px;
 }
 
 #main h3
@@ -212,18 +229,13 @@ div#container
 
 #main ul.step li
 {	
-	padding:0px 0px 0px 5px;
-	display:block;
-	height:40px;
-	line-height:40px;
-	font-size:12px;
+	padding:5px;
 }
 
 #main ul.step li.active
 {
-	background:#009AEF;
-	color:#fff;
-	font-weight:bold;
+	background:url('../image/layout/step_active.png') repeat-x;
+	color:#333;
 }
 
 #help a
@@ -273,10 +285,14 @@ div#container
 
 .table_header
 {
-	background:#5B5B5B;
+	background:#4D4C4C;
 	padding:5px;
 	color:#fff;
 	font-weight:bold;	
+	-moz-border-radius:6px;
+	-webkit-border-radius:6px;		
+	border-radius:6px;
+	margin-bottom:5px;
 	font-size:13px;
 	height:24px;
 	line-height:24px;
@@ -341,22 +357,21 @@ div#container
 
 div#copyright
 {
-	margin-left:200px;	
+	text-align:right; 
 	margin-top:15px;
 	font-size:9pt;
-	color:#9F9F9F;
-	text-align:center;
+	padding-right:14px;
 }
 
 div#copyright a
 {
-	color:#9F9F9F;
+	color:#495A77;
 	text-decoration:none;	
 }
 
 div#copyright a:hover
 {
-	color:#9F9F9F;
+	color:#495A77;
 	text-decoration:underline;	
 }
 
@@ -403,66 +418,4 @@ ul.action li a
 	overflow:auto; 
 	border:1px #CCCCCC solid;	
 	padding:4px;	
-}
-
-.completed_message,
-.nb_message_holder
-{
-	text-align:center;
-	margin-top:20px;
-	background:#CFFFDA;
-	padding:20px;
-	font-size:16px;
-	color:#8F8F8F;
-	border:1px #4FFF77 solid;
-}
-
-.nb_message_holder
-{
-	background:#FCFFDF;	
-	border:0px;
-}
-
-a.installed_link,
-a.installed_link:hover
-{
-	display:block;
-	width:40%;
-	margin:auto;
-	height:40px;
-	line-height:40px;
-	text-align:center;
-	text-transform:uppercase;
-	background:#FF7200;
-	margin-top:20px;
-	text-decoration:none;
-	color:#fff;
-	font-weight:bold;
-}
-
-a.installed_link:hover
-{
-	background:#CF5C00;
-	-webkit-transition: all 0.50s ease;
-	-moz-transition: all 0.50s ease;
-	-o-transition: all 0.50s ease;		
-}
-
-.nb_green
-{
-	color:#00BF2C;
-	text-transform:uppercase;
-	font-size:11px;
-}
-
-.nb_red
-{
-	color:#EF1100;
-	text-transform:uppercase;
-}
-
-.nb_message_image
-{
-	padding-top:20px;
-	text-align:center;
 }

@@ -11,7 +11,7 @@ defined('PHPFOX') or exit('NO DICE!');
  * @copyright		[PHPFOX_COPYRIGHT]
  * @author  		Raymond Benc
  * @package 		Phpfox_Service
- * @version 		$Id: custom.class.php 5188 2013-01-23 15:08:51Z Miguel_Espinoza $
+ * @version 		$Id: custom.class.php 4933 2012-10-23 07:20:12Z Miguel_Espinoza $
  */
 class Custom_Service_Custom extends Phpfox_Service
 {
@@ -28,14 +28,6 @@ class Custom_Service_Custom extends Phpfox_Service
 	public function getAlias()
 	{
 		return $this->_sAlias;
-	}
-	
-	public function getUserCustomValue($iUserId, $sFieldName)
-	{
-		return $this->database()->select($sFieldName)
-			->from(Phpfox::getT('user_custom_value'))
-			->where('user_id = ' . (int) $iUserId)
-			->execute('getSlaveField');
 	}
 
 	/**
@@ -683,7 +675,6 @@ class Custom_Service_Custom extends Phpfox_Service
 		$iGroup = 0;
 		$sTable = 'user_custom_multiple_value';
 
-		if ($sPlugin = Phpfox_Plugin::get('custom.service_custom_getforedit_1')){eval($sPlugin);if (isset($mReturnFromPlugin)){return $mReturnFromPlugin;}}
 		$sTypes = '';
 		foreach ($aTypes as $sType)
 		{
@@ -1045,21 +1036,6 @@ class Custom_Service_Custom extends Phpfox_Service
 		}
 		return $aReturn;
 	}
-	
-	
-	public function getInfoForAction($aItem)
-	{
-		$aRow = $this->database()->select('crd.relation_data_id, cr.phrase_var_name, crd.user_id, u.gender, u.user_name, u.full_name')	
-			->from(Phpfox::getT('custom_relation_data'), 'crd')
-			->join(Phpfox::getT('user'), 'u', 'u.user_id = crd.user_id')
-			->join(Phpfox::getT('custom_relation'), 'cr', 'cr.relation_id = crd.relation_data_id')
-			->where('crd.relation_data_id = ' . (int) $aItem['item_id'])
-			->execute('getSlaveRow');
-		$aRow['link'] = Phpfox::getLib('url')->makeUrl('user_name');
-		$aRow['title'] = Phpfox::getPhrase($aRow['phrase_var_name']);
-		return $aRow;
-	}
-	
 	/**
 	 * If a call is made to an unknown method attempt to connect
 	 * it to a specific plug-in with the same name thus allowing

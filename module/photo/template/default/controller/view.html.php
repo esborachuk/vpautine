@@ -5,7 +5,7 @@
  * @copyright		[PHPFOX_COPYRIGHT]
  * @author  		Raymond Benc
  * @package  		Module_Photo
- * @version 		$Id: view.html.php 5287 2013-01-31 09:28:28Z Raymond_Benc $
+ * @version 		$Id: view.html.php 4881 2012-10-11 04:49:16Z Raymond_Benc $
  */
  
 defined('PHPFOX') or exit('NO DICE!'); 
@@ -35,12 +35,9 @@ defined('PHPFOX') or exit('NO DICE!');
 		</div>									
 	</div>
 	
-	<div class="photo_view_box_comment">	
-		{plugin call='photo.template_controller_view_view_box_comment_1'}
+	<div class="photo_view_box_comment">			
 		<div class="photo_view_box_comment_padding">
-			{plugin call='photo.template_controller_view_view_box_comment_2'}
 			<div id="js_photo_view_box_title">
-				{plugin call='photo.template_controller_view_view_box_comment_3'}
 				<div class="row_title">
 					<div class="row_title_image">
 						<a href="{url link=$aForms.user_name}" class="no_ajax_link">{img user=$aForms suffix='_50_square' max_width=50 max_height=50 no_link=true}</a>
@@ -50,8 +47,8 @@ defined('PHPFOX') or exit('NO DICE!');
 						<ul class="extra_info_middot">
 							<li>{$aForms.time_stamp|convert_time}</li>
 							{if !empty($aForms.album_id)} 
-								<li>&middot;</li>
-								<li>{phrase var='photo.in'} <a href="{$aForms.album_url}">{$aForms.album_title|clean|split:45|shorten:75:'...'}</a> </li>						
+							<li>&middot;</li>
+							<li>{phrase var='photo.in'} <a href="{$aForms.album_url}">{$aForms.album_title|clean|split:45|shorten:75:'...'}</a> </li>						
 							{/if}
 						</ul>
 					</div>
@@ -76,13 +73,13 @@ defined('PHPFOX') or exit('NO DICE!');
 				
 				{if $aForms.description}
 				<div id="js_photo_description_{$aForms.photo_id}" class="extra_info">
-					{$aForms.description|parse|shorten:200:'photo.read_more':true}
+					{$aForms.description|clean|shorten:200:'photo.read_more':true|emoticon}
 				</div>
 				{/if}
 			</div>
 					
 			{if Phpfox::isModule('tag') && isset($aForms.tag_list)}
-				{module name='tag.item' sType='photo' sTags=$aForms.tag_list iItemId=$aForms.photo_id iUserId=$aForms.user_id}
+			{module name='tag.item' sType='photo' sTags=$aForms.tag_list iItemId=$aForms.photo_id iUserId=$aForms.user_id}
 			{/if}			
 						
 			{plugin call='photo.template_default_controller_view_extra_info'}			
@@ -95,7 +92,7 @@ defined('PHPFOX') or exit('NO DICE!');
 
 	<div class="photo_view_box_image photo_holder_image" {if isset($aPhotoStream.next.photo_id)}onclick="tb_show('', '{$aPhotoStream.next.link}{if $iForceAlbumId > 0}albumid_{$iForceAlbumId}{else}{if isset($feedUserId)}userid_{$feedUserId}/{/if}{/if}', this);" rel="{$aPhotoStream.next.photo_id}"{/if}>		
 		 <div id="photo_view_tag_photo">
-			<a href="#" id="js_tag_photo" onclick="$Core.photo_tag.init({l}{$sPhotoJsContent}{r})">{phrase var='photo.tag_this_photo'}</a>
+			<a href="#" id="js_tag_photo">{phrase var='photo.tag_this_photo'}</a>
 		</div>
 		<div id="photo_view_ajax_loader">{img theme='ajax/loader.gif'}</div>
 			{if $aPhotoStream.total > 1}
@@ -139,10 +136,6 @@ defined('PHPFOX') or exit('NO DICE!');
 
 <script type="text/javascript">
 $Behavior.autoLoadPhoto = function(){l}
-
-	{if isset($iNewImageHeight)}
-	$('#js_photo_view_image').attr({l}height: '{$iNewImageHeight}', width: '{$iNewImageWidth}'{r});
-	{/if}
 	
 	{literal}
 	// $('#main_core_body_holder').hide();
@@ -196,29 +189,21 @@ $Behavior.autoLoadPhoto = function(){l}
 		return true;
 	});
 
-	$("<img/>")
-	    .attr("src", $('#js_photo_view_image').attr("src"))
-	    .load(function() {
-		    
-	    	sPicWidth = this.width;
-	    	sPicHeight = this.height;
+	if ($('#js_photo_view_image').height() >= $('.js_box').height() || $('#js_photo_view_image').width() >= ($('.js_box').width() - 420)){
+		$('#js_photo_view_image').hide();
+		$('#js_photo_view_image_small').show();
 
-	    	if (sPicHeight >= $('.js_box').height() || sPicWidth >= ($('.js_box').width() - 420)){
-	    		$('#js_photo_view_image').hide();
-	    		$('#js_photo_view_image_small').show();
-	    		
-	    		$('.photo_view_box_image_holder').css({
-	    			left: '50%',
-	    			top: '50%',
-	    			'margin-left': '-' + ($('#js_photo_view_image_small').width() / 2) + 'px',
-	    			'margin-top': '-' + ($('#js_photo_view_image_small').height() / 2) + 'px'		
-	    		});	
-	    	}	    	
-	    });	
+		$('.photo_view_box_image_holder').css({
+			left: '50%',
+			top: '50%',
+			'margin-left': '-' + ($('#js_photo_view_image_small').width() / 2) + 'px',
+			'margin-top': '-' + ($('#js_photo_view_image_small').height() / 2) + 'px'		
+		});	
+	}
 	
 	{/literal}
 	
-	// $Core.photo_tag.init({l}{$sPhotoJsContent}{r});
+	$Core.photo_tag.init({l}{$sPhotoJsContent}{r});
 	$Behavior.autoLoadPhoto = function(){l}{r}
 {r}
 </script>
@@ -304,10 +289,6 @@ $Behavior.autoLoadPhoto = function(){l}
 					{/if}
 					<script type="text/javascript">
 					$Behavior.autoLoadFullPhoto = function(){l}
-
-						{if isset($iNewImageHeight)}
-						$('#js_photo_view_image').attr({l}height: '{$iNewImageHeight}', width: '{$iNewImageWidth}'{r});
-						{/if}					
 	
 						var sImageHeight = $('#js_photo_view_image').height();
 						var sImageWidth = $('#js_photo_view_image').width();
@@ -317,16 +298,11 @@ $Behavior.autoLoadPhoto = function(){l}
 							'left': '50%',
 							'margin-left': '-' + (sImageWidth / 2) + 'px'						
 						{r});
+
+						$('#js_photo_view_main_holder').css('height', sImageHeight);
 						
-						if (sImageHeight > 0)
-						{l}
-							$('#js_photo_view_main_holder').css('height', sImageHeight);
-						{r}
 						
-						$('#js_photo_view_image').load(function(){l}
-							$('#js_photo_view_main_holder').css('height', $('#js_photo_view_image').height());
-						{r});
-						
+							
 						$Behavior.autoLoadFullPhoto = function(){l}{r}
 					{r}
 					</script>

@@ -3,8 +3,6 @@ var $aMailOldHistory = {};
 var $aNotificationOldHistory = {};
 var $bNoCloseNotify = false;
 var bCloseShareHolder = true;
-var bCloseChangeCover = true;
-var bCloseViewMoreFeed = true;
 
 $Behavior.globalThemeInit = function()
 {	
@@ -21,10 +19,6 @@ $Behavior.globalThemeInit = function()
 	$('.feed_share_on_item a').click(function()
 	{
 		bCloseShareHolder = false;		
-	});
-	
-	$('#js_change_cover_photo').click(function(){
-		bCloseChangeCover = false;
 	});
 	
 	// body clicks
@@ -65,17 +59,6 @@ $Behavior.globalThemeInit = function()
 		$('#header_sub_menu_search_input').parent().find('.js_temp_friend_search_form:first').hide();		
 		
 		$('.feed_sort_holder').hide();
-		
-		if (bCloseChangeCover){
-			$('#cover_section_menu_drop').hide();
-		}
-		
-		if (bCloseViewMoreFeed){
-			$('.view_more_drop').hide();
-		}
-		
-		bCloseChangeCover = true;
-		bCloseViewMoreFeed = true;
 	});		
 	
 	$('.feed_sort_order_link').click(function(){
@@ -219,10 +202,7 @@ $Behavior.globalThemeInit = function()
 		}
 		else
 		{
-			if (typeof oParams['keepContent4'] == 'undefined' || oParams['keepContent4'] == true)
-			{
-				$('#content').addClass('content4');
-			}
+			$('#content').addClass('content4');
 			$('#content').removeClass('content2');
 			$('#content').removeClass('content3');
 		}

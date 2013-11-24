@@ -11,7 +11,7 @@ defined('PHPFOX') or exit('NO DICE!');
  * @copyright		[PHPFOX_COPYRIGHT]
  * @author  		Raymond Benc
  * @package  		Module_Blog
- * @version 		$Id: callback.class.php 5158 2013-01-17 15:06:29Z Miguel_Espinoza $
+ * @version 		$Id: callback.class.php 4545 2012-07-20 10:40:35Z Raymond_Benc $
  */
 class Blog_Service_Callback extends Phpfox_Service 
 {
@@ -1020,11 +1020,10 @@ class Blog_Service_Callback extends Phpfox_Service
 		);				
 	}	
 	
-	/** @deprecated
-	 */ 
 	public function sendLikeEmail($iItemId, $aFeed)
 	{	
-		throw new Exception ('Deprecated.');
+		d($a);
+		d($aFeed);die();
 		return Phpfox::getPhrase('blog.a_href_user_link_full_name_a_likes_your_a_href_link_blog_a', array(
 					'full_name' => Phpfox::getLib('parse.output')->clean(Phpfox::getUserBy('full_name')),
 					'user_link' => Phpfox::getLib('url')->makeUrl(Phpfox::getUserBy('user_name')),
@@ -1195,7 +1194,7 @@ class Blog_Service_Callback extends Phpfox_Service
 		{
 			$aSubMenu[] = array(
 				'phrase' => Phpfox::getPhrase('profile.drafts'),
-				'url' => Phpfox::getLib('url')->makeUrl('profile.blog.view_draft'),
+				'url' => 'profile.blog.view_draft',
 				'total' => Phpfox::getService('blog')->getTotalDrafts($aUser['user_id'])
 			);
 		}
@@ -1293,79 +1292,6 @@ class Blog_Service_Callback extends Phpfox_Service
 			'icon' => Phpfox::getLib('template')->getStyle('image', 'activity.png', 'blog')
 		);
 	}
-
-	
-
-	public function getActions()
-	{
-		return array(
-			'dislike' => array(
-				'enabled' => true,
-				'action_type_id' => 2, // sort of redundant given the key 
-				'phrase' => 'Dislike',
-				'phrase_in_past_tense' => 'disliked',
-				'item_type_id' => 'blog', // used internally to differentiate between photo albums and photos for example.
-				'item_phrase' => Phpfox::getPhrase('blog.item_phrase'), // used to display to the user what kind of item is this
-				'table' => 'blog',
-				'column_update' => 'total_dislike',
-				'column_find' => 'blog_id',
-				'where_to_show' => array('blog', '')
-				)
-		);
-	}
-	
-	public function getPagePerms()
-	{
-		$aPerms = array();
-		
-		$aPerms['blog.share_blogs'] = 'Who can share blogs';//Phpfox::getPhrase('event.who_can_share_events');
-		$aPerms['blog.view_browse_blogs'] = 'Who can view blogs';//Phpfox::getPhrase('event.who_can_view_browse_events');
-		
-		return $aPerms;
-	}
-	
-	public function getPageMenu($aPage)
-	{
-		if (!Phpfox::getService('pages')->hasPerm($aPage['page_id'], 'blog.view_browse_blogs'))
-		{
-			return null;
-		}		
-		
-		$aMenus[] = array(
-			'phrase' => Phpfox::getPhrase('blog.blogs'),
-			'url' => Phpfox::getService('pages')->getUrl($aPage['page_id'], $aPage['title'], $aPage['vanity_url']) . 'blog/',
-			'icon' => 'module/blog.png',
-			'landing' => 'blog'
-		);
-		
-		return $aMenus;
-	}
-	
-	public function getPageSubMenu($aPage)
-	{
-		if (!Phpfox::getService('pages')->hasPerm($aPage['page_id'], 'blog.share_blogs'))
-		{
-			return null;
-		}		
-		
-		return array(
-			array(
-				'phrase' => Phpfox::getPhrase('blog.add_new_blog'),
-				'url' => Phpfox::getLib('url')->makeUrl('blog.add', array('module' => 'pages', 'item' => $aPage['page_id']))
-			)
-		);
-	}
-	
-	public function canViewPageSection($iPage)
-	{		
-		if (!Phpfox::getService('pages')->hasPerm($iPage, 'blog.view_browse_blogs'))
-		{
-			return false;
-		}
-		
-		return true;
-	}
-	
 	/**
 	 * If a call is made to an unknown method attempt to connect
 	 * it to a specific plug-in with the same name thus allowing 

@@ -11,7 +11,7 @@ defined('PHPFOX') or exit('NO DICE!');
  * @copyright		[PHPFOX_COPYRIGHT]
  * @author  		Raymond Benc
  * @package 		Phpfox_Service
- * @version 		$Id: process.class.php 4986 2012-11-05 09:34:24Z Raymond_Benc $
+ * @version 		$Id: process.class.php 4980 2012-11-01 11:47:16Z Raymond_Benc $
  */
 class Theme_Service_Style_Process extends Phpfox_Service 
 {

@@ -11,7 +11,7 @@ defined('PHPFOX') or exit('NO DICE!');
  * @copyright		[PHPFOX_COPYRIGHT]
  * @author  		Raymond Benc
  * @package  		Module_Comment
- * @version 		$Id: ajax.class.php 5268 2013-01-30 08:38:21Z Raymond_Benc $
+ * @version 		$Id: ajax.class.php 5011 2012-11-12 09:02:36Z Raymond_Benc $
  */
 class Comment_Component_Ajax_Ajax extends Phpfox_Ajax
 {
@@ -24,16 +24,7 @@ class Comment_Component_Ajax_Ajax extends Phpfox_Ajax
 		{
 			Phpfox::getUserParam($sVar, true);
 		}
-		
-		if (!Phpfox::getUserParam('comment.can_post_comments'))
-		{
-			$this->html('#js_comment_process', '');
-			$this->call("$('#js_comment_submit').removeAttr('disabled');");
-			$this->hide('.js_feed_comment_process_form');
-			$this->alert('Your user group is not allowed to add comments.');			
-			
-			return false;
-		}
+		Phpfox::getUserParam('comment.can_post_comments', true);
 		
 		(($sPlugin = Phpfox_Plugin::get('comment.component_ajax_ajax_add_start')) ? eval($sPlugin) : false);		
 		
@@ -365,7 +356,7 @@ class Comment_Component_Ajax_Ajax extends Phpfox_Ajax
 			$this->slideUp('#js_comment_' . $this->get('comment_id'));
 			if (!$this->get('photo_theater'))
 			{
-				// $this->alert(Phpfox::getPhrase('comment.comment_successfully_deleted'));
+				$this->alert(Phpfox::getPhrase('comment.comment_successfully_deleted'));
 			}
 			/*
 			if ($this->get('type_id') == 'feed')
@@ -463,7 +454,7 @@ class Comment_Component_Ajax_Ajax extends Phpfox_Ajax
 		
 		foreach ($aComments as $aComment)
 		{
-			$this->template()->assign(array('aComment' => $aComment, 'aFeed' => array('feed_id' => $this->get('item_id'))))->getTemplate('comment.block.mini');
+			$this->template()->assign(array('aComment' => $aComment))->getTemplate('comment.block.mini');
 		}
 		
 		if ($this->get('append'))

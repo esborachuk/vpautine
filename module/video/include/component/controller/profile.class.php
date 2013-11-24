@@ -29,7 +29,6 @@ class Video_Component_Controller_Profile extends Phpfox_Component
 			return Phpfox_Error::display(Phpfox::getPhrase('video.videos_for_this_profile_is_set_to_private'));
 		}			
 		
-		if ($sPlugin = Phpfox_Plugin::get('video.component_controller_profile_1')){eval($sPlugin);if (isset($mReturnFromPlugin)){return $mReturnFromPlugin;}}
 		Phpfox::getComponent('video.index', array('bNoTemplate' => true), 'controller');
 	}
 	

@@ -11,7 +11,7 @@ defined('PHPFOX') or exit('NO DICE!');
  * @copyright		[PHPFOX_COPYRIGHT]
  * @author  		Raymond Benc
  * @package  		Module_Privacy
- * @version 		$Id: privacy.class.php 5077 2012-12-13 09:05:45Z Raymond_Benc $
+ * @version 		$Id: privacy.class.php 5051 2012-11-28 12:40:24Z Raymond_Benc $
  */
 class Privacy_Service_Privacy extends Phpfox_Service 
 {
@@ -182,8 +182,6 @@ class Privacy_Service_Privacy extends Phpfox_Service
 				$sPhrase = Phpfox::getPhrase('privacy.everyone');
 				break;
 		}
-		
-		(($sPlugin = Phpfox_Plugin::get('privacy.service_privacy_getphrase')) ? eval($sPlugin) : '');
 		
 		return $sPhrase;
 	}

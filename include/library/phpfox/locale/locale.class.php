@@ -12,7 +12,7 @@ defined('PHPFOX') or exit('NO DICE!');
  * @copyright		[PHPFOX_COPYRIGHT]
  * @author			Raymond Benc
  * @package 		Phpfox
- * @version 		$Id: locale.class.php 5319 2013-02-04 12:53:36Z Miguel_Espinoza $
+ * @version 		$Id: locale.class.php 4974 2012-10-31 07:30:42Z Raymond_Benc $
  */
 class Phpfox_Locale
 {
@@ -317,7 +317,7 @@ class Phpfox_Locale
 	 */
 	public function isPhrase($sParam)
 	{
-		if (strpos($sParam, '.') === false)
+		if (!strpos($sParam, '.'))
 		{
 			return '';
 		}		
@@ -357,7 +357,7 @@ class Phpfox_Locale
 	 */
 	public function getPhrase($sParam, $aParams = array(), $bNoDebug = false, $sDefault = null, $sLang = '')
 	{
-		if (strpos($sParam, '.') === false)
+		if (!strpos($sParam, '.'))
 		{
 			if ((Phpfox::getParam('language.lang_pack_helper') && !$bNoDebug))
 			{

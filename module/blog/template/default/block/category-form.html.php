@@ -12,12 +12,8 @@
 {/if}
 </label>
 <script type="text/javascript">
-    var aSelected = $('#js_selected_categories').val().split(',');
-    for (var i in aSelected)
-    {l}
-	if (aSelected[i].length > 1 && aSelected[i] == {$aItem.category_id})
-	{l}
-	    $('#js_category{$aItem.category_id}').attr('checked', 'checked');
-	{r}
-    {r}
+if ($('#js_selected_categories').val().indexOf('{$aItem.category_id}') != -1)
+{literal}{{/literal}
+	$('#js_category{$aItem.category_id}').attr('checked', 'checked');
+{literal}}{/literal}
 </script>

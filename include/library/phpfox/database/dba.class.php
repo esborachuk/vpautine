@@ -14,7 +14,7 @@ Phpfox::getLibClass('phpfox.database.interface');
  * @copyright		[PHPFOX_COPYRIGHT]
  * @author			Raymond Benc
  * @package 		Phpfox
- * @version 		$Id: dba.class.php 5330 2013-02-08 11:25:45Z Miguel_Espinoza $
+ * @version 		$Id: dba.class.php 4550 2012-07-23 08:28:41Z Miguel_Espinoza $
  */
 abstract class Phpfox_Database_Dba implements Phpfox_Database_Interface
 {
@@ -437,10 +437,6 @@ abstract class Phpfox_Database_Dba implements Phpfox_Database_Interface
 	 */
 	public function execute($sType = null, $aParams = array())
 	{		
-        if (($sType == 'getField' || $sType == 'getSlaveField') && (!isset($this->_aQuery['limit']) || empty($this->_aQuery['limit'])))
-        {
-            $this->_aQuery['limit'] = ' LIMIT 1';
-        }
 		$sSql = '';
 		if (isset($this->_aQuery['select']))
 		{
@@ -456,12 +452,7 @@ abstract class Phpfox_Database_Dba implements Phpfox_Database_Interface
 		{
 			$sSql .= $this->_aQuery['table'] . "\n";
 		}
-        
-		if (isset($this->_aQuery['forceIndex']) && !empty($this->_aQuery['forceIndex']))
-        {
-            $sSql .= 'FORCE INDEX (' . $this->_aQuery['forceIndex'] .') ' . "\n";
-        }
-        
+		
 		if (isset($this->_aQuery['union_from']))
 		{
 			$sSql .= "FROM(\n";
@@ -512,7 +503,7 @@ abstract class Phpfox_Database_Dba implements Phpfox_Database_Interface
 		}
 		
 		$bDoCache = false;
-		if (isset($aParams['cache']) && !empty($aParams))
+		if (isset($aParams['cache']) && $aParams)
 		{
 			$bDoCache = true;	
 			$oCache = Phpfox::getLib('cache');
@@ -778,7 +769,7 @@ abstract class Phpfox_Database_Dba implements Phpfox_Database_Interface
 		}
 		foreach ($aDrops as $sDrop)
 		{
-			$this->query("DROP TABLE IF EXISTS {$sDrop}");		
+			$this->query("DROP TABLE {$sDrop}");		
 		}			
 	}
 	
@@ -1012,19 +1003,6 @@ abstract class Phpfox_Database_Dba implements Phpfox_Database_Interface
 		
 		$this->query($sSql);		
 	}
-    
-    /**
-     * Tells which index to use by issuing a Force Index ($sName)
-     * @param type String
-     */
-    public function forceIndex($sName)
-    {
-        if (preg_match('/([a-zA-Z0-9_]+)/', $sName, $aMatches) > 0)
-        {
-            $this->_aQuery['forceIndex'] = $aMatches[1];
-        }
-        return $this;
-    }
 }
 
 ?>

@@ -11,7 +11,7 @@ defined('PHPFOX') or exit('NO DICE!');
  * @copyright		[PHPFOX_COPYRIGHT]
  * @author  		Raymond Benc
  * @package  		Module_Profile
- * @version 		$Id: pic.class.php 5108 2013-01-09 10:46:59Z Miguel_Espinoza $
+ * @version 		$Id: pic.class.php 4403 2012-06-27 16:33:32Z Raymond_Benc $
  */
 class Profile_Component_Block_Pic extends Phpfox_Component
 {
@@ -20,31 +20,12 @@ class Profile_Component_Block_Pic extends Phpfox_Component
 	 */
 	public function process()
 	{				
-		if (!defined('PHPFOX_IS_USER_PROFILE') && !defined('PAGE_TIME_LINE'))
+		if (!defined('PHPFOX_IS_USER_PROFILE'))
 		{
 			return false;
 		}
-		
-		(($sPlugin = Phpfox_Plugin::get('profile.component_block_pic_start')) ? eval($sPlugin) : false);
-		
-		if (isset($bHideThisBlock))
-		{
-			return false;
-		}		
 		
 		$aUser = $this->getParam('aUser');
-		if ($aUser === null)
-		{
-			$aUser = $this->getParam('aPage');
-			$aUser['user_image'] = $aUser['image_path'];
-			foreach ($aUser as $sKey => $sValue)
-			{
-				if (strpos($sKey, 'owner_') !== false && $sKey != 'owner_user_image')
-				{
-					$aUser[str_replace('owner_', '', $sKey)] = $sValue;
-				}
-			}
-		}
 
 		$aUserInfo = array(
 			'title' => $aUser['full_name'],
@@ -55,9 +36,9 @@ class Profile_Component_Block_Pic extends Phpfox_Component
 			'max_height' => 300,
 			'no_default' => (Phpfox::getUserId() == $aUser['user_id'] ? false : true),
 			'thickbox' => true,
-			'class' => 'profile_user_image',
+        	'class' => 'profile_user_image',
 			'no_link' => true
-		);	
+		);		
 		
 		if (Phpfox::getService('profile')->timeline())
 		{

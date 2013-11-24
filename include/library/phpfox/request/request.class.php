@@ -13,7 +13,7 @@ defined('PHPFOX') or exit('NO DICE!');
  * @copyright		[PHPFOX_COPYRIGHT]
  * @author			Raymond Benc
  * @package 		Phpfox
- * @version 		$Id: request.class.php 5271 2013-01-30 09:56:22Z Raymond_Benc $
+ * @version 		$Id: request.class.php 5958 2013-05-27 09:55:14Z Raymond_Benc $
  */
 class Phpfox_Request
 {	
@@ -473,7 +473,7 @@ class Phpfox_Request
  	 */
  	public function getIdHash()
  	{
- 		return md5((isset($_SERVER['HTTP_USER_AGENT']) ? $_SERVER['HTTP_USER_AGENT'] : null) . $this->getSubstrIp($this->getIp())); 
+ 		return md5((isset($_SERVER['HTTP_USER_AGENT']) ? $_SERVER['HTTP_USER_AGENT'] : null) . Phpfox::getParam('core.id_hash_salt') . (Phpfox::getParam('core.include_ip_sub_id_hash') ? $this->getSubstrIp($this->getIp()) : ''));
  	}
 	
 	/**
