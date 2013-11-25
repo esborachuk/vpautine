@@ -1,6 +1,0 @@
-<phrases>
-    <phrase module_id="email" version_id="3.0.0custom" var_name="message_subject" added="1232099594">Тема:</phrase>
-    <phrase module_id="email" version_id="3.0.0custom" var_name="letter" added="1232048594">Письмо:</phrase>
-    <phrase module_id="email" version_id="3.0.0custom" var_name="send__email" added="1232049654">Отправить Email</phrase>
-    <phrase module_id="email" version_id="3.0.0custom" var_name="send_new_email" added="1232041654">Отправить еще Email</phrase>
-</phrases>

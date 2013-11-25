@@ -1,7 +1,0 @@
-<phrases>
-    <phrase module_id="registration" version_id="3.0.0custom" var_name="sms_code" added="1245789865">Введите код подтверждения</phrase>
-    <phrase module_id="registration" version_id="3.0.0custom" var_name="sms_phone" added="1245789485">*Телефон:</phrase>
-    <phrase module_id="registration" version_id="3.0.0custom" var_name="empty_number" added="1245659485">Введите телефонный номер</phrase>
-    <phrase module_id="registration" version_id="3.0.0custom" var_name="invalid_number_format" added="1249855485">Неверный формат телефонного номера</phrase>
-    <phrase module_id="registration" version_id="3.0.0custom" var_name="invalid_char_number" added="1245454485">Проверьте количество символов телефонного номера</phrase>
-</phrases>

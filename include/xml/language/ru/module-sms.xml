@@ -1,9 +1,0 @@
-<phrases>
-    <phrase module_id="sms" version_id="3.0.0custom" var_name="phone_number" added="1217099594">Номер телефона:</phrase>
-    <phrase module_id="sms" version_id="3.0.0custom" var_name="country_code_ua" added="1217099458">Украина</phrase>
-    <phrase module_id="sms" version_id="3.0.0custom" var_name="country_code_ru" added="1217097895">Россия</phrase>
-    <phrase module_id="sms" version_id="3.0.0custom" var_name="message_text" added="1219957895">Сообщение:</phrase>
-    <phrase module_id="sms" version_id="3.0.0custom" var_name="send_new_message" added="1219945895">Отправить еще Sms</phrase>
-    <phrase module_id="sms" version_id="3.0.0custom" var_name="send__message" added="1219941295">Отправить Sms</phrase>
-    <phrase module_id="sms" version_id="3.0.0custom" var_name="phone_number_example" added="1214581295">0991234567</phrase>
-</phrases>

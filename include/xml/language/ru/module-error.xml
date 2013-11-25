@@ -1,8 +1,0 @@
-<phrases>
-	<phrase module_id="error" version_id="2.0.0alpha1" var_name="module_error" added="1214851398">Обработчик Ошибок</phrase>
-	<phrase module_id="error" version_id="2.0.0alpha1" var_name="csrf_token_set" added="1214851419">В данной форме не был установлен код безопасности. Все формы должны содержать код безопасности, чтобы наш сайт смог выполнить все запросы.</phrase>
-	<phrase module_id="error" version_id="2.0.0alpha1" var_name="csrf_session_token" added="1214851490">Вашей сессии не был присвоен код безопасности. Пожалуйста, убедитесь, что ваш браузер разрешает использование всех COOKIES с нашего сайта.</phrase>
-	<phrase module_id="error" version_id="2.0.0alpha1" var_name="csrf_detected" added="1214851524">Обнаружен межсайтовый поддельный запрос (CSFR). Учтите, что все такие попытки записываются в лог.</phrase>
-	<phrase module_id="error" version_id="2.0.0alpha1" var_name="site_email_not_set" added="1233753322">Администратор не указал e-mail для связи.</phrase>
-	<phrase module_id="error" version_id="2.0.0rc3" var_name="the_page_you_are_looking_for_cannot_be_found" added="1254390056">Страница, которую вы запросили, не найдена.</phrase>
-</phrases>
