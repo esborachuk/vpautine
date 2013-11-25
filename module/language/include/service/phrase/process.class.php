@@ -11,7 +11,7 @@ defined('PHPFOX') or exit('NO DICE!');
  * @copyright		[PHPFOX_COPYRIGHT]
  * @author  		Raymond Benc
  * @package  		Module_Language
- * @version 		$Id: process.class.php 1496 2010-03-05 17:15:05Z Raymond_Benc $
+ * @version 		$Id: process.class.php 4961 2012-10-29 07:11:34Z Raymond_Benc $
  */
 class Language_Service_Phrase_Process extends Phpfox_Service 
 {
@@ -104,7 +104,7 @@ class Language_Service_Phrase_Process extends Phpfox_Service
 		
 		Phpfox::getService('log.staff')->add('phrase', 'add', array('phrase' => $sPhrase));		
 		
-		$this->cache()->remove('language', 'substr');
+		$this->cache()->remove('locale', 'substr');
 		
 		return $sFinalPhrase;
 	}
@@ -136,8 +136,7 @@ class Language_Service_Phrase_Process extends Phpfox_Service
 
 		$this->database()->delete($this->_sTable, ($bIsVar ? "module_id = '" . $this->database()->escape($aParts[0]) . "' AND var_name = '" . $this->database()->escape($aParts[1]) . "'" : 'phrase_id = ' . (int) $mId));
 		
-		$this->cache()->remove('language', 'substr');
-		
+		$this->cache()->remove('locale', 'substr');
 		return true;
 	}	
 	
@@ -249,12 +248,22 @@ class Language_Service_Phrase_Process extends Phpfox_Service
 		return $iCnt;
 	}
 	
-	public function findMissingPhrases($sLangId, $aXml)
+	public function findMissingPhrases($sLangId, $aXml, $bCheck = false)
 	{
 		$iCnt = 0;
 		foreach ($aXml as $sModule => $aPhrases)
 		{
-			$aRows = (isset($aPhrases['phrase'][1]) ? $aPhrases['phrase'] : array($aPhrases['phrase']));
+			if ($bCheck === true)
+			{
+				$aRows = $this->database()->select('*')
+					->from(Phpfox::getT('language_phrase'))
+					->where('language_id = \'en\' AND module_id = \'' . $this->database()->escape($sModule) . '\'')
+					->execute('getRows');			
+			}
+			else 
+			{
+				$aRows = (isset($aPhrases['phrase'][1]) ? $aPhrases['phrase'] : array($aPhrases['phrase']));			
+			}
 			
 			foreach ($aRows as $aPhrase)
 			{
@@ -262,10 +271,16 @@ class Language_Service_Phrase_Process extends Phpfox_Service
 					->from(Phpfox::getT('language_phrase'))
 					->where('language_id = \'' . $sLangId . '\' AND module_id = \'' . $sModule . '\' AND var_name = \'' . $aPhrase['var_name'] . '\'')
 					->execute('getSlaveField');
-				
+					
 				if (!$iMissing)
-				{				
+				{					
 					$iCnt++;
+					
+					if (!isset($aPhrase['value']))
+					{
+						$aPhrase['value'] = $aPhrase['text'];
+					}
+					
 					$this->database()->insert(Phpfox::getT('language_phrase'), array(
 							'language_id' => $sLangId,
 							'module_id' => $sModule,
@@ -278,8 +293,8 @@ class Language_Service_Phrase_Process extends Phpfox_Service
 						)
 					);
 				}
-			}
-		}
+			}			
+		}		
 		
 		return $iCnt;
 	}	
@@ -287,8 +302,16 @@ class Language_Service_Phrase_Process extends Phpfox_Service
 	public function installFromFolder($sPack, $iPage = 0, $iLimit = 5)
 	{
 		$iGroup = (($iPage * $iLimit) + 1);	
-		
-		$sDir = PHPFOX_DIR_INCLUDE . 'xml' . PHPFOX_DS . 'language' . PHPFOX_DS . $sPack . PHPFOX_DS;
+		if (is_array($sPack))
+		{
+			$sDir = PHPFOX_DIR_CACHE . $sPack[0] . PHPFOX_DS . 'upload' . PHPFOX_DS . str_replace(PHPFOX_DIR, '', PHPFOX_DIR_INCLUDE) . 'xml' . PHPFOX_DS . 'language' . PHPFOX_DS . $sPack[1] . PHPFOX_DS;
+			$sPack = $sPack[1];
+		}
+		else
+		{
+			$sDir = PHPFOX_DIR_INCLUDE . 'xml' . PHPFOX_DS . 'language' . PHPFOX_DS . $sPack . PHPFOX_DS;
+		}
+				
 		if (!is_dir($sDir))
 		{
 			return Phpfox_Error::set(Phpfox::getPhrase('language.not_a_valid_language_package_to_install'));
@@ -303,14 +326,14 @@ class Language_Service_Phrase_Process extends Phpfox_Service
 		$iActualCount = 0;		
 		$hDir = opendir($sDir);
 		while ($sFile = readdir($hDir))
-		{
+		{			
 			if ($sFile == '.' || $sFile == '..')
 			{
 				continue;
 			}
-			
+
 			if (preg_match('/^module-(.*?)\.xml$/i', $sFile, $aMatches))
-			{
+			{				
 				if (Phpfox::isModule($aMatches[1]))
 				{
 					$iActualCount++;
@@ -320,7 +343,7 @@ class Language_Service_Phrase_Process extends Phpfox_Service
 						continue;
 					}					
 					
-					$aPhrases = Phpfox::getLib('xml.parser')->parse(file_get_contents($sDir . $sFile), 'UTF-8');		
+					$aPhrases = Phpfox::getLib('xml.parser')->parse(file_get_contents($sDir . $sFile));		
 					$aRows = (isset($aPhrases['phrase'][1]) ? $aPhrases['phrase'] : array($aPhrases['phrase']));
 					foreach ($aRows as $aPhrase)
 					{
@@ -347,10 +370,48 @@ class Language_Service_Phrase_Process extends Phpfox_Service
 			}
 		}
 		closedir($hDir);
-		
-		return ($iCnt ? true : false);
+
+		return ($iCnt ? true : 'done');
 	}
 
+	/**
+	 * This function updates language phrases based on the changes made by the user from the
+	 * controller admincp.language.email
+	 * In this context phrase_id is the full phrase variable: <module>.<var_name>
+	 * @param arary $aVals
+	 */
+	public function updateMailPhrases($aVals)
+	{
+		// Safetey checks		
+		if (!isset($aVals['text']) || !is_array($aVals['text']))
+		{
+			return Phpfox_Error::set('This shouldnt happen.');
+		}
+
+		if (isset($aVals['language_id']) && $aVals['language_id'] != '')
+		{
+			$sLanguage = $aVals['language_id'];
+		}
+		else
+		{
+			$sLanguage = Phpfox::getLib('locale')->getLang();
+			$sLanguage = $sLanguage['language_id'];
+		}
+		
+		foreach ($aVals['text'] as $sPhraseId => $sNewText)
+		{
+			// update the phrase
+			$aVar = explode('.', $sPhraseId);
+			$aUpdate = array(
+				'text' => Phpfox::getLib('parse.input')->convert($sNewText)
+			);
+			$sWhere = 'language_id = "' . $sLanguage . '" AND module_id = "' . $aVar[0] . '" AND var_name = "' . $aVar[1] . '"';
+			$this->database()->update($this->_sTable, $aUpdate, $sWhere);
+		}
+		$this->cache()->remove('locale', 'substr');
+		
+		return true;
+	}
 	/**
 	 * If a call is made to an unknown method attempt to connect
 	 * it to a specific plug-in with the same name thus allowing 
