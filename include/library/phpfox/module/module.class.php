@@ -656,7 +656,7 @@ class Phpfox_Module
 		if (!defined('PHPFOX_INSTALLER') && !isset($this->_aModules[$sModule]))
 		{
 			return Phpfox_Error::trigger('Calling a Service from an invalid Module. Make sure the module is valid or set to active. (' . $sModule . '::' . $sService . ')', E_USER_ERROR);
-		}			
+		}
 		
 		if ($sClass == 'core.currency.process')
 		{

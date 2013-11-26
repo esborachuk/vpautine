@@ -55,7 +55,7 @@ if (php_sapi_name() == 'litespeed')
 }
 
 // Set error reporting enviroment
-error_reporting((PHPFOX_DEBUG ? E_ALL | E_STRICT : 0));
+error_reporting((PHPFOX_DEBUG ? E_ALL | E_STRICT : 1));
 
 require(PHPFOX_DIR_LIB_CORE . 'phpfox' . PHPFOX_DS . 'phpfox.class.php');
 require(PHPFOX_DIR_LIB_CORE . 'error' . PHPFOX_DS . 'error.class.php');
