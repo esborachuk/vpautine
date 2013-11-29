@@ -15,12 +15,12 @@
     <installs>
         <install>
             <version>1.01</version>
-            <install_code><![CDATA[$this->database()->query("CREATE TABLE IF NOT EXISTS `" . Phpfox::getT('radio_station') . "` (
+            <install_codeeeeeeeeeeeeeeeee><![CDATA[$this->database()->query("CREATE TABLE IF NOT EXISTS `" . Phpfox::getT('radio_station') . "` (
   `radio_id` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `station_id` varchar(255) NOT NULL DEFAULT '',
   `title` mediumtext,
   PRIMARY KEY (`radio_id`)
-);"); ]]></install_code>
+);"); ]]></install_codeeeeeeeeeeeeeeeee>
             <uninstall_code></uninstall_code>
         </install>
     </installs>

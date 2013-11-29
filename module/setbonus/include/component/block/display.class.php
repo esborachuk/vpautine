@@ -10,6 +10,4 @@ class Setbonus_Component_Block_Display extends Phpfox_Component
     {
         
     }
-} 
-
-?>
+}
