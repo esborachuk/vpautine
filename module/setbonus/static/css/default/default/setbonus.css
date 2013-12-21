@@ -1,7 +1,9 @@
-body {
-    background: black;
+body {}
+
+#main {
+    padding-top: 50px;
 }
 
 fieldset {
-    border: 1px springgreen solid;
+    border: 1px greenyellow solid;
 }

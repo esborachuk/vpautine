@@ -1,1 +1,1 @@
-fasdfasdfasdfasdf
+text from panel.html.php

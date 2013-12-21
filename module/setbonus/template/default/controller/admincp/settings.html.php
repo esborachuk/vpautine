@@ -24,7 +24,8 @@
         <fieldset>
             <label for="id_user_root">ID пользователя корневого уровня дерева</label>
             <label for="pb_cardnumber">Номер карты приватбанка для вывода средств</label>
-            
+            <input type="text" name="id_user_root" value="" />
+            <input type="text" name="pb_cardnumber" value="" />
         </fieldset>
     </form>
 </div>

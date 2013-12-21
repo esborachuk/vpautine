@@ -10,12 +10,16 @@ $sPathPreview = str_replace("admincp/", "", $sPathPreview);
 
 <div class="sb-admin-users">
     <h2>Список пользователей и их состояние в программе сетбонус</h2>
+    
+    {$aTest}
+    
     <table>
         <thead>
             <tr>
                 <td>ID</td>
                 <td>Пользователь</td>
                 <td>Состояние</td>
+                <td>Бонусов</td>
                 <td>Действия</td>
             </tr>
             <tr>
@@ -23,6 +27,7 @@ $sPathPreview = str_replace("admincp/", "", $sPathPreview);
                 <td><input type="text" name="filter_id" placeholder="ID" /></td>
                 <td><input type="text" name="filter_fullname" placeholder="Пользователь" /></td>
                 <td><input type="checkbox" name="filter_state" /></td>
+                <td></td>
                 <td></td>
         </form>
             </tr>
@@ -32,7 +37,8 @@ $sPathPreview = str_replace("admincp/", "", $sPathPreview);
             <tr>
                 <td>{$aUser.user_id}</td>
                 <td>{$aUser.full_name}</td>
-                <td></td>
+                <td>{$aUser.st}</td>
+                <td>{$aUser.sets_count}</td>
                 <td></td>
             </tr>            
             {/foreach}

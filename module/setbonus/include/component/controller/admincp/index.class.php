@@ -16,8 +16,15 @@ defined('PHPFOX') or exit('NO DICE!');
 class Setbonus_Component_Controller_Admincp_Index extends Phpfox_Component
 {
     public function process(){
-        $aUsers = Phpfox::getService('setbonus')->getUsers(100); 
+        $this->template()->setHeader(array( 
+                'setbonus.js' => 'module_setbonus',
+                'setbonus.css' => 'module_setbonus' 
+        )); 
+        $aUsers = Phpfox::getService('setbonus')->getUsersList(); 
         $this->template()->assign('aUsers', $aUsers); 
+        
+        $test = Phpfox::getService('setbonus')->test();
+        $this->template()->assign('aTest', $test);
     }
 }
 

@@ -8,6 +8,6 @@ class Setbonus_Component_Block_Display extends Phpfox_Component
 {    
     public function process()
     {
-        
+        echo 'test block';
     }
 }
