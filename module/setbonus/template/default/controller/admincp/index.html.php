@@ -19,7 +19,7 @@ $sPathPreview = str_replace("admincp/", "", $sPathPreview);
                 <td>ID</td>
                 <td>Пользователь</td>
                 <td>Состояние</td>
-                <td>Бонусов</td>
+                <td>Счет</td>
                 <td>Действия</td>
             </tr>
             <tr>
