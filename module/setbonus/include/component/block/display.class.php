@@ -8,6 +8,9 @@ class Setbonus_Component_Block_Display extends Phpfox_Component
 {    
     public function process()
     {
-        echo 'test block';
+        $this->template()->setHeader(array( 
+                'setbonus.js' => 'module_setbonus',
+                'setbonus.css' => 'module_setbonus' 
+        ));
     }
 }

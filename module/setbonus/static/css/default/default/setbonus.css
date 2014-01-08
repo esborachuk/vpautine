@@ -9,3 +9,10 @@ fieldset {
 }
 
 input {}
+
+.sb-user-panel {
+    float: left;
+    border: 1px solid red;
+    background: #0c3;
+    color: #fff;
+}
