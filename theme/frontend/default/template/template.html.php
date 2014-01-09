@@ -31,12 +31,19 @@ defined('PHPFOX') or exit('NO DICE!');
                             {if Phpfox::isUser() && !Phpfox::getUserBy('profile_page_id')}
                             <div id="holder_notify">																	
                                 {notification}
-                                12345
-                                {module name='setbonus.panel'}
-                                
                                 <div class="clear"></div>
                             </div>
                             {/if}
+                            
+                            <!--Вкрутим сюда панельку для сетбонусов-->
+                            {if Phpfox::isUser()}
+                            <div class="sb-user-status">
+                                {module name='setbonus.panel'}
+                                <div class="clear"></div>
+                            </div>
+                            {/if}
+                            <!------------------>
+                            
                             <div id="header_menu_holder">
                                 {if Phpfox::isUser()}
                                 {menu_account}
@@ -58,7 +65,7 @@ defined('PHPFOX') or exit('NO DICE!');
                                     </div>
                                 </div>
                             </div>	
-                            {/if}													
+                            {/if}
                         </div>
                     </div>
                     {block location='6'}
