@@ -1,0 +1,18 @@
+body {}
+
+#main {
+    padding-top: 50px;
+}
+
+fieldset {
+    border: 1px grey solid;
+}
+
+input {}
+
+.sb-user-panel {
+    float: left;
+    border: 1px solid red;
+    background: #0c3;
+    color: #fff;
+}

@@ -1,0 +1,198 @@
+<product>
+    <data>
+        <product_id>set_bonus</product_id>
+        <is_core>0</is_core>
+        <title>SetBonus</title>
+        <description>SetBonus module for phpfox</description>
+        <version>0.8</version>
+        <latest_version>0.8</latest_version>
+        <is_active>1</is_active>
+    </data>
+    <installs>
+        <install>
+            <version>0.8</version>
+            <install_code>
+<![CDATA[$this->database()->query("DELIMITER $$
+--
+-- Функции
+--
+DROP FUNCTION IF EXISTS `setbonus`$$
+CREATE DEFINER=`root`@`localhost` FUNCTION `setbonus`(user_id0 int) RETURNS int(11)
+BEGIN
+DECLARE maxlevel integer; declare bonus integer; 
+declare res integer; declare user_id1 integer; 
+declare lvl integer; declare user_id2 integer;
+  
+  set  maxlevel=(select bonus_depth from phpfox_setbonus_settings);
+  set  bonus=(select bonus_sets from phpfox_setbonus_settings);
+  set lvl=0;
+ set user_id1=(select user_parent_id from phpfox_setbonus_tree where user_id=user_id0);
+ 
+ while (lvl<maxlevel and user_id1 is not null) do 
+  insert into phpfox_setbonus_operations(user_id,oper_type_id,oper_sum,user_id_desc) values(user_id1,5,bonus,user_id0); 
+  set user_id2=(select user_parent_id from phpfox_setbonus_tree where user_id=user_id1);
+  set user_id1=user_id2;
+  set lvl=lvl+1;
+ end while;
+return lvl;
+END$$
+
+DELIMITER ;
+
+-- --------------------------------------------------------
+
+--
+-- Структура таблицы `phpfox_setbonus_current`
+--
+
+DROP TABLE IF EXISTS `phpfox_setbonus_current`;
+CREATE TABLE IF NOT EXISTS `phpfox_setbonus_current` (
+  `user_id` int(10) NOT NULL COMMENT 'ID юзера',
+  `sets_count` int(11) NOT NULL DEFAULT '0' COMMENT 'количество сетов',
+  `dt_update` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT 'недавнее обновление',
+  PRIMARY KEY (`user_id`),
+  UNIQUE KEY `user_id` (`user_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
+-- Структура таблицы `phpfox_setbonus_operations`
+--
+
+DROP TABLE IF EXISTS `phpfox_setbonus_operations`;
+CREATE TABLE IF NOT EXISTS `phpfox_setbonus_operations` (
+  `oper_id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'Уникальный айдишник операции',
+  `user_id` int(10) NOT NULL COMMENT 'Айди пользователя',
+  `oper_type_id` int(11) NOT NULL COMMENT 'Айди типа операции',
+  `oper_sum` int(11) NOT NULL COMMENT 'Сумма операции',
+  `oper_date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT 'дата проведения операции',
+  `number` int(11) NOT NULL COMMENT 'Номер квитанции',
+  `note` varchar(255) NOT NULL COMMENT 'Примечание',
+  `user_id_desc` int(11) NOT NULL COMMENT 'Айдишник потомка, который инициировал начисление',
+  PRIMARY KEY (`oper_id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COMMENT='Операции, список' AUTO_INCREMENT=16 ;
+
+--
+-- Триггеры `phpfox_setbonus_operations`
+--
+DROP TRIGGER IF EXISTS `operations_del`;
+DELIMITER //
+CREATE TRIGGER `operations_del` BEFORE DELETE ON `phpfox_setbonus_operations`
+ FOR EACH ROW update phpfox_setbonus_current set `sets_count`=`sets_count`-old.oper_sum 
+where user_id = old.user_id
+//
+DELIMITER ;
+DROP TRIGGER IF EXISTS `operations_ins`;
+DELIMITER //
+CREATE TRIGGER `operations_ins` AFTER INSERT ON `phpfox_setbonus_operations`
+ FOR EACH ROW update phpfox_setbonus_current set `sets_count`=`sets_count`+new.oper_sum 
+where user_id = new.user_id
+//
+DELIMITER ;
+
+-- --------------------------------------------------------
+
+--
+-- Структура таблицы `phpfox_setbonus_operation_type`
+--
+
+DROP TABLE IF EXISTS `phpfox_setbonus_operation_type`;
+CREATE TABLE IF NOT EXISTS `phpfox_setbonus_operation_type` (
+  `oper_type_id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'ID типа операции',
+  `oper_name` varchar(50) NOT NULL COMMENT 'Имя операции',
+  `oper_description` varchar(255) NOT NULL COMMENT 'Описание операции',
+  PRIMARY KEY (`oper_type_id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COMMENT='Типы операций' AUTO_INCREMENT=6 ;
+
+-- --------------------------------------------------------
+
+--
+-- Структура таблицы `phpfox_setbonus_requests`
+--
+
+DROP TABLE IF EXISTS `phpfox_setbonus_requests`;
+CREATE TABLE IF NOT EXISTS `phpfox_setbonus_requests` (
+  `req_id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'айди запроса',
+  `user_id` int(10) NOT NULL COMMENT 'айди пользователя',
+  `dt_ticket` date NOT NULL COMMENT 'Дата квитанции',
+  `ticket` int(11) NOT NULL COMMENT 'Номер квитанции',
+  `bank_id` int(11) NOT NULL COMMENT 'Айди банка',
+  `ticket_sum` float NOT NULL COMMENT 'Сумма по квитанции',
+  `state_id` tinyint(4) NOT NULL COMMENT 'Текущее состояние запроса (0-отклонен, 1-принят)',
+  `dt_state` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT 'Дата изменения',
+  PRIMARY KEY (`req_id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=6 ;
+
+--
+-- Триггеры `phpfox_setbonus_requests`
+--
+DROP TRIGGER IF EXISTS `request_ins`;
+DELIMITER //
+CREATE TRIGGER `request_ins` AFTER INSERT ON `phpfox_setbonus_requests`
+ FOR EACH ROW if new.state_id = 1 then
+insert into phpfox_setbonus_operations (user_id,oper_type_id,oper_sum,number) 
+values (new.user_id,1,new.ticket_sum,new.req_id);
+end if
+//
+DELIMITER ;
+DROP TRIGGER IF EXISTS `request_upd`;
+DELIMITER //
+CREATE TRIGGER `request_upd` AFTER UPDATE ON `phpfox_setbonus_requests`
+ FOR EACH ROW if (old.state_id is null and new.state_id = 1) then
+insert into phpfox_setbonus_operations (user_id,oper_type_id,oper_sum,number) 
+values (new.user_id,1,new.ticket_sum,new.req_id);
+end if
+//
+DELIMITER ;
+
+-- --------------------------------------------------------
+
+--
+-- Структура таблицы `phpfox_setbonus_settings`
+--
+
+DROP TABLE IF EXISTS `phpfox_setbonus_settings`;
+CREATE TABLE IF NOT EXISTS `phpfox_setbonus_settings` (
+  `activate_sets` int(11) NOT NULL COMMENT 'Количество сетов для активации бизнес-статуса',
+  `bonus_sets` int(11) NOT NULL COMMENT 'Количество бонусных сетов для начисления предкам',
+  `prolonging_sets` int(11) NOT NULL COMMENT 'Количество сетов для продления статуса (резерв)',
+  `active_days` int(11) NOT NULL COMMENT 'Количество дней активности состояния',
+  `bonus_depth` int(11) NOT NULL COMMENT 'Глубина начисления бонусов',
+  `dt_settings_change` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT 'Дата изменения параметров'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
+-- Структура таблицы `phpfox_setbonus_tree`
+--
+
+DROP TABLE IF EXISTS `phpfox_setbonus_tree`;
+CREATE TABLE IF NOT EXISTS `phpfox_setbonus_tree` (
+  `user_id` int(10) NOT NULL,
+  `user_parent_id` int(11) DEFAULT NULL,
+  `dt_activate` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `dt_begin` date NOT NULL,
+  `dt_end` date NOT NULL,
+  PRIMARY KEY (`user_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Триггеры `phpfox_setbonus_tree`
+--
+DROP TRIGGER IF EXISTS `user_insert`;
+DELIMITER //
+CREATE TRIGGER `user_insert` BEFORE INSERT ON `phpfox_setbonus_tree`
+ FOR EACH ROW insert into phpfox_setbonus_operations (user_id,oper_type_id,oper_sum) 
+values (new.user_id,2,-(select activate_sets from phpfox_setbonus_settings))
+//
+DELIMITER ;");]]>
+            </install_code>
+            <uninstall_code></uninstall_code>
+        </install>
+    </installs>
+    <modules>
+        <module_id>setbonus</module_id>
+    </modules>
+</product>
