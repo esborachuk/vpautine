@@ -36,6 +36,7 @@ defined('PHPFOX') or exit('NO DICE!');
                                 {notification}
                                 
                                 {module name='setbonus.panel'}
+                                987654321
                                 
                                 <div class="clear"></div>
                             </div>

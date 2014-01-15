@@ -2241,8 +2241,6 @@ div.info_right
     text-indent:-1000px;
     border-right:1px #ccc solid;
 }
-<<<<<<< HEAD
-=======
 
 #activity_feed_share_this_one ul li div.parent
 {
@@ -2257,7 +2255,6 @@ div.info_right
     padding:2px 0px 2px 0px;
 }
 
->>>>>>> dev-anton-sbmod
 /*
 a#activity_feed_share_this_one_link,
 a#activity_feed_share_this_one_link:hover
@@ -2309,8 +2306,6 @@ a#activity_feed_share_this_one_link:hover
     background:#f1f1f1;
 }
 
-<<<<<<< HEAD
-=======
 /* Hides the input in the feed, used in check-ins */
 #js_add_location_input
 {
@@ -2324,7 +2319,6 @@ a.feed_share_map:hover
     background:url('../image/layout/feed_map.png') no-repeat center center;	
 }
 
->>>>>>> dev-anton-sbmod
 a.feed_share_site,
 a.feed_share_site:hover
 {
@@ -2361,15 +2355,9 @@ a.feed_share_watch:hover
 
 .activity_feed_pages_post_as_page
 {
-<<<<<<< HEAD
-	position:absolute;
-	left:5px;
-	top:-4px;
-=======
     position:absolute;
     left:5px;
     top:-4px;	
->>>>>>> dev-anton-sbmod
 }
 
 .activity_feed_pages_post_as_page select
@@ -3075,28 +3063,21 @@ ul.block_listing_hover li:hover
 
 /**
  Photo
-<<<<<<< HEAD
- */
-=======
 */
 .albums_container
 {
     height: 226px;
 }
->>>>>>> dev-anton-sbmod
 .photo_holder
 {
     border:1px #DFDFDF solid;
     background:#fff;
 }
-<<<<<<< HEAD
-=======
 .photo_holder_square
 {
     width: 150px;
     height: 150px;
 }
->>>>>>> dev-anton-sbmod
 
 .photo_rotate
 {
@@ -3308,11 +3289,6 @@ ul.block_listing_hover li:hover
 
 .photo_clip_holder_main
 {
-<<<<<<< HEAD
-	height:120px;
-	width:150px;
-	position:relative;			
-=======
     height:120px;
     width:130px;
     position:relative;			
@@ -3322,21 +3298,10 @@ ul.block_listing_hover li:hover
     height:196px;
     width:196px;
     position:relative;			
->>>>>>> dev-anton-sbmod
 }
 
 .photo_clip_holder_border
 {
-<<<<<<< HEAD
-	width:148px;
-	height:120px;
-	border:1px #DFDFDF solid;
-	background:#fff;
-	-moz-box-shadow: 3px 3px 3px #ccc;
-	-webkit-box-shadow: 3px 3px 3px #ccc;
-	box-shadow: 3px 3px 3px #ccc;		
-}
-=======
     height:120px;
     width:128px;
     border:1px #DFDFDF solid;
@@ -3355,23 +3320,11 @@ ul.block_listing_hover li:hover
     -webkit-box-shadow: 3px 3px 3px #ccc;
     box-shadow: 3px 3px 3px #ccc;
 }
->>>>>>> dev-anton-sbmod
 
+/* Used when auto_crop is enabled and dynamic view is disabled */
 a.photo_clip_holder,
 a.photo_clip_holder:hover
 {
-<<<<<<< HEAD
-	position:absolute;
-	top:-4px;
-	left:6px;
-	height:120px;
-	width:140px;
-	clip: rect(10px, 148px, 120px, 0px);	
-	overflow: hidden;	
-	display:block;
-	text-decoration:none;
-	text-indent:-1000px;
-=======
     position:absolute;
     top:-4px;
     left:1px;
@@ -3406,28 +3359,19 @@ a.photo_clip_holder_big:hover
     display:block;
     text-decoration:none;
     text-indent:-1000px;
->>>>>>> dev-anton-sbmod
 }
 
 .photo_row
 {
-<<<<<<< HEAD
-	width:33%; margin-bottom:10px; float:left; padding-top:5px; z-index:1;
-=======
     width:150px; margin-bottom:10px; float:left; padding-top:5px; z-index:1;
->>>>>>> dev-anton-sbmod
 }
 
 .photo_row_holder
 {
-<<<<<<< HEAD
-	width:150px; min-height:90px; height:auto !important; height:90px;
-=======
     width:100% 
         min-height:90px; 
     height:auto !important; 
     height:196px;
->>>>>>> dev-anton-sbmod
 }
 
 .photo_row_info
@@ -3438,23 +3382,14 @@ a.photo_clip_holder_big:hover
 
 .photo_row_info_album
 {
-<<<<<<< HEAD
-	padding-top:8px;	
-=======
     padding-top:8px;
     text-align: center;
->>>>>>> dev-anton-sbmod
 }
 
 .photo_row_height
 {
-<<<<<<< HEAD
-	position:relative;
-	display:inline;
-=======
     position:relative;
     /*display:inline;*/
->>>>>>> dev-anton-sbmod
 }
 
 #photo_battle_full_mode
@@ -4232,23 +4167,6 @@ span.attachment_row_link
 a#pages_like_join,
 a#pages_like_join:hover
 {
-<<<<<<< HEAD
-	display:block;
-	line-height:22px;
-	padding:0px 8px 0px 8px;
-	background:#fff url('../image/layout/section_menu.png') repeat-x center bottom;	
-	border:1px solid #BFBFBF;
-	position:absolute;
-	left:12px;
-	top:3px;
-	font-size:12px;
-	font-weight:bold;
-	text-decoration:none;
-	white-space:nowrap;
-  	-moz-box-shadow:2px 2px 2px #F1F1F1;
-  	-webkit-box-shadow:2px 2px 2px #F1F1F1;
-  	box-shadow:2px 2px 2px #F1F1F1;		
-=======
     display:block;
     line-height:22px;
     padding:0px 8px 0px 8px;
@@ -4264,7 +4182,6 @@ a#pages_like_join:hover
     -moz-box-shadow:2px 2px 2px #F1F1F1;
     -webkit-box-shadow:2px 2px 2px #F1F1F1;
     box-shadow:2px 2px 2px #F1F1F1;		
->>>>>>> dev-anton-sbmod
 }
 
 .global_like_number
@@ -4564,8 +4481,6 @@ a.like_count_link:hover
     font-size: 12px;
     width: 290px;
 }
-<<<<<<< HEAD
-=======
 
 /* Wrapper for locations in the feed*/
 .js_div_place
@@ -4638,4 +4553,3 @@ Added some trash for Pautina
     /*background: #0c3;*/
     color: #fff;
 }
->>>>>>> dev-anton-sbmod

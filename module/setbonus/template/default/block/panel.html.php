@@ -1,4 +1,1 @@
-{$script}
-<div class="sb-user-panel">
-{$setsCount}
-</div>
+text from panel.html.php
