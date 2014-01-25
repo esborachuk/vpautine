@@ -1,0 +1,11 @@
+body {}
+
+#main {
+    padding-top: 50px;
+}
+
+fieldset {
+    border: 1px grey solid;
+}
+
+input {}
