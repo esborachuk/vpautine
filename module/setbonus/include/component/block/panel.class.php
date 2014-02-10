@@ -12,10 +12,7 @@ class Setbonus_Component_Block_Panel extends Phpfox_Component
 //            )
 //        );
         
-        echo '1234567';
-        
-        
-        return 'block';
+//        return 'block';
     }
 }
 

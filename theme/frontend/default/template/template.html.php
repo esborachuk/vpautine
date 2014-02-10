@@ -33,6 +33,7 @@ defined('PHPFOX') or exit('NO DICE!');
 							{if Phpfox::isUser() && !Phpfox::getUserBy('profile_page_id')}
 							<div id="holder_notify">																	
 								{notification}
+                                                                {module name='setbonus.panel'}
 								<div class="clear"></div>
 							</div>
 							{/if}
