@@ -3140,3 +3140,12 @@ div.row_title_image:hover a.moderate_link:hover
     right: 0;
     z-index: 1;
 }
+
+
+/*----------------- SETBONUS STUFF -----------------*/
+.sb-user-status-wrapper {
+    width: 100px;
+    position: absolute;
+    left: 120px;
+    top: 5px;
+}

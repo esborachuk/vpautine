@@ -1,9 +1,8 @@
- <?php
+<?php
 
-class Setbonus_Component_Block_Panel extends Phpfox_Component
-{    
-    public function process()
-    {
+class Setbonus_Component_Block_Panel extends Phpfox_Component {
+
+    public function process() {
 //        $this->template()->assign(array(
 //                'sHeader' => '1111111111111',
 //                'aFooter' => array(
@@ -11,9 +10,13 @@ class Setbonus_Component_Block_Panel extends Phpfox_Component
 //                ),
 //            )
 //        );
-        
 //        return 'block';
+        $this->template()->setHeader(array(
+            'setbonus.css' => 'setbonus'
+        ));
+        $this->template()->assign('currentUserSetsCount', '$$value');
     }
+
 }
 
 ?> 
