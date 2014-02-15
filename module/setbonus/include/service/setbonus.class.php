@@ -33,11 +33,13 @@ class Setbonus_Service_Setbonus extends Phpfox_Service {
 
 //    Данная функция возвращает количество бонусов у юзера с определенным id
     public function getUserSetsCount($uid) {
-        $res = Phpfox::getLib('database')->query('');
-        while ($a = mysql_fetch_assoc($res)) {
-            $q[$a['user_id']] = $a;
-        }
-        return ($q);
+        $res = Phpfox::getLib('database')->query('SELECT `sets_count` FROM `phpfox_setbonus_current` WHERE `user_id`='.$uid);
+//        while ($a = mysql_fetch_row($res)) {
+//            $q[$a['user_id']] = $a;
+//        }
+        $a = mysql_fetch_object ($res);
+//        var_dump($a);
+        return ($a->sets_count);
     }
 
 }

@@ -14,7 +14,8 @@ class Setbonus_Component_Block_Panel extends Phpfox_Component {
         $this->template()->setHeader(array(
             'setbonus.css' => 'setbonus'
         ));
-        $this->template()->assign('currentUserSetsCount', '$$value');
+        $setsCount = Phpfox::getService('setbonus')->getUserSetsCount(Phpfox::getUserId());
+        $this->template()->assign('currentUserSetsCount', $setsCount);
     }
 
 }
