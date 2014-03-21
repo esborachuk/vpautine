@@ -6,7 +6,4 @@
  */
 ?>
 
-<!--ага, вот вы где! :)-->
-index controller template : invoking 'setbonus.display' block class:::
-
 {module name='setbonus.display'}
