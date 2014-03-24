@@ -3,17 +3,21 @@
  * 
  */
 ?>
-afdsf
+
 <div class="sb-actions">
-    {$statusplus}
+    {if $statusplus == FALSE}Вы не являетесь участником SET+{/if}
+    {if $statusplus == TRUE}Вы являетесь участником SET+{/if}
+
     {if $cusc < 50 }
-    <a class="button yellow" href="#"><span>Пополнить счет</span></a>
-    <p class="sets-few">На вашем счету недостаточно средств. У вас {$cusc} SET-ов.</p>
-    {elseif $statusplus == 'false' && $cusc >=50}
-    <a class="button green"><span>Перейти в "Статус + "</span></a>
-    <p class="sets-ok">На вашем счету {$cusc} SET-ов, но вы не используете Статус+.</p>
-    {elseif $statusplus == 'true'}
-    <p class="sets-ok">На вашем счету {$cusc} SET-ов, Статус+ активирован до {$date_end}</p>
+        <a class="button yellow" href="#"><span>Пополнить счет</span></a>
+        <p class="sets-few">На вашем счету недостаточно средств. У вас {$cusc} SET-ов.</p>
+    {elseif $statusplus == FALSE && $cusc >=50}
+        <a class="button yellow" href="#"><span>Пополнить счет</span></a>
+        <a class="button green" href="#"><span>Перейти в "Статус + "</span></a>
+        <p class="sets-ok">На вашем счету {$cusc} SET-ов, но вы не используете Статус+.</p>
+    {elseif $statusplus == TRUE}
+        <a class="button yellow" href="#"><span>Пополнить счет</span></a>
+        <p class="sets-ok">На вашем счету {$cusc} SET-ов, Статус+ активирован до {$date_end}</p>
     {/if}
 </div>
 <div class="clear"></div>

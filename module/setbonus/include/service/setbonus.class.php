@@ -41,5 +41,13 @@ class Setbonus_Service_Setbonus extends Phpfox_Service {
 //        var_dump($a);
         return ($a->sets_count);
     }
+    
+    // эта функция возвращает статус пользователя
+    public function getUserStatus($uid){
+        $res = Phpfox::getLib('database')->query('SELECT count(*) as is_in_tree from `phpfox_setbonus_tree` where `user_id`='.$uid);
+        $a = mysql_fetch_object($res);
+        if ($a->is_in_tree != 0) {$is_in_tree=TRUE;} else {$is_in_tree=FALSE;}
+        return ($is_in_tree);
+    }
 
 }
