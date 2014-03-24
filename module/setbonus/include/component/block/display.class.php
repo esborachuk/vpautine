@@ -13,5 +13,7 @@ class Setbonus_Component_Block_Display extends Phpfox_Component
         $cusc = Phpfox::getService('setbonus')->getUserSetsCount(Phpfox::getUserId());
         $this->template()->assign('cuid', $cuid);
         $this->template()->assign('cusc', $cusc);
+        
+//        $this->template()-assign('true', $statusplus);
     }
 }
